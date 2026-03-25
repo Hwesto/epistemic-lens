@@ -16,7 +16,25 @@ Cross-national news comparison using multilingual embeddings. No translation nee
 - `YYYY-MM-DD.json` — raw headlines from all feeds
 - `YYYY-MM-DD_convergence.json` — topic clusters with cross-source scoring
 - `YYYY-MM-DD_similarity.json` — newspaper-to-newspaper similarity matrix
-- `YYYY-MM-DD_prompt.md` — paste this into Claude for analysis
+- `YYYY-MM-DD_prompt.md` — used in Claude for analysis
+
+## Claude Scheduler
+
+Run the Epistemic Lens daily analysis:
+
+1. cd C:\Users\Harry\Downloads\epistemic-lens-v3\el2 && git pull
+2. Run: PYTHONIOENCODING=utf-8 python ingest.py
+3. Open today's snapshot files in snapshots/ (YYYY-MM-DD format)
+4. Read the _convergence.json and analyze:
+   - Which stories span the most countries?
+   - For the top 3 stories, compare headlines across blocs (US/UK vs China/Russia vs Middle East vs India)
+   - Which countries are absent from major stories?
+5. Read the _prompt.md and skim for any notable editorial framing differences
+6. Give a concise daily briefing summarizing:
+   - Top cross-border story clusters
+   - Notable framing differences between blocs
+   - Any blind spots (countries missing from big stories)
+   - Feed health (any new failures?)
 
 ## Setup
 
