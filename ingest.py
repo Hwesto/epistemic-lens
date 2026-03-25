@@ -4,9 +4,12 @@ epistemic-lens v0.2: RSS ingestion + multilingual embedding + clustering.
 No translation. All languages embed into the same vector space.
 """
 
-import json, os, sys, re, hashlib
+import json, os, sys, re, hashlib, ssl
 from datetime import datetime, timezone
 from pathlib import Path
+
+# Fix SSL certificate issues on Windows
+ssl._create_default_https_context = ssl._create_unverified_context
 
 import feedparser
 import numpy as np
@@ -15,6 +18,23 @@ from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
 
 MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
+
+# Translation setup
+try:
+    import argostranslate.translate
+    TRANSLATE_AVAILABLE = True
+except ImportError:
+    TRANSLATE_AVAILABLE = False
+
+
+def translate_to_english(text, from_lang):
+    """Translate text to English using argostranslate. Returns None if unavailable."""
+    if not TRANSLATE_AVAILABLE or not text or from_lang == "en":
+        return None
+    try:
+        return argostranslate.translate.translate(text, from_lang, "en")
+    except Exception:
+        return None
 MAX_ITEMS = int(os.environ.get("MAX_ITEMS", "10"))
 OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "snapshots")
 FEEDS_CONFIG = os.environ.get("FEEDS_CONFIG", "feeds.json")
@@ -42,7 +62,15 @@ def pull_feed(feed_info):
                 "id": hashlib.md5(title.encode()).hexdigest()[:8],
                 "_embed_text": f"{title}. {summary}" if summary else title,
             })
-        return {"name": feed_info["name"], "lang": feed_info.get("lang", "en"),
+        # Translate non-English items
+        lang = feed_info.get("lang", "en")
+        if lang != "en" and TRANSLATE_AVAILABLE:
+            for item in items:
+                t_title = translate_to_english(item["title"], lang)
+                t_summary = translate_to_english(item.get("summary", ""), lang)
+                if t_title:
+                    item["translation"] = {"title": t_title, "summary": t_summary or ""}
+        return {"name": feed_info["name"], "lang": lang,
                 "lean": feed_info.get("lean", ""), "item_count": len(items), "items": items}
     except Exception as e:
         return {"name": feed_info["name"], "error": str(e)[:200], "items": []}
@@ -83,6 +111,8 @@ def embed_snapshot(snapshot, model):
 
 def cluster_topics(vectors, eps=0.35, min_samples=3):
     dist = 1 - cosine_similarity(vectors)
+    # Clamp floating-point noise to zero
+    dist = np.maximum(dist, 0)
     labels = DBSCAN(eps=eps, min_samples=min_samples, metric="precomputed").fit_predict(dist)
     n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
     print(f"Found {n_clusters} topic clusters, {list(labels).count(-1)} noise articles")
@@ -210,11 +240,11 @@ if __name__ == "__main__":
 
     for name, data in [("", snapshot), ("_convergence", convergence), ("_similarity", similarity)]:
         if data:
-            with open(f"{OUTPUT_DIR}/{d}{name}.json", "w") as f:
+            with open(f"{OUTPUT_DIR}/{d}{name}.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
 
     prompt = generate_prompt(snapshot, convergence, similarity)
-    with open(f"{OUTPUT_DIR}/{d}_prompt.md", "w") as f:
+    with open(f"{OUTPUT_DIR}/{d}_prompt.md", "w", encoding="utf-8") as f:
         f.write(prompt)
 
     total = sum(sum(f.get("item_count", 0) for f in c["feeds"]) for c in snapshot["countries"].values())

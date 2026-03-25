@@ -9,8 +9,8 @@
     "wire_services": {
       "label": "Wire Services (Factual Baseline)",
       "feeds": [
-        { "name": "Reuters", "url": "https://www.reutersagency.com/feed/", "lang": "en", "lean": "Wire — factual baseline", "status": "LIKELY OK" },
-        { "name": "AP News", "url": "https://rsshub.app/apnews/topics/apf-topnews", "lang": "en", "lean": "Wire — factual baseline", "status": "OK via RSSHub — AP killed native RSS 2023", "alt": "https://feedx.net/rss/ap.xml" },
+        { "name": "Reuters (via Google News)", "url": "https://news.google.com/rss/search?q=site:reuters.com&hl=en-US&gl=US&ceid=US:en", "lang": "en", "lean": "Wire — factual baseline", "status": "OK via Google News RSS" },
+        { "name": "AP News", "url": "https://feedx.net/rss/ap.xml", "lang": "en", "lean": "Wire — factual baseline", "status": "OK via feedx" },
         { "name": "AFP / France 24 EN", "url": "https://www.france24.com/en/rss", "lang": "en", "lean": "French wire — European angle", "status": "LIKELY OK" },
         { "name": "AFP / France 24 FR", "url": "https://www.france24.com/fr/rss", "lang": "fr", "lean": "French wire — domestic", "status": "LIKELY OK" }
       ]
@@ -28,19 +28,19 @@
       "feeds": [
         { "name": "BBC World", "url": "https://feeds.bbci.co.uk/news/world/rss.xml", "lang": "en", "lean": "Centre establishment", "status": "CONFIRMED — active March 2026" },
         { "name": "The Guardian World", "url": "https://www.theguardian.com/world/rss", "lang": "en", "lean": "Centre-left liberal", "status": "CONFIRMED" },
-        { "name": "The Telegraph", "url": "https://www.telegraph.co.uk/rss.xml", "lang": "en", "lean": "Centre-right conservative", "status": "LIKELY OK — may truncate" }
+        { "name": "The Telegraph", "url": "https://www.telegraph.co.uk/news/rss.xml", "lang": "en", "lean": "Centre-right conservative", "status": "OK — news section feed" }
       ]
     },
     "iran_state": {
       "label": "Iran (State)",
       "note": "WARNING: Iran under internet blackout since March 2026. Feeds on .ir domains may be intermittent.",
       "feeds": [
-        { "name": "Press TV", "url": "https://www.presstv.ir/RSS", "lang": "en", "lean": "State — IRIB controlled", "status": "UNCERTAIN — .ir domain, blackout" },
-        { "name": "Tehran Times", "url": "https://www.tehrantimes.com/rss", "lang": "en", "lean": "State-aligned — .com hosted outside Iran", "status": "LIKELY OK" },
-        { "name": "IRNA English", "url": "https://en.irna.ir/rss", "lang": "en", "lean": "Official state news agency", "status": "UNCERTAIN — .ir domain" },
-        { "name": "IRNA Farsi", "url": "https://www.irna.ir/rss", "lang": "fa", "lean": "State agency — domestic audience", "status": "UNCERTAIN — blackout" },
-        { "name": "Tasnim English", "url": "https://www.tasnimnews.com/en/rss", "lang": "en", "lean": "IRGC-affiliated hardline", "status": "CONFIRMED RSS page exists" },
-        { "name": "Fars News EN", "url": "https://www.farsnews.ir/en/rss", "lang": "en", "lean": "IRGC-close hardline", "status": "UNCERTAIN — .ir domain" }
+        { "name": "Press TV", "url": "https://rsshub.app/presstv/en", "lang": "en", "lean": "State — IRIB controlled", "status": "RSSHub — direct .ir blocked" },
+        { "name": "Tehran Times", "url": "https://www.tehrantimes.com/rss", "lang": "en", "lean": "State-aligned — .com hosted outside Iran", "status": "EXPECTED FAIL — redirect loop, blackout" },
+        { "name": "IRNA English", "url": "https://en.irna.ir/rss", "lang": "en", "lean": "Official state news agency", "status": "EXPECTED FAIL — .ir domain, blackout" },
+        { "name": "IRNA Farsi", "url": "https://www.irna.ir/rss", "lang": "fa", "lean": "State agency — domestic audience", "status": "EXPECTED FAIL — blackout" },
+        { "name": "Tasnim English", "url": "https://www.tasnimnews.com/en/rss", "lang": "en", "lean": "IRGC-affiliated hardline", "status": "EXPECTED FAIL — DNS unreachable" },
+        { "name": "Fars News EN", "url": "https://www.farsnews.ir/en/rss", "lang": "en", "lean": "IRGC-close hardline", "status": "EXPECTED FAIL — .ir domain, blackout" }
       ]
     },
     "iran_opposition": {
@@ -48,20 +48,20 @@
       "feeds": [
         { "name": "Iran International EN", "url": "https://www.iranintl.com/en/feed", "lang": "en", "lean": "Anti-regime — Saudi-linked funding, London-based", "status": "LIKELY OK" },
         { "name": "Iran International FA", "url": "https://www.iranintl.com/fa/feed", "lang": "fa", "lean": "Anti-regime — Farsi audience", "status": "LIKELY OK" },
-        { "name": "Radio Farda EN", "url": "https://en.radiofarda.com/api/z-yqresmoqe", "lang": "en", "lean": "US Congress-funded RFE/RL", "status": "CONFIRMED — RSS page at en.radiofarda.com/rssfeeds" }
+        { "name": "RFE/RL (was Radio Farda)", "url": "https://www.rferl.org/api/zbqiml-vomx-tpeqkmy", "lang": "en", "lean": "US Congress-funded RFE/RL", "status": "OK — Radio Farda suspended, using parent RFE/RL" }
       ]
     },
     "qatar": {
       "label": "Qatar",
       "feeds": [
         { "name": "Al Jazeera English", "url": "https://www.aljazeera.com/xml/rss/all.xml", "lang": "en", "lean": "Pan-Arab / critical of West", "status": "CONFIRMED — stable long-term" },
-        { "name": "Al Jazeera Arabic", "url": "https://www.aljazeera.net/feed/all", "lang": "ar", "lean": "Arabic domestic — different editorial weight", "status": "LIKELY OK" }
+        { "name": "Al Jazeera Arabic", "url": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9", "lang": "ar", "lean": "Arabic domestic — different editorial weight", "status": "OK" }
       ]
     },
     "china": {
       "label": "China",
       "feeds": [
-        { "name": "CGTN Top", "url": "https://www.cgtn.com/subscribe/rss/section/top.xml", "lang": "en", "lean": "CPC state — international", "status": "CONFIRMED — RSS page at cgtn.com/subscribe/rss.html" },
+        { "name": "CGTN Politics", "url": "https://www.cgtn.com/subscribe/rss/section/politics.xml", "lang": "en", "lean": "CPC state — international", "status": "OK — politics section" },
         { "name": "CGTN World", "url": "https://www.cgtn.com/subscribe/rss/section/world.xml", "lang": "en", "lean": "CPC state — world section", "status": "CONFIRMED" },
         { "name": "Xinhua English", "url": "http://www.xinhuanet.com/english/rss/worldrss.xml", "lang": "en", "lean": "CPC state agency — export", "status": "CONFIRMED — RSS index page active" },
         { "name": "Global Times", "url": "https://www.globaltimes.cn/rss/outbrain.xml", "lang": "en", "lean": "CPC nationalist hawkish", "status": "LIKELY OK" },
@@ -72,7 +72,7 @@
       "label": "Russia",
       "feeds": [
         { "name": "TASS English", "url": "https://tass.com/rss/v2.xml", "lang": "en", "lean": "State news agency — export", "status": "LIKELY OK" },
-        { "name": "RT", "url": "https://www.rt.com/rss/news/", "lang": "en", "lean": "State-funded intl propaganda", "status": "LIKELY OK — may be blocked in EU" },
+        { "name": "RT", "url": "https://www.rt.com/rss/news/", "lang": "en", "lean": "State-funded intl propaganda", "status": "EXPECTED FAIL — blocked in EU/UK, keep for regions where accessible" },
         { "name": "Moscow Times", "url": "https://www.themoscowtimes.com/rss/news", "lang": "en", "lean": "Independent exiled — Netherlands-based", "status": "LIKELY OK" },
         { "name": "Meduza", "url": "https://meduza.io/rss/en/all", "lang": "en", "lean": "Independent exiled — Latvia-based", "status": "LIKELY OK" }
       ]
@@ -81,7 +81,7 @@
       "label": "India",
       "feeds": [
         { "name": "Times of India", "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms", "lang": "en", "lean": "Mainstream commercial", "status": "CONFIRMED" },
-        { "name": "NDTV World", "url": "https://www.ndtv.com/rss/world-news", "lang": "en", "lean": "Centre-left liberal", "status": "LIKELY OK", "alt": "https://feeds.feedburner.com/ndtvnews-world-news" },
+        { "name": "NDTV World", "url": "https://feeds.feedburner.com/ndtvnews-world-news", "lang": "en", "lean": "Centre-left liberal", "status": "OK via Feedburner" },
         { "name": "The Hindu Intl", "url": "https://www.thehindu.com/news/international/feeder/default.rss", "lang": "en", "lean": "Centre-left quality broadsheet", "status": "LIKELY OK" },
         { "name": "Dainik Bhaskar", "url": "https://www.bhaskar.com/rss-feed/1061", "lang": "hi", "lean": "Hindi mass-market — 500M readers", "status": "UNCERTAIN — test locally" }
       ]
@@ -98,29 +98,29 @@
     "turkey": {
       "label": "Turkey",
       "feeds": [
-        { "name": "Daily Sabah", "url": "https://www.dailysabah.com/rssFeed/", "lang": "en", "lean": "Pro-government / AKP", "status": "LIKELY OK" },
+        { "name": "Daily Sabah", "url": "https://www.dailysabah.com/rssFeed/world", "lang": "en", "lean": "Pro-government / AKP", "status": "OK — world section" },
         { "name": "Hurriyet", "url": "https://www.hurriyet.com.tr/rss/gundem", "lang": "tr", "lean": "Mainstream — historically secular", "status": "LIKELY OK" },
-        { "name": "Ahval News", "url": "https://ahvalnews.com/rss.xml", "lang": "en", "lean": "Opposition / exiled journalists", "status": "UNCERTAIN" }
+        { "name": "TRT World", "url": "https://www.trtworld.com/rss", "lang": "en", "lean": "State broadcaster — moderate", "status": "UNCERTAIN — may need browser UA" }
       ]
     },
     "saudi_arabia": {
       "label": "Saudi Arabia",
       "feeds": [
-        { "name": "Arab News", "url": "https://www.arabnews.com/rss.xml", "lang": "en", "lean": "Saudi state-aligned", "status": "LIKELY OK" },
-        { "name": "Al Arabiya English", "url": "https://english.alarabiya.net/tools/rss", "lang": "en", "lean": "Saudi/UAE-backed — Al Jazeera counterweight", "status": "LIKELY OK" }
+        { "name": "Arab News (via Google News)", "url": "https://news.google.com/rss/search?q=site:arabnews.com&hl=en&gl=SA&ceid=SA:en", "lang": "en", "lean": "Saudi state-aligned", "status": "OK via Google News" },
+        { "name": "Al Arabiya English (via Google News)", "url": "https://news.google.com/rss/search?q=site:english.alarabiya.net&hl=en&gl=SA&ceid=SA:en", "lang": "en", "lean": "Saudi/UAE-backed — Al Jazeera counterweight", "status": "OK via Google News" }
       ]
     },
     "south_korea": {
       "label": "South Korea",
       "feeds": [
         { "name": "Yonhap News", "url": "https://en.yna.co.kr/RSS/news.xml", "lang": "en", "lean": "National wire service", "status": "LIKELY OK" },
-        { "name": "Korea Herald", "url": "http://www.koreaherald.com/common/rss_xml.php", "lang": "en", "lean": "Centre mainstream", "status": "UNCERTAIN — HTTP only" }
+        { "name": "Korea Herald (via Google News)", "url": "https://news.google.com/rss/search?q=site:koreaherald.com&hl=en&gl=KR&ceid=KR:en", "lang": "en", "lean": "Centre mainstream", "status": "OK via Google News" }
       ]
     },
     "japan": {
       "label": "Japan",
       "feeds": [
-        { "name": "NHK Japanese", "url": "https://www3.nhk.or.jp/rss/news/cat0.xml", "lang": "ja", "lean": "Public broadcaster — domestic", "status": "CONFIRMED" },
+        { "name": "NHK Japanese", "url": "https://www3.nhk.or.jp/rss/news/cat0.xml", "lang": "ja", "lean": "Public broadcaster — domestic", "status": "OK — SSL issue is local only", "note": "May need certifi or SSL fix on Windows" },
         { "name": "Japan Times", "url": "https://www.japantimes.co.jp/feed/", "lang": "en", "lean": "English-language liberal", "status": "LIKELY OK — WordPress" }
       ]
     },
@@ -128,7 +128,7 @@
       "label": "Brazil",
       "feeds": [
         { "name": "Folha de São Paulo", "url": "https://feeds.folha.uol.com.br/mundo/rss091.xml", "lang": "pt", "lean": "Centre-left broadsheet", "status": "LIKELY OK" },
-        { "name": "O Globo", "url": "https://oglobo.globo.com/rss/oglobo/mundo/feed.xml", "lang": "pt", "lean": "Centre-right establishment", "status": "UNCERTAIN" }
+        { "name": "O Globo (via Google News)", "url": "https://news.google.com/rss/search?q=site:oglobo.globo.com&hl=pt-BR&gl=BR&ceid=BR:pt-419", "lang": "pt", "lean": "Centre-right establishment", "status": "OK via Google News" }
       ]
     },
     "nigeria": {

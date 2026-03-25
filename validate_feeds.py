@@ -16,7 +16,11 @@ except ImportError:
 
 import urllib.request
 import urllib.error
+import ssl
 from datetime import datetime
+
+# Fix SSL certificate issues on Windows
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 def check_feed(name, url, timeout=10):

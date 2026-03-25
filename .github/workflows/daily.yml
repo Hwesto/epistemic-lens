@@ -1,0 +1,56 @@
+name: Daily Epistemic Lens
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Cache model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/torch/sentence_transformers
+          key: multilingual-minilm-v2
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Install translation packs
+        run: |
+          python -c "
+          import argostranslate.package
+          argostranslate.package.update_package_index()
+          packages = argostranslate.package.get_available_packages()
+          for pkg in packages:
+              if pkg.from_code in ['fa','ar','zh','ja','he','tr','hi','pt','ru','fr'] and pkg.to_code == 'en':
+                  pkg.install()
+          "
+
+      - name: Cache translation packs
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/argos-translate
+          key: argos-translate-packs-v1
+
+      - name: Pull feeds + embed + cluster
+        run: python ingest.py
+
+      - name: Commit snapshot
+        run: |
+          git config user.name "epistemic-lens-bot"
+          git config user.email "bot@epistemic-lens"
+          git add snapshots/
+          git diff --cached --quiet || git commit -m "snapshot $(date -u +%Y-%m-%d)"
+          git push
