@@ -1,0 +1,55 @@
+name: CI Tests
+
+on:
+  push:
+    branches:
+      - main
+      - 'claude/**'
+      - 'feature/**'
+    paths:
+      - '**.py'
+      - 'requirements.txt'
+      - 'feeds.json'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    paths:
+      - '**.py'
+      - 'requirements.txt'
+      - 'feeds.json'
+      - '.github/workflows/ci.yml'
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      # Lightweight deps only — embedding model not needed for unit tests
+      - name: Install minimal deps
+        run: pip install requests
+
+      - name: Run unit + edge tests
+        run: python -m unittest tests.py tests_edge.py -v
+
+  e2e-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Only run e2e on workflow_dispatch or main branch — avoids hammering live
+    # feeds on every commit. Daily cron is the real continuous test.
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install requests
+      - name: E2E smoke test (5-feed live pull)
+        run: python tests_e2e.py

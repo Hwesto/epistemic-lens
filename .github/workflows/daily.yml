@@ -2,55 +2,95 @@ name: Daily Epistemic Lens
 
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 7 * * *'  # 07:00 UTC every day
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: daily-ingest
+  cancel-in-progress: false
+
 jobs:
   ingest:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so the bot can rebase before push
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
 
-      - name: Cache model
+      - name: Cache multilingual embedding model (~500MB)
         uses: actions/cache@v4
         with:
           path: ~/.cache/torch/sentence_transformers
-          key: multilingual-minilm-v2
+          key: paraphrase-multilingual-MiniLM-L12-v2
 
-      - name: Install deps
+      - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Install translation packs
-        run: |
-          python -c "
-          import argostranslate.package
-          argostranslate.package.update_package_index()
-          packages = argostranslate.package.get_available_packages()
-          for pkg in packages:
-              if pkg.from_code in ['fa','ar','zh','ja','he','tr','hi','pt','ru','fr'] and pkg.to_code == 'en':
-                  pkg.install()
-          "
-
-      - name: Cache translation packs
-        uses: actions/cache@v4
-        with:
-          path: ~/.local/share/argos-translate
-          key: argos-translate-packs-v1
-
       - name: Pull feeds + embed + cluster
+        env:
+          MAX_ITEMS: '50'
+          MAX_WORKERS: '30'
+          PER_HOST_DELAY: '1.0'
+          FETCH_TIMEOUT: '20'
         run: python ingest.py
 
-      - name: Commit snapshot
+      - name: Deduplicate snapshot
+        run: python dedup.py
+
+      - name: Daily health snapshot
+        run: python daily_health.py
+
+      - name: Job summary
+        if: always()
         run: |
+          DATE=$(date -u +%Y-%m-%d)
+          if [ -f "snapshots/${DATE}_health.json" ]; then
+            python3 - <<PY >> $GITHUB_STEP_SUMMARY
+          import json
+          d = json.load(open("snapshots/${DATE}_health.json"))
+          print(f"# Daily ingest — {d['date']}")
+          print()
+          print(f"- Feeds: **{d['n_feeds']}**")
+          print(f"- Items: **{d['n_items']}**")
+          print(f"- Errored feeds: **{d['n_errors']}**")
+          print(f"- Stub-only feeds: **{d['n_stub_feeds']}**")
+          print(f"- Slow feeds: **{d['n_slow_feeds']}**")
+          if d['bucket_alerts']:
+              print()
+              print(f"### Bucket alerts ({len(d['bucket_alerts'])})")
+              for a in d['bucket_alerts']:
+                  print(f"- **{a['bucket']}**: {a['now']} (avg7={a['avg7']}, -{a['drop_pct']}%)")
+          PY
+          fi
+
+      - name: Commit and push snapshot
+        run: |
+          set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
           git add snapshots/
-          git diff --cached --quiet || git commit -m "snapshot $(date -u +%Y-%m-%d)"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          ITEMS=$(python3 -c "import json,sys; d=json.load(open(f'snapshots/{sys.argv[1]}_health.json')); print(d['n_items'])" "$DATE" 2>/dev/null || echo "?")
+          git commit -m "snapshot ${DATE} (${ITEMS} items)"
+          # Retry-on-conflict push: rebase if remote moved
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "push failed, attempt $i — rebasing"
+            git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+          done
+          echo "all push attempts failed"
+          exit 1

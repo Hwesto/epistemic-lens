@@ -1,0 +1,35 @@
+# vietnam_thai_my / Bangkok Post
+
+- URL: <https://www.bangkokpost.com/rss/data/topstories.xml>
+- Decision: **ACCEPT** — items=10, avg_summary=213.3c, stub=0.0%, fresh=0.4h
+- Lang declared: `en`  Lean: Establishment EN
+- Status: 200  Items: 10  Bytes: 5339
+- Summary avg: 213.3 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 16:13:00 +0700  (0.4h old)
+
+## Sample items
+
+**1.** AoT: Passenger charge hike won’t dent demand
+  - link: https://www.bangkokpost.com/thailand/general/3250769/aot-passenger-charge-hike-wont-dent-demand
+  - published: Wed, 06 May 2026 16:13:00 +0700
+  - summary (232c): Airports of Thailand Plc (AoT) has acknowledged that its decision to raise the international passenger service charge (PSC) to 1,120 baht per traveller will push up airfares, but expressed confidence it will not deter travel demand.
+
+**2.** Thailand approves $25-billion investment by TikTok
+  - link: https://www.bangkokpost.com/business/investment/3250754/thailand-approves-25billion-investment-by-ti
+  - published: Wed, 06 May 2026 15:32:00 +0700
+  - summary (148c): Thailand has approved ​six major projects ‌worth a combined 958 billion baht, or US$29 billion, the Board of Investment (BOI) reported on Wednesday.
+
+**3.** Anutin promises World Cup on TV
+  - link: https://www.bangkokpost.com/sports/3250177/anutin-promises-world-cup-on-tv
+  - published: Wed, 06 May 2026 14:00:00 +0700
+  - summary (103c): Prime Minister Anutin Charnvirakul has pledged to ensure Thais can watch the 2026 World Cup next month.
+
+**4.** More than half of farmers' loans unlikely to be repaid
+  - link: https://www.bangkokpost.com/business/general/3250307/more-than-half-of-farmers-loans-unlikely-to-be-
+  - published: Wed, 06 May 2026 07:23:00 +0700
+  - summary (209c): More than 50% of farmer debtors are unlikely to fully repay their debts within their lifetime, largely because most of them are elderly, according to the Puey Ungphakorn Institute for Economic Research (PIER).
+
+**5.** Strong prices and risk lift Thai gold demand
+  - link: https://www.bangkokpost.com/business/investment/3250387/strong-prices-and-risk-lift-thai-gold-demand
+  - published: Wed, 06 May 2026 07:04:00 +0700
+  - summary (264c): Thailand's investment in gold bars and coins hit a seven-year high in the first quarter, rising 35% year-on-year to 10 tonnes as growing economic and political uncertainty underpinned the metal's safe-haven appeal in the country, says the World Gold Council (WGC).
