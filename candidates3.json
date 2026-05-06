@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "project": "epistemic-lens",
+    "version": "0.4.3-candidates-A1.6",
+    "purpose": "A1.6 — try alternative URLs for the dominant outlets that 404'd in A1.5b: Yomiuri, Korean Big 3, Republic/Aaj Tak/News18/Times Now (IN), Pakistani Urdu (Dunya/Geo Urdu/ARY Urdu/Bol), Mexican majors (Heraldo/El Sol/Cronica/Milenio alt)."
+  },
+  "countries": {
+    "japan_alt": {
+      "label": "Japan (alternative URLs for majors)",
+      "feeds": [
+        { "name": "Yomiuri Shimbun (alt)", "url": "https://www.yomiuri.co.jp/feed/", "lang": "ja", "lean": "Largest daily globally" },
+        { "name": "Yomiuri Shimbun (alt2)", "url": "https://www.yomiuri.co.jp/index.xml", "lang": "ja", "lean": "Largest daily globally" },
+        { "name": "Yomiuri English Online", "url": "https://japannews.yomiuri.co.jp/feed/", "lang": "en", "lean": "Yomiuri's English edition" },
+        { "name": "Sankei (alt)", "url": "https://www.sankei.com/rss/news.xml", "lang": "ja", "lean": "Right-conservative" },
+        { "name": "Sankei alt2", "url": "https://www.sankei.com/feeds/news.xml", "lang": "ja", "lean": "Right-conservative" },
+        { "name": "Asahi (alt)", "url": "https://www.asahi.com/rss/asahi.rdf", "lang": "ja", "lean": "Centre-left flagship" },
+        { "name": "Mainichi (alt)", "url": "https://mainichi.jp/rss/etc/mainichi.rss", "lang": "ja", "lean": "Centre" },
+        { "name": "Kyodo News alt", "url": "https://english.kyodonews.net/rss/news.xml", "lang": "en", "lean": "Wire" }
+      ]
+    },
+    "korea_alt": {
+      "label": "South Korea (Big 3 alt URLs)",
+      "feeds": [
+        { "name": "Chosun Ilbo (alt)", "url": "https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml", "lang": "ko", "lean": "Largest conservative daily" },
+        { "name": "Chosun English (alt)", "url": "https://english.chosun.com/svc/en/rss/news.xml", "lang": "en", "lean": "Conservative" },
+        { "name": "Joongang Ilbo (alt)", "url": "https://www.joongang.co.kr/rss", "lang": "ko", "lean": "Centre-conservative" },
+        { "name": "Korea JoongAng (alt)", "url": "https://koreajoongangdaily.joins.com/rss/news", "lang": "en", "lean": "Centre-conservative" },
+        { "name": "Donga Ilbo (alt)", "url": "https://www.donga.com/rss/news.xml", "lang": "ko", "lean": "Conservative" },
+        { "name": "Yonhap Korean", "url": "https://www.yna.co.kr/rss/news.xml", "lang": "ko", "lean": "Wire" },
+        { "name": "Pressian", "url": "https://www.pressian.com/rss", "lang": "ko", "lean": "Left-investigative" }
+      ]
+    },
+    "india_populist_alt": {
+      "label": "India (populist alt URLs)",
+      "feeds": [
+        { "name": "News18", "url": "https://www.news18.com/commonfeeds/v1/eng/rss/world.xml", "lang": "en", "lean": "Mainstream commercial" },
+        { "name": "News18 India", "url": "https://www.news18.com/commonfeeds/v1/eng/rss/india.xml", "lang": "en", "lean": "Mainstream commercial" },
+        { "name": "Times Now", "url": "https://www.timesnownews.com/rss/world", "lang": "en", "lean": "Mainstream commercial right" },
+        { "name": "Republic World (alt)", "url": "https://www.republicworld.com/rss/world-news.xml", "lang": "en", "lean": "Right-populist" },
+        { "name": "ABP Live", "url": "https://news.abplive.com/feed", "lang": "en", "lean": "Mainstream commercial" },
+        { "name": "Aaj Tak (alt)", "url": "https://www.aajtak.in/rssfeeds/?id=home", "lang": "hi", "lean": "Hindi mass-market TV news leader" },
+        { "name": "Hindustan Times", "url": "https://www.hindustantimes.com/feeds/rss/world-news/rssfeed.xml", "lang": "en", "lean": "Mainstream centrist" },
+        { "name": "Firstpost", "url": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/world.xml", "lang": "en", "lean": "Right-leaning digital" }
+      ]
+    },
+    "pakistan_alt": {
+      "label": "Pakistan (Urdu / TV alt URLs)",
+      "feeds": [
+        { "name": "Dunya News", "url": "https://dunyanews.tv/feeds/rss.xml", "lang": "en", "lean": "Mainstream populist" },
+        { "name": "Bol News", "url": "https://www.bolnews.com/feed/", "lang": "en", "lean": "Right-populist sensational" },
+        { "name": "Hum News", "url": "https://www.humnews.pk/feed/", "lang": "en", "lean": "Mainstream commercial" },
+        { "name": "Samaa TV", "url": "https://www.samaa.tv/feed/", "lang": "en", "lean": "Mainstream broadcaster" },
+        { "name": "Geo Urdu", "url": "https://urdu.geo.tv/rss/1/0", "lang": "ur", "lean": "Largest Urdu mass-market" }
+      ]
+    },
+    "mexico_alt": {
+      "label": "Mexico (alternative majors)",
+      "feeds": [
+        { "name": "El Heraldo de Mexico", "url": "https://heraldodemexico.com.mx/rss/feed.xml", "lang": "es", "lean": "Centre-right mainstream" },
+        { "name": "El Sol de Mexico", "url": "https://www.elsoldemexico.com.mx/rss", "lang": "es", "lean": "Centre-right" },
+        { "name": "El Financiero", "url": "https://www.elfinanciero.com.mx/rss", "lang": "es", "lean": "Business establishment" },
+        { "name": "24 Horas", "url": "https://www.24-horas.mx/feed/", "lang": "es", "lean": "Mainstream digital" },
+        { "name": "SDP Noticias", "url": "https://www.sdpnoticias.com/feed/", "lang": "es", "lean": "Digital mass-market" },
+        { "name": "El Economista", "url": "https://www.eleconomista.com.mx/rss/internacional.xml", "lang": "es", "lean": "Business" }
+      ]
+    }
+  }
+}

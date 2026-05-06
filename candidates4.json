@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "project": "epistemic-lens",
+    "version": "0.4.3-candidates-A1.7",
+    "purpose": "A1.7 — structural diversification: opinion magazines, pan-Arab/pan-African aggregators, Pacific/SE-Asia regional, specialty (defense/business/tech), state TV, religious press, local UK/US TV news. Categories that are missing as a class, not just specific outlets."
+  },
+  "countries": {
+    "opinion_magazines": {
+      "label": "Opinion magazines / narrative drivers",
+      "feeds": [
+        { "name": "Foreign Policy", "url": "https://foreignpolicy.com/feed/", "lang": "en", "lean": "Centrist establishment policy mag" },
+        { "name": "Foreign Affairs", "url": "https://www.foreignaffairs.com/rss.xml", "lang": "en", "lean": "Establishment policy" },
+        { "name": "The Atlantic", "url": "https://www.theatlantic.com/feed/all/", "lang": "en", "lean": "Centre-left magazine" },
+        { "name": "The Economist World", "url": "https://www.economist.com/the-world-this-week/rss.xml", "lang": "en", "lean": "Centrist policy" },
+        { "name": "The New Yorker", "url": "https://www.newyorker.com/feed/news", "lang": "en", "lean": "Centre-left literary" },
+        { "name": "Politico Europe", "url": "https://www.politico.eu/feed/", "lang": "en", "lean": "Centrist Brussels-beltway" },
+        { "name": "The Spectator UK", "url": "https://www.spectator.co.uk/feed/", "lang": "en", "lean": "Right-conservative magazine" },
+        { "name": "The Conversation", "url": "https://theconversation.com/global/articles.atom", "lang": "en", "lean": "Academic explainer" }
+      ]
+    },
+    "pan_arab": {
+      "label": "Pan-Arab / Middle East regional",
+      "feeds": [
+        { "name": "Asharq Al-Awsat English", "url": "https://english.aawsat.com/rss", "lang": "en", "lean": "Saudi-owned pan-Arab establishment" },
+        { "name": "Middle East Eye", "url": "https://www.middleeasteye.net/rss", "lang": "en", "lean": "Critical of Gulf monarchies" },
+        { "name": "Middle East Monitor", "url": "https://www.middleeastmonitor.com/feed/", "lang": "en", "lean": "Pro-Palestinian pan-Arab" },
+        { "name": "Al-Monitor", "url": "https://www.al-monitor.com/feeds/all", "lang": "en", "lean": "Independent regional analysis" },
+        { "name": "The New Arab", "url": "https://www.newarab.com/rss", "lang": "en", "lean": "Pan-Arab independent" }
+      ]
+    },
+    "pan_african": {
+      "label": "Pan-African regional",
+      "feeds": [
+        { "name": "AfricaNews", "url": "https://www.africanews.com/feed/", "lang": "en", "lean": "Pan-African Euronews subsidiary" },
+        { "name": "African Arguments", "url": "https://africanarguments.org/feed/", "lang": "en", "lean": "Independent investigative" },
+        { "name": "ISS Africa", "url": "https://issafrica.org/iss-today/rss", "lang": "en", "lean": "Security-focused think tank" },
+        { "name": "The Africa Report", "url": "https://www.theafricareport.com/feed/", "lang": "en", "lean": "Business establishment" }
+      ]
+    },
+    "asia_pacific_regional": {
+      "label": "Asia / Pacific regional",
+      "feeds": [
+        { "name": "The Diplomat", "url": "https://thediplomat.com/feed/", "lang": "en", "lean": "Asia-Pacific policy magazine" },
+        { "name": "Nikkei Asia", "url": "https://asia.nikkei.com/rss/feed/nar", "lang": "en", "lean": "Japanese business in Asia" },
+        { "name": "Asia Times", "url": "https://asiatimes.com/feed/", "lang": "en", "lean": "Pan-Asian commentary" },
+        { "name": "BenarNews", "url": "https://www.benarnews.org/english/rss2", "lang": "en", "lean": "US-funded SE Asia + Bangladesh" },
+        { "name": "East Asia Forum", "url": "https://www.eastasiaforum.org/feed/", "lang": "en", "lean": "Academic policy" },
+        { "name": "Pacific Beat (ABC)", "url": "https://www.abc.net.au/news/feed/2942460/rss.xml", "lang": "en", "lean": "Pacific affairs" }
+      ]
+    },
+    "uk_specialty": {
+      "label": "UK specialty (TV news + magazines)",
+      "feeds": [
+        { "name": "Channel 4 News", "url": "https://www.channel4.com/news/rss.xml", "lang": "en", "lean": "Centre-left investigative TV" },
+        { "name": "ITV News", "url": "https://www.itv.com/news/index.rss", "lang": "en", "lean": "Mainstream commercial TV" },
+        { "name": "The Independent", "url": "https://www.independent.co.uk/news/world/rss", "lang": "en", "lean": "Centre-left digital" },
+        { "name": "i News", "url": "https://inews.co.uk/feed", "lang": "en", "lean": "Centre mainstream" },
+        { "name": "New Statesman", "url": "https://www.newstatesman.com/rss", "lang": "en", "lean": "Centre-left magazine" }
+      ]
+    },
+    "us_specialty": {
+      "label": "USA specialty (defense/business/local)",
+      "feeds": [
+        { "name": "Defense News", "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml", "lang": "en", "lean": "Defense industry" },
+        { "name": "War on the Rocks", "url": "https://warontherocks.com/feed/", "lang": "en", "lean": "Defense policy commentary" },
+        { "name": "Bloomberg Politics", "url": "https://www.bloomberg.com/feeds/podcasts/etf-iq.xml", "lang": "en", "lean": "Business" },
+        { "name": "ProPublica", "url": "https://www.propublica.org/feeds/propublica/main", "lang": "en", "lean": "Investigative non-profit" },
+        { "name": "The Intercept", "url": "https://theintercept.com/feed/?lang=en", "lang": "en", "lean": "Left investigative" },
+        { "name": "Reason", "url": "https://reason.com/feed/", "lang": "en", "lean": "Libertarian" },
+        { "name": "Tablet Magazine", "url": "https://www.tabletmag.com/feed", "lang": "en", "lean": "Centre-right Jewish-American" }
+      ]
+    },
+    "state_tv_other": {
+      "label": "State TV / international broadcasters",
+      "feeds": [
+        { "name": "France 24 Arabic", "url": "https://www.france24.com/ar/rss", "lang": "ar", "lean": "French wire — Arabic" },
+        { "name": "France 24 Spanish", "url": "https://www.france24.com/es/rss", "lang": "es", "lean": "French wire — Spanish" },
+        { "name": "Al Jazeera Plus", "url": "https://www.ajplus.net/rss/", "lang": "en", "lean": "Qatar — youth-focused" },
+        { "name": "Voice of America", "url": "https://www.voanews.com/api/zmgqoetmiq", "lang": "en", "lean": "US gov-funded" },
+        { "name": "Sputnik International", "url": "https://sputnikglobe.com/export/rss2/archive/index.xml", "lang": "en", "lean": "Russian state-export" }
+      ]
+    },
+    "telegram_via_rss": {
+      "label": "Telegram channels via RSS bridges",
+      "feeds": [
+        { "name": "RIA Novosti TG", "url": "https://rsshub.app/telegram/channel/rian_ru", "lang": "ru", "lean": "State agency" },
+        { "name": "Mash TG", "url": "https://rsshub.app/telegram/channel/mash", "lang": "ru", "lean": "Russian breaking-news populist" },
+        { "name": "Readovka TG", "url": "https://rsshub.app/telegram/channel/readovkanews", "lang": "ru", "lean": "Russian pro-war populist" },
+        { "name": "Bashtanka TG (Iran-state via TG)", "url": "https://rsshub.app/telegram/channel/IRGC_QF", "lang": "fa", "lean": "IRGC Quds Force channel" },
+        { "name": "Hamshahri TG", "url": "https://rsshub.app/telegram/channel/Hamshahri", "lang": "fa", "lean": "Iran reformist" }
+      ]
+    },
+    "religious_press": {
+      "label": "Religious / cultural press",
+      "feeds": [
+        { "name": "Vatican News", "url": "https://www.vaticannews.va/en.rss.xml", "lang": "en", "lean": "Catholic establishment" },
+        { "name": "Religion News Service", "url": "https://religionnews.com/feed/", "lang": "en", "lean": "Centrist religious news" },
+        { "name": "Christianity Today", "url": "https://www.christianitytoday.com/global/rss.html", "lang": "en", "lean": "Evangelical centrist" }
+      ]
+    },
+    "global_south_extra": {
+      "label": "Global South additions",
+      "feeds": [
+        { "name": "TRT Afrika", "url": "https://www.trtafrika.com/api/rss", "lang": "en", "lean": "Turkish state media in Africa" },
+        { "name": "CGTN Africa", "url": "https://africa.cgtn.com/feed/", "lang": "en", "lean": "Chinese state media in Africa" },
+        { "name": "RT Africa", "url": "https://www.rt.com/rss/africa/", "lang": "en", "lean": "Russian state media in Africa" }
+      ]
+    }
+  }
+}
