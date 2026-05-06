@@ -31,11 +31,10 @@ TEMPLATE = ROOT / "video_template"
 VOICES_DIR = TEMPLATE / "public" / "voices"
 VOICEOVERS_DIR = TEMPLATE / "public" / "voiceovers"
 
-# Default voice. Other good options:
-#   en_US-libritts_r-medium  (male, clear)
-#   en_GB-alan-medium        (British male)
-#   en_US-ryan-high          (high-quality, slower)
-DEFAULT_VOICE = "en_US-amy-medium"
+# Default voice — alan-medium is a British male broadcaster-style voice,
+# noticeably more authoritative than the previous default amy-medium.
+# Free, runs locally. Override with --voice to test alternatives.
+DEFAULT_VOICE = "en_GB-alan-medium"
 
 # Map voice name -> (locale, voice_id, quality) for download URL construction
 VOICE_HF_PATHS: dict[str, str] = {

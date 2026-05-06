@@ -4,86 +4,92 @@
   "story_title": "Strait of Hormuz / Project Freedom paused",
   "rank": 1,
   "n_buckets_in_briefing": 27,
-  "story_one_liner": "The US and Iran are 48 hours from signing a one-page memo to end the war. Same news, five very different stories about who actually won.",
-  "duration_seconds": 60,
+  "story_one_liner": "Twenty-seven countries reported the same Hormuz deal today. They all agree on the facts, and they all tell completely different stories. Can they all be telling the truth?",
+  "duration_seconds": 75,
   "format": "9:16 vertical short",
   "target_platforms": ["TikTok", "Instagram Reels", "YouTube Shorts"],
-  "voice_style": "calm-authoritative news explainer",
-  "music_brief": "subtle tension; drop out at frame 8 closer",
-  "voiceover_provider": "ElevenLabs Creator tier or Azure Neural TTS",
+  "voice_style": "BBC-broadcaster cadence, measured and authoritative",
+  "voiceover_provider": "Piper TTS en_GB-alan-medium (free, local)",
+  "music_brief": "ambient drone bed throughout; intro sting handles open",
+  "intro_sting_audio": "intro_sting.mp3",
+  "intro_sting_seconds": 3.03,
+  "channel_name": "DAILY FRAMINGS",
+  "world_tickers": [
+    {"country_code": "br", "headline": "Trump recua: operação em Hormuz suspensa", "outlet": "Folha de São Paulo"},
+    {"country_code": "jp", "headline": "Japan to buy 20m more UAE oil bypassing Hormuz", "outlet": "Nikkei Asia"},
+    {"country_code": "ke", "headline": "US trade gap widens as oil exports surge", "outlet": "Standard Kenya"},
+    {"country_code": "de", "headline": "Lufthansa fuel bill jumps €1.7B on Iran war", "outlet": "DW English"},
+    {"country_code": "ph", "headline": "Inflation hits 7.2% — first Asian domino to fall", "outlet": "Asia Times"},
+    {"country_code": "ge", "headline": "National Bank raises rates 8.25% citing Hormuz", "outlet": "Civil Georgia"},
+    {"country_code": "kp", "headline": "Pyongyang gasoline now pricier than Seoul's", "outlet": "NK News"}
+  ],
   "scenes": [
     {
       "scene": 1,
       "time": "0:00-0:05",
-      "voiceover": "Same news. Five very different stories. Today: the Strait of Hormuz.",
-      "visual_brief": "Cold open. Black. Tap-tap of breaking news. Cut to satellite shot of the Hormuz strait with dots representing trapped tankers.",
-      "on_screen_text": "5 COUNTRIES. 1 STORY.\nSTRAIT OF HORMUZ"
+      "voiceover": "Five countries. One Iran deal. Same facts. Five very different stories.",
+      "on_screen_text": "5 STORIES.\n1 DEAL.",
+      "country": null
     },
     {
       "scene": 2,
-      "time": "0:05-0:13",
-      "voiceover": "The US and Iran are 48 hours from a one-page memo to end the war. Pakistan brokered. Brent crude crashed eleven percent. Now: how five countries told the same story.",
-      "visual_brief": "Map zooms out, five country pins illuminate with subtle pulse. Headlines flicker at the bottom in five languages.",
-      "on_screen_text": "MAY 6, 2026"
+      "time": "0:05-0:14",
+      "voiceover": "Today, the United States and Iran reached a one-page memorandum to end the Hormuz war. Pakistan brokered the talks. Brent crude fell eleven percent. So far, so factual. But here's how the world reported it.",
+      "on_screen_text": "THE FACTS.\nMay 6, 2026.",
+      "country": null
     },
     {
       "scene": 3,
-      "time": "0:13-0:22",
-      "voiceover": "United States. Trump on Truth Social: \"the legendary Epic Fury will be at an end... if they don't agree, the bombing starts at a much higher level and intensity than before.\"",
-      "visual_brief": "American flag overlay. Quote card with Truth Social styling. Cut to file footage of Trump at podium.",
-      "on_screen_text": "🇺🇸 USA: 'If they don't agree, the bombing starts'\nTrump, Truth Social",
-      "headline_quoted": "Trump warns 'much higher-level' bombing will start if Iran does not agree to a deal — Yonhap News, citing Truth Social"
+      "time": "0:14-0:24",
+      "voiceover": "Wire services kept it neutral. \"Trump pauses operation. Iran says safe passage possible.\" Reuters. Japan Times. Sydney Morning Herald. The baseline. Boring. Right?",
+      "on_screen_text": "🌐 WIRE: 'Trump pauses operation'\nReuters / Japan Times / SMH",
+      "headline_quoted": "U.S. and Iran closing in on memorandum to end war — Japan Times"
     },
     {
       "scene": 4,
-      "time": "0:22-0:31",
-      "voiceover": "China. Foreign Minister Wang Yi: \"blocking the Strait of Hormuz would not serve the common interests of the international community.\" Beijing is positioning itself as the mediator a week before Trump visits.",
-      "visual_brief": "Chinese flag overlay. Wang Yi shaking hands with UAE envoy (stock). Map graphic showing China's diplomatic moves.",
-      "on_screen_text": "🇨🇳 CHINA: 'Blockade not in common interests'\nWang Yi, CGTN",
-      "headline_quoted": "Wang Yi: Blockade of Strait of Hormuz not in common interests — CGTN World"
+      "time": "0:24-0:34",
+      "voiceover": "The United States. Trump on Truth Social: \"the legendary Epic Fury will be at an end. If they don't agree, the bombing starts at a much higher level than before.\" Triumph and threat in the same sentence.",
+      "on_screen_text": "🇺🇸 USA: 'The legendary Epic Fury will be at an end'\nTrump, Truth Social",
+      "headline_quoted": "Trump warns 'much higher-level' bombing will start if Iran refuses — Yonhap News"
     },
     {
       "scene": 5,
-      "time": "0:31-0:39",
-      "voiceover": "Russia. RT's Rick Sanchez: \"the reality in the Strait contradicts US claims. Tehran still holds the strategic edge.\"",
-      "visual_brief": "Russian flag overlay. Cut to footage of Iranian IRGC vessel. Quote card with RT styling.",
-      "on_screen_text": "🇷🇺 RUSSIA: 'Tehran still holds the strategic edge'\nRT",
-      "headline_quoted": "Mapping Hormuz: RT's Rick Sanchez on strategic edge — RT"
+      "time": "0:34-0:46",
+      "voiceover": "China heard a different story. Foreign minister Wang Yi: \"Beijing will play a greater role in restoring peace.\" Hong Kong Free Press credits Chinese diplomacy with the breakthrough. China isn't pausing — China is brokering.",
+      "on_screen_text": "🇨🇳 CHINA: 'Beijing will play a greater role'\nWang Yi, via HKFP",
+      "headline_quoted": "Beijing to play 'greater role' in ending Mideast fighting — HKFP"
     },
     {
       "scene": 6,
-      "time": "0:39-0:48",
-      "voiceover": "Iran. Republic World, India: Iran's president \"deeming Iranian compliance impossible.\" Iran wants to charge tolls. World leaders call it illegal.",
-      "visual_brief": "Iranian flag overlay. Cut to footage of Pezeshkian. Map showing Iran's proposed toll-zone.",
-      "on_screen_text": "🇮🇷 IRAN: 'Compliance impossible'\nPezeshkian, via Republic World",
-      "headline_quoted": "US-Iran War LIVE: Trump Issues Another Ultimatum to Tehran — Republic World"
+      "time": "0:46-0:58",
+      "voiceover": "Iran heard victory. Iran International cites the Supreme Leader declaring the United States suffered, quote, \"a shameful defeat.\" The same pause. Two superpowers, two winners.",
+      "on_screen_text": "🇮🇷 IRAN: 'A shameful defeat for the US'\nKhamenei, via Iran International",
+      "headline_quoted": "Iran president says US naval blockade 'doomed to fail' — Ahram Online"
     },
     {
       "scene": 7,
-      "time": "0:48-0:55",
-      "voiceover": "And the country that brokered it. Sydney Morning Herald: \"the war's only peace talks were hosted by Pakistan, which has continued in that role of mediator, ferrying proposals between the sides.\"",
-      "visual_brief": "Pakistani flag overlay. Cut to FM Dar at podium. Headline card from Dawn.",
-      "on_screen_text": "🇵🇰 PAKISTAN: 'Ferrying proposals between the sides'\nSydney Morning Herald, citing Pakistani sources"
+      "time": "0:58-1:12",
+      "voiceover": "And then the paradox. Foreign Affairs — the establishment magazine of US foreign policy — published this. Quote: Iran proved it can close the strait, even in the face of significant military force. The IRGC stays in place. The same conclusion as Russian state media.",
+      "on_screen_text": "🇺🇸 ↔ 🇷🇺 PARADOX:\nForeign Affairs ↔ RT agree",
+      "headline_quoted": "Iran's New Oil Weapon — Foreign Affairs"
     },
     {
       "scene": 8,
-      "time": "0:55-1:00",
-      "voiceover": "Same memo. Five different victors. Now you know.",
-      "visual_brief": "Five flags fan into frame. End card with channel handle.",
-      "on_screen_text": "Same news. Five stories.\nDaily framings. Follow."
+      "time": "1:12-1:18",
+      "voiceover": "Same facts. Five stories. All defensible. Could every one of them be telling the truth? Daily framings. Follow.",
+      "on_screen_text": "Same facts.\nFive stories.\nFollow.",
+      "country": null
     }
   ],
   "fact_check_provenance": {
     "primary_event_source": "Pakistani diplomatic source via Reuters, confirmed by Axios",
     "supporting_quotes_per_frame": [
-      {"frame": "USA", "outlet": "Yonhap News", "exact_headline": "Trump warns 'much higher-level' bombing will start if Iran does not agree to a deal", "url_in_corpus": true},
-      {"frame": "China", "outlet": "CGTN World", "exact_headline": "Wang Yi: Blockade of Strait of Hormuz not in common interests", "url_in_corpus": true},
-      {"frame": "Russia", "outlet": "RT", "exact_headline": "Mapping Hormuz: RT's Rick Sanchez on strategic edge", "url_in_corpus": true},
-      {"frame": "Iran", "outlet": "Republic World (alt)", "exact_headline": "US-Iran War LIVE: Trump Issues Another Ultimatum to Tehran, Threatens Heightened Military", "url_in_corpus": true},
-      {"frame": "Pakistan", "outlet": "Sydney Morning Herald", "exact_headline": "US and Iran closing in on 'one-page memo' to end war, sources say", "url_in_corpus": true}
+      {"frame": "Wire", "outlet": "Japan Times", "exact_headline": "U.S. and Iran closing in on memorandum to end war, sources say"},
+      {"frame": "USA", "outlet": "Yonhap News", "exact_headline": "Trump warns 'much higher-level' bombing will start if Iran does not agree to a deal"},
+      {"frame": "China", "outlet": "Hong Kong Free Press", "exact_headline": "Beijing to play 'greater role' in ending Mideast fighting, Chinese FM says"},
+      {"frame": "Iran", "outlet": "Ahram Online (via Google News)", "exact_headline": "Iran president says US naval blockade 'doomed to fail'"},
+      {"frame": "Paradox", "outlet": "Foreign Affairs", "exact_headline": "Iran's New Oil Weapon"}
     ],
-    "briefing_corpus": "briefings/2026-05-06_hormuz_iran.json",
-    "buckets_with_body_text": 24,
-    "buckets_with_summary_only": 3
+    "briefing_corpus": "briefings/2026-05-06_hormuz_iran.json"
   }
 }

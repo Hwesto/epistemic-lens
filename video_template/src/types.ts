@@ -3,17 +3,23 @@
 
 export type Scene = {
   scene: number;
-  time: string; // "0:00-0:05" — informational only, durations come from durationInFrames below
+  time: string;
   voiceover: string;
   visual_brief?: string;
   on_screen_text: string;
   headline_quoted?: string;
-  // Optional country code for camera focus (us / ir / cn / ru / pk / il / etc.)
-  // If absent, the scene shows the world overview (used for Hook + Outro).
   country?: string;
-  // Audio (set by render_video.py from synthesize_voiceover.py output)
-  audio?: string;        // staticFile-relative path under public/, e.g. "voiceovers/<id>/scene_01.wav"
-  duration_seconds?: number; // measured WAV duration; overrides `time` if set
+  audio?: string;
+  duration_seconds?: number;
+};
+
+// Ambient ticker — small headline that floats over a non-focal country
+// to show "the rest of the world is also reporting today". Should be
+// real headlines from the same date's snapshot for credibility.
+export type WorldTicker = {
+  country_code: string; // 2-letter, e.g. "br", "jp"
+  headline: string;     // <80 chars ideal
+  outlet?: string;      // small attribution, optional
 };
 
 export type FactCheckProvenance = {
@@ -33,5 +39,12 @@ export type VideoScriptProps = {
   story_one_liner?: string;
   duration_seconds: number;
   scenes: Scene[];
+  // Optional 3-second intro sting (logo flash + branded audio) prepended
+  // before scene 1. Set to "intro_sting.mp3" to use the bundled file.
+  intro_sting_audio?: string;
+  intro_sting_seconds?: number; // default 3
+  channel_name?: string; // displayed in the sting (default "DAILY FRAMINGS")
+  // Ambient world tickers — shown on the map throughout the video
+  world_tickers?: WorldTicker[];
   fact_check_provenance?: FactCheckProvenance;
 };

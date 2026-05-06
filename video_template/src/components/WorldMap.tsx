@@ -3,9 +3,9 @@
 // smoothly between camera presets. Highlights the active country.
 
 import React from "react";
-import { interpolate, useCurrentFrame } from "remotion";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import { CameraPreset } from "../cameraPresets";
+import { useCameraDolly } from "../useCameraDolly";
 
 // JSON import — bundled into the Remotion build at compile time.
 import worldData from "../data/world-110m.json";
@@ -33,17 +33,7 @@ export const WorldMapBackground: React.FC<{
   durationInFrames: number;
   highlightCountry?: string; // 2-letter code, e.g. "us"
 }> = ({ startPreset, endPreset, durationInFrames, highlightCountry }) => {
-  const frame = useCurrentFrame();
-
-  const t = interpolate(frame, [0, durationInFrames], [0, 1], {
-    extrapolateRight: "clamp",
-    extrapolateLeft: "clamp",
-    easing: (x) => 1 - Math.pow(1 - x, 3), // ease-out cubic
-  });
-  const lon = interpolate(t, [0, 1], [startPreset.center[0], endPreset.center[0]]);
-  const lat = interpolate(t, [0, 1], [startPreset.center[1], endPreset.center[1]]);
-  const zoom = interpolate(t, [0, 1], [startPreset.zoom, endPreset.zoom]);
-
+  const { lon, lat, zoom } = useCameraDolly(startPreset, endPreset, durationInFrames);
   const highlightId = highlightCountry ? ISO_NUMERIC[highlightCountry] : null;
 
   // 9:16 viewport. Equirectangular default scale is 152.63 for a 360x180
@@ -75,19 +65,34 @@ export const WorldMapBackground: React.FC<{
             geographies.map((geo: any) => {
               const isHighlighted =
                 highlightId && String(geo.id) === highlightId;
+              // Two-tone scheme: when a country is highlighted (a country
+              // scene), all OTHERS dim further to push focus. When no
+              // country is highlighted (title/world/outro scenes), use
+              // the brighter palette so the map reads as alive.
+              const inFocusMode = !!highlightId;
+              const fill = isHighlighted
+                ? "#4a86c2"  // active country: bright blue
+                : inFocusMode
+                  ? "#1a2030"   // others when something else is focused: deep grey
+                  : "#0f2a44"; // baseline when no focus
+              const stroke = isHighlighted
+                ? "#ffd166"
+                : inFocusMode
+                  ? "#252b3a"
+                  : "#1f4a78";
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
                   style={{
                     default: {
-                      fill: isHighlighted ? "#3b6fa6" : "#0f2a44",
-                      stroke: isHighlighted ? "#ffd166" : "#1f4a78",
-                      strokeWidth: isHighlighted ? 2.0 : 0.6,
+                      fill,
+                      stroke,
+                      strokeWidth: isHighlighted ? 2.2 : 0.6,
                       outline: "none",
                     },
-                    hover: { fill: "#3b6fa6", outline: "none" },
-                    pressed: { fill: "#3b6fa6", outline: "none" },
+                    hover: { fill, outline: "none" },
+                    pressed: { fill, outline: "none" },
                   }}
                 />
               );
