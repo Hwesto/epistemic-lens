@@ -356,10 +356,16 @@ class TestDailyHealth(unittest.TestCase):
 # ============================================================================
 class TestSchemaValidation(unittest.TestCase):
     def test_latest_snapshot_well_formed(self):
-        p = ROOT / "snapshots" / "2026-05-06.json"
-        if not p.exists():
-            self.skipTest("no recent snapshot")
+        # Find the most recent snapshot regardless of pipeline version
+        cands = sorted(p for p in (ROOT / "snapshots").glob("[0-9]*.json")
+                       if not p.stem.endswith(("_convergence", "_similarity",
+                                                "_prompt", "_dedup", "_health",
+                                                "_pull_report")))
+        if not cands:
+            self.skipTest("no snapshots in repo")
+        p = cands[-1]
         d = json.loads(p.read_text(encoding="utf-8"))
+        # Universal v0.2-and-v0.4 schema
         self.assertIn("date", d)
         self.assertIn("countries", d)
         for ck, cv in d["countries"].items():
@@ -367,14 +373,22 @@ class TestSchemaValidation(unittest.TestCase):
             self.assertIn("feeds", cv)
             for f in cv["feeds"]:
                 self.assertIn("name", f)
-                self.assertIn("item_count", f)
                 self.assertIn("items", f)
+                # item_count is omitted on errored feeds in v0.2 — tolerate
                 for it in f["items"]:
                     self.assertIn("title", it)
+                    # v0.2 stored "id"; v0.4 also stores "id"
                     self.assertIn("id", it)
-                    self.assertIn("is_stub", it)
-                    self.assertIn("is_google_news", it)
-                    self.assertIn("summary_chars", it)
+        # v0.4-only schema (only assert on snapshots that declare it)
+        if d.get("max_items") is not None or d.get("config_version") is not None:
+            for cv in d["countries"].values():
+                for f in cv["feeds"]:
+                    self.assertIn("fetch_ms", f)
+                    self.assertIn("http_status", f)
+                    for it in f["items"]:
+                        self.assertIn("is_stub", it)
+                        self.assertIn("is_google_news", it)
+                        self.assertIn("summary_chars", it)
 
     def test_feeds_json_well_formed(self):
         p = ROOT / "feeds.json"
