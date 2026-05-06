@@ -1,9 +1,9 @@
 {
   "meta": {
     "project": "epistemic-lens",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "last_updated": "2026-05-06",
-    "notes": "v0.4.0 expansion: ~3x feed count covering Pakistan, Lebanon, Iraq, Egypt, UAE, Ukraine, Germany direct, Indonesia, Philippines, Mexico, Argentina, Australia/NZ, Taiwan/HK, North Korea, South Africa, Kenya, plus Russian-language Russian outlets. Status flags: OK | STUB (title-only) | RETRY (403/429 from container, retest from prod IP) | DEAD (dropped)."
+    "notes": "v0.4.0 expansion: ~3x feed count covering Pakistan, Lebanon, Iraq, Egypt, UAE, Ukraine, Germany direct, Indonesia, Philippines, Mexico, Argentina, Australia/NZ, Taiwan/HK, North Korea, South Africa, Kenya, plus Russian-language Russian outlets. Status flags: OK | STUB (title-only) | RETRY (403/429 from container, retest from prod IP) | DEAD (dropped). v0.4.1: replaced GN-mediated feeds (Arab News, Al Arabiya, Korea Herald, O Globo) with direct RSS; dropped redundant Al Ahram/Ahram Online GN feeds (Egypt covered by Egypt Independent + Mada Masr + Daily News Egypt). Reuters and AP News kept via GN/feedx — no public direct RSS exists."
   },
   "countries": {
     "wire_services": {
@@ -395,18 +395,18 @@
       "label": "Saudi Arabia",
       "feeds": [
         {
-          "name": "Arab News (via Google News)",
-          "url": "https://news.google.com/rss/search?q=site:arabnews.com&hl=en&gl=SA&ceid=SA:en",
+          "name": "Arab News",
+          "url": "https://www.arabnews.com/rss.xml",
           "lang": "en",
           "lean": "Saudi state-aligned",
-          "status": "OK"
+          "status": "RETRY"
         },
         {
-          "name": "Al Arabiya English (via Google News)",
-          "url": "https://news.google.com/rss/search?q=site:english.alarabiya.net&hl=en&gl=SA&ceid=SA:en",
+          "name": "Al Arabiya English",
+          "url": "https://english.alarabiya.net/.mrss/feed.xml",
           "lang": "en",
           "lean": "Saudi/UAE-backed — Al Jazeera counterweight",
-          "status": "OK"
+          "status": "RETRY"
         }
       ]
     },
@@ -424,8 +424,8 @@
           "name": "Korea Herald (via Google News)",
           "url": "https://news.google.com/rss/search?q=site:koreaherald.com&hl=en&gl=KR&ceid=KR:en",
           "lang": "en",
-          "lean": "Centre mainstream",
-          "status": "OK"
+          "lean": "Centre mainstream — via GN, body-extraction won't work",
+          "status": "STUB"
         }
       ]
     },
@@ -460,8 +460,8 @@
           "status": "OK"
         },
         {
-          "name": "O Globo (via Google News)",
-          "url": "https://news.google.com/rss/search?q=site:oglobo.globo.com&hl=pt-BR&gl=BR&ceid=BR:pt-419",
+          "name": "O Globo",
+          "url": "https://oglobo.globo.com/rss/oglobo",
           "lang": "pt",
           "lean": "Centre-right establishment",
           "status": "OK"
@@ -573,20 +573,6 @@
           "url": "https://dailynewsegypt.com/feed/",
           "lang": "en",
           "lean": "Centre-business",
-          "status": "OK"
-        },
-        {
-          "name": "Al Ahram English (via Google News)",
-          "url": "https://news.google.com/rss/search?q=site:english.ahram.org.eg&hl=en&gl=EG&ceid=EG:en",
-          "lang": "en",
-          "lean": "State-aligned flagship — via GN due to no native RSS",
-          "status": "OK"
-        },
-        {
-          "name": "Ahram Online (via Google News)",
-          "url": "https://news.google.com/rss/search?q=site:ahram.org.eg&hl=ar&gl=EG&ceid=EG:ar",
-          "lang": "ar",
-          "lean": "State Arabic — flagship",
           "status": "OK"
         }
       ]
