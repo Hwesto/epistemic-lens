@@ -1,9 +1,11 @@
 {
   "meta": {
     "project": "epistemic-lens",
-    "version": "0.4.3",
+    "version": "0.5.0",
     "last_updated": "2026-05-06",
-    "notes": "v0.4.0 expansion: ~3x feed count covering Pakistan, Lebanon, Iraq, Egypt, UAE, Ukraine, Germany direct, Indonesia, Philippines, Mexico, Argentina, Australia/NZ, Taiwan/HK, North Korea, South Africa, Kenya, plus Russian-language Russian outlets. Status flags: OK | STUB (title-only) | RETRY (403/429 from container, retest from prod IP) | DEAD (dropped). v0.4.1: replaced GN-mediated feeds (Arab News, Al Arabiya, Korea Herald, O Globo) with direct RSS; dropped redundant Al Ahram/Ahram Online GN feeds (Egypt covered by Egypt Independent + Mada Masr + Daily News Egypt). Reuters and AP News kept via GN/feedx — no public direct RSS exists. v0.4.2: +50 gap-fix outlets — UK Sky/Mail tabloid, US populist (Daily Wire/Breitbart/Mother Jones), DE Bild + Welt + ZDF + Junge Freiheit, IT Il Giornale + Sole 24 + La Stampa, RU Komsomolskaya Pravda + Argumenty i Fakty (mass tabloids), CN Sixth Tone, IN India Today + OpIndia, JP Asahi/Mainichi/Nikkei (stub), KR KBS + Hankyoreh, ID Tempo + CNN Indonesia + Tribunnews, TW Liberty Times, AU 9News + Murdoch (RETRY), CA Globe and Mail + National Post + Le Devoir, MX La Jornada (first ES Mexican feed), BR G1 Globo + BBC Brasil + Carta Capital, AF RFI Afrique + BBC Africa. v0.4.3: A1.6 dominant-outlet rescues + A1.7 structural diversification. +Korean Big 3 majors (Chosun Ilbo + Yonhap Korean), +Indian populist (Republic alt + Aaj Tak alt + Hindustan Times), +Mexican Spanish (El Sol + El Financiero + 24 Horas), +Pakistani Bol News, +Mainichi alt. Plus 7 NEW STRUCTURAL CATEGORIES: opinion magazines (Foreign Policy/Affairs, Atlantic, Politico Europe), pan-Arab (MEE, MEMO), pan-African (AfricaNews, African Arguments), Asia-Pacific (Diplomat, Asia Times), US specialty (Defense News, ProPublica, Intercept, Reason), UK alternatives (Independent, i News, New Statesman), international state TV (France 24 AR/ES, Sputnik Intl, RT Africa), religious press (Vatican News, Religion News Service)."
+    "n_feeds": 235,
+    "n_buckets": 54,
+    "notes": "v0.5.0 — clean release. Pipeline: ingest -> extract -> dedup -> health -> build_briefing -> synthesize_voiceover -> render_video. 235 feeds across 54 buckets covering 6 continents in 16+ languages. See docs/COVERAGE.md for the per-bucket grade table."
   },
   "countries": {
     "wire_services": {

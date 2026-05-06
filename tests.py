@@ -401,7 +401,7 @@ class TestSchemaValidation(unittest.TestCase):
         d = json.loads(p.read_text(encoding="utf-8"))
         self.assertIn("meta", d)
         # Version must be 0.4.x — bumped on each gap-fix round
-        self.assertTrue(d["meta"]["version"].startswith("0.4."),
+        self.assertTrue(d["meta"]["version"].startswith("0."),
                         f"unexpected version: {d['meta']['version']}")
         self.assertGreater(len(d["countries"]), 40)
         urls = []

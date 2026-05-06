@@ -1,120 +1,162 @@
-# Epistemic Lens v0.4
+# Epistemic Lens v0.5
 
-Cross-national news comparison using multilingual embeddings. No translation needed.
+Cross-national news framing analysis + automated short-form video generation.
 
-## What it does
+> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages,
+> 6 continents) → extract article bodies → cluster cross-bloc stories → write
+> framing-comparison briefings → render daily 60-second vertical videos with
+> AI voice + ambient music + burned-in captions. Total cost: $0/mo.
 
-1. Pulls RSS feeds from **138 outlets across 47 country/region buckets** in 16+ languages
-2. Embeds all articles into a shared vector space using `paraphrase-multilingual-MiniLM-L12-v2`
-3. Auto-clusters articles by topic across languages
-4. Scores convergence (adversarial agreement = likely facts)
-5. Computes newspaper-to-newspaper similarity matrix (who echoes whom)
-6. Generates a Claude-ready analysis prompt
-7. (Optional) Cross-references against **GDELT 2.0** for global-coverage backstop
-
-## Daily pipeline
+## Quick start
 
 ```bash
-python ingest.py          # fetch + embed + cluster (~1-2 min)
-python dedup.py           # collapse near-duplicates within the day
-python daily_health.py    # post-pull health snapshot
-# Weekly:
-python feed_rot_check.py  # detect persistent rot
-# Optional:
-python gdelt_pull.py gkg     # latest GDELT firehose snapshot
-python gdelt_pull.py breadth # per-cluster global breadth check
+# Clone and install Python deps
+git clone <repo> && cd epistemic-lens
+pip install -r requirements.txt
+
+# Install Node deps for the video template (one-time)
+cd video_template && npm install && cd ..
+
+# Run today's full pipeline
+python ingest.py                        # 235 feeds → snapshots/<date>.json (~2 min)
+python extract_full_text.py             # +body text on top stories (~3 min)
+python dedup.py                         # collapse near-duplicate items
+python daily_health.py                  # health snapshot + alerts
+python build_briefing.py                # briefings/<date>_<story>.json
+
+# Pick top 3 stories, write their video_scripts/*.json (manual or via Claude Code)
+
+# Render with voice + music + captions
+python synthesize_voiceover.py video_scripts/<date>_*.json   # Piper TTS, free
+python render_video.py video_scripts/<date>_*.json            # Remotion → MP4
+
+# Done. Videos in videos/<date>_*.mp4 (~30 MB each, 60-90 s)
 ```
 
-## Automation (GitHub Actions)
+## Architecture
 
-Three workflows under `.github/workflows/`:
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full pipeline diagram.
+Short version:
 
-| Workflow | Trigger | Job |
-|---|---|---|
-| `daily.yml` | cron `0 7 * * *` UTC | ingest → dedup → daily_health → commit `snapshots/` |
-| `weekly_rot.yml` | cron `0 9 * * 0` UTC (Sundays) | feed_rot_check → commit `review/` |
-| `ci.yml` | push/PR on `main` & `claude/**` | unit + edge tests; e2e smoke only on main |
+```
+ingest.py ─→ extract_full_text.py ─→ dedup.py ─→ daily_health.py
+                                                       │
+                                                       ▼
+                                              build_briefing.py
+                                                       │
+                                                       ▼
+                                            briefings/<date>_*.json
+                                                       │
+                              [hand-write or Claude Code session per day]
+                                                       │
+                                                       ▼
+                                          video_scripts/<date>_*.json
+                                                       │
+                              ┌────────────────────────┼────────────────────────┐
+                              ▼                        ▼                        ▼
+                    synthesize_voiceover.py    generate_music_bed.py    Remotion template
+                    (Piper TTS, local, free)   (pure Python, free)      (video_template/)
+                              │                        │                        │
+                              └────────────────────────┴────────────────────────┘
+                                                       │
+                                                       ▼
+                                                videos/<id>.mp4
+```
 
-Each workflow caches the embedding model (~500MB) and pip wheels. Both cron jobs commit with `epistemic-lens-bot` and retry-on-conflict push (rebase + 3 attempts). Daily run posts a job summary with feeds / items / errors / bucket alerts to the GitHub Actions UI.
+## Coverage
 
-> **Note:** Scheduled workflows run from the default branch only. New workflow definitions take effect once merged to `main`.
+235 feeds across 54 buckets. 49+ buckets reliably extract full body text per day.
+See [`docs/COVERAGE.md`](docs/COVERAGE.md) for the country-by-country grade table.
 
-## Daily outputs (in snapshots/)
+Highlights:
+- **Mass-tabloid press**: Daily Mail (UK), Bild (DE), Komsomolskaya Pravda (RU)
+- **Right-populist**: Daily Wire / Breitbart (US), Republic World / Aaj Tak (IN), Junge Freiheit (DE), Sky News Australia
+- **Multi-language native**: Russian-language Russia, Hindi (Aaj Tak, Bhaskar), Korean (Chosun), Spanish (5 Mexican papers, El País, La Nación)
+- **Pan-regional**: Middle East Eye, AfricaNews, The Diplomat
+- **Religious + state-TV**: Vatican News, France 24 AR/ES, Sputnik International, RT Africa
 
-| File | Purpose |
+## Operations
+
+See [`docs/OPERATIONS.md`](docs/OPERATIONS.md) for the daily/weekly cron flow,
+GitHub Actions setup, and feed-rot detection.
+
+## Tests
+
+```bash
+python -m unittest tests.py tests_edge.py     # 45 tests, no network needed (~12 s)
+python tests_e2e.py                            # full pipeline smoke (live, ~6 s)
+```
+
+See [`docs/TEST_REPORT.md`](docs/TEST_REPORT.md) for what's covered.
+
+## File map
+
+```
+epistemic-lens/
+├── README.md                       ← you are here
+├── feeds.json                      ← source list (v0.5.0, 235 feeds)
+├── requirements.txt
+├── .github/workflows/
+│   ├── daily.yml                   ← daily cron (07:00 UTC)
+│   ├── weekly_rot.yml              ← Sundays 09:00 UTC
+│   └── ci.yml                      ← unit tests on push
+│
+├── ingest.py                       ← v0.4 parallel async fetcher
+├── extract_full_text.py            ← trafilatura body extraction + Wayback fallback
+├── dedup.py                        ← URL canon + title near-dup collapse
+├── daily_health.py                 ← post-pull health + bucket alerts
+├── feed_rot_check.py               ← weekly rot detection
+├── build_briefing.py               ← per-story corpus assembler
+├── synthesize_voiceover.py         ← free local Piper TTS
+├── generate_music_bed.py           ← pure-Python ambient drone
+├── render_video.py                 ← Remotion render orchestrator
+├── analysis.py / analysis2.py      ← cross-day analytical cuts
+├── source_audit.py                 ← static + live audit of source list
+├── baseline_pin.py                 ← snapshot baseline for A/B
+├── gdelt_pull.py                   ← GDELT 2.0 breadth supplement
+├── tests.py / tests_edge.py / tests_e2e.py
+│
+├── video_template/                 ← Remotion + React video renderer
+│   ├── package.json
+│   ├── src/{Root,FramingVideo,types,cameraPresets}.tsx
+│   └── src/components/{WorldMap,CountryPin,QuoteCard,TitleCard,OutroCard,Captions}.tsx
+│
+├── snapshots/                      ← daily output (RSS + extraction + dedup + health)
+├── briefings/                      ← daily story corpora
+├── video_scripts/                  ← daily video script JSONs
+├── videos/                         ← rendered MP4s (gitignored except stills/)
+│
+├── docs/
+│   ├── ARCHITECTURE.md             ← full pipeline diagram
+│   ├── COVERAGE.md                 ← country grade table
+│   ├── OPERATIONS.md               ← cron + manual run procedures
+│   └── TEST_REPORT.md              ← what's tested + known gaps
+│
+└── archive/                        ← historical artefacts (kept, not for daily use)
+```
+
+## Costs
+
+| Component | Cost |
 |---|---|
-| `YYYY-MM-DD.json` | Raw items + per-feed metadata (`fetch_ms`, `http_status`, `bytes`, `error`) + per-item flags (`summary_chars`, `is_stub`, `is_google_news`, `published_age_hours`, `canonical_url`, `normalised_title`) |
-| `YYYY-MM-DD_convergence.json` | Topic clusters with `country_count`, `mean_similarity`, `articles[]` |
-| `YYYY-MM-DD_similarity.json` | Newspaper-to-newspaper similarity matrix |
-| `YYYY-MM-DD_dedup.json` | Deduplicated item list with multi-source attribution |
-| `YYYY-MM-DD_health.json` | Per-day health: errors, stubs, slow, bucket alerts |
-| `YYYY-MM-DD_pull_report.md` | Human-readable pull summary |
-| `YYYY-MM-DD_prompt.md` | Pre-rendered briefing prompt |
+| Python deps (requests, trafilatura, sentence-transformers, etc.) | $0 |
+| Piper TTS + Amy voice (local ONNX) | $0 |
+| Remotion + headless Chromium | $0 |
+| Music bed (synthesized in Python) | $0 |
+| GitHub Actions (public repo, unlimited free minutes) | $0 |
+| **Total** | **$0/mo** |
 
-## Pipeline tunables (env vars)
+Optional upgrades:
+- ElevenLabs Creator (~$22/mo) for higher-prosody voice
+- Sora/Runway API (~$50-300/mo) for AI-generated hero shots
+- Anthropic API (~$10-30/mo) for automated framing extraction
 
-| Var | Default | Effect |
+## Versioning
+
+| Version | Date | Highlights |
 |---|---|---|
-| `MAX_ITEMS` | 50 | Items pulled per feed |
-| `MAX_WORKERS` | 30 | Parallel fetch workers |
-| `PER_HOST_DELAY` | 1.0 | Seconds between requests to same host |
-| `FETCH_TIMEOUT` | 20 | Per-request timeout (s) |
-| `SKIP_EMBED` | 0 | Set to `1` for fetch-only run (no model load) |
-| `OUTPUT_DIR` | `snapshots` | Where to write daily files |
-| `FEEDS_CONFIG` | `feeds.json` | Source feed list |
-
-## Coverage (v0.4)
-
-| Region | Buckets / outlets |
-|---|---|
-| North America | usa (CNN, Fox, NPR, Politico, Axios, Hill), canada (CBC) |
-| Latin America | brazil (Folha, O Globo), mexico, argentina_chile, colombia_ven_peru |
-| Western Europe | uk (BBC, Guardian, Telegraph), wire_services (Reuters, AP, AFP/F24, Le Monde, Le Figaro, Liberation), germany (DW EN/DE/RU, Spiegel, Tagesschau), italy, spain, netherlands_belgium |
-| Eastern Europe | russia (TASS, RT, Meduza, Moscow Times), russia_native (Lenta, Kommersant, RIA, Novaya Gazeta), ukraine (Pravda EN, Kyiv Post, Ukrinform), poland_balt, balkans, hungary_central, belarus_caucasus |
-| Nordic | nordic (Yle, Local SE/DE) |
-| Middle East | iran_state (IRNA, Tehran Times, Mehr, Press TV alt), iran_opposition (Iran International, RFE/RL), israel (Haaretz, JPost, ToI, Ynet), qatar (Al Jazeera EN/AR), saudi_arabia (Arab News, Al Arabiya), turkey (Sabah, Hurriyet, Anadolu, Bianet, Hurriyet Daily), egypt (5 outlets), syria, palestine, jordan, lebanon, iraq |
-| South Asia | india (TOI, NDTV, Hindu, Bhaskar), pakistan (Dawn, Geo, ARY, Express Tribune) |
-| East Asia | china (CGTN, Xinhua, Global Times, People's Daily), japan (NHK, Japan Times), south_korea (Yonhap, Korea Herald), taiwan_hk (Taipei Times, HKFP, SCMP), korea_north (NK News, Daily NK) |
-| SE Asia / Pacific | indonesia, philippines, vietnam_thai_my (CNA, Straits, Bangkok Post, VnExpress, Malay Mail), australia_nz |
-| Africa | nigeria (Punch, Vanguard), south_africa, kenya, africa_other (AllAfrica, Premium Times, Addis) |
-
-## Status flags in feeds.json
-
-- `OK` — feed live, returns parseable items, real summaries
-- `STUB` — title-only feed (Lenta, RIA, ARY News, Taipei Times) — useful for headline tracking, not for embedding nuance
-- `RETRY` — 403/429 from probe container; expected to work from production IP. Examples: Guardian, Telegraph, Le Monde, Times of Israel, Times of India
-
-## The principle
-
-The propaganda is the data. Nothing is filtered or rated.
-
-- **Convergence** across adversarial sources = closest thing to truth
-- **Divergence** on the same story = framing / spin
-- **Absence** from a story = editorial control
-
-## Project history / version notes
-
-- **v0.2** — initial 51-feed sequential pipeline, feedparser, MAX_ITEMS=10
-- **v0.4** (this version) — 138 feeds, parallel fetch, per-domain rate limiting, retries, sitemap fallback, per-item quality flags, dedup layer, GDELT bolt-on, daily/weekly health scaffolding. xml.etree replaces feedparser as parser. See `migration_notes.md` for the v0.3 → v0.4 source diff and `before_after.md` for v0.2 → v0.4 coverage delta (8.2× items, +31 buckets, 0 → 170 Cyrillic titles).
-
-## Files in repo
-
-```
-ingest.py              # main pipeline (fetch + embed + cluster)
-dedup.py               # URL canon + title near-dup collapsing
-daily_health.py        # post-pull health report
-feed_rot_check.py      # weekly rot detection
-gdelt_pull.py          # GDELT 2.0 breadth supplement
-analysis.py            # cross-day analytical metrics (country pairs, silence audit)
-analysis2.py           # framing comparison and cluster side-by-sides
-source_audit.py        # static + live audit of source list
-baseline_pin.py        # snapshot pre-refactor state for A/B
-before_after.py        # produces before_after.md for v0.2 vs v0.4
-candidate_probe.py     # initial candidate validation (Phase 2)
-candidate_alternates.py# alternate-URL probes (Phase 2b)
-merge_candidates.py    # Phase 3 merge into feeds.json
-feeds.json             # 138 feeds across 47 buckets (v0.4.0)
-feeds.json.bak         # rollback to v0.3 if needed
-migration_notes.md     # v0.3 -> v0.4 source-list diff
-before_after.md        # v0.2 -> v0.4 coverage validation
-```
+| 0.2 | Mar 2026 | Initial: 51 feeds, 16 buckets, sequential ingest, Iran-war coverage |
+| 0.4 | May 2026 | 138 feeds, 47 buckets, parallel ingest, full-text extraction, dedup, GDELT bolt-on, GH Actions |
+| 0.4.2 | May 2026 | +50 gap-fix feeds (tabloid + populist + native-language) |
+| 0.4.3 | May 2026 | Structural diversification (opinion magazines, pan-Arab, pan-African, Asia-Pacific, religious press, telegram proxies) |
+| **0.5.0** | **May 2026** | **Cleanup release. Briefing builder + voice + music + captions + video template. End-to-end pipeline at $0/mo.** |
