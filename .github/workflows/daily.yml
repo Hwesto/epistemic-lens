@@ -44,9 +44,10 @@ jobs:
           FETCH_TIMEOUT: '20'
         run: python ingest.py
 
-      - name: Extract full article text (top clusters only)
+      - name: Extract full article text (hybrid — clusters + per-feed coverage)
         env:
-          TOP_CLUSTERS: '15'
+          TOP_CLUSTERS: '20'        # top-20 cross-country stories: deep coverage
+          MAX_PER_FEED: '3'         # +3 items from EVERY feed: guarantees per-country coverage
           MAX_BODY_CHARS: '4000'
           EXTRACT_WORKERS: '20'
           PER_HOST_DELAY: '1.0'

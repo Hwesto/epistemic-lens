@@ -139,38 +139,55 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
 def select_items(snap: dict, conv: list | None, top_clusters: int,
                  max_per_feed: int = 0) -> list[tuple]:
     """Return list of (country_key, feed_name, item_dict) to extract.
-    Filter rules:
-      - If top_clusters > 0 and conv exists: keep only items in top-N clusters.
-      - If max_per_feed > 0: cap N items per (bucket, feed_name) (after cluster filter).
-      - Skip items already extracted (idempotent).
+
+    Selection rule (UNION of the two strategies):
+      An item is selected if EITHER
+        (a) it appears in one of the top-N convergence clusters, OR
+        (b) it is one of the first `max_per_feed` items in its feed.
+    Plus:
       - Skip items with no link.
+      - Skip items already extracted (idempotent).
+
+    If both top_clusters=0 and max_per_feed=0, selects everything.
     """
-    # Walk the snapshot in order so per-feed cap takes the first-N items
-    # (which are typically the most-recent due to RSS ordering).
+    # Build cluster-target set
+    cluster_ids: set[str] = set()
     if top_clusters > 0 and conv:
-        target_ids: set[str] = set()
         for cl in sorted(conv, key=lambda c: -c.get("country_count", 0))[:top_clusters]:
             for art in cl.get("articles", []):
                 if art.get("id"):
-                    target_ids.add(art["id"])
-    else:
-        target_ids = None  # no cluster filter
+                    cluster_ids.add(art["id"])
 
+    # Selection
+    use_any_filter = (top_clusters > 0 and conv) or (max_per_feed > 0)
     out = []
     for ck, cv in snap["countries"].items():
         for f in cv.get("feeds", []):
-            kept_for_this_feed = 0
+            kept_per_feed_count = 0
             for it in f.get("items", []):
                 if not it.get("link"):
                     continue
-                if target_ids is not None and it.get("id") not in target_ids:
-                    continue
                 if "extraction_status" in it and it["extraction_status"] not in ("ERROR", "NONE"):
                     continue
-                if max_per_feed > 0 and kept_for_this_feed >= max_per_feed:
-                    break
+
+                # Cluster membership
+                in_cluster = it.get("id") in cluster_ids
+                # Per-feed quota
+                in_per_feed_quota = (max_per_feed > 0 and kept_per_feed_count < max_per_feed)
+
+                if use_any_filter:
+                    if not (in_cluster or in_per_feed_quota):
+                        continue
+                # else: no filters, take everything
+
                 out.append((ck, f["name"], it))
-                kept_for_this_feed += 1
+                if in_per_feed_quota and not in_cluster:
+                    # Only consume per-feed quota for items kept solely on that basis
+                    kept_per_feed_count += 1
+                elif in_per_feed_quota:
+                    # Item also in cluster — still counts toward per-feed quota
+                    kept_per_feed_count += 1
+    # Dedupe (an item could match both rules but is only added once above)
     return out
 
 
@@ -186,8 +203,11 @@ def main():
     ap.add_argument("--per-host-delay", type=float, default=float(os.environ.get("PER_HOST_DELAY", "1.0")))
     ap.add_argument("--timeout", type=int, default=int(os.environ.get("EXTRACT_TIMEOUT", "15")))
     ap.add_argument("--snapshots-dir", default=str(SNAPS_DEFAULT))
-    ap.add_argument("--max-per-feed", type=int, default=0,
-                    help="Cap items extracted per (bucket, feed) — useful for smoke tests (e.g. --max-per-feed 2 takes only the first 2 articles from each feed).")
+    ap.add_argument("--max-per-feed", type=int,
+                    default=int(os.environ.get("MAX_PER_FEED", "0")),
+                    help="Cap items extracted per (bucket, feed). 0 = no cap. "
+                         "Use ~3 in production hybrid mode to guarantee per-country "
+                         "coverage on top of cluster-based extraction.")
     ap.add_argument("--checkpoint-every", type=int, default=200,
                     help="Save snapshot to disk every N completed items so partial progress isn't lost on interruption.")
     args = ap.parse_args()
