@@ -1,35 +1,35 @@
 # turkey_extra / Anadolu Agency English
 
 - URL: <https://www.aa.com.tr/en/rss/default?cat=guncel>
-- Decision: **ACCEPT** — items=10, avg_summary=111.5c, stub=0.0%, fresh=0.1h
+- Decision: **ACCEPT** — items=10, avg_summary=113.4c, stub=0.0%, fresh=0.1h
 - Lang declared: `en`  Lean: State agency — pro-government
-- Status: 200  Items: 10  Bytes: 19190
-- Summary avg: 111.5 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 12:34:59 +0300  (0.1h old)
+- Status: 200  Items: 10  Bytes: 16958
+- Summary avg: 113.4 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 17:53:56 +0300  (0.1h old)
 
 ## Sample items
 
-**1.** UN calls for immediate, unconditional release of detained Global Sumud aid flotilla members
-  - link: https://www.aa.com.tr/en/world/un-calls-for-immediate-unconditional-release-of-detained-global-sumud
-  - published: Wed, 06 May 2026 12:34:59 +0300
-  - summary (76c): Human rights office says activists are being held by Israel ‘without charge’
+**1.** France proposes separating Hormuz issue from wider conflict, sets conditions for maritime mission: Presidency
+  - link: https://www.aa.com.tr/en/europe/france-proposes-separating-hormuz-issue-from-wider-conflict-sets-con
+  - published: Wed, 06 May 2026 17:53:56 +0300
+  - summary (151c): Pre-positioning of aircraft carrier Charles de Gaulle signals coalition is ‘ready, capable’ of securing Strait of Hormuz, Elysee Palace reportedly says
 
-**2.** Israeli army arrests 17 Palestinians, demolishes home in West Bank raids
-  - link: https://www.aa.com.tr/en/middle-east/israeli-army-arrests-17-palestinians-demolishes-home-in-west-ba
-  - published: Wed, 06 May 2026 12:32:38 +0300
-  - summary (96c): Israeli forces seal town near Ramallah, demolish home as operations expand across multiple areas
+**2.** Over 400 EU ex-officials urge bloc sanctions over Israel's illegal West Bank settlement plan
+  - link: https://www.aa.com.tr/en/europe/over-400-eu-ex-officials-urge-bloc-sanctions-over-israels-illegal-we
+  - published: Wed, 06 May 2026 17:51:49 +0300
+  - summary (143c): 'The EU and its Member States must act now to oppose... Israeli illegal settlement actions, notably those in the E1 area,' say former officials
 
-**3.** Poland to have Europe’s ‘strongest army’ by 2030 : Defense minister
-  - link: https://www.aa.com.tr/en/europe/poland-to-have-europe-s-strongest-army-by-2030-defense-minister/3928
-  - published: Wed, 06 May 2026 12:30:26 +0300
-  - summary (111c): ‘This is our strategic goal, to which we are devoting all our possible actions,’ says Wladyslaw Kosiniak-Kamysz
+**3.** AI without humans risks creating 'world beyond our control,' expert warns
+  - link: https://www.aa.com.tr/en/science-technology/ai-without-humans-risks-creating-world-beyond-our-contro
+  - published: Wed, 06 May 2026 17:50:17 +0300
+  - summary (142c): Author Charles-Edouard Bouee says AI can improve life, but only if humans remain in control and machines are used to eliminate low-value tasks
 
-**4.** Moscow slams UK sanctions package, says real 'cannon fodder' are Ukrainians in forced mobilization
-  - link: https://www.aa.com.tr/en/eurasia/moscow-slams-uk-sanctions-package-says-real-cannon-fodder-are-ukrai
-  - published: Wed, 06 May 2026 12:28:33 +0300
-  - summary (110c): Russia dismisses new UK sanctions as 'illegitimate,' accuses London of harboring 'corrupt' Ukrainian officials
+**4.** Turkish defense company Aselsan debuts new counter-drone, electronic warfare systems at SAHA 2026
+  - link: https://www.aa.com.tr/en/science-technology/turkish-defense-company-aselsan-debuts-new-counter-drone
+  - published: Wed, 06 May 2026 17:46:50 +0300
+  - summary (152c): 6 systems, including high-power lasers, autonomous mid-air interceptors, anti-drone weapons against swarms unveiled at premier defense event in Istanbul
 
-**5.** US gasoline prices climb above $4.50 as Iran war fuels supply crunch
-  - link: https://www.aa.com.tr/en/economy/us-gasoline-prices-climb-above-450-as-iran-war-fuels-supply-crunch/
-  - published: Wed, 06 May 2026 12:22:27 +0300
-  - summary (77c): National average pump price reaches $4.54 per gallon, highest since July 2022
+**5.** Malaysia’s king arrives in Moscow for World War II victory celebrations
+  - link: https://www.aa.com.tr/en/asia-pacific/malaysia-s-king-arrives-in-moscow-for-world-war-ii-victory-cel
+  - published: Wed, 06 May 2026 17:44:11 +0300
+  - summary (67c): Sultan Ibrahim to attend events marking 81st anniversary of victory

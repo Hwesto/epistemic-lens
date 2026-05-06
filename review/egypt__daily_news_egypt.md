@@ -1,11 +1,11 @@
 # egypt / Daily News Egypt
 
 - URL: <https://dailynewsegypt.com/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=493.9c, stub=0.0%, fresh=9.5h
+- Decision: **ACCEPT** — items=10, avg_summary=493.9c, stub=0.0%, fresh=14.9h
 - Lang declared: `en`  Lean: Centre-business
 - Status: 200  Items: 10  Bytes: 58668
 - Summary avg: 493.9 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 00:07:13 +0000  (9.5h old)
+- Newest: Wed, 06 May 2026 00:07:13 +0000  (14.9h old)
 
 ## Sample items
 

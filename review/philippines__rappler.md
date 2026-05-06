@@ -1,35 +1,35 @@
 # philippines / Rappler
 
 - URL: <https://www.rappler.com/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=174.9c, stub=0.0%, fresh=0.3h
+- Decision: **ACCEPT** — items=10, avg_summary=168.0c, stub=0.0%, fresh=0.2h
 - Lang declared: `en`  Lean: Independent — Maria Ressa's outlet
-- Status: 200  Items: 10  Bytes: 74818
-- Summary avg: 174.9 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 17:23:43 +0800  (0.3h old)
+- Status: 200  Items: 10  Bytes: 52710
+- Summary avg: 168.0 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 22:47:47 +0800  (0.2h old)
 
 ## Sample items
 
-**1.** At least 180 lawmakers seen to vote for VP Sara Duterte’s impeachment
-  - link: https://www.rappler.com/philippines/sara-duterte-impeachment-numbers-update-house-may-6-2026/
-  - published: Wed, 06 May 2026 17:23:43 +0800
-  - summary (73c): Only 106 votes are needed to impeach the Vice President for a second time
+**1.** Franco Mabanta arrested for allegedly extorting Martin Romualdez | The wRap
+  - link: https://www.rappler.com/video/daily-wrap/may-6-2026/
+  - published: Wed, 06 May 2026 22:47:47 +0800
+  - summary (62c): Today’s headlines: Franco Mabanta, PrimeWater, Leviste & Recto
 
-**2.** PGMN founder Franco Mabanta arrested for alleged extortion vs Martin Romualdez
-  - link: https://www.rappler.com/philippines/pgmn-founder-franco-mabanta-arrested-alleged-extortion-martin-ro
-  - published: Wed, 06 May 2026 16:52:36 +0800
-  - summary (205c): Social media strategist Franco Mabanta allegedly demanded P300 million from the former House speaker in exchange for withholding video content linking the Leyte congressman to corruption in the lower house
+**2.** LIVE UPDATES: 48th ASEAN Summit in Cebu
+  - link: https://www.rappler.com/philippines/updates-videos-48th-asean-summit-related-meetings-cebu-may-2026/
+  - published: Wed, 06 May 2026 22:06:22 +0800
+  - summary (177c): The 48th ASEAN Summit and Related Meetings in Cebu will focus on the global oil crisis, food security, and the safety of migrant workers. Check this page for the latest updates.
 
-**3.** Young Europeans turn to AI chatbots for emotional support, survey shows
-  - link: https://www.rappler.com/technology/internet-culture/ipsos-bva-survey-european-ai-chatbot-use-emotion
-  - published: Wed, 06 May 2026 16:38:26 +0800
-  - summary (222c): The survey is carried out among people aged 11 to 25 across France, Germany, Sweden and Ireland in early 2026. Of the 3,800 people surveyed, 51% say it is 'easy' to discuss mental health and personal issues with a chatbot.
+**3.** Alex Eala triumphant in Italian Open return
+  - link: https://www.rappler.com/sports/tennis-alex-eala-magdalena-frech-italian-open-may-6-2026/
+  - published: Wed, 06 May 2026 21:00:47 +0800
+  - summary (165c): Alex Eala outlasts Poland's Magdalena Frech in a match that took over two hours to finish, redeeming herself from her first-round exit in the Italian Open a year ago
 
-**4.** Ask Me Anything with the CICC and CWC on child safety concerns on ‘Roblox’
-  - link: https://www.rappler.com/technology/ask-me-anything-cicc-cwc-roblox-child-safety-concerns/
-  - published: Wed, 06 May 2026 16:20:48 +0800
-  - summary (247c): Got questions or thoughts on the risks children face on Roblox? Join Rappler’s Ask Me Anything session with the Cybercrime Investigation and Coordinating Center’s Aboy Paraiso and Council for the Welfare of Children’s Angelo Tapales on May 6, 4 pm
+**4.** La Salle zeroes in on season sweep, UAAP crown after Game 1 demolition of NU
+  - link: https://www.rappler.com/sports/uaap/volleyball-finals-la-salle-lady-spikers-nu-bulldogs-may-6-2026/
+  - published: Wed, 06 May 2026 20:40:49 +0800
+  - summary (218c): Out for over two weeks as they waited for their finals foe, the La Salle Lady Spikers show no signs of rust in their straight-sets win over the NU Lady Bulldogs in Game 1 of the UAAP Season 88 women's volleyball finals
 
-**5.** FAST FACTS: PMA Talang Dangal Class of 2026
-  - link: https://www.rappler.com/newsbreak/iq/things-to-know-philippine-military-class-2026/
-  - published: Wed, 06 May 2026 15:32:45 +0800
-  - summary (99c): There are 65 women in the 207-strong graduating class. Out of the top 10 graduates, five are women.
+**5.** In the Public Square: Understanding Toboso
+  - link: https://www.rappler.com/philippines/in-the-public-square-understanding-toboso-killings/
+  - published: Wed, 06 May 2026 20:02:40 +0800
+  - summary (112c): In this new episode, Rappler columnist John Nery is joined by Eddie Quitoriano to talk about the Toboso incident

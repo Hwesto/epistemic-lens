@@ -1,35 +1,35 @@
 # egypt / Egypt Independent
 
 - URL: <https://egyptindependent.com/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=481.5c, stub=0.0%, fresh=0.1h
+- Decision: **ACCEPT** — items=10, avg_summary=476.4c, stub=0.0%, fresh=1.9h
 - Lang declared: `en`  Lean: Independent — Al-Masry Al-Youm sister
-- Status: 200  Items: 10  Bytes: 61150
-- Summary avg: 481.5 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 09:32:39 +0000  (0.1h old)
+- Status: 200  Items: 10  Bytes: 59083
+- Summary avg: 476.4 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 13:05:39 +0000  (1.9h old)
 
 ## Sample items
 
-**1.** Egypt reaffirms full support for Somalia’s sovereignty
-  - link: https://www.egyptindependent.com/egypt-reaffirms-full-support-for-somalias-sovereignty/
-  - published: Wed, 06 May 2026 09:32:39 +0000
-  - summary (500c): Minister of Foreign Affairs, International Cooperation and Egyptian Expatriates Badr Abdelatty reaffirmed, Tuesday, May 5, 2026, Egypt’s full support for the unity, sovereignty, and territorial integrity of Somalia during a phone call on Tuesday with his Somali counterpart Abdisalam Ali. Abdelatty s
+**1.** Christopher Nolan reveals new details about upcoming film ‘The Odyssey’
+  - link: https://www.egyptindependent.com/christopher-nolan-reveals-new-details-about-upcoming-film-the-odyss
+  - published: Wed, 06 May 2026 13:05:39 +0000
+  - summary (482c): World-renowned director Christopher Nolan revealed new details about his highly anticipated Mythological epic film, “The Odyssey,” during his appearance on “The Late Show with Stephen Colbert.” The Odyssey is Nolan’s 13th film and is expected to be released later this year. Nolan’s last film was Opp
 
-**2.** Egypt, Turkey discuss cooperation in water management, irrigation modernization
-  - link: https://www.egyptindependent.com/egypt-turkey-discuss-cooperation-in-water-management-irrigation-mod
-  - published: Wed, 06 May 2026 09:27:05 +0000
-  - summary (500c): Minister of Irrigation and Water Resources Hani Sewilam discussed, Tuesday, May 5, 2026, with Turkish Minister of Agriculture and Forestry Ibrahim Yumakli prospects for bilateral cooperation in water resources management, irrigation system modernization, and enhancing water use efficiency. The talks
+**2.** Iran says safe passage through Strait of Hormuz possible after US pauses “Project Freedom”
+  - link: https://www.egyptindependent.com/iran-says-safe-passage-through-strait-of-hormuz-possible-after-us-p
+  - published: Wed, 06 May 2026 13:02:12 +0000
+  - summary (500c): Safe passage through the Strait of Hormuz is possible under “new procedures” following the pausing of a short-lived US military operation in the waterway, the Revolutionary Guards’ Navy said on Wednesday, according to Iranian media. This appears to be Iran’s first reaction to Washington suspending “
 
-**3.** SCZone attracts $16bn investments over nearly 4 years
-  - link: https://www.egyptindependent.com/sczone-attracts-16bn-investments-over-nearly-4-years/
-  - published: Wed, 06 May 2026 09:25:05 +0000
-  - summary (444c): Chairman of the Suez Canal Economic Zone (SCZone) Walid Gamal al-Din said the authority has attracted around $16 billion of investments over the past three years and nine months, as it repositions itself as an integrated industrial and logistics hub amid global supply chain shifts. Speaking at a log
+**3.** Microsoft, Google and xAI will let the government test their AI models before launch
+  - link: https://www.egyptindependent.com/microsoft-google-and-xai-will-let-the-government-test-their-ai-mode
+  - published: Wed, 06 May 2026 12:56:25 +0000
+  - summary (500c): Google, Microsoft and xAI will share unreleased versions of their AI models with the government to curb cybersecurity threats, the National Institute of Standards and Technology announced on Tuesday. The partnership comes after Anthropic’s powerful new Mythos AI model pushed concerns about AI’s impa
 
-**4.** Egypt seeks stronger cooperation with Netherlands- FM
-  - link: https://www.egyptindependent.com/egypt-seeks-stronger-cooperation-with-netherlands-fm/
-  - published: Wed, 06 May 2026 09:21:47 +0000
-  - summary (488c): Minister of Foreign Affairs, International Cooperation, and Egyptian Expatriates Badr Abdelatty said that Egypt is looking to expand cooperation with the Netherlands across several sectors. During a meeting, Tuesday, May 5, 2026, with Dutch Minister for Foreign Trade and Development Reinette Klever,
+**4.** Two dead after car strikes crowd in German city, police say
+  - link: https://www.egyptindependent.com/two-dead-after-car-strikes-crowd-in-german-city-police-say/
+  - published: Wed, 06 May 2026 12:53:58 +0000
+  - summary (422c): At least two people have been killed after a car drove through a crowd in the eastern German city of Leipzig, local police said Monday. Two other people were severely injured and have been taken to hospital, while 20 more have been “affected,” said Axel Schuh, the head of Leipzig’s fire brigade. A l
 
-**5.** Ismailia blogger turns herself in to the police after scamming LE 4 million in donations
-  - link: https://www.egyptindependent.com/ismailia-blogger-turns-herself-in-to-the-police-after-scamming-le-4
-  - published: Wed, 06 May 2026 08:31:06 +0000
-  - summary (500c): Ismailia blogger Donia Fouad, who had amassed up to four million LE in donations from a scam cancer diagnosis, has turned herself in to the police following investigations. Police had previously arrested Fouad’s husband for questioning regarding her fundraising efforts, which she claimed were for ca
+**5.** Could China push Iran into a peace deal? Only if it gets something in return
+  - link: https://www.egyptindependent.com/could-china-push-iran-into-a-peace-deal-only-if-it-gets-something-i
+  - published: Wed, 06 May 2026 12:20:26 +0000
+  - summary (428c): Beijing — A visit to Beijing by Iran’s top diplomat – days before US President Donald Trump is set to travel to the Chinese capital – has turned up the spotlight on a key question: can China take on the role of peace broker in US-Iran conflict? With a shaky ceasefire and stop-and-start diplomacy so 

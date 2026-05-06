@@ -1,35 +1,35 @@
 # netherlands_belgium / DutchNews.nl
 
 - URL: <https://www.dutchnews.nl/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=116.9c, stub=0.0%, fresh=0.4h
+- Decision: **ACCEPT** — items=10, avg_summary=119.9c, stub=0.0%, fresh=1.3h
 - Lang declared: `en`  Lean: Independent EN-language
-- Status: 200  Items: 10  Bytes: 14200
-- Summary avg: 116.9 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 09:16:19 +0000  (0.4h old)
+- Status: 200  Items: 10  Bytes: 14405
+- Summary avg: 119.9 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 13:41:52 +0000  (1.3h old)
 
 ## Sample items
 
-**1.** “Deep disappointment” as environmental leader joins Tata Steel
+**1.** Eighth patient confirmed in hantavirus outbreak on cruise ship
+  - link: https://www.dutchnews.nl/2026/05/eighth-patient-confirmed-in-hantavirus-outbreak-on-cruise-ship/
+  - published: Wed, 06 May 2026 13:41:52 +0000
+  - summary (120c): A third case of hantavirus has been confirmed among passengers on board a cruise ship in the South Atlantic, bringing...
+
+**2.** Belgian police arrest five Dutch nationals in 208kg cocaine bust
+  - link: https://www.dutchnews.nl/2026/05/belgian-police-arrest-five-dutch-nationals-in-208kg-cocaine-bust/
+  - published: Wed, 06 May 2026 12:41:05 +0000
+  - summary (121c): Five Dutch nationals have been arrested in Belgium after police seized 208 kilos of cocaine from a warehouse in Ranst,...
+
+**3.** Vet alarm calls over neglected pets in NL triple in three years
+  - link: https://www.dutchnews.nl/2026/05/vet-alarm-calls-over-neglected-pets-in-nl-triple-in-three-years/
+  - published: Wed, 06 May 2026 12:10:09 +0000
+  - summary (129c): The number of times Dutch vets have raised the alarm with the national animal welfare inspectorate LID over severely neglected...
+
+**4.** More than 7,000 refugee children living in emergency shelters
+  - link: https://www.dutchnews.nl/2026/05/more-than-7000-refugee-children-living-in-emergency-shelters/
+  - published: Wed, 06 May 2026 11:20:39 +0000
+  - summary (125c): More than 7,000 refugee children are living in emergency accommodation in the Netherlands, three times as many as in 2022,...
+
+**5.** “Deep disappointment” as environmental leader joins Tata Steel
   - link: https://www.dutchnews.nl/2026/05/deep-disappointment-as-environmental-leader-joins-tata-steel/
   - published: Wed, 06 May 2026 09:16:19 +0000
   - summary (135c): The head of Dutch environmental campaign organisation Milieufensie, Donald Pols, has abruptly left his position to join Tata Steel –...
-
-**2.** Police attacked with fireworks during latest anti-asylum protest
-  - link: https://www.dutchnews.nl/2026/05/police-attacked-with-fireworks-during-latest-anti-asylum-protest/
-  - published: Wed, 06 May 2026 09:13:44 +0000
-  - summary (123c): Police have been pelted with fireworks at a protest against a planned asylum seekers’ centre in Apeldoorn, in the latest...
-
-**3.** These are six things your Dutch bank should be doing for you
-  - link: https://www.dutchnews.nl/2026/05/these-are-six-things-your-dutch-bank-should-be-doing-for-you/
-  - published: Wed, 06 May 2026 08:16:20 +0000
-  - summary (97c): A good bank is about a whole lot more than providing you with an easy place to stash your cash...
-
-**4.** WHO trying to trace passengers on flight with hantavirus victim
-  - link: https://www.dutchnews.nl/2026/05/who-trying-to-trace-passengers-on-flight-with-hantavirus-victim/
-  - published: Wed, 06 May 2026 07:58:33 +0000
-  - summary (109c): Health officials are trying to trace more than 80 people who were on board the same flight to South Africa...
-
-**5.** Commuting to Amsterdam and Utrecht soars amid housing pressures
-  - link: https://www.dutchnews.nl/2026/05/commuting-to-amsterdam-and-utrecht-soars-amid-housing-pressures/
-  - published: Wed, 06 May 2026 07:48:10 +0000
-  - summary (126c): Workers in the Netherlands are increasingly travelling – at least digitally – from much further afield to jobs in Amsterdam...

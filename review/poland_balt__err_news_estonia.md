@@ -1,35 +1,35 @@
 # poland_balt / ERR News (Estonia)
 
 - URL: <https://news.err.ee/rss>
-- Decision: **ACCEPT** — items=10, avg_summary=179.4c, stub=0.0%, fresh=0.4h
+- Decision: **ACCEPT** — items=10, avg_summary=215.0c, stub=0.0%, fresh=0.5h
 - Lang declared: `en`  Lean: Public broadcaster EN
-- Status: 200  Items: 10  Bytes: 34697
-- Summary avg: 179.4 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 12:16:00 +0300  (0.4h old)
+- Status: 200  Items: 10  Bytes: 34938
+- Summary avg: 215.0 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 17:31:00 +0300  (0.5h old)
 
 ## Sample items
 
-**1.** Ratings: EKRE sees slight rise in support through spring
-  - link: https://news.err.ee/1610015581/ratings-ekre-sees-slight-rise-in-support-through-spring
-  - published: Wed, 06 May 2026 12:16:00 +0300
-  - summary (134c): Support for the opposition Conservative People's Party of Estonia (EKRE) has been rising for over a month, according to a recent poll.
+**1.** New Muslim congregation registered in Estonia after long disputes
+  - link: https://news.err.ee/1610015854/new-muslim-congregation-registered-in-estonia-after-long-disputes
+  - published: Wed, 06 May 2026 17:31:00 +0300
+  - summary (188c): A new religious association, the Estonian Muslims Muftiate Congregation, has been officially registered in Estonia, one of the congregation's leaders and Mufti Ildar Muhhamedšin announced.
 
-**2.** FM on broken ceasefire: Russia only cares about its parade, not real peace
-  - link: https://news.err.ee/1610015617/fm-on-broken-ceasefire-russia-only-cares-about-its-parade-not-real-pe
-  - published: Wed, 06 May 2026 12:02:00 +0300
-  - summary (179c): Minister of Foreign Affairs Margus Tsahkna (Eesti 200) criticized Russia's violation of Ukraine's ceasefire on Wednesday morning, saying it shows Moscow does not care about peace.
+**2.** Gallery: Danish photographer's exhibition showcases creativity of moisture
+  - link: https://news.err.ee/1610015791/gallery-danish-photographer-s-exhibition-showcases-creativity-of-mois
+  - published: Wed, 06 May 2026 17:10:00 +0300
+  - summary (85c): An exhibition of acclaimed Danish artist Claus Rohland's photography work has opened.
 
-**3.** Industrial production down 3.1 percent in March
-  - link: https://news.err.ee/1610015527/industrial-production-down-3-1-percent-in-march
-  - published: Wed, 06 May 2026 11:55:00 +0300
-  - summary (175c): Estonia's industrial production fell 3.1 percent in March compared to last year, driven by steep declines in the energy and manufacturing sectors, Statistics Estonia reported.
+**3.** Tallinn faces prolonged traffic disruptions as major road projects advance
+  - link: https://news.err.ee/1610015857/tallinn-faces-prolonged-traffic-disruptions-as-major-road-projects-ad
+  - published: Wed, 06 May 2026 16:45:00 +0300
+  - summary (235c): Estonia's capital should expect significant traffic disruptions this spring, summer and beyond as the city carries out multiple large-scale road and public transport projects at the same time, Tallinn Deputy Mayor Kristjan Järvan said.
 
-**4.** Gallery: Firefighters work overnight to contain Ida-Viru County blazes
-  - link: https://news.err.ee/1610015530/gallery-firefighters-work-overnight-to-contain-ida-viru-county-blazes
-  - published: Wed, 06 May 2026 11:20:00 +0300
-  - summary (132c): Firefighters in Ida-Viru County battled through the night Tuesday to Wednesday to contain wildfires spanning a total of 20 hectares.
+**4.** Suva sock factory to lay off several dozen employees
+  - link: https://news.err.ee/1610015716/suva-sock-factory-to-lay-off-several-dozen-employees
+  - published: Wed, 06 May 2026 16:30:00 +0300
+  - summary (219c): Estonian hosiery and sock factory owned by Sockmann Group, which operates under the Suva brand, plans to lay off 25–30 of its 52 employees, citing sharply rising production costs and an unfavorable economic environment.
 
-**5.** Expert: New fixed-term contracts for public sector middle managers 'unique'
-  - link: https://news.err.ee/1610015518/expert-new-fixed-term-contracts-for-public-sector-middle-managers-uni
-  - published: Wed, 06 May 2026 10:50:00 +0300
-  - summary (171c): Experts at TalTech warn that a plan to make the employment contracts of mid-level managers at state agencies fixed-term is unprecedented in developed democratic countries.
+**5.** Estonia's labor market is saturated with managers
+  - link: https://news.err.ee/1610015680/estonia-s-labor-market-is-saturated-with-managers
+  - published: Wed, 06 May 2026 16:05:00 +0300
+  - summary (312c): Tallinn City Government has just confirmed Margit Viilip as the new director of Kadriorg Park, chosen from among 97 candidates. According to recruiters, such competition for a single position is to be expected, as there are currently more senior executives on the labor market than there are availabl

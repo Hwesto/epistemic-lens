@@ -1,11 +1,11 @@
 # mexico / Mexico News Daily
 
 - URL: <https://mexiconewsdaily.com/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=315.7c, stub=0.0%, fresh=9.5h
+- Decision: **ACCEPT** — items=10, avg_summary=315.7c, stub=0.0%, fresh=14.9h
 - Lang declared: `en`  Lean: Independent EN expat-focused
-- Status: 200  Items: 10  Bytes: 94793
+- Status: 200  Items: 10  Bytes: 94794
 - Summary avg: 315.7 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 00:09:30 +0000  (9.5h old)
+- Newest: Wed, 06 May 2026 00:09:30 +0000  (14.9h old)
 
 ## Sample items
 

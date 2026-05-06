@@ -1,35 +1,35 @@
 # germany / Deutsche Welle Deutsch
 
 - URL: <https://rss.dw.com/rdf/rss-de-all>
-- Decision: **ACCEPT** — items=10, avg_summary=194.7c, stub=0.0%, fresh=1.2h
+- Decision: **ACCEPT** — items=10, avg_summary=193.5c, stub=0.0%, fresh=0.6h
 - Lang declared: `de`  Lean: Public broadcaster — domestic
-- Status: 200  Items: 10  Bytes: 244876
-- Summary avg: 194.7 chars  Stub: 0.0%  GN: False
-- Newest: 2026-05-06T08:28:00Z  (1.2h old)
+- Status: 200  Items: 10  Bytes: 237196
+- Summary avg: 193.5 chars  Stub: 0.0%  GN: False
+- Newest: 2026-05-06T14:27:00Z  (0.6h old)
 
 ## Sample items
 
-**1.** Iran-Krieg: Was der Kerosin-Mangel für Flugreisende bedeutet
-  - link: https://www.dw.com/de/iran-krieg-was-der-kerosin-mangel-für-flugreisende-bedeutet/a-76976578?maca=de
-  - published: 2026-05-06T08:28:00Z
-  - summary (143c): Die Treibstoff-Versorgung der Luftfahrtbranche könnte zum Problem werden. Passagiere müssen demnächst nicht nur mit steigenden Preisen rechnen.
+**1.** Ungarns neue Regierung: Mit Volldampf in den Systemwechsel
+  - link: https://www.dw.com/de/ungarns-neue-regierung-mit-volldampf-in-den-systemwechsel/a-77067197?maca=de-r
+  - published: 2026-05-06T14:27:00Z
+  - summary (216c): Der designierte Premier Peter Magyar stellt ein ungewöhnliches Kabinett zusammen, um den Wandel im Land zu schaffen. Aber es bleiben Fragen - vor allem zu einer Personalie der Regierung und zur neuen Ukraine-Politik.
 
-**2.** Trump stoppt US-Militäreinsatz in der Straße von Hormus
+**2.** Biennale in der Krise: Jury-Rücktritt und Kontroversen
+  - link: https://www.dw.com/de/biennale-in-der-krise-jury-rücktritt-und-kontroversen/a-76821945?maca=de-rss-d
+  - published: 2026-05-06T14:01:00Z
+  - summary (180c): Eklat in Venedig: Da die Jury aufgrund der umstrittenen Teilnahme Russlands und Israels zurückgetreten ist, wird der traditionelle Goldene Löwe wird in diesem Jahr nicht verliehen,
+
+**3.** Manipulation im Musikbusiness: Ist ein Hit wirklich ein Hit?
+  - link: https://www.dw.com/de/manipulation-im-musikbusiness-ist-ein-hit-wirklich-ein-hit/a-77033576?maca=de-
+  - published: 2026-05-06T13:33:00Z
+  - summary (219c): Verdanken Sombr und die Indie-Band Geese ihren Erfolg vor allem "Trend-Simulations" auf TikTok? Diese Frage hat Schockwellen unter Fans ausgelöst. Dabei sind Chart-Manipulationen fast so alt wie die Musikbranche selbst.
+
+**4.** Trump stoppt US-Militäreinsatz in der Straße von Hormus
   - link: https://www.dw.com/de/trump-stoppt-us-militäreinsatz-in-der-straße-von-hormus/a-77061411?maca=de-rss
-  - published: 2026-05-06T08:27:00Z
+  - published: 2026-05-06T12:50:00Z
   - summary (178c): Nach nur einem Tag hat Präsident Trump den US-Militärschutz zur Absicherung der Schifffahrt in der Straße von Hormus unterbrochen. Gibt es nun doch ein Friedensabkommen mit Iran?
 
-**3.** Bierland Tschechien: Die junge Generation verliert den Durst
-  - link: https://www.dw.com/de/bierland-tschechien-die-junge-generation-verliert-den-durst/a-77056294?maca=de
-  - published: 2026-05-06T08:00:00Z
-  - summary (192c): Bierweltmeister Tschechien meldet einen Rekordrückgang beim Bierkonsum. Vor allem die junge Generation trinkt weniger. Während Brauereien Alarm schlagen, sehen Gesundheitsexperten das positiv.
-
-**4.** Dubai fürchtet um seinen Ruf als Finanzplatz
-  - link: https://www.dw.com/de/dubai-fürchtet-um-seinen-ruf-als-finanzplatz/a-77054319?maca=de-rss-de-all-111
-  - published: 2026-05-06T07:37:00Z
-  - summary (161c): Wegen des Iran-Kriegs verlagern wohlhabende Eliten ihr Vermögen von Dubai nach Singapur und in die Schweiz. Ist der Ruf des Emirats als sicherer Hafen in Gefahr?
-
-**5.** Japan richtet Indopazifik-Strategie auf Südostasien aus
-  - link: https://www.dw.com/de/japan-richtet-indopazifik-strategie-auf-südostasien-aus/a-77057569?maca=de-rss
-  - published: 2026-05-06T07:23:00Z
-  - summary (208c): Japans Premierministerin Takaichi nutzte einen Besuch in Vietnam, um ihre Indo-Pazifik-Strategie vorzustellen. Im Mittelpunkt stehen Energiesicherheit, kritische Mineralien und Widerstandsfähigkeit der ASEAN.
+**5.** Uganda: Gesetz gegen "Einmischung aus dem Ausland"
+  - link: https://www.dw.com/de/uganda-gesetz-gegen-einmischung-aus-dem-ausland/a-77066059?maca=de-rss-de-all-
+  - published: 2026-05-06T12:49:00Z
+  - summary (186c): Nach dem Vorbild Russlands will Ugandas Regierung den Einfluss des Auslands bei politischen und gesellschaftlichen Themen stärker kontrollieren. Die Opposition spricht von Unterdrückung.

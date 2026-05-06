@@ -1,35 +1,35 @@
 # pakistan / Geo News English
 
 - URL: <https://www.geo.tv/rss/1/0>
-- Decision: **ACCEPT** — items=10, avg_summary=282.3c, stub=0.0%, fresh=0.1h
+- Decision: **ACCEPT** — items=10, avg_summary=277.8c, stub=0.0%, fresh=0.1h
 - Lang declared: `en`  Lean: Mainstream commercial — Jang group
-- Status: 200  Items: 10  Bytes: 48445
-- Summary avg: 282.3 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 14:31:00 +05:00  (0.1h old)
+- Status: 200  Items: 10  Bytes: 48903
+- Summary avg: 277.8 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 19:52:00 +05:00  (0.1h old)
 
 ## Sample items
 
-**1.** Andrew update left Buckingham Palace in chaos: Eugenie 'in trouble'
-  - link: https://www.geo.tv/latest/663120-andrew-update-left-buckingham-palace-in-chaos-eugenie-in-trouble
-  - published: Wed, 06 May 2026 14:31:00 +05:00
-  - summary (287c): Princess Eugenie left Buckingham Palace in chaos with Andrew updatePrincess Eugenie landed in serious trouble after issuing an unexpected update on his father, Andrew Mountbatten-Windsor.The youngest daughter of the York household is known to be quite active on her official Instagram...
+**1.** Beijing to play 'greater role' in ending Mideast fighting, China tells Iran
+  - link: https://www.geo.tv/latest/663175-beijing-to-play-greater-role-in-ending-mideast-fighting-chinese-fm-
+  - published: Wed, 06 May 2026 19:52:00 +05:00
+  - summary (283c): Chinese Foreign Minister Wang Yi and Iranian Foreign Minister Abbas Araqchi shake hands in Beijing, China, in this handout image released by China's Ministry of Foreign Affairs May 6, 2026. — Reuters FM Wang says China will work harder to ease Middle East tensions.Chinese FM says...
 
-**2.** Kylie Jenner laughs off Met Gala makeup disaster in fun video
-  - link: https://www.geo.tv/latest/663124-kylie-jenner-laughs-off-met-gala-makeup-disaster-in-fun-video
-  - published: Wed, 06 May 2026 14:19:00 +05:00
-  - summary (282c): Kylie Jenner laughs off Met Gala makeup disaster in fun videoKylie Jenner may have looked perfectly polished at the 2026 Met Gala, but backstage? Absolute beauty chaos.Just minutes before hitting the carpet, Kylie’s glam team was apparently fighting for their lives over one tiny...
+**2.** Rizwan's 'not deserving' Kingsmen remark draws backlash from Pakistani bowler
+  - link: https://www.geo.tv/latest/663173-rizwans-not-deserving-kingsmen-remark-draws-backlash-from-pakistan-
+  - published: Wed, 06 May 2026 19:52:00 +05:00
+  - summary (273c): Rawalpindiz skipper Mohammad Rizwan returns to the pavilion after being dismissed by Hyderabad Kingsmen's Mohammad Ali during the PSL 11 match at National Bank Stadium, Karachi, on April 16, 2026. — PSLPakistan leg-spinner Usama Mir, who has played for Lahore Qalandars,...
 
-**3.** Motorbikes, buses, rickshaws to use designated lanes on Karachi's Sharea Faisal or face fines
-  - link: https://www.geo.tv/latest/663122-motorbikes-buses-rickshaws-to-use-designated-lanes-on-karachis-shar
-  - published: Wed, 06 May 2026 14:06:00 +05:00
-  - summary (284c): A large number of vehicles are stuck in traffic at Shahrah-e-Faisal in Karachi on January 8, 2026. — PPIKARACHI: Motorbikes, buses and rickshaws will be required to use separate designated lanes on Sharea Faisal, with violators set to face fines under a new traffic management plan...
+**3.** Ted Turner, visionary who transformed news with CNN, dies at 87
+  - link: https://www.geo.tv/latest/663183-cnn-founder-ted-turner-dies-at-87
+  - published: Wed, 06 May 2026 19:51:00 +05:00
+  - summary (284c): CNN founder Ted Turner dies at 87Ted Turner, the media mogul who founded CNN and revolutionized television news, has died at the age of 87.He passed away peacefully Wednesday, surrounded by his family, according to a statement from Turner Enterprises.Turner launched CNN on June 1,...
 
-**4.** Angelina Jolie scores major court win against Brad Pitt
-  - link: https://www.geo.tv/latest/663108-angelina-jolie-scores-major
-  - published: Wed, 06 May 2026 13:39:00 +05:00
-  - summary (275c): Angelina Jolie scores major court win against Brad PittThe legal vineyard drama between Angelina Jolie and Brad Pitt just added another very expensive chapter – and this round went to Jolie.A Los Angeles judge ruled Monday that Pitt cannot force Jolie to hand over private...
+**4.** Key highlights of 14-point memo negotiated between US and Iran
+  - link: https://www.geo.tv/latest/663174-key-highlights-of-14-point-memo-negotiated-between-us-and-iran
+  - published: Wed, 06 May 2026 19:47:00 +05:00
+  - summary (275c): A man walks past a billboard near the media centre as delegations from the United States and Iran are expected to hold peace talks in Islamabad, on April 11, 2026. — ReutersIran and the United States are close to reaching an agreement to end the war in the Middle East and...
 
-**5.** Megan Thee Stallion says fame taught her to live 'two different lives'
-  - link: https://www.geo.tv/latest/663119-megan-thee-stallion-says-fame-taught-her-to-live-two-different-live
-  - published: Wed, 06 May 2026 13:38:00 +05:00
-  - summary (284c): Megan Thee Stallion reflects how being 'on all the time' took a toll on herMegan Thee Stallion is learning that building an empire means knowing when to step out of character.In a new cover story with Entrepreneur published Tuesday, May 5, the Grammy-winning rapper opened up about...
+**5.** France moves warship near Hormuz: What it means for US-Iran peace efforts?
+  - link: https://www.geo.tv/latest/663180-france-moves-warship-near-hormuz-what-it-means-for-us-iran-peace-ef
+  - published: Wed, 06 May 2026 19:37:00 +05:00
+  - summary (277c): France moves warship near Hormuz: What it means for US-Iran peace efforts?The French military is deploying its aircraft carrier group close to the Strait of Hormuz as the United States and Iran review each other’s peace proposals amid hopes for a final agreement in upcoming...

@@ -1,35 +1,35 @@
 # argentina_chile / La Nacion AR
 
 - URL: <https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml>
-- Decision: **ACCEPT** — items=10, avg_summary=172.9c, stub=0.0%, fresh=0.0h
+- Decision: **ACCEPT** — items=10, avg_summary=151.3c, stub=0.0%, fresh=0.1h
 - Lang declared: `es`  Lean: Centre-right establishment
-- Status: 200  Items: 10  Bytes: 803756
-- Summary avg: 172.9 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 09:36:10 +0000  (0.0h old)
+- Status: 200  Items: 10  Bytes: 771129
+- Summary avg: 151.3 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 14:56:31 +0000  (0.1h old)
 
 ## Sample items
 
-**1.** Benjamín Vicuña habló por primera vez sobre sus fogosos besos con Esteban Lamothe
-  - link: https://www.lanacion.com.ar/espectaculos/benjamin-vicuna-hablo-por-primera-vez-sobre-sus-fogosos-bes
-  - published: Wed, 06 May 2026 09:36:10 +0000
-  - summary (190c): El actor chileno reconoció en una entrevista en Otro día perdido (eltrece) que sus escenas románticas con su compañero de elenco son de las más apasionadas que debió hacer en toda su carrera
+**1.** Sebastián Báez debutó con una victoria en Roma y amplió a 6-0 su récord frente a estadounidenses en el año
+  - link: https://www.lanacion.com.ar/deportes/tenis/sebastian-baez-debuto-con-una-victoria-en-roma-y-amplio-a
+  - published: Wed, 06 May 2026 14:56:31 +0000
+  - summary (169c): El argentino se presentó en el Foro Itálico venciendo a Brooksby y en la segunda ronda se medirá con Bublik; ganó Sierra; perdieron Trungelliti, Ugo Carabelli y Comesaña
 
-**2.** Sigmund Freud: “El hijo favorito conserva toda su vida el sentimiento de un conquistador”
-  - link: https://www.lanacion.com.ar/lifestyle/sigmund-freud-el-hijo-favorito-conserva-toda-su-vida-el-sentim
-  - published: Wed, 06 May 2026 09:35:47 +0000
-  - summary (235c): El creador del psicoanálisis analizó cómo el favoritismo temprano moldea la autoestima, la seguridad personal y el éxito en la adultez; también estableció un vínculo directo entre las experiencias infantiles y el carácter del individuo
+**2.** Fue la “nena de los 90“: enamoró a una generación, pero decidió alejarse de la televisión y hoy brilla en Europa
+  - link: https://www.lanacion.com.ar/espectaculos/fue-la-nena-de-los-90-enamoro-a-una-generacion-pero-decidio
+  - published: Wed, 06 May 2026 14:56:21 +0000
+  - summary (200c): Valeria Britos, la actriz de las telenovelas juveniles que miles recuerdan, estudió Comunicación y rehizo su vida entre Europa y la Argentina con su marido, que también viene del mundo del espectáculo
 
-**3.** Cuáles son los tres árboles para macetas ideales para tu casa
-  - link: https://www.lanacion.com.ar/lifestyle/cuales-son-los-tres-arboles-para-macetas-ideales-para-tu-casa-
-  - published: Wed, 06 May 2026 09:35:25 +0000
-  - summary (106c): Conocé las opciones más elegidas que se adaptan a la proximidad de la época invernal; mirá de qué se trata
+**3.** Dólar hoy y dólar blue hoy, precio en vivo: el dólar oficial bajó y cotiza a $1410 para la venta
+  - link: https://www.lanacion.com.ar/economia/dolar/dolar-hoy-y-dolar-blue-hoy-precio-en-vivo-a-cuanto-cotiza
+  - published: Wed, 06 May 2026 14:55:00 +0000
+  - summary (131c): La divisa oficial cotiza a $1410 para la venta; en tanto, el dólar en el mercado paralelo se ubica en $1400 para la misma operación
 
-**4.** Carl Jung, referente de la psicología profunda: “La soledad no proviene de no tener gente alrededor, sino de ser incapaz de comunicar cosas”
-  - link: https://www.lanacion.com.ar/lifestyle/carl-jung-referente-de-la-psicologia-profunda-la-soledad-no-pr
-  - published: Wed, 06 May 2026 09:35:11 +0000
-  - summary (130c): Para el especialista, el aislamiento emocional pesa más que la ausencia de personas; descubrí de qué se trata su idea en esta nota
+**4.** Trump afirma que la “ya legendaria” operación en Irán puede llegar a su fin y revelan un principio de acuerdo
+  - link: https://www.lanacion.com.ar/el-mundo/trump-afirma-que-la-ya-legendaria-operacion-en-iran-estaria-lle
+  - published: Wed, 06 May 2026 14:54:52 +0000
+  - summary (72c): Una fuente pakistaní dijo a Axios que hay un memo listo para ser firmado
 
-**5.** Magia nocturna: cuáles son las flores que se abren de noche y cómo cuidarlas
-  - link: https://www.lanacion.com.ar/lifestyle/magia-nocturna-cuales-son-las-flores-que-se-abren-de-noche-y-c
-  - published: Wed, 06 May 2026 09:34:47 +0000
-  - summary (208c): Las plantas son sorprendentes y más aún cuando florecen y expanden su aroma más allá de los límites del hogar; existe un grupo que lo hace cuando la luz solar desaparece, enterate en esta nota de qué tipo son
+**5.** Una por una: cuánto cuesta cada tipo de multa en mayo de 2026
+  - link: https://www.lanacion.com.ar/autos/una-por-una-cuanto-cuesta-cada-tipo-de-multa-en-mayo-de-2026-nid06
+  - published: Wed, 06 May 2026 14:54:00 +0000
+  - summary (171c): Las infracciones de tránsito se actualizan cada cierta cantidad de meses, según la jurisdicción: cuánto cuestan en la provincia de Buenos Aires tras el aumento de este mes

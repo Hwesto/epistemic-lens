@@ -3,33 +3,33 @@
 - URL: <https://arynews.tv/feed/>
 - Decision: **ACCEPT_STUB** — stub_pct=100.0% — titles only, no body
 - Lang declared: `en`  Lean: Right-leaning establishment
-- Status: 200  Items: 10  Bytes: 191512
-- Summary avg: 62.7 chars  Stub: 100.0%  GN: False
-- Newest: 2026-05-06T14:36:52+05:00  (0.0h old)
+- Status: 200  Items: 10  Bytes: 196225
+- Summary avg: 51.8 chars  Stub: 100.0%  GN: False
+- Newest: 2026-05-06T19:53:07+05:00  (0.1h old)
 
 ## Sample items
 
-**1.** Victoria Beckham fires back at Brooklyn’s bombshell claims after months
-  - link: https://arynews.tv/victoria-beckham-fires-back-at-brooklyns-bombshell-claims-after-months
-  - published: 2026-05-06T14:36:52+05:00
-  - summary (71c): Victoria Beckham fires back at Brooklyn’s bombshell claims after months
+**1.** Meet Adam Shulman: The Talented Husband of Anne Hathaway
+  - link: https://arynews.tv/meet-adam-shulman-the-talented-husband-of-anne-hathaway
+  - published: 2026-05-06T19:53:07+05:00
+  - summary (56c): Meet Adam Shulman: The Talented Husband of Anne Hathaway
 
-**2.** China calls for ‘complete’ and immediate end to Middle East fighting
-  - link: https://arynews.tv/china-calls-complete-immediate-end-middle-east-fighting
-  - published: 2026-05-06T14:24:53+05:00
-  - summary (68c): China calls for ‘complete’ and immediate end to Middle East fighting
+**2.** India to allow Pakistani athletes at multilateral sports events
+  - link: https://arynews.tv/india-to-allow-pakistani-athletes-at-multilateral-sports-events
+  - published: 2026-05-06T19:48:34+05:00
+  - summary (63c): India to allow Pakistani athletes at multilateral sports events
 
-**3.** Blake Lively addresses viral Met Gala 2026 moment with surprising family detail
-  - link: https://arynews.tv/blake-lively-addresses-viral-met-gala-2026-moment-with-surprising-family-detail
-  - published: 2026-05-06T14:17:19+05:00
-  - summary (79c): Blake Lively addresses viral Met Gala 2026 moment with surprising family detail
+**3.** CNN founder Ted Turner dies at 87
+  - link: https://arynews.tv/ted-turner-cnn-founder-passes-away
+  - published: 2026-05-06T19:47:39+05:00
+  - summary (33c): CNN founder Ted Turner dies at 87
 
-**4.** Gold prices jump in Pakistan – May 6, 2026
-  - link: https://arynews.tv/gold-prices-jump-in-pakistan-may-6-2026
-  - published: 2026-05-06T13:57:37+05:00
-  - summary (42c): Gold prices jump in Pakistan – May 6, 2026
+**4.** How to get fuel subsidy up to Rs. 0.2 million
+  - link: https://arynews.tv/how-to-get-fuel-subsidy-up-to-rs-0-2-million
+  - published: 2026-05-06T19:42:09+05:00
+  - summary (45c): How to get fuel subsidy up to Rs. 0.2 million
 
-**5.** Billie Eilish reveals traumatic PR training at age 14: ‘I hate it’
-  - link: https://arynews.tv/billie-eilish-reveals-traumatic-pr-training-at-age-14-i-hate-it
-  - published: 2026-05-06T13:55:50+05:00
-  - summary (66c): Billie Eilish reveals traumatic PR training at age 14: ‘I hate it’
+**5.** Robert Irwin’s Heart-Stopping Encounter with a 317kg Crocodile
+  - link: https://arynews.tv/robert-irwins-heart-stopping-encounter-with-a-317kg-crocodile
+  - published: 2026-05-06T19:39:34+05:00
+  - summary (62c): Robert Irwin’s Heart-Stopping Encounter with a 317kg Crocodile

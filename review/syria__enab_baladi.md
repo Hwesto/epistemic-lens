@@ -1,11 +1,11 @@
 # syria / Enab Baladi
 
 - URL: <https://english.enabbaladi.net/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=227.9c, stub=0.0%, fresh=6.6h
+- Decision: **ACCEPT** — items=10, avg_summary=227.9c, stub=0.0%, fresh=12.0h
 - Lang declared: `en`  Lean: Opposition / Idlib-based
 - Status: 200  Items: 10  Bytes: 268716
 - Summary avg: 227.9 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 03:00:27 +0000  (6.6h old)
+- Newest: Wed, 06 May 2026 03:00:27 +0000  (12.0h old)
 
 ## Sample items
 

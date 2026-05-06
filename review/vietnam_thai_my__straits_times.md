@@ -1,35 +1,35 @@
 # vietnam_thai_my / Straits Times
 
 - URL: <https://www.straitstimes.com/news/world/rss.xml>
-- Decision: **ACCEPT** — items=10, avg_summary=150.4c, stub=0.0%, fresh=0.1h
+- Decision: **ACCEPT** — items=10, avg_summary=148.5c, stub=0.0%, fresh=0.2h
 - Lang declared: `en`  Lean: Singapore establishment
-- Status: 200  Items: 10  Bytes: 37347
-- Summary avg: 150.4 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 17:30:42 +0800  (0.1h old)
+- Status: 200  Items: 10  Bytes: 37727
+- Summary avg: 148.5 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 22:45:42 +0800  (0.2h old)
 
 ## Sample items
 
-**1.** UAE denies involvement in Sudan airport attack
-  - link: https://www.straitstimes.com/world/middle-east/uae-denies-involvement-in-sudan-airport-attack
-  - published: Wed, 06 May 2026 17:30:42 +0800
-  - summary (230c): CAIRO, May 6 - The United Arab Emirates denied allegations by Sudan that an Emirati drone had been used in an attack on Khartoum airport on Monday launched from Ethiopia, according to a statement by a UAE official late on Tuesday.
+**1.** Quotes by Ted Turner
+  - link: https://www.straitstimes.com/world/quotes-by-ted-turner
+  - published: Wed, 06 May 2026 22:45:42 +0800
+  - summary (209c): May 6 - U.S. media mogul Ted Turner, who has died, CNN reported on Wednesday, had an inclination to speak his mind that earned him the nickname \"The Mouth of the South.\" Here are some of his colorful quotes:
 
-**2.** US and Iran closing in on one-page memo to end war: Report
-  - link: https://www.straitstimes.com/world/middle-east/us-and-iran-closing-in-on-one-page-memo-to-end-war-ax
-  - published: Wed, 06 May 2026 17:15:29 +0800
-  - summary (92c): The US is reportedly expecting Iranian responses on several key points in the next 48 hours.
+**2.** Zelensky says Hungary returned assets seized from Ukraine bank workers
+  - link: https://www.straitstimes.com/world/europe/zelensky-says-hungary-returned-assets-seized-from-ukraine-
+  - published: Wed, 06 May 2026 22:44:12 +0800
+  - summary (108c): It marks a further thaw in ties after Kremlin-friendly leader Viktor Orban was voted out of office in April.
 
-**3.** Hyundai robot performs handstand, complex gymnastics moves
-  - link: https://www.straitstimes.com/world/hyundai-robot-performs-handstand-complex-gymnastics-moves
-  - published: Wed, 06 May 2026 16:37:00 +0800
-  - summary (86c): The robot features human-scale hands with tactile sensing and fully rotational joints.
+**3.** Pioneering CNN founder Ted Turner dies at 87
+  - link: https://www.straitstimes.com/world/united-states/pioneering-cnn-founder-ted-turner-dies-at-87
+  - published: Wed, 06 May 2026 22:42:09 +0800
+  - summary (75c): Mr Ted Turner transformed television news with the creation of CNN in 1980.
 
-**4.** UN demands Israel ‘immediately’ release Gaza flotilla activists
-  - link: https://www.straitstimes.com/world/middle-east/un-demands-israel-immediately-release-gaza-flotilla-a
-  - published: Wed, 06 May 2026 16:35:00 +0800
-  - summary (99c): Spanish national Saif Abu Keshek and Brazilian Thiago Avila are being held in a prison in Ashkelon.
+**4.** US commerce secretary to testify on Epstein ties before US House panel
+  - link: https://www.straitstimes.com/world/united-states/us-commerce-secretary-to-testify-on-epstein-ties-be
+  - published: Wed, 06 May 2026 22:25:00 +0800
+  - summary (104c): He will testify behind closed doors, and the committee plans to release a transcript in the coming days.
 
-**5.** NATO must spend 5% of GDP on defence by 2030, Poland says
-  - link: https://www.straitstimes.com/world/europe/nato-must-spend-5-of-gdp-on-defence-by-2030-poland-says
-  - published: Wed, 06 May 2026 16:30:37 +0800
-  - summary (262c): WARSAW, May 6 - NATO countries need to hit the alliance's target of spending 5% of gross domestic product (GDP) on defence five years ahead of schedule in 2030, Poland's defence minister said on Wednesday, as he warned of the risks of being too late in rearming.
+**5.** Venice Biennale 'not a court', president says after readmitting Russia
+  - link: https://www.straitstimes.com/world/europe/venice-biennale-not-a-court-president-says-after-readmitti
+  - published: Wed, 06 May 2026 22:11:15 +0800
+  - summary (249c): ROME, May 6 - The Venice Biennale's International Art Exhibition is a space of dialogue to prepare peace and not a court of law, the foundation's head said on Wednesday in a passionate speech to defend his decision to let Russia return to the event.

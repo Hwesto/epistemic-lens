@@ -1,11 +1,11 @@
 # egypt / Ahram Online (via Google News)
 
 - URL: <https://news.google.com/rss/search?q=site:ahram.org.eg&hl=ar&gl=EG&ceid=EG:ar>
-- Decision: **ACCEPT** — items=10, avg_summary=65.1c, stub=20.0%, fresh=2.5h
+- Decision: **ACCEPT** — items=10, avg_summary=62.4c, stub=20.0%, fresh=17.8h
 - Lang declared: `ar`  Lean: State Arabic — flagship
-- Status: 200  Items: 10  Bytes: 125221
-- Summary avg: 65.1 chars  Stub: 20.0%  GN: True
-- Newest: Wed, 06 May 2026 07:06:00 GMT  (2.5h old)
+- Status: 200  Items: 10  Bytes: 120249
+- Summary avg: 62.4 chars  Stub: 20.0%  GN: True
+- Newest: Tue, 05 May 2026 21:11:14 GMT  (17.8h old)
 
 ## Sample items
 
@@ -29,7 +29,7 @@
   - published: Fri, 01 May 2026 23:56:19 GMT
   - summary (51c): المناطق الاستثمارية .. محركات للتنمية بوابة الأهرام
 
-**5.** 'Your voice will live forever': Egyptian, Arab tributes pour in for Hany Shaker - Music - Arts & Culture - Ahram Online
-  - link: https://news.google.com/rss/articles/CBMiWEFVX3lxTE1VYm9ONllLRHBXVnRQYlQ2emhVRldQeUFfd0hrVlFyM24wZ0d
-  - published: Tue, 05 May 2026 12:02:35 GMT
-  - summary (117c): 'Your voice will live forever': Egyptian, Arab tributes pour in for Hany Shaker - Music - Arts & Culture Ahram Online
+**5.** هوامش حرة سيناء الخالية - بوابة الأهرام
+  - link: https://news.google.com/rss/articles/CBMihwJBVV95cUxPdHNMQW5aSVp5T01NMzJZUUp3QlUxMXlBaHlYSWF6YlpSd2J
+  - published: Tue, 05 May 2026 20:20:12 GMT
+  - summary (37c): هوامش حرة سيناء الخالية بوابة الأهرام

@@ -1,11 +1,11 @@
 # philippines / Inquirer
 
 - URL: <https://www.inquirer.net/fullfeed>
-- Decision: **ACCEPT** — items=10, avg_summary=483.0c, stub=0.0%, fresh=-39.4h
+- Decision: **ACCEPT** — items=10, avg_summary=493.0c, stub=0.0%, fresh=-34.0h
 - Lang declared: `en`  Lean: Centrist flagship
-- Status: 200  Items: 10  Bytes: 29664
-- Summary avg: 483.0 chars  Stub: 0.0%  GN: False
-- Newest: Fri, 08 May 2026 09:00:00 +0800  (-39.4h old)
+- Status: 200  Items: 10  Bytes: 29546
+- Summary avg: 493.0 chars  Stub: 0.0%  GN: False
+- Newest: Fri, 08 May 2026 09:00:00 +0800  (-34.0h old)
 
 ## Sample items
 
@@ -14,22 +14,22 @@
   - published: Fri, 08 May 2026 09:00:00 +0800
   - summary (430c): This Mother’s Day, go beyond the usual and celebrate the extraordinary women who do it all. At Robinsons Land Corporation’s Robinsons Malls, families are invited to treat Mom to a thoughtfully curated day designed to let her pause, recharge, and feel appreciated. Beauty and Wellness Start her day wi
 
-**2.** Small businesses in Cebu to benefit Asean’s Digital Economy Framework
-  - link: https://cebudailynews.inquirer.net/?p=724960
-  - published: Wed, 06 May 2026 18:30:00 +0800
-  - summary (466c): CEBU, Philippines – Aside from energy and food security, this year’s Asean (Association of Southeast Asian Nations) Summit also seeks to officially conclude a landmark regional treaty that would benefit millions of micro and small businesses in the region, including here in Cebu. The Philippine gove
+**2.** Eastern Samar logs minor damage after magnitude 6 earthquake
+  - link: https://newsinfo.inquirer.net/2224555/eastern-samar-logs-minor-damage-after-magnitude-6-earthquake
+  - published: Wed, 06 May 2026 22:45:34 +0800
+  - summary (500c): TACLOBAN CITY — The Provincial Disaster Risk Reduction and Management Office (PDRRMO) of Eastern Samar has reported widespread minor structural damage across several towns following a magnitude 6 earthquake that struck off San Julian on May 4, based on a situation report released on Tuesday, May 5. 
 
-**3.** Alden Richards, David Licauco to headline star-studded Sparkle Run 2026
-  - link: https://entertainment.inquirer.net/667594/alden-richards-david-licauco-to-headline-star-studded-spar
-  - published: Wed, 06 May 2026 17:30:56 +0800
-  - summary (500c): Alden Richards and David Licauco are set to join fans in the upcoming Sparkle Run 2026 on May 30 at the Quirino Grandstand. Organized by Sparkle GMA Artist Center, the inaugural fun run will bring together celebrities and supporters in a fitness and fan engagement event open to both seasoned runners
+**3.** Wanted man nabbed for rape in Iloilo town
+  - link: https://newsinfo.inquirer.net/2224548/wanted-man-nabbed-for-rape-in-iloilo-town
+  - published: Wed, 06 May 2026 22:34:00 +0800
+  - summary (500c): ILOILO CITY, Philippines — Police arrested Western Visayas’ top 10 most wanted person for rape with homicide during an operation in Barangay La Fortuna, Barotac Viejo, Iloilo, on Tuesday morning, May 5. The suspect, identified only by his alias “Boyboy,” is a 24-year-old laborer and resident of Baro
 
-**4.** Rabin Angeles, Angela Muji on relationship status: ‘Our connection is real’
-  - link: https://entertainment.inquirer.net/667581/rabin-angeles-angela-muji-on-relationship-status-our-conne
-  - published: Wed, 06 May 2026 17:18:13 +0800
-  - summary (500c): Rabin Angeles and Angela Muji — also known as RabGel — are aware of the bond that they share, saying they don’t have to fake it for the cameras because their connection is real. Angeles and Muji were questioned about their relationship status in a media con for their anthology series, with the actre
+**4.** 8 wildlife returned to Zamboanga Sibugay forest
+  - link: https://newsinfo.inquirer.net/2224502/8-wildlife-returned-to-zamboanga-sibugay-forest
+  - published: Wed, 06 May 2026 22:29:15 +0800
+  - summary (500c): PAGADIAN CITY, Zamboanga del Sur — A reticulated python slithered back into the undergrowth, a serpent eagle soared above the treetops, and native birds reclaimed the canopy as eight rehabilitated wildlife were released into their natural habitat in Sitio Sacaon, Barangay Guinoman, Diplahan town in 
 
-**5.** Diana Hughes: The 'Wonder Woman' of Philippine Pickleball
-  - link: https://business.inquirer.net/588911/diana-hughes-the-wonder-woman-of-philippine-pickleball
-  - published: Wed, 06 May 2026 17:16:26 +0800
-  - summary (500c): In the fast-rising world of pickleball, few athletes embody excellence, longevity, and global impact quite like Diana Hughes. From her beginnings as a standout tennis player in Arizona, USA, to becoming one of the most decorated Filipina pickleball athletes, Hughes has crafted a story defined by dom
+**5.** Iloilo City truck drivers nabbed for selling meth
+  - link: https://newsinfo.inquirer.net/2224544/iloilo-city-truck-drivers-nabbed-for-selling-meth
+  - published: Wed, 06 May 2026 22:26:47 +0800
+  - summary (500c): ILOILO CITY, Philippines — Two truck drivers were arrested in a buy-bust operation here that led to the seizure of about P476,000 worth of suspected shabu, police said. The operation was conducted at around 11:55 p.m. on Wednesday, May 5, in Zone 3, Barangay Tacas, Jaro district. Police identified t

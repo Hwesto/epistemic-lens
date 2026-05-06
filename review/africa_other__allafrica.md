@@ -1,35 +1,35 @@
 # africa_other / AllAfrica
 
 - URL: <https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf>
-- Decision: **ACCEPT** — items=10, avg_summary=153.8c, stub=0.0%, fresh=0.6h
+- Decision: **ACCEPT** — items=10, avg_summary=157.7c, stub=0.0%, fresh=1.0h
 - Lang declared: `en`  Lean: Continental aggregator
-- Status: 200  Items: 10  Bytes: 24647
-- Summary avg: 153.8 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 09:05:00 GMT  (0.6h old)
+- Status: 200  Items: 10  Bytes: 24181
+- Summary avg: 157.7 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 13:58:32 GMT  (1.0h old)
 
 ## Sample items
 
-**1.** South Africa: Deadly Storms Trap Thousands and Force Schools to Shut Doors
+**1.** South Sudan: Civilians Starving in South Sudan's Conflict Areas
+  - link: https://allafrica.com/stories/202605060482.html
+  - published: Wed, 06 May 2026 13:54:48 GMT
+  - summary (79c): [HRW] New Report Highlights Devastating Impact of Conflict and Aid Restrictions
+
+**2.** Kenya: Explainer - Why Fuel Is So Expensive in Kenya - and Where Your Money Goes
+  - link: https://allafrica.com/stories/202605060487.html
+  - published: Wed, 06 May 2026 13:58:32 GMT
+  - summary (136c): [Africa Check] Kenya fuel prices surged in mid-April 2026, reigniting fierce debate over the role of taxes and levies in petrol pricing.
+
+**3.** South Africa: Finance Minister Warns Joburg Is in 'Severe Financial Distress' in Letter to Mayor Morero
+  - link: https://allafrica.com/stories/202605060485.html
+  - published: Wed, 06 May 2026 13:56:59 GMT
+  - summary (165c): [Daily Maverick] Enoch Godongwana has ordered Joburg's mayor to stop the implementation of a budget-busting wage deal and warns it could affect the national economy.
+
+**4.** Zimbabwe: Govt Reduces Mining Fees to Boost Investment
+  - link: https://allafrica.com/stories/202605060394.html
+  - published: Wed, 06 May 2026 11:50:39 GMT
+  - summary (191c): [263Chat] The Government has approved a broad overhaul of licences, permits and fees in the mining sector in a move it says will reduce the cost of doing business and improve competitiveness.
+
+**5.** South Africa: Deadly Storms Trap Thousands and Force Schools to Shut Doors
   - link: https://allafrica.com/stories/202605060139.html
   - published: Wed, 06 May 2026 09:05:00 GMT
   - summary (243c): [Scrolla] Floods have cut off nearly two thousand families in the Northern Cape and destroyed homes in the Free State today. Authorities locked the doors of over one hundred schools in the Western Cape to keep children safe from rising waters.
-
-**2.** Kenya: Fuel Shortage - Technical Hitch Cited
-  - link: https://allafrica.com/stories/202605060136.html
-  - published: Wed, 06 May 2026 09:02:49 GMT
-  - summary (283c): [Capital FM] Nairobi -- Energy Cabinet Secretary Opiyo Wandayi has attributed the recent fuel shortages reported at select petrol stations to a technical and administrative hitch, assuring Kenyans that the disruption is being resolved and normal supply will be restored within hours.
-
-**3.** Malawi: More Than 200 Malawians Cry for Help As Fear and Violence Spread in South Africa
-  - link: https://allafrica.com/stories/202605060089.html
-  - published: Wed, 06 May 2026 07:01:13 GMT
-  - summary (198c): [Nyasa Times] The Malawi government says it has received more than 200 desperate calls from Malawians living in South Africa, begging to be brought back home after a new wave of xenophobic violence.
-
-**4.** South Africa: Elders Urged to Speak Out About Abuse
-  - link: https://allafrica.com/stories/202605060076.html
-  - published: Wed, 06 May 2026 06:57:49 GMT
-  - summary (83c): [GroundUp] Older people often do not know their rights, Ilitha Labantu meeting told
-
-**5.** Africa: All of Africa Today - May 6, 2026
-  - link: https://allafrica.com/stories/202605060054.html
-  - published: Wed, 06 May 2026 06:45:41 GMT
-  - summary (11c): [allAfrica]

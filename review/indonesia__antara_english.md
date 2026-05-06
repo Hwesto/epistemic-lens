@@ -1,35 +1,35 @@
 # indonesia / Antara English
 
 - URL: <https://en.antaranews.com/rss/news.xml>
-- Decision: **ACCEPT** — items=10, avg_summary=114.2c, stub=0.0%, fresh=0.1h
+- Decision: **ACCEPT** — items=10, avg_summary=120.1c, stub=0.0%, fresh=0.1h
 - Lang declared: `en`  Lean: State news agency EN
-- Status: 200  Items: 10  Bytes: 34037
-- Summary avg: 114.2 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 16:31:18 +0700  (0.1h old)
+- Status: 200  Items: 10  Bytes: 33969
+- Summary avg: 120.1 chars  Stub: 0.0%  GN: False
+- Newest: Wed, 06 May 2026 21:52:54 +0700  (0.1h old)
 
 ## Sample items
 
-**1.** Free health screening program reaches 100 million Indonesians
-  - link: https://en.antaranews.com/news/414801/free-health-screening-program-reaches-100-million-indonesians
-  - published: Wed, 06 May 2026 16:31:18 +0700
-  - summary (118c): The Free Health Screening (CKG) program has reached 100 million Indonesians as of May 2026, Head of the Indonesian ...
+**1.** Indonesia-USFDA pact boosts $45 million spice trade security
+  - link: https://en.antaranews.com/news/414864/indonesia-usfda-pact-boosts-45-million-spice-trade-security
+  - published: Wed, 06 May 2026 21:52:54 +0700
+  - summary (121c): The Indonesian Food and Drug Monitoring Agency (BPOM) signed a Confidentiality Commitment (CC) with the United States ...
 
-**2.** Indonesia prepares workers for growing green jobs demand
-  - link: https://en.antaranews.com/news/414800/indonesia-prepares-workers-for-growing-green-jobs-demand
-  - published: Wed, 06 May 2026 15:02:59 +0700
-  - summary (121c): The Indonesian government is preparing skilled workers to meet growing demand for green jobs amid rapid growth in the ...
+**2.** Manufacturing remains backbone of Indonesia's economy: ministry
+  - link: https://en.antaranews.com/news/414863/manufacturing-remains-backbone-of-indonesias-economy-ministry
+  - published: Wed, 06 May 2026 21:38:20 +0700
+  - summary (123c): The Industry Ministry stated that the manufacturing industry has emphasized its role as a major contributor to national ...
 
-**3.** Indonesia records lower imports in March amid geopolitical pressures
-  - link: https://en.antaranews.com/news/414799/indonesia-records-lower-imports-in-march-amid-geopolitical-pre
-  - published: Wed, 06 May 2026 14:12:56 +0700
-  - summary (113c): Indonesia's imports declined in March 2026 due to the Eid al-Fitr holiday period, geopolitical pressures, and ...
+**3.** Indonesia ships first yogurt export to Vietnam
+  - link: https://en.antaranews.com/news/414859/indonesia-ships-first-yogurt-export-to-vietnam
+  - published: Wed, 06 May 2026 21:14:36 +0700
+  - summary (120c): The Indonesian Ministry of Trade oversaw the inaugural export of yogurt products to Vietnam on Tuesday, with a total ...
 
-**4.** ASEAN ministers adopt Bali Declaration on youth, sports
-  - link: https://en.antaranews.com/news/414795/asean-ministers-adopt-bali-declaration-on-youth-sports
-  - published: Wed, 06 May 2026 13:43:57 +0700
-  - summary (119c): ASEAN youth and sports ministers adopted a six-point Bali Declaration to boost cooperation on youth development and ...
+**4.** Only 6 percent of Indonesian universities earn top accreditation
+  - link: https://en.antaranews.com/news/414857/only-6-percent-of-indonesian-universities-earn-top-accreditati
+  - published: Wed, 06 May 2026 20:59:19 +0700
+  - summary (122c): Director of Institutional Affairs at the Ministry of Higher Education, Science, and Technology Mukhamad Najib revealed ...
 
-**5.** Indonesia's alms agency, Qatar bolster humanitarian ties
-  - link: https://en.antaranews.com/news/414792/indonesias-alms-agency-qatar-bolster-humanitarian-ties
-  - published: Wed, 06 May 2026 12:53:51 +0700
-  - summary (115c): The National Amil Zakat Agency (Baznas) is strengthening its partnership with Qatar to enhance humanitarian and ...
+**5.** Indonesia targets June launch for first Panda Bond sale
+  - link: https://en.antaranews.com/news/414855/indonesia-targets-june-launch-for-first-panda-bond-sale
+  - published: Wed, 06 May 2026 20:48:47 +0700
+  - summary (120c): Indonesia aims to issue the yuan-denominated global bonds, known as Panda Bond, to be realized in June 2026, Finance ...

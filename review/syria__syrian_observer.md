@@ -1,11 +1,11 @@
 # syria / Syrian Observer
 
 - URL: <https://syrianobserver.com/feed>
-- Decision: **ACCEPT** — items=10, avg_summary=322.3c, stub=0.0%, fresh=12.6h
+- Decision: **ACCEPT** — items=10, avg_summary=322.3c, stub=0.0%, fresh=18.0h
 - Lang declared: `en`  Lean: Diaspora opposition aggregator
 - Status: 200  Items: 10  Bytes: 134279
 - Summary avg: 322.3 chars  Stub: 0.0%  GN: False
-- Newest: Tue, 05 May 2026 21:00:55 +0000  (12.6h old)
+- Newest: Tue, 05 May 2026 21:00:55 +0000  (18.0h old)
 
 ## Sample items
 

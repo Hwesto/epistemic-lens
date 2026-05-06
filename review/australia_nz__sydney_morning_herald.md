@@ -1,35 +1,35 @@
 # australia_nz / Sydney Morning Herald
 
 - URL: <https://www.smh.com.au/rss/feed.xml>
-- Decision: **ACCEPT** — items=10, avg_summary=150.0c, stub=0.0%, fresh=0.0h
+- Decision: **ACCEPT** — items=10, avg_summary=90.1c, stub=0.0%, fresh=0.4h
 - Lang declared: `en`  Lean: Centre-left establishment
-- Status: 200  Items: 10  Bytes: 17966
-- Summary avg: 150.0 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 19:36:15 +1000  (0.0h old)
+- Status: 200  Items: 10  Bytes: 17525
+- Summary avg: 90.1 chars  Stub: 0.0%  GN: False
+- Newest: Thu, 07 May 2026 00:39:29 +1000  (0.4h old)
 
 ## Sample items
 
-**1.** Soft plastic bins to return to supermarkets
-  - link: https://www.smh.com.au/national/soft-plastic-bins-to-return-to-supermarkets-20260506-p5zuh1.html?ref
-  - published: Wed, 06 May 2026 19:36:15 +1000
-  - summary (117c): Consumers will be able to recycle their soft plastics at major supermarkets with a new national scheme back in place.
+**1.** US and Iran closing in on ‘one-page memo’ to end war, sources say
+  - link: https://www.smh.com.au/world/middle-east/us-and-iran-closing-in-on-one-page-memo-to-end-war-sources-
+  - published: Thu, 07 May 2026 00:39:29 +1000
+  - summary (143c): US President Donald Trump gave no details of any specific proposal but said the war could end if “Iran agrees to give what has been agreed to”.
 
-**2.** A $1 billion surplus is forecast for Victoria. History says don’t hold your breath
-  - link: https://www.smh.com.au/politics/victoria/a-1-billion-surplus-is-forecast-for-victoria-history-says-d
-  - published: Wed, 06 May 2026 19:30:16 +1000
-  - summary (161c): Treasurer Jaclyn Symes insists the budget and the assumptions underpinning it are conservative, despite Treasury’s recent history of overly optimistic forecasts.
+**2.** Smoke bombs let off in protest against Russia at Venice Biennale
+  - link: https://www.smh.com.au/culture/art-and-design/smoke-bombs-let-off-in-protest-against-russia-at-venic
+  - published: Thu, 07 May 2026 00:01:59 +1000
+  - summary (95c): Russian group Pussy Riot joined forces with Ukrainians from Femen to try to storm the building.
 
-**3.** Crystal Palace boss sees bright coaching future for ex-Socceroo Holland
-  - link: https://www.smh.com.au/sport/soccer/crystal-palace-boss-sees-bright-coaching-future-for-ex-socceroo-
-  - published: Wed, 06 May 2026 19:30:00 +1000
-  - summary (176c): James Holland has had a dream run since retiring as a player to pursue coaching – and his boss, Crystal Palace manager Oliver Glasner, thinks he has a long career ahead of him.
+**3.** Superquiz, Thursday, May 7
+  - link: https://www.smh.com.au/national/superquiz-thursday-may-7-20260506-p5zub2.html?ref=rss&utm_medium=rss
+  - published: Wed, 06 May 2026 23:59:00 +1000
+  - summary (69c): Trivia buffs, test your knowledge with today’s interactive superquiz.
 
-**4.** The farewell speech ‘joke’ that ended in private school head’s sacking
-  - link: https://www.smh.com.au/national/nsw/the-farewell-speech-joke-that-ended-in-private-school-head-s-sac
-  - published: Wed, 06 May 2026 19:30:00 +1000
-  - summary (142c): Tony George made a joke at a staff farewell. He was later fired and told on Christmas Eve he had a month to vacate the headmaster’s residence.
+**4.** Best of cartoons, May 7, 2026
+  - link: https://www.smh.com.au/politics/federal/best-of-cartoons-may-7-2026-20260506-p5zue1.html?ref=rss&utm
+  - published: Wed, 06 May 2026 21:55:32 +1000
+  - summary (89c): The news of the day as interpreted by our talented artists, illustrators and cartoonists.
 
-**5.** The world’s biggest democracy is about to become a one-party state
-  - link: https://www.smh.com.au/world/asia/the-world-s-biggest-democracy-is-about-to-become-a-one-party-state
-  - published: Wed, 06 May 2026 19:30:00 +1000
-  - summary (157c): Despite economic headwinds, election defeats for two major rivals this week have left India’s Prime Minister Narendra Modi looking increasingly unassailable.
+**5.** The latest illustrations from artist Cathy Wilcox
+  - link: https://www.smh.com.au/politics/federal/the-latest-illustrations-from-artist-cathy-wilcox-20230608-p
+  - published: Wed, 06 May 2026 21:55:17 +1000
+  - summary (76c): The latest work by the acclaimed Sydney Morning Herald editorial cartoonist.

@@ -1,11 +1,11 @@
 # egypt / Mada Masr
 
 - URL: <https://www.madamasr.com/en/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=375.8c, stub=0.0%, fresh=23.0h
+- Decision: **ACCEPT** — items=10, avg_summary=375.8c, stub=0.0%, fresh=28.4h
 - Lang declared: `en`  Lean: Independent critical — frequently blocked domestically
 - Status: 200  Items: 10  Bytes: 320371
 - Summary avg: 375.8 chars  Stub: 0.0%  GN: False
-- Newest: Tue, 05 May 2026 10:36:32 +0000  (23.0h old)
+- Newest: Tue, 05 May 2026 10:36:32 +0000  (28.4h old)
 
 ## Sample items
 

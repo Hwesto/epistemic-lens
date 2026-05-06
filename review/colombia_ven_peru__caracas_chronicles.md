@@ -1,11 +1,11 @@
 # colombia_ven_peru / Caracas Chronicles
 
 - URL: <https://www.caracaschronicles.com/feed/>
-- Decision: **ACCEPT** — items=3, avg_summary=120.0c, stub=0.0%, fresh=16.6h
+- Decision: **ACCEPT** — items=3, avg_summary=120.0c, stub=0.0%, fresh=22.0h
 - Lang declared: `en`  Lean: Opposition diaspora EN
 - Status: 200  Items: 3  Bytes: 4373
 - Summary avg: 120.0 chars  Stub: 0.0%  GN: False
-- Newest: Tue, 05 May 2026 17:00:00 +0000  (16.6h old)
+- Newest: Tue, 05 May 2026 17:00:00 +0000  (22.0h old)
 
 ## Sample items
 

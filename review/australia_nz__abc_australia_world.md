@@ -1,11 +1,11 @@
 # australia_nz / ABC Australia World
 
 - URL: <https://www.abc.net.au/news/feed/2942460/rss.xml>
-- Decision: **ACCEPT** — items=10, avg_summary=177.3c, stub=0.0%, fresh=1.7h
+- Decision: **ACCEPT** — items=10, avg_summary=177.3c, stub=0.0%, fresh=7.1h
 - Lang declared: `en`  Lean: Public broadcaster
 - Status: 200  Items: 10  Bytes: 86347
 - Summary avg: 177.3 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 07:57:02 +0000  (1.7h old)
+- Newest: Wed, 06 May 2026 07:57:02 +0000  (7.1h old)
 
 ## Sample items
 

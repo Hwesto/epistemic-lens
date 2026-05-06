@@ -1,11 +1,11 @@
 # germany / Spiegel International
 
 - URL: <https://www.spiegel.de/international/index.rss>
-- Decision: **ACCEPT** — items=10, avg_summary=196.9c, stub=0.0%, fresh=162.7h
+- Decision: **ACCEPT** — items=10, avg_summary=196.9c, stub=0.0%, fresh=168.1h
 - Lang declared: `en`  Lean: Centre-left investigative
 - Status: 200  Items: 10  Bytes: 21096
 - Summary avg: 196.9 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 29 Apr 2026 16:57:00 +0200  (162.7h old)
+- Newest: Wed, 29 Apr 2026 16:57:00 +0200  (168.1h old)
 
 ## Sample items
 

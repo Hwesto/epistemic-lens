@@ -3,28 +3,28 @@
 - URL: <https://lenta.ru/rss>
 - Decision: **ACCEPT_STUB** — stub_pct=100.0% — titles only, no body
 - Lang declared: `ru`  Lean: Mainstream — pro-government since 2014
-- Status: 200  Items: 10  Bytes: 144453
+- Status: 200  Items: 10  Bytes: 142616
 - Summary avg: 0.0 chars  Stub: 100.0%  GN: False
-- Newest: Wed, 06 May 2026 12:35:08 +0300  (0.1h old)
+- Newest: Wed, 06 May 2026 17:56:00 +0300  (0.1h old)
 
 ## Sample items
 
-**1.** Турция создала свою «летающую бритву»
-  - link: https://lenta.ru/news/2026/05/06/turtsiya-sozdala-letayuschuyu-britvu/
-  - published: Wed, 06 May 2026 12:35:08 +0300
+**1.** На Украине раскрыли статистику по числу долетевших до Москвы дронов ВСУ
+  - link: https://lenta.ru/news/2026/05/06/na-ukraine-raskryli-statistiku-po-chislu-doletevshih-do-moskvy-dron
+  - published: Wed, 06 May 2026 17:56:00 +0300
 
-**2.** Бывший военный обезвредил вооруженного часового, перелез стену и сбежал из рабства
-  - link: https://lenta.ru/news/2026/05/06/byvshiy-voennyy-obezvredil-vooruzhennogo-chasovogo-perelez-stenu-i-
-  - published: Wed, 06 May 2026 12:34:43 +0300
+**2.** В Архангельской области волонтеры начали спасать шедевры деревянного зодчества
+  - link: https://lenta.ru/news/2026/05/06/v-arhangelskoy-oblasti-volontery-nachali-spasat-shedevry-derevyanno
+  - published: Wed, 06 May 2026 17:54:03 +0300
 
-**3.** Популярная 80-летняя певица рассказала о ежегодных операциях
-  - link: https://lenta.ru/news/2026/05/06/populyarnaya-80-letnyaya-pevitsa-rasskazala-o-ezhegodnyh-operatsiya
-  - published: Wed, 06 May 2026 12:33:16 +0300
+**3.** Смолов сделал прогноз на матч между «Баварией» и ПСЖ
+  - link: https://lenta.ru/news/2026/05/06/smolov-sdelal-prognoz-na-match-mezhdu-bavariey-i-pszh/
+  - published: Wed, 06 May 2026 17:52:38 +0300
 
-**4.** Просившего политубежище россиянина отправили на лечение
-  - link: https://lenta.ru/news/2026/05/06/prosivshego-politubezhische-rossiyanina-obyazali/
-  - published: Wed, 06 May 2026 12:30:42 +0300
+**4.** В России оценили дальность обещанных Киеву умных бомб JDAM
+  - link: https://lenta.ru/news/2026/05/06/v-rossii-otsenili-dalnost-obeschannyh-kievu-umnyh-bomb-jdam/
+  - published: Wed, 06 May 2026 17:45:19 +0300
 
-**5.** В Москве начали отключать отопление
-  - link: https://lenta.ru/news/2026/05/06/v-moskve-nachali-otklyuchat-otoplenie/
-  - published: Wed, 06 May 2026 12:24:46 +0300
+**5.** Россиянам назвали устаревшую мужскую одежду
+  - link: https://lenta.ru/news/2026/05/06/rossiyanam-nazvali-ustarevshuyu-muzhskuyu-odezhdu/
+  - published: Wed, 06 May 2026 17:44:02 +0300

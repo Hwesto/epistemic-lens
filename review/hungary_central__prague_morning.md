@@ -1,11 +1,11 @@
 # hungary_central / Prague Morning
 
 - URL: <https://praguemorning.cz/feed/>
-- Decision: **ACCEPT** — items=10, avg_summary=500.0c, stub=0.0%, fresh=2.4h
+- Decision: **ACCEPT** — items=10, avg_summary=500.0c, stub=0.0%, fresh=7.8h
 - Lang declared: `en`  Lean: Independent EN
 - Status: 200  Items: 10  Bytes: 61206
 - Summary avg: 500.0 chars  Stub: 0.0%  GN: False
-- Newest: Wed, 06 May 2026 07:14:06 +0000  (2.4h old)
+- Newest: Wed, 06 May 2026 07:14:06 +0000  (7.8h old)
 
 ## Sample items
 
