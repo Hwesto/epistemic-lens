@@ -74,8 +74,26 @@ def classify(body_chars: int, error: str | None) -> str:
     return "NONE"
 
 
+def _try_wayback(url: str, timeout: int = 12) -> tuple[int | None, str, str]:
+    """Try to fetch the article via Wayback Machine when direct fetch failed.
+    Returns (http_status, final_url, body_text). body_text is empty on failure.
+    """
+    # Wayback's "newest available capture" redirect endpoint
+    wb_url = f"https://web.archive.org/web/2026/{url}"
+    try:
+        r = requests.get(wb_url, headers=HEADERS, timeout=timeout, allow_redirects=True)
+        if r.status_code == 200 and r.content:
+            body = trafilatura.extract(r.text, include_comments=False,
+                                       include_tables=False, favor_recall=True) or ""
+            return r.status_code, r.url, body
+        return r.status_code, r.url, ""
+    except Exception:
+        return None, "", ""
+
+
 def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
-                attempts: int = 2, per_host_delay: float = 1.0) -> dict:
+                attempts: int = 2, per_host_delay: float = 1.0,
+                use_wayback_fallback: bool = True) -> dict:
     """Fetch + extract a single article. Returns dict with annotations."""
     url = item.get("link") or ""
     out = {
@@ -83,6 +101,7 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
         "extraction_ms": 0,
         "extraction_http": None,
         "extraction_final_url": None,
+        "extraction_via_wayback": False,
         "body_chars": 0,
         "body_text": "",
         "extraction_error": None,
@@ -130,10 +149,52 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
             last_err = f"{e.__class__.__name__}: {str(e)[:60]}"
             break
 
+    # Wayback fallback when direct fetch returned 4xx (anti-bot/paywall)
+    # or when extraction yielded too-thin a body.
+    if (use_wayback_fallback
+        and out["body_chars"] < 200
+        and out["extraction_http"] in (None, 400, 401, 403, 404, 429)):
+        wb_status, wb_url, wb_body = _try_wayback(url, timeout=timeout)
+        if wb_body and len(wb_body) > out["body_chars"]:
+            out["body_text"] = wb_body[:max_body]
+            out["body_chars"] = len(wb_body)
+            out["extraction_final_url"] = wb_url
+            out["extraction_via_wayback"] = True
+            last_err = None  # success via fallback
+
     out["extraction_ms"] = int(1000 * (time.time() - t0))
     out["extraction_error"] = last_err
     out["extraction_status"] = classify(out["body_chars"], last_err)
     return out
+
+
+def signal_text(item: dict, prefer_body: bool = True,
+                max_chars: int = 2500) -> tuple[str, str]:
+    """Best-available text for framing analysis.
+
+    Returns (signal_level, text) where signal_level is one of:
+      'body'    — full article body (≥500 chars)
+      'summary' — RSS summary (≥60 chars), prepended with title
+      'title'   — title only (last-resort)
+      'empty'   — nothing usable
+
+    Use this in any downstream analysis that wants to be tolerant of
+    extraction failures: BBC's Turner story has only a title+summary
+    today (body extraction 403'd) but the headline alone is editorially
+    distinctive ("brash sportsman whose ambition led to a media empire"
+    vs "Trump pays tribute by taking a shot at CNN").
+    """
+    title = (item.get("title") or "").strip()
+    summary = (item.get("summary") or "").strip()
+    body = (item.get("body_text") or "").strip()
+    if prefer_body and body and len(body) >= 500:
+        return ("body", body[:max_chars])
+    if summary and len(summary) >= 60:
+        head = title + "\n\n" if title else ""
+        return ("summary", (head + summary)[:max_chars])
+    if title:
+        return ("title", title[:max_chars])
+    return ("empty", "")
 
 
 def select_items(snap: dict, conv: list | None, top_clusters: int,

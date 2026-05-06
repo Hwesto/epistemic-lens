@@ -1,0 +1,91 @@
+{
+  "video_id": "2026-05-06_02_turner",
+  "story_date": "2026-05-06",
+  "story_title": "Ted Turner, CNN founder, dies at 87",
+  "rank": 2,
+  "n_buckets_in_briefing": 16,
+  "story_one_liner": "Sixteen countries reported the same death. Five of them told you a different story about who Ted Turner actually was.",
+  "duration_seconds": 60,
+  "format": "9:16 vertical short",
+  "target_platforms": ["TikTok", "Instagram Reels", "YouTube Shorts"],
+  "voice_style": "calm-reflective, slower than the news-explainer pace",
+  "music_brief": "muted melancholy strings, slow build, lift on scene 7",
+  "voiceover_provider": "ElevenLabs Creator tier or Azure Neural TTS",
+  "scenes": [
+    {
+      "scene": 1,
+      "time": "0:00-0:05",
+      "voiceover": "Ted Turner died yesterday at eighty-seven. Sixteen countries reported it. Five told you something different.",
+      "visual_brief": "Cold open. Black-and-white file shot of Turner with his America's Cup yacht, dissolves into the CNN logo from 1980.",
+      "on_screen_text": "TED TURNER\n1938 — 2026"
+    },
+    {
+      "scene": 2,
+      "time": "0:05-0:13",
+      "voiceover": "He launched CNN in 1980. Married Jane Fonda. Owned the Atlanta Braves. Donated a billion dollars to the United Nations. He had the world's largest bison herd. So how do you tell that story?",
+      "visual_brief": "Quick montage: CNN launch, Fonda wedding photo, Braves game, UN building, bison on grasslands. Each held 1.5s.",
+      "on_screen_text": "FOUNDED CNN. 1980."
+    },
+    {
+      "scene": 3,
+      "time": "0:13-0:22",
+      "voiceover": "Most of the world ran the wire. Bangkok Post, Globe and Mail, Al Jazeera: \"the brash sportsman and entrepreneur whose ambition led to a media empire.\" Eight buckets, near-verbatim.",
+      "visual_brief": "Newspaper headlines stack from multiple outlets, all saying essentially the same thing. Timestamp lower-third '2026-05-06'.",
+      "on_screen_text": "🌏 'The brash sportsman'\n8 outlets ran the wire copy",
+      "headline_quoted": "CNN founder Ted Turner dead at 87 — Al Jazeera English / Bangkok Post / SCMP / Rappler"
+    },
+    {
+      "scene": 4,
+      "time": "0:22-0:31",
+      "voiceover": "Pakistan and Hungary made it personal. Geo News led with this: \"His father was a volatile man who disciplined his son with a leather strap. He later shot himself in 1963, leaving twenty-four-year-old Ted in charge.\"",
+      "visual_brief": "Pakistan and Hungary flag overlays. Black-and-white archive photo of young Turner. Direct quote card.",
+      "on_screen_text": "🇵🇰 PAKISTAN: 'A difficult beginning'\nGeo News English",
+      "headline_quoted": "Ted Turner dies at 87: Everything to know about CNN founder's life, career, legacy — Geo News English"
+    },
+    {
+      "scene": 5,
+      "time": "0:31-0:40",
+      "voiceover": "Brazil's Carta Capital was the only outlet to name what CNN actually covered: \"from the collapse of the Soviet Union to the Chinese crackdown on Tiananmen Square... CNN's decision to keep reporters in Baghdad amid US bombings in the early 1990s.\"",
+      "visual_brief": "Brazilian flag overlay. Quick archive cuts: Soviet flag lowering, Tiananmen tank, Baghdad live shot. Held 1.5s each.",
+      "on_screen_text": "🇧🇷 BRAZIL: 'Tiananmen. Baghdad.'\nCarta Capital",
+      "headline_quoted": "Morre aos 87 anos Ted Turner, fundador da 'CNN' — Carta Capital"
+    },
+    {
+      "scene": 6,
+      "time": "0:40-0:49",
+      "voiceover": "And Trump's tribute. Most US wire ran it straight: \"one of the Greats of All Time.\" The Independent, in London, read it differently.",
+      "visual_brief": "Truth Social post styling for Trump's quote, then cut to The Independent's headline. Side-by-side framing.",
+      "on_screen_text": "🇺🇸 USA: 'One of the Greats'\nTrump on Truth Social"
+    },
+    {
+      "scene": 7,
+      "time": "0:49-0:55",
+      "voiceover": "The Independent's headline: \"Trump pays tribute after Ted Turner death by taking a shot at CNN. 'Destroyed his baby.'\"",
+      "visual_brief": "Bold display of The Independent headline on a phone screen mockup. Slight zoom on 'taking a shot at CNN'.",
+      "on_screen_text": "🇬🇧 UK: 'A shot at CNN'\nThe Independent",
+      "headline_quoted": "Trump pays tribute after Ted Turner death by taking a shot at CNN: 'Destroyed his baby' — The Independent"
+    },
+    {
+      "scene": 8,
+      "time": "0:55-1:00",
+      "voiceover": "One man. Five very different lives. Daily framings — follow.",
+      "visual_brief": "Five flags fan into frame around Turner archive photo. End card.",
+      "on_screen_text": "Same man. Five lives.\nDaily framings. Follow."
+    }
+  ],
+  "fact_check_provenance": {
+    "primary_event_source": "Turner Enterprises press release via CNN",
+    "supporting_quotes_per_frame": [
+      {"frame": "Wire", "outlet": "Al Jazeera English", "exact_headline": "CNN founder Ted Turner dead at 87"},
+      {"frame": "Pakistan", "outlet": "Geo News English", "exact_headline": "Ted Turner dies at 87: Everything to know about CNN founder's life, career, legacy"},
+      {"frame": "Brazil", "outlet": "Carta Capital", "exact_headline": "Morre aos 87 anos Ted Turner, fundador da 'CNN'"},
+      {"frame": "USA-wire", "outlet": "Daily Caller", "exact_headline": "CNN Founder Ted Turner Dies At 87"},
+      {"frame": "UK", "outlet": "The Independent", "exact_headline": "Trump pays tribute after Ted Turner death by taking a shot at CNN: 'Destroyed his baby'"}
+    ],
+    "briefing_corpus": "briefings/2026-05-06_turner_cnn.json",
+    "buckets_with_body_text": 12,
+    "buckets_with_summary_only": 9,
+    "buckets_with_title_only": 1,
+    "note": "UK's contribution arrived via summary-fallback only (BBC and Independent body extraction failed) — confirms the value of the signal_text fallback architecture."
+  }
+}

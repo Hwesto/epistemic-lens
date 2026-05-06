@@ -82,8 +82,27 @@ def health_for(snap_path: Path):
         # Alert if bucket dropped by >50% vs 7-day avg AND avg was non-trivial
         if avg >= 5 and n_now < 0.5 * avg:
             bucket_alerts.append({
-                "bucket": ck, "now": n_now, "avg7": avg,
+                "bucket": ck, "alert_type": "volume_drop",
+                "now": n_now, "avg7": avg,
                 "drop_pct": round(100 * (1 - n_now / max(1, avg)), 1),
+            })
+
+    # Per-bucket low-extraction alert: when extraction was attempted
+    # (>=5 items have a non-SKIPPED status) but FULL rate is < 50%.
+    # This catches the UK-2026-05-06 pattern where 5 of 9 UK feeds
+    # had body extraction fail even though RSS worked — silently losing
+    # the editorially-distinct UK voice unless flagged.
+    for ck, ext in extraction_per_bucket.items():
+        attempted = sum(ext.get(k, 0) for k in ("FULL", "PARTIAL", "STUB", "NONE", "ERROR"))
+        if attempted < 5:
+            continue
+        full_pct = 100 * ext.get("FULL", 0) / max(1, attempted)
+        if full_pct < 50:
+            bucket_alerts.append({
+                "bucket": ck, "alert_type": "low_extraction",
+                "attempted": attempted, "full": ext.get("FULL", 0),
+                "full_pct": round(full_pct, 1),
+                "errors": ext.get("ERROR", 0), "none": ext.get("NONE", 0),
             })
 
     # Aggregate extraction totals
