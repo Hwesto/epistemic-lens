@@ -48,6 +48,7 @@ def health_for(snap_path: Path):
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
     date = snap.get("date", snap_path.stem)
     errors, stubs, slow = [], [], []
+    extraction_per_bucket: dict[str, dict[str, int]] = {}
     for ck, cv in snap["countries"].items():
         for f in cv["feeds"]:
             if f.get("error") or (f.get("http_status") not in (200, None)):
@@ -62,6 +63,16 @@ def health_for(snap_path: Path):
                     stubs.append({"bucket": ck, "feed": f["name"], "stub_pct": round(stub_pct, 1)})
             if (f.get("fetch_ms") or 0) > 5000:
                 slow.append({"bucket": ck, "feed": f["name"], "ms": f["fetch_ms"]})
+            # Extraction stats per bucket
+            ek = extraction_per_bucket.setdefault(ck, {
+                "FULL": 0, "PARTIAL": 0, "STUB": 0, "NONE": 0, "ERROR": 0, "SKIPPED": 0,
+                "items_with_extraction": 0,
+            })
+            for it in items:
+                s = it.get("extraction_status")
+                if s:
+                    ek[s] = ek.get(s, 0) + 1
+                    ek["items_with_extraction"] += 1
 
     bucket_now = items_per_bucket(snap)
     bucket_avg7 = trailing_means(date)
@@ -74,6 +85,16 @@ def health_for(snap_path: Path):
                 "bucket": ck, "now": n_now, "avg7": avg,
                 "drop_pct": round(100 * (1 - n_now / max(1, avg)), 1),
             })
+
+    # Aggregate extraction totals
+    extraction_totals = {"FULL": 0, "PARTIAL": 0, "STUB": 0, "NONE": 0, "ERROR": 0, "SKIPPED": 0}
+    for v in extraction_per_bucket.values():
+        for k in extraction_totals:
+            extraction_totals[k] += v.get(k, 0)
+    extraction_full_pct = (
+        100 * extraction_totals["FULL"]
+        / max(1, sum(v for k, v in extraction_totals.items() if k != "SKIPPED"))
+    )
 
     health = {
         "date": date,
@@ -89,6 +110,9 @@ def health_for(snap_path: Path):
         "items_per_bucket_now": bucket_now,
         "items_per_bucket_avg7": bucket_avg7,
         "bucket_alerts": bucket_alerts,
+        "extraction_totals": extraction_totals,
+        "extraction_full_pct": round(extraction_full_pct, 1),
+        "extraction_per_bucket": extraction_per_bucket,
     }
     out_path = SNAPS / f"{date}_health.json"
     out_path.write_text(json.dumps(health, indent=2, ensure_ascii=False))
@@ -107,6 +131,10 @@ def main():
     print(f"Health for {h['date']} -> {out.name}")
     print(f"  feeds: {h['n_feeds']}  items: {h['n_items']}")
     print(f"  errors: {h['n_errors']}  stub: {h['n_stub_feeds']}  slow: {h['n_slow_feeds']}")
+    et = h.get("extraction_totals") or {}
+    if any(et.values()):
+        print(f"  extraction: FULL={et.get('FULL',0)} PARTIAL={et.get('PARTIAL',0)} "
+              f"NONE={et.get('NONE',0)} ERROR={et.get('ERROR',0)}  ({h['extraction_full_pct']}% FULL)")
     if h["bucket_alerts"]:
         print(f"  bucket alerts: {len(h['bucket_alerts'])}")
         for a in h["bucket_alerts"]:
