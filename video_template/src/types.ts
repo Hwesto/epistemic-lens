@@ -11,6 +11,9 @@ export type Scene = {
   // Optional country code for camera focus (us / ir / cn / ru / pk / il / etc.)
   // If absent, the scene shows the world overview (used for Hook + Outro).
   country?: string;
+  // Audio (set by render_video.py from synthesize_voiceover.py output)
+  audio?: string;        // staticFile-relative path under public/, e.g. "voiceovers/<id>/scene_01.wav"
+  duration_seconds?: number; // measured WAV duration; overrides `time` if set
 };
 
 export type FactCheckProvenance = {

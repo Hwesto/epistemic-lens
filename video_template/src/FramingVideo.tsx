@@ -3,7 +3,7 @@
 // camera dolly across the world map.
 
 import React from "react";
-import { AbsoluteFill, Sequence, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Sequence, staticFile, useVideoConfig } from "remotion";
 import { VideoScriptProps, Scene } from "./types";
 import { presetFor, WORLD, CameraPreset } from "./cameraPresets";
 import { WorldMapBackground } from "./components/WorldMap";
@@ -84,12 +84,22 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
   const { fps } = useVideoConfig();
   const { scenes, story_title, story_date, story_one_liner } = props;
 
-  // Compute frame ranges for each scene.
+  // Compute frame ranges for each scene. Prefer measured audio duration
+  // (set by render_video.py from synthesize_voiceover.py durations.json)
+  // when present — this guarantees the visual matches the voice. Fall
+  // back to the script's "0:00-0:05" time range for scenes without audio.
   let cursor = 0;
   const sceneRanges: Array<{ from: number; durationInFrames: number }> = [];
   for (const s of scenes) {
-    const { start, end } = parseTimeRange(s.time);
-    const seconds = Math.max(2, end - start);
+    let seconds: number;
+    if (typeof s.duration_seconds === "number" && s.duration_seconds > 0) {
+      // Add a small buffer (0.4s) so the next scene doesn't start while
+      // voiceover is still trailing off
+      seconds = s.duration_seconds + 0.4;
+    } else {
+      const { start, end } = parseTimeRange(s.time);
+      seconds = Math.max(2, end - start);
+    }
     const durationInFrames = Math.round(seconds * fps);
     sceneRanges.push({ from: cursor, durationInFrames });
     cursor += durationInFrames;
@@ -118,6 +128,9 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
             from={range.from}
             durationInFrames={range.durationInFrames}
           >
+            {scene.audio ? (
+              <Audio src={staticFile(scene.audio)} />
+            ) : null}
             <WorldMapBackground
               startPreset={startPreset}
               endPreset={endPreset}
@@ -154,8 +167,14 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
 export function totalDurationInFrames(props: VideoScriptProps, fps: number): number {
   let total = 0;
   for (const s of props.scenes) {
-    const { start, end } = parseTimeRange(s.time);
-    total += Math.round(Math.max(2, end - start) * fps);
+    let seconds: number;
+    if (typeof s.duration_seconds === "number" && s.duration_seconds > 0) {
+      seconds = s.duration_seconds + 0.4;
+    } else {
+      const { start, end } = parseTimeRange(s.time);
+      seconds = Math.max(2, end - start);
+    }
+    total += Math.round(seconds * fps);
   }
   return total || Math.round((props.duration_seconds || 60) * fps);
 }

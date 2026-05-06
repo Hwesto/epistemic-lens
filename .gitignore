@@ -5,3 +5,10 @@ __pycache__/
 videos/*.mp4
 videos/*.mov
 # Keep videos/stills/ — small PNG previews are useful for review
+
+# Piper voice models — too big for git, regen via synthesize_voiceover.py
+video_template/public/voices/*.onnx
+video_template/public/voices/*.onnx.json
+
+# Per-render voiceover WAVs — regen on demand
+video_template/public/voiceovers/

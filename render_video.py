@@ -37,6 +37,31 @@ def ensure_node_modules() -> None:
     )
 
 
+def merge_voiceover(script: dict) -> dict:
+    """If a synthesize_voiceover.py output exists for this script, merge
+    per-scene `audio` paths and `duration_seconds` into the script so
+    Remotion's <Audio> + Sequence durations match the actual narration."""
+    video_id = script.get("video_id") or script.get("video_id".upper()) or ""
+    if not video_id:
+        return script
+    durations_path = TEMPLATE / "public" / "voiceovers" / video_id / "durations.json"
+    if not durations_path.exists():
+        return script
+    durations = json.loads(durations_path.read_text(encoding="utf-8"))
+    by_scene = {d["scene"]: d for d in durations.get("scenes", [])}
+    for sc in script.get("scenes", []):
+        d = by_scene.get(sc.get("scene"))
+        if not d:
+            continue
+        if d.get("audio"):
+            sc["audio"] = d["audio"]
+        if d.get("duration_seconds"):
+            sc["duration_seconds"] = d["duration_seconds"]
+    print(f"[render]   merged voiceover: {len(by_scene)} scenes, "
+          f"{durations.get('total_seconds', 0)}s total", flush=True)
+    return script
+
+
 def render_one(script_path: Path, out_dir: Path) -> Path:
     """Render one video_scripts/*.json into an MP4."""
     if not script_path.exists():
@@ -44,9 +69,12 @@ def render_one(script_path: Path, out_dir: Path) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{script_path.stem}.mp4"
 
-    # Remotion accepts --props=<json-string-or-path>. Pass an absolute
-    # path to the script JSON so the template reads the full object as props.
-    props_arg = f"--props={script_path.resolve()}"
+    # Load, merge voiceover info, write a temp script for Remotion to consume.
+    script = json.loads(script_path.read_text(encoding="utf-8"))
+    script = merge_voiceover(script)
+    tmp_props = TEMPLATE / "public" / f".tmp_props_{script_path.stem}.json"
+    tmp_props.write_text(json.dumps(script, ensure_ascii=False))
+    props_arg = f"--props={tmp_props.resolve()}"
 
     cmd = [
         "npx", "--yes", "remotion", "render",
@@ -59,7 +87,13 @@ def render_one(script_path: Path, out_dir: Path) -> Path:
     ]
     print(f"[render] {script_path.name} -> {out_path}", flush=True)
     print(f"        {' '.join(cmd)}", flush=True)
-    subprocess.check_call(cmd, cwd=TEMPLATE)
+    try:
+        subprocess.check_call(cmd, cwd=TEMPLATE)
+    finally:
+        try:
+            tmp_props.unlink()
+        except FileNotFoundError:
+            pass
     return out_path
 
 
