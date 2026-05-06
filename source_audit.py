@@ -82,9 +82,9 @@ print("2. SNAPSHOT HEALTH — uptime & volume across 39 days")
 print("=" * 78)
 
 dates = sorted(p.stem for p in SNAPS.glob("[0-9]*.json")
-               if not p.stem.endswith("_convergence")
-               and not p.stem.endswith("_similarity")
-               and not p.stem.endswith("_prompt"))
+               if not any(p.stem.endswith(s) for s in
+                          ("_convergence", "_similarity", "_prompt",
+                           "_dedup", "_health", "_pull_report")))
 raw = {d: json.loads((SNAPS / f"{d}.json").read_text(encoding="utf-8")) for d in dates}
 
 feed_records = defaultdict(list)  # (country_key, feed_name) -> list of dicts per day

@@ -171,7 +171,9 @@ def main():
     else:
         # latest non-suffix snapshot
         cands = sorted(p for p in SNAPS.glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity", "_prompt")))
+                       if not p.stem.endswith(("_convergence", "_similarity",
+                                               "_prompt", "_dedup", "_health",
+                                               "_pull_report")))
         snap_path = cands[-1]
     print(f"Dedup'ing {snap_path}")
     snap = json.loads(snap_path.read_text(encoding="utf-8"))

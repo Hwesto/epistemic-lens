@@ -18,8 +18,18 @@ BASE.mkdir(exist_ok=True)
 
 # Latest day
 dates = sorted(p.stem for p in SNAPS.glob("[0-9]*.json")
-               if not p.stem.endswith(("_convergence", "_similarity", "_prompt")))
-latest = dates[-1]
+               if not p.stem.endswith(("_convergence", "_similarity",
+                                       "_prompt", "_dedup", "_health",
+                                       "_pull_report")))
+# Pick the latest date that has all three companion files
+latest = None
+for d in reversed(dates):
+    if all((SNAPS / f"{d}{suffix}.json").exists()
+           for suffix in ("", "_convergence", "_similarity")):
+        latest = d
+        break
+if latest is None:
+    raise SystemExit("No complete snapshot (snap+convergence+similarity) found")
 shutil.copy(SNAPS / f"{latest}.json", BASE / f"{latest}_baseline.json")
 shutil.copy(SNAPS / f"{latest}_convergence.json", BASE / f"{latest}_convergence_baseline.json")
 shutil.copy(SNAPS / f"{latest}_similarity.json", BASE / f"{latest}_similarity_baseline.json")
@@ -58,10 +68,13 @@ for rec in feed_stats.values():
                indent=2, ensure_ascii=False)
 )
 
-# Per-day cluster stats
+# Per-day cluster stats (skip days without a convergence file)
 cluster_stats = []
 for d in dates:
-    conv = json.loads((SNAPS / f"{d}_convergence.json").read_text(encoding="utf-8"))
+    conv_path = SNAPS / f"{d}_convergence.json"
+    if not conv_path.exists():
+        continue
+    conv = json.loads(conv_path.read_text(encoding="utf-8"))
     if not conv:
         cluster_stats.append({"date": d, "n_clusters": 0})
         continue

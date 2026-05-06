@@ -77,8 +77,8 @@ v0.2 had **0** Russian-script titles across all feeds (Russia bloc was English-e
 | ar | 10 | 75 | +65 |
 | tr | 10 | 50 | +40 |
 | hu | 0 | 50 | +50 |
-| fa | 20 | 50 | +30 |
 | zh | 10 | 50 | +40 |
+| fa | 20 | 50 | +30 |
 | hi | 10 | 46 | +36 |
 | he | 10 | 30 | +20 |
 | fr | 10 | 24 | +14 |
