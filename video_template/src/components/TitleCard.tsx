@@ -11,7 +11,8 @@ export const TitleCard: React.FC<{
   const { fps } = useVideoConfig();
 
   const lines = text.split("\n");
-  const fadeIn = spring({ frame, fps, config: { damping: 14 } });
+  // Snappy fade — full opacity by frame 4 (~130ms) to preserve TikTok hook
+  const fadeIn = spring({ frame, fps, config: { damping: 200, stiffness: 220, mass: 0.4 } });
 
   return (
     <div
@@ -36,10 +37,10 @@ export const TitleCard: React.FC<{
         }}
       >
         {lines.map((line, i) => {
-          const charDelay = (i + 1) * 6; // stagger lines slightly
+          const charDelay = i * 2; // very small stagger so all lines visible early
           const lineFade = interpolate(
             frame - charDelay,
-            [0, 12],
+            [0, 5],
             [0, 1],
             { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
           );

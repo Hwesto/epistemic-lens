@@ -122,6 +122,7 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
               startPreset={startPreset}
               endPreset={endPreset}
               durationInFrames={range.durationInFrames}
+              highlightCountry={country}
             />
             {type === "title" ? (
               <TitleCard text={scene.on_screen_text} storyDate={story_date} />
