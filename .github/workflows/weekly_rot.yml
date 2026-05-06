@@ -1,0 +1,64 @@
+name: Weekly Feed Rot Check
+
+on:
+  schedule:
+    - cron: '0 9 * * 0'  # Sundays 09:00 UTC (after Sunday's 07:00 daily ingest)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-rot
+  cancel-in-progress: false
+
+jobs:
+  rot-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run feed rot check (last 7 days)
+        run: python feed_rot_check.py 7
+
+      - name: Job summary
+        if: always()
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          REPORT="review/rot_report_${DATE}.md"
+          if [ -f "$REPORT" ]; then
+            echo "# Weekly Rot Report — $DATE" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            cat "$REPORT" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No rot report produced." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Commit and push rot report
+        run: |
+          set -e
+          git config user.name "epistemic-lens-bot"
+          git config user.email "bot@epistemic-lens"
+          git add review/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "weekly rot report $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+          done
+          exit 1

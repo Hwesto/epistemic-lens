@@ -25,6 +25,20 @@ python gdelt_pull.py gkg     # latest GDELT firehose snapshot
 python gdelt_pull.py breadth # per-cluster global breadth check
 ```
 
+## Automation (GitHub Actions)
+
+Three workflows under `.github/workflows/`:
+
+| Workflow | Trigger | Job |
+|---|---|---|
+| `daily.yml` | cron `0 7 * * *` UTC | ingest → dedup → daily_health → commit `snapshots/` |
+| `weekly_rot.yml` | cron `0 9 * * 0` UTC (Sundays) | feed_rot_check → commit `review/` |
+| `ci.yml` | push/PR on `main` & `claude/**` | unit + edge tests; e2e smoke only on main |
+
+Each workflow caches the embedding model (~500MB) and pip wheels. Both cron jobs commit with `epistemic-lens-bot` and retry-on-conflict push (rebase + 3 attempts). Daily run posts a job summary with feeds / items / errors / bucket alerts to the GitHub Actions UI.
+
+> **Note:** Scheduled workflows run from the default branch only. New workflow definitions take effect once merged to `main`.
+
 ## Daily outputs (in snapshots/)
 
 | File | Purpose |
