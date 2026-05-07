@@ -167,3 +167,136 @@ jobs:
           done
           echo "all push attempts failed"
           exit 1
+
+  draft:
+    needs: analyze
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+
+      - name: Pull latest analyses just committed by analyze
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - name: Verify CLAUDE_CODE_OAUTH_TOKEN is set
+        env:
+          TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::CLAUDE_CODE_OAUTH_TOKEN repo secret is missing."
+            exit 1
+          fi
+
+      - name: Draft threads
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          model: claude-opus-4-7
+          prompt_file: .claude/prompts/draft_thread.md
+
+      - name: Draft carousels
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          model: claude-opus-4-7
+          prompt_file: .claude/prompts/draft_carousel.md
+
+      - name: Draft long-form posts
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          model: claude-opus-4-7
+          prompt_file: .claude/prompts/draft_long.md
+
+      - name: Validate drafts against schemas
+        run: |
+          set -e
+          pip install jsonschema >/dev/null
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          import jsonschema
+          schemas = {
+              "thread":   json.load(open("docs/api/schema/thread.schema.json")),
+              "carousel": json.load(open("docs/api/schema/carousel.schema.json")),
+              "long":     json.load(open("docs/api/schema/long.schema.json")),
+          }
+          fails = 0
+          for p in sorted(Path("drafts").glob("*.json")):
+              fmt = p.stem.rsplit("_", 1)[-1]
+              if fmt not in schemas:
+                  continue
+              try:
+                  jsonschema.validate(json.load(open(p)), schemas[fmt])
+              except jsonschema.ValidationError as e:
+                  print(f"::error file={p}::schema fail: {e.message}")
+                  fails += 1
+          sys.exit(fails)
+          PY
+
+      - name: Commit and push drafts
+        run: |
+          set -e
+          git config user.name "epistemic-lens-bot"
+          git config user.email "bot@epistemic-lens"
+          git add drafts/
+          if git diff --cached --quiet; then
+            echo "No new drafts to commit."
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          N=$(ls drafts/${DATE}_*.json 2>/dev/null | wc -l | tr -d ' ')
+          git commit -m "drafts ${DATE} (${N} files)"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "push failed, attempt $i — rebasing"
+            git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+          done
+          echo "all push attempts failed"
+          exit 1
+
+  publish_api:
+    needs: draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Only deploy from main — feature branches build the api/ tree but
+    # don't push to Pages. Override via workflow_dispatch if needed.
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+
+      - name: Pull latest drafts just committed
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build api/ tree
+        run: python build_index.py
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: api
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
