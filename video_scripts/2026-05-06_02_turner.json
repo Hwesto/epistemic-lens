@@ -1,0 +1,96 @@
+{
+  "video_id": "2026-05-06_02_turner",
+  "story_date": "2026-05-06",
+  "story_title": "Ted Turner, CNN founder, dies at 87",
+  "rank": 2,
+  "n_buckets_in_briefing": 16,
+  "story_one_liner": "Sixteen countries reported the same death yesterday. Five of them told you a different story about who Ted Turner actually was.",
+  "duration_seconds": 60,
+  "format": "9:16 vertical short",
+  "voice_style": "BBC-broadcaster cadence, slightly slower for an obituary",
+  "voiceover_provider": "Kokoro bm_george (free, local)",
+  "music_brief": "ambient drone bed; intro sting handles open",
+  "intro_sting_audio": "intro_sting.mp3",
+  "intro_sting_seconds": 3.03,
+  "channel_name": "DAILY FRAMINGS",
+  "world_tickers": [
+    {"country_code": "ir", "headline": "US-Iran one-page memo near", "outlet": "Axios"},
+    {"country_code": "br", "headline": "Trump recua: operação Hormuz suspensa", "outlet": "Folha"},
+    {"country_code": "jp", "headline": "Japan to buy 20m UAE oil bypassing Hormuz", "outlet": "Nikkei"},
+    {"country_code": "ke", "headline": "US trade gap widens on AI imports", "outlet": "Standard Kenya"},
+    {"country_code": "de", "headline": "Lufthansa fuel bill +€1.7B", "outlet": "DW"},
+    {"country_code": "lb", "headline": "Israeli strikes kill 4 in Bekaa", "outlet": "CNA"},
+    {"country_code": "ua", "headline": "Russian drones hit Sumy kindergarten", "outlet": "Pravda"}
+  ],
+  "scenes": [
+    {
+      "scene": 1,
+      "time": "0:00-0:04",
+      "voiceover": "Ted Turner died yesterday. Sixteen countries reported it. They told five very different stories.",
+      "on_screen_text": "TED TURNER\n1938 — 2026",
+      "country": null
+    },
+    {
+      "scene": 2,
+      "time": "0:04-0:11",
+      "voiceover": "He launched CNN in 1980. Married Jane Fonda. Donated a billion to the U.N. So how do you tell that story?",
+      "on_screen_text": "FOUNDED CNN\nEvery country, the same death.",
+      "country": null
+    },
+    {
+      "scene": 3,
+      "time": "0:11-0:18",
+      "voiceover": "Most of the world ran the wire. Brash sportsman. Media empire. Eight outlets, near-verbatim.",
+      "on_screen_text": "🌐 WIRE\nGlobe & Mail / Bangkok Post / Al Jazeera",
+      "headline_quoted": "The brash sportsman whose ambition led to a media empire.",
+      "country": null
+    },
+    {
+      "scene": 4,
+      "time": "0:18-0:24",
+      "voiceover": "America's right ran Trump's tribute approvingly.",
+      "on_screen_text": "🇺🇸 USA\nTrump, Truth Social",
+      "headline_quoted": "Ted Turner. One of the Greats of All Time. A friend of mine."
+    },
+    {
+      "scene": 5,
+      "time": "0:24-0:33",
+      "voiceover": "But London read Trump's tribute very differently.",
+      "on_screen_text": "🇬🇧 UK\nThe Independent",
+      "headline_quoted": "Trump pays tribute by taking a shot at CNN: 'Destroyed his baby.'"
+    },
+    {
+      "scene": 6,
+      "time": "0:33-0:42",
+      "voiceover": "Brazil was the only outlet that named what CNN had actually covered.",
+      "on_screen_text": "🇧🇷 BRAZIL\nCarta Capital",
+      "headline_quoted": "From the collapse of the Soviet Union to Tiananmen, to reporters in Baghdad under American bombs."
+    },
+    {
+      "scene": 7,
+      "time": "0:42-0:53",
+      "voiceover": "Pakistan made it personal. Geo News led with Turner's father's suicide and the sister he lost to lupus.",
+      "on_screen_text": "🇵🇰 PAKISTAN\nGeo News English",
+      "headline_quoted": "His father shot himself in 1963. His sister Mary Jean died of lupus. 'What had she done wrong?'"
+    },
+    {
+      "scene": 8,
+      "time": "0:53-0:60",
+      "voiceover": "One man. Five very different lives. Could every one of them be telling the truth?",
+      "on_screen_text": "Same death. Five lives.\nDaily Framings — follow.",
+      "country": null
+    }
+  ],
+  "fact_check_provenance": {
+    "primary_event_source": "Turner Enterprises press release via CNN",
+    "supporting_quotes_per_frame": [
+      {"frame": "Wire", "outlet": "Globe and Mail / Al Jazeera / Bangkok Post", "exact_headline": "Ted Turner, cable-news pioneer who founded CNN, dies at 87"},
+      {"frame": "USA", "outlet": "Daily Caller / DW / Carta Capital (citing Truth Social)", "exact_headline": "Ted Turner, one of the Greats of All Time, just died"},
+      {"frame": "UK", "outlet": "The Independent", "exact_headline": "Trump pays tribute after Ted Turner death by taking a shot at CNN: 'Destroyed his baby'"},
+      {"frame": "Brazil", "outlet": "Carta Capital", "exact_headline": "Morre aos 87 anos Ted Turner, fundador da 'CNN'"},
+      {"frame": "Pakistan", "outlet": "Geo News English", "exact_headline": "Ted Turner dies at 87: Everything to know about CNN founder's life, career, legacy"}
+    ],
+    "briefing_corpus": "briefings/2026-05-06_turner_cnn.json",
+    "note": "UK contribution arrived via summary-fallback (BBC and Independent body extraction failed); confirms value of signal_text() architecture from v0.6"
+  }
+}

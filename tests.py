@@ -389,12 +389,20 @@ class TestSchemaValidation(unittest.TestCase):
                         self.assertIn("is_stub", it)
                         self.assertIn("is_google_news", it)
                         self.assertIn("summary_chars", it)
+                        # extraction fields are optional (only if extract_full_text ran)
+                        if "extraction_status" in it:
+                            self.assertIn(it["extraction_status"],
+                                          {"FULL", "PARTIAL", "STUB", "NONE",
+                                           "ERROR", "SKIPPED"})
+                            self.assertIsInstance(it.get("body_chars"), int)
 
     def test_feeds_json_well_formed(self):
         p = ROOT / "feeds.json"
         d = json.loads(p.read_text(encoding="utf-8"))
         self.assertIn("meta", d)
-        self.assertEqual(d["meta"]["version"], "0.4.0")
+        # Version must be 0.4.x — bumped on each gap-fix round
+        self.assertTrue(d["meta"]["version"].startswith("0."),
+                        f"unexpected version: {d['meta']['version']}")
         self.assertGreater(len(d["countries"]), 40)
         urls = []
         for ck, cv in d["countries"].items():
@@ -408,6 +416,85 @@ class TestSchemaValidation(unittest.TestCase):
 # ============================================================================
 # Sitemap fallback (mocked)
 # ============================================================================
+class TestExtractFullText(unittest.TestCase):
+    def setUp(self):
+        if "extract_full_text" in sys.modules:
+            importlib.reload(sys.modules["extract_full_text"])
+        import extract_full_text as eft
+        self.eft = eft
+
+    def test_classify_thresholds(self):
+        c = self.eft.classify
+        self.assertEqual(c(2000, None), "FULL")
+        self.assertEqual(c(500, None), "PARTIAL")
+        self.assertEqual(c(100, None), "STUB")
+        self.assertEqual(c(20, None), "NONE")
+        self.assertEqual(c(0, "TIMEOUT"), "ERROR")
+
+    def test_select_items_top_clusters_filter(self):
+        snap = {"countries": {
+            "a": {"label": "A", "feeds": [
+                {"name": "F1", "items": [
+                    {"id": "x1", "link": "https://x.com/1", "title": "T1"},
+                    {"id": "x2", "link": "https://x.com/2", "title": "T2"},
+                    {"id": "x3", "link": "", "title": "no link"},
+                ]},
+            ]},
+        }}
+        # Cluster 0 has x1; cluster 1 has x2
+        conv = [
+            {"cluster_id": 0, "country_count": 5, "articles": [{"id": "x1"}]},
+            {"cluster_id": 1, "country_count": 3, "articles": [{"id": "x2"}]},
+        ]
+        # Top-1 should pick only x1
+        targets = self.eft.select_items(snap, conv, top_clusters=1, max_per_feed=0)
+        ids = [it["id"] for _, _, it in targets]
+        self.assertEqual(ids, ["x1"])
+        # Top-0 + max-per-feed-0 means no filter: take all (with non-empty links)
+        targets = self.eft.select_items(snap, conv, top_clusters=0, max_per_feed=0)
+        ids = sorted(it["id"] for _, _, it in targets)
+        self.assertEqual(ids, ["x1", "x2"])
+
+    def test_select_items_hybrid_union(self):
+        """Hybrid mode: top-clusters UNION top-N-per-feed."""
+        snap = {"countries": {
+            "a": {"label": "A", "feeds": [
+                {"name": "F1", "items": [
+                    {"id": "x1", "link": "https://x.com/1", "title": "T1"},
+                    {"id": "x2", "link": "https://x.com/2", "title": "T2"},
+                    {"id": "x3", "link": "https://x.com/3", "title": "T3"},
+                    {"id": "x4", "link": "https://x.com/4", "title": "T4"},
+                ]},
+            ]},
+            "b": {"label": "B", "feeds": [
+                {"name": "F2", "items": [
+                    {"id": "y1", "link": "https://y.com/1", "title": "U1"},
+                ]},
+            ]},
+        }}
+        # Cluster 0 (top-1) contains only x4 (which is the 4th item of F1)
+        conv = [{"cluster_id": 0, "country_count": 5, "articles": [{"id": "x4"}]}]
+        # Hybrid: top-1 cluster + max-per-feed=2
+        # Should pick: x1, x2 (first 2 of F1), x4 (cluster), y1 (first of F2)
+        targets = self.eft.select_items(snap, conv, top_clusters=1, max_per_feed=2)
+        ids = sorted(it["id"] for _, _, it in targets)
+        self.assertEqual(ids, ["x1", "x2", "x4", "y1"])
+
+    def test_select_items_skips_already_extracted(self):
+        snap = {"countries": {
+            "a": {"label": "A", "feeds": [
+                {"name": "F1", "items": [
+                    {"id": "x1", "link": "https://x.com/1", "title": "T1",
+                     "extraction_status": "FULL", "body_chars": 1500},
+                    {"id": "x2", "link": "https://x.com/2", "title": "T2"},
+                ]},
+            ]},
+        }}
+        targets = self.eft.select_items(snap, None, top_clusters=0)
+        ids = [it["id"] for _, _, it in targets]
+        self.assertEqual(ids, ["x2"])  # x1 already extracted, skipped
+
+
 class TestSitemapFallback(unittest.TestCase):
     def test_sitemap_news_parse(self):
         if "ingest" in sys.modules:

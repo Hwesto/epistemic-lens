@@ -44,6 +44,16 @@ jobs:
           FETCH_TIMEOUT: '20'
         run: python ingest.py
 
+      - name: Extract full article text (hybrid — clusters + per-feed coverage)
+        env:
+          TOP_CLUSTERS: '20'        # top-20 cross-country stories: deep coverage
+          MAX_PER_FEED: '3'         # +3 items from EVERY feed: guarantees per-country coverage
+          MAX_BODY_CHARS: '4000'
+          EXTRACT_WORKERS: '20'
+          PER_HOST_DELAY: '1.0'
+          EXTRACT_TIMEOUT: '15'
+        run: python extract_full_text.py
+
       - name: Deduplicate snapshot
         run: python dedup.py
 
@@ -65,6 +75,9 @@ jobs:
           print(f"- Errored feeds: **{d['n_errors']}**")
           print(f"- Stub-only feeds: **{d['n_stub_feeds']}**")
           print(f"- Slow feeds: **{d['n_slow_feeds']}**")
+          et = d.get("extraction_totals") or {}
+          if any(et.values()):
+              print(f"- Full-text extraction: **{et.get('FULL',0)} FULL**, {et.get('PARTIAL',0)} PARTIAL, {et.get('ERROR',0)} ERROR ({d.get('extraction_full_pct',0)}% FULL)")
           if d['bucket_alerts']:
               print()
               print(f"### Bucket alerts ({len(d['bucket_alerts'])})")
