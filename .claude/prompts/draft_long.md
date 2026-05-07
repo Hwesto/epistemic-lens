@@ -1,0 +1,138 @@
+# Draft Long-Form Post — Claude Code prompt
+
+You generate **long-form post drafts** (LinkedIn, Substack, newsletter)
+from today's framing analyses. You run on cron once a day, after
+`analyze` has written `analyses/<DATE>_<story_key>.md`.
+
+For each story, write **one** JSON file:
+
+  `drafts/<DATE>_<story_key>_long.json`
+
+conforming to `docs/api/schema/long.schema.json`. The post body is
+markdown inside a JSON envelope so the frontend can parse metadata
+uniformly across formats.
+
+---
+
+## Inputs
+
+- `analyses/<DATE>_<story_key>.md` — primary structural input. Reuse
+  its arc/paradox/silence sections as the spine of the post; do not
+  contradict it.
+- `briefings/<DATE>_<story_key>.json` — corpus + source URLs.
+- `briefings/<DATE>_<story_key>_metrics.json` — numbers.
+
+---
+
+## Procedure
+
+1. Determine today's date (`date -u +%Y-%m-%d`).
+2. List `analyses/<DATE>_*.md`. For each:
+   a. Read the analysis fully — its frame matrix, arcs, paradox, and
+      silence sections become the structural spine of the post.
+   b. Pick the lede angle: the single most arresting finding the
+      analysis surfaced. Same selection rule as the thread prompt —
+      paradox > silence > bucket-exclusive > high-isolation.
+   c. Write 600–900 words of clean prose. Inline-cite sources as
+      `[outlet name](article link)` using only links from the briefing.
+   d. Build the `sources[]` array: every link cited in `body_md` must
+      appear once in `sources[]` with its `bucket` and `url`.
+   e. Write the JSON file.
+3. Print one summary line per file: story_key, word_count, lede_angle,
+   output_path.
+4. Do **not** commit, push, or run git.
+
+---
+
+## Required structure (in body_md)
+
+The post is markdown. Recommended structure (don't use literal section
+headers; use them as a discipline):
+
+1. **Lede** (1–2 paragraphs). Open with the single most arresting fact.
+   Specific. Falsifiable. The reader should know in 60 words why this
+   piece is worth their next four minutes.
+
+2. **The shared frame** (1–2 paragraphs). What did most of the corpus
+   agree on? Cite 1–2 wire-line outlets. Use Jaccard / convergence
+   numbers from metrics.json verbatim if relevant.
+
+3. **The deviations** (2–4 paragraphs). The arcs from the analysis —
+   one paragraph per arc, each with at least one verbatim quote
+   attributed to a bucket via `[outlet](link)`.
+
+4. **The paradox or the silence** (1–2 paragraphs). Whichever is
+   sharper in this corpus. If a paradox: name the two opposing buckets,
+   quote both, interpret the joint conclusion. If a silence: name what
+   the absent buckets ran instead, and what it implies.
+
+5. **Stakes** (1 short paragraph). One consequence or open question.
+   No sermon. No grand "this is what democracy means" closer.
+
+---
+
+## Voice
+
+- Sober, observational, opinion-magazine register.
+- First person plural ("we") only if defensible — usually drop it.
+- No second person ("you") — addresses the reader without consent.
+- No rhetorical questions in the body. One in the lede is OK.
+- No "in a world where…" / "in an era of…" openers. Start with the fact.
+- No bulleted lists in the body except where genuinely list-like
+  (e.g. naming the 3 buckets carrying a frame).
+
+---
+
+## Source citation
+
+- Every factual claim or quote cites inline as `[outlet name](link)`.
+- The `link` must be an article URL from the briefing's `link` field —
+  not a homepage, not a search result.
+- The `sources[]` array must contain every cited link, deduplicated,
+  with `{bucket, url, outlet?}`. This is what the frontend uses to
+  render an appendix or hover-citations.
+
+---
+
+## Hard rules
+
+- **Verbatim quotes only.** Markdown blockquotes (`> "…"`) and inline
+  quoted strings must come straight from `signal_text`.
+- **Numbers from metrics.json only.** Never invent counts or scores.
+- **No fabrication.** If the analysis says "(none in this corpus)" for
+  the paradox, don't invent one. Switch the lede to the silence or a
+  bucket-exclusive frame instead.
+- **One JSON file per story.** Path: `drafts/<DATE>_<story_key>_long.json`.
+- **Schema compliance.** `docs/api/schema/long.schema.json` is authoritative.
+- **600–900 words** in `body_md`. Shorter is OK if the corpus is thin;
+  do not pad. Longer drifts into newsletter territory we don't want.
+
+---
+
+## Required JSON fields
+
+```json
+{
+  "story_key": "<from briefing filename>",
+  "date": "<YYYY-MM-DD>",
+  "title": "<post title, <= 90 chars>",
+  "subtitle": "<optional dek>",
+  "body_md": "<markdown, 600-900 words, inline citations as [outlet](link)>",
+  "sources": [
+    {"bucket": "<key>", "url": "<article link>", "outlet": "<name>"}
+  ],
+  "tags": ["<optional free-text tags>"],
+  "generated_at": "<ISO 8601 UTC>",
+  "model": "claude-opus-4-7"
+}
+```
+
+---
+
+## Skip rules
+
+Skip (write nothing, note in summary) if:
+- The analysis file doesn't exist for today.
+- `n_buckets < 5`.
+- The corpus is so wire-convergent that there's no genuine deviation
+  worth 600 words. Note "wire-converged, no long-form angle" in summary.

@@ -2,6 +2,17 @@ e2e_test/
 fresh_pull/
 __pycache__/
 *.pyc
+
+# Public API tree — derivative of briefings/+analyses/+drafts/.
+# Regenerated fresh by build_index.py in the cron and deployed to
+# GitHub Pages as a build artifact. Never committed.
+api/
+
+# Defense in depth — secrets must never enter the repo.
+.env
+.env.*
+*.token
+secrets/
 videos/*.mov
 # Keep videos/stills/ + videos/*.mp4 in repo for review.
 # (Each MP4 is ~10-30 MB; OK at our daily volume. Switch to git-lfs

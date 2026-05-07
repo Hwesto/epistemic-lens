@@ -11,7 +11,6 @@ Tests:
   - dedup.normalise_title: lowercase, suffix strip, punctuation
   - dedup.dedup_snapshot: collapses URL dupes, title near-dupes, intra-feed dupes
   - daily_health.health_for: error/stub/slow detection, bucket alerts
-  - gdelt_pull.* : query construction (no live HTTP in unit tests)
   - schema validation: snapshot, convergence, similarity files
 
 Run: python3 -m unittest tests.py
@@ -515,6 +514,171 @@ class TestSitemapFallback(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertIn("Breaking", items[0]["title"])
         self.assertEqual(items[0]["link"], "https://x.com/article-1")
+
+
+class TestBuildMetrics(unittest.TestCase):
+    """build_metrics.py: pairwise Jaccard, isolation, bucket-exclusive vocab."""
+
+    def setUp(self):
+        if "build_metrics" in sys.modules:
+            importlib.reload(sys.modules["build_metrics"])
+        import build_metrics
+        import meta as _meta
+        from collections import Counter as _Counter
+        self.bm = build_metrics
+        self.meta = _meta
+        self.Counter = _Counter
+
+    def test_normalize_token_strips_plurals(self):
+        # Tokenization primitives now live in meta.py (the methodology pin).
+        # "es" is tried before "s", so "rules" → "rule"
+        self.assertEqual(self.meta.normalize_token("rules"), "rule")
+        # "ies" is tried first; "cities" → strip "es" since stripping "ies"
+        # would leave only 3 chars ("cit"). Light-touch normalization is the goal.
+        self.assertEqual(self.meta.normalize_token("cities"), "citi")
+        self.assertEqual(self.meta.normalize_token("Iran"), "iran")
+        # Don't over-strip short tokens — "yes" stays as-is (len<=4)
+        self.assertEqual(self.meta.normalize_token("yes"), "yes")
+
+    def test_tokens_filters_stopwords_and_short(self):
+        toks = self.bm.tokens_from_text("The quick brown fox said over the moon")
+        # "the", "said", "over" are stopwords; "fox" is len=3, dropped.
+        self.assertNotIn("the", toks)
+        self.assertNotIn("said", toks)
+        self.assertNotIn("over", toks)
+        self.assertNotIn("fox", toks)
+        self.assertIn("quick", toks)
+        self.assertIn("brown", toks)
+        self.assertIn("moon", toks)
+
+    def test_jaccard_symmetric_and_bounded(self):
+        a = self.Counter({"alpha": 2, "beta": 1, "gamma": 1})
+        b = self.Counter({"beta": 1, "gamma": 1, "delta": 1})
+        j = self.bm.jaccard(a, b)
+        self.assertEqual(j, self.bm.jaccard(b, a))
+        self.assertGreaterEqual(j, 0.0)
+        self.assertLessEqual(j, 1.0)
+        # 2 shared / 4 total = 0.5
+        self.assertAlmostEqual(j, 0.5)
+
+    def test_pairwise_jaccard_sorted_descending(self):
+        vocabs = {
+            "x": self.Counter({"alpha": 1, "beta": 1}),
+            "y": self.Counter({"alpha": 1, "beta": 1}),  # identical to x
+            "z": self.Counter({"gamma": 1}),  # disjoint
+        }
+        pairs = self.bm.pairwise_jaccard(vocabs)
+        self.assertEqual(len(pairs), 3)
+        self.assertEqual(pairs[0]["jaccard"], 1.0)  # x<>y
+        self.assertEqual(pairs[-1]["jaccard"], 0.0)  # one of the disjoint pairs
+
+    def test_bucket_exclusive_requires_df_one_and_min_count(self):
+        vocabs = {
+            "a": self.Counter({"shared": 5, "only_a": 4, "rare_a": 2}),
+            "b": self.Counter({"shared": 3, "only_b": 3}),
+        }
+        excl = self.bm.bucket_exclusive_vocab(vocabs, min_count=3)
+        a_terms = {e["term"] for e in excl["a"]}
+        b_terms = {e["term"] for e in excl["b"]}
+        self.assertIn("only_a", a_terms)        # df=1, count>=3
+        self.assertNotIn("rare_a", a_terms)     # df=1 but count<3
+        self.assertNotIn("shared", a_terms)     # df=2
+        self.assertIn("only_b", b_terms)
+
+    def test_isolation_mean_jaccard(self):
+        vocabs = {
+            "a": self.Counter({"x": 1, "y": 1}),       # identical to b
+            "b": self.Counter({"x": 1, "y": 1}),
+            "c": self.Counter({"z": 1}),                # disjoint from both
+        }
+        pairs = self.bm.pairwise_jaccard(vocabs)
+        iso = self.bm.bucket_isolation(pairs, sorted(vocabs))
+        # c is paired with a (0) and b (0) → mean 0; a and b each have one
+        # 1.0 pair and one 0.0 pair → mean 0.5. So c is most isolated.
+        self.assertEqual(iso[0]["bucket"], "c")
+        self.assertEqual(iso[0]["mean_jaccard"], 0.0)
+
+    def test_build_metrics_against_real_briefing(self):
+        path = ROOT / "briefings" / "2026-05-06_hormuz_iran.json"
+        if not path.exists():
+            self.skipTest("Hormuz briefing fixture not present")
+        briefing = json.loads(path.read_text(encoding="utf-8"))
+        m = self.bm.build_metrics(briefing)
+        # Structural assertions (not numeric — let the data drift).
+        self.assertEqual(m["story_key"], "hormuz_iran")
+        self.assertGreaterEqual(m["n_buckets"], 20)
+        self.assertEqual(
+            len(m["pairwise_jaccard"]),
+            m["n_buckets"] * (m["n_buckets"] - 1) // 2,
+        )
+        # Top pair must have higher score than bottom pair.
+        self.assertGreaterEqual(
+            m["pairwise_jaccard"][0]["jaccard"],
+            m["pairwise_jaccard"][-1]["jaccard"],
+        )
+        # Isolation must be sorted ascending (most isolated first).
+        iso = m["isolation"]
+        for i in range(len(iso) - 1):
+            self.assertLessEqual(iso[i]["mean_jaccard"], iso[i + 1]["mean_jaccard"])
+        # Saudi Arabia's "sisi" / "egypt" exclusive vocab from the exemplar
+        # should reproduce on this fixed corpus.
+        saudi_terms = {e["term"] for e in m["bucket_exclusive_vocab"].get("saudi_arabia", [])}
+        self.assertIn("sisi", saudi_terms)
+        self.assertIn("egypt", saudi_terms)
+
+
+class TestMethodologyPin(unittest.TestCase):
+    """meta.py: the methodology pin — hashes, stamping, drift detection."""
+
+    def test_pinned_inputs_match_declared_hashes(self):
+        import meta
+        # Should not raise on a clean repo.
+        meta.assert_pinned(strict=True)
+
+    def test_stamp_embeds_meta_version(self):
+        import meta
+        art = {"foo": 1}
+        stamped = meta.stamp(art)
+        self.assertIs(stamped, art)  # in-place
+        self.assertEqual(stamped["meta_version"], meta.VERSION)
+
+    def test_tokenize_uses_pinned_stopwords(self):
+        import meta
+        toks = meta.tokenize("The quick brown fox said over the moon")
+        self.assertNotIn("the", toks)
+        self.assertNotIn("said", toks)  # pinned stopword
+        self.assertIn("quick", toks)
+        self.assertIn("moon", toks)
+
+    def test_canonical_stories_loads(self):
+        import meta
+        stories = meta.canonical_stories()
+        self.assertIn("hormuz_iran", stories)
+        self.assertIn("patterns", stories["hormuz_iran"])
+
+    def test_baseline_pin_check_passes_on_clean_repo(self):
+        # baseline_pin --check is the CI gate; must exit 0 when nothing has drifted.
+        import subprocess
+        r = subprocess.run(
+            [sys.executable, "baseline_pin.py", "--check"],
+            capture_output=True, text=True, cwd=str(Path(__file__).parent),
+        )
+        self.assertEqual(r.returncode, 0, msg=r.stdout + r.stderr)
+
+    def test_drift_is_detected(self):
+        import json, tempfile, shutil
+        import meta as _meta
+        # Snapshot the current pinned file, mutate it, expect drift.
+        sw = Path(__file__).parent / "stopwords.txt"
+        original = sw.read_bytes()
+        try:
+            sw.write_text(original.decode("utf-8") + "\nNEWWORD\n", encoding="utf-8")
+            # Force re-import so meta picks up… actually meta.assert_pinned
+            # re-reads from disk every call, so no reload needed.
+            drift = _meta.assert_pinned(strict=False)
+            self.assertIn("tokenizer.stopwords", drift)
+        finally:
+            sw.write_bytes(original)
 
 
 if __name__ == "__main__":

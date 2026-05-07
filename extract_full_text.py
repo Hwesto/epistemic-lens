@@ -35,10 +35,14 @@ from urllib.parse import urlparse
 
 import requests
 
+import meta
+
 try:
     import trafilatura
+    HAS_TRAFILATURA = True
 except ImportError:
-    sys.exit("trafilatura not installed — pip install trafilatura")
+    trafilatura = None
+    HAS_TRAFILATURA = False
 
 ROOT = Path(__file__).parent
 SNAPS_DEFAULT = ROOT / "snapshots"
@@ -169,27 +173,31 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
 
 
 def signal_text(item: dict, prefer_body: bool = True,
-                max_chars: int = 2500) -> tuple[str, str]:
+                max_chars: int | None = None) -> tuple[str, str]:
     """Best-available text for framing analysis.
 
     Returns (signal_level, text) where signal_level is one of:
-      'body'    — full article body (≥500 chars)
-      'summary' — RSS summary (≥60 chars), prepended with title
+      'body'    — full article body (>= meta.SIGNAL_TEXT.min_body_chars_for_body)
+      'summary' — RSS summary (>= meta.SIGNAL_TEXT.min_summary_chars_for_summary),
+                  prepended with title
       'title'   — title only (last-resort)
       'empty'   — nothing usable
 
-    Use this in any downstream analysis that wants to be tolerant of
-    extraction failures: BBC's Turner story has only a title+summary
-    today (body extraction 403'd) but the headline alone is editorially
-    distinctive ("brash sportsman whose ambition led to a media empire"
-    vs "Trump pays tribute by taking a shot at CNN").
+    Thresholds are pinned by meta_version.json so vocabulary metrics computed
+    today are comparable to those computed last week. Bumping a threshold is
+    a major-version change.
     """
+    cfg = meta.SIGNAL_TEXT
+    if max_chars is None:
+        max_chars = int(cfg["max_chars"])
+    min_body = int(cfg["min_body_chars_for_body"])
+    min_summary = int(cfg["min_summary_chars_for_summary"])
     title = (item.get("title") or "").strip()
     summary = (item.get("summary") or "").strip()
     body = (item.get("body_text") or "").strip()
-    if prefer_body and body and len(body) >= 500:
+    if prefer_body and body and len(body) >= min_body:
         return ("body", body[:max_chars])
-    if summary and len(summary) >= 60:
+    if summary and len(summary) >= min_summary:
         head = title + "\n\n" if title else ""
         return ("summary", (head + summary)[:max_chars])
     if title:
@@ -253,19 +261,24 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
 
 
 def main():
+    if not HAS_TRAFILATURA:
+        sys.exit("trafilatura not installed — pip install trafilatura")
     ap = argparse.ArgumentParser()
     ap.add_argument("--snapshot", default=None,
                     help="Path to snapshot.json (default: latest under snapshots/)")
-    ap.add_argument("--top-clusters", type=int, default=int(os.environ.get("TOP_CLUSTERS", "10")),
+    ap.add_argument("--top-clusters", type=int,
+                    default=int(os.environ.get("TOP_CLUSTERS", str(meta.EXTRACTION["top_clusters"]))),
                     help="Extract items only in top-N clusters (0 = all items)")
-    ap.add_argument("--max-body-chars", type=int, default=int(os.environ.get("MAX_BODY_CHARS", "4000")),
+    ap.add_argument("--max-body-chars", type=int,
+                    default=int(os.environ.get("MAX_BODY_CHARS", str(meta.EXTRACTION["max_body_chars"]))),
                     help="Cap on body_text storage per item")
     ap.add_argument("--workers", type=int, default=int(os.environ.get("EXTRACT_WORKERS", "20")))
     ap.add_argument("--per-host-delay", type=float, default=float(os.environ.get("PER_HOST_DELAY", "1.0")))
-    ap.add_argument("--timeout", type=int, default=int(os.environ.get("EXTRACT_TIMEOUT", "15")))
+    ap.add_argument("--timeout", type=int,
+                    default=int(os.environ.get("EXTRACT_TIMEOUT", str(meta.EXTRACTION["extract_timeout_s"]))))
     ap.add_argument("--snapshots-dir", default=str(SNAPS_DEFAULT))
     ap.add_argument("--max-per-feed", type=int,
-                    default=int(os.environ.get("MAX_PER_FEED", "0")),
+                    default=int(os.environ.get("MAX_PER_FEED", str(meta.EXTRACTION["max_per_feed"]))),
                     help="Cap items extracted per (bucket, feed). 0 = no cap. "
                          "Use ~3 in production hybrid mode to guarantee per-country "
                          "coverage on top of cluster-based extraction.")
@@ -361,7 +374,8 @@ def main():
             pct = 100 * n / max(1, sum(statuses.values()))
             print(f"  {s:<8} {n:>5}  ({pct:>4.1f}%)")
 
-    # Persist
+    # Persist (re-stamp so the in-place rewrite carries the live meta_version)
+    meta.stamp(snap)
     snap_path.write_text(json.dumps(snap, indent=2, ensure_ascii=False))
     print(f"\nSnapshot updated: {snap_path}")
 

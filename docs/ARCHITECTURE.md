@@ -1,4 +1,4 @@
-# Architecture — Epistemic Lens v0.5
+# Architecture — Epistemic Lens
 
 ## System overview
 
@@ -48,20 +48,39 @@
                                  ▼
                   briefings/<date>_<story>.json
                                  │
-        ┌────────────────────────┴────────────────────────┐
-        │ [HUMAN STEP — for now]                          │
-        │   Open the briefing, review framings,           │
-        │   write video_scripts/<date>_<n>.json with      │
-        │   8 scenes (hook + setup + 5 country framings   │
-        │   + outro), each with voiceover + on_screen     │
-        │   text + headline_quoted.                       │
-        │                                                 │
-        │   Future: framing_pass.py (Claude API) does     │
-        │   this automatically. Skip until format is      │
-        │   validated by audience.                        │
-        └────────────────────────┬────────────────────────┘
-                                 │
                                  ▼
+        ┌──────────────────────────────────────────────────┐
+        │  build_metrics.py                                │
+        │   • pairwise Jaccard on per-bucket vocabulary    │
+        │   • bucket isolation (mean Jaccard vs others)    │
+        │   • bucket-exclusive vocab (df==1, count>=3)     │
+        │   • emits briefings/<date>_<story>_metrics.json  │
+        └────────────────┬─────────────────────────────────┘
+                         │
+                         ▼
+        ┌──────────────────────────────────────────────────┐
+        │  ANALYZE JOB (anthropics/claude-code-action@v1)  │
+        │   prompt: .claude/prompts/daily_analysis.md      │
+        │   model:  claude-opus-4-7                        │
+        │   • reads briefing + metrics verbatim            │
+        │   • writes analyses/<date>_<story>.md            │
+        │     (frame matrix + arcs + paradox + silence +   │
+        │      top-10 quotes + candidate angles)           │
+        │   • spec / target: docs/HORMUZ_CORRELATION.md    │
+        └────────────────┬─────────────────────────────────┘
+                         │
+                         ▼
+                  analyses/<date>_<story>.md
+                         │
+        ┌────────────────┴────────────────┐
+        │ [HUMAN — pick angles to ship]   │
+        │   write video_scripts/...json   │
+        │   (Future: draft_thread/        │
+        │    draft_carousel/draft_long    │
+        │    auto-jobs after analyze)     │
+        └────────────────┬────────────────┘
+                         │
+                         ▼
                   video_scripts/<date>_<n>.json
                                  │
         ┌────────────────────────▼────────────────────────┐

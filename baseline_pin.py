@@ -1,96 +1,163 @@
-"""Phase 0 baseline — pin pre-refactor state for later A/B comparison.
+"""baseline_pin.py — bump the methodology pin in meta_version.json.
 
-Saves:
-  baseline/2026-05-02_baseline.json    copy of latest snapshot
-  baseline/feed_stats.json             per-feed (uptime, avg_items, avg_summary_chars, status)
-  baseline/cluster_stats.json          per-day (n_clusters, max_country_count, mean_sim)
+Run when you've intentionally changed something that affects analytical
+output: added/removed a feed, edited stopwords, changed a canonical story
+pattern, swapped the embedding model, edited a Claude prompt. Recomputes
+the hashes for every pinned input and writes them back into
+meta_version.json with a bumped version number and a reason string.
+
+Usage
+  python baseline_pin.py --check
+      Report drift between live files and meta_version.json. Exit 1 if any
+      mismatch. Used by CI; safe to run any time.
+
+  python baseline_pin.py --bump patch
+      1.0.0 -> 1.0.1. For changes that don't affect analytical output
+      (logging, refactors, comments).
+
+  python baseline_pin.py --bump minor --reason "added 'gaza_ceasefire' canonical story"
+      1.0.0 -> 1.1.0. Forward-compatible (added story, added feed,
+      added a metric). Existing artifacts remain valid.
+
+  python baseline_pin.py --bump major --reason "switched embedding model"
+      1.0.0 -> 2.0.0. Invalidates longitudinal comparisons. Past data
+      stays valid only under its meta-v1.x tag.
+
+After --bump succeeds, tag the repo:
+    git tag meta-v$(jq -r .meta_version meta_version.json)
 """
 from __future__ import annotations
-import json, shutil
-from collections import Counter
+
+import argparse
+import json
+import sys
+from datetime import datetime, timezone
 from pathlib import Path
-from statistics import mean, median
+
+import meta as M
 
 ROOT = Path(__file__).parent
-SNAPS = ROOT / "snapshots"
-BASE = ROOT / "baseline"
-BASE.mkdir(exist_ok=True)
+META_PATH = ROOT / "meta_version.json"
 
-# Latest day
-dates = sorted(p.stem for p in SNAPS.glob("[0-9]*.json")
-               if not p.stem.endswith(("_convergence", "_similarity",
-                                       "_prompt", "_dedup", "_health",
-                                       "_pull_report")))
-# Pick the latest date that has all three companion files
-latest = None
-for d in reversed(dates):
-    if all((SNAPS / f"{d}{suffix}.json").exists()
-           for suffix in ("", "_convergence", "_similarity")):
-        latest = d
-        break
-if latest is None:
-    raise SystemExit("No complete snapshot (snap+convergence+similarity) found")
-shutil.copy(SNAPS / f"{latest}.json", BASE / f"{latest}_baseline.json")
-shutil.copy(SNAPS / f"{latest}_convergence.json", BASE / f"{latest}_convergence_baseline.json")
-shutil.copy(SNAPS / f"{latest}_similarity.json", BASE / f"{latest}_similarity_baseline.json")
+LEVELS = ("patch", "minor", "major")
 
-# Per-feed stats over all 39 days
-feed_stats = {}
-for d in dates:
-    snap = json.loads((SNAPS / f"{d}.json").read_text(encoding="utf-8"))
-    for ck, cv in snap["countries"].items():
-        for f in cv["feeds"]:
-            key = f"{ck} | {f['name']}"
-            rec = feed_stats.setdefault(key, {
-                "country_bucket": ck, "name": f["name"], "lang": f.get("lang"),
-                "lean": f.get("lean", ""), "days": 0, "live_days": 0,
-                "items_total": 0, "summary_chars_total": 0, "summary_n": 0,
-            })
-            rec["days"] += 1
-            n = f.get("item_count", 0)
-            rec["items_total"] += n
-            if n > 0:
-                rec["live_days"] += 1
-            for it in f.get("items", []):
-                s = it.get("summary") or ""
-                rec["summary_chars_total"] += len(s)
-                rec["summary_n"] += 1
 
-for rec in feed_stats.values():
-    rec["uptime_pct"] = round(100 * rec["live_days"] / rec["days"], 1) if rec["days"] else 0.0
-    rec["avg_items_per_day"] = round(rec["items_total"] / rec["days"], 2) if rec["days"] else 0.0
-    rec["avg_summary_chars"] = round(rec["summary_chars_total"] / rec["summary_n"], 1) if rec["summary_n"] else 0.0
-    del rec["summary_chars_total"], rec["summary_n"]
+def bump_version(current: str, level: str) -> str:
+    parts = [int(x) for x in current.split(".")]
+    while len(parts) < 3:
+        parts.append(0)
+    if level == "major":
+        parts = [parts[0] + 1, 0, 0]
+    elif level == "minor":
+        parts = [parts[0], parts[1] + 1, 0]
+    elif level == "patch":
+        parts[2] += 1
+    else:
+        raise ValueError(f"unknown level: {level}")
+    return ".".join(str(p) for p in parts)
 
-(BASE / "feed_stats.json").write_text(
-    json.dumps(sorted(feed_stats.values(),
-                      key=lambda x: (x["country_bucket"], x["name"])),
-               indent=2, ensure_ascii=False)
-)
 
-# Per-day cluster stats (skip days without a convergence file)
-cluster_stats = []
-for d in dates:
-    conv_path = SNAPS / f"{d}_convergence.json"
-    if not conv_path.exists():
-        continue
-    conv = json.loads(conv_path.read_text(encoding="utf-8"))
-    if not conv:
-        cluster_stats.append({"date": d, "n_clusters": 0})
-        continue
-    cluster_stats.append({
-        "date": d,
-        "n_clusters": len(conv),
-        "max_country_count": max(c["country_count"] for c in conv),
-        "mean_sim_top10": round(mean(c["mean_similarity"]
-                                     for c in sorted(conv, key=lambda c: -c["country_count"])[:10]), 3),
-        "total_articles": sum(c["article_count"] for c in conv),
-    })
-(BASE / "cluster_stats.json").write_text(json.dumps(cluster_stats, indent=2))
+def recompute_hashes(meta: dict) -> dict:
+    """Update every hash field in meta from the live files."""
+    meta["feeds"]["hash"] = M.file_hash(M.FEEDS_PATH)
+    meta["tokenizer"]["stopwords_hash"] = M.file_hash(M.STOPWORDS_PATH)
+    if M.CANONICAL_STORIES_PATH.exists():
+        meta["canonical_stories_hash"] = M.file_hash(M.CANONICAL_STORIES_PATH)
+    if M.PROMPTS_DIR.exists():
+        meta["claude"]["prompts_hash"] = M.dir_hash(M.PROMPTS_DIR)
 
-print(f"Baseline pinned for {latest}")
-print(f"  feeds tracked: {len(feed_stats)}")
-print(f"  days tracked:  {len(cluster_stats)}")
-print(f"  total feeds @100% uptime: {sum(1 for r in feed_stats.values() if r['uptime_pct']==100)}")
-print(f"  total dead feeds (0% uptime): {sum(1 for r in feed_stats.values() if r['uptime_pct']==0)}")
-print(f"  total items in latest snapshot: {sum(r['avg_items_per_day'] for r in feed_stats.values()):.0f}")
+    # Refresh feed counts so the human-readable summary stays accurate.
+    feeds_doc = json.loads(M.FEEDS_PATH.read_text(encoding="utf-8"))
+    if isinstance(feeds_doc, dict) and "countries" in feeds_doc:
+        meta["feeds"]["n_buckets"] = len(feeds_doc["countries"])
+        meta["feeds"]["n_feeds"] = sum(
+            len(v.get("feeds", [])) for v in feeds_doc["countries"].values()
+        )
+    return meta
+
+
+def cmd_check() -> int:
+    drift = M.assert_pinned(strict=False)
+    if not drift:
+        print(f"OK: meta_version={M.VERSION}, all pinned inputs match.")
+        return 0
+    print(f"DRIFT: meta_version={M.VERSION} declares hashes that no longer match:")
+    for k, (declared, actual) in drift.items():
+        print(f"  {k}:")
+        print(f"    declared: {declared}")
+        print(f"    actual:   {actual}")
+    print("")
+    print("If the change was intentional, bump the pin:")
+    print("  python baseline_pin.py --bump <patch|minor|major> --reason '...'")
+    return 1
+
+
+def cmd_bump(level: str, reason: str | None) -> int:
+    if level == "major" and not reason:
+        print("ERROR: major bumps require --reason (it's a longitudinal break).",
+              file=sys.stderr)
+        return 1
+
+    raw = json.loads(META_PATH.read_text(encoding="utf-8"))
+    old_version = raw["meta_version"]
+    new_version = bump_version(old_version, level)
+
+    # Re-hash everything against current files.
+    raw = recompute_hashes(raw)
+    raw["meta_version"] = new_version
+    raw["pinned_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    if reason:
+        raw["pin_reason"] = reason
+
+    # Preserve `_doc` field at the top of the file by re-emitting in the
+    # canonical key order.
+    canonical_order = [
+        "_doc", "meta_version", "pinned_at", "pin_reason",
+        "feeds", "tokenizer", "embedding", "clustering", "metrics",
+        "extraction", "ingest", "signal_text", "canonical_stories_hash",
+        "claude",
+    ]
+    ordered = {k: raw[k] for k in canonical_order if k in raw}
+    for k, v in raw.items():
+        if k not in ordered:
+            ordered[k] = v
+
+    META_PATH.write_text(
+        json.dumps(ordered, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    print(f"meta_version: {old_version} -> {new_version}")
+    if reason:
+        print(f"reason: {reason}")
+    print("")
+    print("Next steps:")
+    print(f"  git add meta_version.json")
+    print(f"  git commit -m 'meta: bump to {new_version} — {reason or level}'")
+    print(f"  git tag meta-v{new_version}")
+    print(f"  git push --follow-tags")
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--check", action="store_true",
+                    help="report drift; exit 1 if any. Used by CI.")
+    ap.add_argument("--bump", choices=LEVELS,
+                    help="bump the version and re-hash all pinned inputs.")
+    ap.add_argument("--reason", type=str, default=None,
+                    help="why you're bumping. Required for --bump major.")
+    args = ap.parse_args()
+
+    if args.check and args.bump:
+        ap.error("--check and --bump are mutually exclusive")
+    if not (args.check or args.bump):
+        ap.error("must pass --check or --bump")
+
+    if args.check:
+        return cmd_check()
+    return cmd_bump(args.bump, args.reason)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

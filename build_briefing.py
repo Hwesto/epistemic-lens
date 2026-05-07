@@ -47,40 +47,12 @@ except ImportError:
         return ("empty", "")
 
 
-# Keyword sets for canonical "story groups" we recognise. The token detector
-# below also surfaces emerging stories not in this list.
-CANONICAL_STORIES = {
-    "hormuz_iran": {
-        "title": "Strait of Hormuz / US-Iran deal",
-        "patterns": [r"\bhormuz\b", r"\bproject freedom\b", r"\bepic fury\b",
-                     r"\bone[\- ]page memo\b", r"\biran\b.{0,40}\bdeal\b"],
-        "exclude": [],
-    },
-    "turner_cnn": {
-        "title": "Ted Turner death (CNN founder)",
-        "patterns": [r"\bted turner\b", r"\bturner.*\bdies\b", r"\bcnn founder\b",
-                     r"\bcnn.*\bturner\b"],
-        "exclude": [],
-    },
-    "lebanon_buffer": {
-        "title": "Israeli buffer zone in southern Lebanon",
-        "patterns": [r"\bbuffer zone\b", r"\bsouthern lebanon\b",
-                     r"\blitani\b", r"\bhezbollah\b.*\bisrael\b",
-                     r"\bisraeli strikes\b.*\blebanon\b"],
-        "exclude": [r"\bhormuz\b"],
-    },
-    "hantavirus_cruise": {
-        "title": "Hantavirus outbreak on MV Hondius",
-        "patterns": [r"\bhantavirus\b", r"\bmv hondius\b",
-                     r"\bcruise.*\bvirus\b"],
-        "exclude": [],
-    },
-    "vietnam_china_visit": {
-        "title": "Vietnam To Lam visits Beijing",
-        "patterns": [r"\bto lam\b", r"\bvietnam.*\bbeijing\b"],
-        "exclude": [],
-    },
-}
+import meta
+
+# Canonical "story groups" — loaded from canonical_stories.json so the patterns
+# are pinned by meta_version. The token detector below also surfaces emerging
+# stories not in this list.
+CANONICAL_STORIES = meta.canonical_stories()
 
 
 def matches_story(item: dict, patterns, exclude=None) -> bool:
@@ -158,7 +130,7 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
         for a in kept_for_bucket:
             corpus.append({"bucket": ck, **a})
 
-    return {
+    return meta.stamp({
         "date": snap.get("date"),
         "story_key": story_key,
         "story_title": story_def["title"],
@@ -166,7 +138,7 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
         "n_articles_total": sum(len(v) for v in by_bucket.values()),
         "signal_breakdown": dict(Counter(a["signal_level"] for a in corpus)),
         "corpus": corpus,
-    }
+    })
 
 
 def find_emerging_stories(snap: dict, min_buckets: int = 5,
