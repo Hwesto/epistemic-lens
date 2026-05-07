@@ -2,9 +2,10 @@ e2e_test/
 fresh_pull/
 __pycache__/
 *.pyc
-videos/*.mp4
 videos/*.mov
-# Keep videos/stills/ — small PNG previews are useful for review
+# Keep videos/stills/ + videos/*.mp4 in repo for review.
+# (Each MP4 is ~10-30 MB; OK at our daily volume. Switch to git-lfs
+# if/when the videos directory exceeds ~500 MB.)
 
 # Piper voice models — too big for git, regen via synthesize_voiceover.py
 video_template/public/voices/*.onnx
