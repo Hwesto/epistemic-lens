@@ -11,6 +11,22 @@ export type Scene = {
   country?: string;
   audio?: string;
   duration_seconds?: number;
+  // Optional Kokoro speech-rate override per scene. <1.0 = slower
+  // (use for paradox climax / gravitas), >1.0 = faster (setup).
+  speech_rate?: number;
+  // Special "paradox" scene type — render with ParadoxCard split layout
+  // instead of the standard QuoteCard. When set, also skip the country
+  // pin (the layout is the visual subject).
+  scene_type?: "paradox";
+  paradox_top?: ParadoxSide;
+  paradox_bottom?: ParadoxSide;
+  paradox_label?: string; // default "BOTH AGREE"
+};
+
+export type ParadoxSide = {
+  flag: string;       // emoji
+  outlet: string;     // displayed in caps
+  quote: string;      // the actual headline as quoted text
 };
 
 // Ambient ticker — small headline that floats over a non-focal country

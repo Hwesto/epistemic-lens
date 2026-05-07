@@ -314,12 +314,15 @@ def process_script(script_path: Path, voice: str = DEFAULT_VOICE,
             durations.append({"scene": scene_no, "duration_seconds": 0.0,
                               "audio": None, "text": ""})
             continue
+        # Per-scene speech_rate override: <1.0 = slower (paradox climax),
+        # >1.0 = faster (setup); default 1.0 = normal.
+        scene_rate = float(sc.get("speech_rate") or 1.0)
         if provider == "piper":
             dur = synthesize_scene(text, voice_model, out_path,
-                                   length_scale=length_scale)
+                                   length_scale=length_scale / scene_rate)
         elif provider == "kokoro":
             dur = synthesize_scene_kokoro(text, voice, out_path,
-                                          speed=1.0 / max(0.01, length_scale))
+                                          speed=scene_rate / max(0.01, length_scale))
         else:  # elevenlabs
             dur = synthesize_scene_elevenlabs(text, voice, out_path)
 

@@ -13,7 +13,8 @@ import { TitleCard } from "./components/TitleCard";
 import { OutroCard } from "./components/OutroCard";
 import { Captions } from "./components/Captions";
 import { IntroSting } from "./components/IntroSting";
-import { WorldTickers } from "./components/WorldTickers";
+import { TopNewsBar } from "./components/TopNewsBar";
+import { ParadoxCard } from "./components/ParadoxCard";
 import { useCameraDolly } from "./useCameraDolly";
 
 const MUSIC_BED_FILE = "music_bed.wav";
@@ -57,15 +58,18 @@ const COUNTRY_FLAG_MAP: Array<[RegExp, string]> = [
 
 function inferCountry(scene: Scene): string | undefined {
   if (scene.country) return scene.country;
-  const haystack = `${scene.on_screen_text} ${scene.headline_quoted ?? ""}`;
+  // ONLY check on_screen_text — quoted headlines can mention "United
+  // States" in another country's framing scene, which would falsely
+  // resolve to USA. The on_screen_text is the canonical country label.
   for (const [re, code] of COUNTRY_FLAG_MAP) {
-    if (re.test(haystack)) return code;
+    if (re.test(scene.on_screen_text)) return code;
   }
   return undefined;
 }
 
-type SceneType = "title" | "world_intro" | "country" | "outro";
+type SceneType = "title" | "world_intro" | "country" | "paradox" | "outro";
 function classifyScene(scene: Scene, idx: number, total: number): SceneType {
+  if (scene.scene_type === "paradox") return "paradox";
   if (idx === 0) return "title";
   if (idx === total - 1) return "outro";
   if (idx === 1 && !inferCountry(scene)) return "world_intro";
@@ -82,8 +86,7 @@ function parseTimeRange(t: string): { start: number; end: number } {
 }
 
 // Inner per-scene component so we can call useCameraDolly inside a
-// Sequence (which provides its own time context). React rules-of-hooks
-// require hooks at the top of a component — can't call inside .map.
+// Sequence. React hook rules require hooks at the top of a component.
 const SceneInner: React.FC<{
   scene: Scene;
   type: SceneType;
@@ -94,41 +97,67 @@ const SceneInner: React.FC<{
   worldTickers?: VideoScriptProps["world_tickers"];
   storyDate?: string;
 }> = ({ scene, type, country, startPreset, endPreset, durationInFrames, worldTickers, storyDate }) => {
-  const cam = useCameraDolly(startPreset, endPreset, durationInFrames);
+  useCameraDolly(startPreset, endPreset, durationInFrames); // pre-warm for child components
   const preset = endPreset;
+
+  // News bar is hidden on title (clean intro) and outro (clean close).
+  // Visible during all middle scenes — replaces the noisy floating
+  // WorldTickers from v0.7.0.
+  const newsBarVisible = type !== "title" && type !== "outro";
 
   return (
     <>
       {scene.audio ? <Audio src={staticFile(scene.audio)} /> : null}
-      <WorldMapBackground
-        startPreset={startPreset}
-        endPreset={endPreset}
-        durationInFrames={durationInFrames}
-        highlightCountry={country}
-      />
-      {/* Ambient world tickers — always-on context: real headlines from
-          OTHER countries today, floating at their geographic positions. */}
-      {worldTickers && worldTickers.length > 0 ? (
-        <WorldTickers
-          tickers={worldTickers}
-          cameraLon={cam.lon}
-          cameraLat={cam.lat}
-          cameraZoom={cam.zoom}
-          focalCountry={country}
-          totalDurationInFrames={durationInFrames}
+
+      {/* Map is always present except during paradox split-card */}
+      {type !== "paradox" ? (
+        <WorldMapBackground
+          startPreset={startPreset}
+          endPreset={endPreset}
+          durationInFrames={durationInFrames}
+          highlightCountry={country}
         />
-      ) : null}
-      {/* Burned-in captions for non-title/outro scenes */}
-      {type !== "title" && type !== "outro" && scene.voiceover ? (
+      ) : (
+        // Paradox: deep dark gradient backdrop instead of map
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(ellipse at center, #1a1530 0%, #050614 70%, #000 100%)",
+          }}
+        />
+      )}
+
+      {/* Top news bar — always-on context, big readable */}
+      <TopNewsBar
+        tickers={worldTickers || []}
+        skipCountry={country}
+        totalDurationInFrames={durationInFrames}
+        visible={newsBarVisible}
+      />
+
+      {/* Burned-in captions for non-title/outro scenes (and not paradox
+          which has its own large quote layout) */}
+      {type !== "title" && type !== "outro" && type !== "paradox" && scene.voiceover ? (
         <Captions
           voiceover={scene.voiceover}
           durationInFrames={durationInFrames}
         />
       ) : null}
+
       {type === "title" ? (
         <TitleCard text={scene.on_screen_text} storyDate={storyDate} />
       ) : type === "outro" ? (
         <OutroCard text={scene.on_screen_text} />
+      ) : type === "paradox" ? (
+        scene.paradox_top && scene.paradox_bottom ? (
+          <ParadoxCard
+            top={scene.paradox_top}
+            bottom={scene.paradox_bottom}
+            middle_label={scene.paradox_label}
+          />
+        ) : null
       ) : type === "country" ? (
         <>
           <CountryPin flag={preset.flag} label={preset.label} />

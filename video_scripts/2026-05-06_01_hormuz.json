@@ -4,21 +4,20 @@
   "story_title": "Strait of Hormuz / Project Freedom paused",
   "rank": 1,
   "n_buckets_in_briefing": 27,
-  "story_one_liner": "Same Hormuz deal, five completely different stories — could every one be telling the truth?",
+  "story_one_liner": "America says it just won the Iran war. Iran says America just lost. So which one is true?",
   "duration_seconds": 60,
   "format": "9:16 vertical short",
-  "target_platforms": ["TikTok", "Instagram Reels", "YouTube Shorts"],
-  "voice_style": "BBC-broadcaster cadence, measured and authoritative",
-  "voiceover_provider": "Piper TTS en_GB-alan-medium (free, local)",
-  "music_brief": "ambient drone bed throughout; intro sting handles open",
+  "voice_style": "BBC-broadcaster cadence, faster on setup, slower on paradox",
+  "voiceover_provider": "Kokoro bm_george (free, local)",
+  "music_brief": "ambient drone bed; intro sting handles open",
   "intro_sting_audio": "intro_sting.mp3",
   "intro_sting_seconds": 3.03,
   "channel_name": "DAILY FRAMINGS",
   "world_tickers": [
-    {"country_code": "br", "headline": "Trump recua: operação suspensa", "outlet": "Folha"},
+    {"country_code": "br", "headline": "Trump recua: operação Hormuz suspensa", "outlet": "Folha"},
     {"country_code": "jp", "headline": "Japan to buy 20m UAE oil bypassing Hormuz", "outlet": "Nikkei"},
     {"country_code": "ke", "headline": "US trade gap widens as oil exports surge", "outlet": "Standard Kenya"},
-    {"country_code": "de", "headline": "Lufthansa fuel bill +€1.7B on Iran war", "outlet": "DW"},
+    {"country_code": "de", "headline": "Lufthansa fuel bill +€1.7B on Iran war", "outlet": "DW English"},
     {"country_code": "ph", "headline": "Inflation 7.2% — first Asian domino", "outlet": "Asia Times"},
     {"country_code": "ge", "headline": "Central bank raises rates 8.25%", "outlet": "Civil Georgia"},
     {"country_code": "kp", "headline": "Pyongyang gas now pricier than Seoul", "outlet": "NK News"}
@@ -26,60 +25,73 @@
   "scenes": [
     {
       "scene": 1,
-      "time": "0:00-0:04",
-      "voiceover": "Five countries. One Iran deal. Same facts, five very different stories.",
-      "on_screen_text": "5 STORIES.\n1 DEAL.",
-      "country": null
+      "time": "0:00-0:06",
+      "voiceover": "America just signed a deal to end the Iran war. They say they won. Iran says it was a shameful U.S. defeat. So who's right?",
+      "on_screen_text": "WHO WON\nTHE HORMUZ WAR?",
+      "country": null,
+      "speech_rate": 1.05
     },
     {
       "scene": 2,
-      "time": "0:04-0:11",
-      "voiceover": "The U.S. and Iran agreed a one-page memo to end the Hormuz war. Pakistan brokered. Oil fell eleven percent.",
-      "on_screen_text": "THE FACTS.\nMay 6, 2026",
-      "country": null
+      "time": "0:06-0:12",
+      "voiceover": "Same one-page memo. Same eleven percent oil drop. Five countries told this very differently.",
+      "on_screen_text": "ONE DEAL.\nFIVE STORIES.",
+      "country": null,
+      "speech_rate": 1.05
     },
     {
       "scene": 3,
-      "time": "0:11-0:17",
-      "voiceover": "Reuters kept it neutral. Trump pauses operation. Iran says safe passage possible.",
+      "time": "0:12-0:18",
+      "voiceover": "Wire services kept it neutral. Trump pauses operation. Iran says safe passage possible.",
       "on_screen_text": "🌐 WIRE\nReuters / Japan Times / SMH",
-      "headline_quoted": "U.S. and Iran closing in on memorandum to end war",
+      "headline_quoted": "U.S. and Iran closing in on memorandum to end war.",
       "country": null
     },
     {
       "scene": 4,
-      "time": "0:17-0:24",
-      "voiceover": "America heard victory and threat in one sentence.",
+      "time": "0:18-0:25",
+      "voiceover": "America heard victory and threat in one breath.",
       "on_screen_text": "🇺🇸 USA\nTrump, Truth Social",
       "headline_quoted": "If they don't agree, the bombing starts at a much higher level than before."
     },
     {
       "scene": 5,
-      "time": "0:24-0:31",
+      "time": "0:25-0:31",
       "voiceover": "China heard a brokered peace.",
       "on_screen_text": "🇨🇳 CHINA\nWang Yi, via HKFP",
       "headline_quoted": "Beijing will play a greater role in ending Mideast fighting."
     },
     {
       "scene": 6,
-      "time": "0:31-0:39",
+      "time": "0:31-0:38",
       "voiceover": "Iran heard a defeated America.",
       "on_screen_text": "🇮🇷 IRAN\nKhamenei, via Iran International",
       "headline_quoted": "The United States has suffered a shameful defeat."
     },
     {
       "scene": 7,
-      "time": "0:39-0:53",
-      "voiceover": "And the paradox. Foreign Affairs — the establishment magazine of U.S. foreign policy — agreed with Russian state media. Both said: Iran proved it can close Hormuz. The IRGC stays in place.",
-      "on_screen_text": "🇺🇸 ↔ 🇷🇺  PARADOX\nForeign Affairs ↔ RT, agree",
-      "headline_quoted": "Iran proved it can close the strait, even in the face of significant military force.",
-      "country": "us"
+      "time": "0:38-0:54",
+      "voiceover": "And then the paradox. The U.S. establishment magazine of foreign policy. And Russian state television. Both said the same thing.",
+      "on_screen_text": "PARADOX",
+      "scene_type": "paradox",
+      "speech_rate": 0.92,
+      "paradox_top": {
+        "flag": "🇺🇸",
+        "outlet": "FOREIGN AFFAIRS",
+        "quote": "Iran proved it can close the strait, even in the face of significant military force."
+      },
+      "paradox_bottom": {
+        "flag": "🇷🇺",
+        "outlet": "RT",
+        "quote": "The reality in the Strait contradicts U.S. claims. Tehran still holds the strategic edge."
+      },
+      "paradox_label": "BOTH AGREE: IRAN WON"
     },
     {
       "scene": 8,
-      "time": "0:53-1:00",
+      "time": "0:54-1:00",
       "voiceover": "Same facts. Five stories. Could every one of them be telling the truth?",
-      "on_screen_text": "Same facts. Five stories.\nDaily Framings — follow.",
+      "on_screen_text": "Same facts.\nFive stories.\nDaily Framings — follow.",
       "country": null
     }
   ],
@@ -90,7 +102,8 @@
       {"frame": "USA", "outlet": "Yonhap (citing Truth Social)", "exact_headline": "If they don't agree, the bombing starts at a much higher level than before"},
       {"frame": "China", "outlet": "Hong Kong Free Press", "exact_headline": "Beijing to play 'greater role' in ending Mideast fighting"},
       {"frame": "Iran", "outlet": "Iran International (citing Khamenei)", "exact_headline": "The United States has suffered a shameful defeat"},
-      {"frame": "Paradox", "outlet": "Foreign Affairs / RT", "exact_headline": "Iran proved it can close the strait, even in the face of significant military force — Foreign Affairs (agreeing with RT)"}
+      {"frame": "Paradox-top", "outlet": "Foreign Affairs", "exact_headline": "Iran's New Oil Weapon — Iran proved it can close the strait, even in the face of significant military force"},
+      {"frame": "Paradox-bottom", "outlet": "RT (Rick Sanchez segment)", "exact_headline": "Mapping Hormuz: the reality in the Strait contradicts US claims. Tehran still holds the strategic edge"}
     ],
     "briefing_corpus": "briefings/2026-05-06_hormuz_iran.json"
   }
