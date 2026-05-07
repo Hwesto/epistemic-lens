@@ -37,8 +37,10 @@ import requests
 
 try:
     import trafilatura
+    HAS_TRAFILATURA = True
 except ImportError:
-    sys.exit("trafilatura not installed — pip install trafilatura")
+    trafilatura = None
+    HAS_TRAFILATURA = False
 
 ROOT = Path(__file__).parent
 SNAPS_DEFAULT = ROOT / "snapshots"
@@ -253,6 +255,8 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
 
 
 def main():
+    if not HAS_TRAFILATURA:
+        sys.exit("trafilatura not installed — pip install trafilatura")
     ap = argparse.ArgumentParser()
     ap.add_argument("--snapshot", default=None,
                     help="Path to snapshot.json (default: latest under snapshots/)")

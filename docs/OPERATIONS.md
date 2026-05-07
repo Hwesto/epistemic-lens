@@ -1,23 +1,47 @@
-# Operations — Epistemic Lens v0.5
+# Operations — Epistemic Lens
 
 ## Daily flow (cron)
 
-The 07:00 UTC GitHub Actions cron does this automatically every day:
+The 07:00 UTC GitHub Actions cron runs two jobs end-to-end:
 
 ```bash
-# .github/workflows/daily.yml steps
+# Job 1: ingest (no secrets needed)
 python ingest.py                # 235 feeds → snapshots/<date>.json (~2 min)
-python extract_full_text.py     # +body text on top stories + per-feed sample (~3 min)
+python extract_full_text.py     # +body text (top clusters + per-feed sample, ~3 min)
 python dedup.py                 # collapse near-dup items
 python daily_health.py          # health snapshot + alerts
-git commit + push               # snapshot + health files into the repo
+python build_briefing.py        # per-story corpora → briefings/<date>_<story>.json
+python build_metrics.py         # Jaccard + isolation + exclusive vocab
+git commit + push               # snapshots/, briefings/
+
+# Job 2: analyze (needs CLAUDE_CODE_OAUTH_TOKEN secret — see setup below)
+anthropics/claude-code-action@v1 with .claude/prompts/daily_analysis.md
+git commit + push               # analyses/<date>_<story>.md
 ```
 
-Total runtime: ~10 min. Well within GitHub Actions' 30-min timeout.
+Total runtime: ~15 min for ingest, ~10-20 min for analyze. Each job is
+within the 30-min timeout.
 
-The cron does NOT yet generate briefings or videos automatically — that's
-phase A3 (`framing_pass.py` calling Claude API). For now those are produced
-in a daily Claude Code session or manually.
+Videos are NOT auto-rendered. After the cron lands, a human picks angles
+from the day's analyses and writes `video_scripts/<date>_<n>.json`.
+
+## One-time setup: CLAUDE_CODE_OAUTH_TOKEN
+
+The `analyze` job authenticates to Claude Code via your subscription
+(no API charges). Set the token once:
+
+```bash
+# 1. Generate a long-lived OAuth token from your Claude.ai subscription
+claude setup-token
+
+# 2. Copy the printed value, then add it as a repo secret:
+#      Settings → Secrets and variables → Actions → New repository secret
+#      Name:   CLAUDE_CODE_OAUTH_TOKEN
+#      Value:  (paste)
+```
+
+Without this secret the `analyze` job fails fast with a clear error
+(precheck step in `daily.yml`); the ingest job still runs normally.
 
 ## Daily flow (manual / Claude Code)
 

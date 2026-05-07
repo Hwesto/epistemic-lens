@@ -1,5 +1,11 @@
 # Hormuz / US-Iran Deal — Cross-Country Framing Correlation
 
+> **Spec, not auto-output.** This is the hand-curated exemplar that the
+> automated daily analysis pipeline targets. Real cron-generated analyses
+> live in `analyses/<DATE>_<story_key>.md`. Keep this file in sync with
+> `.claude/prompts/daily_analysis.md` — together they define what good
+> output looks like.
+
 **Story**: Strait of Hormuz / US-Iran one-page memorandum, "Project Freedom" paused
 **Date**: 2026-05-06
 **Source**: `briefings/2026-05-06_hormuz_iran.json`
@@ -316,9 +322,10 @@ recurring "Analysis vs. News" series.
   count >= 3.
 - Lead-paragraph analysis = first 200 chars of `signal_text`.
 - Frame definitions in this analysis are conservative (regex-based, not LLM
-  classification); a Claude-pass on the 41 article bodies would surface
+  classification); a Claude-pass on the 41 article bodies surfaces
   finer-grained frames (e.g. "ceasefire-as-victory" vs "ceasefire-as-pause").
-  That is the next step proposed in `HANDOFF.md` direction A.
+  That Claude-pass is now wired into the daily cron via the `analyze` job
+  in `.github/workflows/daily.yml` and `.claude/prompts/daily_analysis.md`.
 
 ---
 

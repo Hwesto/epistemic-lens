@@ -11,7 +11,6 @@ Tests:
   - dedup.normalise_title: lowercase, suffix strip, punctuation
   - dedup.dedup_snapshot: collapses URL dupes, title near-dupes, intra-feed dupes
   - daily_health.health_for: error/stub/slow detection, bucket alerts
-  - gdelt_pull.* : query construction (no live HTTP in unit tests)
   - schema validation: snapshot, convergence, similarity files
 
 Run: python3 -m unittest tests.py
