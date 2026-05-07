@@ -39,8 +39,33 @@ python build_briefing.py
 
 # Or write them by hand from the briefing corpus.
 
-# Synthesize voice (Piper local, free)
+# Synthesize voice — two options:
+
+# OPTION A — Piper (free, local, default)
+#   Quality: decent. Some scenes can have audio crackling artefacts
+#   even with the v0.6.1 lower-noise settings (noise-scale=0.4).
+#   Use for testing; switch to ElevenLabs for final cut.
 python synthesize_voiceover.py video_scripts/<date>_*.json
+python synthesize_voiceover.py <id>.json --voice en_US-ryan-high  # try other Piper voices
+
+# OPTION B — ElevenLabs free tier (10K chars/month, ~5-7 videos)
+#   Production-grade prosody, no crackling, deep broadcaster voice.
+#   1. Sign up at elevenlabs.io (free tier)
+#   2. Generate an API key at https://elevenlabs.io/app/settings/api-keys
+#   3. Set it as an env var:
+export ELEVENLABS_API_KEY=sk-...
+#   4. Run with --provider elevenlabs
+python synthesize_voiceover.py <id>.json --provider elevenlabs            # default voice "Brian"
+python synthesize_voiceover.py <id>.json --provider elevenlabs --voice Daniel  # British news-anchor
+python synthesize_voiceover.py <id>.json --provider elevenlabs --voice Bill    # older male gravitas
+
+# Available ElevenLabs voices (free tier): Brian, Adam, Bill, Antoni,
+# Charlie, Daniel, Sam, George — see synthesize_voiceover.py
+# ELEVENLABS_VOICES dict for IDs.
+#
+# Free tier characters used per video: ~600-900 chars (5-7 videos/month).
+# When you exhaust the free quota, upgrade to Creator tier ($22/mo,
+# 100K chars) for ~100 videos/month.
 
 # Render the videos
 python render_video.py video_scripts/<date>_*.json
