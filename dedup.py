@@ -28,6 +28,8 @@ from collections import defaultdict
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
+import meta
+
 ROOT = Path(__file__).parent
 SNAPS = ROOT / "snapshots"
 
@@ -183,17 +185,18 @@ def main():
           f"(reduction: {100*(1 - result['n_deduped']/max(1,result['n_total_items'])):.1f}%)")
     print(f"  url dupes     : {result['n_url_dupes']}")
     print(f"  title dupes   : {result['n_title_dupes']}")
-    # Write annotated snapshot back
+    # Write annotated snapshot back (re-stamp so live meta_version sticks)
+    meta.stamp(snap)
     snap_path.write_text(json.dumps(snap, indent=2, ensure_ascii=False))
     # Write dedup result alongside
     out = snap_path.with_name(snap_path.stem + "_dedup.json")
-    out.write_text(json.dumps({
+    out.write_text(json.dumps(meta.stamp({
         "n_total_items": result["n_total_items"],
         "n_deduped": result["n_deduped"],
         "n_url_dupes": result["n_url_dupes"],
         "n_title_dupes": result["n_title_dupes"],
         "deduped_items": result["deduped_items"],
-    }, indent=2, ensure_ascii=False))
+    }), indent=2, ensure_ascii=False))
     print(f"  wrote {out.name}")
     # Spot-check: top 10 dup groups
     groups = defaultdict(list)

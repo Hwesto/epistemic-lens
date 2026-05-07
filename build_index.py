@@ -40,6 +40,8 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+import meta
+
 ROOT = Path(__file__).parent
 BRIEFINGS = ROOT / "briefings"
 ANALYSES = ROOT / "analyses"
@@ -175,12 +177,12 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
     if not story_entries:
         return None
 
-    index = {
+    index = meta.stamp({
         "date": date,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "n_stories": len(story_entries),
         "stories": story_entries,
-    }
+    })
     (out_dir / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"
     )
@@ -228,12 +230,12 @@ def main() -> int:
         latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
         (API / "latest.json").write_text(
             json.dumps(
-                {
+                meta.stamp({
                     "date": latest,
                     "url": f"/api/{latest}/index.json",
                     "n_stories": latest_idx["n_stories"],
                     "generated_at": latest_idx["generated_at"],
-                },
+                }),
                 indent=2,
             ),
             encoding="utf-8",

@@ -1,0 +1,56 @@
+{
+  "_doc": "Canonical story-group patterns. Pinned by meta_version.json -> canonical_stories_hash. Adding a story = minor version bump. Changing patterns or excludes = major version bump (invalidates which articles past briefings would have grouped together).",
+  "stories": {
+    "hormuz_iran": {
+      "title": "Strait of Hormuz / US-Iran deal",
+      "patterns": [
+        "\\bhormuz\\b",
+        "\\bproject freedom\\b",
+        "\\bepic fury\\b",
+        "\\bone[\\- ]page memo\\b",
+        "\\biran\\b.{0,40}\\bdeal\\b"
+      ],
+      "exclude": []
+    },
+    "turner_cnn": {
+      "title": "Ted Turner death (CNN founder)",
+      "patterns": [
+        "\\bted turner\\b",
+        "\\bturner.*\\bdies\\b",
+        "\\bcnn founder\\b",
+        "\\bcnn.*\\bturner\\b"
+      ],
+      "exclude": []
+    },
+    "lebanon_buffer": {
+      "title": "Israeli buffer zone in southern Lebanon",
+      "patterns": [
+        "\\bbuffer zone\\b",
+        "\\bsouthern lebanon\\b",
+        "\\blitani\\b",
+        "\\bhezbollah\\b.*\\bisrael\\b",
+        "\\bisraeli strikes\\b.*\\blebanon\\b"
+      ],
+      "exclude": [
+        "\\bhormuz\\b"
+      ]
+    },
+    "hantavirus_cruise": {
+      "title": "Hantavirus outbreak on MV Hondius",
+      "patterns": [
+        "\\bhantavirus\\b",
+        "\\bmv hondius\\b",
+        "\\bcruise.*\\bvirus\\b"
+      ],
+      "exclude": []
+    },
+    "vietnam_china_visit": {
+      "title": "Vietnam To Lam visits Beijing",
+      "patterns": [
+        "\\bto lam\\b",
+        "\\bvietnam.*\\bbeijing\\b"
+      ],
+      "exclude": []
+    }
+  }
+}

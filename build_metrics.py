@@ -19,51 +19,20 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+import meta
+
 ROOT = Path(__file__).parent
 BRIEFINGS = ROOT / "briefings"
 
-# Stopwords kept conservative — losing too many words flattens the signal.
-# The HORMUZ_CORRELATION exemplar used a similar small set.
-STOP = set("""
-the and that with from this their have been over into about because while
-says will could would should might must just like also even then than they
-them there here when where what which whose whom into upon onto without
-within against between among across through during before after under such
-some most more many much these those very only ever never said say saying
-told tells telling reports reported reporting according via per amid amidst
-toward towards yet still already once also however nevertheless meanwhile
-furthermore therefore thus hence indeed perhaps maybe likely possibly
-""".split())
-
-# Trailing-character normalization: cheap stand-in for lemmatization.
-PLURAL_SUFFIXES = ("ies", "es", "s")
-
-
-def normalize_token(tok: str) -> str:
-    tok = tok.lower()
-    if len(tok) > 4:
-        for suf in PLURAL_SUFFIXES:
-            if tok.endswith(suf) and len(tok) - len(suf) >= 4:
-                return tok[: -len(suf)]
-    return tok
-
 
 def tokens_from_text(text: str) -> Counter:
-    """Lowercase tokens, len>3, stopword-filtered, lightly normalized."""
-    raw = re.findall(r"[A-Za-z]{4,}", text or "")
-    out = Counter()
-    for t in raw:
-        n = normalize_token(t)
-        if n in STOP or len(n) < 4:
-            continue
-        out[n] += 1
-    return out
+    """Tokens via the pinned tokeniser (regex + stopwords + normalization)."""
+    return Counter(meta.tokenize(text))
 
 
 def bucket_vocabularies(corpus: list[dict]) -> dict[str, Counter]:
@@ -121,9 +90,15 @@ def bucket_isolation(pairs: list[dict], buckets: list[str]) -> list[dict]:
 
 
 def bucket_exclusive_vocab(
-    vocabs: dict[str, Counter], min_count: int = 3
+    vocabs: dict[str, Counter],
+    min_count: int | None = None,
+    max_doc_freq: int | None = None,
 ) -> dict[str, list[dict]]:
-    """Terms with document frequency == 1 (one bucket only), count >= min_count."""
+    """Terms with document frequency <= max_doc_freq, count >= min_count."""
+    if min_count is None:
+        min_count = int(meta.METRICS["exclusive_vocab_min_count"])
+    if max_doc_freq is None:
+        max_doc_freq = int(meta.METRICS["exclusive_vocab_max_doc_freq"])
     df = Counter()
     for c in vocabs.values():
         for term in c:
@@ -134,7 +109,7 @@ def bucket_exclusive_vocab(
         exclusive = [
             {"term": t, "count": n}
             for t, n in counter.items()
-            if df[t] == 1 and n >= min_count
+            if df[t] <= max_doc_freq and n >= min_count
         ]
         exclusive.sort(key=lambda r: -r["count"])
         out[bucket] = exclusive
@@ -150,7 +125,7 @@ def build_metrics(briefing: dict) -> dict:
     vocabs = bucket_vocabularies(corpus)
     buckets = sorted(vocabs)
     pairs = pairwise_jaccard(vocabs)
-    return {
+    out = {
         "date": briefing.get("date"),
         "story_key": briefing.get("story_key"),
         "story_title": briefing.get("story_title"),
@@ -162,12 +137,15 @@ def build_metrics(briefing: dict) -> dict:
         "isolation": bucket_isolation(pairs, buckets),
         "bucket_exclusive_vocab": bucket_exclusive_vocab(vocabs),
         "method": (
-            "Jaccard over per-bucket token sets; tokens lowercased, "
-            "len>3, stopword-filtered, light plural normalization. "
-            "Bucket-exclusive = document frequency 1, count>=3."
+            f"Jaccard over per-bucket token sets; tokens via meta.tokenize "
+            f"(regex={meta.TOKENIZER['regex']!r}, len>={meta.TOKENIZER['min_token_length']}, "
+            f"stopword-filtered, plural normalization). Bucket-exclusive = "
+            f"doc_freq<={meta.METRICS['exclusive_vocab_max_doc_freq']}, "
+            f"count>={meta.METRICS['exclusive_vocab_min_count']}."
         ),
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
+    return meta.stamp(out)
 
 
 def metrics_path_for(briefing_path: Path) -> Path:

@@ -523,19 +523,22 @@ class TestBuildMetrics(unittest.TestCase):
         if "build_metrics" in sys.modules:
             importlib.reload(sys.modules["build_metrics"])
         import build_metrics
+        import meta as _meta
         from collections import Counter as _Counter
         self.bm = build_metrics
+        self.meta = _meta
         self.Counter = _Counter
 
     def test_normalize_token_strips_plurals(self):
+        # Tokenization primitives now live in meta.py (the methodology pin).
         # "es" is tried before "s", so "rules" → "rule"
-        self.assertEqual(self.bm.normalize_token("rules"), "rule")
+        self.assertEqual(self.meta.normalize_token("rules"), "rule")
         # "ies" is tried first; "cities" → strip "es" since stripping "ies"
         # would leave only 3 chars ("cit"). Light-touch normalization is the goal.
-        self.assertEqual(self.bm.normalize_token("cities"), "citi")
-        self.assertEqual(self.bm.normalize_token("Iran"), "iran")
+        self.assertEqual(self.meta.normalize_token("cities"), "citi")
+        self.assertEqual(self.meta.normalize_token("Iran"), "iran")
         # Don't over-strip short tokens — "yes" stays as-is (len<=4)
-        self.assertEqual(self.bm.normalize_token("yes"), "yes")
+        self.assertEqual(self.meta.normalize_token("yes"), "yes")
 
     def test_tokens_filters_stopwords_and_short(self):
         toks = self.bm.tokens_from_text("The quick brown fox said over the moon")
@@ -622,6 +625,60 @@ class TestBuildMetrics(unittest.TestCase):
         saudi_terms = {e["term"] for e in m["bucket_exclusive_vocab"].get("saudi_arabia", [])}
         self.assertIn("sisi", saudi_terms)
         self.assertIn("egypt", saudi_terms)
+
+
+class TestMethodologyPin(unittest.TestCase):
+    """meta.py: the methodology pin — hashes, stamping, drift detection."""
+
+    def test_pinned_inputs_match_declared_hashes(self):
+        import meta
+        # Should not raise on a clean repo.
+        meta.assert_pinned(strict=True)
+
+    def test_stamp_embeds_meta_version(self):
+        import meta
+        art = {"foo": 1}
+        stamped = meta.stamp(art)
+        self.assertIs(stamped, art)  # in-place
+        self.assertEqual(stamped["meta_version"], meta.VERSION)
+
+    def test_tokenize_uses_pinned_stopwords(self):
+        import meta
+        toks = meta.tokenize("The quick brown fox said over the moon")
+        self.assertNotIn("the", toks)
+        self.assertNotIn("said", toks)  # pinned stopword
+        self.assertIn("quick", toks)
+        self.assertIn("moon", toks)
+
+    def test_canonical_stories_loads(self):
+        import meta
+        stories = meta.canonical_stories()
+        self.assertIn("hormuz_iran", stories)
+        self.assertIn("patterns", stories["hormuz_iran"])
+
+    def test_baseline_pin_check_passes_on_clean_repo(self):
+        # baseline_pin --check is the CI gate; must exit 0 when nothing has drifted.
+        import subprocess
+        r = subprocess.run(
+            [sys.executable, "baseline_pin.py", "--check"],
+            capture_output=True, text=True, cwd=str(Path(__file__).parent),
+        )
+        self.assertEqual(r.returncode, 0, msg=r.stdout + r.stderr)
+
+    def test_drift_is_detected(self):
+        import json, tempfile, shutil
+        import meta as _meta
+        # Snapshot the current pinned file, mutate it, expect drift.
+        sw = Path(__file__).parent / "stopwords.txt"
+        original = sw.read_bytes()
+        try:
+            sw.write_text(original.decode("utf-8") + "\nNEWWORD\n", encoding="utf-8")
+            # Force re-import so meta picks up… actually meta.assert_pinned
+            # re-reads from disk every call, so no reload needed.
+            drift = _meta.assert_pinned(strict=False)
+            self.assertIn("tokenizer.stopwords", drift)
+        finally:
+            sw.write_bytes(original)
 
 
 if __name__ == "__main__":

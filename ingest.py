@@ -43,11 +43,15 @@ except ImportError:
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
-MAX_ITEMS = int(os.environ.get("MAX_ITEMS", "50"))
-MAX_WORKERS = int(os.environ.get("MAX_WORKERS", "30"))
-PER_HOST_DELAY = float(os.environ.get("PER_HOST_DELAY", "1.0"))
-TIMEOUT_S = int(os.environ.get("FETCH_TIMEOUT", "20"))
+import meta
+
+# Pinned defaults come from meta_version.json; env vars still allow ad-hoc
+# override for local debugging (e.g. SKIP_EMBED=1 python ingest.py).
+MODEL_NAME = meta.EMBEDDING["model"]
+MAX_ITEMS = int(os.environ.get("MAX_ITEMS", str(meta.INGEST["max_items_per_feed"])))
+MAX_WORKERS = int(os.environ.get("MAX_WORKERS", str(meta.INGEST["max_workers"])))
+PER_HOST_DELAY = float(os.environ.get("PER_HOST_DELAY", str(meta.INGEST["per_host_delay_s"])))
+TIMEOUT_S = int(os.environ.get("FETCH_TIMEOUT", str(meta.INGEST["fetch_timeout_s"])))
 OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "snapshots")
 FEEDS_CONFIG = os.environ.get("FEEDS_CONFIG", "feeds.json")
 SKIP_EMBED = os.environ.get("SKIP_EMBED", "0") == "1"
@@ -274,13 +278,13 @@ def pull_feed(feed_info: dict) -> dict:
 def pull_all(config: dict) -> dict:
     """Parallel fetch of all feeds. Returns snapshot dict."""
     now = datetime.now(timezone.utc)
-    snapshot = {
+    snapshot = meta.stamp({
         "pulled_at": now.isoformat(),
         "date": now.strftime("%Y-%m-%d"),
         "config_version": config.get("meta", {}).get("version", "?"),
         "max_items": MAX_ITEMS,
         "countries": {},
-    }
+    })
     # Initialise buckets to preserve order
     for ckey, cval in config["countries"].items():
         snapshot["countries"][ckey] = {"label": cval["label"], "feeds": []}
@@ -346,7 +350,13 @@ def embed_snapshot(snapshot, model):
     return vectors, all_meta
 
 
-def cluster_topics(vectors, eps=0.35, min_samples=3):
+def cluster_topics(vectors,
+                   eps: float | None = None,
+                   min_samples: int | None = None):
+    if eps is None:
+        eps = float(meta.CLUSTERING["eps"])
+    if min_samples is None:
+        min_samples = int(meta.CLUSTERING["min_samples"])
     dist = 1 - cosine_similarity(vectors)
     dist = np.maximum(dist, 0)
     labels = DBSCAN(eps=eps, min_samples=min_samples, metric="precomputed").fit_predict(dist)

@@ -2375,6 +2375,7 @@
       }
     ]
   },
-  "method": "Jaccard over per-bucket token sets; tokens lowercased, len>3, stopword-filtered, light plural normalization. Bucket-exclusive = document frequency 1, count>=3.",
-  "generated_at": "2026-05-07T10:25:55+00:00"
+  "method": "Jaccard over per-bucket token sets; tokens via meta.tokenize (regex='[A-Za-z]{4,}', len>=4, stopword-filtered, plural normalization). Bucket-exclusive = doc_freq<=1, count>=3.",
+  "generated_at": "2026-05-07T23:23:48+00:00",
+  "meta_version": "1.0.0"
 }

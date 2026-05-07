@@ -15,6 +15,8 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from statistics import mean
 
+import meta
+
 ROOT = Path(__file__).parent
 SNAPS = ROOT / "snapshots"
 
@@ -115,7 +117,7 @@ def health_for(snap_path: Path):
         / max(1, sum(v for k, v in extraction_totals.items() if k != "SKIPPED"))
     )
 
-    health = {
+    health = meta.stamp({
         "date": date,
         "n_feeds": sum(len(c["feeds"]) for c in snap["countries"].values()),
         "n_items": sum(sum(f.get("item_count", 0) for f in c["feeds"])
@@ -132,7 +134,7 @@ def health_for(snap_path: Path):
         "extraction_totals": extraction_totals,
         "extraction_full_pct": round(extraction_full_pct, 1),
         "extraction_per_bucket": extraction_per_bucket,
-    }
+    })
     out_path = SNAPS / f"{date}_health.json"
     out_path.write_text(json.dumps(health, indent=2, ensure_ascii=False))
     return health, out_path

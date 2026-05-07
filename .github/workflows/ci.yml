@@ -10,17 +10,37 @@ on:
       - '**.py'
       - 'requirements.txt'
       - 'feeds.json'
+      - 'stopwords.txt'
+      - 'canonical_stories.json'
+      - 'meta_version.json'
+      - '.claude/prompts/**'
       - '.github/workflows/ci.yml'
   pull_request:
     paths:
       - '**.py'
       - 'requirements.txt'
       - 'feeds.json'
+      - 'stopwords.txt'
+      - 'canonical_stories.json'
+      - 'meta_version.json'
+      - '.claude/prompts/**'
       - '.github/workflows/ci.yml'
   workflow_dispatch:
 
 jobs:
+  validate-meta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify meta_version.json hashes match pinned inputs
+        run: python baseline_pin.py --check
+
   unit-tests:
+    needs: validate-meta
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
