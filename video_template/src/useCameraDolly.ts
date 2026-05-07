@@ -12,13 +12,23 @@ export type CameraState = {
   zoom: number;
 };
 
+// Camera dolly that arrives FAST. Default `dollyFraction = 0.30` means
+// the camera completes its full pan/zoom by 30% of the scene's duration,
+// then sits still for the remaining 70%. This means the voiceover lands
+// on a SETTLED frame instead of mid-flight — much less "flying through
+// continents while speaking" feel.
+//
+// Pass `dollyFraction = 1.0` to restore the slow cinematic dolly across
+// the whole scene (used for title/world/outro scenes that want motion).
 export function useCameraDolly(
   start: CameraPreset,
   end: CameraPreset,
   durationInFrames: number,
+  dollyFraction: number = 0.30,
 ): CameraState {
   const frame = useCurrentFrame();
-  const t = interpolate(frame, [0, durationInFrames], [0, 1], {
+  const dollyEndFrame = Math.max(1, Math.round(durationInFrames * dollyFraction));
+  const t = interpolate(frame, [0, dollyEndFrame], [0, 1], {
     extrapolateRight: "clamp",
     extrapolateLeft: "clamp",
     easing: (x) => 1 - Math.pow(1 - x, 3),

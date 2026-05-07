@@ -162,10 +162,15 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
   let cursor = 0;
 
   // Optional intro sting prepended before all scenes.
+  // After the sting we insert a 4-frame BLACK FLASH (~133ms) for a hard
+  // cut into the title — gives the viewer a sharp gear-shift between the
+  // branded intro and the actual story.
   const stingFrames = intro_sting_audio
     ? Math.round(intro_sting_seconds * fps)
     : 0;
-  cursor += stingFrames;
+  const blackFlashFrames = stingFrames > 0 ? 4 : 0;
+  const stingPlusFlashEnd = stingFrames + blackFlashFrames;
+  cursor += stingPlusFlashEnd;
 
   const sceneRanges: Array<{ from: number; durationInFrames: number }> = [];
   for (const s of scenes) {
@@ -188,15 +193,20 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
           sting's audio peaks above it. */}
       <Audio src={staticFile(MUSIC_BED_FILE)} volume={MUSIC_BED_VOLUME} loop />
 
-      {/* Optional intro sting */}
+      {/* Optional intro sting + hard-cut black flash */}
       {intro_sting_audio ? (
-        <Sequence from={0} durationInFrames={stingFrames}>
-          <IntroSting
-            audioFile={intro_sting_audio}
-            channelName={channel_name}
-            durationInFrames={stingFrames}
-          />
-        </Sequence>
+        <>
+          <Sequence from={0} durationInFrames={stingFrames}>
+            <IntroSting
+              audioFile={intro_sting_audio}
+              channelName={channel_name}
+              durationInFrames={stingFrames}
+            />
+          </Sequence>
+          <Sequence from={stingFrames} durationInFrames={blackFlashFrames}>
+            <AbsoluteFill style={{ background: "black" }} />
+          </Sequence>
+        </>
       ) : null}
 
       {/* Story scenes */}
@@ -236,7 +246,7 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
 export function totalDurationInFrames(props: VideoScriptProps, fps: number): number {
   let total = 0;
   if (props.intro_sting_audio) {
-    total += Math.round((props.intro_sting_seconds || 3) * fps);
+    total += Math.round((props.intro_sting_seconds || 3) * fps) + 4; // sting + black flash
   }
   for (const s of props.scenes) {
     let seconds: number;

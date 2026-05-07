@@ -109,36 +109,34 @@ export const WorldTickers: React.FC<Props> = ({
           >
             <div
               style={{
-                background: "rgba(0,0,0,0.72)",
-                border: "1px solid rgba(255, 182, 39, 0.25)",
-                padding: "6px 12px",
-                borderRadius: 8,
+                background: "rgba(0,0,0,0.78)",
+                border: "1px solid rgba(255, 182, 39, 0.30)",
+                padding: "10px 16px",
+                borderRadius: 10,
                 fontFamily: "Inter, system-ui, sans-serif",
-                fontSize: 16,
-                fontWeight: 600,
-                color: "#cce0ff",
+                color: "#dfeaff",
                 whiteSpace: "nowrap",
-                maxWidth: 320,
+                maxWidth: 420,
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                textShadow: "0 1px 2px rgba(0,0,0,0.9)",
+                textShadow: "0 1px 3px rgba(0,0,0,0.95)",
               }}
             >
-              <span style={{ marginRight: 6 }}>{preset.flag}</span>
+              <span style={{ marginRight: 8, fontSize: 24 }}>{preset.flag}</span>
               <span
                 style={{
-                  fontSize: 11,
-                  letterSpacing: "0.15em",
+                  fontSize: 16,
+                  letterSpacing: "0.16em",
                   color: "#ffb627",
                   fontWeight: 800,
-                  marginRight: 6,
+                  marginRight: 10,
                 }}
               >
                 {preset.label}
               </span>
-              <span style={{ fontSize: 14, fontWeight: 500 }}>
-                {t.headline.length > 60
-                  ? t.headline.slice(0, 58) + "…"
+              <span style={{ fontSize: 22, fontWeight: 600 }}>
+                {t.headline.length > 50
+                  ? t.headline.slice(0, 48) + "…"
                   : t.headline}
               </span>
             </div>

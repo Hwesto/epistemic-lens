@@ -68,20 +68,19 @@ export const Captions: React.FC<Props> = ({ voiceover, durationInFrames }) => {
       <div
         style={{
           display: "inline-block",
-          background: "rgba(0,0,0,0.55)",
-          padding: "12px 22px",
-          borderRadius: 12,
+          background: "rgba(0,0,0,0.62)",
+          padding: "16px 28px",
+          borderRadius: 14,
           color: "white",
           fontFamily:
             "Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
-          fontSize: 38,
+          fontSize: 48,
           fontWeight: 800,
-          letterSpacing: "0.01em",
-          lineHeight: 1.25,
+          letterSpacing: "0.005em",
+          lineHeight: 1.18,
           textShadow:
-            "0 2px 6px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,1)",
+            "0 2px 8px rgba(0,0,0,0.95), 0 0 2px rgba(0,0,0,1)",
           maxWidth: "95%",
-          // Force a slim word-break to avoid 1-line overflow
           wordBreak: "break-word",
         }}
       >
