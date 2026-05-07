@@ -7,9 +7,11 @@ videos/*.mov
 # (Each MP4 is ~10-30 MB; OK at our daily volume. Switch to git-lfs
 # if/when the videos directory exceeds ~500 MB.)
 
-# Piper voice models — too big for git, regen via synthesize_voiceover.py
+# TTS voice models — too big for git, regen via synthesize_voiceover.py
 video_template/public/voices/*.onnx
 video_template/public/voices/*.onnx.json
+video_template/public/voices/voices.bin
+video_template/public/voices/kokoro-*.onnx
 
 # Per-render voiceover WAVs — regen on demand
 video_template/public/voiceovers/

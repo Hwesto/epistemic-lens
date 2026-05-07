@@ -1,19 +1,25 @@
 """synthesize_voiceover.py — multi-provider TTS for video scripts.
 
-Two providers, selectable via --provider:
+Three providers, selectable via --provider:
 
-  piper       (default) — Piper local ONNX inference. Free, offline,
-                          no API key, no rate limits. Quality: decent
-                          but can have audio crackling artefacts at
-                          default noise settings. Works for testing.
+  kokoro      (recommended) — Kokoro 82M local ONNX. Free, offline, no
+                              API key, no rate limits. Quality: close
+                              to ElevenLabs / Azure Neural. Voices
+                              include bm_george (British male broadcaster),
+                              bm_lewis, bf_emma, am_adam, etc. Model
+                              auto-downloads to public/voices/ on
+                              first use (~325 MB).
 
-  elevenlabs              ElevenLabs cloud API. Quality: production-
-                          grade broadcaster prosody. Free tier is 10K
-                          chars/month (~5-7 videos). Set ELEVENLABS_API_KEY
-                          env var. Voices include "Brian" (deep
-                          authoritative male, default), "Adam" (broadcaster),
-                          "Bill" (older male), or any voice_id from
-                          your ElevenLabs library.
+  piper                    — Piper local ONNX. Free, offline, no API
+                              key. Quality: lower than Kokoro; can have
+                              audio crackling artefacts. Works as fallback.
+
+  elevenlabs               — ElevenLabs cloud API. Quality: production-
+                              grade. Free tier 10K chars/mo (~5-7 videos).
+                              Set ELEVENLABS_API_KEY. NOTE: Free tier is
+                              blocked from datacenter IPs (incl. most
+                              cloud runners) — works from residential IPs
+                              only. Use kokoro from CI / GH Actions.
 
 Per scene synthesizes one audio file (WAV for piper, MP3 for elevenlabs)
 and writes a durations.json sidecar so render_video.py can sync visual
@@ -42,10 +48,20 @@ TEMPLATE = ROOT / "video_template"
 VOICES_DIR = TEMPLATE / "public" / "voices"
 VOICEOVERS_DIR = TEMPLATE / "public" / "voiceovers"
 
-# Default voice — alan-medium is a British male broadcaster-style voice,
-# noticeably more authoritative than the previous default amy-medium.
+# Piper default voice — alan-medium is a British male broadcaster-style.
 # Free, runs locally. Override with --voice to test alternatives.
 DEFAULT_VOICE = "en_GB-alan-medium"
+
+# Kokoro defaults
+KOKORO_DEFAULT_VOICE = "bm_george"  # British male broadcaster
+KOKORO_VOICES = [
+    "af", "af_bella", "af_nicole", "af_sarah", "af_sky",  # American female
+    "am_adam", "am_michael",                              # American male
+    "bf_emma", "bf_isabella",                             # British female
+    "bm_george", "bm_lewis",                              # British male
+]
+KOKORO_MODEL_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files/kokoro-v0_19.onnx"
+KOKORO_VOICES_URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files/voices.bin"
 
 # Map voice name -> (locale, voice_id, quality) for download URL construction
 VOICE_HF_PATHS: dict[str, str] = {
@@ -167,6 +183,45 @@ def synthesize_scene(text: str, voice_model: Path, out_path: Path,
 
 
 # ---------------------------------------------------------------------------
+# Kokoro provider — local ONNX, broadcast quality, no API key, no IP issues
+# ---------------------------------------------------------------------------
+_kokoro_singleton = None  # cache the loaded model across multiple calls
+
+def ensure_kokoro_model():
+    """Download Kokoro model + voices file to public/voices/ if missing."""
+    VOICES_DIR.mkdir(parents=True, exist_ok=True)
+    onnx_path = VOICES_DIR / "kokoro-v0_19.onnx"
+    voices_path = VOICES_DIR / "voices.bin"
+    for url, dest in [(KOKORO_MODEL_URL, onnx_path), (KOKORO_VOICES_URL, voices_path)]:
+        if not dest.exists():
+            print(f"[tts] downloading {dest.name} ...", flush=True)
+            urllib.request.urlretrieve(url, dest)
+    return onnx_path, voices_path
+
+
+def _get_kokoro():
+    global _kokoro_singleton
+    if _kokoro_singleton is None:
+        from kokoro_onnx import Kokoro
+        onnx_path, voices_path = ensure_kokoro_model()
+        _kokoro_singleton = Kokoro(str(onnx_path), str(voices_path))
+    return _kokoro_singleton
+
+
+def synthesize_scene_kokoro(text: str, voice: str, out_path: Path,
+                            speed: float = 1.0) -> float:
+    """Synthesize via Kokoro ONNX. Saves WAV. Returns duration in seconds."""
+    import soundfile as sf
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    k = _get_kokoro()
+    # British voices use en-gb phonemizer; American voices en-us
+    lang = "en-gb" if voice.startswith("b") else "en-us"
+    samples, sr = k.create(text, voice=voice, speed=speed, lang=lang)
+    sf.write(str(out_path), samples, sr)
+    return len(samples) / sr if sr else 0.0
+
+
+# ---------------------------------------------------------------------------
 # ElevenLabs provider
 # ---------------------------------------------------------------------------
 # Curated list of broadcaster-friendly voices on the ElevenLabs free tier.
@@ -238,10 +293,12 @@ def process_script(script_path: Path, voice: str = DEFAULT_VOICE,
     audio_ext = ".wav"
     if provider == "piper":
         voice_model = ensure_voice_model(voice)
+    elif provider == "kokoro":
+        ensure_kokoro_model()
     elif provider == "elevenlabs":
         audio_ext = ".mp3"
     else:
-        raise SystemExit(f"Unknown provider: {provider}. Choose 'piper' or 'elevenlabs'.")
+        raise SystemExit(f"Unknown provider: {provider}. Choose 'kokoro', 'piper', or 'elevenlabs'.")
 
     scenes = script.get("scenes") or []
     print(f"[tts] {video_id} via {provider}/{voice}: "
@@ -260,6 +317,9 @@ def process_script(script_path: Path, voice: str = DEFAULT_VOICE,
         if provider == "piper":
             dur = synthesize_scene(text, voice_model, out_path,
                                    length_scale=length_scale)
+        elif provider == "kokoro":
+            dur = synthesize_scene_kokoro(text, voice, out_path,
+                                          speed=1.0 / max(0.01, length_scale))
         else:  # elevenlabs
             dur = synthesize_scene_elevenlabs(text, voice, out_path)
 
@@ -294,22 +354,29 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("scripts", nargs="+",
                     help="One or more video_scripts/*.json files")
-    ap.add_argument("--provider", default="piper",
-                    choices=["piper", "elevenlabs"],
-                    help="TTS provider. piper = free local; elevenlabs = "
-                         "API (free tier 10K chars/mo, set ELEVENLABS_API_KEY)")
+    ap.add_argument("--provider", default="kokoro",
+                    choices=["kokoro", "piper", "elevenlabs"],
+                    help="TTS provider. kokoro = free local high-quality "
+                         "(default, recommended); piper = free local lower "
+                         "quality; elevenlabs = cloud API "
+                         "(set ELEVENLABS_API_KEY).")
     ap.add_argument("--voice", default=None,
-                    help="Voice id. For piper: en_GB-alan-medium etc. "
-                         "For elevenlabs: Brian/Adam/Bill/Daniel/George etc. "
-                         "Defaults: alan-medium (piper) or Brian (elevenlabs).")
+                    help=f"Voice id. kokoro: {', '.join(KOKORO_VOICES)}. "
+                         "piper: en_GB-alan-medium etc. "
+                         "elevenlabs: Brian/Adam/Bill/Daniel etc. "
+                         "Defaults: bm_george (kokoro) / alan-medium (piper) "
+                         "/ Brian (elevenlabs).")
     ap.add_argument("--length-scale", type=float, default=1.0,
                     help="Piper speech rate (<1.0 faster). Ignored for elevenlabs.")
     args = ap.parse_args()
 
     # Default voice depends on provider
     if args.voice is None:
-        args.voice = (DEFAULT_VOICE if args.provider == "piper"
-                      else ELEVENLABS_DEFAULT_VOICE)
+        args.voice = {
+            "kokoro": KOKORO_DEFAULT_VOICE,
+            "piper": DEFAULT_VOICE,
+            "elevenlabs": ELEVENLABS_DEFAULT_VOICE,
+        }[args.provider]
 
     if args.provider == "piper" and not shutil.which("piper"):
         sys.exit("piper not in PATH. Run: pip install piper-tts")
