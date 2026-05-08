@@ -86,7 +86,7 @@ For each story you analyse:
 
 ```json
 {
-  "meta_version": "<from briefing.meta_version>",
+  "meta_version": "<read from meta_version.json — do NOT copy from briefing>",
   "date": "YYYY-MM-DD",
   "story_key": "...",
   "story_title": "...",
