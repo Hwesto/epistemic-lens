@@ -184,6 +184,20 @@ jobs:
       - name: Pull agent's analysis commits
         run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
 
+      - name: Re-authenticate git (claude-code-action revoked its token at session end)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # claude-code-action's post-step DELETEs its installation token
+          # for security. The leftover http.extraheader in .git/config now
+          # references a revoked token, so any subsequent `git push` fails
+          # with "Invalid username or token. Password authentication is
+          # not supported for Git operations." Re-set the auth header to
+          # use the workflow's GITHUB_TOKEN, which lives until job end.
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
+
       - name: Validate analyses (citation grounding + number reconciliation)
         run: python validate_analysis.py
         # Fails the job if any analysis JSON has hallucinated quotes,
