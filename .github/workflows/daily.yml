@@ -124,6 +124,9 @@ jobs:
     needs: ingest
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
+      id-token: write   # required by claude-code-action@v1 OIDC auth
 
     steps:
       - uses: actions/checkout@v4
@@ -146,12 +149,21 @@ jobs:
             exit 1
           fi
 
+      - name: Load daily-analysis prompt
+        id: load_analysis_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/daily_analysis.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Run Claude Code daily framing analysis
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          model: claude-opus-4-7
-          prompt_file: .claude/prompts/daily_analysis.md
+          claude_args: --model claude-opus-4-7
+          prompt: ${{ steps.load_analysis_prompt.outputs.content }}
 
       - name: Commit and push analyses
         run: |
@@ -178,6 +190,9 @@ jobs:
     needs: analyze
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    permissions:
+      contents: write
+      id-token: write   # required by claude-code-action@v1 OIDC auth
 
     steps:
       - uses: actions/checkout@v4
@@ -197,26 +212,53 @@ jobs:
             exit 1
           fi
 
+      - name: Load thread-draft prompt
+        id: load_thread_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/draft_thread.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
+
       - name: Draft threads
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          model: claude-opus-4-7
-          prompt_file: .claude/prompts/draft_thread.md
+          claude_args: --model claude-opus-4-7
+          prompt: ${{ steps.load_thread_prompt.outputs.content }}
+
+      - name: Load carousel-draft prompt
+        id: load_carousel_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/draft_carousel.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
 
       - name: Draft carousels
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          model: claude-opus-4-7
-          prompt_file: .claude/prompts/draft_carousel.md
+          claude_args: --model claude-opus-4-7
+          prompt: ${{ steps.load_carousel_prompt.outputs.content }}
+
+      - name: Load long-draft prompt
+        id: load_long_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/draft_long.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
 
       - name: Draft long-form posts
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          model: claude-opus-4-7
-          prompt_file: .claude/prompts/draft_long.md
+          claude_args: --model claude-opus-4-7
+          prompt: ${{ steps.load_long_prompt.outputs.content }}
 
       - name: Validate drafts against schemas
         run: |
