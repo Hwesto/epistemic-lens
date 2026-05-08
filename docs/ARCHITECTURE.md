@@ -61,60 +61,90 @@
         ┌──────────────────────────────────────────────────┐
         │  ANALYZE JOB (anthropics/claude-code-action@v1)  │
         │   prompt: .claude/prompts/daily_analysis.md      │
-        │   model:  claude-opus-4-7                        │
-        │   • reads briefing + metrics verbatim            │
-        │   • writes analyses/<date>_<story>.md            │
-        │     (frame matrix + arcs + paradox + silence +   │
-        │      top-10 quotes + candidate angles)           │
-        │   • spec / target: docs/HORMUZ_CORRELATION.md    │
+        │   model:  claude-haiku-4-5-20251001              │
+        │           (production target: claude-opus-4-7;   │
+        │            haiku is the testing-tier default;    │
+        │            see meta_version.json claude.model)   │
+        │   • reads briefing + metrics, derives 2-12       │
+        │     story-specific frames                        │
+        │   • emits JSON conforming to                     │
+        │     docs/api/schema/analysis.schema.json         │
+        │     (tldr, frames, isolation_top, paradox,       │
+        │      silences, exclusive_vocab_highlights,       │
+        │      single_outlet_findings, bottom_line)        │
+        │   • agent commits + pushes its own JSON          │
+        │     (claude-code-action sandboxes file writes)   │
         └────────────────┬─────────────────────────────────┘
                          │
                          ▼
-                  analyses/<date>_<story>.md
-                         │
-        ┌────────────────┴────────────────┐
-        │ [HUMAN — pick angles to ship]   │
-        │   write video_scripts/...json   │
-        │   (Future: draft_thread/        │
-        │    draft_carousel/draft_long    │
-        │    auto-jobs after analyze)     │
-        └────────────────┬────────────────┘
+        ┌──────────────────────────────────────────────────┐
+        │  validate_analysis.py    (defence in depth)      │
+        │   • schema check (jsonschema)                    │
+        │   • citation grounding: every signal_text_idx    │
+        │     resolves; quote substring match; bucket      │
+        │     label matches corpus[idx].bucket             │
+        │   • number reconciliation: n_buckets/n_articles  │
+        │     match metrics.json; isolation scores match;  │
+        │     exclusive_vocab terms present in metrics     │
+        │   • exits non-zero on any violation              │
+        └────────────────┬─────────────────────────────────┘
                          │
                          ▼
-                  video_scripts/<date>_<n>.json
-                                 │
-        ┌────────────────────────▼────────────────────────┐
-        │  VIDEO PIPELINE                                 │
+        ┌──────────────────────────────────────────────────┐
+        │  render_analysis_md.py                           │
+        │   • analysis.json → analysis.md                  │
+        │   • Markdown is presentation-only; JSON is       │
+        │     canonical                                    │
+        └────────────────┬─────────────────────────────────┘
+                         │
+                         ▼
+        analyses/<date>_<story>.{json,md}  (canonical + render)
+                         │
+        ┌────────────────┴────────────────────────────────┐
+        │  DRAFT JOB (publication layer)                  │
         │                                                 │
-        │  synthesize_voiceover.py                        │
-        │   • Piper TTS (local, offline ONNX)             │
-        │   • per-scene WAV + durations.json metadata     │
-        │   • free, no API key, no rate limits            │
+        │  Python templates (no LLM):                     │
+        │   • render_thread.py    → thread.json           │
+        │     (hook priority: paradox > isolation         │
+        │      outlier > exclusive vocab > generic)       │
+        │   • render_carousel.py  → carousel.json         │
         │                                                 │
-        │  generate_music_bed.py    (one-time)            │
-        │   • pure-Python synth ambient drone             │
-        │   • 120s seamless loop                          │
+        │  Claude Code Action (sonnet):                   │
+        │   • prompt: .claude/prompts/draft_long.md       │
+        │   • model:  claude-sonnet-4-6                   │
+        │   • emits long.json (markdown body, sources[])  │
         │                                                 │
-        │  render_video.py                                │
-        │   • merges per-scene audio into props           │
-        │   • shells out to Remotion via npm              │
-        │   • headless Chromium renders MP4               │
-        │                                                 │
-        │  video_template/   (Remotion + TypeScript)      │
-        │   • WorldMap with real countries (TopoJSON)     │
-        │   • Camera dolly between presets per scene      │
-        │   • Country pin pulse + flag emoji              │
-        │   • QuoteCard with framing + provenance         │
-        │   • TikTok-style burned-in captions             │
-        │   • Audio per scene + music bed                 │
+        │  All three outputs schema-validated against     │
+        │  docs/api/schema/{thread,carousel,long}.schema  │
         └────────────────┬────────────────────────────────┘
                          │
                          ▼
-                videos/<id>.mp4   (1080×1920, ~30 MB, 60-90s)
+        drafts/<date>_<story>_{thread,carousel,long}.json
                          │
                          ▼
-                  [POSTING — manual]
-                  TikTok / IG Reels / YT Shorts
+        ┌──────────────────────────────────────────────────┐
+        │  PUBLISH_API JOB                                 │
+        │   build_index.py walks briefings/, analyses/,    │
+        │   drafts/, copies into api/<date>/<story>/,      │
+        │   copies docs/api/schema/* into api/schema/,     │
+        │   copies web/* (index.html + styles.css +        │
+        │   app.js) into api/, deploys to GitHub Pages.    │
+        └────────────────┬─────────────────────────────────┘
+                         │
+                         ▼
+                hwesto.github.io/epistemic-lens/
+                         │
+                         ├── /                 → web/index.html landing
+                         ├── /<DATE>/index.json
+                         ├── /<DATE>/<story>/{briefing,metrics,analysis}.{json,md}
+                         ├── /<DATE>/<story>/{thread,carousel,long}.json
+                         ├── /latest.json
+                         └── /schema/*.schema.json
+
+      [Optional, manual: video pipeline (synthesize_voiceover.py +
+       generate_music_bed.py + render_video.py + video_template/)
+       remains in repo but is not invoked by the cron. Reactivate
+       when the public publication surface needs short-form video.]
 ```
 
 ## Data layer details

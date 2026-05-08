@@ -1,190 +1,200 @@
 # Epistemic Lens
 
-Cross-national news framing analysis + automated short-form video generation.
+**Daily, automated, source-transparent cross-country news framing analysis.**
 
-> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages,
-> 6 continents) → extract article bodies → cluster cross-bloc stories → build
-> framing-comparison briefings → compute per-story metrics (Jaccard, isolation,
-> bucket-exclusive vocab) → run daily Claude framing analysis → render
-> 60-second vertical videos with AI voice + ambient music + burned-in captions.
-> Daily cron is fully automated end-to-end. Total cost: $0/mo + a Claude.ai
-> subscription you already have.
+> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages, 6 continents) → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (Jaccard, isolation, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
 
-## Quick start
+**Live front door:** [hwesto.github.io/epistemic-lens](https://hwesto.github.io/epistemic-lens/)
+
+## Layered architecture
+
+The codebase decomposes into four loosely-coupled concerns. Each evolves on its own schedule; the methodology pin (`meta_version.json`) keeps them honest.
+
+| Concern | What it is | Files |
+|---|---|---|
+| **Ingestion** | RSS pull, body extraction, dedup, health, rot detection | `ingest.py`, `extract_full_text.py`, `dedup.py`, `daily_health.py`, `feed_rot_check.py`, `feeds.json` |
+| **Analytical** | Story detection, metrics, daily Claude framing analysis (JSON-canonical), validation | `build_briefing.py`, `build_metrics.py`, `validate_analysis.py`, `restamp_analyses.py`, `meta.py`, `.claude/prompts/daily_analysis.md`, `docs/api/schema/analysis.schema.json` |
+| **Publication** | Markdown render, template-based thread/carousel drafts, Sonnet long-form, public API + landing page, video stack | `render_analysis_md.py`, `render_thread.py`, `render_carousel.py`, `.claude/prompts/draft_long.md`, `web/`, `build_index.py`, `video_template/` (dormant) |
+| **Methodology pin** | Cross-cutting integrity layer: every input that affects analytical output is hashed; every artifact carries the active `meta_version` | `meta_version.json`, `baseline_pin.py`, `stopwords.txt`, `canonical_stories.json`, `docs/METHODOLOGY.md`, schemas |
+
+## Daily flow (07:00 UTC, fully unattended)
+
+```
+ingest    →  snapshot + briefings + metrics commit to main           ~8 min
+analyze   →  Haiku writes JSON analyses + schema/citation/number     ~5 min
+             validators + render markdown + commit
+draft     →  Python templates write thread.json + carousel.json,     ~8 min
+             Sonnet writes long-form prose
+publish   →  build_index.py rebuilds api/ tree, copies web/*,        ~10 sec
+             deploys to GitHub Pages
+```
+
+Workflow: `.github/workflows/daily.yml`. Every step subscription-billed via the OAuth token (`anthropics/claude-code-action@v1`); zero metered API spend. `workflow_dispatch` inputs `skip_ingest` / `skip_analyze` / `skip_draft` let you re-run downstream-only without burning fresh feed pulls or LLM calls.
+
+## What lands on Pages each day
+
+For each story (currently 3–5/day):
+
+```
+hwesto.github.io/epistemic-lens/<DATE>/<story_key>/
+  briefing.json     ← per-bucket corpus (full bodies, dedup'd)
+  metrics.json      ← Jaccard, isolation, bucket-exclusive vocab
+  analysis.json     ← canonical structured analysis (schema-validated)
+  analysis.md       ← rendered for human reading
+  thread.json       ← X/Threads draft (template, no LLM)
+  carousel.json     ← IG/LinkedIn deck (template, no LLM)
+  long.json         ← LinkedIn/Substack long-form (Sonnet)
+```
+
+Plus per-date `index.json`, root `latest.json`, and the static landing page at `/`.
+
+## Quick start (local development)
 
 ```bash
-# Clone and install Python deps
 git clone <repo> && cd epistemic-lens
 pip install -r requirements.txt
 
-# Install Node deps for the video template (one-time)
-cd video_template && npm install && cd ..
+# Run today's ingest stage locally (matches the cron's first job)
+python ingest.py
+python extract_full_text.py
+python dedup.py
+python daily_health.py
+python build_briefing.py
+python build_metrics.py
 
-# Run today's full pipeline (ingest stage; matches cron Job 1)
-python ingest.py                        # 235 feeds → snapshots/<date>.json (~2 min)
-python extract_full_text.py             # +body text on top stories (~3 min)
-python dedup.py                         # collapse near-duplicate items
-python daily_health.py                  # health snapshot + alerts
-python build_briefing.py                # briefings/<date>_<story>.json
-python build_metrics.py                 # +metrics.json (Jaccard + isolation + exclusive vocab)
+# The analyze + draft + publish stages run via GitHub Actions in the cron.
+# See docs/OPERATIONS.md for the one-time CLAUDE_CODE_OAUTH_TOKEN setup.
 
-# The cron's analyze stage runs a Claude framing pass via GitHub Actions
-# (anthropics/claude-code-action@v1 + .claude/prompts/daily_analysis.md)
-# and writes analyses/<date>_<story>.md. See docs/OPERATIONS.md for the
-# one-time CLAUDE_CODE_OAUTH_TOKEN setup.
-
-# Pick top 3 analyses, write video_scripts/*.json (manual today; auto-drafts planned)
-
-# Render with voice + music + captions
-python synthesize_voiceover.py video_scripts/<date>_*.json   # Piper TTS, free
-python render_video.py video_scripts/<date>_*.json            # Remotion → MP4
-
-# Done. Videos in videos/<date>_*.mp4 (~30 MB each, 60-90 s)
-```
-
-## Architecture
-
-See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full pipeline diagram.
-Short version:
-
-```
-ingest.py ─→ extract_full_text.py ─→ dedup.py ─→ daily_health.py
-                                                       │
-                                                       ▼
-                                              build_briefing.py
-                                                       │
-                                                       ▼
-                                              build_metrics.py
-                                                       │
-                                                       ▼
-                              briefings/<date>_*.json + *_metrics.json
-                                                       │
-                              ┌────────────────────────┴────────────────────────┐
-                              │  ANALYZE JOB  (Claude Code Action, daily cron)   │
-                              │  prompt: .claude/prompts/daily_analysis.md       │
-                              │  spec:   docs/HORMUZ_CORRELATION.md              │
-                              │  output: analyses/<date>_<story>.md              │
-                              └────────────────────────┬────────────────────────┘
-                                                       │
-                              [hand-pick angles → write video_scripts/<date>_*.json]
-                                                       │
-                              ┌────────────────────────┼────────────────────────┐
-                              ▼                        ▼                        ▼
-                    synthesize_voiceover.py    generate_music_bed.py    Remotion template
-                    (Kokoro/Piper, local, free)  (pure Python, free)    (video_template/)
-                              │                        │                        │
-                              └────────────────────────┴────────────────────────┘
-                                                       │
-                                                       ▼
-                                                videos/<id>.mp4
-```
-
-## Coverage
-
-235 feeds across 54 buckets. 49+ buckets reliably extract full body text per day.
-See [`docs/COVERAGE.md`](docs/COVERAGE.md) for the country-by-country grade table.
-
-Highlights:
-- **Mass-tabloid press**: Daily Mail (UK), Bild (DE), Komsomolskaya Pravda (RU)
-- **Right-populist**: Daily Wire / Breitbart (US), Republic World / Aaj Tak (IN), Junge Freiheit (DE), Sky News Australia
-- **Multi-language native**: Russian-language Russia, Hindi (Aaj Tak, Bhaskar), Korean (Chosun), Spanish (5 Mexican papers, El País, La Nación)
-- **Pan-regional**: Middle East Eye, AfricaNews, The Diplomat
-- **Religious + state-TV**: Vatican News, France 24 AR/ES, Sputnik International, RT Africa
-
-## Operations
-
-See [`docs/OPERATIONS.md`](docs/OPERATIONS.md) for the daily/weekly cron flow,
-GitHub Actions setup, and feed-rot detection.
-
-## Tests
-
-```bash
-python -m unittest tests.py tests_edge.py     # 56 tests, no network needed (~13 s)
+# Test
+python -m unittest tests.py tests_edge.py    # 64 tests, no network (~1 s)
 python tests_e2e.py                            # full pipeline smoke (live, ~6 s)
 ```
 
-See [`docs/TEST_REPORT.md`](docs/TEST_REPORT.md) for what's covered.
+## Methodology pin
+
+Every input that affects analytical output (feeds list, stopwords, prompts, embedding model, clustering hyperparameters, schema definitions, model identifiers) is hashed in `meta_version.json`. Every artifact (snapshot, briefing, metrics, analysis, draft) carries the active `meta_version` so longitudinal consumers know which era they're reading.
+
+Bumping rules — `patch` (no output change), `minor` (forward-compatible), `major` (invalidates longitudinal comparison):
+
+```bash
+python baseline_pin.py --check                        # CI gate
+python baseline_pin.py --bump minor --reason "..."    # bumper
+```
+
+CI's `meta-check.yml` workflow enforces hash match on every push/PR.
+
+See `docs/METHODOLOGY.md` for the full policy.
+
+## Coverage
+
+235 feeds across 54 buckets. ~85% body-text extraction success on a typical day. See `docs/COVERAGE.md` for the country-by-country grade table. Highlights:
+
+- **Mass-tabloid press**: Daily Mail (UK), Bild (DE), Komsomolskaya Pravda (RU)
+- **Right-populist**: Daily Wire / Breitbart (US), Republic World / Aaj Tak (IN), Junge Freiheit (DE), Sky News Australia
+- **Multi-language native**: Russian-language Russia, Hindi (Aaj Tak, Bhaskar), Korean (Chosun), Spanish (Mexico, Spain, Argentina)
+- **Pan-regional**: Middle East Eye, AfricaNews, The Diplomat
+- **State-TV / religious**: Vatican News, France 24 AR/ES, Sputnik International, RT Africa
 
 ## File map
 
 ```
 epistemic-lens/
-├── README.md                       ← you are here
-├── feeds.json                      ← source list (235 feeds, 54 buckets)
-├── requirements.txt
+├── README.md
+├── meta_version.json          ← methodology pin (the spine)
+├── meta.py                    ← loader/asserter/stamper
+├── baseline_pin.py            ← pin bumper / CI check
+├── stopwords.txt              ← pinned (hashed)
+├── canonical_stories.json     ← pinned (hashed)
+├── feeds.json                 ← 235 feeds, 54 buckets (hashed)
 │
 ├── .github/workflows/
-│   ├── daily.yml                   ← daily cron (07:00 UTC) — ingest + analyze jobs
-│   ├── weekly_rot.yml              ← Sundays 09:00 UTC
-│   └── ci.yml                      ← unit tests on push
+│   ├── daily.yml              ← 4-job daily cron
+│   ├── meta-check.yml         ← required check (validate-meta + unit-tests)
+│   ├── ci.yml                 ← unit/edge/e2e on code paths only
+│   └── weekly_rot.yml         ← Sundays — feed rot report
 │
 ├── .claude/prompts/
-│   └── daily_analysis.md           ← prompt used by the analyze job
+│   ├── daily_analysis.md      ← analyze job (haiku, JSON output)
+│   └── draft_long.md          ← long-form draft (sonnet, prose output)
 │
-├── ingest.py                       ← parallel async RSS fetcher
-├── extract_full_text.py            ← trafilatura body extraction + Wayback fallback
-├── dedup.py                        ← URL canon + title near-dup collapse
-├── daily_health.py                 ← post-pull health + bucket alerts
-├── feed_rot_check.py               ← weekly rot detection
-├── build_briefing.py               ← per-story corpus assembler
-├── build_metrics.py                ← Jaccard + isolation + bucket-exclusive vocab
-├── synthesize_voiceover.py         ← free local Kokoro/Piper TTS (+ ElevenLabs option)
-├── generate_music_bed.py           ← pure-Python ambient drone
-├── render_video.py                 ← Remotion render orchestrator
-├── source_audit.py                 ← static + live audit of source list
-├── baseline_pin.py                 ← snapshot baseline for A/B
+├── docs/api/schema/
+│   ├── analysis.schema.json   ← canonical analysis shape
+│   ├── thread.schema.json
+│   ├── carousel.schema.json
+│   └── long.schema.json
+│
+├── ingest.py                  ← parallel async RSS fetcher
+├── extract_full_text.py       ← trafilatura + Wayback fallback
+├── dedup.py                   ← URL canon + title near-dup
+├── daily_health.py            ← health snapshot + bucket alerts
+├── feed_rot_check.py          ← weekly rot detection
+├── build_briefing.py          ← per-story corpus assembler
+├── build_metrics.py           ← Jaccard + isolation + exclusive vocab
+├── validate_analysis.py       ← schema + citation + number reconciliation
+├── restamp_analyses.py        ← refresh meta_version on agent JSON output
+├── render_analysis_md.py      ← JSON analysis → human MD
+├── render_thread.py           ← analysis JSON → thread draft (template)
+├── render_carousel.py         ← analysis JSON → carousel draft (template)
+├── build_index.py             ← assemble api/ tree for GitHub Pages
+│
 ├── tests.py / tests_edge.py / tests_e2e.py
 │
-├── video_template/                 ← Remotion + React video renderer
-│   ├── package.json
-│   ├── src/{Root,FramingVideo,types,cameraPresets}.tsx
-│   └── src/components/{WorldMap,CountryPin,QuoteCard,TitleCard,OutroCard,Captions}.tsx
+├── web/                       ← static landing page
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
 │
-├── snapshots/                      ← daily ingest output (RSS + extraction + dedup + health)
-├── briefings/                      ← per-story corpora + metrics.json
-├── analyses/                       ← daily Claude framing analyses (cron output)
-├── video_scripts/                  ← daily video script JSONs (hand-picked angles)
-├── videos/                         ← rendered MP4s (gitignored except stills/)
+├── snapshots/                 ← daily ingest output (data, grows daily)
+├── briefings/                 ← per-story corpora + metrics
+├── analyses/                  ← per-story JSON + MD analyses
+├── drafts/                    ← thread/carousel/long-form drafts
+│
+├── video_template/            ← Remotion + React (dormant; available for future video work)
+│   ├── package.json
+│   └── src/...
 │
 ├── docs/
-│   ├── ARCHITECTURE.md             ← full pipeline diagram
-│   ├── COVERAGE.md                 ← country grade table
-│   ├── OPERATIONS.md               ← cron + OAuth setup + manual procedures
-│   ├── HORMUZ_CORRELATION.md       ← spec / exemplar for analyze-job output
-│   └── TEST_REPORT.md              ← what's tested + known gaps
+│   ├── ARCHITECTURE.md
+│   ├── COVERAGE.md
+│   ├── OPERATIONS.md
+│   ├── METHODOLOGY.md
+│   ├── API.md
+│   └── archive/               ← retired exemplars + prompts
 │
 └── archive/
-    ├── scripts/                    ← retired one-off scripts (analysis.py, gdelt_pull.py, …)
-    └── …                           ← historical data artefacts (baseline, audits)
+    ├── scripts/               ← retired one-off scripts (analysis.py, gdelt_pull.py, baseline_pin_v0.py)
+    └── review/                ← per-feed audit decisions (rot history)
 ```
 
-## Costs
+## Cost
 
 | Component | Cost |
 |---|---|
-| Python deps (requests, trafilatura, sentence-transformers, etc.) | $0 |
-| Kokoro / Piper TTS (local ONNX) | $0 |
-| Remotion + headless Chromium | $0 |
-| Music bed (synthesized in Python) | $0 |
-| GitHub Actions (public repo, unlimited free minutes) | $0 |
-| Claude Code daily analyze job (subscription auth, no API charges) | $0* |
-| **Total** | **$0/mo** |
+| GitHub Actions (public repo, generous free tier) | $0 |
+| GitHub Pages (public repo) | $0 |
+| Python deps + sentence-transformers (cached embedding model) | $0 |
+| Daily Claude analyze + draft jobs (subscription-billed via OAuth token) | $0\* |
+| **Total ongoing** | **$0/mo** |
 
-\* Uses your existing Claude.ai subscription via `claude setup-token`.
+\* Uses a Claude.ai Pro/Max subscription via `claude setup-token`. Pro is more than enough for the current ~8 LLM calls/day. Implied metered cost is ~$2.30/day.
 
-Optional upgrades:
-- ElevenLabs Creator (~$22/mo) for higher-prosody voice
-- Sora/Runway API (~$50-300/mo) for AI-generated hero shots
+## Setup checklist
+
+See `URGENT.md` for the one-shot setup checklist (push the `meta-v1.0.0` tag, paste the OAuth token, enable Pages, configure the branch ruleset, smoke-test the chain). ~15 min total at a computer; cron then runs unattended forever.
 
 ## Versioning
 
 | Version | Date | Highlights |
 |---|---|---|
 | 0.2 | Mar 2026 | Initial: 51 feeds, 16 buckets, sequential ingest, Iran-war coverage |
-| 0.4 | May 2026 | 138 feeds, 47 buckets, parallel ingest, full-text extraction, dedup, GDELT bolt-on, GH Actions |
-| 0.4.2 | May 2026 | +50 gap-fix feeds (tabloid + populist + native-language) |
-| 0.4.3 | May 2026 | Structural diversification (opinion magazines, pan-Arab, pan-African, Asia-Pacific, religious press, telegram proxies) |
-| 0.5.0 | May 2026 | Cleanup release. Briefing builder + voice + music + captions + video template. End-to-end pipeline at $0/mo. |
-| 0.6.x | May 2026 | Creative pass: BBC voice, intro sting, world tickers, hero-quote layout, ElevenLabs option, Kokoro default TTS |
-| 0.7.x | May 2026 | Trio of finished videos; top news bar; paradox split; Gemini-feedback creative pass |
-| **0.8.0** | **May 2026** | **Daily analyze job in cron: build_metrics + Claude Code Action writes `analyses/<date>_<story>.md` from the briefing+metrics. First fully-automated framing analysis pipeline.** |
+| 0.4 | May 2026 | 138 feeds, 47 buckets, parallel ingest, full-text extraction, dedup, GH Actions |
+| 0.4.x | May 2026 | +50 gap-fix feeds (tabloid + populist + native-language), structural diversification |
+| 0.5.0 | May 2026 | Cleanup release. Briefing builder + voice + music + captions + video template. End-to-end at $0/mo. |
+| 0.6–0.7.x | May 2026 | Creative pass: BBC voice, intro sting, world tickers, hero-quote layout, paradox split |
+| 0.8.0 | May 2026 | Daily analyze job in cron: Claude Code Action writes `analyses/<date>_<story>.md` |
+| **meta-v1.0.0** | **May 2026** | **Methodology pin baseline.** 235 feeds + tokenizer + clustering + extraction + signal_text + 5 canonical stories + 4 prompts all hashed in `meta_version.json`. CI enforces drift detection. |
+| meta-v1.1.0 | May 2026 | Phase 0: agent commits its own work (claude-code-action sandboxing fix) |
+| meta-v1.2.0 | May 2026 | Phase 1: JSON-first analyses + render_analysis_md.py + archive HORMUZ exemplar |
+| meta-v1.3.0 | May 2026 | Phase 3: template-based thread + carousel drafts; long-form → Sonnet |
+| meta-v1.4.0 | May 2026 | Phase 4: editorial validator (citation grounding + number reconciliation) |
+| **meta-v1.4.1** | **May 2026** | **Current. Bug-fix on meta_version stamping, full end-to-end pipeline green.** |
