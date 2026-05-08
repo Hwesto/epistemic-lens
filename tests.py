@@ -42,11 +42,11 @@ def fixture_dir():
 class TestParser(unittest.TestCase):
     def setUp(self):
         # Force reimport so env-var changes don't bleed
-        if "ingest" in sys.modules:
-            importlib.reload(sys.modules["ingest"])
+        if "pipeline.ingest" in sys.modules:
+            importlib.reload(sys.modules["pipeline.ingest"])
         else:
-            import ingest  # noqa
-        from ingest import _parse_feed, _strip_html, _parse_pub, _annotate_item
+            from pipeline import ingest  # noqa
+        from pipeline.ingest import _parse_feed, _strip_html, _parse_pub, _annotate_item
         self.parse = _parse_feed
         self.strip = _strip_html
         self.pub = _parse_pub
@@ -183,9 +183,9 @@ class TestRateLimiter(unittest.TestCase):
     def test_per_host_delay(self):
         # Reload with a fixed delay
         os.environ["PER_HOST_DELAY"] = "0.5"
-        if "ingest" in sys.modules:
-            importlib.reload(sys.modules["ingest"])
-        from ingest import _wait_for_host
+        if "pipeline.ingest" in sys.modules:
+            importlib.reload(sys.modules["pipeline.ingest"])
+        from pipeline.ingest import _wait_for_host
         t0 = time.time()
         _wait_for_host("test.example.com")
         _wait_for_host("test.example.com")
@@ -204,9 +204,9 @@ class TestRateLimiter(unittest.TestCase):
 # ============================================================================
 class TestHttpRetry(unittest.TestCase):
     def setUp(self):
-        if "ingest" in sys.modules:
-            importlib.reload(sys.modules["ingest"])
-        import ingest
+        if "pipeline.ingest" in sys.modules:
+            importlib.reload(sys.modules["pipeline.ingest"])
+        from pipeline import ingest
         self.ingest = ingest
 
     def test_retry_on_5xx(self):
@@ -241,9 +241,9 @@ class TestHttpRetry(unittest.TestCase):
 # ============================================================================
 class TestDedup(unittest.TestCase):
     def setUp(self):
-        if "dedup" in sys.modules:
-            importlib.reload(sys.modules["dedup"])
-        import dedup
+        if "pipeline.dedup" in sys.modules:
+            importlib.reload(sys.modules["pipeline.dedup"])
+        from pipeline import dedup
         self.dedup = dedup
 
     def test_canonical_url_strip_tracking(self):
@@ -311,9 +311,9 @@ class TestDedup(unittest.TestCase):
 # ============================================================================
 class TestDailyHealth(unittest.TestCase):
     def setUp(self):
-        if "daily_health" in sys.modules:
-            importlib.reload(sys.modules["daily_health"])
-        import daily_health
+        if "pipeline.daily_health" in sys.modules:
+            importlib.reload(sys.modules["pipeline.daily_health"])
+        from pipeline import daily_health
         self.dh = daily_health
 
     def test_health_flags(self):
@@ -417,9 +417,9 @@ class TestSchemaValidation(unittest.TestCase):
 # ============================================================================
 class TestExtractFullText(unittest.TestCase):
     def setUp(self):
-        if "extract_full_text" in sys.modules:
-            importlib.reload(sys.modules["extract_full_text"])
-        import extract_full_text as eft
+        if "pipeline.extract_full_text" in sys.modules:
+            importlib.reload(sys.modules["pipeline.extract_full_text"])
+        from pipeline import extract_full_text as eft
         self.eft = eft
 
     def test_classify_thresholds(self):
@@ -496,9 +496,9 @@ class TestExtractFullText(unittest.TestCase):
 
 class TestSitemapFallback(unittest.TestCase):
     def test_sitemap_news_parse(self):
-        if "ingest" in sys.modules:
-            importlib.reload(sys.modules["ingest"])
-        import ingest
+        if "pipeline.ingest" in sys.modules:
+            importlib.reload(sys.modules["pipeline.ingest"])
+        from pipeline import ingest
         body = b"""<?xml version="1.0"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
                 xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
@@ -520,9 +520,9 @@ class TestBuildMetrics(unittest.TestCase):
     """build_metrics.py: pairwise Jaccard, isolation, bucket-exclusive vocab."""
 
     def setUp(self):
-        if "build_metrics" in sys.modules:
-            importlib.reload(sys.modules["build_metrics"])
-        import build_metrics
+        if "analytical.build_metrics" in sys.modules:
+            importlib.reload(sys.modules["analytical.build_metrics"])
+        from analytical import build_metrics
         import meta as _meta
         from collections import Counter as _Counter
         self.bm = build_metrics
@@ -751,9 +751,9 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         jsonschema.validate(with_paradox, self.schema)
 
     def test_render_produces_expected_sections(self):
-        if "render_analysis_md" in sys.modules:
-            importlib.reload(sys.modules["render_analysis_md"])
-        import render_analysis_md
+        if "publication.render_analysis_md" in sys.modules:
+            importlib.reload(sys.modules["publication.render_analysis_md"])
+        from publication import render_analysis_md
         md = render_analysis_md.render(self.minimal)
         # Header + every section header should appear.
         self.assertIn("# Test Story", md)
@@ -774,9 +774,9 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("(corpus[0])", md)
 
     def test_render_handles_paradox(self):
-        if "render_analysis_md" in sys.modules:
-            importlib.reload(sys.modules["render_analysis_md"])
-        import render_analysis_md
+        if "publication.render_analysis_md" in sys.modules:
+            importlib.reload(sys.modules["publication.render_analysis_md"])
+        from publication import render_analysis_md
         with_paradox = dict(self.minimal)
         with_paradox["paradox"] = {
             "a": {"bucket": "iran_state", "outlet": "PressTV",
@@ -836,9 +836,9 @@ class TestTemplateRenderers(unittest.TestCase):
         }
 
     def test_thread_renders_to_valid_schema(self):
-        if "render_thread" in sys.modules:
-            importlib.reload(sys.modules["render_thread"])
-        import render_thread
+        if "publication.render_thread" in sys.modules:
+            importlib.reload(sys.modules["publication.render_thread"])
+        from publication import render_thread
         out = render_thread.render(self.analysis, self.briefing)
         self.jsonschema.validate(out, self.thread_schema)
         self.assertEqual(out["story_key"], "hormuz_iran")
@@ -849,9 +849,9 @@ class TestTemplateRenderers(unittest.TestCase):
         self.assertIn("italy", out["hook"].lower())
 
     def test_thread_uses_paradox_hook_when_present(self):
-        if "render_thread" in sys.modules:
-            importlib.reload(sys.modules["render_thread"])
-        import render_thread
+        if "publication.render_thread" in sys.modules:
+            importlib.reload(sys.modules["publication.render_thread"])
+        from publication import render_thread
         with_p = dict(self.analysis)
         with_p["paradox"] = {
             "a": {"bucket": "iran_state", "outlet": "PressTV",
@@ -866,9 +866,9 @@ class TestTemplateRenderers(unittest.TestCase):
         self.assertIn("Iran International", out["hook"])
 
     def test_carousel_renders_to_valid_schema(self):
-        if "render_carousel" in sys.modules:
-            importlib.reload(sys.modules["render_carousel"])
-        import render_carousel
+        if "publication.render_carousel" in sys.modules:
+            importlib.reload(sys.modules["publication.render_carousel"])
+        from publication import render_carousel
         out = render_carousel.render(self.analysis, self.briefing)
         self.jsonschema.validate(out, self.carousel_schema)
         self.assertEqual(out["story_key"], "hormuz_iran")
@@ -880,9 +880,9 @@ class TestTemplateRenderers(unittest.TestCase):
         self.assertEqual(out["slides"][0]["kind"], "callout")
 
     def test_carousel_paradox_slide_when_present(self):
-        if "render_carousel" in sys.modules:
-            importlib.reload(sys.modules["render_carousel"])
-        import render_carousel
+        if "publication.render_carousel" in sys.modules:
+            importlib.reload(sys.modules["publication.render_carousel"])
+        from publication import render_carousel
         with_p = dict(self.analysis)
         with_p["paradox"] = {
             "a": {"bucket": "x", "outlet": "X", "quote": "q1", "signal_text_idx": 0},
@@ -894,16 +894,18 @@ class TestTemplateRenderers(unittest.TestCase):
         self.assertIn("paradox", [s.get("kind") for s in out["slides"]])
 
     def test_thread_meta_version_stamped(self):
-        if "render_thread" in sys.modules:
-            importlib.reload(sys.modules["render_thread"])
-        import render_thread, meta as _meta
+        if "publication.render_thread" in sys.modules:
+            importlib.reload(sys.modules["publication.render_thread"])
+        from publication import render_thread
+        import meta as _meta
         out = render_thread.render(self.analysis, self.briefing)
         self.assertEqual(out.get("meta_version"), _meta.VERSION)
 
     def test_carousel_meta_version_stamped(self):
-        if "render_carousel" in sys.modules:
-            importlib.reload(sys.modules["render_carousel"])
-        import render_carousel, meta as _meta
+        if "publication.render_carousel" in sys.modules:
+            importlib.reload(sys.modules["publication.render_carousel"])
+        from publication import render_carousel
+        import meta as _meta
         out = render_carousel.render(self.analysis, self.briefing)
         self.assertEqual(out.get("meta_version"), _meta.VERSION)
 
@@ -956,23 +958,23 @@ class TestValidateAnalysis(unittest.TestCase):
         }
 
     def test_clean_analysis_passes_all_checks(self):
-        if "validate_analysis" in sys.modules:
-            importlib.reload(sys.modules["validate_analysis"])
-        import validate_analysis as v
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as v
         errs = (v.check_schema(self.clean)
                 + v.check_citations(self.clean, self.briefing)
                 + v.check_numbers(self.clean, self.metrics))
         self.assertEqual(errs, [], msg="clean analysis should produce 0 errors")
 
     def test_n_buckets_mismatch_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = dict(self.clean)
         bad["n_buckets"] = 99
         errs = v.check_numbers(bad, self.metrics)
         self.assertTrue(any("n_buckets" in e for e in errs))
 
     def test_isolation_score_mismatch_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = dict(self.clean)
         bad["isolation_top"] = [
             {"bucket": self.metrics["isolation"][0]["bucket"], "mean_jaccard": 0.999}
@@ -981,14 +983,14 @@ class TestValidateAnalysis(unittest.TestCase):
         self.assertTrue(any("mean_jaccard" in e for e in errs))
 
     def test_isolation_unknown_bucket_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = dict(self.clean)
         bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_jaccard": 0.5}]
         errs = v.check_numbers(bad, self.metrics)
         self.assertTrue(any("not in" in e and "fake_bucket_xyz" in e for e in errs))
 
     def test_exclusive_vocab_term_not_in_metrics_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = dict(self.clean)
         bad["exclusive_vocab_highlights"] = [
             {"bucket": "italy", "terms": ["term_that_does_not_exist_in_metrics"]}
@@ -997,14 +999,14 @@ class TestValidateAnalysis(unittest.TestCase):
         self.assertTrue(any("term_that_does_not_exist_in_metrics" in e for e in errs))
 
     def test_quote_not_in_corpus_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = json.loads(json.dumps(self.clean))
         bad["frames"][0]["evidence"][0]["quote"] = "this is not in any signal_text"
         errs = v.check_citations(bad, self.briefing)
         self.assertTrue(any("not found verbatim" in e for e in errs))
 
     def test_bucket_mismatch_with_corpus_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = json.loads(json.dumps(self.clean))
         bad["frames"][0]["evidence"][0]["bucket"] = "wrong_bucket_label"
         errs = v.check_citations(bad, self.briefing)
@@ -1013,14 +1015,14 @@ class TestValidateAnalysis(unittest.TestCase):
         )
 
     def test_signal_text_idx_out_of_range_caught(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         bad = json.loads(json.dumps(self.clean))
         bad["frames"][0]["evidence"][0]["signal_text_idx"] = 99999
         errs = v.check_citations(bad, self.briefing)
         self.assertTrue(any("out of range" in e for e in errs))
 
     def test_paradox_citation_validated(self):
-        import validate_analysis as v
+        from analytical import validate_analysis as v
         # Add a valid paradox using two real corpus entries.
         ok = json.loads(json.dumps(self.clean))
         ok["paradox"] = {

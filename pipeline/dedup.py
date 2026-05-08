@@ -30,7 +30,7 @@ from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 import meta
 
-ROOT = Path(__file__).parent
+ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"
 
 # -- URL canonicalisation ----------------------------------------------------

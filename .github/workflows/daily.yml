@@ -56,7 +56,7 @@ jobs:
           MAX_WORKERS: '30'
           PER_HOST_DELAY: '1.0'
           FETCH_TIMEOUT: '20'
-        run: python ingest.py
+        run: python -m pipeline.ingest
 
       - name: Extract full article text (hybrid — clusters + per-feed coverage)
         env:
@@ -66,19 +66,19 @@ jobs:
           EXTRACT_WORKERS: '20'
           PER_HOST_DELAY: '1.0'
           EXTRACT_TIMEOUT: '15'
-        run: python extract_full_text.py
+        run: python -m pipeline.extract_full_text
 
       - name: Deduplicate snapshot
-        run: python dedup.py
+        run: python -m pipeline.dedup
 
       - name: Daily health snapshot
-        run: python daily_health.py
+        run: python -m pipeline.daily_health
 
       - name: Build per-story briefings
-        run: python build_briefing.py
+        run: python -m analytical.build_briefing
 
       - name: Compute briefing metrics (Jaccard + bucket-exclusive vocab)
-        run: python build_metrics.py
+        run: python -m analytical.build_metrics
 
       - name: Job summary
         if: always()
@@ -207,7 +207,7 @@ jobs:
           git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
 
       - name: Re-stamp meta_version on analyses (in case agent copied briefing pin)
-        run: python restamp_analyses.py
+        run: python -m analytical.restamp_analyses
         # Defense in depth. Agents have historically copied
         # briefing.meta_version (which preserves the pin from when the
         # briefing was generated, e.g. 1.0.0) instead of the current pin.
@@ -215,14 +215,14 @@ jobs:
         # meta.VERSION (read from meta_version.json). Idempotent.
 
       - name: Validate analyses (citation grounding + number reconciliation)
-        run: python validate_analysis.py
+        run: python -m analytical.validate_analysis
         # Fails the job if any analysis JSON has hallucinated quotes,
         # bucket mismatches, or numbers that don't match metrics.json.
         # Defense in depth — the agent also runs schema validation
         # before its own commit per the prompt.
 
       - name: Render analysis markdown from JSON
-        run: python render_analysis_md.py
+        run: python -m publication.render_analysis_md
         # Reads analyses/<date>_<story>.json (canonical, from agent),
         # writes analyses/<date>_<story>.md (presentation layer).
         # Idempotent: re-runs against the same JSON produce identical MD.
@@ -279,10 +279,10 @@ jobs:
       # Phase 3: thread + carousel are deterministic templates over the
       # canonical analysis JSON. No LLM required — saves ~8 messages/day.
       - name: Render thread drafts (template)
-        run: python render_thread.py
+        run: python -m publication.render_thread
 
       - name: Render carousel drafts (template)
-        run: python render_carousel.py
+        run: python -m publication.render_carousel
 
       - name: Commit and push template-rendered drafts
         run: |
@@ -387,7 +387,7 @@ jobs:
           python-version: '3.12'
 
       - name: Build api/ tree
-        run: python build_index.py
+        run: python -m publication.build_index
 
       - uses: actions/configure-pages@v4
 

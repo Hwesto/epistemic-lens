@@ -17,7 +17,7 @@ from statistics import mean
 
 import meta
 
-ROOT = Path(__file__).parent
+ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"
 
 

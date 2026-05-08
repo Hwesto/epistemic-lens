@@ -22,32 +22,15 @@ from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+import meta
+from pipeline.extract_full_text import signal_text
+
+ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"
 FRESH = ROOT / "fresh_pull"
 BRIEFINGS = ROOT / "briefings"
 BRIEFINGS.mkdir(exist_ok=True)
 
-# Reuse signal_text from extract_full_text
-sys.path.insert(0, str(ROOT))
-try:
-    from extract_full_text import signal_text
-except ImportError:
-    def signal_text(item, prefer_body=True, max_chars=2500):
-        body = (item.get("body_text") or "").strip()
-        summary = (item.get("summary") or "").strip()
-        title = (item.get("title") or "").strip()
-        if prefer_body and body and len(body) >= 500:
-            return ("body", body[:max_chars])
-        if summary and len(summary) >= 60:
-            head = title + "\n\n" if title else ""
-            return ("summary", (head + summary)[:max_chars])
-        if title:
-            return ("title", title[:max_chars])
-        return ("empty", "")
-
-
-import meta
 
 # Canonical "story groups" — loaded from canonical_stories.json so the patterns
 # are pinned by meta_version. The token detector below also surfaces emerging

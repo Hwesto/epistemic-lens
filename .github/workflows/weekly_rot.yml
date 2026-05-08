@@ -31,7 +31,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run feed rot check (last 7 days)
-        run: python feed_rot_check.py 7
+        run: python -m pipeline.feed_rot_check 7
 
       - name: Job summary
         if: always()

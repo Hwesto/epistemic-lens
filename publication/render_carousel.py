@@ -30,7 +30,7 @@ from pathlib import Path
 
 import meta
 
-ROOT = Path(__file__).parent
+ROOT = meta.REPO_ROOT
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 DRAFTS = ROOT / "drafts"

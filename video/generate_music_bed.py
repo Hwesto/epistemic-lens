@@ -25,7 +25,7 @@ import struct
 import wave
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+from meta import REPO_ROOT as ROOT
 OUT_DEFAULT = ROOT / "video_template" / "public" / "music_bed.wav"
 
 # Pre-tuned chord tones (Hz) for a few minor keys

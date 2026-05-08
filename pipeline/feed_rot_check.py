@@ -16,7 +16,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+from meta import REPO_ROOT as ROOT
 SNAPS = ROOT / "snapshots"
 REVIEW = ROOT / "review"
 REVIEW.mkdir(exist_ok=True)
