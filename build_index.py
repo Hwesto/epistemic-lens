@@ -47,6 +47,7 @@ BRIEFINGS = ROOT / "briefings"
 ANALYSES = ROOT / "analyses"
 DRAFTS = ROOT / "drafts"
 SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
+WEB_SRC = ROOT / "web"
 API = ROOT / "api"
 
 DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})_(.+?)(?:_metrics|_thread|_carousel|_long)?$")
@@ -220,6 +221,20 @@ def copy_schemas() -> None:
         shutil.copy2(p, dst / p.name)
 
 
+def copy_web() -> None:
+    """Copy web/ assets (index.html, styles.css, app.js) into api/.
+
+    Pages serves api/ at the site root, so dropping web/* directly into
+    api/ exposes them as the landing page. Idempotent.
+    """
+    if not WEB_SRC.is_dir():
+        return
+    API.mkdir(parents=True, exist_ok=True)
+    for p in WEB_SRC.iterdir():
+        if p.is_file():
+            shutil.copy2(p, API / p.name)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="Build only this date (YYYY-MM-DD)")
@@ -259,6 +274,7 @@ def main() -> int:
             print(f"  {date}: {result['n_stories']} stories")
 
     copy_schemas()
+    copy_web()
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
