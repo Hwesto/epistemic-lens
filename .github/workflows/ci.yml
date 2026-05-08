@@ -1,5 +1,9 @@
 name: CI Tests
 
+# Heavier checks (unit + edge + e2e). The lightweight `validate-meta`
+# required check lives in meta-check.yml so it runs on every push,
+# including bot data pushes that don't touch any of the paths below.
+
 on:
   push:
     branches:
@@ -15,6 +19,7 @@ on:
       - 'meta_version.json'
       - '.claude/prompts/**'
       - '.github/workflows/ci.yml'
+      - '.github/workflows/meta-check.yml'
   pull_request:
     paths:
       - '**.py'
@@ -25,22 +30,11 @@ on:
       - 'meta_version.json'
       - '.claude/prompts/**'
       - '.github/workflows/ci.yml'
+      - '.github/workflows/meta-check.yml'
   workflow_dispatch:
 
 jobs:
-  validate-meta:
-    runs-on: ubuntu-latest
-    timeout-minutes: 2
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Verify meta_version.json hashes match pinned inputs
-        run: python baseline_pin.py --check
-
   unit-tests:
-    needs: validate-meta
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
