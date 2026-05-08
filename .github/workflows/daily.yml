@@ -198,6 +198,14 @@ jobs:
           AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
 
+      - name: Re-stamp meta_version on analyses (in case agent copied briefing pin)
+        run: python restamp_analyses.py
+        # Defense in depth. Agents have historically copied
+        # briefing.meta_version (which preserves the pin from when the
+        # briefing was generated, e.g. 1.0.0) instead of the current pin.
+        # This script forces every today-dated analysis JSON to carry
+        # meta.VERSION (read from meta_version.json). Idempotent.
+
       - name: Validate analyses (citation grounding + number reconciliation)
         run: python validate_analysis.py
         # Fails the job if any analysis JSON has hallucinated quotes,
