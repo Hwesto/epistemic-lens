@@ -1,5 +1,5 @@
 {
-  "meta_version": "1.0.0",
+  "meta_version": "1.4.1",
   "date": "2026-05-08",
   "story_key": "hantavirus_cruise",
   "story_title": "Hantavirus outbreak on MV Hondius",
@@ -10,7 +10,11 @@
     {
       "label": "RISK_REASSURANCE_PARADOX",
       "description": "Health authorities simultaneously minimize public danger while marshalling extraordinary response measures—a strategic tension between epidemiology and perceived threat.",
-      "buckets": ["kenya", "south_africa", "canada"],
+      "buckets": [
+        "kenya",
+        "south_africa",
+        "canada"
+      ],
       "evidence": [
         {
           "bucket": "kenya",
@@ -35,7 +39,10 @@
     {
       "label": "TRANSMISSION_RARITY_DEBATE",
       "description": "Disagreement over whether person-to-person transmission is exceptional or merely infrequent—with the Andes strain capability driving close-contact quarantine regardless.",
-      "buckets": ["canada", "india"],
+      "buckets": [
+        "canada",
+        "india"
+      ],
       "evidence": [
         {
           "bucket": "canada",
@@ -54,7 +61,10 @@
     {
       "label": "ORIGIN_UNCERTAINTY",
       "description": "Multiple health authorities unable to pinpoint infection source despite intensive investigation, suggesting environmental exposure in South America before embarkation.",
-      "buckets": ["argentina_chile", "mexico"],
+      "buckets": [
+        "argentina_chile",
+        "mexico"
+      ],
       "evidence": [
         {
           "bucket": "argentina_chile",
@@ -73,7 +83,10 @@
     {
       "label": "MEDICAL_IMPROVISATION_HEROISM",
       "description": "A physician-passenger assumes emergency medical authority when the ship's doctor falls ill, becoming the de facto coordinator of crisis response aboard a floating isolation ward.",
-      "buckets": ["italy", "opinion_magazines"],
+      "buckets": [
+        "italy",
+        "opinion_magazines"
+      ],
       "evidence": [
         {
           "bucket": "italy",
@@ -92,7 +105,10 @@
     {
       "label": "LOGISTICAL_SOVEREIGNTY_CRISIS",
       "description": "Repatriation of 140+ people from 22+ nations requires unprecedented diplomatic coordination, with Spain asserting control while negotiating individual bilateral arrangements.",
-      "buckets": ["spain", "uk"],
+      "buckets": [
+        "spain",
+        "uk"
+      ],
       "evidence": [
         {
           "bucket": "spain",
@@ -111,7 +127,10 @@
     {
       "label": "DISTRIBUTED_PASSENGER_SCATTER",
       "description": "Thirty passengers disembarked at St Helena on April 24 before detection, now scattered across 12+ countries with limited historical contact knowledge, creating untraceability.",
-      "buckets": ["taiwan_hk", "australia_nz"],
+      "buckets": [
+        "taiwan_hk",
+        "australia_nz"
+      ],
       "evidence": [
         {
           "bucket": "taiwan_hk",
@@ -130,7 +149,10 @@
     {
       "label": "COVID_PANDEMIC_ANXIETY_ECHO",
       "description": "Media outlets in outbreak-sensitive regions invoke COVID-19 comparison, signaling residual pandemic trauma despite expert rejection of equivalence.",
-      "buckets": ["germany", "india"],
+      "buckets": [
+        "germany",
+        "india"
+      ],
       "evidence": [
         {
           "bucket": "germany",
@@ -167,17 +189,28 @@
   "exclusive_vocab_highlights": [
     {
       "bucket": "italy",
-      "terms": ["medico", "passeggeri", "kornfeld"],
+      "terms": [
+        "medico",
+        "passeggeri",
+        "kornfeld"
+      ],
       "what_it_reveals": "Focus on physician narrative and clinical intervention; 'medico di bordo' and personal heroism dominate framing."
     },
     {
       "bucket": "spain",
-      "terms": ["fondeo", "lancha", "cuarentena"],
+      "terms": [
+        "fondeo",
+        "lancha",
+        "cuarentena"
+      ],
       "what_it_reveals": "Emphasis on logistics (anchorage, lifeboats) and quarantine procedures in repatriation coordination."
     },
     {
       "bucket": "germany",
-      "terms": ["kontaktpersonen", "dafrika"],
+      "terms": [
+        "kontaktpersonen",
+        "dafrika"
+      ],
       "what_it_reveals": "Contact-tracing methodology and South Africa as central transit hub for infected passengers."
     }
   ],
