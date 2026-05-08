@@ -104,3 +104,24 @@ Each video's `fact_check_provenance` block names the exact outlet for each frame
 | Mexico right/centre majors | Direct outlet partnership | dev time |
 | WeChat / Douyin | Effectively impossible without partnership | n/a |
 | Telegram channel reliability | Self-host RSS bridge (rsshub instance) | $5-10/mo VPS |
+
+## RSS-vs-sitemap selection bias (Phase C.3)
+
+RSS feeds are **algorithmically curated by the outlets that emit them**: opinion pieces, paywalled stories, and sometimes breaking-news inserts are excluded. The pipeline ingests `feeds.json` URLs which are RSS, so what we have is *what the outlet emits via RSS*, not *what the outlet publishes*.
+
+`pipeline/sitemap_diff.py` audits the gap. For an outlet's `(rss_url, sitemap_url)` pair, it pulls one week of items from each, normalizes URLs, and reports:
+
+- `sitemap_in_rss` — what fraction of sitemap-published items appear in RSS. Lower = larger selection bias.
+- `missing_categories` — the URL-path components that dominate the gap (e.g., `/opinion/`, `/sports/`).
+
+Run a one-shot audit of representative outlets and append the output to `archive/rss_vs_sitemap_audit_<date>.md`. When an outlet's `sitemap_in_rss` falls below 0.6 the renderer should annotate any framing claim that depends on that outlet — what we see is at most 60% of what they publish, with systematic exclusions on category, not random sampling.
+
+This is structural disclosure, not a fix. RSS is what RSS is. The audit makes the gap measurable; closing it would require switching to sitemap-driven ingest, which is out of scope for the current pipeline.
+
+## Common Crawl News fallback for paywalled majors (Phase C.2)
+
+Trafilatura + Wayback fail systematically on paywalled outlets (Le Monde, Le Figaro, Bild, The Telegraph in the current feed list; NYT/WaPo/WSJ/FT not subscribed). `pipeline/commoncrawl_fallback.py` adds a third extraction tier that queries the [Common Crawl News](https://commoncrawl.org/blog/news-dataset-available) CDX index for the URL within ±21 days and parses the matched WARC record.
+
+Latency caveat: CC-NEWS has a 1–2 week ingestion lag, so the fallback only enriches **retroactive** runs (e.g., `python -m analytical.translate --date <past_date>`). Today's paywalled coverage is still missing. This is documented as a coverage limitation, not a defect.
+
+Feeds flagged `paywalled: true` in `feeds.json` get the fallback automatically; new flags are a `minor` pin bump.

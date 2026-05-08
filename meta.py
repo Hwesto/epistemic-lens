@@ -38,6 +38,7 @@ CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
 FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
 CANARY_PROMPTS_PATH = ROOT / "canary" / "prompts.json"
 BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
+BUCKET_WEIGHTS_PATH = ROOT / "bucket_weights.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
 
@@ -142,6 +143,37 @@ def is_quant_excluded(bucket: str) -> bool:
     return bucket_quality().get(bucket, {}).get("tier") == "EXCLUDE_QUANT"
 
 
+@lru_cache(maxsize=1)
+def bucket_weights_table() -> dict:
+    """Per-bucket weighting parameters (see bucket_weights.json)."""
+    if not BUCKET_WEIGHTS_PATH.exists():
+        return {}
+    return json.loads(BUCKET_WEIGHTS_PATH.read_text(encoding="utf-8")).get("buckets") or {}
+
+
+def bucket_weight(bucket: str) -> float:
+    """Weight for population-weighted aggregates. Defaults to 1.0 for unknown buckets.
+
+    Formula: population_m * audience_reach (see bucket_weights.json doc).
+    Returns 0 for buckets explicitly weighted to 0 (wires, opinion, EXCLUDE_QUANT
+    aggregators) so they don't double-count against country buckets.
+    """
+    entry = bucket_weights_table().get(bucket)
+    if entry is None:
+        return 1.0
+    pop = float(entry.get("population_m", 0))
+    reach = float(entry.get("audience_reach", 0))
+    return pop * reach
+
+
+def bucket_weight_confidence(bucket: str) -> str:
+    """Returns 'high', 'medium', 'low', or 'unknown' (when bucket isn't in table)."""
+    entry = bucket_weights_table().get(bucket)
+    if entry is None:
+        return "unknown"
+    return entry.get("confidence", "unknown")
+
+
 # Tokenisation primitives — kept here so build_metrics, build_briefing, and
 # any future analytical script use the same regex + normalization rules.
 # Compiled with the `regex` lib when available so Unicode property escapes
@@ -222,6 +254,12 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = file_hash(BUCKET_QUALITY_PATH)
         if declared != actual:
             drift["bucket_quality"] = (declared, actual)
+
+    declared = META.get("bucket_weights_hash")
+    if declared and BUCKET_WEIGHTS_PATH.exists():
+        actual = file_hash(BUCKET_WEIGHTS_PATH)
+        if declared != actual:
+            drift["bucket_weights"] = (declared, actual)
 
     declared = CLAUDE.get("prompts_hash")
     if declared and PROMPTS_DIR.exists():

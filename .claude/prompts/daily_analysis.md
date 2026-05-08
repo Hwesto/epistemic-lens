@@ -43,7 +43,7 @@ For each story you analyse:
 
 1. `date -u +%Y-%m-%d` to get today's date.
 2. `ls briefings/<DATE>_*.json` (excluding `_metrics.json` files) to find today's stories.
-3. For each briefing where `n_buckets >= 5`:
+3. For each briefing where `n_buckets >= 3`:
    a. Read the briefing and matching `_metrics.json`.
    b. Read every `signal_text` in `corpus[]`. Note the index of each — you cite by index.
    c. Read `frames_codebook.json` and identify **2–8 frames** carried by the corpus.
@@ -73,7 +73,7 @@ For each story you analyse:
       workflow post-commit; if you skip this step and any error is
       caught downstream, the workflow fails and your work has to be
       manually reverted.
-4. Skip stories with `n_buckets < 5`. Note in your final summary.
+4. Skip stories with `n_buckets < 3`. Note in your final summary.
 5. Print one summary line per story written: `<story_key> n_buckets=N paradox=yes|no n_frames=N`.
 6. **Commit and push** (uncommitted writes do not persist):
 

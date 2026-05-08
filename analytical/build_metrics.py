@@ -272,6 +272,89 @@ def bucket_sizes(vocabs: dict[str, Counter]) -> dict[str, int]:
 
 
 # ---------------------------------------------------------------------------
+# Population-weighted frame aggregates (C.1)
+# ---------------------------------------------------------------------------
+def weighted_frame_distribution(analysis: dict) -> dict:
+    """Compute population-weighted frame share from an analysis JSON.
+
+    Closes red-team Flaw F6 (geographic-equality fallacy). Each frame's share
+    is the sum of its bucket weights divided by the total weight of all
+    buckets that carry any frame in this analysis. The unweighted share is
+    published in parentheses so transparency is preserved.
+
+    Returns:
+      {
+        "frames": {frame_id: {"weighted_share", "unweighted_share",
+                              "weighted_buckets_total", "buckets_total",
+                              "low_confidence_share": float},
+                   ...},
+        "total_weight": float,
+        "low_confidence_buckets": [bucket_keys],
+        "default_weight_buckets": [bucket_keys not in bucket_weights.json],
+      }
+    """
+    frames = analysis.get("frames") or []
+    if not frames:
+        return {"frames": {}, "total_weight": 0.0,
+                "low_confidence_buckets": [], "default_weight_buckets": []}
+
+    all_buckets: set[str] = set()
+    for f in frames:
+        for b in f.get("buckets") or []:
+            all_buckets.add(b)
+    total_weight = sum(meta.bucket_weight(b) for b in all_buckets)
+    if total_weight == 0:
+        # Fall back to unweighted if every bucket has weight 0.
+        total_weight = float(len(all_buckets))
+
+    by_frame: dict[str, dict] = {}
+    low_conf: set[str] = set()
+    default_weight: set[str] = set()
+    for f in frames:
+        fid = f.get("frame_id") or f.get("label") or "UNLABELED"
+        buckets = list(f.get("buckets") or [])
+        bucket_total_weight = 0.0
+        for b in buckets:
+            w = meta.bucket_weight(b)
+            bucket_total_weight += w
+            conf = meta.bucket_weight_confidence(b)
+            if conf == "low":
+                low_conf.add(b)
+            elif conf == "unknown":
+                default_weight.add(b)
+        if total_weight == 0:
+            weighted = 0.0
+        else:
+            weighted = bucket_total_weight / total_weight
+        unweighted = len(buckets) / max(1, len(all_buckets))
+        # Track existing entry: a frame may appear in the analysis twice
+        # (shouldn't, but be defensive); merge by union of buckets.
+        prev = by_frame.get(fid)
+        if prev:
+            merged_buckets = sorted(set(buckets) | set(prev.get("buckets", [])))
+            buckets = merged_buckets
+            bucket_total_weight = sum(meta.bucket_weight(b) for b in buckets)
+            weighted = bucket_total_weight / total_weight if total_weight else 0.0
+            unweighted = len(buckets) / max(1, len(all_buckets))
+        by_frame[fid] = {
+            "weighted_share": round(weighted, 3),
+            "unweighted_share": round(unweighted, 3),
+            "weighted_bucket_total": round(bucket_total_weight, 1),
+            "buckets_total": len(buckets),
+            "buckets": buckets,
+        }
+
+    return {
+        "frames": by_frame,
+        "total_weight": round(total_weight, 1),
+        "n_buckets_in_analysis": len(all_buckets),
+        "low_confidence_buckets": sorted(low_conf),
+        "default_weight_buckets": sorted(default_weight),
+        "weighting_formula": "weight = population_m * audience_reach (bucket_weights.json)",
+    }
+
+
+# ---------------------------------------------------------------------------
 # Top-level orchestration
 # ---------------------------------------------------------------------------
 def build_metrics(briefing: dict) -> dict:

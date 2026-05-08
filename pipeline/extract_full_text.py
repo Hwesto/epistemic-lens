@@ -166,6 +166,27 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
             out["extraction_via_wayback"] = True
             last_err = None  # success via fallback
 
+    # Common Crawl News fallback (Phase C.2). Only triggers for outlets
+    # explicitly flagged paywalled in feeds.json AND when both prior tiers
+    # failed to retrieve a body. CC-NEWS has a 1-2 week ingestion lag, so
+    # this helps retroactive replays more than today's run; it's still the
+    # most legitimate way we have to capture NYT/WaPo/WSJ/FT/Le Monde bodies.
+    out["extraction_via_commoncrawl"] = False
+    if (out["body_chars"] < 200 and item.get("paywalled")):
+        try:
+            from pipeline.commoncrawl_fallback import fetch_body_via_cc
+            cc_body, cc_status = fetch_body_via_cc(url)
+            if cc_body and len(cc_body) > out["body_chars"]:
+                out["body_text"] = cc_body[:max_body]
+                out["body_chars"] = len(cc_body)
+                out["extraction_via_commoncrawl"] = True
+                out["extraction_cc_status"] = cc_status
+                last_err = None
+            else:
+                out["extraction_cc_status"] = cc_status
+        except (ImportError, Exception) as e:
+            out["extraction_cc_status"] = f"error:{type(e).__name__}"
+
     out["extraction_ms"] = int(1000 * (time.time() - t0))
     out["extraction_error"] = last_err
     out["extraction_status"] = classify(out["body_chars"], last_err)
@@ -249,6 +270,12 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
                         continue
                 # else: no filters, take everything
 
+                # Thread paywalled flag from feed metadata onto the item so
+                # extract_one's Common Crawl fallback (Phase C.2) knows when
+                # to invoke CC-NEWS for outlets where trafilatura + Wayback
+                # both fail systematically.
+                if f.get("paywalled"):
+                    it["paywalled"] = True
                 out.append((ck, f["name"], it))
                 if in_per_feed_quota and not in_cluster:
                     # Only consume per-feed quota for items kept solely on that basis
