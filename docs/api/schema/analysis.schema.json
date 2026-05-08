@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/analysis.schema.json",
+  "title": "Daily framing analysis (canonical, structured)",
+  "description": "Per-story analytical output produced by the daily analyze pass. The canonical artifact: machine-parseable, schema-validated, citation-grounded. Markdown rendering for PR review is generated downstream by render_analysis_md.py.",
+  "type": "object",
+  "required": [
+    "meta_version", "date", "story_key", "story_title",
+    "n_buckets", "n_articles", "tldr", "frames",
+    "isolation_top", "bottom_line", "generated_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin version this analysis was produced under."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "story_key": {
+      "type": "string",
+      "description": "Canonical story key matching briefings/<date>_<story_key>.json."
+    },
+    "story_title": {
+      "type": "string"
+    },
+    "n_buckets": { "type": "integer", "minimum": 1 },
+    "n_articles": { "type": "integer", "minimum": 1 },
+    "tldr": {
+      "type": "string",
+      "minLength": 60,
+      "description": "3-6 sentences. Lead with the most surprising finding in the corpus."
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 12,
+      "description": "Story-specific frames derived from the corpus. Not pre-defined.",
+      "items": {
+        "type": "object",
+        "required": ["label", "buckets", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80,
+            "description": "Short, story-specific frame label (e.g. ECONOMIC_CONTAGION)."
+          },
+          "description": {
+            "type": "string",
+            "description": "One-sentence interpretation of what this frame means in this story."
+          },
+          "buckets": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "Bucket keys (matching briefings/) that carry this frame."
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "description": "At least one verbatim quote per frame, citing a corpus entry by index.",
+            "items": {
+              "type": "object",
+              "required": ["bucket", "quote", "signal_text_idx"],
+              "additionalProperties": false,
+              "properties": {
+                "bucket": { "type": "string" },
+                "outlet": { "type": "string" },
+                "quote": {
+                  "type": "string",
+                  "description": "Verbatim from briefing.corpus[idx].signal_text. No paraphrase."
+                },
+                "signal_text_idx": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Index into briefing.corpus[]. Used by the citation linter to verify groundedness."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "isolation_top": {
+      "type": "array",
+      "maxItems": 8,
+      "description": "Top-N most isolated buckets, copied verbatim from metrics.json.",
+      "items": {
+        "type": "object",
+        "required": ["bucket", "mean_jaccard"],
+        "additionalProperties": false,
+        "properties": {
+          "bucket": { "type": "string" },
+          "mean_jaccard": { "type": "number" },
+          "note": {
+            "type": "string",
+            "description": "One-line interpretation: linguistic vs editorial isolation."
+          }
+        }
+      }
+    },
+    "exclusive_vocab_highlights": {
+      "type": "array",
+      "description": "Selected buckets where exclusive vocabulary is editorially significant.",
+      "items": {
+        "type": "object",
+        "required": ["bucket", "terms"],
+        "additionalProperties": false,
+        "properties": {
+          "bucket": { "type": "string" },
+          "terms": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "what_it_reveals": { "type": "string" }
+        }
+      }
+    },
+    "paradox": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["a", "b", "joint_conclusion"],
+          "additionalProperties": false,
+          "properties": {
+            "a": { "$ref": "#/$defs/paradox_side" },
+            "b": { "$ref": "#/$defs/paradox_side" },
+            "joint_conclusion": {
+              "type": "string",
+              "description": "Why opposing-bloc buckets converge. One sentence."
+            }
+          }
+        }
+      ]
+    },
+    "silences": {
+      "type": "array",
+      "description": "Buckets that should plausibly cover this story but didn't.",
+      "items": {
+        "type": "object",
+        "required": ["bucket", "what_they_covered_instead"],
+        "additionalProperties": false,
+        "properties": {
+          "bucket": { "type": "string" },
+          "what_they_covered_instead": { "type": "string" }
+        }
+      }
+    },
+    "single_outlet_findings": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["outlet", "bucket", "finding"],
+        "additionalProperties": false,
+        "properties": {
+          "outlet": { "type": "string" },
+          "bucket": { "type": "string" },
+          "finding": { "type": "string" },
+          "signal_text_idx": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "bottom_line": {
+      "type": "string",
+      "minLength": 40,
+      "description": "2-3 sentences restating the headline finding."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model identifier (e.g. claude-haiku-4-5-20251001)."
+    }
+  },
+  "$defs": {
+    "paradox_side": {
+      "type": "object",
+      "required": ["bucket", "outlet", "quote", "signal_text_idx"],
+      "additionalProperties": false,
+      "properties": {
+        "bucket": { "type": "string" },
+        "outlet": { "type": "string" },
+        "quote": { "type": "string", "description": "Verbatim." },
+        "signal_text_idx": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

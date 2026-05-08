@@ -1,13 +1,14 @@
-# Daily Framing Analysis — Claude Code prompt
+# Daily Framing Analysis — JSON output
 
 You are doing the **daily cross-country framing analysis** for the Epistemic
 Lens dataset. You run on cron once a day, after the ingest + briefing pipeline
 has produced today's corpora.
 
-Your output is a markdown file per story in `analyses/<DATE>_<story_key>.md`.
-That file is the **canonical analytical product** of this project. Downstream
-formats (videos, carousels, newsletter posts) all derive from it later — do
-not write a video script.
+Your output is **one JSON file per story** at
+`analyses/<DATE>_<story_key>.json`, conforming to the schema at
+`docs/api/schema/analysis.schema.json`. The JSON is the canonical product.
+A separate `render_analysis_md.py` step in the workflow renders human-readable
+markdown for PR review — you don't write markdown.
 
 ---
 
@@ -15,143 +16,109 @@ not write a video script.
 
 For each story you analyse:
 
-- `briefings/<DATE>_<story_key>.json` — corpus. Each entry has:
-  - `bucket` (country/region key like `usa`, `iran_opposition`)
-  - `feed` (outlet name)
-  - `lang`
-  - `title`
-  - `link`
-  - `signal_level` (`body` | `summary` | `title`)
-  - `signal_text` (the article body or fallback)
+- `briefings/<DATE>_<story_key>.json` — corpus. Each `corpus[i]` entry has
+  `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`.
+  **The index `i` is the `signal_text_idx` you cite in evidence.**
 - `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers:
-  - `pairwise_jaccard` (sorted, all bucket pairs)
-  - `isolation` (per-bucket mean similarity, ascending = most isolated first)
-  - `bucket_exclusive_vocab` (terms appearing in only one bucket, count ≥ 3)
-  - `bucket_token_counts`, `n_buckets`, `n_articles`
-- `docs/HORMUZ_CORRELATION.md` — **gold-standard exemplar**. Match its
-  structure, voice, and density exactly.
+  `pairwise_jaccard`, `isolation`, `bucket_exclusive_vocab`, `n_buckets`,
+  `n_articles`. **Use these numbers verbatim. Never invent counts or scores.**
+- `docs/api/schema/analysis.schema.json` — required output shape.
 
 ---
 
 ## Procedure
 
-1. List today's date with `date -u +%Y-%m-%d`.
-2. Find every `briefings/<DATE>_*.json` that is **not** a `_metrics.json`.
+1. `date -u +%Y-%m-%d` to get today's date.
+2. `ls briefings/<DATE>_*.json` (excluding `_metrics.json` files) to find today's stories.
 3. For each briefing where `n_buckets >= 5`:
-   a. Read the briefing and its `_metrics.json`.
-   b. Read every `signal_text` in the corpus carefully — do not skim.
-   c. Define 6–10 frames specific to **this** story by what the corpus
-      actually contains. Do not reuse Hormuz's frame set.
-   d. Build the bucket × frame matrix by reading the text. A bucket carries
-      a frame if at least one of its articles makes that frame's claim.
-   e. Identify 2–4 narrative arcs that group buckets together.
-   f. Look for a **paradox**: a pair of buckets from opposing political blocs
-      that arrive at the same analytical conclusion. Quote both verbatim.
-      If no genuine paradox exists in the corpus, write "(none in this
-      corpus)" — **do not invent one**.
-   g. List buckets that should plausibly cover this story but didn't (or
-      whose top item points elsewhere). This is silence-as-data.
-   h. Write the file.
-4. Skip stories with `n_buckets < 5` and note the skip in your final summary.
-5. After all files are written, print a one-line summary per file: story key,
-   n_buckets, paradox found (yes/no), output path.
-6. **Commit and push your work.** The workflow runner expects analyses on
-   the branch — uncommitted writes do NOT persist to the workflow's
-   working directory. Run, in order:
+   a. Read the briefing and matching `_metrics.json`.
+   b. Read every `signal_text` in `corpus[]`. Note the index of each — you cite by index.
+   c. Derive **2–8 frames** specific to this story by what the corpus actually contains.
+      Each frame = a label + which buckets carry it + at least one verbatim quote.
+   d. Look for a paradox: opposing-bloc buckets converging on the same conclusion.
+      Quote both verbatim with their `signal_text_idx`. If no genuine paradox, set `"paradox": null`.
+   e. List silences: buckets that plausibly should cover this and didn't (or covered
+      something else). Cross-reference today's snapshot if needed.
+   f. Pick up to 10 single-outlet findings worth surfacing.
+   g. Assemble the JSON conforming to the schema.
+   h. Validate with: `python -c "import json, jsonschema; jsonschema.validate(json.load(open('analyses/<DATE>_<story>.json')), json.load(open('docs/api/schema/analysis.schema.json')))"`
+   i. If invalid, fix and re-validate.
+4. Skip stories with `n_buckets < 5`. Note in your final summary.
+5. Print one summary line per story written: `<story_key> n_buckets=N paradox=yes|no n_frames=N`.
+6. **Commit and push** (uncommitted writes do not persist):
 
        git add analyses/
-       git diff --cached --quiet && exit 0   # nothing new, exit clean
+       git diff --cached --quiet && exit 0
        DATE=$(date -u +%Y-%m-%d)
-       N=$(ls analyses/${DATE}_*.md 2>/dev/null | wc -l | tr -d ' ')
+       N=$(ls analyses/${DATE}_*.json 2>/dev/null | wc -l | tr -d ' ')
        git commit -m "analyses ${DATE} (${N} stories)"
        git push origin HEAD
 
-   You commit as `claude[bot]`; the branch ruleset bypass list permits
-   it. If push fails with a non-fast-forward error, run
-   `git pull --rebase origin HEAD` and retry once.
-
----
-
-## Required output structure
-
-The file must contain these sections **in this order**, matching
-`docs/HORMUZ_CORRELATION.md`:
-
-1. **Header block** (H1 + bold lines):
-   - Story title
-   - Date
-   - Source (path to briefing JSON)
-   - Coverage stats (n_buckets, n_articles, n_with_body)
-
-2. **TL;DR** — 3–6 sentences. Lead with the single most surprising finding
-   in the corpus, not a summary of the topic.
-
-3. **Frame matrix (`<n> buckets × <m> frames`)** — fenced code block, fixed
-   width, X for present and `.` for absent. Define your column abbreviations
-   inline. Sort rows alphabetically.
-
-4. **Frame totals across buckets** — table: `Frame | # buckets | Note`.
-   The "Note" is your one-sentence interpretation per frame.
-
-5. **The N story arcs** (where N is 2–4) — one `### Arc i — <name>` per
-   arc, each with:
-   - A blockquote of the characteristic lead sentence (verbatim from the
-     corpus).
-   - **Carriers**: list of outlet names.
-   - One short paragraph on why this arc matters.
-
-6. **Pairwise framing similarity (Jaccard, vocabulary overlap)** — fenced
-   code block, top 15 pairs from `metrics.pairwise_jaccard`. Use the numbers
-   verbatim. Annotate noteworthy pairs with `← <one-line reason>`.
-
-7. **Most isolated buckets** — fenced code block, top 8 from
-   `metrics.isolation`. Numbers verbatim. Then one paragraph explaining
-   whether the isolation is linguistic (different language) or genuinely
-   editorial (distinct framing).
-
-8. **Bucket-exclusive vocabulary** — table:
-   `Bucket | Distinctive terms | What it reveals`. Pull the top 3–5 terms
-   per bucket from `metrics.bucket_exclusive_vocab`. Skip buckets with
-   nothing exclusive.
-
-9. **The paradox** (or "No paradox in this corpus") — H2 section with the
-   pair you identified, both quotes verbatim, attribution per outlet, and
-   a one-paragraph interpretation. If no paradox exists, briefly explain
-   why (e.g. "all buckets converge on the same wire framing").
-
-10. **What's missing (silence as data)** — bulleted list of buckets that
-    plausibly should have covered this and didn't, with one line each on
-    what their top item *was* about.
-
-11. **Most striking single-outlet findings** — numbered list of up to 10
-    items, each: `**<Outlet>**: <one-sentence finding>`.
-
-12. **Candidate angles for downstream rendering** — 3–4 H3 angles, each a
-    short paragraph. These are framings you could build a video, carousel,
-    or essay around. Do **not** write the script — describe the angle.
-
-13. **Recap of method** — one paragraph naming the briefing source, the
-    metrics file, and the limitations (e.g. "frame assignment by reading
-    body text, not regex").
-
-14. **Bottom line** — 2–3 sentences restating the headline finding.
+   On non-fast-forward push failure: `git pull --rebase origin HEAD && git push`.
 
 ---
 
 ## Hard rules
 
-- **Verbatim quotes only.** Every blockquote must be copy-pasted from a
-  `signal_text` field. No paraphrase, no composite sentences. Cite the
-  outlet next to the quote.
-- **Numbers from metrics.json only.** Never invent a Jaccard score or a
-  bucket count. If a number isn't in the metrics file, don't put one in
-  the analysis.
-- **Frames are story-specific.** Re-derive the frame set every time. Do
-  not reuse Hormuz frames (US_VICTORY, IRAN_VICTORY, etc.).
-- **No video scripts.** This file is the analysis. Downstream formats
-  consume it later.
-- **No padding.** Better to write `(none)` than to fill a section with
-  generic prose.
-- **One file per story.** Write to `analyses/<DATE>_<story_key>.md`. Do
-  not create extra files.
-- **Skip <5 bucket stories.** Note the skip; do not write a partial file.
+- **Verbatim quotes only.** Every `evidence.quote` and `paradox.{a,b}.quote`
+  must be copy-pasted from a `corpus[i].signal_text`. The `signal_text_idx`
+  field references the exact corpus position. The pre-commit citation linter
+  (Phase 4) will reject mismatches.
+- **Numbers from metrics only.** `n_buckets`, `n_articles`, isolation scores,
+  exclusive-vocab terms — all from `metrics.json`. Never invent.
+- **Frames are story-specific.** Re-derive every time. Do NOT reuse labels
+  across stories or across days. (Once we accumulate a few weeks of data we
+  may pin a taxonomy; for now, free-form per story.)
+- **No paradox if none exists.** Set `"paradox": null`. Do not invent.
+- **Schema-conformant or it doesn't ship.** Validate before commit; the
+  workflow's render step depends on conforming JSON.
+- **One JSON file per story.** Path: `analyses/<DATE>_<story_key>.json`.
+
+---
+
+## Minimal output skeleton
+
+```json
+{
+  "meta_version": "<from briefing.meta_version>",
+  "date": "YYYY-MM-DD",
+  "story_key": "...",
+  "story_title": "...",
+  "n_buckets": 27,
+  "n_articles": 41,
+  "tldr": "Lead with the most surprising finding (3-6 sentences).",
+  "frames": [
+    {
+      "label": "ECONOMIC_CONTAGION",
+      "description": "Coverage focuses on price spillovers to the bucket's home economy.",
+      "buckets": ["philippines", "south_korea", "japan"],
+      "evidence": [
+        {"bucket": "philippines", "outlet": "Asia Times",
+         "quote": "verbatim text from corpus[12].signal_text",
+         "signal_text_idx": 12}
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "italy", "mean_jaccard": 0.009,
+     "note": "Italian-language; isolation is linguistic, not editorial."}
+  ],
+  "exclusive_vocab_highlights": [
+    {"bucket": "italy", "terms": ["guerra", "accordo", "uniti"],
+     "what_it_reveals": "war framing; Italian press treats this as conflict-not-deal."}
+  ],
+  "paradox": null,
+  "silences": [
+    {"bucket": "egypt", "what_they_covered_instead": "Sisi's domestic emergency."}
+  ],
+  "single_outlet_findings": [
+    {"outlet": "RT", "bucket": "russia",
+     "finding": "Frames the deal as an Iranian win.", "signal_text_idx": 22}
+  ],
+  "bottom_line": "Two sentences restating the headline finding.",
+  "generated_at": "2026-05-08T12:34:56Z",
+  "model": "claude-haiku-4-5-20251001"
+}
+```
+
+Keep it tight. The structure does the work, not padding.

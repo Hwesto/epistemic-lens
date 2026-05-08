@@ -681,5 +681,116 @@ class TestMethodologyPin(unittest.TestCase):
             sw.write_bytes(original)
 
 
+class TestAnalysisSchemaAndRender(unittest.TestCase):
+    """Phase 1: analysis.schema.json + render_analysis_md.py round-trip."""
+
+    def setUp(self):
+        import json as _json
+        with open(Path(__file__).parent / "docs/api/schema/analysis.schema.json", encoding="utf-8") as f:
+            self.schema = _json.load(f)
+        self.minimal = {
+            "meta_version": "1.1.0",
+            "date": "2026-05-08",
+            "story_key": "test_story",
+            "story_title": "Test Story",
+            "n_buckets": 6,
+            "n_articles": 12,
+            "tldr": "A test analysis with three sentences. Six buckets carry two distinct frames. No paradox detected in this corpus.",
+            "frames": [
+                {"label": "FRAME_A", "description": "First frame.",
+                 "buckets": ["italy", "usa"],
+                 "evidence": [{"bucket": "italy", "outlet": "ANSA",
+                               "quote": "guerra accordo", "signal_text_idx": 0}]},
+                {"label": "FRAME_B", "buckets": ["china", "japan"],
+                 "evidence": [{"bucket": "china", "quote": "blockade", "signal_text_idx": 4}]},
+            ],
+            "isolation_top": [{"bucket": "italy", "mean_jaccard": 0.009}],
+            "exclusive_vocab_highlights": [
+                {"bucket": "italy", "terms": ["guerra"], "what_it_reveals": "war framing."}
+            ],
+            "paradox": None,
+            "silences": [{"bucket": "egypt", "what_they_covered_instead": "Sisi."}],
+            "single_outlet_findings": [
+                {"outlet": "RT", "bucket": "russia", "finding": "Iran-win frame.", "signal_text_idx": 5}
+            ],
+            "bottom_line": "Two short sentences restating the headline. End.",
+            "generated_at": "2026-05-08T14:00:00Z",
+            "model": "claude-haiku-4-5-20251001",
+        }
+
+    def test_schema_validates_minimal_shape(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("jsonschema not installed in test env")
+        jsonschema.validate(self.minimal, self.schema)
+
+    def test_schema_rejects_missing_required(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("jsonschema not installed in test env")
+        bad = dict(self.minimal)
+        del bad["bottom_line"]
+        with self.assertRaises(jsonschema.ValidationError):
+            jsonschema.validate(bad, self.schema)
+
+    def test_schema_accepts_paradox(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("jsonschema not installed in test env")
+        with_paradox = dict(self.minimal)
+        with_paradox["paradox"] = {
+            "a": {"bucket": "iran_state", "outlet": "PressTV",
+                  "quote": "future tariff", "signal_text_idx": 1},
+            "b": {"bucket": "iran_opposition", "outlet": "Iran International",
+                  "quote": "farmers starving", "signal_text_idx": 2},
+            "joint_conclusion": "Both treat the deal as accomplished from opposite sides.",
+        }
+        jsonschema.validate(with_paradox, self.schema)
+
+    def test_render_produces_expected_sections(self):
+        if "render_analysis_md" in sys.modules:
+            importlib.reload(sys.modules["render_analysis_md"])
+        import render_analysis_md
+        md = render_analysis_md.render(self.minimal)
+        # Header + every section header should appear.
+        self.assertIn("# Test Story", md)
+        self.assertIn("**Date:** 2026-05-08", md)
+        self.assertIn("## TL;DR", md)
+        self.assertIn("## Frames (2)", md)
+        self.assertIn("### FRAME_A", md)
+        self.assertIn("## Most isolated buckets", md)
+        self.assertIn("## Bucket-exclusive vocabulary", md)
+        self.assertIn("## Paradox", md)
+        self.assertIn("_No paradox in this corpus._", md)
+        self.assertIn("## Silence as data", md)
+        self.assertIn("## Single-outlet findings", md)
+        self.assertIn("## Bottom line", md)
+        self.assertIn("`meta_version 1.1.0`", md)
+        # Verbatim quote with corpus citation.
+        self.assertIn("guerra accordo", md)
+        self.assertIn("(corpus[0])", md)
+
+    def test_render_handles_paradox(self):
+        if "render_analysis_md" in sys.modules:
+            importlib.reload(sys.modules["render_analysis_md"])
+        import render_analysis_md
+        with_paradox = dict(self.minimal)
+        with_paradox["paradox"] = {
+            "a": {"bucket": "iran_state", "outlet": "PressTV",
+                  "quote": "future tariff", "signal_text_idx": 1},
+            "b": {"bucket": "iran_opposition", "outlet": "Iran International",
+                  "quote": "farmers starving", "signal_text_idx": 2},
+            "joint_conclusion": "Both treat the deal as accomplished from opposite sides.",
+        }
+        md = render_analysis_md.render(with_paradox)
+        self.assertNotIn("_No paradox in this corpus._", md)
+        self.assertIn("Both treat the deal as accomplished", md)
+        self.assertIn("future tariff", md)
+        self.assertIn("farmers starving", md)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
