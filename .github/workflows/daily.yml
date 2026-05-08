@@ -171,7 +171,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-opus-4-7
+          claude_args: --model claude-haiku-4-5-20251001
+          show_full_output: true
           prompt: ${{ steps.load_analysis_prompt.outputs.content }}
 
       - name: Commit and push analyses
@@ -235,7 +236,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-opus-4-7
+          claude_args: --model claude-haiku-4-5-20251001
+          show_full_output: true
           prompt: ${{ steps.load_thread_prompt.outputs.content }}
 
       - name: Load carousel-draft prompt
@@ -251,7 +253,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-opus-4-7
+          claude_args: --model claude-haiku-4-5-20251001
+          show_full_output: true
           prompt: ${{ steps.load_carousel_prompt.outputs.content }}
 
       - name: Load long-draft prompt
@@ -267,7 +270,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-opus-4-7
+          claude_args: --model claude-haiku-4-5-20251001
+          show_full_output: true
           prompt: ${{ steps.load_long_prompt.outputs.content }}
 
       - name: Validate drafts against schemas
