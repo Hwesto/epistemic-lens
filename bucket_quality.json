@@ -1,0 +1,27 @@
+{
+  "_doc": "Per-bucket data-quality tier system. Pinned by meta_version.json -> bucket_quality_hash. Buckets at tier `EXCLUDE_QUANT` are dropped entirely from cross-bucket lexical metrics (pairwise_similarity, isolation, bucket_exclusive_vocab) because their corpus is dominated by stub-only feeds (Reuters via Google News, China Global Times, etc.) where the tokenizer sees titles, not bodies — title statistics are not commensurable with full-body statistics. Tier `C` buckets ship with a confidence flag the renderer surfaces; they remain in metrics but the analyst is warned. Tier `A`/`B` is the default for healthy buckets. Adding a bucket here is a minor bump; changing a tier label or removing an entry is a major bump.",
+  "version": "1.0.0",
+  "tier_definitions": {
+    "A": "Healthy: extraction success >70%, stub ratio <20%, multiple feeds.",
+    "B": "Acceptable: extraction success 50-70% OR single-feed bucket. Included in all metrics; renderer may flag.",
+    "C": "Narrative only: extraction success 30-50%. Included in metrics with confidence flag; not for cross-bucket comparative claims.",
+    "EXCLUDE_QUANT": "Quarantined from quantitative metrics. Stub-only aggregators where signal_text is the title, not the body. Bucket still appears in briefings for narrative coverage; it just doesn't contribute to Jaccard/cosine/exclusive-vocab numbers."
+  },
+  "buckets": {
+    "google_news_reuters": {
+      "tier": "EXCLUDE_QUANT",
+      "reason": "41/50 stubs in 2026-05-06 baseline; aggregator returns headlines+links, no body extractable",
+      "since_meta_version": "5.0.0"
+    },
+    "china_global_times": {
+      "tier": "EXCLUDE_QUANT",
+      "reason": "50/50 stubs; CGT RSS does not include article bodies",
+      "since_meta_version": "5.0.0"
+    },
+    "africa": {
+      "tier": "C",
+      "reason": "6 feeds for 1.4B people across 50+ countries; structural underrepresentation flagged in docs/COVERAGE.md. Narrative coverage only; do not derive cross-bucket comparative claims.",
+      "since_meta_version": "5.0.0"
+    }
+  }
+}

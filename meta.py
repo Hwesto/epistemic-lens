@@ -22,9 +22,14 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
+import re as _stdlib_re
 from functools import lru_cache
 from pathlib import Path
+
+try:
+    import regex as _re  # Unicode-aware: supports \p{L} property escapes.
+except ImportError:  # pragma: no cover - graceful fallback
+    _re = _stdlib_re
 
 ROOT = Path(__file__).parent
 META_PATH = ROOT / "meta_version.json"
@@ -32,6 +37,7 @@ STOPWORDS_PATH = ROOT / "stopwords.txt"
 CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
 FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
 CANARY_PROMPTS_PATH = ROOT / "canary" / "prompts.json"
+BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
 
@@ -123,9 +129,24 @@ def canonical_stories() -> dict:
     return raw["stories"]
 
 
+@lru_cache(maxsize=1)
+def bucket_quality() -> dict:
+    """Per-bucket quality tier (see bucket_quality.json). Empty dict if absent."""
+    if not BUCKET_QUALITY_PATH.exists():
+        return {}
+    return json.loads(BUCKET_QUALITY_PATH.read_text(encoding="utf-8")).get("buckets") or {}
+
+
+def is_quant_excluded(bucket: str) -> bool:
+    """True if bucket is tier=EXCLUDE_QUANT (drop from cross-bucket lexical metrics)."""
+    return bucket_quality().get(bucket, {}).get("tier") == "EXCLUDE_QUANT"
+
+
 # Tokenisation primitives — kept here so build_metrics, build_briefing, and
 # any future analytical script use the same regex + normalization rules.
-_TOKEN_RE = re.compile(TOKENIZER["regex"])
+# Compiled with the `regex` lib when available so Unicode property escapes
+# (\p{L}) work; otherwise falls back to stdlib `re` (ASCII-only).
+_TOKEN_RE = _re.compile(TOKENIZER["regex"])
 _PLURAL_SUFFIXES = tuple(TOKENIZER["plural_suffixes"])
 _MIN_LEN = int(TOKENIZER["min_token_length"])
 
@@ -195,6 +216,12 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = file_hash(CANARY_PROMPTS_PATH)
         if declared != actual:
             drift["canary_prompts"] = (declared, actual)
+
+    declared = META.get("bucket_quality_hash")
+    if declared and BUCKET_QUALITY_PATH.exists():
+        actual = file_hash(BUCKET_QUALITY_PATH)
+        if declared != actual:
+            drift["bucket_quality"] = (declared, actual)
 
     declared = CLAUDE.get("prompts_hash")
     if declared and PROMPTS_DIR.exists():

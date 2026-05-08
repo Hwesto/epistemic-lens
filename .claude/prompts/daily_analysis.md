@@ -22,9 +22,17 @@ For each story you analyse:
   articles. **The index `i` is the `signal_text_idx` you cite in evidence.**
   Quote verbatim from the **original** `signal_text` (source language) — the
   `_en` fields exist only for the metric layer.
-- `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers:
-  `pairwise_jaccard`, `isolation`, `bucket_exclusive_vocab`, `n_buckets`,
-  `n_articles`. **Use these numbers verbatim. Never invent counts or scores.**
+- `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers.
+  Primary similarity (since meta-v5.0.0): `pairwise_similarity` (TF-IDF
+  cosine) and `isolation` with `mean_similarity` per bucket. Optional
+  parallel layers: `pairwise_embedding_similarity` (LaBSE on originals)
+  and `pairwise_jaccard_legacy` / `isolation_jaccard_legacy` (set-Jaccard,
+  retained for diff-runs). Plus `bucket_exclusive_vocab`, `n_buckets`,
+  `n_articles`, `buckets_excluded_quant`. **Use these numbers verbatim.
+  Never invent counts or scores.** When you flag a bucket as isolated,
+  cite `mean_similarity`; if the LaBSE embedding cosine for the same
+  bucket diverges sharply (e.g. lexical isolation high but embedding
+  similarity high), surface that in the bucket's `note`.
 - `frames_codebook.json` — closed taxonomy of 15 valid `frame_id` values
   (Boydstun/Card). **Every frame you emit must use one of these IDs.**
 - `docs/api/schema/analysis.schema.json` — required output shape.
@@ -125,8 +133,9 @@ For each story you analyse:
     }
   ],
   "isolation_top": [
-    {"bucket": "italy", "mean_jaccard": 0.009,
-     "note": "Italian-language; isolation is linguistic, not editorial."}
+    {"bucket": "italy", "mean_similarity": 0.18,
+     "mean_embedding_similarity": 0.74,
+     "note": "Lexical vocabulary diverges; LaBSE shows shared semantic content — Italy is editorially aligned, just morphologically distant."}
   ],
   "exclusive_vocab_highlights": [
     {"bucket": "italy", "terms": ["guerra", "accordo", "uniti"],

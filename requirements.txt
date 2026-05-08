@@ -3,6 +3,7 @@ trafilatura>=2.0
 sentence-transformers>=2.2.0
 numpy>=1.24.0
 scikit-learn>=1.3.0
+regex>=2024.0.0        # Unicode-aware \p{L} tokenizer (handles diacritics post-translation)
 anthropic>=0.40.0      # Claude API for analytical/translate.py (English-pivot translation)
 kokoro-onnx>=0.5.0     # local offline TTS — broadcast quality (default)
 soundfile>=0.13.0      # WAV writing for kokoro

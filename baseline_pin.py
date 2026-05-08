@@ -67,6 +67,8 @@ def recompute_hashes(meta: dict) -> dict:
         meta["frames_codebook_hash"] = M.file_hash(M.FRAMES_CODEBOOK_PATH)
     if M.CANARY_PROMPTS_PATH.exists():
         meta["canary_prompts_hash"] = M.file_hash(M.CANARY_PROMPTS_PATH)
+    if M.BUCKET_QUALITY_PATH.exists():
+        meta["bucket_quality_hash"] = M.file_hash(M.BUCKET_QUALITY_PATH)
     if M.PROMPTS_DIR.exists():
         meta["claude"]["prompts_hash"] = M.dir_hash(M.PROMPTS_DIR)
 
@@ -119,8 +121,8 @@ def cmd_bump(level: str, reason: str | None) -> int:
         "_doc", "meta_version", "pinned_at", "pin_reason",
         "feeds", "tokenizer", "embedding", "clustering", "metrics",
         "extraction", "ingest", "signal_text", "canonical_stories_hash",
-        "frames_codebook_hash", "ensemble", "canary", "canary_prompts_hash",
-        "claude", "translation",
+        "frames_codebook_hash", "bucket_quality_hash", "ensemble", "canary",
+        "canary_prompts_hash", "claude", "translation",
     ]
     ordered = {k: raw[k] for k in canonical_order if k in raw}
     for k, v in raw.items():

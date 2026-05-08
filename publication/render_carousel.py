@@ -82,16 +82,20 @@ def _hook_slide(a: dict, briefing: dict) -> dict | None:
             "kind": "paradox",
         }
     iso = a.get("isolation_top") or []
-    if iso and iso[0].get("mean_jaccard", 1) < 0.05:
-        b = iso[0]
-        return {
-            "title": f"`{b['bucket']}` stands alone",
-            "body": _truncate(
-                b.get("note") or f"mean_jaccard {b['mean_jaccard']} — most isolated.",
-                MAX_SLIDE_BODY_CHARS,
-            ),
-            "kind": "stat",
-        }
+    if iso:
+        score = iso[0].get("mean_similarity")
+        if score is None:  # pre-5.0.0 artifact compat
+            score = iso[0].get("mean_jaccard", 1)
+        if score < 0.05:
+            b = iso[0]
+            return {
+                "title": f"`{b['bucket']}` stands alone",
+                "body": _truncate(
+                    b.get("note") or f"mean_similarity {score} — most isolated.",
+                    MAX_SLIDE_BODY_CHARS,
+                ),
+                "kind": "stat",
+            }
     excl = a.get("exclusive_vocab_highlights") or []
     if excl:
         h = excl[0]
@@ -182,10 +186,15 @@ def render(a: dict, briefing: dict) -> dict:
         iso = a.get("isolation_top") or []
         if iso:
             top = iso[0]
+            score = top.get("mean_similarity")
+            if score is None:  # pre-5.0.0 artifact compat
+                score = top.get("mean_jaccard", "")
             slides.insert(-1, {
                 "title": f"Most isolated: `{top['bucket']}`",
-                "body": _truncate(top.get("note") or
-                                  f"mean_jaccard {top['mean_jaccard']}", MAX_SLIDE_BODY_CHARS),
+                "body": _truncate(
+                    top.get("note") or f"mean_similarity {score}",
+                    MAX_SLIDE_BODY_CHARS,
+                ),
                 "kind": "stat",
             })
 

@@ -114,17 +114,28 @@
     "isolation_top": {
       "type": "array",
       "maxItems": 8,
-      "description": "Top-N most isolated buckets, copied verbatim from metrics.json.",
+      "description": "Top-N most isolated buckets, copied verbatim from metrics.json. As of meta_version 5.0.0 the primary metric is TF-IDF cosine (`mean_similarity`); `mean_jaccard_legacy` is optional for diff-runs against pre-5.0.0 artifacts.",
       "items": {
         "type": "object",
-        "required": ["bucket", "mean_jaccard"],
+        "required": ["bucket", "mean_similarity"],
         "additionalProperties": false,
         "properties": {
           "bucket": { "type": "string" },
-          "mean_jaccard": { "type": "number" },
+          "mean_similarity": {
+            "type": "number",
+            "description": "TF-IDF cosine mean from metrics.isolation."
+          },
+          "mean_jaccard_legacy": {
+            "type": "number",
+            "description": "Optional: legacy token-set Jaccard mean for diff-runs."
+          },
+          "mean_embedding_similarity": {
+            "type": "number",
+            "description": "Optional: parallel LaBSE embedding cosine mean."
+          },
           "note": {
             "type": "string",
-            "description": "One-line interpretation: linguistic vs editorial isolation."
+            "description": "One-line interpretation; flag any divergence between lexical and embedding isolation."
           }
         }
       }

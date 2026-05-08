@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "4.0.0",
-  "pinned_at": "2026-05-08T20:47:57Z",
-  "pin_reason": "Phase B — closed Boydstun frame codebook (longitudinal frame tracking), multi-LLM ensemble + Krippendorff alpha gating, drift canary suite, dated model snapshot pin, weekly test-retest CI",
+  "meta_version": "5.0.0",
+  "pinned_at": "2026-05-08T21:05:24Z",
+  "pin_reason": "Phase A residuals — Unicode tokenizer (\\p{L}{4,} via regex lib), TF-IDF cosine primary similarity replacing token-set Jaccard (kept as legacy field), LaBSE parallel cross-lingual semantic metric, bucket-quality tier system (EXCLUDE_QUANT quarantines stub-only aggregator buckets from cross-bucket lexical metrics)",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -10,13 +10,16 @@
     "hash": "sha256:8c462d3ff352d291595c974ca3ded9d79bb631bdd87c74636bd46cb01dff3683"
   },
   "tokenizer": {
-    "regex": "[A-Za-z]{4,}",
+    "_doc": "Unicode-aware tokenizer via the `regex` library. \\p{L} matches any Unicode letter so diacritics in translated text (e.g. 'México', 'résumé') are preserved as single tokens. Lower bound 4 chars matches the prior pin to keep min vocabulary size stable. Operates on the English-pivot field signal_text_en (see meta.effective_text); only English content tokens flow into Jaccard / TF-IDF / exclusive-vocab metrics.",
+    "regex": "\\p{L}{4,}",
+    "regex_engine": "regex",
     "min_token_length": 4,
     "plural_suffixes": [
       "ies",
       "es",
       "s"
     ],
+    "input_field": "signal_text_en",
     "stopwords_hash": "sha256:00021ba6ad88bf21242f57d4de8d85175779896b3f9cb94d01dea24e519bef4e"
   },
   "embedding": {
@@ -31,10 +34,18 @@
     "min_samples": 3
   },
   "metrics": {
-    "jaccard_method": "set_intersection_over_union",
-    "isolation_method": "mean_pairwise_jaccard",
+    "_doc": "Cross-bucket lexical metrics. As of 5.0.0 the primary similarity is TF-IDF cosine over per-bucket pivot-language vocabularies (frequency-weighted, length-normalized). Token-set Jaccard is preserved as a legacy field for diff-runs. LaBSE embedding cosine on ORIGINAL signal_text is published as a parallel cross-lingual semantic check (model-pinned, optional dependency).",
+    "primary_similarity": "tfidf_cosine",
+    "isolation_method": "mean_pairwise_tfidf_cosine",
+    "legacy_jaccard_method": "set_intersection_over_union",
     "exclusive_vocab_min_count": 3,
-    "exclusive_vocab_max_doc_freq": 1
+    "exclusive_vocab_max_doc_freq": 1,
+    "embedding_parallel": {
+      "enabled": true,
+      "model": "sentence-transformers/LaBSE",
+      "input_field": "signal_text",
+      "agg": "mean_of_article_embeddings"
+    }
   },
   "extraction": {
     "max_body_chars": 4000,
@@ -61,6 +72,7 @@
   },
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "frames_codebook_hash": "sha256:548cd7ad2da6b249183a90a661c0a55abcd48ccacda0cd045c7aad7cc7b22658",
+  "bucket_quality_hash": "sha256:4f0d5789388360e267b92d5c108ae1e07635f3fa8f13bd2bd67780188a36d087",
   "ensemble": {
     "_doc": "Multi-LLM ensemble agreement on closed-codebook frame_id selections (analytical/ensemble.py). Krippendorff alpha gates publication: >= alpha_gate_ship → ship, >= alpha_gate_preliminary → ship with preliminary flag, otherwise suppress.",
     "raters": [
@@ -85,7 +97,7 @@
     "_doc": "Dated snapshot ID (claude-sonnet-4-6-YYYYMMDD) pins model weights as far as the API permits — alias `claude-sonnet-4-6` may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served is detected by canary/run.py (see meta.canary).",
     "model": "claude-sonnet-4-6-20260501",
     "model_alias": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:16ec032692d7268b06082485b67000244f9e48b7219224dbac1e26eed7c646cc"
+    "prompts_hash": "sha256:6e93866a4143c90abc05ba2356382f3fe41999deb1ca4f58de2ead55c51c8adf"
   },
   "translation": {
     "_doc": "Pivot-language translation step (analytical/translate.py). Every non-English signal_text is translated to English via Claude before metrics are computed; signal_text_en + title_en are added per corpus entry. Originals are preserved verbatim for citation grounding. Cache: cache/translations/<sha256[:2]>/<sha256>.json keyed on (model, lang, text). Bumping the model invalidates the cache by design.",

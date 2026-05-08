@@ -233,23 +233,48 @@ def check_numbers(analysis: dict, metrics: dict) -> list[str]:
             f"metrics.n_articles {metrics.get('n_articles')}"
         )
 
-    # isolation_top mean_jaccard values must match metrics.isolation entries.
-    metrics_iso = {r["bucket"]: r["mean_jaccard"]
-                   for r in metrics.get("isolation") or []}
+    # isolation_top values must match metrics.isolation (TF-IDF cosine, primary)
+    # and optional metrics.isolation_jaccard_legacy / isolation_embedding for
+    # the diff-run / parallel-semantic fields.
+    metrics_iso_primary = {
+        r["bucket"]: r["mean_similarity"] for r in metrics.get("isolation") or []
+    }
+    metrics_iso_legacy = {
+        r["bucket"]: r["mean_jaccard"]
+        for r in metrics.get("isolation_jaccard_legacy") or []
+    }
+    metrics_iso_emb = {
+        r["bucket"]: r["mean_embedding_similarity"]
+        for r in metrics.get("isolation_embedding") or []
+    }
     for ii, r in enumerate(analysis.get("isolation_top") or []):
         b = r.get("bucket")
-        v = r.get("mean_jaccard")
-        if b not in metrics_iso:
+        if b not in metrics_iso_primary:
             errors.append(
                 f"numbers: isolation_top[{ii}].bucket {b!r} not in "
                 f"metrics.isolation"
             )
             continue
-        if v is not None and abs(metrics_iso[b] - v) > 1e-6:
+        v = r.get("mean_similarity")
+        if v is not None and abs(metrics_iso_primary[b] - v) > 1e-6:
             errors.append(
-                f"numbers: isolation_top[{ii}] mean_jaccard {v} != "
-                f"metrics value {metrics_iso[b]} for bucket {b!r}"
+                f"numbers: isolation_top[{ii}].mean_similarity {v} != "
+                f"metrics value {metrics_iso_primary[b]} for bucket {b!r}"
             )
+        v = r.get("mean_jaccard_legacy")
+        if v is not None and b in metrics_iso_legacy:
+            if abs(metrics_iso_legacy[b] - v) > 1e-6:
+                errors.append(
+                    f"numbers: isolation_top[{ii}].mean_jaccard_legacy {v} != "
+                    f"metrics value {metrics_iso_legacy[b]} for bucket {b!r}"
+                )
+        v = r.get("mean_embedding_similarity")
+        if v is not None and b in metrics_iso_emb:
+            if abs(metrics_iso_emb[b] - v) > 1e-6:
+                errors.append(
+                    f"numbers: isolation_top[{ii}].mean_embedding_similarity {v} != "
+                    f"metrics value {metrics_iso_emb[b]} for bucket {b!r}"
+                )
 
     # exclusive_vocab terms claimed must appear in metrics.bucket_exclusive_vocab.
     metrics_excl = metrics.get("bucket_exclusive_vocab") or {}

@@ -73,11 +73,15 @@ def render(a: dict) -> str:
     if a.get("isolation_top"):
         out.append("## Most isolated buckets")
         out.append("")
-        out.append("| Bucket | mean_jaccard | Note |")
-        out.append("| --- | --- | --- |")
+        out.append("| Bucket | mean_similarity | LaBSE | Note |")
+        out.append("| --- | --- | --- | --- |")
         for r in a["isolation_top"]:
+            score = r.get("mean_similarity")
+            if score is None:  # pre-5.0.0 artifact compat
+                score = r.get("mean_jaccard", "")
+            emb = r.get("mean_embedding_similarity", "")
             note = r.get("note", "")
-            out.append(f"| `{r['bucket']}` | {r['mean_jaccard']} | {note} |")
+            out.append(f"| `{r['bucket']}` | {score} | {emb} | {note} |")
         out.append("")
 
     # Exclusive vocab
