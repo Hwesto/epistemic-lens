@@ -32,7 +32,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+from meta import REPO_ROOT as ROOT
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "analysis.schema.json"

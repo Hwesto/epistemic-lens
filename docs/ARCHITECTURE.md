@@ -10,35 +10,35 @@
                 ┌────────────────────────▼────────────────────────┐
                 │  DATA PIPELINE                                  │
                 │                                                 │
-                │  ingest.py            → snapshots/<date>.json   │
+                │  pipeline.ingest            → snapshots/<date>.json   │
                 │   • parallel fetch (ThreadPool, 30 workers)     │
                 │   • per-host rate limit + retries               │
                 │   • xml.etree parser (RSS/Atom/RDF)             │
                 │   • per-item flags: is_stub, is_google_news,    │
                 │       summary_chars, published_age_hours        │
                 │                                                 │
-                │  extract_full_text.py                           │
+                │  pipeline.extract_full_text                           │
                 │   • trafilatura body extraction                 │
                 │   • Wayback Machine fallback on 4xx             │
                 │   • signal_text() helper: body | summary | title│
                 │   • per-bucket coverage so every country has    │
                 │       at least N items extracted daily          │
                 │                                                 │
-                │  dedup.py                                       │
+                │  pipeline.dedup                                       │
                 │   • URL canonicalisation (utm/m./www/GN)        │
                 │   • title near-dup collapse                     │
                 │                                                 │
-                │  daily_health.py                                │
+                │  pipeline.daily_health                                │
                 │   • feed health + extraction stats              │
                 │   • alerts: volume_drop + low_extraction        │
                 │                                                 │
-                │  feed_rot_check.py     (weekly)                 │
+                │  pipeline.feed_rot_check     (weekly)                 │
                 │   • flags persistently broken feeds             │
                 └────────────────┬────────────────────────────────┘
                                  │
                                  ▼
                 ┌──────────────────────────────────┐
-                │  build_briefing.py               │
+                │  analytical.build_briefing               │
                 │   • detects canonical stories    │
                 │   • per-story corpus with up to  │
                 │     2 distinct framings/bucket   │
@@ -50,7 +50,7 @@
                                  │
                                  ▼
         ┌──────────────────────────────────────────────────┐
-        │  build_metrics.py                                │
+        │  analytical.build_metrics                                │
         │   • pairwise Jaccard on per-bucket vocabulary    │
         │   • bucket isolation (mean Jaccard vs others)    │
         │   • bucket-exclusive vocab (df==1, count>=3)     │
@@ -61,10 +61,8 @@
         ┌──────────────────────────────────────────────────┐
         │  ANALYZE JOB (anthropics/claude-code-action@v1)  │
         │   prompt: .claude/prompts/daily_analysis.md      │
-        │   model:  claude-haiku-4-5-20251001              │
-        │           (production target: claude-opus-4-7;   │
-        │            haiku is the testing-tier default;    │
-        │            see meta_version.json claude.model)   │
+        │   model:  claude-sonnet-4-6                      │
+        │           (matches meta_version.json claude.model)│
         │   • reads briefing + metrics, derives 2-12       │
         │     story-specific frames                        │
         │   • emits JSON conforming to                     │
@@ -78,7 +76,7 @@
                          │
                          ▼
         ┌──────────────────────────────────────────────────┐
-        │  validate_analysis.py    (defence in depth)      │
+        │  analytical.validate_analysis    (defence in depth)      │
         │   • schema check (jsonschema)                    │
         │   • citation grounding: every signal_text_idx    │
         │     resolves; quote substring match; bucket      │
@@ -91,7 +89,7 @@
                          │
                          ▼
         ┌──────────────────────────────────────────────────┐
-        │  render_analysis_md.py                           │
+        │  publication.render_analysis_md                           │
         │   • analysis.json → analysis.md                  │
         │   • Markdown is presentation-only; JSON is       │
         │     canonical                                    │
@@ -104,10 +102,10 @@
         │  DRAFT JOB (publication layer)                  │
         │                                                 │
         │  Python templates (no LLM):                     │
-        │   • render_thread.py    → thread.json           │
+        │   • publication.render_thread    → thread.json           │
         │     (hook priority: paradox > isolation         │
         │      outlier > exclusive vocab > generic)       │
-        │   • render_carousel.py  → carousel.json         │
+        │   • publication.render_carousel  → carousel.json         │
         │                                                 │
         │  Claude Code Action (sonnet):                   │
         │   • prompt: .claude/prompts/draft_long.md       │
@@ -124,7 +122,7 @@
                          ▼
         ┌──────────────────────────────────────────────────┐
         │  PUBLISH_API JOB                                 │
-        │   build_index.py walks briefings/, analyses/,    │
+        │   publication.build_index walks briefings/, analyses/,    │
         │   drafts/, copies into api/<date>/<story>/,      │
         │   copies docs/api/schema/* into api/schema/,     │
         │   copies web/* (index.html + styles.css +        │
@@ -142,7 +140,7 @@
                          └── /schema/*.schema.json
 
       [Optional, manual: video pipeline (synthesize_voiceover.py +
-       generate_music_bed.py + render_video.py + video_template/)
+       generate_music_bed.py + render_video.py + video/)
        remains in repo but is not invoked by the cron. Reactivate
        when the public publication surface needs short-form video.]
 ```
@@ -180,14 +178,14 @@
               "is_stub": false,
               "is_google_news": false,
               "published_age_hours": 1.2,
-              // After extract_full_text.py:
+              // After pipeline.extract_full_text:
               "body_text": "...",
               "body_chars": 4200,
               "extraction_status": "FULL",
               "extraction_ms": 1500,
               "extraction_http": 200,
               "extraction_via_wayback": false,
-              // After dedup.py:
+              // After pipeline.dedup:
               "canonical_url": "https://...",
               "normalised_title": "...",
               "url_dup_count": 1,
@@ -261,7 +259,7 @@
 
 ## Component reference
 
-### Remotion video template (`video_template/`)
+### Remotion video template (`video/`)
 
 | Component | Purpose |
 |---|---|
@@ -280,14 +278,14 @@
 
 | Script | Reads | Writes |
 |---|---|---|
-| `ingest.py` | `feeds.json` | `snapshots/<date>.json` + `_pull_report.md` |
-| `extract_full_text.py` | snapshot + optional `_convergence.json` | annotates snapshot in place; checkpoints every N |
-| `dedup.py` | snapshot | `_dedup.json` + annotates items in place |
-| `daily_health.py` | snapshot + last 7 days | `_health.json` |
-| `feed_rot_check.py` | last 7 `_health.json` | `archive/review/rot_report_<date>.md` |
-| `build_briefing.py` | latest snapshot | `briefings/<date>_<story>.json` |
-| `synthesize_voiceover.py` | `video_scripts/<id>.json` | `video_template/public/voiceovers/<id>/scene_*.wav` + `durations.json` |
-| `generate_music_bed.py` | (none) | `video_template/public/music_bed.wav` |
+| `pipeline.ingest` | `feeds.json` | `snapshots/<date>.json` + `_pull_report.md` |
+| `pipeline.extract_full_text` | snapshot + optional `_convergence.json` | annotates snapshot in place; checkpoints every N |
+| `pipeline.dedup` | snapshot | `_dedup.json` + annotates items in place |
+| `pipeline.daily_health` | snapshot + last 7 days | `_health.json` |
+| `pipeline.feed_rot_check` | last 7 `_health.json` | `archive/review/rot_report_<date>.md` |
+| `analytical.build_briefing` | latest snapshot | `briefings/<date>_<story>.json` |
+| `synthesize_voiceover.py` | `video_scripts/<id>.json` | `video/public/voiceovers/<id>/scene_*.wav` + `durations.json` |
+| `generate_music_bed.py` | (none) | `video/public/music_bed.wav` |
 | `render_video.py` | `video_scripts/<id>.json` + `durations.json` | `videos/<id>.mp4` |
 
 ## Status flags in feeds.json

@@ -44,7 +44,7 @@ except ImportError:
     trafilatura = None
     HAS_TRAFILATURA = False
 
-ROOT = Path(__file__).parent
+ROOT = meta.REPO_ROOT
 SNAPS_DEFAULT = ROOT / "snapshots"
 
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "

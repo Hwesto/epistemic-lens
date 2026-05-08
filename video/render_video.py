@@ -22,7 +22,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+from meta import REPO_ROOT as ROOT
 TEMPLATE = ROOT / "video_template"
 DEFAULT_OUT = ROOT / "videos"
 

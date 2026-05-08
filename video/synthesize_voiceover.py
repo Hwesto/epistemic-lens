@@ -43,7 +43,7 @@ import urllib.request
 from pathlib import Path
 import wave
 
-ROOT = Path(__file__).parent
+from meta import REPO_ROOT as ROOT
 TEMPLATE = ROOT / "video_template"
 VOICES_DIR = TEMPLATE / "public" / "voices"
 VOICEOVERS_DIR = TEMPLATE / "public" / "voiceovers"

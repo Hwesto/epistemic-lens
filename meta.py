@@ -33,6 +33,12 @@ CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
 
+# Public alias used by scripts that have moved into subdirectories
+# (pipeline/, analytical/, publication/, video/). Their own
+# Path(__file__).parent points at the subdir, not the repo root, so
+# they read REPO_ROOT from here as the single source of truth.
+REPO_ROOT = ROOT
+
 
 def file_hash(path: Path) -> str:
     h = hashlib.sha256()

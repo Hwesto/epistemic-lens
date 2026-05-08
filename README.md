@@ -12,21 +12,23 @@ The codebase decomposes into four loosely-coupled concerns. Each evolves on its 
 
 | Concern | What it is | Files |
 |---|---|---|
-| **Ingestion** | RSS pull, body extraction, dedup, health, rot detection | `ingest.py`, `extract_full_text.py`, `dedup.py`, `daily_health.py`, `feed_rot_check.py`, `feeds.json` |
-| **Analytical** | Story detection, metrics, daily Claude framing analysis (JSON-canonical), validation | `build_briefing.py`, `build_metrics.py`, `validate_analysis.py`, `restamp_analyses.py`, `meta.py`, `.claude/prompts/daily_analysis.md`, `docs/api/schema/analysis.schema.json` |
-| **Publication** | Markdown render, template-based thread/carousel drafts, Sonnet long-form, public API + landing page, video stack | `render_analysis_md.py`, `render_thread.py`, `render_carousel.py`, `.claude/prompts/draft_long.md`, `web/`, `build_index.py`, `video_template/` (dormant) |
-| **Methodology pin** | Cross-cutting integrity layer: every input that affects analytical output is hashed; every artifact carries the active `meta_version` | `meta_version.json`, `baseline_pin.py`, `stopwords.txt`, `canonical_stories.json`, `docs/METHODOLOGY.md`, schemas |
+| **Ingestion** | RSS pull, body extraction, dedup, health, rot detection | `pipeline/` |
+| **Analytical** | Story detection, metrics, daily Claude framing analysis (JSON-canonical), validation, version-stamping | `analytical/`, `.claude/prompts/daily_analysis.md`, `docs/api/schema/analysis.schema.json` |
+| **Publication** | Markdown render, template-based thread/carousel drafts, Sonnet long-form, public API + landing page | `publication/`, `.claude/prompts/draft_long.md`, `web/` |
+| **Methodology pin** | Cross-cutting integrity layer: every input that affects analytical output is hashed; every artifact carries the active `meta_version` | `meta.py`, `meta_version.json`, `baseline_pin.py`, `stopwords.txt`, `canonical_stories.json`, `docs/METHODOLOGY.md` |
 
 ## Daily flow (07:00 UTC, fully unattended)
 
 ```
-ingest    →  snapshot + briefings + metrics commit to main           ~8 min
-analyze   →  Haiku writes JSON analyses + schema/citation/number     ~5 min
-             validators + render markdown + commit
-draft     →  Python templates write thread.json + carousel.json,     ~8 min
-             Sonnet writes long-form prose
-publish   →  build_index.py rebuilds api/ tree, copies web/*,        ~10 sec
-             deploys to GitHub Pages
+ingest    →  pipeline.{ingest,extract_full_text,dedup,daily_health}    ~8 min
+             then analytical.{build_briefing,build_metrics}; commit
+analyze   →  Sonnet writes JSON analyses; analytical.validate_analysis
+             enforces schema + citation + number reconciliation;
+             publication.render_analysis_md emits MD; bot commits      ~5 min
+draft     →  publication.render_thread + render_carousel (templates,
+             no LLM); Sonnet writes long.json                          ~8 min
+publish   →  publication.build_index rebuilds api/ tree, copies web/*,
+             deploys to GitHub Pages                                   ~10 sec
 ```
 
 Workflow: `.github/workflows/daily.yml`. Every step subscription-billed via the OAuth token (`anthropics/claude-code-action@v1`); zero metered API spend. `workflow_dispatch` inputs `skip_ingest` / `skip_analyze` / `skip_draft` let you re-run downstream-only without burning fresh feed pulls or LLM calls.
@@ -55,12 +57,12 @@ git clone <repo> && cd epistemic-lens
 pip install -r requirements.txt
 
 # Run today's ingest stage locally (matches the cron's first job)
-python ingest.py
-python extract_full_text.py
-python dedup.py
-python daily_health.py
-python build_briefing.py
-python build_metrics.py
+python -m pipeline.ingest
+python -m pipeline.extract_full_text
+python -m pipeline.dedup
+python -m pipeline.daily_health
+python -m analytical.build_briefing
+python -m analytical.build_metrics
 
 # The analyze + draft + publish stages run via GitHub Actions in the cron.
 # See docs/OPERATIONS.md for the one-time CLAUDE_CODE_OAUTH_TOKEN setup.
@@ -123,23 +125,28 @@ epistemic-lens/
 │   ├── carousel.schema.json
 │   └── long.schema.json
 │
-├── ingest.py                  ← parallel async RSS fetcher
-├── extract_full_text.py       ← trafilatura + Wayback fallback
-├── dedup.py                   ← URL canon + title near-dup
-├── daily_health.py            ← health snapshot + bucket alerts
-├── feed_rot_check.py          ← weekly rot detection
-├── build_briefing.py          ← per-story corpus assembler
-├── build_metrics.py           ← Jaccard + isolation + exclusive vocab
-├── validate_analysis.py       ← schema + citation + number reconciliation
-├── restamp_analyses.py        ← refresh meta_version on agent JSON output
-├── render_analysis_md.py      ← JSON analysis → human MD
-├── render_thread.py           ← analysis JSON → thread draft (template)
-├── render_carousel.py         ← analysis JSON → carousel draft (template)
-├── build_index.py             ← assemble api/ tree for GitHub Pages
+├── pipeline/                  ← INGESTION concern
+│   ├── ingest.py              ← parallel async RSS fetcher
+│   ├── extract_full_text.py   ← trafilatura + Wayback fallback
+│   ├── dedup.py               ← URL canon + title near-dup
+│   ├── daily_health.py        ← health snapshot + bucket alerts
+│   └── feed_rot_check.py      ← weekly rot detection
+│
+├── analytical/                ← ANALYTICAL concern
+│   ├── build_briefing.py      ← per-story corpus assembler
+│   ├── build_metrics.py       ← Jaccard + isolation + exclusive vocab
+│   ├── validate_analysis.py   ← schema + citation + number reconciliation
+│   └── restamp_analyses.py    ← refresh meta_version on agent JSON output
+│
+├── publication/               ← PUBLICATION concern
+│   ├── render_analysis_md.py  ← JSON analysis → human MD
+│   ├── render_thread.py       ← analysis JSON → thread draft (template)
+│   ├── render_carousel.py     ← analysis JSON → carousel draft (template)
+│   └── build_index.py         ← assemble api/ tree for GitHub Pages
 │
 ├── tests.py / tests_edge.py / tests_e2e.py
 │
-├── web/                       ← static landing page
+├── web/                       ← static landing page (served at Pages root)
 │   ├── index.html
 │   ├── styles.css
 │   └── app.js
@@ -149,9 +156,9 @@ epistemic-lens/
 ├── analyses/                  ← per-story JSON + MD analyses
 ├── drafts/                    ← thread/carousel/long-form drafts
 │
-├── video_template/            ← Remotion + React (dormant; available for future video work)
-│   ├── package.json
-│   └── src/...
+├── video/                     ← Remotion + React + 3 Python orchestrators (dormant)
+│   ├── synthesize_voiceover.py / render_video.py / generate_music_bed.py
+│   ├── package.json, src/, public/
 │
 ├── docs/
 │   ├── ARCHITECTURE.md

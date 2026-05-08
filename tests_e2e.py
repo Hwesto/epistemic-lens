@@ -95,7 +95,7 @@ t0 = time.time()
 import importlib
 if "ingest" in sys.modules:
     importlib.reload(sys.modules["ingest"])
-import ingest
+from pipeline import ingest
 
 snap = ingest.pull_all(TEST_FEEDS)
 elapsed = time.time() - t0
@@ -140,7 +140,7 @@ check("snapshot file >10KB", snap_path.stat().st_size > 10_000)
 print("\n[3] Running dedup")
 if "dedup" in sys.modules:
     importlib.reload(sys.modules["dedup"])
-import dedup
+from pipeline import dedup
 result = dedup.dedup_snapshot(snap)
 print(f"    {result['n_total_items']} items -> {result['n_deduped']} deduped "
       f"(url dupes={result['n_url_dupes']}, title dupes={result['n_title_dupes']})")
@@ -152,7 +152,7 @@ check("dedup didn't over-collapse",
 print("\n[4] Running daily_health on the e2e snapshot")
 if "daily_health" in sys.modules:
     importlib.reload(sys.modules["daily_health"])
-import daily_health
+from pipeline import daily_health
 daily_health.SNAPS = SNAPS  # redirect
 h, hp = daily_health.health_for(snap_path)
 check("health file exists", hp.exists())
@@ -165,7 +165,7 @@ check("n_feeds matches", h["n_feeds"] == 5)
 print("\n[5] Running feed_rot_check (only 1 day, should produce empty report)")
 if "feed_rot_check" in sys.modules:
     importlib.reload(sys.modules["feed_rot_check"])
-import feed_rot_check as frc
+from pipeline import feed_rot_check as frc
 frc.SNAPS = SNAPS
 frc.REVIEW = E2E_DIR / "review"
 frc.REVIEW.mkdir(exist_ok=True)

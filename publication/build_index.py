@@ -42,7 +42,7 @@ from pathlib import Path
 
 import meta
 
-ROOT = Path(__file__).parent
+ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
 ANALYSES = ROOT / "analyses"
 DRAFTS = ROOT / "drafts"

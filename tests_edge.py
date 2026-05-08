@@ -32,7 +32,7 @@ class TestEdgeParser(unittest.TestCase):
     def setUp(self):
         if "ingest" in sys.modules:
             importlib.reload(sys.modules["ingest"])
-        from ingest import _parse_feed, _annotate_item
+        from pipeline.ingest import _parse_feed, _annotate_item
         self.parse = _parse_feed
         self.annotate = _annotate_item
 
@@ -109,7 +109,7 @@ class TestEdgeDedup(unittest.TestCase):
     def setUp(self):
         if "dedup" in sys.modules:
             importlib.reload(sys.modules["dedup"])
-        import dedup
+        from pipeline import dedup
         self.dedup = dedup
 
     def test_canonical_no_scheme(self):
@@ -169,7 +169,7 @@ class TestEdgeIngest(unittest.TestCase):
     def setUp(self):
         if "ingest" in sys.modules:
             importlib.reload(sys.modules["ingest"])
-        import ingest
+        from pipeline import ingest
         self.ingest = ingest
 
     def test_pull_feed_dead_url(self):
