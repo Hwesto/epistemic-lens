@@ -513,10 +513,10 @@ if __name__ == "__main__":
         model = SentenceTransformer(MODEL_NAME)
         result = embed_snapshot(snapshot, model)
         if result:
-            vectors, meta = result
+            vectors, all_meta = result
             labels = cluster_topics(vectors)
-            convergence = compute_convergence(labels, vectors, meta)
-            similarity = compute_similarity_matrix(vectors, meta)
+            convergence = compute_convergence(labels, vectors, all_meta)
+            similarity = compute_similarity_matrix(vectors, all_meta)
     elif SKIP_EMBED:
         print("SKIP_EMBED=1 — skipping embedding/clustering.")
     else:
