@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "1.4.1",
-  "pinned_at": "2026-05-08T15:51:39Z",
-  "pin_reason": "fix meta_version stamping (prompt update + restamp_analyses.py safety net)",
+  "meta_version": "2.0.0",
+  "pinned_at": "2026-05-08T17:37:40Z",
+  "pin_reason": "switch analyze model to sonnet (was declared opus, was running haiku; aligned on sonnet for both analyze and long_form)",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -61,7 +61,7 @@
   },
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "claude": {
-    "model": "claude-opus-4-7",
+    "model": "claude-sonnet-4-6",
     "prompts_hash": "sha256:f2a54b0d9b54b957739007272f3b1d734a6ab02af151d1d2055eaba0adfbfc2d"
   }
 }
