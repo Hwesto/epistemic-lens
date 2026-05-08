@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 7 * * *'  # 07:00 UTC every day
   workflow_dispatch:
+    inputs:
+      skip_ingest:
+        description: 'Skip ingest (use existing snapshot/briefings on main). Useful for re-running analyze/draft after a fix without burning ~10 min on a fresh feed pull.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -14,6 +19,7 @@ concurrency:
 
 jobs:
   ingest:
+    if: ${{ inputs.skip_ingest != true }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -122,6 +128,9 @@ jobs:
 
   analyze:
     needs: ingest
+    # Run if ingest succeeded OR was deliberately skipped via workflow_dispatch.
+    # `if: always()` ensures this evaluates regardless of the ingest job state.
+    if: ${{ always() && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -188,6 +197,7 @@ jobs:
 
   draft:
     needs: analyze
+    if: ${{ always() && (needs.analyze.result == 'success' || needs.analyze.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -313,7 +323,8 @@ jobs:
     timeout-minutes: 10
     # Only deploy from main — feature branches build the api/ tree but
     # don't push to Pages. Override via workflow_dispatch if needed.
-    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    # Tolerate skipped upstream when the user manually skipped earlier jobs.
+    if: ${{ always() && (needs.draft.result == 'success' || needs.draft.result == 'skipped') && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch') }}
 
     permissions:
       contents: read
