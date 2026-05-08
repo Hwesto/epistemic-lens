@@ -1,0 +1,556 @@
+{
+  "date": "2026-05-08",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 11,
+  "n_articles": 17,
+  "buckets": [
+    "canada",
+    "egypt",
+    "israel",
+    "opinion_magazines",
+    "pan_african",
+    "pan_arab",
+    "religious_press",
+    "russia",
+    "turkey",
+    "ukraine",
+    "wire_services"
+  ],
+  "bucket_token_counts": {
+    "canada": 71,
+    "egypt": 68,
+    "israel": 349,
+    "opinion_magazines": 250,
+    "pan_african": 35,
+    "pan_arab": 231,
+    "religious_press": 137,
+    "russia": 55,
+    "turkey": 33,
+    "ukraine": 145,
+    "wire_services": 57
+  },
+  "pairwise_jaccard": [
+    {
+      "a": "canada",
+      "b": "turkey",
+      "jaccard": 0.15
+    },
+    {
+      "a": "egypt",
+      "b": "pan_arab",
+      "jaccard": 0.118
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_arab",
+      "jaccard": 0.114
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "jaccard": 0.111
+    },
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "jaccard": 0.108
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "jaccard": 0.107
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "jaccard": 0.099
+    },
+    {
+      "a": "canada",
+      "b": "pan_arab",
+      "jaccard": 0.098
+    },
+    {
+      "a": "pan_arab",
+      "b": "religious_press",
+      "jaccard": 0.095
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "jaccard": 0.094
+    },
+    {
+      "a": "egypt",
+      "b": "religious_press",
+      "jaccard": 0.086
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "jaccard": 0.079
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "jaccard": 0.07
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "jaccard": 0.068
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "jaccard": 0.068
+    },
+    {
+      "a": "israel",
+      "b": "opinion_magazines",
+      "jaccard": 0.066
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "jaccard": 0.065
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "religious_press",
+      "jaccard": 0.065
+    },
+    {
+      "a": "canada",
+      "b": "israel",
+      "jaccard": 0.062
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "jaccard": 0.062
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "jaccard": 0.062
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "jaccard": 0.062
+    },
+    {
+      "a": "canada",
+      "b": "egypt",
+      "jaccard": 0.06
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "jaccard": 0.06
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia",
+      "jaccard": 0.059
+    },
+    {
+      "a": "religious_press",
+      "b": "russia",
+      "jaccard": 0.057
+    },
+    {
+      "a": "pan_african",
+      "b": "pan_arab",
+      "jaccard": 0.056
+    },
+    {
+      "a": "pan_arab",
+      "b": "ukraine",
+      "jaccard": 0.054
+    },
+    {
+      "a": "egypt",
+      "b": "turkey",
+      "jaccard": 0.052
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "jaccard": 0.05
+    },
+    {
+      "a": "israel",
+      "b": "religious_press",
+      "jaccard": 0.048
+    },
+    {
+      "a": "egypt",
+      "b": "opinion_magazines",
+      "jaccard": 0.047
+    },
+    {
+      "a": "israel",
+      "b": "ukraine",
+      "jaccard": 0.047
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "ukraine",
+      "jaccard": 0.047
+    },
+    {
+      "a": "canada",
+      "b": "religious_press",
+      "jaccard": 0.043
+    },
+    {
+      "a": "religious_press",
+      "b": "turkey",
+      "jaccard": 0.043
+    },
+    {
+      "a": "egypt",
+      "b": "ukraine",
+      "jaccard": 0.042
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "jaccard": 0.042
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_african",
+      "jaccard": 0.041
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "jaccard": 0.041
+    },
+    {
+      "a": "egypt",
+      "b": "wire_services",
+      "jaccard": 0.038
+    },
+    {
+      "a": "religious_press",
+      "b": "wire_services",
+      "jaccard": 0.037
+    },
+    {
+      "a": "pan_african",
+      "b": "religious_press",
+      "jaccard": 0.035
+    },
+    {
+      "a": "religious_press",
+      "b": "ukraine",
+      "jaccard": 0.034
+    },
+    {
+      "a": "egypt",
+      "b": "israel",
+      "jaccard": 0.033
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "jaccard": 0.029
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "jaccard": 0.025
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "jaccard": 0.021
+    },
+    {
+      "a": "israel",
+      "b": "pan_african",
+      "jaccard": 0.018
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "jaccard": 0.018
+    },
+    {
+      "a": "egypt",
+      "b": "pan_african",
+      "jaccard": 0.017
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "jaccard": 0.015
+    },
+    {
+      "a": "egypt",
+      "b": "russia",
+      "jaccard": 0.014
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "jaccard": 0.01
+    },
+    {
+      "a": "pan_african",
+      "b": "ukraine",
+      "jaccard": 0.0
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "ukraine",
+      "mean_jaccard": 0.031
+    },
+    {
+      "bucket": "israel",
+      "mean_jaccard": 0.048
+    },
+    {
+      "bucket": "pan_african",
+      "mean_jaccard": 0.049
+    },
+    {
+      "bucket": "russia",
+      "mean_jaccard": 0.05
+    },
+    {
+      "bucket": "egypt",
+      "mean_jaccard": 0.051
+    },
+    {
+      "bucket": "religious_press",
+      "mean_jaccard": 0.054
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_jaccard": 0.058
+    },
+    {
+      "bucket": "wire_services",
+      "mean_jaccard": 0.061
+    },
+    {
+      "bucket": "turkey",
+      "mean_jaccard": 0.069
+    },
+    {
+      "bucket": "canada",
+      "mean_jaccard": 0.072
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_jaccard": 0.086
+    }
+  ],
+  "bucket_exclusive_vocab": {
+    "canada": [],
+    "egypt": [
+      {
+        "term": "litani",
+        "count": 4
+      },
+      {
+        "term": "ease",
+        "count": 3
+      },
+      {
+        "term": "pressure",
+        "count": 3
+      }
+    ],
+    "israel": [
+      {
+        "term": "trophy",
+        "count": 10
+      },
+      {
+        "term": "tank",
+        "count": 9
+      },
+      {
+        "term": "rafael",
+        "count": 5
+      },
+      {
+        "term": "platform",
+        "count": 5
+      },
+      {
+        "term": "protection",
+        "count": 4
+      },
+      {
+        "term": "defense",
+        "count": 4
+      },
+      {
+        "term": "advanced",
+        "count": 4
+      },
+      {
+        "term": "anti",
+        "count": 4
+      },
+      {
+        "term": "moderately",
+        "count": 4
+      },
+      {
+        "term": "norway",
+        "count": 3
+      },
+      {
+        "term": "leopard",
+        "count": 3
+      },
+      {
+        "term": "eurotrophy",
+        "count": 3
+      },
+      {
+        "term": "active",
+        "count": 3
+      },
+      {
+        "term": "armored",
+        "count": 3
+      },
+      {
+        "term": "installed",
+        "count": 3
+      },
+      {
+        "term": "missil",
+        "count": 3
+      },
+      {
+        "term": "northern",
+        "count": 3
+      },
+      {
+        "term": "severely",
+        "count": 3
+      },
+      {
+        "term": "wounded",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [
+      {
+        "term": "journalist",
+        "count": 5
+      },
+      {
+        "term": "humanitarian",
+        "count": 5
+      },
+      {
+        "term": "year",
+        "count": 4
+      },
+      {
+        "term": "hind",
+        "count": 4
+      },
+      {
+        "term": "gaza",
+        "count": 4
+      }
+    ],
+    "pan_african": [],
+    "pan_arab": [
+      {
+        "term": "emergency",
+        "count": 4
+      },
+      {
+        "term": "country",
+        "count": 4
+      },
+      {
+        "term": "report",
+        "count": 4
+      }
+    ],
+    "religious_press": [
+      {
+        "term": "church",
+        "count": 4
+      }
+    ],
+    "russia": [
+      {
+        "term": "virgin",
+        "count": 3
+      },
+      {
+        "term": "mary",
+        "count": 3
+      },
+      {
+        "term": "statue",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "ukraine": [
+      {
+        "term": "mariupol",
+        "count": 7
+      },
+      {
+        "term": "azov",
+        "count": 7
+      },
+      {
+        "term": "corp",
+        "count": 5
+      },
+      {
+        "term": "russian",
+        "count": 4
+      },
+      {
+        "term": "back",
+        "count": 3
+      },
+      {
+        "term": "reconnaissance",
+        "count": 3
+      },
+      {
+        "term": "patrolling",
+        "count": 3
+      },
+      {
+        "term": "ukrainian",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "trade",
+        "count": 3
+      },
+      {
+        "term": "blow",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Jaccard over per-bucket token sets; tokens via meta.tokenize (regex='[A-Za-z]{4,}', len>=4, stopword-filtered, plural normalization). Bucket-exclusive = doc_freq<=1, count>=3.",
+  "generated_at": "2026-05-08T12:18:57+00:00",
+  "meta_version": "1.0.0"
+}
