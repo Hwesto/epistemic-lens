@@ -1,13 +1,13 @@
 name: Meta Pin
 
-# Runs on EVERY push (no path filter) so the required `validate-meta`
-# check is satisfied even when the bot commits pure data files
-# (snapshots/, briefings/, analyses/, drafts/, baselines/, arcs/, cards/).
-# A path-filtered job would never trigger on those pushes, the required
-# check would never run, and the branch ruleset would reject the commit.
+# These two checks are configured as REQUIRED in the branch ruleset.
+# They MUST run on every push (no path filter) so the bot's data-only
+# pushes (snapshots/, briefings/, analyses/, drafts/) satisfy the
+# required-check rule. A path-filtered required check would silently
+# block the bot's daily commits.
 #
-# This file is deliberately tiny + dependency-free so it runs in <15s
-# per push. ci.yml still owns the heavier unit/edge/e2e suites.
+# Heavier jobs (e2e-smoke, etc.) live in ci.yml with their path filters;
+# they are NOT required.
 
 on:
   push:
@@ -29,3 +29,21 @@ jobs:
           python-version: '3.12'
       - name: Verify meta_version.json hashes match pinned inputs
         run: python baseline_pin.py --check
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      # Lightweight deps only — embedding model not needed for unit tests.
+      - name: Install minimal deps
+        run: pip install requests
+
+      - name: Run unit + edge tests
+        run: python -m unittest tests.py tests_edge.py -v

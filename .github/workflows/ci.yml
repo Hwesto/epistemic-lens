@@ -1,8 +1,11 @@
 name: CI Tests
 
-# Heavier checks (unit + edge + e2e). The lightweight `validate-meta`
-# required check lives in meta-check.yml so it runs on every push,
-# including bot data pushes that don't touch any of the paths below.
+# Heavier / network-touching checks. These are NOT required by the
+# branch ruleset — they run when relevant code changes (or manually)
+# but don't gate bot data pushes.
+#
+# Required checks (validate-meta + unit-tests) live in meta-check.yml
+# with no path filter so they always run on bot pushes.
 
 on:
   push:
@@ -14,49 +17,21 @@ on:
       - '**.py'
       - 'requirements.txt'
       - 'feeds.json'
-      - 'stopwords.txt'
-      - 'canonical_stories.json'
-      - 'meta_version.json'
-      - '.claude/prompts/**'
       - '.github/workflows/ci.yml'
-      - '.github/workflows/meta-check.yml'
   pull_request:
     paths:
       - '**.py'
       - 'requirements.txt'
       - 'feeds.json'
-      - 'stopwords.txt'
-      - 'canonical_stories.json'
-      - 'meta_version.json'
-      - '.claude/prompts/**'
       - '.github/workflows/ci.yml'
-      - '.github/workflows/meta-check.yml'
   workflow_dispatch:
 
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: pip
-
-      # Lightweight deps only — embedding model not needed for unit tests
-      - name: Install minimal deps
-        run: pip install requests
-
-      - name: Run unit + edge tests
-        run: python -m unittest tests.py tests_edge.py -v
-
   e2e-smoke:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # Only run e2e on workflow_dispatch or main branch — avoids hammering live
-    # feeds on every commit. Daily cron is the real continuous test.
+    # Only run e2e on workflow_dispatch or main branch — avoids hammering
+    # live feeds on every commit. The daily cron is the real continuous test.
     if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
