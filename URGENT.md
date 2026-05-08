@@ -238,9 +238,19 @@ to `main`, every PR, and every `workflow_dispatch`.
 
 ### Failure modes
 
-- Bot's daily snapshot push is rejected → confirm `validate-meta` is
-  the only required check. If you accidentally added `unit-tests` or
-  `e2e-smoke`, remove them from the rule.
+- Bot's daily snapshot push is rejected with `all push attempts failed`
+  → the required check (`validate-meta`) didn't run on the bot's push.
+  This happens when the validating workflow has path filters that
+  exclude `snapshots/` / `briefings/` / etc. The fix is in this repo:
+  `validate-meta` lives in `.github/workflows/meta-check.yml` with
+  **no path filters**, so it runs on every push. If you ever move it
+  back into a path-filtered workflow, bot pushes will silently break
+  the same way.
+- Bot's push rejected even though `meta-check` ran → check the rule
+  named `main protection`: the required-check name must be exactly
+  `validate-meta` (job name, case-sensitive). If you accidentally
+  added `unit-tests` or `e2e-smoke` as required, remove them — they
+  are path-filtered and won't run on bot data pushes.
 
 ---
 
