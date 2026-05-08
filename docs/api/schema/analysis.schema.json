@@ -37,17 +37,43 @@
       "type": "array",
       "minItems": 2,
       "maxItems": 12,
-      "description": "Story-specific frames derived from the corpus. Not pre-defined.",
+      "description": "Frames identified in the corpus. The `frame_id` is drawn from the closed Boydstun/Card codebook (frames_codebook.json) so longitudinal aggregation is possible. The optional `sub_frame` and `description` preserve story-specific color.",
       "items": {
         "type": "object",
-        "required": ["label", "buckets", "evidence"],
+        "required": ["frame_id", "buckets", "evidence"],
         "additionalProperties": false,
         "properties": {
-          "label": {
+          "frame_id": {
+            "type": "string",
+            "enum": [
+              "ECONOMIC",
+              "CAPACITY_RESOURCES",
+              "MORALITY",
+              "FAIRNESS",
+              "LEGALITY",
+              "POLICY_PRESCRIPTION",
+              "CRIME_PUNISHMENT",
+              "SECURITY_DEFENSE",
+              "HEALTH_SAFETY",
+              "QUALITY_OF_LIFE",
+              "CULTURAL",
+              "PUBLIC_OPINION",
+              "POLITICAL",
+              "EXTERNAL_REGULATION",
+              "OTHER"
+            ],
+            "description": "Required closed-taxonomy frame from frames_codebook.json. Use OTHER only when no other frame applies; pair with sub_frame."
+          },
+          "sub_frame": {
             "type": "string",
             "minLength": 2,
             "maxLength": 80,
-            "description": "Short, story-specific frame label (e.g. ECONOMIC_CONTAGION)."
+            "description": "Optional story-specific sub-frame label (e.g. 'energy contagion', 'sovereign reputation'). Human-readable; not used for longitudinal aggregation."
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 80,
+            "description": "Deprecated free-form label, retained for renderer compatibility. Pre-4.0.0 analyses populated this with a story-specific string; 4.0.0+ analyses should use frame_id + sub_frame instead."
           },
           "description": {
             "type": "string",

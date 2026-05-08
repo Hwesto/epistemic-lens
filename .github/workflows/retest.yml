@@ -1,0 +1,120 @@
+name: Weekly Test-Retest
+
+# Picks 3 random briefings from the past 7 days, replays the framing
+# analysis through the pinned model, and computes Krippendorff alpha
+# between the original analysis and the replay's frame_id selections.
+# A red badge here means the published longitudinal claim that
+# "frame_id X was carried by bucket Y on date D" is unstable: the same
+# briefing analyzed twice does not agree above the gate.
+
+on:
+  schedule:
+    - cron: '0 9 * * 0'   # Sundays 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-retest
+  cancel-in-progress: true
+
+jobs:
+  retest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Pick 3 random briefings from the past 7 days
+        id: pick
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import datetime, json, random
+          from pathlib import Path
+
+          today = datetime.date.today()
+          window = [(today - datetime.timedelta(days=d)).isoformat() for d in range(1, 8)]
+          briefings = Path("briefings")
+          candidates = sorted(
+              p for p in briefings.glob("*.json")
+              if any(p.name.startswith(d) for d in window)
+              and not p.stem.endswith("_metrics")
+          )
+          random.seed(today.isoformat())
+          picks = random.sample(candidates, k=min(3, len(candidates)))
+          print("picks=" + ",".join(str(p) for p in picks))
+          PY
+
+      - name: Replay ensemble against picked briefings
+        if: ${{ steps.pick.outputs.picks != '' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          IFS=',' read -ra PICKS <<< "${{ steps.pick.outputs.picks }}"
+          for p in "${PICKS[@]}"; do
+            echo "::group::replay $p"
+            python -m analytical.ensemble "$p"
+            echo "::endgroup::"
+          done
+
+      - name: Score original-vs-replay frame_id agreement
+        if: ${{ steps.pick.outputs.picks != '' }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, sys
+          from pathlib import Path
+          import os
+          sys.path.insert(0, ".")
+          from analytical.krippendorff import alpha_nominal
+
+          picks = "${{ steps.pick.outputs.picks }}".split(",")
+          print("# Weekly test-retest")
+          print()
+          fails = 0
+          for p in picks:
+              p = Path(p)
+              if not p.exists():
+                  continue
+              date_key = p.stem
+              orig = Path("analyses") / f"{date_key}.json"
+              ensemble = Path("analyses") / f"{date_key}_ensemble.json"
+              if not orig.exists() or not ensemble.exists():
+                  print(f"- **{date_key}**: missing artefact (orig={orig.exists()}, ensemble={ensemble.exists()})")
+                  continue
+              orig_frames = [f.get("frame_id") for f in json.loads(orig.read_text()).get("frames") or []]
+              ens = json.loads(ensemble.read_text())
+              consensus = ens.get("consensus_frame_ids") or []
+              # Build per-codebook-id agreement matrix: original vs replay-consensus.
+              codebook = json.loads(Path("frames_codebook.json").read_text())
+              ids = [f["frame_id"] for f in codebook["frames"]]
+              ratings = [
+                  ["PICKED" if fid in orig_frames else "NOT_PICKED",
+                   "PICKED" if fid in consensus else "NOT_PICKED"]
+                  for fid in ids
+              ]
+              alpha = alpha_nominal(ratings)
+              gate = ens.get("alpha_gate_ship", 0.6)
+              ok = alpha is not None and alpha >= 0.7
+              if not ok:
+                  fails += 1
+              symbol = "✅" if ok else "⚠️"
+              print(f"- {symbol} **{date_key}**: original-vs-replay alpha = {alpha} (gate 0.7); ensemble alpha = {ens.get('krippendorff_alpha')}")
+          print()
+          print(f"Sub-gate failures: **{fails} / {len(picks)}**")
+          if fails > 0:
+              print()
+              print("> A failure here means the same briefing analyzed twice produces")
+              print("> incompatible frame sets. This is the classic test-retest signal")
+              print("> that longitudinal claims under the current snapshot are unstable.")
+          PY

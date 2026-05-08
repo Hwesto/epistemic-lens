@@ -1,0 +1,62 @@
+{
+  "_doc": "Drift canary suite. Eight frozen (article, instruction) pairs covering the framing genres the daily pipeline encounters: war/security, economic/policy, public-health, domestic-political. Plus deliberate language coverage (English source plus three non-Latin scripts) so the canary catches drift in either the analyzer (Sonnet) or the translator. Articles are SHORT and SYNTHETIC — they are not real news; this avoids reproducing copyrighted text and gives a stable input that doesn't decay as the open web changes.\n\nDo NOT edit articles or instructions without bumping the canary baseline (canary/baseline/) AND meta_version.json -> canary_prompts_hash. Editing a canary item silently changes the baseline target and silences the very drift it is meant to detect.",
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "war_en",
+      "lang": "en",
+      "expected_frame_ids": ["SECURITY_DEFENSE", "ECONOMIC"],
+      "article": "Government officials in Manila warned on Tuesday that prolonged disruption of Persian Gulf shipping lanes is rapidly transmitting into household electricity and fuel costs, with three opposition parties calling for an emergency cabinet meeting. The Bangko Sentral ng Pilipinas signaled that another rate hike is on the table if energy-driven inflation persists into a third consecutive month.",
+      "instruction": "From the article above, identify the most prominent framing. Reply with strict JSON of the form {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. The frame_id must be one of: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    },
+    {
+      "id": "health_en",
+      "lang": "en",
+      "expected_frame_ids": ["HEALTH_SAFETY", "POLICY_PRESCRIPTION"],
+      "article": "Public-health authorities in three coastal regions confirmed eleven new cases of a rodent-borne respiratory illness aboard a vessel docked overnight, prompting expanded passenger screening and a temporary suspension of disembarkation. Hospitals say isolation capacity is sufficient for now; epidemiologists are urging mandatory genomic surveillance of any further reported cases.",
+      "instruction": "From the article above, identify the most prominent framing. Reply with strict JSON of the form {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. The frame_id must be one of: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    },
+    {
+      "id": "election_en",
+      "lang": "en",
+      "expected_frame_ids": ["POLITICAL", "PUBLIC_OPINION"],
+      "article": "With six weeks to the runoff, the incumbent's coalition fractured this morning when the smaller of its two partners announced it would withhold support pending a new agreement on regional development funds. Polling commissioned by a national broadsheet suggests the opposition has narrowed the gap to within the survey's margin of error.",
+      "instruction": "From the article above, identify the most prominent framing. Reply with strict JSON of the form {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. The frame_id must be one of: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    },
+    {
+      "id": "fairness_en",
+      "lang": "en",
+      "expected_frame_ids": ["FAIRNESS", "LEGALITY"],
+      "article": "Civil-rights groups filed a joint complaint Wednesday alleging that a new municipal hiring rule disproportionately disadvantages applicants from the country's two largest minority groups. The mayor's office maintains the rule is neutral on its face; an administrative court is expected to rule on a preliminary injunction within ten days.",
+      "instruction": "From the article above, identify the most prominent framing. Reply with strict JSON of the form {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. The frame_id must be one of: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    },
+    {
+      "id": "economic_it",
+      "lang": "it",
+      "expected_frame_ids": ["ECONOMIC", "POLICY_PRESCRIPTION"],
+      "article": "Il governo ha annunciato martedì un pacchetto di sostegno da quattro miliardi di euro per le piccole e medie imprese colpite dall'aumento dei costi energetici. La misura comprende garanzie pubbliche, esenzioni fiscali temporanee e un fondo per la riconversione produttiva. Confindustria accoglie con favore l'iniziativa ma chiede tempi certi di erogazione; i sindacati lamentano l'assenza di misure dirette per il potere d'acquisto delle famiglie.",
+      "instruction": "Dall'articolo sopra, identifica il framing più prominente. Rispondi in JSON stretto: {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. Il frame_id deve essere uno tra: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    },
+    {
+      "id": "diplomacy_ru",
+      "lang": "ru",
+      "expected_frame_ids": ["EXTERNAL_REGULATION", "POLITICAL"],
+      "article": "Министр иностранных дел провел во вторник переговоры с послами трех соседних государств по вопросу пограничного режима и торговых преференций. Стороны договорились о создании рабочей группы для подготовки нового рамочного соглашения; промежуточный отчет ожидается в течение шести недель. Эксперты называют встречу важным сигналом региональной устойчивости.",
+      "instruction": "Из приведенной выше статьи определите наиболее заметный фрейм. Ответьте строгим JSON: {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. frame_id должен быть одним из: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    },
+    {
+      "id": "trade_zh",
+      "lang": "zh",
+      "expected_frame_ids": ["ECONOMIC", "EXTERNAL_REGULATION"],
+      "article": "海关总署周二公布的数据显示,十月份对东盟主要市场的机电产品出口同比增长百分之七点四,创年内单月新高。分析人士认为,区域全面经济伙伴关系协定下的关税优惠是主要推动因素。商务部表示将继续支持企业利用区域贸易便利化机制开拓海外市场。",
+      "instruction": "从上文识别最突出的框架。请用严格JSON回答:{\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}。frame_id必须是以下之一:ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER。"
+    },
+    {
+      "id": "culture_ar",
+      "lang": "ar",
+      "expected_frame_ids": ["CULTURAL", "PUBLIC_OPINION"],
+      "article": "أعلنت وزارة الثقافة يوم الثلاثاء عن إطلاق مهرجان سنوي للسينما المستقلة في العاصمة، بهدف دعم المخرجين الشباب وتوسيع التبادل الفني الإقليمي. وأشارت استطلاعات الرأي إلى ترحيب واسع لدى الجمهور خاصة بين الفئة العمرية الشابة. ويرى منتقدون أن البرنامج بحاجة إلى تمويل أكثر استدامة على المدى المتوسط.",
+      "instruction": "من المقال أعلاه، حدد الإطار الأبرز. أجب بصيغة JSON صارمة: {\"primary_frame\": \"<FRAME_ID>\", \"secondary_frame\": \"<FRAME_ID or null>\"}. يجب أن يكون frame_id واحدًا مما يلي: ECONOMIC, CAPACITY_RESOURCES, MORALITY, FAIRNESS, LEGALITY, POLICY_PRESCRIPTION, CRIME_PUNISHMENT, SECURITY_DEFENSE, HEALTH_SAFETY, QUALITY_OF_LIFE, CULTURAL, PUBLIC_OPINION, POLITICAL, EXTERNAL_REGULATION, OTHER."
+    }
+  ]
+}

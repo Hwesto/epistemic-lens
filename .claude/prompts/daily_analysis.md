@@ -17,11 +17,16 @@ renders human-readable markdown for PR review — you don't write markdown.
 For each story you analyse:
 
 - `briefings/<DATE>_<story_key>.json` — corpus. Each `corpus[i]` entry has
-  `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`.
-  **The index `i` is the `signal_text_idx` you cite in evidence.**
+  `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`,
+  and (since meta-v3.0.0) `signal_text_en` / `title_en` for non-English
+  articles. **The index `i` is the `signal_text_idx` you cite in evidence.**
+  Quote verbatim from the **original** `signal_text` (source language) — the
+  `_en` fields exist only for the metric layer.
 - `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers:
   `pairwise_jaccard`, `isolation`, `bucket_exclusive_vocab`, `n_buckets`,
   `n_articles`. **Use these numbers verbatim. Never invent counts or scores.**
+- `frames_codebook.json` — closed taxonomy of 15 valid `frame_id` values
+  (Boydstun/Card). **Every frame you emit must use one of these IDs.**
 - `docs/api/schema/analysis.schema.json` — required output shape.
 
 ---
@@ -33,8 +38,19 @@ For each story you analyse:
 3. For each briefing where `n_buckets >= 5`:
    a. Read the briefing and matching `_metrics.json`.
    b. Read every `signal_text` in `corpus[]`. Note the index of each — you cite by index.
-   c. Derive **2–8 frames** specific to this story by what the corpus actually contains.
-      Each frame = a label + which buckets carry it + at least one verbatim quote.
+   c. Read `frames_codebook.json` and identify **2–8 frames** carried by the corpus.
+      Each frame entry is:
+        - `frame_id` — REQUIRED. One of the 15 codebook IDs (e.g.
+          `SECURITY_DEFENSE`, `ECONOMIC`, `MORALITY`). This is what
+          longitudinal aggregation tracks; do not invent IDs.
+        - `sub_frame` — OPTIONAL. Story-specific human-readable label
+          (e.g. `"energy contagion"`, `"sovereign reputation"`). This is
+          where story-specific color goes — NOT in `frame_id`.
+        - `buckets` — list of bucket keys carrying the frame.
+        - `evidence` — at least one verbatim quote per frame, citing
+          `corpus[i].signal_text` by `signal_text_idx`.
+      Use `OTHER` only when no codebook frame applies, and pair it with
+      a non-empty `sub_frame` explaining the framing.
    d. Look for a paradox: opposing-bloc buckets converging on the same conclusion.
       Quote both verbatim with their `signal_text_idx`. If no genuine paradox, set `"paradox": null`.
    e. List silences: buckets that plausibly should cover this and didn't (or covered
@@ -72,9 +88,11 @@ For each story you analyse:
   (Phase 4) will reject mismatches.
 - **Numbers from metrics only.** `n_buckets`, `n_articles`, isolation scores,
   exclusive-vocab terms — all from `metrics.json`. Never invent.
-- **Frames are story-specific.** Re-derive every time. Do NOT reuse labels
-  across stories or across days. (Once we accumulate a few weeks of data we
-  may pin a taxonomy; for now, free-form per story.)
+- **Frames use the closed codebook.** `frame_id` MUST be one of the 15
+  IDs in `frames_codebook.json`. The codebook is what makes longitudinal
+  comparison ("Italy's framing of Iran shifted from SECURITY_DEFENSE to
+  ECONOMIC over 30 days") defensible. Story-specific color belongs in
+  the optional `sub_frame` field, not in `frame_id`.
 - **No paradox if none exists.** Set `"paradox": null`. Do not invent.
 - **Schema-conformant or it doesn't ship.** Validate before commit; the
   workflow's render step depends on conforming JSON.
@@ -95,8 +113,9 @@ For each story you analyse:
   "tldr": "Lead with the most surprising finding (3-6 sentences).",
   "frames": [
     {
-      "label": "ECONOMIC_CONTAGION",
-      "description": "Coverage focuses on price spillovers to the bucket's home economy.",
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy-price contagion to import-dependent economies",
+      "description": "Coverage focuses on crude/LNG price spillovers to the bucket's home economy.",
       "buckets": ["philippines", "south_korea", "japan"],
       "evidence": [
         {"bucket": "philippines", "outlet": "Asia Times",

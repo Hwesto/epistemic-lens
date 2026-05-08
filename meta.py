@@ -30,6 +30,8 @@ ROOT = Path(__file__).parent
 META_PATH = ROOT / "meta_version.json"
 STOPWORDS_PATH = ROOT / "stopwords.txt"
 CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
+FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
+CANARY_PROMPTS_PATH = ROOT / "canary" / "prompts.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
 
@@ -181,6 +183,18 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = file_hash(CANONICAL_STORIES_PATH)
         if declared != actual:
             drift["canonical_stories"] = (declared, actual)
+
+    declared = META.get("frames_codebook_hash")
+    if declared and FRAMES_CODEBOOK_PATH.exists():
+        actual = file_hash(FRAMES_CODEBOOK_PATH)
+        if declared != actual:
+            drift["frames_codebook"] = (declared, actual)
+
+    declared = META.get("canary_prompts_hash")
+    if declared and CANARY_PROMPTS_PATH.exists():
+        actual = file_hash(CANARY_PROMPTS_PATH)
+        if declared != actual:
+            drift["canary_prompts"] = (declared, actual)
 
     declared = CLAUDE.get("prompts_hash")
     if declared and PROMPTS_DIR.exists():

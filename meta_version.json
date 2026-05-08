@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "3.0.0",
-  "pinned_at": "2026-05-08T20:34:10Z",
-  "pin_reason": "Phase A — translate-to-English pivot for cross-lingual metrics; non-Latin scripts no longer produce zero tokens; expanded English stopwords; signal_text_en added per article; originals preserved for citation grounding",
+  "meta_version": "4.0.0",
+  "pinned_at": "2026-05-08T20:47:57Z",
+  "pin_reason": "Phase B — closed Boydstun frame codebook (longitudinal frame tracking), multi-LLM ensemble + Krippendorff alpha gating, drift canary suite, dated model snapshot pin, weekly test-retest CI",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -60,13 +60,36 @@
     "max_chars": 2500
   },
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
+  "frames_codebook_hash": "sha256:548cd7ad2da6b249183a90a661c0a55abcd48ccacda0cd045c7aad7cc7b22658",
+  "ensemble": {
+    "_doc": "Multi-LLM ensemble agreement on closed-codebook frame_id selections (analytical/ensemble.py). Krippendorff alpha gates publication: >= alpha_gate_ship → ship, >= alpha_gate_preliminary → ship with preliminary flag, otherwise suppress.",
+    "raters": [
+      "sonnet-4-6",
+      "haiku-4-5",
+      "llama-3.3-70b-groq"
+    ],
+    "haiku_model": "claude-haiku-4-5-20251001",
+    "groq_model": "llama-3.3-70b-versatile",
+    "alpha_gate_ship": 0.6,
+    "alpha_gate_preliminary": 0.4,
+    "max_output_tokens": 1024
+  },
+  "canary": {
+    "_doc": "Drift-canary suite (canary/run.py). Runs eight frozen (article, instruction) pairs against the pinned analyzer model on every cron and compares to the most recent canary/baseline/. Categorical primary_frame match rate < 0.75 OR mean output cosine < 0.92 raises a soft warning in the job summary.",
+    "categorical_gate": 0.75,
+    "embedding_gate": 0.92,
+    "n_items": 8
+  },
+  "canary_prompts_hash": "sha256:dd6d05e408e678fa353bba60361994058df7bd639839eaeb2ff499980d281179",
   "claude": {
-    "model": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:a971329dd6fef5f98ee20ac231346d4eab0ccf8fd1b6441219a29cb3ed7af93f"
+    "_doc": "Dated snapshot ID (claude-sonnet-4-6-YYYYMMDD) pins model weights as far as the API permits — alias `claude-sonnet-4-6` may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served is detected by canary/run.py (see meta.canary).",
+    "model": "claude-sonnet-4-6-20260501",
+    "model_alias": "claude-sonnet-4-6",
+    "prompts_hash": "sha256:16ec032692d7268b06082485b67000244f9e48b7219224dbac1e26eed7c646cc"
   },
   "translation": {
     "_doc": "Pivot-language translation step (analytical/translate.py). Every non-English signal_text is translated to English via Claude before metrics are computed; signal_text_en + title_en are added per corpus entry. Originals are preserved verbatim for citation grounding. Cache: cache/translations/<sha256[:2]>/<sha256>.json keyed on (model, lang, text). Bumping the model invalidates the cache by design.",
-    "model": "claude-sonnet-4-6",
+    "model": "claude-sonnet-4-6-20260501",
     "pivot": "en",
     "max_input_chars": 6000,
     "max_output_tokens": 4096,

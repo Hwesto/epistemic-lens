@@ -36,6 +36,15 @@ from meta import REPO_ROOT as ROOT
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "analysis.schema.json"
+CODEBOOK_PATH = ROOT / "frames_codebook.json"
+
+
+def _codebook_ids() -> set[str]:
+    """Closed taxonomy of valid frame_id values (Boydstun/Card)."""
+    if not CODEBOOK_PATH.exists():
+        return set()
+    raw = json.loads(CODEBOOK_PATH.read_text(encoding="utf-8"))
+    return {f["frame_id"] for f in raw.get("frames") or []}
 
 
 class ValidationError(Exception):
@@ -174,6 +183,40 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
     return errors
 
 
+def check_codebook(analysis: dict) -> list[str]:
+    """Every frame must use a frame_id from frames_codebook.json (Boydstun/Card).
+
+    Schema enum already enforces this at the JSON-schema layer; this check
+    produces a clearer error message and additionally requires that frames
+    using `frame_id == 'OTHER'` carry a non-empty `sub_frame`, since OTHER
+    is meant as an escape hatch with explicit justification.
+    """
+    errors: list[str] = []
+    valid = _codebook_ids()
+    if not valid:
+        errors.append(
+            "codebook: frames_codebook.json missing or empty — cannot validate frame_id"
+        )
+        return errors
+    for fi, f in enumerate(analysis.get("frames") or []):
+        fid = f.get("frame_id")
+        if not fid:
+            errors.append(f"codebook: frames[{fi}] missing required frame_id")
+            continue
+        if fid not in valid:
+            errors.append(
+                f"codebook: frames[{fi}].frame_id {fid!r} not in codebook "
+                f"(valid: {sorted(valid)})"
+            )
+            continue
+        if fid == "OTHER" and not (f.get("sub_frame") or "").strip():
+            errors.append(
+                f"codebook: frames[{fi}].frame_id is OTHER but sub_frame is "
+                f"empty — OTHER requires a sub_frame justification"
+            )
+    return errors
+
+
 def check_numbers(analysis: dict, metrics: dict) -> list[str]:
     """Reconcile n_buckets, n_articles, isolation values against metrics."""
     errors: list[str] = []
@@ -252,6 +295,7 @@ def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
         return 1, [str(e)]
 
     errs: list[str] = []
+    errs.extend(check_codebook(analysis))
     errs.extend(check_citations(analysis, briefing))
     errs.extend(check_numbers(analysis, metrics))
     return (1 if errs else 0), errs

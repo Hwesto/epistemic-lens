@@ -185,10 +185,6 @@ epistemic-lens/
 
 \* Uses a Claude.ai Pro/Max subscription via `claude setup-token`. Pro is more than enough for the current ~8 LLM calls/day. Implied metered cost is ~$2.30/day.
 
-## Setup checklist
-
-See `URGENT.md` for the one-shot setup checklist (push the `meta-v1.0.0` tag, paste the OAuth token, enable Pages, configure the branch ruleset, smoke-test the chain). ~15 min total at a computer; cron then runs unattended forever.
-
 ## Versioning
 
 | Version | Date | Highlights |
