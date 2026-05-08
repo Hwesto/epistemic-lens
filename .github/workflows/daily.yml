@@ -158,6 +158,9 @@ jobs:
             exit 1
           fi
 
+      - name: Install jsonschema (agent uses it in-prompt to validate before commit)
+        run: pip install jsonschema
+
       - name: Load daily-analysis prompt
         id: load_analysis_prompt
         run: |
@@ -174,13 +177,37 @@ jobs:
           claude_args: --model claude-haiku-4-5-20251001
           show_full_output: true
           prompt: ${{ steps.load_analysis_prompt.outputs.content }}
-        # Note: the agent commits + pushes its own analyses (per the prompt's
-        # final step). The previous external "Commit and push analyses" step
-        # was redundant AND ineffective — claude-code-action sandboxes the
-        # agent's writes, so by the time an external step runs, the working
-        # tree is clean and there's nothing to commit. Verified by the
-        # 2026-05-08 13:11Z run: 14 Write calls, all writes lost. The agent
-        # itself running git ensures persistence.
+        # Agent commits its own JSON outputs (per the prompt's final step).
+        # claude-code-action sandboxes filesystem writes, so an external
+        # commit step would see a clean working tree. Phase 0 fix.
+
+      - name: Pull agent's analysis commits
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - name: Render analysis markdown from JSON
+        run: python render_analysis_md.py
+        # Reads analyses/<date>_<story>.json (canonical, from agent),
+        # writes analyses/<date>_<story>.md (presentation layer).
+        # Idempotent: re-runs against the same JSON produce identical MD.
+
+      - name: Commit and push rendered markdown
+        run: |
+          set -e
+          git config user.name "epistemic-lens-bot"
+          git config user.email "bot@epistemic-lens"
+          git add analyses/
+          if git diff --cached --quiet; then
+            echo "No new MD to commit (agent may have produced no qualifying stories)."
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          N=$(ls analyses/${DATE}_*.md 2>/dev/null | wc -l | tr -d ' ')
+          git commit -m "render analyses ${DATE} markdown (${N} files)"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+          done
+          exit 1
 
   draft:
     needs: analyze

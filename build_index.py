@@ -69,7 +69,14 @@ def discover() -> dict[str, dict[str, set[str]]]:
         if not m:
             continue
         date, key = m.group(1), m.group(2)
-        found[date][key].add("analysis")
+        found[date][key].add("analysis_md")
+
+    for p in ANALYSES.glob("*.json"):
+        m = DATE_RE.match(p.stem)
+        if not m:
+            continue
+        date, key = m.group(1), m.group(2)
+        found[date][key].add("analysis_json")
 
     if DRAFTS.exists():
         for p in DRAFTS.glob("*.json"):
@@ -123,7 +130,8 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         story_dir.mkdir(exist_ok=True)
         artifacts: dict[str, str] = {}
         has: dict[str, bool] = {k: False for k in
-                                ("briefing", "metrics", "analysis", "thread", "carousel", "long")}
+                                ("briefing", "metrics", "analysis", "analysis_json",
+                                 "thread", "carousel", "long")}
 
         shutil.copy2(briefing_src, story_dir / "briefing.json")
         artifacts["briefing"] = f"/api/{date}/{key}/briefing.json"
@@ -143,15 +151,29 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                 pass
 
         paradox = None
-        analysis_src = ANALYSES / f"{date}_{key}.md"
-        if analysis_src.exists():
-            shutil.copy2(analysis_src, story_dir / "analysis.md")
+        analysis_md_src = ANALYSES / f"{date}_{key}.md"
+        if analysis_md_src.exists():
+            shutil.copy2(analysis_md_src, story_dir / "analysis.md")
             artifacts["analysis"] = f"/api/{date}/{key}/analysis.md"
             has["analysis"] = True
             try:
-                paradox = detect_paradox(analysis_src.read_text(encoding="utf-8"))
+                paradox = detect_paradox(analysis_md_src.read_text(encoding="utf-8"))
             except Exception:
                 pass
+
+        analysis_json_src = ANALYSES / f"{date}_{key}.json"
+        if analysis_json_src.exists():
+            shutil.copy2(analysis_json_src, story_dir / "analysis.json")
+            artifacts["analysis_json"] = f"/api/{date}/{key}/analysis.json"
+            has["analysis_json"] = True
+            # JSON is the canonical source — read paradox flag directly if MD
+            # wasn't present or didn't yield one.
+            if paradox is None:
+                try:
+                    aj = json.load(open(analysis_json_src, encoding="utf-8"))
+                    paradox = aj.get("paradox") is not None
+                except Exception:
+                    pass
 
         for fmt in ("thread", "carousel", "long"):
             src = DRAFTS / f"{date}_{key}_{fmt}.json"

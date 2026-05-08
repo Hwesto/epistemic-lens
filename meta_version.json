@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "1.1.0",
-  "pinned_at": "2026-05-08T14:04:08Z",
-  "pin_reason": "Phase 0: agent commits its own work (claude-code-action sandboxing fix)",
+  "meta_version": "1.2.0",
+  "pinned_at": "2026-05-08T14:42:22Z",
+  "pin_reason": "Phase 1: JSON-first analyses + render_analysis_md.py",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -62,6 +62,6 @@
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "claude": {
     "model": "claude-opus-4-7",
-    "prompts_hash": "sha256:bf0e57a8b34bae556c9d7e8e54cfa18b28d6cdaa0dbfd6cd918949ac5777de6d"
+    "prompts_hash": "sha256:b6a847f18197b1f8b7989fd68fc19e9d41d4df7757ec51600d5042e82e647d24"
   }
 }
