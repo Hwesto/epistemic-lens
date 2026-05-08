@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.0.1",
-  "pinned_at": "2026-05-08T18:20:25Z",
-  "pin_reason": "Tier 3 directory restructure: moved scripts into pipeline/ analytical/ publication/ video/; prompt updated to reference new module paths",
+  "meta_version": "3.0.0",
+  "pinned_at": "2026-05-08T20:34:10Z",
+  "pin_reason": "Phase A — translate-to-English pivot for cross-lingual metrics; non-Latin scripts no longer produce zero tokens; expanded English stopwords; signal_text_en added per article; originals preserved for citation grounding",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -17,7 +17,7 @@
       "es",
       "s"
     ],
-    "stopwords_hash": "sha256:0b006368ba1b61e2a87a3a3cc4a31516f9fb96d8250fb3c0fcbd073d7886227e"
+    "stopwords_hash": "sha256:00021ba6ad88bf21242f57d4de8d85175779896b3f9cb94d01dea24e519bef4e"
   },
   "embedding": {
     "model": "paraphrase-multilingual-MiniLM-L12-v2",
@@ -63,5 +63,13 @@
   "claude": {
     "model": "claude-sonnet-4-6",
     "prompts_hash": "sha256:a971329dd6fef5f98ee20ac231346d4eab0ccf8fd1b6441219a29cb3ed7af93f"
+  },
+  "translation": {
+    "_doc": "Pivot-language translation step (analytical/translate.py). Every non-English signal_text is translated to English via Claude before metrics are computed; signal_text_en + title_en are added per corpus entry. Originals are preserved verbatim for citation grounding. Cache: cache/translations/<sha256[:2]>/<sha256>.json keyed on (model, lang, text). Bumping the model invalidates the cache by design.",
+    "model": "claude-sonnet-4-6",
+    "pivot": "en",
+    "max_input_chars": 6000,
+    "max_output_tokens": 4096,
+    "prompt": "Translate the following news article body from {lang} to English. Preserve every named entity (people, places, organizations) verbatim — do not transliterate or anglicize names. Preserve quoted speech exactly, including the original quotation marks. Do not summarize. Do not abbreviate. Do not add commentary, headers, or explanatory notes. Output only the translation, nothing else.\n\nArticle:\n{text}"
   }
 }

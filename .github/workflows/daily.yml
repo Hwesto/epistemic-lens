@@ -77,6 +77,19 @@ jobs:
       - name: Build per-story briefings
         run: python -m analytical.build_briefing
 
+      - name: Cache translations (cross-lingual pivot)
+        uses: actions/cache@v4
+        with:
+          path: cache/translations
+          key: translations-v3-${{ hashFiles('meta_version.json') }}
+          restore-keys: |
+            translations-v3-
+
+      - name: Translate corpora to English pivot
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m analytical.translate
+
       - name: Compute briefing metrics (Jaccard + bucket-exclusive vocab)
         run: python -m analytical.build_metrics
 

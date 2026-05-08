@@ -36,13 +36,21 @@ def tokens_from_text(text: str) -> Counter:
 
 
 def bucket_vocabularies(corpus: list[dict]) -> dict[str, Counter]:
-    """Concat all signal_text+title per bucket → token Counter."""
+    """Concat all title+signal_text per bucket → token Counter.
+
+    Reads pivot-language fields (`title_en`, `signal_text_en`) when available
+    via meta.effective_title / meta.effective_text, falling back to originals
+    for articles that didn't go through the translation step. Cross-bucket
+    Jaccard / exclusive-vocab is therefore computed in a single English
+    vocabulary — pre-translation briefings still tokenize, just confounded by
+    language for those entries.
+    """
     by_bucket: dict[str, list[str]] = defaultdict(list)
     for art in corpus:
         b = art.get("bucket", "")
         if not b:
             continue
-        text = (art.get("title", "") or "") + "\n" + (art.get("signal_text", "") or "")
+        text = meta.effective_title(art) + "\n" + meta.effective_text(art)
         by_bucket[b].append(text)
     return {b: tokens_from_text("\n".join(parts)) for b, parts in by_bucket.items()}
 

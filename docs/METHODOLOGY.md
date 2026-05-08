@@ -30,14 +30,22 @@ It also declares (without hashing) the structural constants:
 - **Embedding model** — `paraphrase-multilingual-MiniLM-L12-v2`
 - **Clustering** — DBSCAN over cosine distance, eps=0.35, min_samples=3
 - **Tokenizer** — regex `[A-Za-z]{4,}`, plural normalization
-  `("ies", "es", "s")`
+  `("ies", "es", "s")`. Operates on the English-pivot field
+  `signal_text_en` (see Translation pivot below); falls back to
+  `signal_text` for entries that didn't translate.
+- **Translation pivot** — `claude-sonnet-4-6` translates every
+  non-English `signal_text` to English before metrics are computed.
+  Originals are preserved verbatim for citation grounding. Cache:
+  `cache/translations/<sha256[:2]>/<sha256>.json`, keyed on
+  `(model, source_lang, source_text)`. Bumping the translation model
+  invalidates the cache deterministically.
 - **Metrics** — Jaccard over bucket token sets; bucket-exclusive vocab
   = doc_freq <= 1 AND count >= 3
 - **Signal text fallback** — body if ≥500 chars, summary if ≥60 chars,
   title otherwise; max 2500 chars
 - **Extraction** — top 20 clusters + 3 per feed, 4000 char body cap,
   15s timeout, Wayback fallback
-- **Claude model** — `claude-opus-4-7`
+- **Claude model** — `claude-sonnet-4-6` (analysis + translation)
 
 ## How to change something
 
@@ -133,6 +141,42 @@ The repo was first pinned on **2026-05-07** at `meta_version 1.0.0`,
 covering 235 feeds across 54 buckets, 5 canonical stories, and the
 four `.claude/prompts/*.md` files used by the daily LLM jobs. This is
 the baseline against which all longitudinal claims are made.
+
+## Translation pivot (added at 3.0.0)
+
+Versions <= 2.x computed bucket vocabularies directly on
+`title + signal_text` in the source language. The tokenizer regex
+`[A-Za-z]{4,}` produced zero tokens for non-Latin scripts (Cyrillic,
+Han, Kana, Hangul, Arabic, Devanagari, Hebrew, Greek, Thai), so any
+cross-bucket Jaccard or "bucket-exclusive vocab" finding involving
+those buckets was confounded with language identification rather than
+framing.
+
+**3.0.0 fixes this** by routing every non-English `signal_text`
+through `analytical/translate.py` before `analytical/build_metrics.py`
+runs. The pipeline is now:
+
+```
+ingest → extract_full_text → dedup → daily_health
+       → build_briefing
+       → translate           (NEW: signal_text_en + title_en per article)
+       → build_metrics       (reads English-pivot via meta.effective_text)
+       → analyze (Claude)    (still cites originals verbatim)
+```
+
+The translation step is **idempotent** and **content-hash cached**.
+Citation grounding in `analytical/validate_analysis.py` continues to
+operate on `corpus[i].signal_text` (originals) — the LLM analysis
+quotes source-language text verbatim, so quote integrity is unchanged.
+Only the metric layer reads `signal_text_en`. Pre-3.0.0 briefings
+without `signal_text_en` fall through to the original via
+`meta.effective_text()`; metrics keep computing, just confounded by
+language for those entries (which is correctly attributed in the
+artifact's `meta_version`).
+
+Longitudinal claims that span the 2.x → 3.0.0 boundary must explicitly
+acknowledge it. Most pre-3.0.0 cross-lingual vocabulary findings should
+be treated as confounded; replay against 3.0.0 to recover them.
 
 ## What's NOT pinned
 
