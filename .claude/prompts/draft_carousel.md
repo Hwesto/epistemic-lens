@@ -38,7 +38,16 @@ content, not the layout.
    f. Write the JSON file.
 3. Print one summary line per file: story_key, n_slides, central_question,
    output_path.
-4. Do **not** commit, push, or run git.
+4. **Commit and push your work** (uncommitted writes do not persist):
+
+       git add drafts/
+       git diff --cached --quiet && exit 0
+       DATE=$(date -u +%Y-%m-%d)
+       N=$(ls drafts/${DATE}_*_carousel.json 2>/dev/null | wc -l | tr -d ' ')
+       git commit -m "drafts ${DATE} carousels (${N})"
+       git push origin HEAD
+
+   On push failure: `git pull --rebase origin HEAD` and retry once.
 
 ---
 

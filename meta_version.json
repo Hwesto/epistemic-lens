@@ -1,44 +1,41 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-
-  "meta_version": "1.0.0",
-  "pinned_at": "2026-05-07T00:00:00Z",
-  "pin_reason": "initial pin: lock state before LLM analyze/draft chain runs daily",
-
+  "meta_version": "1.1.0",
+  "pinned_at": "2026-05-08T14:04:08Z",
+  "pin_reason": "Phase 0: agent commits its own work (claude-code-action sandboxing fix)",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
     "n_buckets": 54,
     "hash": "sha256:8c462d3ff352d291595c974ca3ded9d79bb631bdd87c74636bd46cb01dff3683"
   },
-
   "tokenizer": {
     "regex": "[A-Za-z]{4,}",
     "min_token_length": 4,
-    "plural_suffixes": ["ies", "es", "s"],
+    "plural_suffixes": [
+      "ies",
+      "es",
+      "s"
+    ],
     "stopwords_hash": "sha256:0b006368ba1b61e2a87a3a3cc4a31516f9fb96d8250fb3c0fcbd073d7886227e"
   },
-
   "embedding": {
     "model": "paraphrase-multilingual-MiniLM-L12-v2",
     "dimensions": 384,
     "batch_size": 64
   },
-
   "clustering": {
     "method": "DBSCAN",
     "metric": "cosine",
     "eps": 0.35,
     "min_samples": 3
   },
-
   "metrics": {
     "jaccard_method": "set_intersection_over_union",
     "isolation_method": "mean_pairwise_jaccard",
     "exclusive_vocab_min_count": 3,
     "exclusive_vocab_max_doc_freq": 1
   },
-
   "extraction": {
     "max_body_chars": 4000,
     "top_clusters": 20,
@@ -46,25 +43,25 @@
     "extract_timeout_s": 15,
     "wayback_fallback": true
   },
-
   "ingest": {
     "max_items_per_feed": 50,
     "max_workers": 30,
     "per_host_delay_s": 1.0,
     "fetch_timeout_s": 20
   },
-
   "signal_text": {
-    "fallback_chain": ["body", "summary", "title"],
+    "fallback_chain": [
+      "body",
+      "summary",
+      "title"
+    ],
     "min_body_chars_for_body": 500,
     "min_summary_chars_for_summary": 60,
     "max_chars": 2500
   },
-
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
-
   "claude": {
     "model": "claude-opus-4-7",
-    "prompts_hash": "sha256:51f3bc17fa5bf54c4a751bd1b57aa224b3121c0c249a49fae7572df87a3f345f"
+    "prompts_hash": "sha256:bf0e57a8b34bae556c9d7e8e54cfa18b28d6cdaa0dbfd6cd918949ac5777de6d"
   }
 }

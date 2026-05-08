@@ -38,7 +38,17 @@ conforming to `docs/api/schema/thread.schema.json`.
    e. Write the JSON file.
 3. After all files are written, print one summary line per file:
    story_key, n_tweets, lead_angle, output_path.
-4. Do **not** commit, push, or run git.
+4. **Commit and push your work** (uncommitted writes do not persist):
+
+       git add drafts/
+       git diff --cached --quiet && exit 0
+       DATE=$(date -u +%Y-%m-%d)
+       N=$(ls drafts/${DATE}_*_thread.json 2>/dev/null | wc -l | tr -d ' ')
+       git commit -m "drafts ${DATE} threads (${N})"
+       git push origin HEAD
+
+   Commit as `claude[bot]` (already configured by the action). If push
+   fails with non-fast-forward, `git pull --rebase origin HEAD` and retry.
 
 ---
 

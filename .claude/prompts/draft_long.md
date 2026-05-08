@@ -40,7 +40,16 @@ uniformly across formats.
    e. Write the JSON file.
 3. Print one summary line per file: story_key, word_count, lede_angle,
    output_path.
-4. Do **not** commit, push, or run git.
+4. **Commit and push your work** (uncommitted writes do not persist):
+
+       git add drafts/
+       git diff --cached --quiet && exit 0
+       DATE=$(date -u +%Y-%m-%d)
+       N=$(ls drafts/${DATE}_*_long.json 2>/dev/null | wc -l | tr -d ' ')
+       git commit -m "drafts ${DATE} long-form (${N})"
+       git push origin HEAD
+
+   On push failure: `git pull --rebase origin HEAD` and retry once.
 
 ---
 
