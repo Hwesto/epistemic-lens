@@ -204,7 +204,21 @@ def main() -> int:
     args = ap.parse_args()
 
     found = discover()
+    # Ensure api/ always exists so actions/upload-pages-artifact never fails
+    # on a "path doesn't exist" error, even on an empty pipeline day.
+    API.mkdir(parents=True, exist_ok=True)
     if not found:
+        # Empty-day fallback: keep api/latest.json present (pointing at nothing)
+        # so downstream consumers don't 404 mid-day.
+        (API / "latest.json").write_text(
+            json.dumps(meta.stamp({
+                "date": None,
+                "n_stories": 0,
+                "note": "no source artifacts found for this build",
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+            }), indent=2),
+            encoding="utf-8",
+        )
         print("No source artifacts found.", file=sys.stderr)
         return 0
 
