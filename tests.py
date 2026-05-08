@@ -792,5 +792,121 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("farmers starving", md)
 
 
+class TestTemplateRenderers(unittest.TestCase):
+    """Phase 3: template-based thread + carousel renderers (no LLM)."""
+
+    def setUp(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self.jsonschema = jsonschema
+        repo = Path(__file__).parent
+        self.thread_schema = json.load(open(repo / "docs/api/schema/thread.schema.json"))
+        self.carousel_schema = json.load(open(repo / "docs/api/schema/carousel.schema.json"))
+        # Use the existing 2026-05-06_hormuz_iran briefing as a real corpus.
+        self.briefing = json.load(open(repo / "briefings/2026-05-06_hormuz_iran.json"))
+        self.analysis = {
+            "meta_version": "1.2.0", "date": "2026-05-06",
+            "story_key": "hormuz_iran", "story_title": "Strait of Hormuz / US-Iran deal",
+            "n_buckets": 27, "n_articles": 41,
+            "tldr": "Twenty-seven outlets ran the same wire. Italy used different words. Vocabulary carries the framing.",
+            "frames": [
+                {"label": "ECONOMIC_CONTAGION", "buckets": ["philippines", "japan"],
+                 "evidence": [{"bucket": "asia_pacific_regional", "outlet": "Asia Times",
+                               "quote": "shock inflation spike in April", "signal_text_idx": 1}]},
+                {"label": "WAR_FRAMING", "buckets": ["italy"],
+                 "evidence": [{"bucket": "italy", "outlet": "ANSA",
+                               "quote": "guerra accordo", "signal_text_idx": 0}]}
+            ],
+            "isolation_top": [
+                {"bucket": "italy", "mean_jaccard": 0.009, "note": "linguistic."}
+            ],
+            "exclusive_vocab_highlights": [
+                {"bucket": "italy", "terms": ["guerra"], "what_it_reveals": "war framing."}
+            ],
+            "paradox": None,
+            "silences": [{"bucket": "egypt", "what_they_covered_instead": "Sisi domestic emergency."}],
+            "single_outlet_findings": [
+                {"outlet": "RT", "bucket": "russia", "finding": "Iran-win frame.",
+                 "signal_text_idx": 5}
+            ],
+            "bottom_line": "Headline converged. Framing did not.",
+            "generated_at": "2026-05-08T15:00:00Z", "model": "haiku",
+        }
+
+    def test_thread_renders_to_valid_schema(self):
+        if "render_thread" in sys.modules:
+            importlib.reload(sys.modules["render_thread"])
+        import render_thread
+        out = render_thread.render(self.analysis, self.briefing)
+        self.jsonschema.validate(out, self.thread_schema)
+        self.assertEqual(out["story_key"], "hormuz_iran")
+        self.assertEqual(out["date"], "2026-05-06")
+        self.assertGreaterEqual(len(out["tweets"]), 3)
+        self.assertLessEqual(len(out["tweets"]), 12)
+        # Hook should reference the isolation outlier (italy) since no paradox.
+        self.assertIn("italy", out["hook"].lower())
+
+    def test_thread_uses_paradox_hook_when_present(self):
+        if "render_thread" in sys.modules:
+            importlib.reload(sys.modules["render_thread"])
+        import render_thread
+        with_p = dict(self.analysis)
+        with_p["paradox"] = {
+            "a": {"bucket": "iran_state", "outlet": "PressTV",
+                  "quote": "establishing tariff", "signal_text_idx": 1},
+            "b": {"bucket": "iran_opposition", "outlet": "Iran International",
+                  "quote": "farmers starving", "signal_text_idx": 2},
+            "joint_conclusion": "Both treat the deal as accomplished from opposite sides."
+        }
+        out = render_thread.render(with_p, self.briefing)
+        self.jsonschema.validate(out, self.thread_schema)
+        self.assertIn("PressTV", out["hook"])
+        self.assertIn("Iran International", out["hook"])
+
+    def test_carousel_renders_to_valid_schema(self):
+        if "render_carousel" in sys.modules:
+            importlib.reload(sys.modules["render_carousel"])
+        import render_carousel
+        out = render_carousel.render(self.analysis, self.briefing)
+        self.jsonschema.validate(out, self.carousel_schema)
+        self.assertEqual(out["story_key"], "hormuz_iran")
+        self.assertGreaterEqual(len(out["slides"]), 4)
+        self.assertLessEqual(len(out["slides"]), 10)
+        kinds = [s.get("kind") for s in out["slides"]]
+        self.assertIn("frame", kinds)
+        # First slide is the title.
+        self.assertEqual(out["slides"][0]["kind"], "callout")
+
+    def test_carousel_paradox_slide_when_present(self):
+        if "render_carousel" in sys.modules:
+            importlib.reload(sys.modules["render_carousel"])
+        import render_carousel
+        with_p = dict(self.analysis)
+        with_p["paradox"] = {
+            "a": {"bucket": "x", "outlet": "X", "quote": "q1", "signal_text_idx": 0},
+            "b": {"bucket": "y", "outlet": "Y", "quote": "q2", "signal_text_idx": 1},
+            "joint_conclusion": "Both agree."
+        }
+        out = render_carousel.render(with_p, self.briefing)
+        self.jsonschema.validate(out, self.carousel_schema)
+        self.assertIn("paradox", [s.get("kind") for s in out["slides"]])
+
+    def test_thread_meta_version_stamped(self):
+        if "render_thread" in sys.modules:
+            importlib.reload(sys.modules["render_thread"])
+        import render_thread, meta as _meta
+        out = render_thread.render(self.analysis, self.briefing)
+        self.assertEqual(out.get("meta_version"), _meta.VERSION)
+
+    def test_carousel_meta_version_stamped(self):
+        if "render_carousel" in sys.modules:
+            importlib.reload(sys.modules["render_carousel"])
+        import render_carousel, meta as _meta
+        out = render_carousel.render(self.analysis, self.briefing)
+        self.assertEqual(out.get("meta_version"), _meta.VERSION)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

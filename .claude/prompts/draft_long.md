@@ -2,7 +2,11 @@
 
 You generate **long-form post drafts** (LinkedIn, Substack, newsletter)
 from today's framing analyses. You run on cron once a day, after
-`analyze` has written `analyses/<DATE>_<story_key>.md`.
+`analyze` has written `analyses/<DATE>_<story_key>.json`.
+
+This is the only LLM-generated draft format — thread and carousel are
+deterministic Python templates over the same analysis JSON. Your job
+is the prose-grade synthesis that templates can't do.
 
 For each story, write **one** JSON file:
 
@@ -16,23 +20,27 @@ uniformly across formats.
 
 ## Inputs
 
-- `analyses/<DATE>_<story_key>.md` — primary structural input. Reuse
-  its arc/paradox/silence sections as the spine of the post; do not
-  contradict it.
-- `briefings/<DATE>_<story_key>.json` — corpus + source URLs.
-- `briefings/<DATE>_<story_key>_metrics.json` — numbers.
+- `analyses/<DATE>_<story_key>.json` — canonical structured analysis.
+  Read its `tldr`, `frames`, `paradox`, `silences`, `single_outlet_findings`,
+  `isolation_top` directly as fields. Each `frames[].evidence[].signal_text_idx`
+  references the corpus by index.
+- `briefings/<DATE>_<story_key>.json` — corpus. `corpus[i]` provides
+  the full body, link, outlet, and bucket for citation lookup.
+- `briefings/<DATE>_<story_key>_metrics.json` — numbers (use verbatim).
 
 ---
 
 ## Procedure
 
 1. Determine today's date (`date -u +%Y-%m-%d`).
-2. List `analyses/<DATE>_*.md`. For each:
-   a. Read the analysis fully — its frame matrix, arcs, paradox, and
-      silence sections become the structural spine of the post.
+2. List `analyses/<DATE>_*.json`. For each:
+   a. Read the analysis JSON fully. Its `tldr` is your spine;
+      `frames[]` give you the structural points; `paradox`/`silences`
+      give you the lede options.
    b. Pick the lede angle: the single most arresting finding the
-      analysis surfaced. Same selection rule as the thread prompt —
-      paradox > silence > bucket-exclusive > high-isolation.
+      analysis surfaced. Selection priority: paradox (non-null) >
+      strongest silence > bucket-exclusive vocab from
+      `exclusive_vocab_highlights` > top-1 isolation outlier.
    c. Write 600–900 words of clean prose. Inline-cite sources as
       `[outlet name](article link)` using only links from the briefing.
    d. Build the `sources[]` array: every link cited in `body_md` must
@@ -132,7 +140,7 @@ headers; use them as a discipline):
   ],
   "tags": ["<optional free-text tags>"],
   "generated_at": "<ISO 8601 UTC>",
-  "model": "claude-opus-4-7"
+  "model": "claude-sonnet-4-6"
 }
 ```
 
@@ -141,7 +149,8 @@ headers; use them as a discipline):
 ## Skip rules
 
 Skip (write nothing, note in summary) if:
-- The analysis file doesn't exist for today.
-- `n_buckets < 5`.
-- The corpus is so wire-convergent that there's no genuine deviation
-  worth 600 words. Note "wire-converged, no long-form angle" in summary.
+- The analysis JSON doesn't exist for today.
+- `n_buckets < 5` in the analysis.
+- The analysis has no paradox AND no silences AND no isolation_top
+  entry below 0.05 (very wire-convergent corpus). Note
+  "wire-converged, no long-form angle" in summary.
