@@ -55,7 +55,20 @@ For each story you analyse:
 4. Skip stories with `n_buckets < 5` and note the skip in your final summary.
 5. After all files are written, print a one-line summary per file: story key,
    n_buckets, paradox found (yes/no), output path.
-6. Do **not** commit, push, or run git. The workflow handles that.
+6. **Commit and push your work.** The workflow runner expects analyses on
+   the branch — uncommitted writes do NOT persist to the workflow's
+   working directory. Run, in order:
+
+       git add analyses/
+       git diff --cached --quiet && exit 0   # nothing new, exit clean
+       DATE=$(date -u +%Y-%m-%d)
+       N=$(ls analyses/${DATE}_*.md 2>/dev/null | wc -l | tr -d ' ')
+       git commit -m "analyses ${DATE} (${N} stories)"
+       git push origin HEAD
+
+   You commit as `claude[bot]`; the branch ruleset bypass list permits
+   it. If push fails with a non-fast-forward error, run
+   `git pull --rebase origin HEAD` and retry once.
 
 ---
 
