@@ -236,40 +236,38 @@ jobs:
             exit 1
           fi
 
-      - name: Load thread-draft prompt
-        id: load_thread_prompt
+      - name: Install jsonschema (for renderers + agent in-prompt validation)
+        run: pip install jsonschema
+
+      # Phase 3: thread + carousel are deterministic templates over the
+      # canonical analysis JSON. No LLM required — saves ~8 messages/day.
+      - name: Render thread drafts (template)
+        run: python render_thread.py
+
+      - name: Render carousel drafts (template)
+        run: python render_carousel.py
+
+      - name: Commit and push template-rendered drafts
         run: |
-          {
-            echo 'content<<__PROMPT_EOF__'
-            cat .claude/prompts/draft_thread.md
-            echo '__PROMPT_EOF__'
-          } >> "$GITHUB_OUTPUT"
+          set -e
+          git config user.name "epistemic-lens-bot"
+          git config user.email "bot@epistemic-lens"
+          git add drafts/
+          if git diff --cached --quiet; then
+            echo "No template-rendered drafts to commit."
+          else
+            DATE=$(date -u +%Y-%m-%d)
+            N=$(ls drafts/${DATE}_*_thread.json drafts/${DATE}_*_carousel.json 2>/dev/null | wc -l | tr -d ' ')
+            git commit -m "drafts ${DATE} thread+carousel (${N} files, template)"
+            for i in 1 2 3; do
+              if git push; then break; fi
+              git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+            done
+          fi
 
-      - name: Draft threads
-        uses: anthropics/claude-code-action@v1
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-haiku-4-5-20251001
-          show_full_output: true
-          prompt: ${{ steps.load_thread_prompt.outputs.content }}
-
-      - name: Load carousel-draft prompt
-        id: load_carousel_prompt
-        run: |
-          {
-            echo 'content<<__PROMPT_EOF__'
-            cat .claude/prompts/draft_carousel.md
-            echo '__PROMPT_EOF__'
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Draft carousels
-        uses: anthropics/claude-code-action@v1
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-haiku-4-5-20251001
-          show_full_output: true
-          prompt: ${{ steps.load_carousel_prompt.outputs.content }}
-
+      # Long-form remains an LLM call — prose can't be templated.
+      # Switched to Sonnet (per user decision Phase 1): faster than opus,
+      # smarter than haiku, and the right tier for prose-grade output.
       - name: Load long-draft prompt
         id: load_long_prompt
         run: |
@@ -279,11 +277,11 @@ jobs:
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Draft long-form posts
+      - name: Draft long-form posts (Sonnet, agent commits)
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-haiku-4-5-20251001
+          claude_args: --model claude-sonnet-4-6
           show_full_output: true
           prompt: ${{ steps.load_long_prompt.outputs.content }}
 

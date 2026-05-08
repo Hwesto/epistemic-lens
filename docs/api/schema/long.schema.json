@@ -7,6 +7,10 @@
   "required": ["story_key", "date", "title", "body_md", "sources"],
   "additionalProperties": false,
   "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin version this draft was produced under (added by meta.stamp())."
+    },
     "story_key": {
       "type": "string"
     },
