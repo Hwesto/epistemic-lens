@@ -6,7 +6,15 @@ on:
   workflow_dispatch:
     inputs:
       skip_ingest:
-        description: 'Skip ingest (use existing snapshot/briefings on main). Useful for re-running analyze/draft after a fix without burning ~10 min on a fresh feed pull.'
+        description: 'Skip ingest (use existing snapshot/briefings on main). Re-runs analyze/draft against existing data; saves ~10 min and 235 feed pulls.'
+        type: boolean
+        default: false
+      skip_analyze:
+        description: 'Skip analyze (LLM call to write analyses). Use when analyses already exist on main and you only want to re-run draft + publish_api.'
+        type: boolean
+        default: false
+      skip_draft:
+        description: 'Skip draft (long-form LLM call + thread/carousel template). Use when only publish_api needs to re-run (e.g. to redeploy web/ assets).'
         type: boolean
         default: false
 
@@ -130,7 +138,7 @@ jobs:
     needs: ingest
     # Run if ingest succeeded OR was deliberately skipped via workflow_dispatch.
     # `if: always()` ensures this evaluates regardless of the ingest job state.
-    if: ${{ always() && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped') }}
+    if: ${{ always() && inputs.skip_analyze != true && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -240,7 +248,7 @@ jobs:
 
   draft:
     needs: analyze
-    if: ${{ always() && (needs.analyze.result == 'success' || needs.analyze.result == 'skipped') }}
+    if: ${{ always() && inputs.skip_draft != true && (needs.analyze.result == 'success' || needs.analyze.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
