@@ -908,5 +908,141 @@ class TestTemplateRenderers(unittest.TestCase):
         self.assertEqual(out.get("meta_version"), _meta.VERSION)
 
 
+class TestValidateAnalysis(unittest.TestCase):
+    """Phase 4: validate_analysis.py — citation + number checks."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        repo = Path(__file__).parent
+        self.briefing = json.load(open(repo / "briefings/2026-05-06_hormuz_iran.json"))
+        self.metrics = json.load(open(repo / "briefings/2026-05-06_hormuz_iran_metrics.json"))
+        self.first_corpus = self.briefing["corpus"][0]
+        first_text = self.first_corpus["signal_text"]
+        first_bucket = self.first_corpus["bucket"]
+        # Construct a clean analysis whose evidence cites a real corpus entry.
+        self.clean = {
+            "meta_version": "1.3.0", "date": "2026-05-06",
+            "story_key": "hormuz_iran", "story_title": "Strait of Hormuz / US-Iran deal",
+            "n_buckets": self.metrics["n_buckets"],
+            "n_articles": self.metrics["n_articles"],
+            "tldr": "A clean analysis with multiple complete sentences. The corpus has 41 articles. The pin is 1.3.0.",
+            "frames": [
+                {"label": "FRAME_A", "buckets": [first_bucket],
+                 "evidence": [{
+                     "bucket": first_bucket,
+                     "outlet": self.first_corpus.get("feed", "Unknown"),
+                     "quote": first_text[:60].strip(),
+                     "signal_text_idx": 0,
+                 }]},
+                {"label": "FRAME_B", "buckets": ["other"],
+                 "evidence": [{
+                     "bucket": self.briefing["corpus"][1]["bucket"],
+                     "quote": self.briefing["corpus"][1]["signal_text"][:50].strip(),
+                     "signal_text_idx": 1,
+                 }]}
+            ],
+            "isolation_top": [
+                {"bucket": self.metrics["isolation"][0]["bucket"],
+                 "mean_jaccard": self.metrics["isolation"][0]["mean_jaccard"]}
+            ],
+            "exclusive_vocab_highlights": [],
+            "paradox": None, "silences": [],
+            "single_outlet_findings": [],
+            "bottom_line": "Two sentences restating the headline finding clearly. End of analysis.",
+            "generated_at": "2026-05-08T15:00:00Z", "model": "haiku",
+        }
+
+    def test_clean_analysis_passes_all_checks(self):
+        if "validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["validate_analysis"])
+        import validate_analysis as v
+        errs = (v.check_schema(self.clean)
+                + v.check_citations(self.clean, self.briefing)
+                + v.check_numbers(self.clean, self.metrics))
+        self.assertEqual(errs, [], msg="clean analysis should produce 0 errors")
+
+    def test_n_buckets_mismatch_caught(self):
+        import validate_analysis as v
+        bad = dict(self.clean)
+        bad["n_buckets"] = 99
+        errs = v.check_numbers(bad, self.metrics)
+        self.assertTrue(any("n_buckets" in e for e in errs))
+
+    def test_isolation_score_mismatch_caught(self):
+        import validate_analysis as v
+        bad = dict(self.clean)
+        bad["isolation_top"] = [
+            {"bucket": self.metrics["isolation"][0]["bucket"], "mean_jaccard": 0.999}
+        ]
+        errs = v.check_numbers(bad, self.metrics)
+        self.assertTrue(any("mean_jaccard" in e for e in errs))
+
+    def test_isolation_unknown_bucket_caught(self):
+        import validate_analysis as v
+        bad = dict(self.clean)
+        bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_jaccard": 0.5}]
+        errs = v.check_numbers(bad, self.metrics)
+        self.assertTrue(any("not in" in e and "fake_bucket_xyz" in e for e in errs))
+
+    def test_exclusive_vocab_term_not_in_metrics_caught(self):
+        import validate_analysis as v
+        bad = dict(self.clean)
+        bad["exclusive_vocab_highlights"] = [
+            {"bucket": "italy", "terms": ["term_that_does_not_exist_in_metrics"]}
+        ]
+        errs = v.check_numbers(bad, self.metrics)
+        self.assertTrue(any("term_that_does_not_exist_in_metrics" in e for e in errs))
+
+    def test_quote_not_in_corpus_caught(self):
+        import validate_analysis as v
+        bad = json.loads(json.dumps(self.clean))
+        bad["frames"][0]["evidence"][0]["quote"] = "this is not in any signal_text"
+        errs = v.check_citations(bad, self.briefing)
+        self.assertTrue(any("not found verbatim" in e for e in errs))
+
+    def test_bucket_mismatch_with_corpus_caught(self):
+        import validate_analysis as v
+        bad = json.loads(json.dumps(self.clean))
+        bad["frames"][0]["evidence"][0]["bucket"] = "wrong_bucket_label"
+        errs = v.check_citations(bad, self.briefing)
+        self.assertTrue(
+            any("claims bucket 'wrong_bucket_label'" in e for e in errs)
+        )
+
+    def test_signal_text_idx_out_of_range_caught(self):
+        import validate_analysis as v
+        bad = json.loads(json.dumps(self.clean))
+        bad["frames"][0]["evidence"][0]["signal_text_idx"] = 99999
+        errs = v.check_citations(bad, self.briefing)
+        self.assertTrue(any("out of range" in e for e in errs))
+
+    def test_paradox_citation_validated(self):
+        import validate_analysis as v
+        # Add a valid paradox using two real corpus entries.
+        ok = json.loads(json.dumps(self.clean))
+        ok["paradox"] = {
+            "a": {"bucket": self.briefing["corpus"][2]["bucket"],
+                  "outlet": self.briefing["corpus"][2].get("feed", "X"),
+                  "quote": self.briefing["corpus"][2]["signal_text"][:40].strip(),
+                  "signal_text_idx": 2},
+            "b": {"bucket": self.briefing["corpus"][3]["bucket"],
+                  "outlet": self.briefing["corpus"][3].get("feed", "Y"),
+                  "quote": self.briefing["corpus"][3]["signal_text"][:40].strip(),
+                  "signal_text_idx": 3},
+            "joint_conclusion": "Both opposing-bloc outlets converge on the same framing.",
+        }
+        errs = v.check_citations(ok, self.briefing)
+        self.assertEqual(errs, [])
+
+        # Now corrupt one side's bucket label.
+        bad = json.loads(json.dumps(ok))
+        bad["paradox"]["a"]["bucket"] = "wrong_paradox_bucket"
+        errs = v.check_citations(bad, self.briefing)
+        self.assertTrue(any("paradox.a" in e and "wrong_paradox_bucket" in e for e in errs))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
