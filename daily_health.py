@@ -159,7 +159,13 @@ def main():
     if h["bucket_alerts"]:
         print(f"  bucket alerts: {len(h['bucket_alerts'])}")
         for a in h["bucket_alerts"]:
-            print(f"    {a['bucket']}: {a['now']} (avg7={a['avg7']}, -{a['drop_pct']}%)")
+            if a.get("alert_type") == "low_extraction":
+                print(f"    {a['bucket']}: low_extraction "
+                      f"(full={a['full']}/{a['attempted']}={a['full_pct']}%, "
+                      f"errors={a['errors']})")
+            else:
+                print(f"    {a['bucket']}: {a['now']} "
+                      f"(avg7={a['avg7']}, -{a['drop_pct']}%)")
 
 
 if __name__ == "__main__":
