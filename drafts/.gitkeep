@@ -1,0 +1,5 @@
+# This file exists so the drafts/ directory is tracked in git even
+# when no draft files are present. The daily.yml `draft` job's
+# `git add drafts/` step would otherwise fail with `set -e` if the
+# directory didn't exist (e.g. on a clone, or after a day with no
+# briefings produced).
