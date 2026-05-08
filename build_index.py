@@ -8,7 +8,7 @@ consumes via GitHub Pages.
 Outputs:
 
   api/latest.json
-    { "date": "<YYYY-MM-DD>", "url": "/api/<DATE>/index.json", "n_stories": N }
+    { "date": "<YYYY-MM-DD>", "url": "/<DATE>/index.json", "n_stories": N }
 
   api/<DATE>/index.json
     { "date": "<DATE>", "stories": [ {key, title, n_buckets, n_articles,
@@ -134,14 +134,14 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                                  "thread", "carousel", "long")}
 
         shutil.copy2(briefing_src, story_dir / "briefing.json")
-        artifacts["briefing"] = f"/api/{date}/{key}/briefing.json"
+        artifacts["briefing"] = f"/{date}/{key}/briefing.json"
         has["briefing"] = True
 
         metrics_src = BRIEFINGS / f"{date}_{key}_metrics.json"
         top_isolation = None
         if metrics_src.exists():
             shutil.copy2(metrics_src, story_dir / "metrics.json")
-            artifacts["metrics"] = f"/api/{date}/{key}/metrics.json"
+            artifacts["metrics"] = f"/{date}/{key}/metrics.json"
             has["metrics"] = True
             try:
                 m = json.load(open(metrics_src, encoding="utf-8"))
@@ -154,7 +154,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         analysis_md_src = ANALYSES / f"{date}_{key}.md"
         if analysis_md_src.exists():
             shutil.copy2(analysis_md_src, story_dir / "analysis.md")
-            artifacts["analysis"] = f"/api/{date}/{key}/analysis.md"
+            artifacts["analysis"] = f"/{date}/{key}/analysis.md"
             has["analysis"] = True
             try:
                 paradox = detect_paradox(analysis_md_src.read_text(encoding="utf-8"))
@@ -164,7 +164,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         analysis_json_src = ANALYSES / f"{date}_{key}.json"
         if analysis_json_src.exists():
             shutil.copy2(analysis_json_src, story_dir / "analysis.json")
-            artifacts["analysis_json"] = f"/api/{date}/{key}/analysis.json"
+            artifacts["analysis_json"] = f"/{date}/{key}/analysis.json"
             has["analysis_json"] = True
             # JSON is the canonical source — read paradox flag directly if MD
             # wasn't present or didn't yield one.
@@ -179,7 +179,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             src = DRAFTS / f"{date}_{key}_{fmt}.json"
             if src.exists():
                 shutil.copy2(src, story_dir / f"{fmt}.json")
-                artifacts[fmt] = f"/api/{date}/{key}/{fmt}.json"
+                artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
                 has[fmt] = True
 
         entry = {
@@ -268,7 +268,7 @@ def main() -> int:
             json.dumps(
                 meta.stamp({
                     "date": latest,
-                    "url": f"/api/{latest}/index.json",
+                    "url": f"/{latest}/index.json",
                     "n_stories": latest_idx["n_stories"],
                     "generated_at": latest_idx["generated_at"],
                 }),
