@@ -1,0 +1,104 @@
+{
+  "meta_version": "1.0.0",
+  "date": "2026-05-08",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 11,
+  "n_articles": 17,
+  "tldr": "Israel's buffer zone in southern Lebanon operates under a fragile ceasefire tested repeatedly by strikes and operations. Lebanese government attempts to disarm Hezbollah and assert sovereignty, but continued Israeli strikes undermine ceasefire. The core paradox: buffer zone requires de-escalation, yet both sides escalate within it.",
+  "frames": [
+    {
+      "label": "CEASEFIRE_VIOLATION_PATTERN",
+      "description": "Israel conducts strikes on Beirut and targets despite announced ceasefire.",
+      "buckets": ["canada", "israel"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Israel strikes Beirut suburbs for 1st time since ceasefire was announced",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "label": "HEZBOLLAH_CONTINUED_OPERATIONS",
+      "description": "Hezbollah maintains tactical operations despite casualties.",
+      "buckets": ["israel"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Two soldiers were moderately wounded, and an additional soldier was severely wounded in two separate incidents involving explosive drones launched by Hezbollah, the IDF confirmed on Friday.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "label": "CIVILIAN_CASUALTIES_ONGOING",
+      "description": "Continued civilian deaths undermine ceasefire legitimacy.",
+      "buckets": ["pan_african"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Israeli airstrike kills 4 and injures 33 in southern Lebanon despite fragile ceasefire",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "label": "STATE_SOVEREIGNTY_STRUGGLE",
+      "description": "Lebanese government seeks sovereignty and disarmament amid Israeli operations.",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Why disarming Hezbollah is about much more than guns and rockets",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "israel",
+      "mean_jaccard": 0.048,
+      "note": "Military and security narrative isolated from humanitarian framing."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": {
+    "a": {
+      "bucket": "israel",
+      "outlet": "Jerusalem Post",
+      "quote": "Two soldiers were moderately wounded, and an additional soldier was severely wounded in two separate incidents involving explosive drones launched by Hezbollah, the IDF confirmed on Friday.",
+      "signal_text_idx": 4
+    },
+    "b": {
+      "bucket": "canada",
+      "outlet": "CBC World",
+      "quote": "Why disarming Hezbollah is about much more than guns and rockets",
+      "signal_text_idx": 1
+    },
+    "joint_conclusion": "Israel pursues military elimination; Lebanon pursues political disarmament—both using the zone, but for contradictory ends."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Canada - CBC World",
+      "bucket": "canada",
+      "finding": "Lebanon government pivots toward disarming Hezbollah and asserting state sovereignty post-ceasefire.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Israel - Jerusalem Post",
+      "bucket": "israel",
+      "finding": "IDF killed Hezbollah Radwan commander Ahmad Ghaleb Balout in Beirut; highest-ranking kill since November 2025.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "Buffer zone designed for de-escalation; both sides escalate within it. Israel targets command, Lebanon seeks disarmament—incompatible goals making the zone a flashpoint.",
+  "generated_at": "2026-05-08T17:35:00Z",
+  "model": "claude-haiku-4-5-20251001"
+}

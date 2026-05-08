@@ -1,0 +1,111 @@
+{
+  "meta_version": "1.0.0",
+  "date": "2026-05-08",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 33,
+  "n_articles": 59,
+  "tldr": "The US-Iran confrontation over the Strait of Hormuz frames as either strategic blockade (weakening Iran economically) or illegal maritime control (empowering Iran regionally). ASEAN's primary narrative emphasizes energy supply shock—a rare outsider perspective. Both US blockade strategy and ASEAN vulnerability converge on strait closure as power instrument, demonstrating how unilateral coercion redistributes costs globally.",
+  "frames": [
+    {
+      "label": "ECONOMIC_BLOCKADE_EFFICACY",
+      "description": "US operation framed as successful economic coercion driving Iran toward negotiation.",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "How the U.S. blockade is starting to hurt Iran's economy",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "label": "CEASEFIRE_FRAGILITY",
+      "description": "Month-old ceasefire repeatedly tested by tactical clashes.",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "U.S. says it intercepted Iranian attacks on 3 navy ships in Strait of Hormuz",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "label": "REGIONAL_ECONOMIC_CRISIS",
+      "description": "ASEAN frames strait closure as energy supply shock affecting non-belligerent economies.",
+      "buckets": ["asia_pacific_regional"],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "The economic fallout from the war in the Middle East has dominated talks between senior Southeast Asian officials at the 48th ASEAN Summit and related meetings, which got underway in the Philippines yesterday.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "label": "DEAL_NEGOTIATION_WINDOW",
+      "description": "30-day ceasefire creates diplomatic space for peace negotiations.",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Trump recua e diz que operação para reabrir Hormuz será suspensa em tentativa de finalizar acordo",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "label": "MARITIME_CONTROL_FORMALIZATION",
+      "description": "Iran creates government agency to vet and tax Strait passage.",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Earlier in the day, a shipping data company reported Iran had created a government agency to vet and tax vessels seeking passage through the crucial Strait of Hormuz.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_jaccard": 0.009,
+      "note": "Linguistically isolated; minimal coverage."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": {
+    "a": {
+      "bucket": "canada",
+      "outlet": "CBC World",
+      "quote": "How the U.S. blockade is starting to hurt Iran's economy",
+      "signal_text_idx": 4
+    },
+    "b": {
+      "bucket": "asia_pacific_regional",
+      "outlet": "The Diplomat",
+      "quote": "ASEAN imports about 66 percent of its crude oil and is now facing a significant rise in fuel and energy costs that would, in turn, force up the prices of food and other essential goods.",
+      "signal_text_idx": 0
+    },
+    "joint_conclusion": "US blockade intent and ASEAN consequence diverge but converge on strait closure as power instrument."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Brazil - Folha de São Paulo",
+      "bucket": "brazil",
+      "finding": "Trump pauses operations pending 30-day negotiations.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "The Hormuz crisis bifurcates: military escalation dominates Western coverage; ASEAN frames it as energy emergency. US coercion and ASEAN vulnerability are linked outcomes.",
+  "generated_at": "2026-05-08T17:25:00Z",
+  "model": "claude-haiku-4-5-20251001"
+}

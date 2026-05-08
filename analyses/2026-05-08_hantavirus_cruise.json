@@ -1,0 +1,262 @@
+{
+  "meta_version": "1.0.0",
+  "date": "2026-05-08",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 31,
+  "n_articles": 55,
+  "tldr": "The MV Hondius cruise ship outbreak killed three people and sparked a 31-country coordination crisis, yet global health authorities insist the risk remains 'absolutely low'—creating a sharp tension between epidemiological reassurance and logistical urgency. The outbreak's origin remains unconfirmed despite Argentina's active investigation, while Italy's media uniquely celebrates a doctor-passenger who stepped in after the ship's physician fell ill. Distributed passenger tracking across 12+ countries and a 6-week incubation window mean more cases could still emerge, making containment the convergent priority across otherwise divided media blocs.",
+  "frames": [
+    {
+      "label": "RISK_REASSURANCE_PARADOX",
+      "description": "Health authorities simultaneously minimize public danger while marshalling extraordinary response measures—a strategic tension between epidemiology and perceived threat.",
+      "buckets": ["kenya", "south_africa", "canada"],
+      "evidence": [
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "The World Health Organization said Thursday that more hantavirus cases could emerge after the disease killed three passengers from a cruise ship, but it expected the outbreak to be limited if precautions were taken.",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "The WHO said more hantavirus cases could emerge.",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Spanish authorities on Friday were preparing to receive more than 140 passengers and crew members on board a hantavirus-stricken cruise ship headed for the Canary Islands, where health officials have said they will perform careful evacuations.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "label": "TRANSMISSION_RARITY_DEBATE",
+      "description": "Disagreement over whether person-to-person transmission is exceptional or merely infrequent—with the Andes strain capability driving close-contact quarantine regardless.",
+      "buckets": ["canada", "india"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "WHO confirms Andes strain of hantavirus in cruise ship passengers, with 3 transferred from ship for treatment",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Explainer: Can hantavirus outbreak become Covid 2.0?",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "label": "ORIGIN_UNCERTAINTY",
+      "description": "Multiple health authorities unable to pinpoint infection source despite intensive investigation, suggesting environmental exposure in South America before embarkation.",
+      "buckets": ["argentina_chile", "mexico"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Clarin",
+          "quote": "Todos los extranjeros que viajan en el barco serán repatriados a sus respectivos países cuando lleguen a las islas Canarias, incluso si presentan síntomas de haberse contagiado.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "No es posible confirmar el origen del contagio de hantavirus, dice autoridad sanitaria argentina",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "label": "MEDICAL_IMPROVISATION_HEROISM",
+      "description": "A physician-passenger assumes emergency medical authority when the ship's doctor falls ill, becoming the de facto coordinator of crisis response aboard a floating isolation ward.",
+      "buckets": ["italy", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "Hantavirus, il passeggero Usa che è diventato medico di bordo",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "What Happened on the Hantavirus Cruise, According to a Doctor on Board",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "label": "LOGISTICAL_SOVEREIGNTY_CRISIS",
+      "description": "Repatriation of 140+ people from 22+ nations requires unprecedented diplomatic coordination, with Spain asserting control while negotiating individual bilateral arrangements.",
+      "buckets": ["spain", "uk"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "Fondeo inédito en Tenerife, lanchas y negociaciones con 22 países: la difícil vuelta a casa de los pasajeros del crucero del hantavirus",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Three people with suspected hantavirus have been medically evacuated from a cruise ship.",
+          "signal_text_idx": 48
+        }
+      ]
+    },
+    {
+      "label": "DISTRIBUTED_PASSENGER_SCATTER",
+      "description": "Thirty passengers disembarked at St Helena on April 24 before detection, now scattered across 12+ countries with limited historical contact knowledge, creating untraceability.",
+      "buckets": ["taiwan_hk", "australia_nz"],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Countries scramble to track passengers of hantavirus-hit cruise ship",
+          "signal_text_idx": 44
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "All four Australians onboard the cruise ship where a hantavirus outbreak has so far been linked to the deaths of three passengers remain en route to the Canary Islands.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "label": "COVID_PANDEMIC_ANXIETY_ECHO",
+      "description": "Media outlets in outbreak-sensitive regions invoke COVID-19 comparison, signaling residual pandemic trauma despite expert rejection of equivalence.",
+      "buckets": ["germany", "india"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Junge Freiheit",
+          "quote": "Fünf Länder betroffen Das neue Corona? Hantavirus breitet sich aus",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Explainer: Can hantavirus outbreak become Covid 2.0?",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "brazil",
+      "mean_jaccard": 0.011,
+      "note": "Minimal coverage; linguistically and editorially marginal to global response narrative."
+    },
+    {
+      "bucket": "germany",
+      "mean_jaccard": 0.011,
+      "note": "German-language sources isolate on contact-tracing focus, diverging from English-language patient-outcome narratives."
+    },
+    {
+      "bucket": "italy",
+      "mean_jaccard": 0.012,
+      "note": "Italian emphasis on shipboard medical heroism and clinical terminology; narrative angle unique to this bucket."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "italy",
+      "terms": ["medico", "passeggeri", "kornfeld"],
+      "what_it_reveals": "Focus on physician narrative and clinical intervention; 'medico di bordo' and personal heroism dominate framing."
+    },
+    {
+      "bucket": "spain",
+      "terms": ["fondeo", "lancha", "cuarentena"],
+      "what_it_reveals": "Emphasis on logistics (anchorage, lifeboats) and quarantine procedures in repatriation coordination."
+    },
+    {
+      "bucket": "germany",
+      "terms": ["kontaktpersonen", "dafrika"],
+      "what_it_reveals": "Contact-tracing methodology and South Africa as central transit hub for infected passengers."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "germany",
+      "outlet": "Tagesschau",
+      "quote": "Hantavirus-Ausbruch auf Schiff Suche nach Dutzenden Kontaktpersonen geht weiter",
+      "signal_text_idx": 9
+    },
+    "b": {
+      "bucket": "nigeria",
+      "outlet": "The Punch",
+      "quote": "WHO says hantavirus risk low after flight attendant tests negative",
+      "signal_text_idx": 23
+    },
+    "joint_conclusion": "Urgent-containment-focused (Germany contact-tracing escalation) and reassurance-focused (Nigeria/WHO low-risk messaging) outlets converge on the necessity for rigorous isolation and rapid repatriation—the only shared operational truth across divergent risk framings."
+  },
+  "silences": [
+    {
+      "bucket": "brazil",
+      "what_they_covered_instead": "Minimal coverage (33 tokens); regional South American origin context subordinated to WHO coordination narratives."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "what_they_covered_instead": "Limited to cruise-ship disease-susceptibility explainer and single personal heroism angle; missed epidemiological policy debate."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Italy - Il Sole 24 Ore",
+      "bucket": "italy",
+      "finding": "American physician-passenger (Oregon doctor Stephen Kornfeld) becomes de facto ship's medical director after the ship's doctor falls ill.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Taiwan - Taipei Times",
+      "bucket": "taiwan_hk",
+      "finding": "CDC reports initial claim of a Taiwanese passenger aboard MV Hondius is likely a rumor; verification with WHO and operator yields no confirmation.",
+      "signal_text_idx": 43
+    },
+    {
+      "outlet": "USA - NPR World",
+      "bucket": "usa",
+      "finding": "Hantavirus shares headline space with Iran military strikes and Tennessee redistricting; disease narrative competes with higher-salience geopolitics.",
+      "signal_text_idx": 49
+    },
+    {
+      "outlet": "Russia - RT",
+      "bucket": "russia",
+      "finding": "Frames ship as 'plague ship' with sensationalist video of captain falsely reassuring passengers.",
+      "signal_text_idx": 35
+    },
+    {
+      "outlet": "Germany - Junge Freiheit",
+      "bucket": "germany",
+      "finding": "Headlines invoke COVID-19 parallel ('Das neue Corona?'), reflecting pandemic-trauma anxiety.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Spain - El Pais",
+      "bucket": "spain",
+      "finding": "Unprecedented 22-nation coordination required; 'fondeo' (anchorage) in Tenerife with lifeboats for staged passenger transfers.",
+      "signal_text_idx": 39
+    },
+    {
+      "outlet": "Japan - Japan Times",
+      "bucket": "japan",
+      "finding": "Measured framing: 'Hantavirus outbreak is cause for caution, not panic'; emphasizes rodent transmission and human transmission rarity.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Philippines - Inquirer",
+      "bucket": "philippines",
+      "finding": "38 Filipino crew require medical clearance before repatriation—labor/immigration gate not mentioned in other buckets.",
+      "signal_text_idx": 32
+    }
+  ],
+  "bottom_line": "The MV Hondius outbreak transformed from medical crisis into a sovereignty test across 31 media buckets. Three deaths, yet unified only by shared logistical urgency: risk minimization and response maximization are complementary, both requiring passengers isolated and dispersed rapidly, making the paradox one of messaging rather than action.",
+  "generated_at": "2026-05-08T16:50:00Z",
+  "model": "claude-haiku-4-5-20251001"
+}
