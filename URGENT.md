@@ -39,6 +39,62 @@ this doc assumes the four checks pass.
 
 ---
 
+## Step 0 — Push the methodology baseline tag (~30 sec)
+
+The `meta-v1.0.0` git tag was created locally during the merge that
+introduced this file, but the agent environment couldn't push tags
+(harness restriction). The tag points to the right commit on `main`;
+you just need to push it once. This anchors the day-zero pin so
+future major bumps (`meta-v2.0.0`) have something concrete to be
+"after."
+
+### 0a. Push the tag
+
+```bash
+cd ~/path/to/epistemic-lens
+git fetch origin && git checkout main && git pull --ff-only
+
+# Recreate the tag locally — your clone almost certainly doesn't have
+# it yet (it lived only in the agent's environment):
+git tag -a meta-v1.0.0 cd67e81 \
+  -m "methodology pin baseline — 235 feeds, 54 buckets, 5 stories, 4 prompts"
+
+git push origin meta-v1.0.0
+```
+
+### 0b. Verify
+
+- [ ] `git ls-remote --tags origin | grep meta-v1.0.0` returns one
+      line.
+- [ ] https://github.com/hwesto/epistemic-lens/tags lists
+      `meta-v1.0.0`. Click it — the target commit should be `cd67e81`
+      ("methodology pin (v1.0.0) + comprehensive URGENT.md").
+
+### Alternative: GitHub UI
+
+If you'd rather not touch the terminal:
+
+1. https://github.com/hwesto/epistemic-lens/releases/new
+2. **Choose a tag:** type `meta-v1.0.0`, click "Create new tag: …"
+3. **Target:** select commit `cd67e81` from the dropdown.
+4. **Release title:** `meta-v1.0.0 — methodology baseline`
+5. **Description:** copy from the tag message above.
+6. **Publish release** — this creates and pushes the tag in one click.
+
+### Failure modes
+
+- `git push origin meta-v1.0.0` returns `403`/permission denied →
+  you're not authenticated as `hwesto` (or a collaborator with push
+  rights). Fix `gh auth status` from pre-flight.
+- Tag `meta-v1.0.0` already exists locally with a different SHA →
+  someone (or a previous run) created a wrong-target tag. Delete it
+  with `git tag -d meta-v1.0.0`, then re-run 0a.
+- Tag exists on remote with a different SHA → don't force-push (it
+  invalidates anyone who's already fetched it). Pick `meta-v1.0.0a`
+  or accept the existing one.
+
+---
+
 ## Step 1 — Claude OAuth token (~5 min)
 
 The `analyze` and `draft` jobs in `daily.yml` call Claude via the
