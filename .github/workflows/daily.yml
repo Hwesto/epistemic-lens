@@ -184,6 +184,13 @@ jobs:
       - name: Pull agent's analysis commits
         run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
 
+      - name: Validate analyses (citation grounding + number reconciliation)
+        run: python validate_analysis.py
+        # Fails the job if any analysis JSON has hallucinated quotes,
+        # bucket mismatches, or numbers that don't match metrics.json.
+        # Defense in depth — the agent also runs schema validation
+        # before its own commit per the prompt.
+
       - name: Render analysis markdown from JSON
         run: python render_analysis_md.py
         # Reads analyses/<date>_<story>.json (canonical, from agent),

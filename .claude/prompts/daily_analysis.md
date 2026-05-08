@@ -41,8 +41,14 @@ For each story you analyse:
       something else). Cross-reference today's snapshot if needed.
    f. Pick up to 10 single-outlet findings worth surfacing.
    g. Assemble the JSON conforming to the schema.
-   h. Validate with: `python -c "import json, jsonschema; jsonschema.validate(json.load(open('analyses/<DATE>_<story>.json')), json.load(open('docs/api/schema/analysis.schema.json')))"`
-   i. If invalid, fix and re-validate.
+   h. Validate the file with the project's full validator (schema +
+      citation grounding + number reconciliation):
+      `python validate_analysis.py analyses/<DATE>_<story>.json`
+   i. If it reports any errors, fix them in your JSON and re-run the
+      validator until it prints `OK`. The same validator runs in the
+      workflow post-commit; if you skip this step and any error is
+      caught downstream, the workflow fails and your work has to be
+      manually reverted.
 4. Skip stories with `n_buckets < 5`. Note in your final summary.
 5. Print one summary line per story written: `<story_key> n_buckets=N paradox=yes|no n_frames=N`.
 6. **Commit and push** (uncommitted writes do not persist):
