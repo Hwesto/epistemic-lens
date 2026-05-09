@@ -13,7 +13,7 @@ Three classes of check, in order of severity:
 3. Number reconciliation — every n_buckets, n_articles, isolation
    score, and bucket-exclusive vocab term referenced in the analysis
    must match the matching values in metrics.json. Catches inflated
-   counts and fabricated jaccard scores.
+   counts and fabricated similarity scores.
 
 Exit non-zero on ANY violation, with a human-readable error per issue.
 Designed to run as a pre-commit step (agent runs it before git commit)

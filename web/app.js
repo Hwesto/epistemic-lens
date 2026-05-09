@@ -44,17 +44,17 @@
         attr: `${a.paradox.a.outlet} (${a.paradox.a.bucket}) & ${a.paradox.b.outlet} (${a.paradox.b.bucket}) — ${a.story_title}`,
       };
     }
-    // priority 2: strongest isolation outlier (mean_jaccard < 0.05)
+    // priority 2: strongest isolation outlier (mean_similarity < 0.30 for LaBSE cosine)
     const isoSorted = analyses
       .map(a => ({ a, top: a.analysis?.isolation_top?.[0] }))
-      .filter(x => x.top && x.top.mean_jaccard < 0.05)
-      .sort((x, y) => x.top.mean_jaccard - y.top.mean_jaccard);
+      .filter(x => x.top && x.top.mean_similarity < 0.30)
+      .sort((x, y) => x.top.mean_similarity - y.top.mean_similarity);
     if (isoSorted.length) {
       const { a, top } = isoSorted[0];
       return {
         kind: "isolation",
         eyebrow: "isolation outlier",
-        text: `${a.analysis.n_buckets} outlets covered ${a.analysis.story_title}. ${top.bucket} used totally different words. (mean_jaccard ${top.mean_jaccard})`,
+        text: `${a.analysis.n_buckets} outlets covered ${a.analysis.story_title}. ${top.bucket} diverged most from the rest. (mean_similarity ${top.mean_similarity})`,
         attr: top.note || "",
       };
     }
@@ -190,7 +190,7 @@
       a.isolation_top.slice(0, 6).forEach(r => {
         const li = document.createElement("li");
         li.className = "iso-pill";
-        li.innerHTML = `<span>${escape(r.bucket)}</span><span class="num">${r.mean_jaccard}</span>`;
+        li.innerHTML = `<span>${escape(r.bucket)}</span><span class="num">${r.mean_similarity}</span>`;
         ul.appendChild(li);
       });
       sect.appendChild(ul);

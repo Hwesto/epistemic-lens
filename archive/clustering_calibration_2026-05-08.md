@@ -43,7 +43,7 @@ HDBSCAN selects is comparable to the old eps when min_cluster_size = 3.
 
 ## Acceptance bar
 
-Per `PHASE_C_PLAN.md` C.5:
+Per `archive/planning/PHASE_C_PLAN.md` C.5:
 
 - HDBSCAN finds ≥1.5× more stable clusters per day than DBSCAN at default
   parameters on the 2026-05-06 baseline. *Unverified at time of pin bump

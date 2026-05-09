@@ -82,9 +82,11 @@ git push --follow-tags
 ### Major (1.0.0 → 2.0.0)
 
 For **longitudinal-breaking** changes: switching the embedding model,
-changing the Jaccard formula, removing buckets, rewriting prompts,
-removing stopwords, lowering `min_body_chars_for_body`. After a major
-bump, claims that span pre- and post-bump data must explicitly say so.
+swapping the cross-bucket similarity (e.g. the v7.0.0 transition from
+TF-IDF on translated pivot to LaBSE cosine on originals), removing
+buckets, rewriting prompts, removing stopwords, lowering
+`min_body_chars_for_body`. After a major bump, claims that span pre-
+and post-bump data must explicitly say so.
 
 ```bash
 python baseline_pin.py --bump major --reason "switched to BGE multilingual embedding"

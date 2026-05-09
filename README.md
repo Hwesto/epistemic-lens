@@ -2,7 +2,7 @@
 
 **Daily, automated, source-transparent cross-country news framing analysis.**
 
-> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages, 6 continents) → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (Jaccard, isolation, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
+> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages, 6 continents) → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (LaBSE cosine, isolation, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
 
 **Live front door:** [hwesto.github.io/epistemic-lens](https://hwesto.github.io/epistemic-lens/)
 
@@ -40,7 +40,7 @@ For each story (currently 3–5/day):
 ```
 hwesto.github.io/epistemic-lens/<DATE>/<story_key>/
   briefing.json     ← per-bucket corpus (full bodies, dedup'd)
-  metrics.json      ← Jaccard, isolation, bucket-exclusive vocab
+  metrics.json      ← LaBSE cosine, isolation, bucket-exclusive vocab
   analysis.json     ← canonical structured analysis (schema-validated)
   analysis.md       ← rendered for human reading
   thread.json       ← X/Threads draft (template, no LLM)
@@ -134,7 +134,7 @@ epistemic-lens/
 │
 ├── analytical/                ← ANALYTICAL concern
 │   ├── build_briefing.py      ← per-story corpus assembler
-│   ├── build_metrics.py       ← Jaccard + isolation + exclusive vocab
+│   ├── build_metrics.py       ← LaBSE cosine + isolation + exclusive vocab
 │   ├── validate_analysis.py   ← schema + citation + number reconciliation
 │   └── restamp_analyses.py    ← refresh meta_version on agent JSON output
 │

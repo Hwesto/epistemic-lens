@@ -5,7 +5,7 @@
     "A": "Healthy: extraction success >70%, stub ratio <20%, multiple feeds.",
     "B": "Acceptable: extraction success 50-70% OR single-feed bucket. Included in all metrics; renderer may flag.",
     "C": "Narrative only: extraction success 30-50%. Included in metrics with confidence flag; not for cross-bucket comparative claims.",
-    "EXCLUDE_QUANT": "Quarantined from quantitative metrics. Stub-only aggregators where signal_text is the title, not the body. Bucket still appears in briefings for narrative coverage; it just doesn't contribute to Jaccard/cosine/exclusive-vocab numbers."
+    "EXCLUDE_QUANT": "Quarantined from quantitative metrics. Stub-only aggregators where signal_text is the title, not the body. Bucket still appears in briefings for narrative coverage; it just doesn't contribute to LaBSE-cosine / exclusive-vocab numbers."
   },
   "buckets": {
     "google_news_reuters": {

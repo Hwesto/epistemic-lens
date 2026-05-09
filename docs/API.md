@@ -87,7 +87,7 @@ For each story, six files (some optional):
 | Path                                  | Type             | Schema                          |
 |---------------------------------------|------------------|---------------------------------|
 | `<story>/briefing.json`               | application/json | (raw corpus, see source repo)   |
-| `<story>/metrics.json`                | application/json | (Jaccard + isolation + vocab)   |
+| `<story>/metrics.json`                | application/json | (LaBSE cosine + isolation + vocab) |
 | `<story>/analysis.md`                 | text/markdown    | structure: `docs/HORMUZ_CORRELATION.md` |
 | `<story>/thread.json`                 | application/json | `/api/schema/thread.schema.json`   |
 | `<story>/carousel.json`               | application/json | `/api/schema/carousel.schema.json` |

@@ -11,7 +11,7 @@ python extract_full_text.py     # +body text (top clusters + per-feed sample, ~3
 python dedup.py                 # collapse near-dup items
 python daily_health.py          # health snapshot + alerts
 python build_briefing.py        # per-story corpora → briefings/<date>_<story>.json
-python build_metrics.py         # Jaccard + isolation + exclusive vocab
+python build_metrics.py         # LaBSE cosine + isolation + exclusive vocab
 git commit + push               # snapshots/, briefings/
 
 # Job 2: analyze (needs CLAUDE_CODE_OAUTH_TOKEN secret — see setup below)

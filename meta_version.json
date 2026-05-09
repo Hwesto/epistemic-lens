@@ -1,8 +1,8 @@
 {
-  "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "7.0.0",
-  "pinned_at": "2026-05-09T15:03:24Z",
-  "pin_reason": "Phase D simplification: drop translate (LaBSE primary on originals, no pivot), drop ensemble + Krippendorff alpha gate, drop canary from daily cron. Restore zero-metered-cost daily run. Frame schema: drop free-form description; sub_frame constrained to short tag (<=40 chars); analyses use frame_id from closed codebook with codebook gloss in renderer.",
+  "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
+  "meta_version": "7.0.1",
+  "pinned_at": "2026-05-09T16:50:31Z",
+  "pin_reason": "Phase 0 close-out: sync downstream prompts/docs/web/quality-tier text with v7.0.0 metric rename (LaBSE cosine, not Jaccard); fix mean_jaccard read in web/app.js.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -71,12 +71,12 @@
   },
   "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742",
   "frames_codebook_hash": "sha256:548cd7ad2da6b249183a90a661c0a55abcd48ccacda0cd045c7aad7cc7b22658",
-  "bucket_quality_hash": "sha256:4f0d5789388360e267b92d5c108ae1e07635f3fa8f13bd2bd67780188a36d087",
+  "bucket_quality_hash": "sha256:7a5e0b323dbd1f4d3a1c81682e352f9114081e75fbb2d4c95167fbb421697835",
   "bucket_weights_hash": "sha256:dfa0525424eed1f4362881f2e63194c1c4f9b98832857c7b6ec5a0ac761544fe",
   "claude": {
     "_doc": "Dated snapshot ID (claude-sonnet-4-6-YYYYMMDD) pins model weights as far as the API permits — alias `claude-sonnet-4-6` may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`.",
     "model": "claude-sonnet-4-6-20260501",
     "model_alias": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:424434b263a3c91906f138227aa41a763a3626146a0a2e1bc794628f97a953cc"
+    "prompts_hash": "sha256:1202bffa8a7ea490607d9a98776f325cf2481ae9171fbc99a53e49d369f8511b"
   }
 }

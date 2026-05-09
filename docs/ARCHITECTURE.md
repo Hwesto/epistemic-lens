@@ -51,8 +51,8 @@
                                  ▼
         ┌──────────────────────────────────────────────────┐
         │  analytical.build_metrics                                │
-        │   • pairwise Jaccard on per-bucket vocabulary    │
-        │   • bucket isolation (mean Jaccard vs others)    │
+        │   • pairwise LaBSE cosine on per-bucket means    │
+        │   • bucket isolation (mean cosine vs others)     │
         │   • bucket-exclusive vocab (df==1, count>=3)     │
         │   • emits briefings/<date>_<story>_metrics.json  │
         └────────────────┬─────────────────────────────────┘

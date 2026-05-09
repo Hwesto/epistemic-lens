@@ -122,6 +122,6 @@ This is structural disclosure, not a fix. RSS is what RSS is. The audit makes th
 
 Trafilatura + Wayback fail systematically on paywalled outlets (Le Monde, Le Figaro, Bild, The Telegraph in the current feed list; NYT/WaPo/WSJ/FT not subscribed). `pipeline/commoncrawl_fallback.py` adds a third extraction tier that queries the [Common Crawl News](https://commoncrawl.org/blog/news-dataset-available) CDX index for the URL within ±21 days and parses the matched WARC record.
 
-Latency caveat: CC-NEWS has a 1–2 week ingestion lag, so the fallback only enriches **retroactive** runs (e.g., `python -m analytical.translate --date <past_date>`). Today's paywalled coverage is still missing. This is documented as a coverage limitation, not a defect.
+Latency caveat: CC-NEWS has a 1–2 week ingestion lag, so the fallback only enriches **retroactive** replays (re-running the pipeline against a past date once CC-NEWS has caught up). Today's paywalled coverage is still missing. This is documented as a coverage limitation, not a defect.
 
 Feeds flagged `paywalled: true` in `feeds.json` get the fallback automatically; new flags are a `minor` pin bump.
