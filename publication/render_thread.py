@@ -82,12 +82,7 @@ def _build_hook(a: dict) -> str:
 
     # 2. Isolation outlier — one bucket sharply distinct
     iso = a.get("isolation_top") or []
-    if iso:
-        score = iso[0].get("mean_similarity")
-        if score is None:  # pre-5.0.0 artifact compat
-            score = iso[0].get("mean_jaccard", 1)
-    else:
-        score = 1
+    score = iso[0].get("mean_similarity", 1) if iso else 1
     if iso and score < 0.05:
         b = iso[0]["bucket"]
         return _truncate(

@@ -83,9 +83,7 @@ def _hook_slide(a: dict, briefing: dict) -> dict | None:
         }
     iso = a.get("isolation_top") or []
     if iso:
-        score = iso[0].get("mean_similarity")
-        if score is None:  # pre-5.0.0 artifact compat
-            score = iso[0].get("mean_jaccard", 1)
+        score = iso[0].get("mean_similarity", 1)
         if score < 0.05:
             b = iso[0]
             return {
@@ -186,9 +184,7 @@ def render(a: dict, briefing: dict) -> dict:
         iso = a.get("isolation_top") or []
         if iso:
             top = iso[0]
-            score = top.get("mean_similarity")
-            if score is None:  # pre-5.0.0 artifact compat
-                score = top.get("mean_jaccard", "")
+            score = top.get("mean_similarity", "")
             slides.insert(-1, {
                 "title": f"Most isolated: `{top['bucket']}`",
                 "body": _truncate(

@@ -17,22 +17,18 @@ renders human-readable markdown for PR review — you don't write markdown.
 For each story you analyse:
 
 - `briefings/<DATE>_<story_key>.json` — corpus. Each `corpus[i]` entry has
-  `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`,
-  and (since meta-v3.0.0) `signal_text_en` / `title_en` for non-English
-  articles. **The index `i` is the `signal_text_idx` you cite in evidence.**
-  Quote verbatim from the **original** `signal_text` (source language) — the
-  `_en` fields exist only for the metric layer.
+  `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`.
+  **The index `i` is the `signal_text_idx` you cite in evidence.**
+  Quote verbatim from `signal_text` in its source language.
 - `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers.
-  Primary similarity (since meta-v5.0.0): `pairwise_similarity` (TF-IDF
-  cosine) and `isolation` with `mean_similarity` per bucket. Optional
-  parallel layers: `pairwise_embedding_similarity` (LaBSE on originals)
-  and `pairwise_jaccard_legacy` / `isolation_jaccard_legacy` (set-Jaccard,
-  retained for diff-runs). Plus `bucket_exclusive_vocab`, `n_buckets`,
-  `n_articles`, `buckets_excluded_quant`. **Use these numbers verbatim.
-  Never invent counts or scores.** When you flag a bucket as isolated,
-  cite `mean_similarity`; if the LaBSE embedding cosine for the same
-  bucket diverges sharply (e.g. lexical isolation high but embedding
-  similarity high), surface that in the bucket's `note`.
+  Primary similarity (meta-v7.0.0): `pairwise_similarity` and `isolation`
+  with `mean_similarity` per bucket — both are LaBSE bucket-mean cosine
+  on original signal_text (multilingual; no translation pivot). Plus
+  `bucket_exclusive_vocab` (operates on raw originals — flag in the
+  bucket's `note` if the distinctive terms look like language artefacts
+  rather than story-specific vocabulary), `n_buckets`, `n_articles`,
+  `buckets_excluded_quant`. **Use these numbers verbatim. Never invent
+  counts or scores.**
 - `frames_codebook.json` — closed taxonomy of 15 valid `frame_id` values
   (Boydstun/Card). **Every frame you emit must use one of these IDs.**
 - `docs/api/schema/analysis.schema.json` — required output shape.
@@ -122,8 +118,7 @@ For each story you analyse:
   "frames": [
     {
       "frame_id": "ECONOMIC",
-      "sub_frame": "energy-price contagion to import-dependent economies",
-      "description": "Coverage focuses on crude/LNG price spillovers to the bucket's home economy.",
+      "sub_frame": "energy-price contagion",
       "buckets": ["philippines", "south_korea", "japan"],
       "evidence": [
         {"bucket": "philippines", "outlet": "Asia Times",
@@ -133,9 +128,8 @@ For each story you analyse:
     }
   ],
   "isolation_top": [
-    {"bucket": "italy", "mean_similarity": 0.18,
-     "mean_embedding_similarity": 0.74,
-     "note": "Lexical vocabulary diverges; LaBSE shows shared semantic content — Italy is editorially aligned, just morphologically distant."}
+    {"bucket": "italy", "mean_similarity": 0.74,
+     "note": "Aligned semantically with the corpus mean."}
   ],
   "exclusive_vocab_highlights": [
     {"bucket": "italy", "terms": ["guerra", "accordo", "uniti"],

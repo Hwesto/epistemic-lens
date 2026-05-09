@@ -1,6 +1,7 @@
-"""Unit tests for the Phase A items that were deferred to Phase 5.0.0:
-Unicode-aware tokenizer, TF-IDF cosine primary, LaBSE parallel skip,
-bucket-quality EXCLUDE_QUANT tier.
+"""Unit tests for the residual Phase A items kept under meta-v7.0.0:
+Unicode-aware tokenizer, LaBSE graceful-skip, bucket-quality
+EXCLUDE_QUANT tier. (TF-IDF/Jaccard tests dropped at 7.0.0 along with
+the translation pivot — LaBSE is now the sole cross-bucket metric.)
 
 Run: python3 -m unittest tests_phase_a_deferred.py
 """
@@ -42,52 +43,6 @@ class TestUnicodeTokenizer(unittest.TestCase):
         self.assertNotIn("a", toks)
         self.assertIn("test", toks)
         self.assertIn("system", toks)
-
-
-class TestTfidfPrimary(unittest.TestCase):
-    def setUp(self):
-        try:
-            import sklearn  # noqa
-        except ImportError:
-            self.skipTest("scikit-learn not installed")
-        from analytical import build_metrics
-        self.bm = build_metrics
-
-    def test_pairs_have_score_field_not_jaccard(self):
-        vocabs = {
-            "a": Counter({"alpha": 2, "beta": 2}),
-            "b": Counter({"alpha": 2, "beta": 2}),
-        }
-        pairs, _ = self.bm.tfidf_pairwise_and_isolation(vocabs)
-        self.assertEqual(len(pairs), 1)
-        self.assertIn("score", pairs[0])
-        self.assertNotIn("jaccard", pairs[0])
-
-    def test_isolation_uses_mean_similarity_field(self):
-        vocabs = {
-            "x": Counter({"alpha": 1}),
-            "y": Counter({"beta": 1}),
-            "z": Counter({"gamma": 1}),
-        }
-        _, iso = self.bm.tfidf_pairwise_and_isolation(vocabs)
-        for r in iso:
-            self.assertIn("mean_similarity", r)
-            self.assertNotIn("mean_jaccard", r)
-
-    def test_frequency_weighted_unlike_jaccard(self):
-        # Two buckets share token "war" but with very different frequencies.
-        # Jaccard sees them as 100% identical (set match); TF-IDF cosine
-        # accounts for frequency.
-        vocabs = {
-            "a": Counter({"war": 100, "peace": 1}),
-            "b": Counter({"war": 1, "peace": 100}),
-        }
-        pairs_jacc, _ = self.bm.jaccard_legacy(vocabs)
-        pairs_tfidf, _ = self.bm.tfidf_pairwise_and_isolation(vocabs)
-        # Jaccard treats them as identical (1.0)
-        self.assertEqual(pairs_jacc[0]["jaccard"], 1.0)
-        # TF-IDF cosine sees frequency divergence — should be < 1.0
-        self.assertLess(pairs_tfidf[0]["score"], 1.0)
 
 
 class TestLaBSEGracefulSkip(unittest.TestCase):

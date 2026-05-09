@@ -14,8 +14,7 @@ This module is the **third-tier fallback**, called from
 Latency: CC-NEWS has a 1–2 week ingestion lag, so this fallback only helps
 articles older than that. The daily pipeline still misses today's
 paywalled coverage — that's a coverage limitation documented in
-`docs/COVERAGE.md`, not a bug. Retroactive replays
-(`python -m analytical.translate --date <past_date>` or running
+`docs/COVERAGE.md`, not a bug. Retroactive replays (running
 `build_metrics` against historical briefings) DO benefit.
 
 Network deps: `requests` (already in requirements.txt) plus `warcio` for

@@ -37,7 +37,7 @@
       "type": "array",
       "minItems": 2,
       "maxItems": 12,
-      "description": "Frames identified in the corpus. The `frame_id` is drawn from the closed Boydstun/Card codebook (frames_codebook.json) so longitudinal aggregation is possible. The optional `sub_frame` and `description` preserve story-specific color.",
+      "description": "Frames identified in the corpus. `frame_id` is drawn from the closed Boydstun/Card codebook (frames_codebook.json) so longitudinal aggregation is possible. `sub_frame` is an optional short tag for story-specific color (1-3 words, no full sentences).",
       "items": {
         "type": "object",
         "required": ["frame_id", "buckets", "evidence"],
@@ -67,17 +67,8 @@
           "sub_frame": {
             "type": "string",
             "minLength": 2,
-            "maxLength": 80,
-            "description": "Optional story-specific sub-frame label (e.g. 'energy contagion', 'sovereign reputation'). Human-readable; not used for longitudinal aggregation."
-          },
-          "label": {
-            "type": "string",
-            "maxLength": 80,
-            "description": "Deprecated free-form label, retained for renderer compatibility. Pre-4.0.0 analyses populated this with a story-specific string; 4.0.0+ analyses should use frame_id + sub_frame instead."
-          },
-          "description": {
-            "type": "string",
-            "description": "One-sentence interpretation of what this frame means in this story."
+            "maxLength": 40,
+            "description": "Optional short tag (1-3 words, no full sentences) for story-specific color, e.g. 'energy contagion', 'sovereign reputation'. Human-readable; not used for longitudinal aggregation."
           },
           "buckets": {
             "type": "array",
@@ -114,7 +105,7 @@
     "isolation_top": {
       "type": "array",
       "maxItems": 8,
-      "description": "Top-N most isolated buckets, copied verbatim from metrics.json. As of meta_version 5.0.0 the primary metric is TF-IDF cosine (`mean_similarity`); `mean_jaccard_legacy` is optional for diff-runs against pre-5.0.0 artifacts.",
+      "description": "Top-N most isolated buckets, copied verbatim from metrics.json. As of meta_version 7.0.0 the primary metric is LaBSE bucket-mean cosine on original signal_text (`mean_similarity`).",
       "items": {
         "type": "object",
         "required": ["bucket", "mean_similarity"],
@@ -123,19 +114,11 @@
           "bucket": { "type": "string" },
           "mean_similarity": {
             "type": "number",
-            "description": "TF-IDF cosine mean from metrics.isolation."
-          },
-          "mean_jaccard_legacy": {
-            "type": "number",
-            "description": "Optional: legacy token-set Jaccard mean for diff-runs."
-          },
-          "mean_embedding_similarity": {
-            "type": "number",
-            "description": "Optional: parallel LaBSE embedding cosine mean."
+            "description": "LaBSE bucket-mean cosine from metrics.isolation."
           },
           "note": {
             "type": "string",
-            "description": "One-line interpretation; flag any divergence between lexical and embedding isolation."
+            "description": "One-line interpretation. Flag suspected language confounding when lexical highlights look like language artefacts."
           }
         }
       }

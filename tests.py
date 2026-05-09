@@ -517,7 +517,7 @@ class TestSitemapFallback(unittest.TestCase):
 
 
 class TestBuildMetrics(unittest.TestCase):
-    """build_metrics.py: pairwise Jaccard, isolation, bucket-exclusive vocab."""
+    """build_metrics.py: LaBSE pairwise similarity, isolation, bucket-exclusive vocab."""
 
     def setUp(self):
         if "analytical.build_metrics" in sys.modules:
@@ -551,46 +551,6 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertIn("brown", toks)
         self.assertIn("moon", toks)
 
-    def test_jaccard_legacy_symmetric_and_bounded(self):
-        # Legacy Jaccard is exposed via _jaccard (kept private as of 5.0.0;
-        # primary similarity is TF-IDF cosine, see test_tfidf_*).
-        a = self.Counter({"alpha": 2, "beta": 1, "gamma": 1})
-        b = self.Counter({"beta": 1, "gamma": 1, "delta": 1})
-        j = self.bm._jaccard(a, b)
-        self.assertEqual(j, self.bm._jaccard(b, a))
-        self.assertGreaterEqual(j, 0.0)
-        self.assertLessEqual(j, 1.0)
-        # 2 shared / 4 total = 0.5
-        self.assertAlmostEqual(j, 0.5)
-
-    def test_jaccard_legacy_returns_pairs_and_isolation(self):
-        vocabs = {
-            "x": self.Counter({"alpha": 1, "beta": 1}),
-            "y": self.Counter({"alpha": 1, "beta": 1}),  # identical to x
-            "z": self.Counter({"gamma": 1}),  # disjoint
-        }
-        pairs, iso = self.bm.jaccard_legacy(vocabs)
-        self.assertEqual(len(pairs), 3)
-        self.assertEqual(pairs[0]["jaccard"], 1.0)  # x<>y
-        self.assertEqual(pairs[-1]["jaccard"], 0.0)  # one of the disjoint pairs
-        self.assertEqual(iso[0]["bucket"], "z")  # most isolated
-
-    def test_tfidf_pairwise_and_isolation(self):
-        vocabs = {
-            "x": self.Counter({"alpha": 2, "beta": 2}),
-            "y": self.Counter({"alpha": 2, "beta": 2}),  # identical to x
-            "z": self.Counter({"gamma": 3}),  # disjoint
-        }
-        pairs, iso = self.bm.tfidf_pairwise_and_isolation(vocabs)
-        # x ~ y should be highest (frequencies match)
-        self.assertEqual(pairs[0]["a"], "x")
-        self.assertEqual(pairs[0]["b"], "y")
-        # z should be most isolated (no shared vocab)
-        self.assertEqual(iso[0]["bucket"], "z")
-        # All bucket isolation entries should have mean_similarity field
-        for r in iso:
-            self.assertIn("mean_similarity", r)
-
     def test_bucket_exclusive_requires_df_one_and_min_count(self):
         vocabs = {
             "a": self.Counter({"shared": 5, "only_a": 4, "rare_a": 2}),
@@ -604,21 +564,6 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertNotIn("shared", a_terms)     # df=2
         self.assertIn("only_b", b_terms)
 
-    def test_isolation_mean_similarity_legacy_and_primary(self):
-        vocabs = {
-            "a": self.Counter({"x": 1, "y": 1}),       # identical to b
-            "b": self.Counter({"x": 1, "y": 1}),
-            "c": self.Counter({"z": 1}),                # disjoint from both
-        }
-        # Legacy Jaccard isolation
-        _, iso_legacy = self.bm.jaccard_legacy(vocabs)
-        self.assertEqual(iso_legacy[0]["bucket"], "c")
-        self.assertEqual(iso_legacy[0]["mean_jaccard"], 0.0)
-        # Primary TF-IDF cosine isolation
-        _, iso = self.bm.tfidf_pairwise_and_isolation(vocabs)
-        self.assertEqual(iso[0]["bucket"], "c")
-        self.assertIn("mean_similarity", iso[0])
-
     def test_build_metrics_against_real_briefing(self):
         path = ROOT / "briefings" / "2026-05-06_hormuz_iran.json"
         if not path.exists():
@@ -628,24 +573,22 @@ class TestBuildMetrics(unittest.TestCase):
         # Structural assertions (not numeric — let the data drift).
         self.assertEqual(m["story_key"], "hormuz_iran")
         self.assertGreaterEqual(m["n_buckets"], 1)
-        # Primary similarity is TF-IDF cosine.
-        if m["n_buckets"] >= 2:
+        # Primary similarity is LaBSE cosine. If sentence-transformers
+        # isn't installed in the test env, build_metrics returns empty
+        # pairs/isolation with embedding_status.skipped=True; skip the
+        # numeric assertions in that case.
+        if m["n_buckets"] >= 2 and not m.get("embedding_status", {}).get("skipped"):
             expected_pairs = m["n_buckets"] * (m["n_buckets"] - 1) // 2
             self.assertEqual(len(m["pairwise_similarity"]), expected_pairs)
-            # Top pair must have higher score than bottom pair.
             self.assertGreaterEqual(
                 m["pairwise_similarity"][0]["score"],
                 m["pairwise_similarity"][-1]["score"],
             )
-            # Isolation (primary) must be sorted ascending.
             iso = m["isolation"]
             for i in range(len(iso) - 1):
                 self.assertLessEqual(
                     iso[i]["mean_similarity"], iso[i + 1]["mean_similarity"]
                 )
-            # Legacy Jaccard kept for diff-runs.
-            self.assertEqual(len(m["pairwise_jaccard_legacy"]), expected_pairs)
-            self.assertIn("mean_jaccard", m["isolation_jaccard_legacy"][0])
         # Saudi Arabia's "sisi" / "egypt" exclusive vocab from the exemplar
         # should reproduce on this fixed corpus.
         saudi_terms = {e["term"] for e in m["bucket_exclusive_vocab"].get("saudi_arabia", [])}
@@ -724,11 +667,10 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
             "tldr": "A test analysis with three sentences. Six buckets carry two distinct frames. No paradox detected in this corpus.",
             "frames": [
                 {"frame_id": "ECONOMIC", "sub_frame": "energy contagion",
-                 "label": "FRAME_A", "description": "First frame.",
                  "buckets": ["italy", "usa"],
                  "evidence": [{"bucket": "italy", "outlet": "ANSA",
                                "quote": "guerra accordo", "signal_text_idx": 0}]},
-                {"frame_id": "SECURITY_DEFENSE", "label": "FRAME_B",
+                {"frame_id": "SECURITY_DEFENSE",
                  "buckets": ["china", "japan"],
                  "evidence": [{"bucket": "china", "quote": "blockade", "signal_text_idx": 4}]},
             ],
@@ -788,7 +730,8 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("**Date:** 2026-05-08", md)
         self.assertIn("## TL;DR", md)
         self.assertIn("## Frames (2)", md)
-        self.assertIn("### FRAME_A", md)
+        self.assertIn("### ECONOMIC — energy contagion", md)
+        self.assertIn("### SECURITY_DEFENSE", md)
         self.assertIn("## Most isolated buckets", md)
         self.assertIn("## Bucket-exclusive vocabulary", md)
         self.assertIn("## Paradox", md)
@@ -962,7 +905,7 @@ class TestValidateAnalysis(unittest.TestCase):
             "n_articles": self.metrics["n_articles"],
             "tldr": "A clean analysis with multiple complete sentences. The corpus has 41 articles. The pin is 1.3.0.",
             "frames": [
-                {"frame_id": "ECONOMIC", "label": "FRAME_A",
+                {"frame_id": "ECONOMIC",
                  "buckets": [first_bucket],
                  "evidence": [{
                      "bucket": first_bucket,
@@ -970,7 +913,7 @@ class TestValidateAnalysis(unittest.TestCase):
                      "quote": first_text[:60].strip(),
                      "signal_text_idx": 0,
                  }]},
-                {"frame_id": "SECURITY_DEFENSE", "label": "FRAME_B",
+                {"frame_id": "SECURITY_DEFENSE",
                  "buckets": ["other"],
                  "evidence": [{
                      "bucket": self.briefing["corpus"][1]["bucket"],

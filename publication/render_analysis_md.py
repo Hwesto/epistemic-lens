@@ -53,11 +53,11 @@ def render(a: dict) -> str:
     out.append(f"## Frames ({len(a['frames'])})")
     out.append("")
     for f in a["frames"]:
-        out.append(f"### {f['label']}")
+        heading = f.get("frame_id") or f.get("label") or "UNLABELED"
+        if f.get("sub_frame"):
+            heading = f"{heading} — {f['sub_frame']}"
+        out.append(f"### {heading}")
         out.append("")
-        if f.get("description"):
-            out.append(f"_{f['description']}_")
-            out.append("")
         out.append(f"**Buckets:** {', '.join(f'`{b}`' for b in f['buckets'])}")
         out.append("")
         for ev in f["evidence"]:
@@ -73,15 +73,12 @@ def render(a: dict) -> str:
     if a.get("isolation_top"):
         out.append("## Most isolated buckets")
         out.append("")
-        out.append("| Bucket | mean_similarity | LaBSE | Note |")
-        out.append("| --- | --- | --- | --- |")
+        out.append("| Bucket | mean_similarity | Note |")
+        out.append("| --- | --- | --- |")
         for r in a["isolation_top"]:
-            score = r.get("mean_similarity")
-            if score is None:  # pre-5.0.0 artifact compat
-                score = r.get("mean_jaccard", "")
-            emb = r.get("mean_embedding_similarity", "")
+            score = r.get("mean_similarity", "")
             note = r.get("note", "")
-            out.append(f"| `{r['bucket']}` | {score} | {emb} | {note} |")
+            out.append(f"| `{r['bucket']}` | {score} | {note} |")
         out.append("")
 
     # Exclusive vocab

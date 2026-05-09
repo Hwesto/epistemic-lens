@@ -36,7 +36,6 @@ META_PATH = ROOT / "meta_version.json"
 STOPWORDS_PATH = ROOT / "stopwords.txt"
 CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
 FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
-CANARY_PROMPTS_PATH = ROOT / "canary" / "prompts.json"
 BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
 BUCKET_WEIGHTS_PATH = ROOT / "bucket_weights.json"
 FEEDS_PATH = ROOT / "feeds.json"
@@ -85,30 +84,6 @@ INGEST = META["ingest"]
 SIGNAL_TEXT = META["signal_text"]
 CLAUDE = META["claude"]
 FEEDS_META = META["feeds"]
-TRANSLATION = META.get("translation", {})
-
-
-def effective_text(article: dict) -> str:
-    """Pivot-language body for an article. Falls back to original signal_text.
-
-    Used by analytical/build_metrics.py so cross-bucket lexical metrics are
-    computed in a single pivot vocabulary. Articles without a translation
-    (English passthrough, or translation step skipped) fall through to the
-    original signal_text — metrics remain computable, just confounded by
-    language for those entries.
-    """
-    en = article.get("signal_text_en")
-    if en:
-        return en
-    return article.get("signal_text") or ""
-
-
-def effective_title(article: dict) -> str:
-    """Pivot-language title with fallback to original."""
-    en = article.get("title_en")
-    if en:
-        return en
-    return article.get("title") or ""
 
 
 @lru_cache(maxsize=1)
@@ -242,12 +217,6 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = file_hash(FRAMES_CODEBOOK_PATH)
         if declared != actual:
             drift["frames_codebook"] = (declared, actual)
-
-    declared = META.get("canary_prompts_hash")
-    if declared and CANARY_PROMPTS_PATH.exists():
-        actual = file_hash(CANARY_PROMPTS_PATH)
-        if declared != actual:
-            drift["canary_prompts"] = (declared, actual)
 
     declared = META.get("bucket_quality_hash")
     if declared and BUCKET_QUALITY_PATH.exists():

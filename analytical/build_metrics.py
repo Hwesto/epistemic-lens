@@ -5,26 +5,23 @@ containing pairwise similarity, per-bucket isolation, and bucket-exclusive
 vocabulary. The Claude analysis pass uses these numbers verbatim so it doesn't
 fabricate counts or correlations.
 
-Three similarity layers as of meta_version 5.0.0:
+Cross-bucket similarity is **LaBSE bucket-mean cosine on original
+signal_text**. LaBSE is multilingual by construction (16+ languages share an
+embedding space), so cross-lingual coverage no longer needs a translation
+pivot — the original prose carries through. Surfaced as `pairwise_similarity`
+and `isolation` with `mean_similarity` per bucket.
 
-  1. **TF-IDF cosine** (primary). Frequency-weighted, length-normalized
-     vocabulary similarity over the English-pivot text (`signal_text_en` /
-     `title_en`). Replaces token-set Jaccard as the canonical metric — sets
-     ignored frequency, which the red-team report flagged as Flaw F15.
-  2. **Jaccard legacy** (kept). Same set-intersection-over-union as pre-5.0.0
-     for diff-run continuity. Surfaced as `pairwise_jaccard_legacy` and
-     `isolation_jaccard_legacy`. Will be removed in 6.0.0.
-  3. **LaBSE embedding cosine** (parallel). Cross-lingual sentence-embedding
-     similarity over the ORIGINAL `signal_text` (not translated — LaBSE is
-     cross-lingual by design). When the lexical and semantic layers diverge
-     for a bucket pair, the corpus is doing something non-obvious. Optional
-     dependency: gracefully skipped if sentence-transformers / model isn't
-     available.
+Bucket-exclusive vocabulary is computed on the same original text via the
+pinned regex tokenizer + multilingual stopwords union. It surfaces tokens
+that appear in only one bucket; with raw-original input, this is biased
+toward language-specific vocabulary (e.g. French-only buckets surface French
+tokens), so the analyzer is instructed to flag language confounding when it
+appears.
 
-Buckets at tier `EXCLUDE_QUANT` in `bucket_quality.json` are dropped from all
-three layers. They still appear in the briefing for narrative coverage; the
+Buckets at tier `EXCLUDE_QUANT` in `bucket_quality.json` are dropped from
+both layers. They still appear in the briefing for narrative coverage; the
 metrics layer just ignores them so stub-only aggregator buckets (Reuters via
-Google News, China Global Times) don't poison Jaccard/cosine numbers with
+Google News, China Global Times) don't poison cosine numbers with
 title-only statistics.
 
 Usage:
@@ -58,8 +55,7 @@ def tokens_from_text(text: str) -> Counter:
 def bucket_vocabularies(corpus: list[dict]) -> dict[str, Counter]:
     """Concat all title+signal_text per bucket → token Counter.
 
-    Reads pivot-language fields (`title_en`, `signal_text_en`) when available
-    via meta.effective_title / meta.effective_text. Buckets at tier
+    Operates on ORIGINAL text (no translation pivot). Buckets at tier
     EXCLUDE_QUANT are dropped entirely (see bucket_quality.json).
     """
     by_bucket: dict[str, list[str]] = defaultdict(list)
@@ -69,13 +65,13 @@ def bucket_vocabularies(corpus: list[dict]) -> dict[str, Counter]:
             continue
         if meta.is_quant_excluded(b):
             continue
-        text = meta.effective_title(art) + "\n" + meta.effective_text(art)
+        text = (art.get("title") or "") + "\n" + (art.get("signal_text") or "")
         by_bucket[b].append(text)
     return {b: tokens_from_text("\n".join(parts)) for b, parts in by_bucket.items()}
 
 
 def bucket_original_texts(corpus: list[dict]) -> dict[str, list[str]]:
-    """For LaBSE: per-bucket list of ORIGINAL signal_text (not translated)."""
+    """For LaBSE: per-bucket list of original signal_text."""
     by_bucket: dict[str, list[str]] = defaultdict(list)
     for art in corpus:
         b = art.get("bucket", "")
@@ -90,95 +86,11 @@ def bucket_original_texts(corpus: list[dict]) -> dict[str, list[str]]:
 
 
 # ---------------------------------------------------------------------------
-# TF-IDF cosine (primary)
-# ---------------------------------------------------------------------------
-def tfidf_pairwise_and_isolation(
-    vocabs: dict[str, Counter],
-) -> tuple[list[dict], list[dict]]:
-    """Compute pairwise TF-IDF cosine and per-bucket mean (isolation)."""
-    if len(vocabs) < 2:
-        return [], []
-    try:
-        from sklearn.feature_extraction.text import TfidfVectorizer
-        from sklearn.metrics.pairwise import cosine_similarity
-    except ImportError:
-        return [], []
-
-    buckets = sorted(vocabs)
-    docs = [" ".join(vocabs[b].elements()) for b in buckets]
-    if not any(d.strip() for d in docs):
-        return [], []
-
-    vectorizer = TfidfVectorizer(min_df=1, lowercase=False, token_pattern=r"\S+")
-    X = vectorizer.fit_transform(docs)
-    sim = cosine_similarity(X)
-
-    pairs: list[dict] = []
-    for i, a in enumerate(buckets):
-        for j in range(i + 1, len(buckets)):
-            pairs.append(
-                {"a": a, "b": buckets[j], "score": round(float(sim[i, j]), 3)}
-            )
-    pairs.sort(key=lambda r: -r["score"])
-
-    isolation: list[dict] = []
-    for i, b in enumerate(buckets):
-        others = [sim[i, j] for j in range(len(buckets)) if j != i]
-        if others:
-            isolation.append(
-                {"bucket": b, "mean_similarity": round(float(sum(others) / len(others)), 3)}
-            )
-    isolation.sort(key=lambda r: r["mean_similarity"])
-    return pairs, isolation
-
-
-# ---------------------------------------------------------------------------
-# Jaccard legacy (kept for diff-runs)
-# ---------------------------------------------------------------------------
-def _jaccard(a: Counter, b: Counter) -> float:
-    sa, sb = set(a), set(b)
-    if not sa and not sb:
-        return 0.0
-    return len(sa & sb) / len(sa | sb)
-
-
-def jaccard_legacy(
-    vocabs: dict[str, Counter],
-) -> tuple[list[dict], list[dict]]:
-    if len(vocabs) < 2:
-        return [], []
-    buckets = sorted(vocabs)
-    pairs: list[dict] = []
-    for i, a in enumerate(buckets):
-        for j in range(i + 1, len(buckets)):
-            pairs.append(
-                {"a": a, "b": buckets[j], "jaccard": round(_jaccard(vocabs[a], vocabs[buckets[j]]), 3)}
-            )
-    pairs.sort(key=lambda r: -r["jaccard"])
-
-    sums: dict[str, float] = defaultdict(float)
-    counts: dict[str, int] = defaultdict(int)
-    for p in pairs:
-        sums[p["a"]] += p["jaccard"]
-        counts[p["a"]] += 1
-        sums[p["b"]] += p["jaccard"]
-        counts[p["b"]] += 1
-    isolation: list[dict] = []
-    for b in buckets:
-        if counts[b]:
-            isolation.append(
-                {"bucket": b, "mean_jaccard": round(sums[b] / counts[b], 3)}
-            )
-    isolation.sort(key=lambda r: r["mean_jaccard"])
-    return pairs, isolation
-
-
-# ---------------------------------------------------------------------------
-# LaBSE parallel (semantic, cross-lingual on originals)
+# LaBSE cosine (primary, cross-lingual on originals)
 # ---------------------------------------------------------------------------
 def labse_pairwise_and_isolation(
     by_bucket: dict[str, list[str]],
-) -> tuple[list[dict], list[dict], dict | None]:
+) -> tuple[list[dict], list[dict], dict]:
     """Returns (pairs, isolation, status). status carries reason if skipped."""
     if len(by_bucket) < 2:
         return [], [], {"skipped": True, "reason": "fewer than 2 buckets"}
@@ -190,7 +102,7 @@ def labse_pairwise_and_isolation(
         return [], [], {"skipped": True, "reason": "sentence-transformers/numpy unavailable"}
 
     model_id = (
-        meta.METRICS.get("embedding_parallel", {}).get("model")
+        meta.METRICS.get("primary_similarity_model")
         or "sentence-transformers/LaBSE"
     )
     try:
@@ -221,9 +133,9 @@ def labse_pairwise_and_isolation(
     for i, a in enumerate(buckets):
         for j in range(i + 1, len(buckets)):
             pairs.append(
-                {"a": a, "b": buckets[j], "embedding_score": round(float(sim[i, j]), 3)}
+                {"a": a, "b": buckets[j], "score": round(float(sim[i, j]), 3)}
             )
-    pairs.sort(key=lambda r: -r["embedding_score"])
+    pairs.sort(key=lambda r: -r["score"])
 
     isolation: list[dict] = []
     for i, b in enumerate(buckets):
@@ -232,10 +144,10 @@ def labse_pairwise_and_isolation(
             isolation.append(
                 {
                     "bucket": b,
-                    "mean_embedding_similarity": round(float(sum(others) / len(others)), 3),
+                    "mean_similarity": round(float(sum(others) / len(others)), 3),
                 }
             )
-    isolation.sort(key=lambda r: r["mean_embedding_similarity"])
+    isolation.sort(key=lambda r: r["mean_similarity"])
     return pairs, isolation, {"skipped": False, "model": model_id}
 
 
@@ -363,9 +275,7 @@ def build_metrics(briefing: dict) -> dict:
     by_bucket_orig = bucket_original_texts(corpus)
     buckets = sorted(vocabs)
 
-    pairs_tfidf, iso_tfidf = tfidf_pairwise_and_isolation(vocabs)
-    pairs_jaccard_legacy, iso_jaccard_legacy = jaccard_legacy(vocabs)
-    pairs_labse, iso_labse, labse_status = labse_pairwise_and_isolation(by_bucket_orig)
+    pairs, isolation, labse_status = labse_pairwise_and_isolation(by_bucket_orig)
 
     excluded = sorted(
         b for b in {a.get("bucket", "") for a in corpus}
@@ -381,26 +291,20 @@ def build_metrics(briefing: dict) -> dict:
         "buckets": buckets,
         "buckets_excluded_quant": excluded,
         "bucket_token_counts": bucket_sizes(vocabs),
-        "pairwise_similarity": pairs_tfidf,
-        "isolation": iso_tfidf,
-        "pairwise_jaccard_legacy": pairs_jaccard_legacy,
-        "isolation_jaccard_legacy": iso_jaccard_legacy,
-        "pairwise_embedding_similarity": pairs_labse,
-        "isolation_embedding": iso_labse,
+        "pairwise_similarity": pairs,
+        "isolation": isolation,
         "embedding_status": labse_status,
         "bucket_exclusive_vocab": bucket_exclusive_vocab(vocabs),
         "method": (
-            "primary: TF-IDF cosine over per-bucket pivot-language token "
-            "concatenations (sklearn TfidfVectorizer, min_df=1). "
-            "Tokeniser: meta.tokenize via "
-            f"{meta.TOKENIZER['regex']!r}, len>={meta.TOKENIZER['min_token_length']}, "
-            "stopword-filtered, plural normalization. "
-            "Bucket-exclusive: doc_freq<="
-            f"{meta.METRICS['exclusive_vocab_max_doc_freq']}, count>="
-            f"{meta.METRICS['exclusive_vocab_min_count']}. "
-            "Parallel: LaBSE bucket-mean cosine on ORIGINAL signal_text "
+            "Primary: LaBSE bucket-mean cosine on original signal_text "
             "(cross-lingual; skipped gracefully if model unavailable). "
-            "Legacy: token-set Jaccard kept for diff-runs."
+            "Bucket-exclusive: tokens with doc_freq<="
+            f"{meta.METRICS['exclusive_vocab_max_doc_freq']} and count>="
+            f"{meta.METRICS['exclusive_vocab_min_count']}, "
+            "tokenizer=meta.tokenize via "
+            f"{meta.TOKENIZER['regex']!r}, len>={meta.TOKENIZER['min_token_length']}, "
+            "stopword-filtered, plural normalization. Operates on raw "
+            "originals; analyzer flags language confounding."
         ),
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
@@ -418,11 +322,8 @@ def process_one(briefing_path: Path) -> Path:
     metrics = build_metrics(briefing)
     out = metrics_path_for(briefing_path)
     out.write_text(json.dumps(metrics, indent=2, ensure_ascii=False))
-    embedding = metrics["embedding_status"]
-    embedding_summary = (
-        "labse=skipped" if embedding.get("skipped")
-        else "labse=ok"
-    )
+    status = metrics["embedding_status"]
+    status_summary = "labse=skipped" if status.get("skipped") else "labse=ok"
     excluded_summary = (
         f"excluded={len(metrics['buckets_excluded_quant'])}"
         if metrics['buckets_excluded_quant'] else ""
@@ -431,7 +332,7 @@ def process_one(briefing_path: Path) -> Path:
         f"  + {briefing_path.name:<48} "
         f"{metrics['n_buckets']:>2} buckets, "
         f"{len(metrics['pairwise_similarity']):>4} pairs "
-        f"{embedding_summary} {excluded_summary} -> {out.name}".rstrip()
+        f"{status_summary} {excluded_summary} -> {out.name}".rstrip()
     )
     return out
 
