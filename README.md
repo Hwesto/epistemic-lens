@@ -2,7 +2,7 @@
 
 **Daily, automated, source-transparent cross-country news framing analysis.**
 
-> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages, 6 continents) → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (LaBSE cosine, isolation, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
+> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages, 6 continents) → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (LaBSE cosine, divergence, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
 
 **Live front door:** [hwesto.github.io/epistemic-lens](https://hwesto.github.io/epistemic-lens/)
 
@@ -40,7 +40,7 @@ For each story (currently 3–5/day):
 ```
 hwesto.github.io/epistemic-lens/<DATE>/<story_key>/
   briefing.json     ← per-bucket corpus (full bodies, dedup'd)
-  metrics.json      ← LaBSE cosine, isolation, bucket-exclusive vocab
+  metrics.json      ← LaBSE cosine, divergence, bucket-exclusive vocab
   analysis.json     ← canonical structured analysis (schema-validated)
   analysis.md       ← rendered for human reading
   thread.json       ← X/Threads draft (template, no LLM)
@@ -134,7 +134,7 @@ epistemic-lens/
 │
 ├── analytical/                ← ANALYTICAL concern
 │   ├── build_briefing.py      ← per-story corpus assembler
-│   ├── build_metrics.py       ← LaBSE cosine + isolation + exclusive vocab
+│   ├── build_metrics.py       ← LaBSE cosine + divergence + exclusive vocab
 │   ├── validate_analysis.py   ← schema + citation + number reconciliation
 │   └── restamp_analyses.py    ← refresh meta_version on agent JSON output
 │
@@ -200,4 +200,13 @@ epistemic-lens/
 | meta-v1.2.0 | May 2026 | Phase 1: JSON-first analyses + render_analysis_md.py + archive HORMUZ exemplar |
 | meta-v1.3.0 | May 2026 | Phase 3: template-based thread + carousel drafts; long-form → Sonnet |
 | meta-v1.4.0 | May 2026 | Phase 4: editorial validator (citation grounding + number reconciliation) |
-| **meta-v1.4.1** | **May 2026** | **Current. Bug-fix on meta_version stamping, full end-to-end pipeline green.** |
+| meta-v1.4.1 | May 2026 | Bug-fix on meta_version stamping, full end-to-end pipeline green |
+| meta-v2.0.0 | May 2026 | Analyze model bump (haiku → sonnet) |
+| meta-v2.0.1 | May 2026 | Production-ready directory restructure (`pipeline/` + `analytical/` + `publication/`) |
+| meta-v3.0.0 | May 2026 | Phase A: translate-to-English pivot for cross-lingual metrics |
+| meta-v4.0.0 | May 2026 | Phase B: codebook + multi-LLM ensemble + Krippendorff α gate + canary + retest CI |
+| meta-v5.0.0 | May 2026 | Phase A residuals: TF-IDF cosine + LaBSE parallel + bucket-quality tiers + Unicode tokenizer |
+| meta-v6.0.0 | May 2026 | Phase C: HDBSCAN clustering + bucket weights + dossier patterns + CommonCrawl fallback + sitemap audit |
+| meta-v7.0.0 | May 2026 | Phase D simplification: drop translate + ensemble + Krippendorff + daily canary; LaBSE primary on originals; restore $0/mo daily run |
+| meta-v7.0.1 | May 2026 | Phase 0 close-out: sync v7.0.0 metric rename (LaBSE cosine, not Jaccard) across docs + web + prompts; fix `mean_jaccard` read in `web/app.js` |
+| **meta-v7.1.0** | **May 2026** | **Current. Phase 1: section tagging (per-feed + URL-pattern), bootstrap CIs on weighted frame share, weighted view in renderer, cross-day dedup state (30-day rolling), coverage matrix product, longitudinal aggregator (per-story trajectories with continuity flags), trajectory + coverage web views.** |

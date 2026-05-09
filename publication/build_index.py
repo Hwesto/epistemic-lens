@@ -46,6 +46,8 @@ ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
 ANALYSES = ROOT / "analyses"
 DRAFTS = ROOT / "drafts"
+COVERAGE = ROOT / "coverage"
+TRAJECTORY = ROOT / "trajectory"
 SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
 WEB_SRC = ROOT / "web"
 API = ROOT / "api"
@@ -221,6 +223,62 @@ def copy_schemas() -> None:
         shutil.copy2(p, dst / p.name)
 
 
+def copy_coverage() -> dict[str, str]:
+    """Copy every `coverage/<DATE>.json` into `api/coverage/`. Phase 1.
+    Returns {date: api_path} for inclusion in latest.json."""
+    out: dict[str, str] = {}
+    if not COVERAGE.is_dir():
+        return out
+    dst = API / "coverage"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in COVERAGE.glob("*.json"):
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})$", p.stem)
+        if not m:
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[m.group(1)] = f"/coverage/{p.name}"
+    # Index of all available coverage dates
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of available daily coverage matrices.",
+            "n_dates": len(out),
+            "dates": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_trajectories() -> dict[str, str]:
+    """Copy every `trajectory/<story>.json` into `api/trajectory/`. Phase 1.
+    Returns {story_key: api_path} for inclusion in latest.json."""
+    out: dict[str, str] = {}
+    if not TRAJECTORY.is_dir():
+        return out
+    dst = API / "trajectory"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in TRAJECTORY.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/trajectory/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of per-story longitudinal trajectories.",
+            "n_stories": len(out),
+            "story_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
 def copy_web() -> None:
     """Copy web/ assets (index.html, styles.css, app.js) into api/.
 
@@ -275,25 +333,38 @@ def main() -> int:
 
     copy_schemas()
     copy_web()
+    coverage_paths = copy_coverage()
+    trajectory_paths = copy_trajectories()
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
         latest = all_built[-1] if all_built else latest_built
         latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
+        latest_payload = {
+            "date": latest,
+            "url": f"/{latest}/index.json",
+            "n_stories": latest_idx["n_stories"],
+            "generated_at": latest_idx["generated_at"],
+        }
+        # Phase 1: surface trajectory + coverage paths so the frontend can
+        # reach them from latest.json without re-walking the api/ tree.
+        if trajectory_paths:
+            latest_payload["trajectory_paths"] = trajectory_paths
+            latest_payload["trajectory_index"] = "/trajectory/index.json"
+        if latest in coverage_paths:
+            latest_payload["coverage_path"] = coverage_paths[latest]
+        if coverage_paths:
+            latest_payload["coverage_index"] = "/coverage/index.json"
         (API / "latest.json").write_text(
-            json.dumps(
-                meta.stamp({
-                    "date": latest,
-                    "url": f"/{latest}/index.json",
-                    "n_stories": latest_idx["n_stories"],
-                    "generated_at": latest_idx["generated_at"],
-                }),
-                indent=2,
-            ),
+            json.dumps(meta.stamp(latest_payload), indent=2),
             encoding="utf-8",
         )
 
     print(f"\nBuilt {n_total} stories across {len(dates)} dates → api/")
+    if coverage_paths:
+        print(f"  + {len(coverage_paths)} coverage matrices → api/coverage/")
+    if trajectory_paths:
+        print(f"  + {len(trajectory_paths)} trajectories → api/trajectory/")
     return 0
 
 

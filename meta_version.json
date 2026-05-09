@@ -1,13 +1,13 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "7.0.1",
-  "pinned_at": "2026-05-09T16:50:31Z",
-  "pin_reason": "Phase 0 close-out: sync downstream prompts/docs/web/quality-tier text with v7.0.0 metric rename (LaBSE cosine, not Jaccard); fix mean_jaccard read in web/app.js.",
+  "meta_version": "7.1.0",
+  "pinned_at": "2026-05-09T17:24:45Z",
+  "pin_reason": "Phase 1: section tagging (per-feed + URL-pattern), bootstrap CIs on weighted_frame_distribution, weighted view in renderer, cross-day dedup state, coverage matrix product (pipeline/coverage_matrix.py + cron), longitudinal aggregator (analytical/longitudinal.py + cron), trajectory+coverage views in web frontend, build_index publishes /coverage and /trajectory under api/. Forward-compatible: new artefacts, no formula change to LaBSE primary similarity.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
     "n_buckets": 54,
-    "hash": "sha256:cf28ecf6a5455a65b219b38c0c43f297a4edd5f696d509b08d065bf0bef428a7"
+    "hash": "sha256:a78323a84625d2f0f4e6fe1b990eddc848ebf168c19b5bd79294c352d1b2227c"
   },
   "tokenizer": {
     "_doc": "Unicode-aware tokenizer via the `regex` library. \\p{L} matches any Unicode letter so diacritics in any script (e.g. 'México', 'résumé', 'göteborg') are preserved as single tokens. Lower bound 4 chars stabilises minimum vocabulary size. Operates on the original signal_text in its source language; the multilingual stopwords union (NLTK + spaCy) filters function words across the languages we ingest. Used for bucket-exclusive vocabulary; cross-bucket similarity is LaBSE (see metrics).",

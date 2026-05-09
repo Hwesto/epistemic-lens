@@ -60,6 +60,40 @@ _host_lock = threading.Lock()
 _host_last_fetch: dict[str, float] = {}
 
 
+# URL path patterns that signal an opinion/commentary item even when the
+# feed itself is tagged section=news. Phase 1 introduces this to filter
+# opinion contamination from frame distributions while still surfacing
+# opinion coverage in `frames_opinion_only`.
+OPINION_URL_PATTERNS = (
+    "/opinion/", "/opinions/",
+    "/editorial/", "/editorials/",
+    "/op-ed/", "/op-eds/", "/oped/",
+    "/leader/", "/leaders/",
+    "/commentary/", "/comment/",
+    "/columnist/", "/columnists/", "/column/",
+    "/blog/", "/blogs/",
+)
+
+
+def infer_section(url: str, feed_section: str = "news") -> str:
+    """Return 'opinion' if URL path matches an opinion pattern, else feed_section.
+
+    URL pattern set (case-insensitive substring on the path component):
+      /opinion/, /editorial/, /op-ed/, /leader/, /commentary/,
+      /columnist/, /comment/, /blog/ (plus pluralised variants).
+    """
+    if not url:
+        return feed_section
+    try:
+        path = urlparse(url).path.lower()
+    except Exception:
+        return feed_section
+    for pat in OPINION_URL_PATTERNS:
+        if pat in path:
+            return "opinion"
+    return feed_section
+
+
 def _wait_for_host(host: str, delay: float):
     with _host_lock:
         last = _host_last_fetch.get(host, 0)
@@ -276,6 +310,12 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
                 # both fail systematically.
                 if f.get("paywalled"):
                     it["paywalled"] = True
+                # Stamp section per-item: URL pattern overrides feed-level
+                # default. Phase 1 introduces this so opinion items can be
+                # filtered from frame distributions even when they sit in
+                # a news-tagged feed.
+                it["section"] = infer_section(it.get("link") or "",
+                                              f.get("section", "news"))
                 out.append((ck, f["name"], it))
                 if in_per_feed_quota and not in_cluster:
                     # Only consume per-feed quota for items kept solely on that basis

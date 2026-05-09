@@ -182,6 +182,91 @@ acknowledge that the primary similarity formula changed (TF-IDF on
 translated pivot → LaBSE cosine on originals). Replay against 7.0.0
 to recover prior findings under the new metric.
 
+## Section operationalisation (7.1.0)
+
+Phase 1 introduces a per-item `section` field with values `news`, `opinion`,
+or `wire`. The default is `news`; the wire-services bucket and the
+opinion-magazines bucket get their entire feed list tagged at the feed level
+(`section` field in `feeds.json`). Three individual feeds — *War on the
+Rocks*, *Asia Times*, *Al Jazeera Arabic* — are flagged opinion despite
+sitting in news buckets, per the data audit. URL-pattern overrides catch
+opinion items that appear in news-tagged feeds: paths matching
+`/opinion/`, `/editorial/`, `/op-ed/`, `/leader/`, `/commentary/`,
+`/columnist/`, `/comment/`, `/blog/` (and pluralised variants) get
+`section: "opinion"` regardless of the feed-level default.
+
+Downstream consumers (frame distributions, coverage matrix `coverage_pct_news`)
+use this to filter opinion contamination by default. The opinion subset
+remains queryable so the suppression is not a removal.
+
+## Coverage matrix (7.1.0)
+
+`pipeline/coverage_matrix.py` emits `coverage/<DATE>.json` with the
+deterministic per-(story × feed) answer to "who covered what today." Pure
+regex-match against `canonical_stories.json` patterns (the same matcher
+`analytical/build_briefing.py` uses); no LLM, no embedding, no translation.
+Output schema: per-story rows of `{feed_name, bucket, section, n_matching,
+first_match_rank, first_match_body_chars, first_match_age_hours,
+first_match_url, first_match_title}` plus a `summary` block (n_feeds_covered,
+n_buckets_covered, coverage_pct_news, median_age_hours).
+
+Coverage matrix is the most defensible product the system ships: every cell
+traces directly to a real article URL with a real timestamp; nothing is
+inferred. It is the audit's "headline product."
+
+## Longitudinal aggregator (7.1.0)
+
+`analytical/longitudinal.py` walks `analyses/<DATE>_<story>.json` across all
+dates, groups by `story_key`, and emits `trajectory/<story>.json` with
+per-day frame share and continuity flags. Schema-tolerant on the frame
+identifier: pre-7.0.0 used `frame.label`; post-7.0.0 uses `frame.frame_id`;
+both are honoured.
+
+Continuity flags the consumer **must** read before plotting:
+
+- `meta_version_segments` — each contiguous run of analyses sharing the
+  same pin. Trajectories spanning a major bump (e.g. 6.x → 7.0.0 swapped
+  TF-IDF on translated text for LaBSE on originals) are not directly
+  comparable; the segment boundary marks where to caveat.
+- `bucket_set_signatures` — sha256 of the sorted bucket list per analysis,
+  truncated to 16 chars. Multiple distinct signatures within one trajectory
+  mean the contributing-feed set changed (a `feeds.json` edit, an outlet
+  added or removed); the consumer should mark the boundary.
+
+The aggregator is forward-compatible: adding a story is a minor bump (new
+trajectory file appears); changing patterns is a major bump (existing
+trajectory loses continuity).
+
+## Bootstrap CIs on weighted frame share (7.1.0)
+
+`analytical.build_metrics.weighted_frame_distribution` now resamples buckets
+with replacement (1000 iterations, seed=42, `bucket_resample_with_replacement`
+method) and emits 5/95 percentiles as `weighted_share_ci_lo` /
+`weighted_share_ci_hi` per frame. The bootstrap parameters are recorded in
+the output's `bootstrap` block so reproducibility is verifiable. Numpy is
+required; if unavailable the analysis still ships without CIs (the
+`bootstrap.skipped=true` flag is set).
+
+The CI hedges against bucket-set sampling error: with N≈30 buckets per
+analysis, per-frame share has non-trivial variance and a single-point claim
+("frame X covers 14% of the population-weighted corpus") is fragile. The
+CI ("[2%, 27%]") is the legitimate version of that claim.
+
+## Known limitations (7.1.0)
+
+- **HDBSCAN cluster contamination across similar-topic events.** The
+  density-adaptive clusterer occasionally merges two distinct events sharing
+  vocabulary (e.g. two unrelated Iran-related stories on the same day). The
+  per-cluster stability score (`cluster_topics.last_stability_scores`) lets
+  the consumer flag low-confidence clusters; full disambiguation requires
+  per-event manual curation, out of scope.
+- **Boydstun/Card 15-frame codebook coarseness.** A closed codebook of 15
+  policy frames smooths real per-event variation; framings that don't fit
+  any of the 15 categories collapse onto the closest neighbour. The
+  trade-off is interpretability and longitudinal comparability vs.
+  expressive precision. Phase 4 validation will measure the gap quantitatively
+  (per-frame F1 vs. hand-coded ground truth).
+
 ## What's NOT pinned
 
 - **Article body content** — the open web changes; we extract what we

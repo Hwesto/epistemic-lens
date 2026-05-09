@@ -52,8 +52,8 @@
     if (isoSorted.length) {
       const { a, top } = isoSorted[0];
       return {
-        kind: "isolation",
-        eyebrow: "isolation outlier",
+        kind: "divergence",
+        eyebrow: "divergence outlier",
         text: `${a.analysis.n_buckets} outlets covered ${a.analysis.story_title}. ${top.bucket} diverged most from the rest. (mean_similarity ${top.mean_similarity})`,
         attr: top.note || "",
       };
@@ -128,7 +128,7 @@
     return "#";
   }
 
-  function renderCard(analysis, date) {
+  function renderCard(analysis, date, trajectory) {
     const tpl = $("#story-card-tpl");
     const node = tpl.content.firstElementChild.cloneNode(true);
     node.dataset.storyKey = analysis.story_key;
@@ -149,12 +149,12 @@
 
     const detailBody = $(".card-detail-body", node);
     detailBody.dataset.status = "ready";
-    detailBody.append(buildDetail(analysis));
+    detailBody.append(buildDetail(analysis, trajectory));
 
     return node;
   }
 
-  function buildDetail(a) {
+  function buildDetail(a, trajectory) {
     const frag = document.createDocumentFragment();
 
     // Frame matrix
@@ -184,7 +184,7 @@
 
     // Isolation
     if (a.isolation_top?.length) {
-      const sect = section("Most isolated");
+      const sect = section("Most divergent");
       const ul = document.createElement("ul");
       ul.className = "isolation-list";
       a.isolation_top.slice(0, 6).forEach(r => {
@@ -239,6 +239,53 @@
       frag.appendChild(sect);
     }
 
+    // Trajectory (Phase 1) — frame share over time, when available
+    if (trajectory && trajectory.frame_trajectories) {
+      const sect = section("Trajectory");
+      const meta = document.createElement("p");
+      meta.className = "detail-meta";
+      const days = trajectory.n_days_with_analysis || 0;
+      const segs = (trajectory.meta_version_segments || []).length;
+      meta.textContent =
+        `${days} day${days === 1 ? "" : "s"} of history` +
+        (segs > 1 ? ` · spans ${segs} methodology pins (read with caution)` : "");
+      sect.appendChild(meta);
+      const frames = trajectory.frame_trajectories || {};
+      const fids = Object.keys(frames).slice(0, 8);
+      if (fids.length) {
+        const tbl = document.createElement("table");
+        tbl.className = "matrix trajectory-matrix";
+        const head = document.createElement("tr");
+        head.appendChild(thEl("Frame", "bucket"));
+        // Date columns from union of dates seen in any frame
+        const allDates = Array.from(new Set(
+          fids.flatMap(fid => (frames[fid] || []).map(p => p.date))
+        )).sort();
+        allDates.forEach(d => head.appendChild(thEl(d.slice(5), "frame", d)));
+        tbl.appendChild(head);
+        fids.forEach(fid => {
+          const row = document.createElement("tr");
+          row.appendChild(tdEl(short(fid, 22), "bucket"));
+          const byDate = Object.fromEntries(
+            (frames[fid] || []).map(p => [p.date, p])
+          );
+          allDates.forEach(d => {
+            const p = byDate[d];
+            if (p) {
+              const cell = tdEl(p.share.toFixed(2), "on");
+              cell.title = `${p.n_buckets_carrying}/${p.n_buckets_total} buckets · meta-v${p.meta_version}`;
+              row.appendChild(cell);
+            } else {
+              row.appendChild(tdEl("·", "off"));
+            }
+          });
+          tbl.appendChild(row);
+        });
+        sect.appendChild(tbl);
+      }
+      frag.appendChild(sect);
+    }
+
     // Bottom line
     if (a.bottom_line) {
       const sect = section("Bottom line");
@@ -250,6 +297,45 @@
     }
 
     return frag;
+  }
+
+  // ---------- coverage matrix rendering (Phase 1) ----------
+
+  function renderCoverage(coverage) {
+    const root = $("#coverage");
+    const body = $("#coverage-body");
+    if (!coverage || !coverage.summary) {
+      root.hidden = true;
+      return;
+    }
+    body.innerHTML = "";
+    const stories = coverage.stories || [];
+    const summary = coverage.summary || {};
+    const tbl = document.createElement("table");
+    tbl.className = "matrix coverage-matrix";
+    const head = document.createElement("tr");
+    ["Story", "Tier", "Feeds", "Buckets", "% news", "Median age"].forEach(
+      (t, i) => head.appendChild(thEl(t, i === 0 ? "bucket" : "frame"))
+    );
+    tbl.appendChild(head);
+    // Sort by feeds-covered desc so the day's biggest stories come first
+    const sorted = stories
+      .map(s => ({ ...s, s: summary[s.key] || {} }))
+      .filter(s => (s.s.n_feeds_covered || 0) > 0)
+      .sort((a, b) => (b.s.n_feeds_covered || 0) - (a.s.n_feeds_covered || 0));
+    sorted.forEach(s => {
+      const row = document.createElement("tr");
+      row.appendChild(tdEl(s.title || s.key, "bucket"));
+      row.appendChild(tdEl(s.tier || "", "frame"));
+      row.appendChild(tdEl(String(s.s.n_feeds_covered || 0), "on"));
+      row.appendChild(tdEl(String(s.s.n_buckets_covered || 0), "on"));
+      row.appendChild(tdEl(`${s.s.coverage_pct_news ?? 0}%`, "frame"));
+      const age = s.s.median_age_hours;
+      row.appendChild(tdEl(age != null ? `${age}h` : "—", "frame"));
+      tbl.appendChild(row);
+    });
+    body.appendChild(tbl);
+    root.hidden = false;
   }
 
   function section(title) {
@@ -310,9 +396,31 @@
       .filter(s => s.has?.analysis_json)
       .map(s => fetchJSON(`${latest.date}/${s.key}/analysis.json`).then(a => ({ analysis: a, story: s })));
 
-    const results = await Promise.allSettled(analysisFetches);
+    // Phase 1: parallel-fetch coverage matrix (today) + trajectory per story.
+    // Soft-fail on either; the existing card UI works without them.
+    const coverageFetch = latest.coverage_path
+      ? fetchJSON(latest.coverage_path.replace(/^\//, "")).catch(() => null)
+      : Promise.resolve(null);
+    const trajectoryPaths = latest.trajectory_paths || {};
+    const trajectoryFetches = Object.fromEntries(
+      stories.map(s => [s.key,
+        trajectoryPaths[s.key]
+          ? fetchJSON(trajectoryPaths[s.key].replace(/^\//, "")).catch(() => null)
+          : Promise.resolve(null)
+      ])
+    );
+
+    const [results, coverage] = await Promise.all([
+      Promise.allSettled(analysisFetches),
+      coverageFetch,
+    ]);
+    const trajectories = {};
+    for (const [k, p] of Object.entries(trajectoryFetches)) {
+      trajectories[k] = await p;
+    }
     const analyses = results.filter(r => r.status === "fulfilled").map(r => r.value);
 
+    renderCoverage(coverage);
     renderHero(pickHero(analyses));
 
     const grid = $("#stories");
@@ -323,7 +431,7 @@
       return;
     }
     analyses.forEach(({ analysis }) => {
-      grid.appendChild(renderCard(analysis, latest.date));
+      grid.appendChild(renderCard(analysis, latest.date, trajectories[analysis.story_key]));
     });
   }
 

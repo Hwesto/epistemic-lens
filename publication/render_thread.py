@@ -10,7 +10,7 @@ For each `analyses/<DATE>_<story_key>.json`, produces
 
 Hook selection (priority order):
   1. Paradox (opposing blocs converging) — strongest signal
-  2. Isolation outlier (one bucket sharply distinct)
+  2. Divergence outlier (one bucket sharply distinct on LaBSE cosine)
   3. Bucket-exclusive vocab (a frame nobody else carries)
   4. Generic structural ("N buckets, M frames")
 
@@ -80,14 +80,14 @@ def _build_hook(a: dict) -> str:
             MAX_HOOK_CHARS,
         )
 
-    # 2. Isolation outlier — one bucket sharply distinct
+    # 2. Divergence outlier — one bucket sharply distinct (LaBSE cosine scale)
     iso = a.get("isolation_top") or []
     score = iso[0].get("mean_similarity", 1) if iso else 1
-    if iso and score < 0.05:
+    if iso and score < 0.30:
         b = iso[0]["bucket"]
         return _truncate(
             f"{a['n_buckets']} outlets covered {a['story_title']}. "
-            f"`{b}` used totally different words.",
+            f"`{b}` diverged most from the rest.",
             MAX_HOOK_CHARS,
         )
 

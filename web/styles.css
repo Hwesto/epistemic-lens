@@ -302,6 +302,29 @@ main {
 .matrix td.on  { background: var(--accent); color: var(--accent-fg); }
 .matrix td.off { color: var(--fg-subtle); }
 
+/* Phase 1: top-level Today's coverage section */
+.coverage {
+  max-width: 880px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+.section-h {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+.section-sub {
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem 0;
+}
+.coverage-matrix th, .coverage-matrix td { font-size: 0.78rem; }
+.trajectory-matrix th, .trajectory-matrix td { font-size: 0.7rem; }
+.detail-meta {
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  margin: 0 0 0.5rem 0;
+}
+
 /* Isolation pills */
 
 .isolation-list {

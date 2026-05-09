@@ -1,11 +1,11 @@
 {
   "meta": {
     "project": "epistemic-lens",
-    "version": "0.5.0",
-    "last_updated": "2026-05-06",
+    "version": "0.6.0",
+    "last_updated": "2026-05-09",
     "n_feeds": 235,
     "n_buckets": 54,
-    "notes": "v0.5.0 — clean release. Pipeline: ingest -> extract -> dedup -> health -> build_briefing -> synthesize_voiceover -> render_video. 235 feeds across 54 buckets covering 6 continents in 16+ languages. See docs/COVERAGE.md for the per-bucket grade table."
+    "notes": "v0.6.0 — adds per-feed `section` field (news|opinion|wire) for Phase 1 opinion-feed exclusion from frame distributions. Defaults: wire_services bucket=wire, opinion_magazines bucket=opinion, plus 3 individual feeds flagged opinion (War on the Rocks, Asia Times, Al Jazeera Arabic). All others default to news. Forward-compatible."
   },
   "countries": {
     "wire_services": {
@@ -16,6 +16,7 @@
           "url": "https://news.google.com/rss/search?q=site:reuters.com&hl=en-US&gl=US&ceid=US:en",
           "lang": "en",
           "lean": "Wire — factual baseline",
+          "section": "wire",
           "status": "OK"
         },
         {
@@ -23,6 +24,7 @@
           "url": "https://feedx.net/rss/ap.xml",
           "lang": "en",
           "lean": "Wire — factual baseline",
+          "section": "wire",
           "status": "OK"
         },
         {
@@ -30,6 +32,7 @@
           "url": "https://www.france24.com/en/rss",
           "lang": "en",
           "lean": "French wire — European angle",
+          "section": "wire",
           "status": "OK"
         },
         {
@@ -37,6 +40,7 @@
           "url": "https://www.france24.com/fr/rss",
           "lang": "fr",
           "lean": "French wire — domestic",
+          "section": "wire",
           "status": "OK"
         },
         {
@@ -44,6 +48,7 @@
           "url": "https://www.lemonde.fr/rss/une.xml",
           "lang": "fr",
           "lean": "Centre-left flagship",
+          "section": "wire",
           "status": "RETRY",
           "paywalled": true
         },
@@ -52,6 +57,7 @@
           "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml",
           "lang": "fr",
           "lean": "Centre-right",
+          "section": "wire",
           "status": "RETRY",
           "paywalled": true
         },
@@ -60,6 +66,7 @@
           "url": "https://www.liberation.fr/rss/",
           "lang": "fr",
           "lean": "Left-liberal",
+          "section": "wire",
           "status": "RETRY"
         },
         {
@@ -67,6 +74,7 @@
           "url": "https://feeds.leparisien.fr/leparisien/rss",
           "lang": "fr",
           "lean": "Centre-popular tabloid",
+          "section": "wire",
           "status": "RETRY"
         },
         {
@@ -74,6 +82,7 @@
           "url": "https://www.bfmtv.com/rss/news-24-7/",
           "lang": "fr",
           "lean": "Centre commercial TV",
+          "section": "wire",
           "status": "OK"
         },
         {
@@ -81,6 +90,7 @@
           "url": "https://www.francetvinfo.fr/titres.rss",
           "lang": "fr",
           "lean": "Public broadcaster",
+          "section": "wire",
           "status": "RETRY"
         }
       ]
@@ -93,6 +103,7 @@
           "url": "http://rss.cnn.com/rss/edition_world.rss",
           "lang": "en",
           "lean": "Centre-liberal establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -100,6 +111,7 @@
           "url": "https://moxie.foxnews.com/google-publisher/world.xml",
           "lang": "en",
           "lean": "Right / pro-administration",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -107,6 +119,7 @@
           "url": "https://feeds.npr.org/1004/rss.xml",
           "lang": "en",
           "lean": "Centre-left public media",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -114,6 +127,7 @@
           "url": "https://www.politico.com/rss/politicopicks.xml",
           "lang": "en",
           "lean": "Centrist beltway",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -121,6 +135,7 @@
           "url": "https://www.axios.com/feeds/feed.rss",
           "lang": "en",
           "lean": "Centrist explainer",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -128,6 +143,7 @@
           "url": "https://thehill.com/homenews/feed/",
           "lang": "en",
           "lean": "Centrist beltway",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -135,6 +151,7 @@
           "url": "https://www.dailywire.com/feeds/rss.xml",
           "lang": "en",
           "lean": "Conservative — Shapiro",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -142,6 +159,7 @@
           "url": "https://feeds.feedburner.com/breitbart",
           "lang": "en",
           "lean": "Right-populist",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -149,6 +167,7 @@
           "url": "https://dailycaller.com/feed/",
           "lang": "en",
           "lean": "Conservative",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -156,6 +175,7 @@
           "url": "https://www.motherjones.com/feed/",
           "lang": "en",
           "lean": "Progressive — counterweight",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -163,6 +183,7 @@
           "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml",
           "lang": "en",
           "lean": "Defense industry",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -170,6 +191,7 @@
           "url": "https://warontherocks.com/feed/",
           "lang": "en",
           "lean": "Defense policy commentary",
+          "section": "opinion",
           "status": "OK"
         },
         {
@@ -177,6 +199,7 @@
           "url": "https://www.propublica.org/feeds/propublica/main",
           "lang": "en",
           "lean": "Investigative non-profit",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -184,6 +207,7 @@
           "url": "https://theintercept.com/feed/?lang=en",
           "lang": "en",
           "lean": "Left investigative",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -191,6 +215,7 @@
           "url": "https://reason.com/feed/",
           "lang": "en",
           "lean": "Libertarian",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -203,6 +228,7 @@
           "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
           "lang": "en",
           "lean": "Centre establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -210,6 +236,7 @@
           "url": "https://www.theguardian.com/world/rss",
           "lang": "en",
           "lean": "Centre-left liberal",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -217,6 +244,7 @@
           "url": "https://www.telegraph.co.uk/news/rss.xml",
           "lang": "en",
           "lean": "Centre-right conservative",
+          "section": "news",
           "status": "OK",
           "paywalled": true
         },
@@ -225,6 +253,7 @@
           "url": "https://www.dailymail.co.uk/articles.rss",
           "lang": "en",
           "lean": "Right tabloid — largest UK readership",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -232,6 +261,7 @@
           "url": "https://www.mirror.co.uk/?service=rss",
           "lang": "en",
           "lean": "Centre-left tabloid",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -239,6 +269,7 @@
           "url": "https://feeds.skynews.com/feeds/rss/world.xml",
           "lang": "en",
           "lean": "Centre commercial broadcaster",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -246,6 +277,7 @@
           "url": "https://www.independent.co.uk/news/world/rss",
           "lang": "en",
           "lean": "Centre-left digital",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -253,6 +285,7 @@
           "url": "https://inews.co.uk/feed",
           "lang": "en",
           "lean": "Centre mainstream",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -260,6 +293,7 @@
           "url": "https://www.newstatesman.com/rss",
           "lang": "en",
           "lean": "Centre-left magazine",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -272,6 +306,7 @@
           "url": "https://www.tehrantimes.com/rss",
           "lang": "en",
           "lean": "State-aligned — .com hosted outside Iran",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -279,6 +314,7 @@
           "url": "https://en.irna.ir/rss",
           "lang": "en",
           "lean": "Official state news agency",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -286,6 +322,7 @@
           "url": "https://www.irna.ir/rss",
           "lang": "fa",
           "lean": "State agency — domestic audience",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -293,6 +330,7 @@
           "url": "https://rsshub.app/mehrnews/en/news",
           "lang": "en",
           "lean": "Conservative state — IRGC-aligned",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -300,6 +338,7 @@
           "url": "https://rsshub.app/kayhan/en",
           "lang": "en",
           "lean": "Hardline daily — supreme leader-aligned",
+          "section": "news",
           "status": "RETRY"
         }
       ],
@@ -313,6 +352,7 @@
           "url": "https://www.iranintl.com/en/feed",
           "lang": "en",
           "lean": "Anti-regime — Saudi-linked funding, London-based",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -320,6 +360,7 @@
           "url": "https://www.iranintl.com/fa/feed",
           "lang": "fa",
           "lean": "Anti-regime — Farsi audience",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -327,6 +368,7 @@
           "url": "https://www.rferl.org/api/zbqiml-vomx-tpeqkmy",
           "lang": "en",
           "lean": "US Congress-funded RFE/RL",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -339,6 +381,7 @@
           "url": "https://www.aljazeera.com/xml/rss/all.xml",
           "lang": "en",
           "lean": "Pan-Arab / critical of West",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -346,6 +389,7 @@
           "url": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9",
           "lang": "ar",
           "lean": "Arabic domestic — different editorial weight",
+          "section": "opinion",
           "status": "OK"
         }
       ]
@@ -358,6 +402,7 @@
           "url": "https://www.cgtn.com/subscribe/rss/section/politics.xml",
           "lang": "en",
           "lean": "CPC state — international",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -365,6 +410,7 @@
           "url": "https://www.cgtn.com/subscribe/rss/section/world.xml",
           "lang": "en",
           "lean": "CPC state — world section",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -372,6 +418,7 @@
           "url": "http://www.xinhuanet.com/english/rss/worldrss.xml",
           "lang": "en",
           "lean": "CPC state agency — export",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -379,6 +426,7 @@
           "url": "https://www.globaltimes.cn/rss/outbrain.xml",
           "lang": "en",
           "lean": "CPC nationalist hawkish",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -386,6 +434,7 @@
           "url": "http://www.people.com.cn/rss/politics.xml",
           "lang": "zh",
           "lean": "CPC official party paper — domestic",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -393,6 +442,7 @@
           "url": "https://www.sixthtone.com/rss",
           "lang": "en",
           "lean": "Society + culture, state-aligned but softer tone",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -405,6 +455,7 @@
           "url": "https://tass.com/rss/v2.xml",
           "lang": "en",
           "lean": "State news agency — export",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -412,6 +463,7 @@
           "url": "https://www.rt.com/rss/news/",
           "lang": "en",
           "lean": "State-funded intl propaganda",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -419,6 +471,7 @@
           "url": "https://www.themoscowtimes.com/rss/news",
           "lang": "en",
           "lean": "Independent exiled — Netherlands-based",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -426,6 +479,7 @@
           "url": "https://meduza.io/rss/en/all",
           "lang": "en",
           "lean": "Independent exiled — Latvia-based",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -438,6 +492,7 @@
           "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
           "lang": "en",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -445,6 +500,7 @@
           "url": "https://feeds.feedburner.com/ndtvnews-world-news",
           "lang": "en",
           "lean": "Centre-left liberal",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -452,6 +508,7 @@
           "url": "https://www.thehindu.com/news/international/feeder/default.rss",
           "lang": "en",
           "lean": "Centre-left quality broadsheet",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -459,6 +516,7 @@
           "url": "https://www.bhaskar.com/rss-feed/1061",
           "lang": "hi",
           "lean": "Hindi mass-market — 500M readers",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -466,6 +524,7 @@
           "url": "https://www.indiatoday.in/rss/home",
           "lang": "en",
           "lean": "Mass-market commercial",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -473,6 +532,7 @@
           "url": "https://zeenews.india.com/rss/india-news.xml",
           "lang": "en",
           "lean": "Right-leaning establishment",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -480,6 +540,7 @@
           "url": "https://www.opindia.com/feed/",
           "lang": "en",
           "lean": "Right-Hindu nationalist",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -487,6 +548,7 @@
           "url": "https://www.news18.com/commonfeeds/v1/eng/rss/world.xml",
           "lang": "en",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -494,6 +556,7 @@
           "url": "https://www.news18.com/commonfeeds/v1/eng/rss/india.xml",
           "lang": "en",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -501,6 +564,7 @@
           "url": "https://www.timesnownews.com/rss/world",
           "lang": "en",
           "lean": "Mainstream commercial right",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -508,6 +572,7 @@
           "url": "https://www.republicworld.com/rss/world-news.xml",
           "lang": "en",
           "lean": "Right-populist",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -515,6 +580,7 @@
           "url": "https://news.abplive.com/feed",
           "lang": "en",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -522,6 +588,7 @@
           "url": "https://www.aajtak.in/rssfeeds/?id=home",
           "lang": "hi",
           "lean": "Hindi mass-market TV news leader",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -529,6 +596,7 @@
           "url": "https://www.hindustantimes.com/feeds/rss/world-news/rssfeed.xml",
           "lang": "en",
           "lean": "Mainstream centrist",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -536,6 +604,7 @@
           "url": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/world.xml",
           "lang": "en",
           "lean": "Right-leaning digital",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -548,6 +617,7 @@
           "url": "https://www.haaretz.com/srv/haaretz-latest-headlines",
           "lang": "en",
           "lean": "Left-liberal / critical of govt",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -555,6 +625,7 @@
           "url": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
           "lang": "en",
           "lean": "Centre-right mainstream",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -562,6 +633,7 @@
           "url": "https://www.timesofisrael.com/feed/",
           "lang": "en",
           "lean": "Centre / broad readership",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -569,6 +641,7 @@
           "url": "https://www.ynet.co.il/Integration/StoryRss2.xml",
           "lang": "he",
           "lean": "Mass-market Hebrew — domestic audience",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -581,6 +654,7 @@
           "url": "https://www.dailysabah.com/rssFeed/world",
           "lang": "en",
           "lean": "Pro-government / AKP",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -588,6 +662,7 @@
           "url": "https://www.hurriyet.com.tr/rss/gundem",
           "lang": "tr",
           "lean": "Mainstream — historically secular",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -595,6 +670,7 @@
           "url": "https://www.aa.com.tr/en/rss/default?cat=guncel",
           "lang": "en",
           "lean": "State agency — pro-government",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -602,6 +678,7 @@
           "url": "https://bianet.org/english/rss",
           "lang": "en",
           "lean": "Independent leftist",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -614,6 +691,7 @@
           "url": "https://www.arabnews.com/rss.xml",
           "lang": "en",
           "lean": "Saudi state-aligned",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -621,6 +699,7 @@
           "url": "https://english.alarabiya.net/.mrss/feed.xml",
           "lang": "en",
           "lean": "Saudi/UAE-backed — Al Jazeera counterweight",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -633,6 +712,7 @@
           "url": "https://en.yna.co.kr/RSS/news.xml",
           "lang": "en",
           "lean": "National wire service",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -640,6 +720,7 @@
           "url": "https://news.google.com/rss/search?q=site:koreaherald.com&hl=en&gl=KR&ceid=KR:en",
           "lang": "en",
           "lean": "Centre mainstream — via GN, body-extraction won't work",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -647,6 +728,7 @@
           "url": "https://english.hani.co.kr/rss/",
           "lang": "en",
           "lean": "Progressive left",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -654,6 +736,7 @@
           "url": "https://world.kbs.co.kr/rss/rss_news.htm?lang=e",
           "lang": "en",
           "lean": "Public broadcaster",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -661,6 +744,7 @@
           "url": "https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml",
           "lang": "ko",
           "lean": "Largest conservative daily",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -668,6 +752,7 @@
           "url": "https://www.yna.co.kr/rss/news.xml",
           "lang": "ko",
           "lean": "Wire",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -680,6 +765,7 @@
           "url": "https://www3.nhk.or.jp/rss/news/cat0.xml",
           "lang": "ja",
           "lean": "Public broadcaster — domestic",
+          "section": "news",
           "status": "OK",
           "note": "May need certifi or SSL fix on Windows"
         },
@@ -688,6 +774,7 @@
           "url": "https://www.japantimes.co.jp/feed/",
           "lang": "en",
           "lean": "English-language liberal",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -695,6 +782,7 @@
           "url": "https://www.asahi.com/rss/asahi/newsheadlines.rdf",
           "lang": "ja",
           "lean": "Centre-left flagship",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -702,6 +790,7 @@
           "url": "https://mainichi.jp/rss/etc/mainichi-flash.rss",
           "lang": "ja",
           "lean": "Centre mainstream",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -709,6 +798,7 @@
           "url": "https://asia.nikkei.com/rss/feed/nar",
           "lang": "en",
           "lean": "Business establishment",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -716,6 +806,7 @@
           "url": "https://mainichi.jp/rss/etc/mainichi.rss",
           "lang": "ja",
           "lean": "Centre",
+          "section": "news",
           "status": "STUB"
         }
       ]
@@ -728,6 +819,7 @@
           "url": "https://feeds.folha.uol.com.br/mundo/rss091.xml",
           "lang": "pt",
           "lean": "Centre-left broadsheet",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -735,6 +827,7 @@
           "url": "https://oglobo.globo.com/rss/oglobo",
           "lang": "pt",
           "lean": "Centre-right establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -742,6 +835,7 @@
           "url": "https://g1.globo.com/rss/g1/",
           "lang": "pt",
           "lean": "Largest portal — Globo TV ecosystem",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -749,6 +843,7 @@
           "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
           "lang": "pt",
           "lean": "BBC Portuguese",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -756,6 +851,7 @@
           "url": "https://www.cartacapital.com.br/feed/",
           "lang": "pt",
           "lean": "Centre-left investigative",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -768,6 +864,7 @@
           "url": "https://punchng.com/feed/",
           "lang": "en",
           "lean": "Independent — largest circ.",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -775,6 +872,7 @@
           "url": "https://www.vanguardngr.com/feed/",
           "lang": "en",
           "lean": "Independent — southern Nigeria",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -787,6 +885,7 @@
           "url": "https://www.dawn.com/feeds/home",
           "lang": "en",
           "lean": "Independent broadsheet — most-cited PK English daily",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -794,6 +893,7 @@
           "url": "https://www.geo.tv/rss/1/0",
           "lang": "en",
           "lean": "Mainstream commercial — Jang group",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -801,6 +901,7 @@
           "url": "https://tribune.com.pk/feed",
           "lang": "en",
           "lean": "Centre — partner of NYT",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -808,6 +909,7 @@
           "url": "https://arynews.tv/feed/",
           "lang": "en",
           "lean": "Right-leaning establishment",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -815,6 +917,7 @@
           "url": "https://www.bolnews.com/feed/",
           "lang": "en",
           "lean": "Right-populist sensational",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -827,6 +930,7 @@
           "url": "https://al-akhbar.com/rss.xml",
           "lang": "ar",
           "lean": "Hezbollah-aligned / pro-resistance",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -834,6 +938,7 @@
           "url": "https://www.lbcgroup.tv/rss/",
           "lang": "en",
           "lean": "Centrist broadcaster",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -846,6 +951,7 @@
           "url": "https://www.iraqinews.com/feed/",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -858,6 +964,7 @@
           "url": "https://egyptindependent.com/feed/",
           "lang": "en",
           "lean": "Independent — Al-Masry Al-Youm sister",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -865,6 +972,7 @@
           "url": "https://www.madamasr.com/en/feed/",
           "lang": "en",
           "lean": "Independent critical — frequently blocked domestically",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -872,6 +980,7 @@
           "url": "https://dailynewsegypt.com/feed/",
           "lang": "en",
           "lean": "Centre-business",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -884,6 +993,7 @@
           "url": "https://www.jordantimes.com/rss.xml",
           "lang": "en",
           "lean": "Establishment",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -896,6 +1006,7 @@
           "url": "https://english.enabbaladi.net/feed/",
           "lang": "en",
           "lean": "Opposition / Idlib-based",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -903,6 +1014,7 @@
           "url": "https://syrianobserver.com/feed",
           "lang": "en",
           "lean": "Diaspora opposition aggregator",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -915,6 +1027,7 @@
           "url": "https://www.maannews.net/rss",
           "lang": "en",
           "lean": "Independent Palestinian",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -922,6 +1035,7 @@
           "url": "https://www.palestinechronicle.com/feed/",
           "lang": "en",
           "lean": "Diaspora pro-Palestinian",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -934,6 +1048,7 @@
           "url": "https://www.pravda.com.ua/eng/rss/",
           "lang": "en",
           "lean": "Independent flagship",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -941,6 +1056,7 @@
           "url": "https://www.ukrinform.net/rss/block-lastnews",
           "lang": "en",
           "lean": "State news agency",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -948,6 +1064,7 @@
           "url": "https://www.kyivpost.com/feed",
           "lang": "en",
           "lean": "Centrist establishment",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -960,6 +1077,7 @@
           "url": "https://lenta.ru/rss",
           "lang": "ru",
           "lean": "Mainstream — pro-government since 2014",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -967,6 +1085,7 @@
           "url": "https://www.kommersant.ru/RSS/news.xml",
           "lang": "ru",
           "lean": "Business establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -974,6 +1093,7 @@
           "url": "https://ria.ru/export/rss2/index.xml",
           "lang": "ru",
           "lean": "State agency — domestic",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -981,6 +1101,7 @@
           "url": "https://novayagazeta.eu/rss/all.xml",
           "lang": "ru",
           "lean": "Exiled independent — Riga",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -988,6 +1109,7 @@
           "url": "https://www.kp.ru/rss/allsections.xml",
           "lang": "ru",
           "lean": "Mass-market right-populist tabloid",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -995,6 +1117,7 @@
           "url": "https://aif.ru/rss/all.php",
           "lang": "ru",
           "lean": "Mass-market state-aligned",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1002,6 +1125,7 @@
           "url": "https://rsshub.app/telegram/channel/rian_ru",
           "lang": "ru",
           "lean": "State agency Telegram channel",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1009,6 +1133,7 @@
           "url": "https://rsshub.app/telegram/channel/mash",
           "lang": "ru",
           "lean": "Russian breaking-news channel",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -1021,6 +1146,7 @@
           "url": "https://rss.dw.com/rdf/rss-en-all",
           "lang": "en",
           "lean": "Public broadcaster — international",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1028,6 +1154,7 @@
           "url": "https://rss.dw.com/rdf/rss-de-all",
           "lang": "de",
           "lean": "Public broadcaster — domestic",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1035,6 +1162,7 @@
           "url": "https://www.spiegel.de/international/index.rss",
           "lang": "en",
           "lean": "Centre-left investigative",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1042,6 +1170,7 @@
           "url": "https://www.tagesschau.de/xml/rss2/",
           "lang": "de",
           "lean": "Public broadcaster — domestic flagship",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1049,6 +1178,7 @@
           "url": "https://rss.dw.com/rdf/rss-ru-all",
           "lang": "ru",
           "lean": "DW — Russian-speaking audience",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1056,6 +1186,7 @@
           "url": "https://www.bild.de/feed/alles.xml",
           "lang": "de",
           "lean": "Largest tabloid — populist right",
+          "section": "news",
           "status": "OK",
           "paywalled": true
         },
@@ -1064,6 +1195,7 @@
           "url": "https://www.welt.de/feeds/topnews.rss",
           "lang": "de",
           "lean": "Centre-right Springer",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1071,6 +1203,7 @@
           "url": "https://rss.sueddeutsche.de/rss/Topthemen",
           "lang": "de",
           "lean": "Centre-left flagship",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1078,6 +1211,7 @@
           "url": "https://www.zdf.de/rss/zdf/nachrichten",
           "lang": "de",
           "lean": "Public broadcaster",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1085,6 +1219,7 @@
           "url": "https://jungefreiheit.de/feed/",
           "lang": "de",
           "lean": "AfD-aligned right-populist",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1097,6 +1232,7 @@
           "url": "https://www.ansa.it/english/english_rss.xml",
           "lang": "en",
           "lean": "Wire service — flagship",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1104,6 +1240,7 @@
           "url": "https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml",
           "lang": "it",
           "lean": "Wire service — domestic",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1111,6 +1248,7 @@
           "url": "https://www.repubblica.it/rss/homepage/rss2.0.xml",
           "lang": "it",
           "lean": "Centre-left",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1118,6 +1256,7 @@
           "url": "https://www.ilsole24ore.com/rss/mondo.xml",
           "lang": "it",
           "lean": "Business establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1125,6 +1264,7 @@
           "url": "https://www.ilgiornale.it/rss.xml",
           "lang": "it",
           "lean": "Right Berlusconi-family",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1132,6 +1272,7 @@
           "url": "https://www.lastampa.it/rss",
           "lang": "it",
           "lean": "Centre-left mainstream",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1144,6 +1285,7 @@
           "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
           "lang": "es",
           "lean": "Centre-left flagship",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1151,6 +1293,7 @@
           "url": "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml",
           "lang": "es",
           "lean": "Centre-right",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1158,6 +1301,7 @@
           "url": "https://www.abc.es/rss/feeds/abc_ultima.xml",
           "lang": "es",
           "lean": "Conservative establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1165,6 +1309,7 @@
           "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/english.elpais.com/portada",
           "lang": "en",
           "lean": "EN edition for international",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1177,6 +1322,7 @@
           "url": "https://nltimes.nl/rss.xml",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1184,6 +1330,7 @@
           "url": "https://www.dutchnews.nl/feed/",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1196,6 +1343,7 @@
           "url": "https://notesfrompoland.com/feed/",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1203,6 +1351,7 @@
           "url": "https://news.err.ee/rss",
           "lang": "en",
           "lean": "Public broadcaster EN",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1215,6 +1364,7 @@
           "url": "https://rs.n1info.com/feed/",
           "lang": "en",
           "lean": "CNN-affiliate independent",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1222,6 +1372,7 @@
           "url": "https://balkaninsight.com/feed/",
           "lang": "en",
           "lean": "Investigative regional",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1234,6 +1385,7 @@
           "url": "https://hungarytoday.hu/feed/",
           "lang": "en",
           "lean": "Pro-Fidesz",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1241,6 +1393,7 @@
           "url": "https://telex.hu/rss",
           "lang": "hu",
           "lean": "Independent post-Index",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1248,6 +1401,7 @@
           "url": "https://praguemorning.cz/feed/",
           "lang": "en",
           "lean": "Independent EN",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1260,6 +1414,7 @@
           "url": "https://civil.ge/feed",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1267,6 +1422,7 @@
           "url": "https://oc-media.org/feed/",
           "lang": "en",
           "lean": "Caucasus regional independent",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1279,6 +1435,7 @@
           "url": "https://yle.fi/uutiset/rss/uutiset.rss?osasto=news",
           "lang": "en",
           "lean": "Public broadcaster EN",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1286,6 +1443,7 @@
           "url": "https://feeds.thelocal.com/rss/se",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1293,6 +1451,7 @@
           "url": "https://feeds.thelocal.com/rss/de",
           "lang": "en",
           "lean": "Independent EN-language",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1305,6 +1464,7 @@
           "url": "https://en.antaranews.com/rss/news.xml",
           "lang": "en",
           "lean": "State news agency EN",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1312,6 +1472,7 @@
           "url": "https://rss.tempo.co/nasional",
           "lang": "id",
           "lean": "Independent investigative",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1319,6 +1480,7 @@
           "url": "https://www.cnnindonesia.com/nasional/rss",
           "lang": "id",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1326,6 +1488,7 @@
           "url": "https://www.tribunnews.com/rss",
           "lang": "id",
           "lean": "Mass-market commercial",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1338,6 +1501,7 @@
           "url": "https://www.inquirer.net/fullfeed",
           "lang": "en",
           "lean": "Centrist flagship",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1345,6 +1509,7 @@
           "url": "https://www.rappler.com/feed/",
           "lang": "en",
           "lean": "Independent — Maria Ressa's outlet",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1352,6 +1517,7 @@
           "url": "https://www.philstar.com/rss/headlines",
           "lang": "en",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1359,6 +1525,7 @@
           "url": "https://news.abs-cbn.com/news/rss",
           "lang": "en",
           "lean": "Largest TV network",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -1371,6 +1538,7 @@
           "url": "https://e.vnexpress.net/rss/news.rss",
           "lang": "en",
           "lean": "Mainstream domestic EN",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1378,6 +1546,7 @@
           "url": "https://www.bangkokpost.com/rss/data/topstories.xml",
           "lang": "en",
           "lean": "Establishment EN",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1385,6 +1554,7 @@
           "url": "https://www.malaymail.com/feed/rss/world",
           "lang": "en",
           "lean": "Independent",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1392,6 +1562,7 @@
           "url": "https://www.channelnewsasia.com/rssfeeds/8395986",
           "lang": "en",
           "lean": "Singapore state-aligned regional",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1399,6 +1570,7 @@
           "url": "https://www.straitstimes.com/news/world/rss.xml",
           "lang": "en",
           "lean": "Singapore establishment",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1411,6 +1583,7 @@
           "url": "https://www.taipeitimes.com/xml/index.rss",
           "lang": "en",
           "lean": "Independent EN — pro-DPP",
+          "section": "news",
           "status": "STUB"
         },
         {
@@ -1418,6 +1591,7 @@
           "url": "https://hongkongfp.com/feed/",
           "lang": "en",
           "lean": "Independent — pro-democracy",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1425,6 +1599,7 @@
           "url": "https://www.scmp.com/rss/91/feed",
           "lang": "en",
           "lean": "Establishment HK — Alibaba-owned",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1432,6 +1607,7 @@
           "url": "https://news.ltn.com.tw/rss/all.xml",
           "lang": "zh",
           "lean": "Largest daily — pro-DPP",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1444,6 +1620,7 @@
           "url": "https://www.nknews.org/feed/",
           "lang": "en",
           "lean": "DPRK-watcher independent",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1451,6 +1628,7 @@
           "url": "https://www.dailynk.com/english/feed/",
           "lang": "en",
           "lean": "Defector-sourced independent",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1463,6 +1641,7 @@
           "url": "https://www.abc.net.au/news/feed/2942460/rss.xml",
           "lang": "en",
           "lean": "Public broadcaster",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1470,6 +1649,7 @@
           "url": "https://www.smh.com.au/rss/feed.xml",
           "lang": "en",
           "lean": "Centre-left establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1477,6 +1657,7 @@
           "url": "https://www.theguardian.com/australia-news/rss",
           "lang": "en",
           "lean": "Centre-left",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1484,6 +1665,7 @@
           "url": "https://www.news.com.au/feed",
           "lang": "en",
           "lean": "Murdoch — largest digital news AU",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1491,6 +1673,7 @@
           "url": "https://www.theaustralian.com.au/feed",
           "lang": "en",
           "lean": "Murdoch broadsheet",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1498,6 +1681,7 @@
           "url": "https://www.9news.com.au/rss",
           "lang": "en",
           "lean": "Mainstream TV",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1510,6 +1694,7 @@
           "url": "https://rss.cbc.ca/lineup/world.xml",
           "lang": "en",
           "lean": "Public broadcaster",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1517,6 +1702,7 @@
           "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/world/",
           "lang": "en",
           "lean": "Centre-establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1524,6 +1710,7 @@
           "url": "https://nationalpost.com/feed/",
           "lang": "en",
           "lean": "Centre-right",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1531,6 +1718,7 @@
           "url": "https://www.thestar.com/feeds.articles.world.rss",
           "lang": "en",
           "lean": "Centre-left",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1538,6 +1726,7 @@
           "url": "https://www.ledevoir.com/rss/manchettes.xml",
           "lang": "fr",
           "lean": "Quebec progressive",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1550,6 +1739,7 @@
           "url": "https://mexiconewsdaily.com/feed/",
           "lang": "en",
           "lean": "Independent EN expat-focused",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1557,6 +1747,7 @@
           "url": "https://www.jornada.com.mx/rss/edicion.xml",
           "lang": "es",
           "lean": "Left-of-centre",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1564,6 +1755,7 @@
           "url": "https://www.elsoldemexico.com.mx/rss",
           "lang": "es",
           "lean": "Centre-right",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1571,6 +1763,7 @@
           "url": "https://www.elfinanciero.com.mx/rss",
           "lang": "es",
           "lean": "Business establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1578,6 +1771,7 @@
           "url": "https://www.24-horas.mx/feed/",
           "lang": "es",
           "lean": "Mainstream digital",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1585,6 +1779,7 @@
           "url": "https://www.eleconomista.com.mx/rss/internacional.xml",
           "lang": "es",
           "lean": "Business",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -1597,6 +1792,7 @@
           "url": "https://www.clarin.com/rss/lo-ultimo/",
           "lang": "es",
           "lean": "Centre-right flagship AR",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1604,6 +1800,7 @@
           "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml",
           "lang": "es",
           "lean": "Centre-right establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1611,6 +1808,7 @@
           "url": "https://www.batimes.com.ar/feed",
           "lang": "en",
           "lean": "EN-language AR",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1623,6 +1821,7 @@
           "url": "https://www.eltiempo.com/rss/mundo.xml",
           "lang": "es",
           "lean": "Mainstream establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1630,6 +1829,7 @@
           "url": "https://www.caracaschronicles.com/feed/",
           "lang": "en",
           "lean": "Opposition diaspora EN",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1642,6 +1842,7 @@
           "url": "https://feeds.24.com/articles/news24/world/rss",
           "lang": "en",
           "lean": "Mainstream commercial",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1649,6 +1850,7 @@
           "url": "https://mg.co.za/feed/",
           "lang": "en",
           "lean": "Centre-left investigative",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1656,6 +1858,7 @@
           "url": "https://www.dailymaverick.co.za/dmrss/",
           "lang": "en",
           "lean": "Independent investigative",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1668,6 +1871,7 @@
           "url": "https://www.standardmedia.co.ke/rss/world.php",
           "lang": "en",
           "lean": "Mainstream",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1680,6 +1884,7 @@
           "url": "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
           "lang": "en",
           "lean": "Continental aggregator",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1687,6 +1892,7 @@
           "url": "https://www.premiumtimesng.com/feed",
           "lang": "en",
           "lean": "Independent investigative — adds to Punch/Vanguard",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1694,6 +1900,7 @@
           "url": "https://addisstandard.com/feed/",
           "lang": "en",
           "lean": "Independent ET",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1701,6 +1908,7 @@
           "url": "https://www.moroccoworldnews.com/feed",
           "lang": "en",
           "lean": "Independent EN",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1708,6 +1916,7 @@
           "url": "https://www.rfi.fr/fr/afrique/rss",
           "lang": "fr",
           "lean": "French public broadcaster Africa",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1715,6 +1924,7 @@
           "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml",
           "lang": "en",
           "lean": "BBC Africa coverage",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1727,6 +1937,7 @@
           "url": "https://foreignpolicy.com/feed/",
           "lang": "en",
           "lean": "Centrist establishment policy mag",
+          "section": "opinion",
           "status": "OK"
         },
         {
@@ -1734,6 +1945,7 @@
           "url": "https://www.foreignaffairs.com/rss.xml",
           "lang": "en",
           "lean": "Establishment policy",
+          "section": "opinion",
           "status": "OK"
         },
         {
@@ -1741,6 +1953,7 @@
           "url": "https://www.theatlantic.com/feed/all/",
           "lang": "en",
           "lean": "Centre-left magazine",
+          "section": "opinion",
           "status": "OK"
         },
         {
@@ -1748,6 +1961,7 @@
           "url": "https://www.economist.com/the-world-this-week/rss.xml",
           "lang": "en",
           "lean": "Centrist policy",
+          "section": "opinion",
           "status": "RETRY"
         },
         {
@@ -1755,6 +1969,7 @@
           "url": "https://www.newyorker.com/feed/news",
           "lang": "en",
           "lean": "Centre-left literary",
+          "section": "opinion",
           "status": "RETRY"
         },
         {
@@ -1762,6 +1977,7 @@
           "url": "https://www.politico.eu/feed/",
           "lang": "en",
           "lean": "Centrist Brussels-beltway",
+          "section": "opinion",
           "status": "OK"
         },
         {
@@ -1769,6 +1985,7 @@
           "url": "https://theconversation.com/global/articles.atom",
           "lang": "en",
           "lean": "Academic explainer",
+          "section": "opinion",
           "status": "OK"
         }
       ]
@@ -1781,6 +1998,7 @@
           "url": "https://www.middleeasteye.net/rss",
           "lang": "en",
           "lean": "Critical of Gulf monarchies",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1788,6 +2006,7 @@
           "url": "https://www.middleeastmonitor.com/feed/",
           "lang": "en",
           "lean": "Pro-Palestinian pan-Arab",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1795,6 +2014,7 @@
           "url": "https://www.newarab.com/rss",
           "lang": "en",
           "lean": "Pan-Arab independent",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -1807,6 +2027,7 @@
           "url": "https://www.africanews.com/feed/",
           "lang": "en",
           "lean": "Pan-African Euronews subsidiary",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1814,6 +2035,7 @@
           "url": "https://africanarguments.org/feed/",
           "lang": "en",
           "lean": "Independent investigative",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1821,6 +2043,7 @@
           "url": "https://www.theafricareport.com/feed/",
           "lang": "en",
           "lean": "Business establishment",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1833,6 +2056,7 @@
           "url": "https://thediplomat.com/feed/",
           "lang": "en",
           "lean": "Asia-Pacific policy magazine",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1840,6 +2064,7 @@
           "url": "https://asiatimes.com/feed/",
           "lang": "en",
           "lean": "Pan-Asian commentary",
+          "section": "opinion",
           "status": "OK"
         },
         {
@@ -1847,6 +2072,7 @@
           "url": "https://www.eastasiaforum.org/feed/",
           "lang": "en",
           "lean": "Academic policy",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -1859,6 +2085,7 @@
           "url": "https://www.france24.com/ar/rss",
           "lang": "ar",
           "lean": "French wire — Arabic",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1866,6 +2093,7 @@
           "url": "https://www.france24.com/es/rss",
           "lang": "es",
           "lean": "French wire — Spanish",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1873,6 +2101,7 @@
           "url": "https://sputnikglobe.com/export/rss2/archive/index.xml",
           "lang": "en",
           "lean": "Russian state-export",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1880,6 +2109,7 @@
           "url": "https://www.rt.com/rss/africa/",
           "lang": "en",
           "lean": "Russian state media in Africa",
+          "section": "news",
           "status": "OK"
         }
       ]
@@ -1892,6 +2122,7 @@
           "url": "https://rsshub.app/telegram/channel/readovkanews",
           "lang": "ru",
           "lean": "Russian pro-war populist",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1899,6 +2130,7 @@
           "url": "https://rsshub.app/telegram/channel/IRGC_QF",
           "lang": "fa",
           "lean": "IRGC Quds Force channel",
+          "section": "news",
           "status": "RETRY"
         },
         {
@@ -1906,6 +2138,7 @@
           "url": "https://rsshub.app/telegram/channel/Hamshahri",
           "lang": "fa",
           "lean": "Iran reformist",
+          "section": "news",
           "status": "RETRY"
         }
       ]
@@ -1918,6 +2151,7 @@
           "url": "https://www.vaticannews.va/en.rss.xml",
           "lang": "en",
           "lean": "Catholic establishment",
+          "section": "news",
           "status": "OK"
         },
         {
@@ -1925,6 +2159,7 @@
           "url": "https://religionnews.com/feed/",
           "lang": "en",
           "lean": "Centrist religious news",
+          "section": "news",
           "status": "OK"
         }
       ]

@@ -84,12 +84,12 @@ def _hook_slide(a: dict, briefing: dict) -> dict | None:
     iso = a.get("isolation_top") or []
     if iso:
         score = iso[0].get("mean_similarity", 1)
-        if score < 0.05:
+        if score < 0.30:
             b = iso[0]
             return {
                 "title": f"`{b['bucket']}` stands alone",
                 "body": _truncate(
-                    b.get("note") or f"mean_similarity {score} — most isolated.",
+                    b.get("note") or f"mean_similarity {score} — most divergent.",
                     MAX_SLIDE_BODY_CHARS,
                 ),
                 "kind": "stat",
@@ -186,7 +186,7 @@ def render(a: dict, briefing: dict) -> dict:
             top = iso[0]
             score = top.get("mean_similarity", "")
             slides.insert(-1, {
-                "title": f"Most isolated: `{top['bucket']}`",
+                "title": f"Most divergent: `{top['bucket']}`",
                 "body": _truncate(
                     top.get("note") or f"mean_similarity {score}",
                     MAX_SLIDE_BODY_CHARS,

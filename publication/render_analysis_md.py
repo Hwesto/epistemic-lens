@@ -23,6 +23,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from meta import REPO_ROOT as ROOT
+from analytical.build_metrics import weighted_frame_distribution
 ANALYSES = ROOT / "analyses"
 
 
@@ -69,9 +70,58 @@ def render(a: dict) -> str:
             out.append(f"> — {attribution} (corpus[{ev['signal_text_idx']}])")
             out.append("")
 
-    # Isolation
+    # Population-weighted view (Phase 1). Reads bucket_weights.json via
+    # build_metrics.weighted_frame_distribution; weighted_share is the
+    # population × audience-reach share of each frame; bootstrap CIs (5/95
+    # over 1000 bucket-resampled iters) hedge against bucket-set sampling
+    # error. Low-confidence buckets (weight=0 or default) flagged.
+    wfd = weighted_frame_distribution(a)
+    if wfd.get("frames"):
+        out.append("## Population-weighted view")
+        out.append("")
+        out.append(
+            "Weighted by bucket population × audience reach (`bucket_weights.json`); "
+            "bootstrap CI 5–95% over 1000 bucket-resampled iterations. Unweighted "
+            "share = 1 / (frames carrying any bucket) for comparison."
+        )
+        out.append("")
+        bs = wfd.get("bootstrap") or {}
+        cis_available = "weighted_share_ci_lo" in next(iter(wfd["frames"].values()), {})
+        if cis_available:
+            out.append("| Frame | Weighted share | 90% CI | Unweighted | Buckets |")
+            out.append("| --- | ---: | --- | ---: | ---: |")
+        else:
+            out.append("| Frame | Weighted share | Unweighted | Buckets |")
+            out.append("| --- | ---: | ---: | ---: |")
+        for fid, info in wfd["frames"].items():
+            ws = info["weighted_share"]
+            uw = info["unweighted_share"]
+            bn = info.get("buckets_total", "")
+            if cis_available:
+                ci = f"[{info['weighted_share_ci_lo']:.2f}, {info['weighted_share_ci_hi']:.2f}]"
+                out.append(f"| `{fid}` | {ws:.3f} | {ci} | {uw:.3f} | {bn} |")
+            else:
+                out.append(f"| `{fid}` | {ws:.3f} | {uw:.3f} | {bn} |")
+        out.append("")
+        if wfd.get("low_confidence_buckets"):
+            out.append(
+                "_Low-confidence weights (treat with caution): "
+                + ", ".join(f"`{b}`" for b in wfd["low_confidence_buckets"]) + "._"
+            )
+            out.append("")
+        if wfd.get("default_weight_buckets"):
+            out.append(
+                "_Default-weight buckets (no entry in `bucket_weights.json`): "
+                + ", ".join(f"`{b}`" for b in wfd["default_weight_buckets"]) + "._"
+            )
+            out.append("")
+        if bs and bs.get("skipped"):
+            out.append(f"_Bootstrap CIs skipped: {bs.get('reason', 'unknown')}._")
+            out.append("")
+
+    # Divergence (LaBSE cosine; field name `isolation_top` retained for schema continuity)
     if a.get("isolation_top"):
-        out.append("## Most isolated buckets")
+        out.append("## Most divergent buckets")
         out.append("")
         out.append("| Bucket | mean_similarity | Note |")
         out.append("| --- | --- | --- |")

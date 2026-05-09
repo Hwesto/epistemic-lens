@@ -305,6 +305,201 @@ class TestDedup(unittest.TestCase):
         self.assertEqual(result["n_deduped"], 1)
         self.assertGreaterEqual(result["n_url_dupes"], 2)
 
+    def test_cross_day_dedup_marks_repeat_url(self):
+        """Item with a canonical URL already in state gets cross_day_duplicate=True."""
+        # Pre-seeded state: this URL was first seen 3 days ago
+        state = {
+            "window_days": 30,
+            "url_first_seen": {"https://example.com/article": "2026-05-06"},
+            "title_first_seen": {},
+        }
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "F", "items": [
+                        {"id": "x", "link": "https://example.com/article",
+                         "title": "Today only", "summary": "S"},
+                    ]},
+                ]},
+            },
+        }
+        self.dedup.dedup_snapshot(snap, cross_day_state=state)
+        item = snap["countries"]["usa"]["feeds"][0]["items"][0]
+        self.assertTrue(item.get("cross_day_duplicate"))
+        self.assertEqual(item.get("cross_day_first_seen"), "2026-05-06")
+
+    def test_cross_day_state_prunes_outside_window(self):
+        """Entries older than window_days are dropped when prune is called."""
+        state = {
+            "window_days": 30,
+            "url_first_seen": {
+                "https://old.example/article": "2026-01-01",
+                "https://recent.example/article": "2026-05-06",
+            },
+            "title_first_seen": {},
+        }
+        n = self.dedup.prune_cross_day_state(state, today="2026-05-09")
+        self.assertEqual(n, 1)
+        self.assertNotIn("https://old.example/article", state["url_first_seen"])
+        self.assertIn("https://recent.example/article", state["url_first_seen"])
+
+    def test_cross_day_state_preserves_first_seen_on_revisit(self):
+        """update_cross_day_state must NOT overwrite an existing first_seen."""
+        state = {
+            "window_days": 30,
+            "url_first_seen": {"https://example.com/x": "2026-05-01"},
+            "title_first_seen": {},
+        }
+        self.dedup.update_cross_day_state(
+            state,
+            canonical_urls={"https://example.com/x"},
+            normalised_titles=set(),
+            today="2026-05-09",
+        )
+        # First-seen stays at the original date
+        self.assertEqual(state["url_first_seen"]["https://example.com/x"], "2026-05-01")
+
+
+class TestCoverageMatrix(unittest.TestCase):
+    """Phase 1 deterministic per-(story, feed) coverage product."""
+
+    def setUp(self):
+        if "pipeline.coverage_matrix" in sys.modules:
+            importlib.reload(sys.modules["pipeline.coverage_matrix"])
+        from pipeline import coverage_matrix
+        self.cm = coverage_matrix
+
+    def test_matrix_records_matching_feeds_only(self):
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "Outlet A", "section": "news", "items": [
+                        {"id": "1", "title": "Strait of Hormuz crisis deepens",
+                         "summary": "Iran navy", "body_text": "", "link": "https://a/1",
+                         "body_chars": 1500},
+                        {"id": "2", "title": "Unrelated stock-market story",
+                         "summary": "", "body_text": "", "link": "https://a/2"},
+                    ]},
+                    {"name": "Outlet B", "section": "wire", "items": [
+                        {"id": "3", "title": "Cooking recipes",
+                         "summary": "", "body_text": "", "link": "https://b/3"},
+                    ]},
+                ]},
+            },
+        }
+        stories = {
+            "hormuz_iran": {"patterns": [r"\bhormuz\b"], "exclude": [], "tier": "long_running",
+                             "title": "Hormuz"},
+            "ai_regulation": {"patterns": [r"\bai (?:act|regulation)\b"], "exclude": [],
+                                "tier": "long_running", "title": "AI"},
+        }
+        m = self.cm.build_coverage_matrix(snap, stories)
+        # hormuz_iran has 1 matching feed (Outlet A)
+        self.assertEqual(len(m["coverage"]["hormuz_iran"]), 1)
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["feed_name"], "Outlet A")
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["section"], "news")
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["first_match_rank"], 1)
+        # ai_regulation: zero matching feeds
+        self.assertEqual(len(m["coverage"]["ai_regulation"]), 0)
+        # Summary numbers
+        self.assertEqual(m["summary"]["hormuz_iran"]["n_feeds_covered"], 1)
+        self.assertEqual(m["summary"]["hormuz_iran"]["n_buckets_covered"], 1)
+        self.assertEqual(m["summary"]["ai_regulation"]["n_feeds_covered"], 0)
+
+    def test_longitudinal_aggregator_basic(self):
+        """build_trajectory groups frames across dates and computes per-day share."""
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lg
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            # Two days of analyses for one story.
+            day1 = {
+                "date": "2026-05-07", "story_key": "S",
+                "story_title": "Story", "meta_version": "7.0.0",
+                "n_articles": 10,
+                "frames": [
+                    {"frame_id": "F1", "buckets": ["a", "b"]},
+                    {"frame_id": "F2", "buckets": ["c"]},
+                ],
+            }
+            day2 = {
+                "date": "2026-05-08", "story_key": "S",
+                "story_title": "Story", "meta_version": "7.0.1",
+                "n_articles": 12,
+                "frames": [
+                    {"frame_id": "F1", "buckets": ["a"]},
+                    {"frame_id": "F2", "buckets": ["b", "c"]},
+                ],
+            }
+            (tdp / "2026-05-07_S.json").write_text(json.dumps(day1))
+            (tdp / "2026-05-08_S.json").write_text(json.dumps(day2))
+            grouped = lg.collect_analyses(analyses_dir=tdp)
+            self.assertIn("S", grouped)
+            traj = lg.build_trajectory(grouped["S"])
+            self.assertEqual(traj["story_key"], "S")
+            self.assertEqual(traj["n_days_with_analysis"], 2)
+            # Two distinct meta_version segments (7.0.0 → 7.0.1)
+            self.assertEqual(len(traj["meta_version_segments"]), 2)
+            # Bucket set { a,b,c } same both days → same signature → 1 segment
+            self.assertEqual(len(traj["bucket_set_signatures"]), 1)
+            # Per-frame trajectory has both days
+            self.assertIn("F1", traj["frame_trajectories"])
+            self.assertEqual(len(traj["frame_trajectories"]["F1"]), 2)
+            # Day 1 F1 covered 2/3 buckets = 0.667; Day 2 F1 covered 1/3 = 0.333
+            shares = [d["share"] for d in traj["frame_trajectories"]["F1"]]
+            self.assertAlmostEqual(shares[0], 0.667, places=2)
+            self.assertAlmostEqual(shares[1], 0.333, places=2)
+
+    def test_longitudinal_handles_pre_7_0_0_label_field(self):
+        """Pre-7.0.0 analyses use `label` not `frame_id` — both must group together."""
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lg
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            (tdp / "2026-05-07_S.json").write_text(json.dumps({
+                "date": "2026-05-07", "story_key": "S",
+                "meta_version": "1.4.1",
+                "frames": [{"label": "ECON", "buckets": ["a"]}],
+            }))
+            (tdp / "2026-05-08_S.json").write_text(json.dumps({
+                "date": "2026-05-08", "story_key": "S",
+                "meta_version": "7.0.0",
+                "frames": [{"frame_id": "ECON", "buckets": ["a", "b"]}],
+            }))
+            grouped = lg.collect_analyses(analyses_dir=tdp)
+            traj = lg.build_trajectory(grouped["S"])
+            # Same key "ECON" used across both schemas → single trajectory
+            self.assertEqual(len(traj["frame_trajectories"]["ECON"]), 2)
+
+    def test_matrix_excludes_via_exclude_patterns(self):
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "F", "section": "news", "items": [
+                        {"id": "1", "title": "Hormuz also gaza updates",
+                         "summary": "", "body_text": "", "link": "https://x/1"},
+                    ]},
+                ]},
+            },
+        }
+        # Story with `\bhormuz\b` exclude — matching item should NOT be counted
+        stories = {
+            "israel_palestine": {"patterns": [r"\bgaza\b"],
+                                  "exclude": [r"\bhormuz\b"],
+                                  "tier": "long_running", "title": "I/P"},
+        }
+        m = self.cm.build_coverage_matrix(snap, stories)
+        self.assertEqual(len(m["coverage"]["israel_palestine"]), 0)
+
 
 # ============================================================================
 # Daily health
@@ -492,6 +687,28 @@ class TestExtractFullText(unittest.TestCase):
         targets = self.eft.select_items(snap, None, top_clusters=0)
         ids = [it["id"] for _, _, it in targets]
         self.assertEqual(ids, ["x2"])  # x1 already extracted, skipped
+
+    def test_infer_section_url_pattern_overrides_feed(self):
+        """URL pattern /opinion/, /editorial/ etc. tags item as opinion
+        even if the feed defaults to news."""
+        cases = [
+            ("https://example.com/news/headline", "news", "news"),
+            ("https://example.com/opinion/take-on-x", "news", "opinion"),
+            ("https://example.com/editorial/board-says", "news", "opinion"),
+            ("https://example.com/op-ed/contributor", "news", "opinion"),
+            ("https://example.com/blog/observer", "news", "opinion"),
+            ("https://example.com/columnist/somebody", "news", "opinion"),
+            ("https://example.com/leader/today", "news", "opinion"),
+            # Feed-level wire passes through when URL has no pattern
+            ("https://reuters.com/article/12345", "wire", "wire"),
+            # Empty URL falls back to feed_section
+            ("", "news", "news"),
+            # Case-insensitive match on path
+            ("https://example.com/Opinion/Foo", "news", "opinion"),
+        ]
+        for url, feed_section, expected in cases:
+            with self.subTest(url=url):
+                self.assertEqual(self.eft.infer_section(url, feed_section), expected)
 
 
 class TestSitemapFallback(unittest.TestCase):
@@ -732,7 +949,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("## Frames (2)", md)
         self.assertIn("### ECONOMIC — energy contagion", md)
         self.assertIn("### SECURITY_DEFENSE", md)
-        self.assertIn("## Most isolated buckets", md)
+        self.assertIn("## Most divergent buckets", md)
         self.assertIn("## Bucket-exclusive vocabulary", md)
         self.assertIn("## Paradox", md)
         self.assertIn("_No paradox in this corpus._", md)

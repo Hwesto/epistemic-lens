@@ -186,7 +186,10 @@ def bucket_sizes(vocabs: dict[str, Counter]) -> dict[str, int]:
 # ---------------------------------------------------------------------------
 # Population-weighted frame aggregates (C.1)
 # ---------------------------------------------------------------------------
-def weighted_frame_distribution(analysis: dict) -> dict:
+def weighted_frame_distribution(analysis: dict,
+                                 bootstrap_iters: int = 1000,
+                                 ci_pct: tuple[int, int] = (5, 95),
+                                 seed: int | None = 42) -> dict:
     """Compute population-weighted frame share from an analysis JSON.
 
     Closes red-team Flaw F6 (geographic-equality fallacy). Each frame's share
@@ -194,21 +197,30 @@ def weighted_frame_distribution(analysis: dict) -> dict:
     buckets that carry any frame in this analysis. The unweighted share is
     published in parentheses so transparency is preserved.
 
+    Phase 1 addition: bootstrap CIs. Buckets are resampled with replacement
+    `bootstrap_iters` times; per-frame weighted shares recomputed each time;
+    `ci_pct` percentiles of the resulting distribution are emitted as
+    `weighted_share_ci_lo` / `weighted_share_ci_hi`. Numpy required; if
+    unavailable, CIs are omitted silently and analysis still ships.
+
     Returns:
       {
         "frames": {frame_id: {"weighted_share", "unweighted_share",
+                              "weighted_share_ci_lo", "weighted_share_ci_hi",
                               "weighted_buckets_total", "buckets_total",
                               "low_confidence_share": float},
                    ...},
         "total_weight": float,
         "low_confidence_buckets": [bucket_keys],
         "default_weight_buckets": [bucket_keys not in bucket_weights.json],
+        "bootstrap": {"iters": int, "ci_pct": [lo, hi], "seed": int|null} | null,
       }
     """
     frames = analysis.get("frames") or []
     if not frames:
         return {"frames": {}, "total_weight": 0.0,
-                "low_confidence_buckets": [], "default_weight_buckets": []}
+                "low_confidence_buckets": [], "default_weight_buckets": [],
+                "bootstrap": None}
 
     all_buckets: set[str] = set()
     for f in frames:
@@ -256,6 +268,51 @@ def weighted_frame_distribution(analysis: dict) -> dict:
             "buckets": buckets,
         }
 
+    # Bootstrap CIs over weighted_share: resample buckets with replacement,
+    # recompute per-frame weighted_share, take percentiles. Skip silently if
+    # numpy unavailable so the analysis still ships.
+    bootstrap_meta = None
+    if bootstrap_iters and bootstrap_iters > 0 and all_buckets:
+        try:
+            import numpy as np  # type: ignore
+            rng = np.random.default_rng(seed)
+            bucket_list = sorted(all_buckets)
+            # Per-bucket weight + per-bucket frame membership
+            bucket_weights = np.array(
+                [meta.bucket_weight(b) for b in bucket_list], dtype=float
+            )
+            bucket_frame_membership: dict[str, "np.ndarray"] = {}
+            for fid, info in by_frame.items():
+                fb = set(info.get("buckets", []))
+                bucket_frame_membership[fid] = np.array(
+                    [b in fb for b in bucket_list], dtype=float
+                )
+            n = len(bucket_list)
+            # Vectorised: sample indices once, compute all frames per iter
+            shares: dict[str, list[float]] = {fid: [] for fid in by_frame}
+            for _ in range(bootstrap_iters):
+                idx = rng.integers(0, n, size=n)
+                w_sample = bucket_weights[idx]
+                tot = float(w_sample.sum()) or 1.0
+                for fid, mem in bucket_frame_membership.items():
+                    shares[fid].append(float((w_sample * mem[idx]).sum()) / tot)
+            for fid, info in by_frame.items():
+                arr = np.array(shares[fid])
+                info["weighted_share_ci_lo"] = round(
+                    float(np.percentile(arr, ci_pct[0])), 3
+                )
+                info["weighted_share_ci_hi"] = round(
+                    float(np.percentile(arr, ci_pct[1])), 3
+                )
+            bootstrap_meta = {
+                "iters": int(bootstrap_iters),
+                "ci_pct": list(ci_pct),
+                "seed": seed,
+                "method": "bucket_resample_with_replacement",
+            }
+        except ImportError:
+            bootstrap_meta = {"skipped": True, "reason": "numpy unavailable"}
+
     return {
         "frames": by_frame,
         "total_weight": round(total_weight, 1),
@@ -263,6 +320,7 @@ def weighted_frame_distribution(analysis: dict) -> dict:
         "low_confidence_buckets": sorted(low_conf),
         "default_weight_buckets": sorted(default_weight),
         "weighting_formula": "weight = population_m * audience_reach (bucket_weights.json)",
+        "bootstrap": bootstrap_meta,
     }
 
 
