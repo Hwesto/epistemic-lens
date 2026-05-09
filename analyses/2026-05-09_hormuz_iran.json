@@ -1,0 +1,409 @@
+{
+  "meta_version": "2.0.1",
+  "date": "2026-05-09",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 35,
+  "n_articles": 62,
+  "tldr": "The highest pairwise Jaccard in today's corpus (0.468) is between Canada and South Africa — two buckets from opposing geopolitical blocs — both choosing to lead with the CIA assessment that Iran can withstand a US naval blockade for four more months, a framing that flatly undercuts Washington's leverage claims. Asia Times alone characterises Trump's negotiating threats as 'genocidal,' language absent from Western mainstream press, Gulf media, and Iranian state outlets alike. Nordic coverage treats the story almost entirely as a consumer disruption problem — SAS cancelling 1,200 summer flights — while the Pakistani press is the only bucket to surface the psychological toll on trapped seafarers. Iran's own state media (IRNA) avoids any substantive engagement with the US peace proposal, instead issuing legal condemnations, while RT compares Hormuz to an 'atomic bomb' as a strategic asset — a framing that ironically echoes American maximalism rather than Iranian restraint.",
+  "frames": [
+    {
+      "label": "CEASEFIRE_INTEGRITY_DISPUTE",
+      "description": "Both sides assert the ceasefire remains formally in place while trading fire, with each blaming the other for initiating hostilities.",
+      "buckets": [
+        "iran_state",
+        "iran_opposition",
+        "uk",
+        "ukraine",
+        "kenya",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "US attack on Iran tankers clear violation of ceasefire, int’l law: FM spox",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Iran's Foreign Minister Abbas Araghchi has accused the US of opting for a \"reckless military adventure\" every time a \"diplomatic solution is on the table\".",
+          "signal_text_idx": 53
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "US Strikes Iranian Targets After Attack on Navy Destroyers",
+          "signal_text_idx": 55
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "US President Donald Trump said the ceasefire with Iran was still in place despite an Iranian attack on three American destroyers in the Strait of Hormuz that fanned fears Friday that the truce was faltering.",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "label": "CIA_BLOCKADE_ENDURANCE_ESTIMATE",
+      "description": "The leaked CIA assessment that Iran can withstand the blockade for four more months becomes the consensus headline across bloc lines.",
+      "buckets": [
+        "canada",
+        "south_africa",
+        "turkey",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "CIA analysis suggests Iran could withstand blockade for 4 more months",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "A CIA assessment indicated that Iran would not suffer severe economic pressure from a US blockade of Iranian ports for about another four months, acco",
+          "signal_text_idx": 43
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US intelligence says Iran can withstand Hormuz blockade for months",
+          "signal_text_idx": 51
+        }
+      ]
+    },
+    {
+      "label": "GLOBAL_OIL_AND_MARKET_SHOCK",
+      "description": "Financial and commodity markets, tanker immobilisation, and downstream energy costs dominate the economic-impact frame.",
+      "buckets": [
+        "iraq",
+        "pan_arab",
+        "usa",
+        "spain",
+        "taiwan_hk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Oil jumps, stocks fall as US-Iran clashes spark peace talks fears",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Global stock markets diverged and oil prices rose Friday as fresh US-Iran clashes in the Strait of Hormuz jolted hopes for a deal to end the Middle East war and reopen the crucial waterway.",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "On the eve of the U.S.-Israeli strikes on Iran, 56 tankers sailed through the Strait of Hormuz",
+          "signal_text_idx": 57
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Strait of Hormuz fills up with loaded tankers without a clear destination",
+          "signal_text_idx": 47
+        }
+      ]
+    },
+    {
+      "label": "TRUMP_THREAT_AS_ESCALATION_DRIVER",
+      "description": "Asia Pacific press uniquely characterises Trump's rhetorical threats as genocidal and counterproductive, framing them as the primary escalation risk.",
+      "buckets": [
+        "asia_pacific_regional",
+        "israel",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "As he struggles to force Iran’s capitulation, US President Donald Trump issued what seemed to be yet another threat to commit an act of mass destruction against the country through nuclear warfare.",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "US President Donald Trump told reporters on Saturday that the United States would initiate renewed operations in the Strait of Hormuz if peace talks with Iran fail to move forward.",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Hormuz akin to ‘atomic bomb’ – Iranian supreme leader’s adviser",
+          "signal_text_idx": 41
+        }
+      ]
+    },
+    {
+      "label": "PETROYUAN_CURRENCY_WARFARE",
+      "description": "Asia Times uniquely frames the Hormuz standoff as a geofinancial conflict over oil-currency denomination, beyond the military narrative.",
+      "buckets": [
+        "asia_pacific_regional"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Iran weaponizes petroyuan in war reparations push",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "label": "CONSUMER_AVIATION_DISRUPTION",
+      "description": "Nordic press treats the Hormuz closure entirely as a summer-holiday flight disruption story, with no reference to geopolitics.",
+      "buckets": [
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Scandinavia's SAS airline is cancelling nearly 1,200 flights in May as it braces for soaring jet fuel prices as a result of the closure of the Straits of Hormuz.",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Germany's Lufthansa warns of hefty fuel costs and prepares for shortages",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "label": "SEAFARER_PSYCHOLOGICAL_COST",
+      "description": "Pakistan is the only bucket to foreground the mental health and humanitarian crisis of seafarers trapped in the Gulf combat zone.",
+      "buckets": [
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Isolated and traumatised by drones and missiles, seafarers in the Gulf face grave mental suffering after more than two months stuck on board in the Middle East war, maritime charities warn.",
+          "signal_text_idx": 32
+        }
+      ]
+    },
+    {
+      "label": "AFRICA_DOWNSTREAM_FERTILIZER_SHOCK",
+      "description": "German and African-oriented state TV uniquely cover the upstream fertilizer and food-security consequences for African nations.",
+      "buckets": [
+        "germany",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Fertilizer shortages: What are Africa's options during the Hormuz crisis?",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Beyond Hormuz: This oil giant is plagued by a curse",
+          "signal_text_idx": 48
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_jaccard": 0.013,
+      "note": "Italian-language; linguistic isolation."
+    },
+    {
+      "bucket": "brazil",
+      "mean_jaccard": 0.014,
+      "note": "Portuguese-language; covering US-Iran but in a distinct vocabulary set."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_jaccard": 0.032,
+      "note": "RT Africa's Nigeria 'oil curse' angle diverges editorially from the crisis-management mainstream."
+    },
+    {
+      "bucket": "germany",
+      "mean_jaccard": 0.038,
+      "note": "Africa-fertilizer article plus Spiegel military-strategy piece produce an unusual vocabulary cluster."
+    },
+    {
+      "bucket": "spain",
+      "mean_jaccard": 0.038,
+      "note": "El Pais's stranded-tanker supply-chain angle is editorially specific, not just linguistic."
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_jaccard": 0.039,
+      "note": "Single short entry ('world's most expensive tollbooth' metaphor) limits token overlap."
+    },
+    {
+      "bucket": "nordic",
+      "mean_jaccard": 0.039,
+      "note": "Consumer aviation-disruption frame produces distinct terms (airline, departur, summer) absent in security/diplomacy coverage."
+    },
+    {
+      "bucket": "china",
+      "mean_jaccard": 0.043,
+      "note": "CGTN boilerplate text and UKMTO logistics notice; editorially thin despite China being the largest Iranian oil buyer."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "asia_pacific_regional",
+      "terms": [
+        "petroyuan",
+        "reparation",
+        "weaponiz"
+      ],
+      "what_it_reveals": "Asia Times introduces a geofinancial currency-war frame — Iran seeking reparations denominated in yuan — absent from every other bucket including Chinese state media."
+    },
+    {
+      "bucket": "nordic",
+      "terms": [
+        "airline",
+        "flight",
+        "summer",
+        "departur",
+        "travel"
+      ],
+      "what_it_reveals": "Scandinavian press translates a geopolitical crisis into a consumer travel story; the war's most tangible impact for Nordic readers is summer holiday disruption."
+    },
+    {
+      "bucket": "pakistan",
+      "terms": [
+        "seafarer",
+        "charity"
+      ],
+      "what_it_reveals": "Pakistan alone covers the welfare sector's response to stranded maritime workers — probably driven by Pakistan's large seafarer labour export."
+    },
+    {
+      "bucket": "india",
+      "terms": [
+        "dhow",
+        "wooden",
+        "rescued",
+        "consulate"
+      ],
+      "what_it_reveals": "India's exclusive coverage of an Indian sailor killed in a dhow fire near Hormuz localises the strategic crisis as a labour-migration casualty event."
+    },
+    {
+      "bucket": "usa",
+      "terms": [
+        "poll",
+        "reconciliation",
+        "affordability"
+      ],
+      "what_it_reveals": "US domestic press links Hormuz to midterm politics and the reconciliation bill — the war is filtered through electoral-cost framing unique to American coverage."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "canada",
+      "outlet": "CBC World",
+      "quote": "CIA analysis suggests Iran could withstand blockade for 4 more months",
+      "signal_text_idx": 6
+    },
+    "b": {
+      "bucket": "south_africa",
+      "outlet": "News24 World",
+      "quote": "A CIA assessment indicated that Iran would not suffer severe economic pressure from a US blockade of Iranian ports for about another four months, acco",
+      "signal_text_idx": 43
+    },
+    "joint_conclusion": "A Western-allied press (Canada) and a non-aligned Global South press (South Africa) both chose to foreground the CIA's own admission that its blockade strategy lacks leverage — a US-intelligence leak that undercuts Washington's position regardless of which side of the geopolitical divide you're on, producing the highest pairwise Jaccard (0.468) in today's full corpus."
+  },
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's IRNA issued only official legal condemnations of US tanker strikes; no coverage of the substance, terms, or Iranian position on the US peace proposal."
+    },
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "Chinese state media (CGTN) produced only a maritime-access notice and a logistics report; despite China being the largest Iranian oil customer and facing secondary sanctions, analytical coverage of Beijing's dilemma was absent."
+    },
+    {
+      "bucket": "pan_african",
+      "what_they_covered_instead": "Pan-African coverage was minimal (single summary entry on stranded ships); the fertilizer and food-security consequences for food-import-dependent African states went largely uncovered from within the continent."
+    },
+    {
+      "bucket": "iran_opposition",
+      "what_they_covered_instead": "RFE/RL's Radio Farda focused on Rubio's Vatican diplomatic mission rather than Iranian domestic political response to the peace proposal."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Only outlet to describe Trump's negotiating posture as 'genocidal threats' including promising that Iran's 'whole civilization would die' — language absent from every Western, Gulf, and Iranian outlet.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Unique geofinancial frame: 'Iran weaponizes petroyuan in war reparations push' — positions the Hormuz blockade as a vehicle for currency-war outcomes.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Local Sweden",
+      "bucket": "nordic",
+      "finding": "SAS cancelling nearly 1,200 May flights due to Hormuz fuel costs — the most concrete consumer impact figure in the corpus.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Geo News English",
+      "bucket": "pakistan",
+      "finding": "Only outlet to cover maritime charity sector's response to trapped seafarers' mental health crisis; likely driven by Pakistan's large seafarer export labour pool.",
+      "signal_text_idx": 32
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Runs the Iranian supreme leader adviser's 'atomic bomb' comparison for Hormuz as a strategic asset — a framing that paradoxically echoes US maximalism rather than Iranian defensive framing.",
+      "signal_text_idx": 41
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "bucket": "kenya",
+      "finding": "'Trump is an idiot': Californians fume over soaring petrol prices — the corpus's only vox-pop domestic US reaction, surfaced by Kenyan press rather than American outlets.",
+      "signal_text_idx": 27
+    },
+    {
+      "outlet": "South China Morning Post",
+      "bucket": "taiwan_hk",
+      "finding": "Iran's ambassador to China explicitly states Beijing cannot be 'turned against' Tehran; undercuts the premise of Trump's expected China-trip diplomacy.",
+      "signal_text_idx": 50
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Tanker count in Hormuz: 56 on the eve of US-Israeli strikes on Iran, down to 7 two days later — the most quantitatively precise single data point in the corpus.",
+      "signal_text_idx": 57
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "Trump responded 'I love South Korea' when asked about the explosion on a South Korean-operated cargo ship in Hormuz — the only corpus entry foregrounding ROK commercial exposure to the conflict.",
+      "signal_text_idx": 45
+    },
+    {
+      "outlet": "Republic World",
+      "bucket": "india",
+      "finding": "One Indian sailor died and four were injured when a wooden cargo dhow carrying 18 Indian crew caught fire and capsized near Hormuz — India's framing is a labour-casualty story, not a geopolitical one.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The CIA endurance leak — that Iran can sustain the blockade four more months — emerged as the week's cross-bloc consensus headline, paradoxically uniting Canadian and South African press in undermining Washington's leverage narrative. The commercial disruption frame (aviation, shipping, fertilizers) dominates Global South and Nordic coverage while Western and Israeli press concentrate on ceasefire integrity and the contours of a deal that, as of Friday, Tehran had not answered.",
+  "generated_at": "2026-05-09T08:44:38Z",
+  "model": "claude-sonnet-4-6"
+}

@@ -1,0 +1,309 @@
+{
+  "meta_version": "2.0.1",
+  "date": "2026-05-09",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 12,
+  "n_articles": 20,
+  "tldr": "Despite an April 17 ceasefire extended to May 17, every bucket in today's 12-bucket corpus documents ongoing daily Israeli strikes in southern Lebanon, making the ceasefire a legal fiction rather than an operational fact. The most revealing editorial divergence: RT amplifies a single provocative image — an IDF soldier putting a cigarette in a Virgin Mary statue's mouth — to appeal to Christian conservative audiences globally, while Vatican News runs Pope Leo XIV's pastoral video call to besieged Lebanese priests, creating parallel religious-solidarity lanes that talk past each other. Israel's own press (Haaretz) is strikingly inward-looking, exposing IDF preparedness gaps against Hezbollah's fiber-optic-guided drones 'that cannot be jammed' rather than covering Lebanese casualties. With n_buckets=12 and predominantly summary-level signal, this story is less richly documented than the Hormuz and hantavirus stories today.",
+  "frames": [
+    {
+      "label": "CEASEFIRE_AS_LEGAL_FICTION",
+      "description": "All buckets agree daily Israeli strikes continue despite the April 17 ceasefire; the gap between paper and operational reality is the shared baseline fact.",
+      "buckets": [
+        "pan_african",
+        "russia",
+        "turkey",
+        "qatar",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Israeli airstrike kills 4 and injures 33 in southern Lebanon despite fragile ceasefire",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israeli strikes devastate Lebanese cities despite ceasefire (VIDEOS)",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Despite a ceasefire announced on April 17 and extended until May 17, the Israeli army continues daily strikes in Lebanon.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "label": "IDF_DRONE_VULNERABILITY_EXPOSED",
+      "description": "Israel's own press focuses inward on military preparedness failures rather than Lebanese casualties or diplomatic framing.",
+      "buckets": [
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "A surge in deadly Hezbollah drone attacks has exposed critical gaps in Israel's military preparedness, particularly against Hezbollah's fiber-optic-guided drones that cannot be jammed. Experts have warned the IDF for two years, but defenses remain unavailable to soldiers",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "label": "HEZBOLLAH_DISARMAMENT_AS_STATE_SOVEREIGNTY",
+      "description": "Canadian press frames the buffer zone story through Lebanon's state-building imperative rather than the Israeli security lens.",
+      "buckets": [
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Why disarming Hezbollah is about much more than guns and rockets",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "label": "IHL_VIOLATIONS_AND_WAR_WITHOUT_RULES",
+      "description": "Opinion/academic outlets uniquely apply an international humanitarian law accountability frame, citing journalist deaths and performative IHL compliance.",
+      "buckets": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "In late April, Amal Khalil, a 43-year-old Lebanese journalist, was killed in a double-tap Israeli strike in southern Lebanon. When rescue teams tried to reach her and another injured journalist, they reportedly also came under fire.",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Netanyahu has pledged to ‘finish the job’ against Hezbollah. It’s a promise he can’t deliver on",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "label": "CHRISTIAN_SYMBOL_DESECRATION",
+      "description": "RT uniquely surfaces the Virgin Mary statue incident as a religious-cultural provocation, targeting a cross-denominational Christian audience.",
+      "buckets": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "IDF in new Virgin Mary statue scandal",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "label": "PASTORAL_RELIGIOUS_SOLIDARITY",
+      "description": "Vatican press frames the conflict through Pope Leo XIV's personal pastoral outreach to besieged Lebanese clergy.",
+      "buckets": [
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Pope Leo XIV video-calls priests in southern Lebanon",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Israeli airstrikes hit multiple areas in Lebanon amid renewed cross-border attacks",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "label": "DIPLOMATIC_TRACK_OPTIMISM",
+      "description": "SCMP and Israel's Times of Israel foreground the upcoming Washington talks and US-Iran deal timeline, the only buckets treating this as a story with a possible off-ramp.",
+      "buckets": [
+        "taiwan_hk",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "The United States will host two days of intensive talks between Israel and Lebanon next week in a renewed push for a broader peace and security arrangement, according to a US State Department statement released on Friday. The talks, scheduled for May 14 and 15, will build on a previous round held on April 23 that Washington said was led personally by US President Donald Trump.",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Times of Israel",
+          "quote": "Trump says expecting Iranian response to latest US proposal ‘tonight’",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "india",
+      "mean_jaccard": 0.035,
+      "note": "India's entry is a title-only signal about Hezbollah missiles; minimal token content limits overlap."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_jaccard": 0.049,
+      "note": "IHL accountability frame with Gaza cross-references and unique 'journalist' / 'humanitarian' vocabulary."
+    },
+    {
+      "bucket": "russia",
+      "mean_jaccard": 0.053,
+      "note": "RT uniquely surfaces the Virgin Mary statue and 'devastate' language; editorially distinct, not linguistic."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_jaccard": 0.055,
+      "note": "Single short summary entry; low token count limits overlap regardless of editorial stance."
+    },
+    {
+      "bucket": "israel",
+      "mean_jaccard": 0.056,
+      "note": "Israel's press focuses on IDF internal readiness and Trump-Iran diplomacy rather than Lebanon casualty framing."
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_jaccard": 0.059,
+      "note": "SCMP's diplomatic-talks framing and the unique 'host' vocabulary set it apart from operational coverage."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "russia",
+      "terms": [
+        "virgin",
+        "mary",
+        "statue"
+      ],
+      "what_it_reveals": "RT's exclusive focus on the Virgin Mary statue incident is a calculated appeal to Christian conservative audiences; no other outlet in the corpus mentioned it."
+    },
+    {
+      "bucket": "religious_press",
+      "terms": [
+        "pope",
+        "call",
+        "priest"
+      ],
+      "what_it_reveals": "Vatican News occupies a distinct pastoral lane — the Pope's video call to Lebanese priests is a solidarity gesture framed outside both military and political registers."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "terms": [
+        "journalist",
+        "humanitarian",
+        "hind",
+        "gaza"
+      ],
+      "what_it_reveals": "The Conversation cross-references Hind Rajab's 2024 Gaza killing to frame Lebanon journalist deaths as part of a documented pattern of IHL violations — the only bucket making this longitudinal accountability argument."
+    },
+    {
+      "bucket": "egypt",
+      "terms": [
+        "litani",
+        "ease",
+        "pressure",
+        "troop"
+      ],
+      "what_it_reveals": "Mada Masr's operational framing — why attacks north of the Litani ease pressure on southern troops — is the corpus's only military-geographic analysis from an Arab outlet."
+    },
+    {
+      "bucket": "turkey",
+      "terms": [
+        "army",
+        "artillery",
+        "shell",
+        "home"
+      ],
+      "what_it_reveals": "Anadolu Agency provides the most detailed ground-operations vocabulary: demolished homes, artillery shelling by town name, illumination flares — closer to field reporting than any other bucket."
+    },
+    {
+      "bucket": "israel",
+      "terms": [
+        "expecting",
+        "iranian",
+        "response",
+        "tonight"
+      ],
+      "what_it_reveals": "Israel's Times of Israel conflates Lebanon buffer and Iran nuclear tracks — its primary signal today is about the Iran deal, revealing how Israeli editors subordinate Lebanon to the Iran file."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "usa",
+      "what_they_covered_instead": "US press entirely absent from the Lebanon buffer story despite the US hosting May 14-15 talks; attention was consumed by the Iran ceasefire dispute and hantavirus."
+    },
+    {
+      "bucket": "germany",
+      "what_they_covered_instead": "German and European diplomatic voices are absent despite EU statements on Lebanon sovereignty and IHL violations."
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's state media covered Hormuz and sanctions exclusively; Hezbollah, Iran's Lebanese proxy, was absent from IRNA's Lebanon coverage today."
+    },
+    {
+      "bucket": "uk",
+      "what_they_covered_instead": "UK press absent from the Lebanon buffer story despite British peacekeepers in UNIFIL and ongoing IHL concerns raised by British MPs."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet in any corpus today to cover the IDF Virgin Mary statue incident — a photo of a soldier putting a cigarette in the statue's mouth; framed as a religious-cultural scandal for cross-denominational audiences.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Pope Leo XIV (new pope) personally video-called approximately ten priests from southern Lebanon during his audience with the Apostolic Nuncio — the only pastoral/solidarity frame in the corpus.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Fiber-optic-guided Hezbollah drones that cannot be jammed have exposed a critical IDF readiness gap despite two years of warnings — the only inward-facing Israeli security exposé in the corpus.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Conversation",
+      "bucket": "opinion_magazines",
+      "finding": "Names Amal Khalil, 43, Lebanese journalist killed in a double-tap Israeli strike and identifies her as the ninth journalist killed in Lebanon this year — the only corpus entry that names a specific civilian victim.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "bucket": "turkey",
+      "finding": "Provides the corpus's most comprehensive casualty toll: at least 2,759 killed, 8,512 wounded, and 1.6 million displaced (one-fifth of Lebanon's population) since March 2.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Mada Masr",
+      "bucket": "egypt",
+      "finding": "Only outlet to explain the operational rationale of strikes north of the Litani: Israel escalating to relieve pressure on troops in the south, as described by a local resident and former military official.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "finding": "Uniquely frames the entire story through Lebanon's state-sovereignty imperative — Hezbollah disarmament as political nation-building, not as an Israeli security gain.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "The buffer zone story is defined by the unanimous editorial consensus that the ceasefire is violated daily, yet diverges sharply on register: Russian RT and Vatican News occupy competing religious-solidarity lanes; Turkish and Egyptian press provide the most granular operational reporting; and Israel's own press looks inward at IDF drone preparedness failures. With n_buckets=12 and many summary-only signals, this is the thinnest corpus of today's three analysed stories.",
+  "generated_at": "2026-05-09T08:44:38Z",
+  "model": "claude-sonnet-4-6"
+}

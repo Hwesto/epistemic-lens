@@ -1,0 +1,391 @@
+{
+  "meta_version": "2.0.1",
+  "date": "2026-05-09",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 32,
+  "n_articles": 55,
+  "tldr": "South Africa's Daily Maverick piece drifted entirely to the Ramaphosa impeachment story, crowding out hantavirus coverage and marking the starkest editorial displacement in today's corpus. US press (The Intercept) is the only bucket to frame the outbreak through the ivermectin-revival and Marjorie Taylor Greene political lens, illustrating how medically politicised the American information environment has become since COVID. Argentina/Chile mounts an active epidemiological exculpation campaign for Ushuaia, citing incubation timelines, while RT is alone in calling the vessel a 'plague ship' and highlighting the captain's alleged suppression of information. The global coverage is real (32 buckets, 55 articles) but predominantly siloed around each nation's own citizens' repatriation logistics rather than shared epidemiology; no cross-regional consensus on how dangerous the Andes strain actually is has formed.",
+  "frames": [
+    {
+      "label": "ORIGIN_EXCULPATION",
+      "description": "Argentina's press and aligned outlets argue Ushuaia cannot be the infection source, citing incubation-period evidence.",
+      "buckets": [
+        "argentina_chile",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "There is an \"almost zero\" chance that the Dutch man linked to the hantavirus outbreak on the MV Hondius cruise ship contracted the disease in Ushuaia, a Tierra del Fuego Province health official said Friday.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "‘Almost zero’ chance Dutch man got hantavirus in Argentina’s Ushuaia, official says",
+          "signal_text_idx": 44
+        }
+      ]
+    },
+    {
+      "label": "WHO_COORDINATION_AS_REASSURANCE",
+      "description": "The WHO director-general's personal travel to Tenerife is framed as a signal of institutional control rather than alarm.",
+      "buckets": [
+        "india",
+        "nigeria",
+        "wire_services",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "The World Health Organization's chief is due in the Spanish island of Tenerife on Saturday (May 9, 2026) to help coordinate the evacuation of passengers hit by the hantavirus, Spanish Ministry sources said.",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "WHO chief to coordinate hantavirus ship evacuation",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Le Parisien",
+          "quote": "Le directeur général de l’OMS Tedros Adhanom Ghebreyesus est attendu dans la journée de samedi aux Canaries pour coordonner l’évacuation des passagers du paquebot de croisière touché par l’hantavirus.",
+          "signal_text_idx": 53
+        }
+      ]
+    },
+    {
+      "label": "COVID_COMPARISON_REJECTED",
+      "description": "Multiple buckets explicitly reject pandemic analogies, citing the Andes strain's limited human-to-human transmissibility.",
+      "buckets": [
+        "turkey",
+        "usa",
+        "japan",
+        "poland_balt"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "WHO chief says hantavirus outbreak not like start of Covid pandemic",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Why the hantavirus outbreak is different from the COVID-19 pandemic",
+          "signal_text_idx": 50
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Hantavirus scare revives COVID-era conspiracy theories",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "label": "IVERMECTIN_MISINFORMATION_RESURGENCE",
+      "description": "US press uniquely covers the political/medical misinformation angle, with named politicians promoting ivermectin as treatment.",
+      "buckets": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "Within days of reports of a rare Andes hantavirus outbreak, political figures and prominent Covid-era ivermectin advocates once again began promoting the drug as a potential treatment — even as infectious disease experts say there is no clinical evidence supporting its use against hantaviruses.",
+          "signal_text_idx": 49
+        }
+      ]
+    },
+    {
+      "label": "NATIONALS_TRACKING_AND_REPATRIATION",
+      "description": "Each national bucket foregrounds its own citizens' status aboard or linked to the ship, reducing a global story to domestic logistics.",
+      "buckets": [
+        "australia_nz",
+        "india",
+        "germany",
+        "netherlands_belgium",
+        "vietnam_thai_my",
+        "kenya",
+        "philippines",
+        "colombia_ven_peru"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "9News",
+          "quote": "Australian authorities are preparing to repatriate four citizens and one permanent resident from a hantavirus-afflicted cruise ship headed for the Spanish-controlled Canary Islands.",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Two Indians in crew of hantavirus-hit ship",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Inquirer",
+          "quote": "‘Top-notch’ Filipino crew praised amid deadly cruise ship outbreak",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "netherlands_belgium",
+          "outlet": "DutchNews.nl",
+          "quote": "Possible hantavirus case reported in Spain, linked to KLM flight",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "label": "TENERIFE_POLITICAL_FLASHPOINT",
+      "description": "Spanish-language and international English coverage foregrounds the political conflict between Spain's central government and Canary Islands authorities over accepting the ship.",
+      "buckets": [
+        "spain",
+        "qatar",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "Fernando Clavijo: “No estaré tranquilo hasta que no despeguen los aviones rumbo a sus países”",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Protests in the Canary Islands as virus-stricken ship heads for port",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Anger and resignation in Tenerife as hantavirus ship approaches",
+          "signal_text_idx": 47
+        }
+      ]
+    },
+    {
+      "label": "PLAGUE_SHIP_ALARMISM",
+      "description": "RT applies maximally alarming 'plague ship' language and highlights the captain's alleged suppression of risk information.",
+      "buckets": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Captain of hantavirus ‘plague ship’ told passengers dead man was ‘not infectious’ (VIDEO)",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Hantavirus: How dangerous is the cruise ship outbreak?",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "label": "CRUISE_SHIP_SYSTEMIC_VULNERABILITY",
+      "description": "Opinion/academic outlets treat the outbreak as a systemic indictment of cruise ship disease-control architecture.",
+      "buckets": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Hantavirus, COVID, norovirus, legionnaires’: why are cruise ships so prone to disease outbreaks?",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "What Happened on the Hantavirus Cruise, According to a Doctor On Board",
+          "signal_text_idx": 26
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_jaccard": 0.01,
+      "note": "Italian-language; linguistic isolation, not editorial divergence."
+    },
+    {
+      "bucket": "russia_native",
+      "mean_jaccard": 0.01,
+      "note": "Russian-language; single short entry, linguistically isolated."
+    },
+    {
+      "bucket": "brazil",
+      "mean_jaccard": 0.011,
+      "note": "Portuguese-language; distinct vocabulary despite covering the same events."
+    },
+    {
+      "bucket": "germany",
+      "mean_jaccard": 0.014,
+      "note": "German-language; coverage focuses on South Africa contact tracing, slightly off-axis."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_jaccard": 0.014,
+      "note": "French wire services (Le Parisien, France Info); French-language token set diverges from English corpus."
+    },
+    {
+      "bucket": "mexico",
+      "mean_jaccard": 0.015,
+      "note": "Mexico dragged in an Austin measles story alongside hantavirus, diluting shared token space."
+    },
+    {
+      "bucket": "spain",
+      "mean_jaccard": 0.016,
+      "note": "Spanish-language plus domestically-specific political dispute between Madrid and Canary Islands."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_jaccard": 0.018,
+      "note": "French-language France 24 Spanish content; myth-debunking angle diverges editorially."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "usa",
+      "terms": [
+        "ivermectin",
+        "clinical"
+      ],
+      "what_it_reveals": "Only the US press uses 'ivermectin' in this story — the politicised health misinformation frame is uniquely American."
+    },
+    {
+      "bucket": "mexico",
+      "terms": [
+        "sarampi",
+        "austin",
+        "texa",
+        "texano"
+      ],
+      "what_it_reveals": "Mexico's corpus bled a concurrent Austin measles case into the hantavirus feed — revealing how domestic US health anxieties travel south in Mexican news flows."
+    },
+    {
+      "bucket": "taiwan_hk",
+      "terms": [
+        "taiwanese",
+        "taipei",
+        "taiwan"
+      ],
+      "what_it_reveals": "Taiwan CDC's active verification that no Taiwanese were aboard shows how national health authorities shaped their press coverage defensively."
+    },
+    {
+      "bucket": "philippines",
+      "terms": [
+        "notch",
+        "praised"
+      ],
+      "what_it_reveals": "Philippines press reframes the crisis story as a Filipino crew commendation, converting a global health emergency into national-pride content."
+    },
+    {
+      "bucket": "south_africa",
+      "terms": [
+        "ramaphosa",
+        "tolashe",
+        "cyril"
+      ],
+      "what_it_reveals": "South Africa's Daily Maverick ran the Ramaphosa impeachment story in place of hantavirus coverage — a domestic political bombshell crowded out global health news."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China, which has the world's largest outbound cruise market and significant interest in Andes hantavirus given its own distinct hantavirus strains, produced no coverage captured today."
+    },
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "Pan-Arab press absent; regional attention fully consumed by the Hormuz/Iran conflict."
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran state media focused entirely on the Hormuz/US-Iran war narrative."
+    },
+    {
+      "bucket": "nordic",
+      "what_they_covered_instead": "Nordic press, despite strong cruise industry ties and outbound travel culture, focused today on aviation fuel costs from the Hormuz closure."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Maverick",
+      "bucket": "south_africa",
+      "finding": "Ran the Ramaphosa Constitutional Court impeachment story entirely in place of hantavirus coverage — the only bucket whose dominant signal was a completely different story.",
+      "signal_text_idx": 38
+    },
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "Only outlet in the corpus to name Marjorie Taylor Greene and map the COVID-era ivermectin network onto the hantavirus story.",
+      "signal_text_idx": 49
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to describe the vessel as a 'plague ship' and to centre the captain's alleged suppression of risk information to passengers.",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "Taipei Times",
+      "bucket": "taiwan_hk",
+      "finding": "Taiwan CDC proactively verified with WHO and Netherlands and Argentina that no Taiwanese passengers or crew were aboard, rejecting earlier Spanish press reports.",
+      "signal_text_idx": 43
+    },
+    {
+      "outlet": "Inquirer",
+      "bucket": "philippines",
+      "finding": "Reframes the outbreak story as praise for Filipino crew: 'top-notch' conduct cited by a French couple aboard; 38 of 61 crew are Filipino.",
+      "signal_text_idx": 30
+    },
+    {
+      "outlet": "El Financiero",
+      "bucket": "mexico",
+      "finding": "Ties hantavirus to a separate Austin, Texas measles case, bundling two distinct US health alerts under one health-anxiety frame.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "The Atlantic",
+      "bucket": "opinion_magazines",
+      "finding": "Publishes the only eyewitness insider account — from a physician-passenger who helped manage the outbreak after the ship's own doctor fell ill.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "DutchNews.nl",
+      "bucket": "netherlands_belgium",
+      "finding": "Surfaces the Alicante/KLM contact-tracing case: a Spanish passenger seated two rows behind a Dutch victim who boarded an April 25 KLM flight from Johannesburg.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "ARY News English",
+      "bucket": "pakistan",
+      "finding": "Title-only signal ('WHO says six hantavirus cases confirmed so far') indicates Pakistan's coverage is minimal, sourced from a wire, with no domestic angle.",
+      "signal_text_idx": 27
+    },
+    {
+      "outlet": "Argumenty i Fakty",
+      "bucket": "russia_native",
+      "finding": "The sole Russian-native entry frames the story through Trump: 'American scientists are carefully studying hantavirus' — a notably calm contrast to RT's plague-ship alarmism from the same country.",
+      "signal_text_idx": 36
+    }
+  ],
+  "bottom_line": "Across 32 buckets, the MV Hondius outbreak is covered overwhelmingly as a repatriation logistics story, with each national press foregrounding its own citizens and saying little about each other's. The two most distinctive national frames — Argentina's incubation-based exculpation of Ushuaia and the US press's ivermectin-revival alarm — have not converged with any other bucket, leaving the epidemiology of the outbreak itself under-examined globally.",
+  "generated_at": "2026-05-09T08:44:38Z",
+  "model": "claude-sonnet-4-6"
+}
