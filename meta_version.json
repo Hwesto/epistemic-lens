@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "7.1.0",
-  "pinned_at": "2026-05-09T17:24:45Z",
-  "pin_reason": "Phase 1: section tagging (per-feed + URL-pattern), bootstrap CIs on weighted_frame_distribution, weighted view in renderer, cross-day dedup state, coverage matrix product (pipeline/coverage_matrix.py + cron), longitudinal aggregator (analytical/longitudinal.py + cron), trajectory+coverage views in web frontend, build_index publishes /coverage and /trajectory under api/. Forward-compatible: new artefacts, no formula change to LaBSE primary similarity.",
+  "meta_version": "7.2.0",
+  "pinned_at": "2026-05-09T17:57:23Z",
+  "pin_reason": "Phase 2: within-language LLR + log-odds bigrams (analytical/within_language_llr.py + within_language_pmi.py); headline-body divergence pass (.claude/prompts/headline_analysis.md + analytical/headline_body_divergence.py wired to cron); cross-outlet lag CCF (analytical/cross_outlet_lag.py + weekly cron); replication harness (replay.py); retention rollup (pipeline/rollup.py); X poster + YouTube Shorts distribution (secret-gated cron). Forward-compatible: new artefacts + new cron sub-step; no formula change to existing analytical layer.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -77,6 +77,6 @@
     "_doc": "Dated snapshot ID (claude-sonnet-4-6-YYYYMMDD) pins model weights as far as the API permits — alias `claude-sonnet-4-6` may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`.",
     "model": "claude-sonnet-4-6-20260501",
     "model_alias": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:1202bffa8a7ea490607d9a98776f325cf2481ae9171fbc99a53e49d369f8511b"
+    "prompts_hash": "sha256:7baeab63bd46f26ce072e3e6953667954fbb48382f0bf5f1a85645544bc241e4"
   }
 }

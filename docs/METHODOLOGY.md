@@ -252,6 +252,107 @@ analysis, per-frame share has non-trivial variance and a single-point claim
 ("frame X covers 14% of the population-weighted corpus") is fragile. The
 CI ("[2%, 27%]") is the legitimate version of that claim.
 
+## Within-language LLR (7.2.0)
+
+Phase 1's `bucket_exclusive_vocab` heuristic (`count≥3, doc_freq≤1`) is
+crude: it surfaces terms unique to a bucket without controlling for
+language identity. A French-only bucket scored "français" as distinctive
+because it appeared nowhere else; that's language identification, not
+framing.
+
+7.2.0 introduces `analytical/within_language_llr.py` which runs Dunning's
+log-likelihood ratio per term per (bucket, language) against the
+**same-language cohort** (the union of all other buckets sharing this
+bucket's dominant language). Output (`<DATE>_<story>_within_lang_llr.json`)
+includes per term: `count_in_bucket`, `count_in_cohort`,
+`rate_in_bucket`, `rate_in_cohort`, `llr` (chi-squared statistic),
+`log_ratio` (effect size), `p_value`. Default filters: `min_term_count=5`,
+`p_threshold=0.001` (Bonferroni-conservative; the test fires over thousands
+of terms per language).
+
+The `bucket_exclusive_vocab` heuristic is **not removed** — it ships
+alongside the LLR output as a fast-path for downstream renderers and as a
+fallback when LLR isn't applicable (e.g. only one bucket in a language).
+Both are stamped with the same pin.
+
+## Within-language PMI / log-odds bigrams (7.2.0)
+
+`analytical/within_language_pmi.py` extends the within-language layer to
+adjacent token pairs. For each (bucket, language), score every bigram
+against the same-language cohort using **log-odds with Jeffreys prior
+(α=0.5)** and a Z-score derived from the variance estimate (Monroe,
+Colaresi & Quinn 2008, "Fightin' Words").
+
+Why log-odds, not raw PMI? PMI rewards rare-co-occurrence over magnitude:
+a bigram with `count_in_bucket=1, count_in_cohort=0` scores infinitely
+high. Log-odds with the variance correction penalises low-N bigrams
+appropriately. Output: `<DATE>_<story>_within_lang_pmi.json` per term:
+`bigram` (2-tuple), `count_in_bucket`, `count_in_cohort`, `log_odds`,
+`z_score`, `lift` (raw rate ratio for human readability).
+
+Default filters: `min_count=2`, `z_threshold=1.96` (~p<0.05).
+
+## Headline-body divergence (7.2.0)
+
+`.claude/prompts/headline_analysis.md` is a second LLM pass that operates
+on **titles only** (`corpus[i].title`), producing
+`analyses/<DATE>_<story>_headline.json` with the same 15-frame schema as
+the body pass. `analytical/headline_body_divergence.py` then compares the
+two: per bucket, find the dominant `frame_id` in each pass and report
+agreement.
+
+The output (`<DATE>_<story>_divergence.json`) carries
+`agreement_rate` ∈ [0,1] and a `highest_diverging_buckets` list naming
+buckets whose headline framing departs from their body framing — the
+sensationalism index.
+
+Cron cost: ~3-5 LLM calls/day, well within OAuth Pro limits. Wire to
+analyze job after the body pass; runs unconditionally as of 7.2.0.
+
+## Cross-outlet lag — CCF, not Granger (7.2.0)
+
+`analytical/cross_outlet_lag.py` computes the cross-correlation function
+at integer lags 0..7 days for a curated subset of bucket pairs (wire ↔
+flagship, flagship ↔ follower per region). Output:
+`lag/<bucket_a>__<bucket_b>.json` with peak lag + correlation strength
+per story.
+
+**CCF, not Granger.** At our N (~30 days × ~15 stories ≈ 450 bucket-day
+samples), Granger causality tests give spurious results — the asymptotic
+distribution assumptions don't hold. CCF gives the same signal ("B is
+correlated with A at lag k") in a more honest framing ("B follows A by k
+days when both cover this story") without claiming causality. If a future
+phase has 1000+ days of accumulated history, Granger may become honest;
+until then, CCF is the right tool.
+
+The script self-skips with `insufficient_history` when fewer than 30 days
+of `coverage/<DATE>.json` files are on disk. Wired to a **weekly** cron
+(`.github/workflows/weekly.yml`, Mondays 09:00 UTC) — there's no signal
+in re-running CCF daily.
+
+## Replication + retention (7.2.0)
+
+- `replay.py` reconstructs the deterministic post-ingest pipeline (dedup,
+  coverage, build_briefing, build_metrics, longitudinal) for any past date
+  from its snapshot. See `docs/REPLICATION.md`.
+- `pipeline/rollup.py` rolls snapshots + briefings ≥ 90 days old into
+  `archive/rollup/<category>-<YYYY-MM>.tar.gz`. See `docs/RETENTION.md`.
+- Live tree keeps small JSONs (analyses, trajectories, coverage) for
+  `git-blame` and quick clones; rolled-up tarballs stay in the repo
+  short-term and migrate to GitHub Releases when they grow.
+
+## Distribution channels (7.2.0)
+
+- **X / Twitter**: `distribution/x_poster.py` reads thread drafts; cron
+  step is secret-gated (`X_*` secrets), exits cleanly when missing. See
+  `docs/OPERATIONS.md`.
+- **YouTube Shorts**: `distribution/youtube_shorts.py` uploads videos as
+  unlisted Shorts; secret-gated (`YT_*`). User flips public after review.
+
+Both channels are **code-only at v7.2.0** — the OAuth dance is recorded in
+`human.md` and `docs/OPERATIONS.md`. Once secrets land, the cron's
+`distribute` job auto-activates.
+
 ## Known limitations (7.1.0)
 
 - **HDBSCAN cluster contamination across similar-topic events.** The

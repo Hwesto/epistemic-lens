@@ -48,11 +48,24 @@ ANALYSES = ROOT / "analyses"
 DRAFTS = ROOT / "drafts"
 COVERAGE = ROOT / "coverage"
 TRAJECTORY = ROOT / "trajectory"
+LAG = ROOT / "lag"
 SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
 WEB_SRC = ROOT / "web"
 API = ROOT / "api"
 
-DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})_(.+?)(?:_metrics|_thread|_carousel|_long)?$")
+DATE_RE = re.compile(
+    r"^(\d{4}-\d{2}-\d{2})_(.+?)"
+    r"(?:_metrics|_thread|_carousel|_long"
+    r"|_within_lang_llr|_within_lang_pmi"
+    r"|_headline|_divergence)?$"
+)
+# Suffixes that flag a sibling artefact, not a primary story key. Used by
+# discover() to skip them when enumerating stories.
+SIBLING_SUFFIXES = (
+    "_within_lang_llr", "_within_lang_pmi",
+    "_headline", "_divergence",
+    "_metrics",  # already covered by DATE_RE but listed here for clarity
+)
 
 
 def discover() -> dict[str, dict[str, set[str]]]:
@@ -60,6 +73,13 @@ def discover() -> dict[str, dict[str, set[str]]]:
     found: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
 
     for p in BRIEFINGS.glob("*.json"):
+        # Phase 2 sibling artefacts (within_lang_*, headline, divergence)
+        # are copied per-story in build_one_date; not used as primary
+        # discovery keys.
+        if any(p.stem.endswith(suf) for suf in
+               ("_within_lang_llr", "_within_lang_pmi",
+                "_headline", "_divergence")):
+            continue
         m = DATE_RE.match(p.stem)
         if not m:
             continue
@@ -68,6 +88,8 @@ def discover() -> dict[str, dict[str, set[str]]]:
         found[date][key].add(kind)
 
     for p in ANALYSES.glob("*.md"):
+        if any(p.stem.endswith(suf) for suf in ("_headline", "_divergence")):
+            continue
         m = DATE_RE.match(p.stem)
         if not m:
             continue
@@ -75,6 +97,8 @@ def discover() -> dict[str, dict[str, set[str]]]:
         found[date][key].add("analysis_md")
 
     for p in ANALYSES.glob("*.json"):
+        if any(p.stem.endswith(suf) for suf in ("_headline", "_divergence")):
+            continue
         m = DATE_RE.match(p.stem)
         if not m:
             continue
@@ -134,7 +158,9 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         artifacts: dict[str, str] = {}
         has: dict[str, bool] = {k: False for k in
                                 ("briefing", "metrics", "analysis", "analysis_json",
-                                 "thread", "carousel", "long")}
+                                 "thread", "carousel", "long",
+                                 "within_lang_llr", "within_lang_pmi",
+                                 "divergence", "headline")}
 
         shutil.copy2(briefing_src, story_dir / "briefing.json")
         artifacts["briefing"] = f"/{date}/{key}/briefing.json"
@@ -184,6 +210,21 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                 shutil.copy2(src, story_dir / f"{fmt}.json")
                 artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
                 has[fmt] = True
+
+        # Phase 2 sibling artefacts (within-language LLR, PMI bigrams,
+        # headline-body divergence). Each is optional; the per-story API
+        # entry advertises only what's actually present.
+        for kind, src_dir, src_suffix, dst_name, has_key in [
+            ("within_lang_llr",  BRIEFINGS, "_within_lang_llr",  "within_lang_llr.json",  "within_lang_llr"),
+            ("within_lang_pmi",  BRIEFINGS, "_within_lang_pmi",  "within_lang_pmi.json",  "within_lang_pmi"),
+            ("divergence",       ANALYSES,  "_divergence",       "divergence.json",       "divergence"),
+            ("headline",         ANALYSES,  "_headline",         "headline.json",         "headline"),
+        ]:
+            src = src_dir / f"{date}_{key}{src_suffix}.json"
+            if src.exists():
+                shutil.copy2(src, story_dir / dst_name)
+                artifacts[kind] = f"/{date}/{key}/{dst_name}"
+                has[has_key] = True
 
         entry = {
             "key": key,
@@ -243,6 +284,33 @@ def copy_coverage() -> dict[str, str]:
             "_doc": "Index of available daily coverage matrices.",
             "n_dates": len(out),
             "dates": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_lag() -> dict[str, str]:
+    """Copy `lag/<bucket_a>__<bucket_b>.json` (CCF outputs, Phase 2) into
+    `api/lag/`. Returns {pair_key: api_path}."""
+    out: dict[str, str] = {}
+    if not LAG.is_dir():
+        return out
+    dst = API / "lag"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in LAG.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/lag/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of curated outlet-pair CCF lag analyses (weekly).",
+            "n_pairs": len(out),
+            "pair_keys": sorted(out.keys()),
             "paths": dict(sorted(out.items())),
             "generated_at": datetime.now(timezone.utc).isoformat(),
         })
@@ -335,6 +403,7 @@ def main() -> int:
     copy_web()
     coverage_paths = copy_coverage()
     trajectory_paths = copy_trajectories()
+    lag_paths = copy_lag()
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
@@ -355,6 +424,8 @@ def main() -> int:
             latest_payload["coverage_path"] = coverage_paths[latest]
         if coverage_paths:
             latest_payload["coverage_index"] = "/coverage/index.json"
+        if lag_paths:
+            latest_payload["lag_index"] = "/lag/index.json"
         (API / "latest.json").write_text(
             json.dumps(meta.stamp(latest_payload), indent=2),
             encoding="utf-8",
@@ -365,6 +436,8 @@ def main() -> int:
         print(f"  + {len(coverage_paths)} coverage matrices → api/coverage/")
     if trajectory_paths:
         print(f"  + {len(trajectory_paths)} trajectories → api/trajectory/")
+    if lag_paths:
+        print(f"  + {len(lag_paths)} lag pairs → api/lag/")
     return 0
 
 

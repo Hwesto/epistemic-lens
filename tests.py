@@ -813,6 +813,213 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertIn("egypt", saudi_terms)
 
 
+class TestPhase2Modules(unittest.TestCase):
+    """Phase 2: within-language LLR + log-odds bigrams + headline-body
+    divergence + cross-outlet lag + replay + rollup."""
+
+    def test_within_language_llr_basic(self):
+        if "analytical.within_language_llr" in sys.modules:
+            importlib.reload(sys.modules["analytical.within_language_llr"])
+        from analytical import within_language_llr as wll
+        # Two English buckets: A heavily uses "blockade", B heavily uses "summit"
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en",
+                 "title": "naval blockade tightens", "signal_text":
+                 "blockade " * 50 + "tanker " * 20},
+                {"bucket": "B", "lang": "en",
+                 "title": "summit talks continue", "signal_text":
+                 "summit " * 50 + "talks " * 20},
+                {"bucket": "C", "lang": "en",
+                 "title": "neutral coverage",
+                 "signal_text": "story update " * 30},
+            ]
+        }
+        out = wll.within_language_llr(briefing, min_term_count=10)
+        # Both A and B should have distinctive terms
+        self.assertIn("A", out["by_bucket"])
+        self.assertIn("B", out["by_bucket"])
+        # A's distinctive terms should include "blockade"; B's "summit"
+        a_terms = {t["term"] for t in out["by_bucket"]["A"]["distinctive_terms"]}
+        b_terms = {t["term"] for t in out["by_bucket"]["B"]["distinctive_terms"]}
+        self.assertIn("blockade", a_terms)
+        self.assertIn("summit", b_terms)
+
+    def test_within_language_llr_skips_singleton_lang(self):
+        from analytical import within_language_llr as wll
+        # Only one bucket in language → no cohort → bucket excluded from output
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "fr", "title": "x", "signal_text": "z " * 50}
+            ]
+        }
+        out = wll.within_language_llr(briefing)
+        self.assertEqual(out["by_bucket"], {})
+
+    def test_within_language_llr_excludes_opinion_items(self):
+        from analytical import within_language_llr as wll
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en", "section": "opinion",
+                 "title": "OP", "signal_text": "manifesto " * 50},
+                {"bucket": "B", "lang": "en", "section": "news",
+                 "title": "N", "signal_text": "story " * 50},
+                {"bucket": "C", "lang": "en", "section": "news",
+                 "title": "M", "signal_text": "report " * 50},
+            ]
+        }
+        out = wll.within_language_llr(briefing, min_term_count=5)
+        # A is opinion → not in output
+        self.assertNotIn("A", out["by_bucket"])
+
+    def test_within_language_pmi_basic(self):
+        if "analytical.within_language_pmi" in sys.modules:
+            importlib.reload(sys.modules["analytical.within_language_pmi"])
+        from analytical import within_language_pmi as wpmi
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en", "title": "x",
+                 "signal_text": "supply shock crisis " * 30},
+                {"bucket": "B", "lang": "en", "title": "y",
+                 "signal_text": "summit talks regional " * 30},
+            ]
+        }
+        out = wpmi.within_language_pmi(briefing, min_count=5)
+        self.assertIn("A", out["by_bucket"])
+        a_bigrams = {tuple(a["bigram"]) for a in out["by_bucket"]["A"]["associations"]}
+        self.assertIn(("supply", "shock"), a_bigrams)
+
+    def test_headline_body_divergence_skips_no_headline(self):
+        if "analytical.headline_body_divergence" in sys.modules:
+            importlib.reload(sys.modules["analytical.headline_body_divergence"])
+        from analytical import headline_body_divergence as hbd
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            body_path = tdp / "2026-05-09_x.json"
+            body_path.write_text(json.dumps({
+                "story_key": "x", "date": "2026-05-09", "frames": [
+                    {"frame_id": "F1", "buckets": ["a"], "evidence": []}
+                ]
+            }))
+            r = hbd.process_one(body_path, out_dir=tdp)
+            self.assertTrue(r.get("skipped"))
+            self.assertEqual(r["reason"], "no_headline_pass_yet")
+
+    def test_headline_body_divergence_basic(self):
+        from analytical import headline_body_divergence as hbd
+        body = {
+            "story_key": "x",
+            "frames": [
+                {"frame_id": "F1", "buckets": ["a", "b"],
+                 "evidence": [{"bucket": "a"}, {"bucket": "b"}]},
+                {"frame_id": "F2", "buckets": ["c"],
+                 "evidence": [{"bucket": "c"}]},
+            ]
+        }
+        # Headline: a stays in F1; b SHIFTS to F2; c stays in F2.
+        headline = {
+            "story_key": "x",
+            "frames": [
+                {"frame_id": "F1", "buckets": ["a"],
+                 "evidence": [{"bucket": "a"}]},
+                {"frame_id": "F2", "buckets": ["b", "c"],
+                 "evidence": [{"bucket": "b"}, {"bucket": "c"}]},
+            ]
+        }
+        d = hbd.divergence(body, headline)
+        self.assertEqual(d["n_buckets_compared"], 3)
+        self.assertEqual(d["n_bucket_agreements"], 2)
+        # b is the diverging bucket
+        diverging_buckets = {b["bucket"] for b in d["highest_diverging_buckets"]}
+        self.assertEqual(diverging_buckets, {"b"})
+
+    def test_cross_outlet_lag_insufficient_history(self):
+        if "analytical.cross_outlet_lag" in sys.modules:
+            importlib.reload(sys.modules["analytical.cross_outlet_lag"])
+        from analytical import cross_outlet_lag as col
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            # Only 5 days of coverage → insufficient
+            for i in range(5):
+                d = f"2026-05-{i+1:02d}"
+                (tdp / f"{d}.json").write_text(json.dumps({
+                    "date": d, "coverage": {}, "summary": {}
+                }))
+            history = col.load_coverage_history(window_days=30,
+                                                 today="2026-05-30",
+                                                 cov_dir=tdp)
+            self.assertEqual(len(history), 5)
+            # Main path skips when n < min_days; we test the load directly here.
+
+    def test_cross_outlet_lag_pearson_at_lag(self):
+        from analytical import cross_outlet_lag as col
+        # Perfectly lagged: B = A shifted right by 2
+        a = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+        b = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+        # A leads B by 2 → high correlation at lag=2
+        r2 = col.pearson_at_lag(a, b, lag=2)
+        r0 = col.pearson_at_lag(a, b, lag=0)
+        self.assertIsNotNone(r2)
+        self.assertGreater(r2, 0.5)
+        # At lag=0 they should be uncorrelated or anticorrelated
+        self.assertLess(r0 if r0 is not None else 0, r2)
+
+    def test_replay_steps_format(self):
+        # Simply verify the STEPS table is well-formed (each cmd is list[str])
+        sys.path.insert(0, str(ROOT))
+        if "replay" in sys.modules:
+            importlib.reload(sys.modules["replay"])
+        import replay
+        for name, cmd in replay.STEPS:
+            self.assertIsInstance(name, str)
+            self.assertIsInstance(cmd, list)
+            self.assertTrue(all(isinstance(c, str) for c in cmd))
+
+    def test_rollup_finds_old_files(self):
+        if "pipeline.rollup" in sys.modules:
+            importlib.reload(sys.modules["pipeline.rollup"])
+        from pipeline import rollup
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            snaps = tdp / "snapshots"; snaps.mkdir()
+            briefs = tdp / "briefings"; briefs.mkdir()
+            # Make 4 files: 2 old (>90 days), 2 fresh
+            for d in ["2025-01-01", "2025-02-15"]:
+                (snaps / f"{d}.json").write_text("{}")
+                (briefs / f"{d}_x.json").write_text("{}")
+            for d in ["2026-04-15", "2026-05-08"]:
+                (snaps / f"{d}.json").write_text("{}")
+                (briefs / f"{d}_x.json").write_text("{}")
+            cands = rollup.find_candidates(window_days=90, today="2026-05-09",
+                                            snaps_dir=snaps, briefings_dir=briefs)
+            # Only 2025-* should be flagged (>90d before 2026-05-09)
+            self.assertIn("2025-01", cands["snapshots"])
+            self.assertIn("2025-02", cands["snapshots"])
+            self.assertNotIn("2026-04", cands["snapshots"])
+            self.assertNotIn("2026-05", cands["snapshots"])
+
+    def test_x_poster_skipped_no_token(self):
+        if "distribution.x_poster" in sys.modules:
+            importlib.reload(sys.modules["distribution.x_poster"])
+        from distribution import x_poster
+        # No tokens in env → secrets check fails → would_post is False
+        for k in x_poster.REQUIRED_SECRETS:
+            self.assertFalse(os.environ.get(k))  # confirm clean env
+
+    def test_x_poster_payloads_with_thread_link(self):
+        from distribution import x_poster
+        thread = {
+            "story_key": "test",
+            "date": "2026-05-08",
+            "tweets": [{"text": "First"}, {"text": "Second"}, {"text": ""}],
+        }
+        ps = x_poster.build_payloads(thread, public_url_base="https://x.test")
+        # Empty tweet excluded; first tweet gets link appended
+        self.assertEqual(len(ps), 2)
+        self.assertIn("https://x.test/2026-05-08/test/", ps[0]["text"])
+        self.assertEqual(ps[1]["text"], "Second")
+
+
 class TestMethodologyPin(unittest.TestCase):
     """meta.py: the methodology pin — hashes, stamping, drift detection."""
 

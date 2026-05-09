@@ -25,6 +25,31 @@ from pathlib import Path
 from meta import REPO_ROOT as ROOT
 from analytical.build_metrics import weighted_frame_distribution
 ANALYSES = ROOT / "analyses"
+BRIEFINGS = ROOT / "briefings"
+
+
+def _load_sibling(analysis: dict, suffix: str) -> dict | None:
+    """Load sibling JSON `<DATE>_<story>{suffix}.json`.
+
+    Looks first under `briefings/` (where LLR/PMI artefacts live) then under
+    `analyses/` (where divergence lives). Returns None if missing/unreadable
+    so the renderer's section is simply skipped.
+    """
+    date = analysis.get("date")
+    story_key = analysis.get("story_key")
+    if not (date and story_key):
+        return None
+    candidates = [
+        BRIEFINGS / f"{date}_{story_key}{suffix}.json",
+        ANALYSES / f"{date}_{story_key}{suffix}.json",
+    ]
+    for p in candidates:
+        if p.exists():
+            try:
+                return json.loads(p.read_text(encoding="utf-8"))
+            except Exception:
+                return None
+    return None
 
 
 def render(a: dict) -> str:
@@ -142,6 +167,76 @@ def render(a: dict) -> str:
             reveals = h.get("what_it_reveals", "")
             out.append(f"| `{h['bucket']}` | {terms} | {reveals} |")
         out.append("")
+
+    # Within-language LLR (Phase 2). Read the sibling JSON if it exists.
+    llr_data = _load_sibling(a, "_within_lang_llr")
+    if llr_data and llr_data.get("by_bucket"):
+        out.append("## Within-language LLR distinctive vocab")
+        out.append("")
+        out.append(
+            "Per-bucket terms over-represented vs the same-language cohort "
+            "(Dunning log-likelihood ratio; p ≤ 0.001). Effect size is "
+            "log-rate-ratio."
+        )
+        out.append("")
+        out.append("| Bucket | Lang | Top distinctive terms (LLR) |")
+        out.append("| --- | --- | --- |")
+        for bucket, info in llr_data["by_bucket"].items():
+            terms = info.get("distinctive_terms") or []
+            if not terms:
+                continue
+            preview = ", ".join(
+                f"`{t['term']}` ({t['llr']})" for t in terms[:5]
+            )
+            out.append(f"| `{bucket}` | {info.get('lang', '?')} | {preview} |")
+        out.append("")
+
+    # Within-language PMI / log-odds bigrams (Phase 2).
+    pmi_data = _load_sibling(a, "_within_lang_pmi")
+    if pmi_data and pmi_data.get("by_bucket"):
+        out.append("## Associative bigrams (within-language)")
+        out.append("")
+        out.append(
+            "Bigrams over-represented in this bucket vs the same-language "
+            "cohort. Log-odds with Jeffreys prior; |Z| ≥ 1.96."
+        )
+        out.append("")
+        out.append("| Bucket | Lang | Top bigram associations |")
+        out.append("| --- | --- | --- |")
+        for bucket, info in pmi_data["by_bucket"].items():
+            assocs = info.get("associations") or []
+            if not assocs:
+                continue
+            preview = ", ".join(
+                f"`{' '.join(a['bigram'])}` (z={a['z_score']})" for a in assocs[:4]
+            )
+            out.append(f"| `{bucket}` | {info.get('lang', '?')} | {preview} |")
+        out.append("")
+
+    # Headline-body divergence (Phase 2).
+    div_data = _load_sibling(a, "_divergence")
+    if div_data and div_data.get("n_buckets_compared", 0) > 0:
+        out.append("## Sensationalism index (headline ↔ body divergence)")
+        out.append("")
+        rate = div_data.get("agreement_rate")
+        n_compared = div_data.get("n_buckets_compared")
+        n_diverging = len(div_data.get("highest_diverging_buckets") or [])
+        out.append(
+            f"**Agreement rate:** {rate} across {n_compared} buckets "
+            f"compared. {n_diverging} bucket(s) carry a different dominant "
+            f"frame in their headline than their body."
+        )
+        out.append("")
+        diverging = div_data.get("highest_diverging_buckets") or []
+        if diverging:
+            out.append("| Bucket | Body frame | Headline frame |")
+            out.append("| --- | --- | --- |")
+            for d in diverging[:8]:
+                out.append(
+                    f"| `{d['bucket']}` | `{d['body_frame']}` | "
+                    f"`{d['headline_frame']}` |"
+                )
+            out.append("")
 
     # Paradox
     out.append("## Paradox")

@@ -83,6 +83,12 @@ jobs:
       - name: Compute briefing metrics (LaBSE cosine + bucket-exclusive vocab)
         run: python -m analytical.build_metrics
 
+      - name: Within-language LLR distinctive vocab (Phase 2)
+        run: python -m analytical.within_language_llr
+
+      - name: Within-language PMI/log-odds bigram associations (Phase 2)
+        run: python -m analytical.within_language_pmi
+
       - name: Job summary
         if: always()
         run: |
@@ -120,7 +126,7 @@ jobs:
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add snapshots/ briefings/ coverage/ cross_day_dedup_state.json
+          git add snapshots/ briefings/ coverage/ cross_day_dedup_state.json archive/rollup/
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
@@ -209,6 +215,37 @@ jobs:
           AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
 
+      - name: Load headline-analysis prompt (Phase 2)
+        id: load_headline_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/headline_analysis.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code headline-only framing analysis (Phase 2)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: --model claude-sonnet-4-6 --permission-mode bypassPermissions
+          show_full_output: true
+          prompt: ${{ steps.load_headline_prompt.outputs.content }}
+        # Produces analyses/<DATE>_<story>_headline.json with the same
+        # 15-frame codebook constraint as the body pass, but operating only
+        # on titles. The headline-body divergence step compares the two.
+
+      - name: Pull agent's headline-pass commits
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - name: Re-authenticate git after headline pass
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
+
       - name: Re-stamp meta_version on analyses (in case agent copied briefing pin)
         run: python -m analytical.restamp_analyses
         # Defense in depth. Agents have historically copied
@@ -223,6 +260,11 @@ jobs:
         # bucket mismatches, or numbers that don't match metrics.json.
         # Defense in depth — the agent also runs schema validation
         # before its own commit per the prompt.
+
+      - name: Headline-body divergence (Phase 2) — sensationalism index
+        run: python -m analytical.headline_body_divergence
+        # Compares body and headline framings per (bucket, frame_id).
+        # Skips silently when headline pass hasn't produced a sibling JSON.
 
       - name: Render analysis markdown from JSON
         run: python -m publication.render_analysis_md
@@ -407,3 +449,47 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  distribute:
+    needs: publish_api
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Only run when publish_api succeeded (skipped is fine — distributing
+    # yesterday's content is also OK on a re-run). Phase 2.
+    if: ${{ always() && (needs.publish_api.result == 'success' || needs.publish_api.result == 'skipped') }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+
+      - name: Pull latest drafts + videos
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime deps
+        run: pip install -r requirements.txt
+
+      - name: Install distribution-channel deps (best effort)
+        run: |
+          pip install requests-oauthlib >/dev/null 2>&1 || \
+            echo "(requests_oauthlib not installable; X live posting disabled)"
+
+      - name: Post threads to X (Phase 2; secret-gated, exits 0 if no token)
+        env:
+          X_CONSUMER_KEY:        ${{ secrets.X_CONSUMER_KEY }}
+          X_CONSUMER_SECRET:     ${{ secrets.X_CONSUMER_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python -m distribution.x_poster
+
+      - name: Upload videos to YouTube Shorts (Phase 2; secret-gated)
+        env:
+          YT_CLIENT_ID:     ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python -m distribution.youtube_shorts

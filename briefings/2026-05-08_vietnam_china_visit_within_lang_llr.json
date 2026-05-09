@@ -1,0 +1,64 @@
+{
+  "date": "2026-05-08",
+  "story_key": "vietnam_china_visit",
+  "story_title": "Vietnam To Lam visits Beijing",
+  "by_bucket": {
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 233,
+      "n_tokens_in_cohort": 478,
+      "distinctive_terms": [
+        {
+          "term": "china",
+          "count_in_bucket": 8,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03433,
+          "rate_in_cohort": 0.0,
+          "llr": 18.038,
+          "log_ratio": null,
+          "p_value": 2.2e-05
+        },
+        {
+          "term": "your",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02146,
+          "rate_in_cohort": 0.0,
+          "llr": 11.229,
+          "log_ratio": null,
+          "p_value": 0.000805
+        }
+      ]
+    },
+    "korea_north": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 47,
+      "n_tokens_in_cohort": 664,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 54,
+      "n_tokens_in_cohort": 657,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 377,
+      "n_tokens_in_cohort": 334,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "7.1.0"
+}
