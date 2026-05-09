@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "7.4.0",
-  "pinned_at": "2026-05-09T18:35:33Z",
-  "pin_reason": "Phase 3i+3j+3k + 4e+4f+4h+4i: bucket-feed-set + canonical-stories pattern drift detection (analytical/longitudinal.py extension; meta.bucket_feed_set_hash + bucket_feed_set_hashes stamped per briefing); corrections + methodology-challenge intake (web/corrections.html + web/methodology-challenge.html + issue templates); wire baseline corpus (analytical/wire_baseline.py + weekly cron); per-outlet tilt index vs wire baseline (analytical/tilt_index.py + weekly cron); robustness check (analytical/robustness_check.py + daily cron); web stability dashboard subsection per card; build_index publishes /baseline /tilt /robustness under api/. Forward-compatible: new artefacts alongside existing layers; no formula change to LaBSE primary similarity or frame analysis.",
+  "meta_version": "8.0.0",
+  "pinned_at": "2026-05-09T18:48:28Z",
+  "pin_reason": "Test-pass swap: claude-sonnet-4-6 -> claude-haiku-4-5 across all 4 LLM steps (body analyze, headline analyze, source attribution, long-form draft). Branch-only test before main-merge — exercises the new Phase 0-4 cron under cheaper/faster Haiku to validate the headline + source-attribution prompts are well-formed before committing OAuth budget on Sonnet. Strictly major because analyzer model swap is longitudinal-comparability-breaking by bump rules; comparison to v7.4.0 sonnet output is not directly meaningful.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -74,9 +74,9 @@
   "bucket_quality_hash": "sha256:7a5e0b323dbd1f4d3a1c81682e352f9114081e75fbb2d4c95167fbb421697835",
   "bucket_weights_hash": "sha256:dfa0525424eed1f4362881f2e63194c1c4f9b98832857c7b6ec5a0ac761544fe",
   "claude": {
-    "_doc": "Dated snapshot ID (claude-sonnet-4-6-YYYYMMDD) pins model weights as far as the API permits — alias `claude-sonnet-4-6` may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`.",
-    "model": "claude-sonnet-4-6-20260501",
-    "model_alias": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:f46a74a345415381c44bedf2c504b3b045504d056081b23f858b909cae5ff408"
+    "_doc": "Dated snapshot ID (claude-<model>-<version>-YYYYMMDD) pins model weights as far as the API permits — the alias may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`. v8.0.0 swap from sonnet to haiku is a deliberate test-pass swap on the simplification branch — see pin_reason.",
+    "model": "claude-haiku-4-5-20251001",
+    "model_alias": "claude-haiku-4-5",
+    "prompts_hash": "sha256:8625094c3231160f787191ed142253e159da08d34824523635a86c52ea277845"
   }
 }

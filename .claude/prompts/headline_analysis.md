@@ -81,7 +81,7 @@ Same schema as regular pass:
   "silences": [...],          // buckets whose titles fit no frame go here
   "single_outlet_findings": [],
   "bottom_line": "1 sentence: what does the *headline* layer of coverage say?",
-  "model": "claude-sonnet-4-6",
+  "model": "claude-haiku-4-5",
   "meta_version": "..."       // restamp_analyses.py will fix this
 }
 ```
