@@ -49,6 +49,7 @@ DRAFTS = ROOT / "drafts"
 COVERAGE = ROOT / "coverage"
 TRAJECTORY = ROOT / "trajectory"
 LAG = ROOT / "lag"
+SOURCES = ROOT / "sources"
 SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
 WEB_SRC = ROOT / "web"
 API = ROOT / "api"
@@ -160,7 +161,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                                 ("briefing", "metrics", "analysis", "analysis_json",
                                  "thread", "carousel", "long",
                                  "within_lang_llr", "within_lang_pmi",
-                                 "divergence", "headline")}
+                                 "divergence", "headline", "sources")}
 
         shutil.copy2(briefing_src, story_dir / "briefing.json")
         artifacts["briefing"] = f"/{date}/{key}/briefing.json"
@@ -211,14 +212,14 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                 artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
                 has[fmt] = True
 
-        # Phase 2 sibling artefacts (within-language LLR, PMI bigrams,
-        # headline-body divergence). Each is optional; the per-story API
-        # entry advertises only what's actually present.
+        # Phase 2 + Phase 3a sibling artefacts. Each is optional; the
+        # per-story API entry advertises only what's actually present.
         for kind, src_dir, src_suffix, dst_name, has_key in [
             ("within_lang_llr",  BRIEFINGS, "_within_lang_llr",  "within_lang_llr.json",  "within_lang_llr"),
             ("within_lang_pmi",  BRIEFINGS, "_within_lang_pmi",  "within_lang_pmi.json",  "within_lang_pmi"),
             ("divergence",       ANALYSES,  "_divergence",       "divergence.json",       "divergence"),
             ("headline",         ANALYSES,  "_headline",         "headline.json",         "headline"),
+            ("sources",          SOURCES,   "",                  "sources.json",          "sources"),
         ]:
             src = src_dir / f"{date}_{key}{src_suffix}.json"
             if src.exists():
@@ -282,6 +283,35 @@ def copy_coverage() -> dict[str, str]:
     if out:
         idx = meta.stamp({
             "_doc": "Index of available daily coverage matrices.",
+            "n_dates": len(out),
+            "dates": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_sources_aggregate() -> dict[str, str]:
+    """Copy `sources/aggregate/<DATE>.json` (Phase 3a daily rollup) into
+    `api/sources/aggregate/`. Returns {date: api_path}."""
+    out: dict[str, str] = {}
+    src_dir = SOURCES / "aggregate"
+    if not src_dir.is_dir():
+        return out
+    dst = API / "sources" / "aggregate"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in src_dir.glob("*.json"):
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})$", p.stem)
+        if not m:
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[m.group(1)] = f"/sources/aggregate/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of daily source-attribution aggregates.",
             "n_dates": len(out),
             "dates": sorted(out.keys()),
             "paths": dict(sorted(out.items())),
@@ -404,6 +434,7 @@ def main() -> int:
     coverage_paths = copy_coverage()
     trajectory_paths = copy_trajectories()
     lag_paths = copy_lag()
+    sources_aggregate_paths = copy_sources_aggregate()
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
@@ -426,6 +457,10 @@ def main() -> int:
             latest_payload["coverage_index"] = "/coverage/index.json"
         if lag_paths:
             latest_payload["lag_index"] = "/lag/index.json"
+        if latest in sources_aggregate_paths:
+            latest_payload["sources_aggregate_path"] = sources_aggregate_paths[latest]
+        if sources_aggregate_paths:
+            latest_payload["sources_aggregate_index"] = "/sources/aggregate/index.json"
         (API / "latest.json").write_text(
             json.dumps(meta.stamp(latest_payload), indent=2),
             encoding="utf-8",
@@ -438,6 +473,8 @@ def main() -> int:
         print(f"  + {len(trajectory_paths)} trajectories → api/trajectory/")
     if lag_paths:
         print(f"  + {len(lag_paths)} lag pairs → api/lag/")
+    if sources_aggregate_paths:
+        print(f"  + {len(sources_aggregate_paths)} source-aggregate days → api/sources/aggregate/")
     return 0
 
 

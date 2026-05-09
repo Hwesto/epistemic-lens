@@ -266,6 +266,44 @@ jobs:
         # Compares body and headline framings per (bucket, frame_id).
         # Skips silently when headline pass hasn't produced a sibling JSON.
 
+      - name: Load source-attribution prompt (Phase 3a)
+        id: load_sources_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/source_attribution.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code source attribution (Phase 3a)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: --model claude-sonnet-4-6 --permission-mode bypassPermissions
+          show_full_output: true
+          prompt: ${{ steps.load_sources_prompt.outputs.content }}
+        # Produces sources/<DATE>_<story>.json with per-quote speaker
+        # attribution. Quote-grounding is verified post-hoc by validate_analysis.
+
+      - name: Pull agent's source-attribution commits
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - name: Re-authenticate git after source-attribution pass
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
+
+      - name: Source aggregation (Phase 3a) — daily rollup per outlet/region
+        run: python -m analytical.source_aggregation
+        # Reads sources/<DATE>_*.json; writes sources/aggregate/<DATE>.json.
+        # Skips cleanly when no sources files exist yet.
+
+      - name: Render sources markdown (Phase 3a)
+        run: python -m publication.render_sources_md
+
       - name: Render analysis markdown from JSON
         run: python -m publication.render_analysis_md
         # Reads analyses/<date>_<story>.json (canonical, from agent),
@@ -284,7 +322,7 @@ jobs:
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add analyses/ trajectory/
+          git add analyses/ trajectory/ sources/
           if git diff --cached --quiet; then
             echo "No new MD or trajectory to commit (agent may have produced no qualifying stories)."
             exit 0

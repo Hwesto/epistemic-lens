@@ -353,6 +353,58 @@ Both channels are **code-only at v7.2.0** — the OAuth dance is recorded in
 `human.md` and `docs/OPERATIONS.md`. Once secrets land, the cron's
 `distribute` job auto-activates.
 
+## Source attribution (7.3.0)
+
+Phase 3a introduces a source-attribution layer. A second daily LLM pass
+(`.claude/prompts/source_attribution.md`) reads each story's briefing
+corpus and extracts every direct quote with its speaker, role, and
+stance. Output: `sources/<DATE>_<story>.json` with per-quote schema:
+
+```
+{
+  "speaker_name", "role_or_affiliation", "speaker_type",
+  "exact_quote", "attributive_verb", "stance_toward_target",
+  "signal_text_idx", "bucket", "outlet"
+}
+```
+
+`speaker_type` is a closed enum: official | civilian | expert |
+journalist | spokesperson | unknown. `stance_toward_target` is a closed
+enum: for | against | neutral | unclear. The closed enums make
+longitudinal claims about *who gets to speak* tractable.
+
+`exact_quote` is verbatim from `corpus[signal_text_idx].signal_text` —
+the same quote-grounding constraint as the body analysis, enforced by
+`analytical.validate_analysis.check_quote_grounding_sources()` as a
+post-pass defense-in-depth.
+
+`analytical.source_aggregation` rolls the per-story sources into per-
+outlet, per-bucket, and per-region aggregates with the closed-enum mixes
+(verb, type, stance), top-N speakers, and outlet diversity per speaker.
+Output: `sources/aggregate/<DATE>.json`.
+
+Region grouping (americas / europe / middle_east / asia_pacific / africa
+/ wire / opinion / other) is hardcoded in `analytical.source_aggregation`
+for now; it's not pinned via meta_version because the grouping is
+purely a presentation choice, not an analytical input. A future pin bump
+may move it to a JSON file if regions become a research dimension.
+
+Cron cost: ~3-5 LLM calls/day for the extraction pass, well within
+OAuth Pro limits. Caching by article SHA (`sources/cache/<sha>.json`)
+makes re-runs against the same articles free, so the actual cost
+amortises lower as the same speakers reappear across days.
+
+## Pin discipline for source attribution
+
+The Phase 3a addition is **forward-compatible**: existing frame
+trajectories are unchanged. A reader can still read a meta-v7.2.0 frame
+analysis and a meta-v7.3.0 frame analysis as comparable. Source
+attribution is a new artefact alongside, not a replacement.
+
+The full Phase 3 (multimedia distribution, paid additions) is deferred
+to a future major bump (`8.0.0`) when those layers actually ship.
+Phase 3a-c (this slice) is honest as a minor bump.
+
 ## Known limitations (7.1.0)
 
 - **HDBSCAN cluster contamination across similar-topic events.** The

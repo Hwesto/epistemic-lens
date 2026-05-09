@@ -239,6 +239,49 @@
       frag.appendChild(sect);
     }
 
+    // Voices (Phase 3a) — source attribution, when available
+    if (a._sources_doc && (a._sources_doc.sources || []).length > 0) {
+      const sect = section("Voices");
+      const sources = a._sources_doc.sources || [];
+      const speakers = new Map();
+      const types = new Map();
+      sources.forEach(s => {
+        const sp = s.speaker_name || `<unnamed: ${s.role_or_affiliation || "?"}>`;
+        speakers.set(sp, (speakers.get(sp) || 0) + 1);
+        const t = s.speaker_type || "unknown";
+        types.set(t, (types.get(t) || 0) + 1);
+      });
+      const meta = document.createElement("p");
+      meta.className = "detail-meta";
+      meta.textContent = `${sources.length} quote(s) from ${speakers.size} speaker(s).`;
+      sect.appendChild(meta);
+      const tbl = document.createElement("table");
+      tbl.className = "matrix voices-matrix";
+      const head = document.createElement("tr");
+      head.appendChild(thEl("Speaker", "bucket"));
+      head.appendChild(thEl("Quotes", "frame"));
+      tbl.appendChild(head);
+      const top = Array.from(speakers.entries())
+        .sort((x, y) => y[1] - x[1])
+        .slice(0, 8);
+      top.forEach(([sp, n]) => {
+        const row = document.createElement("tr");
+        row.appendChild(tdEl(short(sp, 36), "bucket"));
+        row.appendChild(tdEl(String(n), "on"));
+        tbl.appendChild(row);
+      });
+      sect.appendChild(tbl);
+      const types_p = document.createElement("p");
+      types_p.className = "detail-meta";
+      types_p.textContent = "Speaker types: " +
+        Array.from(types.entries())
+          .sort((x, y) => y[1] - x[1])
+          .map(([t, n]) => `${t} ${n}`)
+          .join(" · ");
+      sect.appendChild(types_p);
+      frag.appendChild(sect);
+    }
+
     // Trajectory (Phase 1) — frame share over time, when available
     if (trajectory && trajectory.frame_trajectories) {
       const sect = section("Trajectory");
@@ -397,7 +440,8 @@
       .map(s => fetchJSON(`${latest.date}/${s.key}/analysis.json`).then(a => ({ analysis: a, story: s })));
 
     // Phase 1: parallel-fetch coverage matrix (today) + trajectory per story.
-    // Soft-fail on either; the existing card UI works without them.
+    // Phase 3a: parallel-fetch sources per story.
+    // Soft-fail on each; the existing card UI works without any of them.
     const coverageFetch = latest.coverage_path
       ? fetchJSON(latest.coverage_path.replace(/^\//, "")).catch(() => null)
       : Promise.resolve(null);
@@ -409,6 +453,12 @@
           : Promise.resolve(null)
       ])
     );
+    // Sources: per-story under <DATE>/<story>/sources.json (build_index copies).
+    const sourceFetches = Object.fromEntries(
+      stories.filter(s => s.has?.sources).map(s => [s.key,
+        fetchJSON(`${latest.date}/${s.key}/sources.json`).catch(() => null)
+      ])
+    );
 
     const [results, coverage] = await Promise.all([
       Promise.allSettled(analysisFetches),
@@ -417,6 +467,10 @@
     const trajectories = {};
     for (const [k, p] of Object.entries(trajectoryFetches)) {
       trajectories[k] = await p;
+    }
+    const sourcesByKey = {};
+    for (const [k, p] of Object.entries(sourceFetches)) {
+      sourcesByKey[k] = await p;
     }
     const analyses = results.filter(r => r.status === "fulfilled").map(r => r.value);
 
@@ -431,6 +485,8 @@
       return;
     }
     analyses.forEach(({ analysis }) => {
+      // Attach sources doc so buildDetail's Voices section can use it.
+      analysis._sources_doc = sourcesByKey[analysis.story_key] || null;
       grid.appendChild(renderCard(analysis, latest.date, trajectories[analysis.story_key]));
     });
   }

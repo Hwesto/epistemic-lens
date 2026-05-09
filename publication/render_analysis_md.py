@@ -28,6 +28,25 @@ ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 
 
+SOURCES = ROOT / "sources"
+
+
+def _load_sources_sibling(analysis: dict) -> dict | None:
+    """Load `sources/<DATE>_<story>.json` for the given analysis. Returns
+    None if missing (Phase 3a; renderer's section is skipped if absent)."""
+    date = analysis.get("date")
+    story_key = analysis.get("story_key")
+    if not (date and story_key):
+        return None
+    p = SOURCES / f"{date}_{story_key}.json"
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
 def _load_sibling(analysis: dict, suffix: str) -> dict | None:
     """Load sibling JSON `<DATE>_<story>{suffix}.json`.
 
@@ -211,6 +230,32 @@ def render(a: dict) -> str:
                 f"`{' '.join(a['bigram'])}` (z={a['z_score']})" for a in assocs[:4]
             )
             out.append(f"| `{bucket}` | {info.get('lang', '?')} | {preview} |")
+        out.append("")
+
+    # Voices — source attribution (Phase 3a).
+    sources_doc = _load_sources_sibling(a)
+    if sources_doc and sources_doc.get("sources"):
+        from collections import Counter, defaultdict
+        sources = sources_doc["sources"]
+        out.append("## Voices")
+        out.append("")
+        out.append(
+            f"{len(sources)} direct quote(s) extracted across "
+            f"{len({s.get('outlet') for s in sources})} outlet(s)."
+        )
+        out.append("")
+        # Top speakers
+        speakers = Counter()
+        types = Counter()
+        for s in sources:
+            sp = s.get("speaker_name") or f"<unnamed: {s.get('role_or_affiliation', '?')}>"
+            speakers[sp] += 1
+            types[s.get("speaker_type", "unknown")] += 1
+        out.append("**Top speakers:** "
+                   + ", ".join(f"{sp} ({n})" for sp, n in speakers.most_common(5)))
+        out.append("")
+        out.append("**Speaker types:** "
+                   + ", ".join(f"{t} {n}" for t, n in types.most_common()))
         out.append("")
 
     # Headline-body divergence (Phase 2).

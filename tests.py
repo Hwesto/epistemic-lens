@@ -1020,6 +1020,132 @@ class TestPhase2Modules(unittest.TestCase):
         self.assertEqual(ps[1]["text"], "Second")
 
 
+class TestPhase3SourceAttribution(unittest.TestCase):
+    """Phase 3a-3c: source/quote attribution + aggregation + validator."""
+
+    def _briefing(self):
+        return {
+            "date": "2026-05-09",
+            "story_key": "test",
+            "corpus": [
+                {"bucket": "usa", "feed": "Outlet A", "lang": "en",
+                 "title": "...", "signal_text":
+                 'Trump said: "We will continue the blockade." Officials warn.'},
+                {"bucket": "iran_state", "feed": "Outlet B", "lang": "en",
+                 "title": "...", "signal_text":
+                 'A spokesperson claimed: "Sanctions will fail."'},
+            ]
+        }
+
+    def _sources_doc(self):
+        return {
+            "story_key": "test",
+            "date": "2026-05-09",
+            "sources": [
+                {"speaker_name": "Trump", "role_or_affiliation": "US President",
+                 "speaker_type": "official",
+                 "exact_quote": 'We will continue the blockade.',
+                 "attributive_verb": "said",
+                 "stance_toward_target": "for",
+                 "signal_text_idx": 0,
+                 "bucket": "usa", "outlet": "Outlet A"},
+                {"speaker_name": None, "role_or_affiliation": "spokesperson",
+                 "speaker_type": "spokesperson",
+                 "exact_quote": 'Sanctions will fail.',
+                 "attributive_verb": "claimed",
+                 "stance_toward_target": "against",
+                 "signal_text_idx": 1,
+                 "bucket": "iran_state", "outlet": "Outlet B"},
+            ]
+        }
+
+    def test_source_attribution_validate_clean(self):
+        if "analytical.source_attribution" in sys.modules:
+            importlib.reload(sys.modules["analytical.source_attribution"])
+        from analytical import source_attribution as sa
+        errs = sa.validate_sources(self._sources_doc(), self._briefing())
+        self.assertEqual(errs, [])
+
+    def test_source_attribution_validate_catches_fabricated_quote(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["exact_quote"] = "this is not in the article"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("not found verbatim" in e for e in errs),
+                        msg=f"expected verbatim error, got: {errs}")
+
+    def test_source_attribution_validate_catches_bad_speaker_type(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["speaker_type"] = "bogus"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("speaker_type" in e for e in errs))
+
+    def test_source_attribution_validate_catches_bad_stance(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["stance_toward_target"] = "bogus"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("stance_toward_target" in e for e in errs))
+
+    def test_source_attribution_list_pending(self):
+        from analytical import source_attribution as sa
+        with tempfile.TemporaryDirectory() as td:
+            cache = Path(td)
+            briefing = self._briefing()
+            # Nothing cached yet → all pending
+            pending = sa.list_pending(briefing, cache_dir=cache)
+            self.assertEqual(len(pending), 2)
+            # Mark first as cached
+            sha0 = sa.article_sha(briefing["corpus"][0])
+            sa.update_cache(sha0, "test", n_quotes=1, cache_dir=cache)
+            pending = sa.list_pending(briefing, cache_dir=cache)
+            self.assertEqual(len(pending), 1)
+            self.assertEqual(pending[0]["bucket"], "iran_state")
+
+    def test_source_aggregation_basic(self):
+        if "analytical.source_aggregation" in sys.modules:
+            importlib.reload(sys.modules["analytical.source_aggregation"])
+        from analytical import source_aggregation as sag
+        sources_with_story = [
+            {**s, "story_key": "test"}
+            for s in self._sources_doc()["sources"]
+        ]
+        agg = sag.aggregate(sources_with_story)
+        # Per-outlet: Outlet A has 1 quote from Trump
+        self.assertEqual(agg["by_outlet"]["Outlet A"]["n_quotes"], 1)
+        self.assertEqual(agg["by_outlet"]["Outlet A"]["top_speakers"][0][0], "Trump")
+        # Per-region: usa is americas; iran_state is middle_east
+        self.assertIn("americas", agg["by_region"])
+        self.assertIn("middle_east", agg["by_region"])
+        # Stance mix in americas: 1 "for"
+        self.assertEqual(agg["by_region"]["americas"]["stance_mix"]["for"], 1)
+        self.assertEqual(agg["by_region"]["middle_east"]["stance_mix"]["against"], 1)
+
+    def test_source_aggregation_region_for(self):
+        from analytical import source_aggregation as sag
+        self.assertEqual(sag.region_for("usa"), "americas")
+        self.assertEqual(sag.region_for("germany"), "europe")
+        self.assertEqual(sag.region_for("iran_state"), "middle_east")
+        self.assertEqual(sag.region_for("china"), "asia_pacific")
+        self.assertEqual(sag.region_for("south_africa"), "africa")
+        self.assertEqual(sag.region_for("wire_services"), "wire")
+        self.assertEqual(sag.region_for("unknown_bucket"), "other")
+
+    def test_validator_quote_grounding_sources(self):
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as va
+        # Clean
+        errs = va.check_quote_grounding_sources(self._sources_doc(), self._briefing())
+        self.assertEqual(errs, [])
+        # Fabricated
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["exact_quote"] = "not in any article"
+        errs = va.check_quote_grounding_sources(bad, self._briefing())
+        self.assertTrue(any("not found verbatim" in e for e in errs))
+
+
 class TestMethodologyPin(unittest.TestCase):
     """meta.py: the methodology pin — hashes, stamping, drift detection."""
 

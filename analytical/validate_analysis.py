@@ -302,6 +302,47 @@ def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
     return (1 if errs else 0), errs
 
 
+def check_quote_grounding_sources(
+    sources_doc: dict, briefing: dict
+) -> list[str]:
+    """Phase 3a: parallel-validate source-attribution JSON.
+
+    Each `sources[i].exact_quote` must appear verbatim in the article it's
+    attributed to (`corpus[signal_text_idx].signal_text`). The bucket field
+    must match. Catches hallucinated quotes the same way the body validator
+    does.
+
+    Defers schema validity to the producer (the source-attribution agent
+    runs its own self-check); this is defence in depth at validate time.
+    """
+    errors: list[str] = []
+    sources = sources_doc.get("sources") or []
+    corpus = briefing.get("corpus") or []
+    n_articles = len(corpus)
+    for ii, s in enumerate(sources):
+        idx = s.get("signal_text_idx")
+        if not isinstance(idx, int) or idx < 0 or idx >= n_articles:
+            errors.append(
+                f"sources[{ii}]: signal_text_idx {idx} out of range "
+                f"(corpus length {n_articles})"
+            )
+            continue
+        article = corpus[idx]
+        quote = (s.get("exact_quote") or "").strip()
+        text = article.get("signal_text") or ""
+        if quote and quote not in text:
+            errors.append(
+                f"sources[{ii}]: quote not found verbatim in "
+                f"corpus[{idx}].signal_text — {quote[:60]!r}"
+            )
+        if s.get("bucket") != article.get("bucket"):
+            errors.append(
+                f"sources[{ii}]: claims bucket {s.get('bucket')!r} but "
+                f"corpus[{idx}].bucket = {article.get('bucket')!r}"
+            )
+    return errors
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("files", nargs="*", type=Path)
@@ -319,6 +360,10 @@ def main() -> int:
     for t in targets:
         if t.suffix != ".json":
             continue
+        # Skip Phase 2 sibling artefacts (headline, divergence) — they
+        # share the analysis schema but are validated elsewhere.
+        if t.stem.endswith(("_headline", "_divergence")):
+            continue
         rc, errs = validate_one(t)
         if rc == 0:
             print(f"  OK  {t.name}")
@@ -328,8 +373,37 @@ def main() -> int:
                 print(f"    - {e}")
             total_errors += len(errs)
 
+    # Phase 3a: parallel-validate source-attribution outputs.
+    SOURCES = ROOT / "sources"
+    if SOURCES.exists():
+        date = args.date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        for sp in sorted(SOURCES.glob(f"{date}_*.json")):
+            if sp.parent.name == "aggregate":
+                continue
+            try:
+                sd = json.loads(sp.read_text(encoding="utf-8"))
+            except Exception as e:
+                print(f"  FAIL  {sp.name}: {e}")
+                total_errors += 1
+                continue
+            story_key = sd.get("story_key")
+            try:
+                briefing = _load_briefing(date, story_key)
+            except ValidationError as e:
+                print(f"  FAIL  {sp.name}: {e}")
+                total_errors += 1
+                continue
+            errs = check_quote_grounding_sources(sd, briefing)
+            if errs:
+                print(f"  FAIL  {sp.name}")
+                for e in errs:
+                    print(f"    - {e}")
+                total_errors += len(errs)
+            else:
+                print(f"  OK    {sp.name}  ({len(sd.get('sources') or [])} sources)")
+
     if total_errors:
-        print(f"\n{total_errors} validation error(s) across {len(targets)} file(s).")
+        print(f"\n{total_errors} validation error(s).")
     return 1 if total_errors else 0
 
 

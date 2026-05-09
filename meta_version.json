@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "7.2.0",
-  "pinned_at": "2026-05-09T17:57:23Z",
-  "pin_reason": "Phase 2: within-language LLR + log-odds bigrams (analytical/within_language_llr.py + within_language_pmi.py); headline-body divergence pass (.claude/prompts/headline_analysis.md + analytical/headline_body_divergence.py wired to cron); cross-outlet lag CCF (analytical/cross_outlet_lag.py + weekly cron); replication harness (replay.py); retention rollup (pipeline/rollup.py); X poster + YouTube Shorts distribution (secret-gated cron). Forward-compatible: new artefacts + new cron sub-step; no formula change to existing analytical layer.",
+  "meta_version": "7.3.0",
+  "pinned_at": "2026-05-09T18:09:52Z",
+  "pin_reason": "Phase 3a-3c: source/quote attribution slice. New LLM prompt (.claude/prompts/source_attribution.md) extracts per-quote speaker_name + role + speaker_type + attributive_verb + stance_toward_target with verbatim quote-grounding. analytical/source_attribution.py (helper + cache + schema validator); analytical/source_aggregation.py (per-outlet, per-bucket, per-region rollup with verb/type/stance mixes); publication/render_sources_md.py (focused Voices markdown); render_analysis_md.py extended with embedded Voices section; web frontend Voices subsection per card; build_index publishes per-story sources.json + sources/aggregate/<DATE>.json under api/. Validator extended with check_quote_grounding_sources(). Forward-compatible: frame trajectories unchanged; new artefact alongside.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -77,6 +77,6 @@
     "_doc": "Dated snapshot ID (claude-sonnet-4-6-YYYYMMDD) pins model weights as far as the API permits — alias `claude-sonnet-4-6` may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`.",
     "model": "claude-sonnet-4-6-20260501",
     "model_alias": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:7baeab63bd46f26ce072e3e6953667954fbb48382f0bf5f1a85645544bc241e4"
+    "prompts_hash": "sha256:f46a74a345415381c44bedf2c504b3b045504d056081b23f858b909cae5ff408"
   }
 }
