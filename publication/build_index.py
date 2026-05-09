@@ -50,6 +50,9 @@ COVERAGE = ROOT / "coverage"
 TRAJECTORY = ROOT / "trajectory"
 LAG = ROOT / "lag"
 SOURCES = ROOT / "sources"
+BASELINE = ROOT / "baseline"
+TILT = ROOT / "tilt"
+ROBUSTNESS = ROOT / "robustness"
 SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
 WEB_SRC = ROOT / "web"
 API = ROOT / "api"
@@ -323,6 +326,69 @@ def copy_sources_aggregate() -> dict[str, str]:
     return out
 
 
+def copy_baseline() -> str | None:
+    """Copy `baseline/wire_bigrams.json` (Phase 4e) into `api/baseline/`."""
+    src = BASELINE / "wire_bigrams.json"
+    if not src.exists():
+        return None
+    dst_dir = API / "baseline"
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst_dir / src.name)
+    return f"/baseline/{src.name}"
+
+
+def copy_tilt() -> dict[str, str]:
+    """Copy `tilt/<bucket>__<outlet>.json` (Phase 4f) into `api/tilt/`."""
+    out: dict[str, str] = {}
+    if not TILT.is_dir():
+        return out
+    dst = API / "tilt"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in TILT.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/tilt/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of per-outlet tilt-vs-wire-baseline files (Phase 4f).",
+            "n_outlets": len(out),
+            "outlet_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_robustness() -> dict[str, str]:
+    """Copy `robustness/<story>.json` (Phase 4h) into `api/robustness/`."""
+    out: dict[str, str] = {}
+    if not ROBUSTNESS.is_dir():
+        return out
+    dst = API / "robustness"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in ROBUSTNESS.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/robustness/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of per-story stability indices (Phase 4h).",
+            "n_stories": len(out),
+            "story_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
 def copy_lag() -> dict[str, str]:
     """Copy `lag/<bucket_a>__<bucket_b>.json` (CCF outputs, Phase 2) into
     `api/lag/`. Returns {pair_key: api_path}."""
@@ -435,6 +501,9 @@ def main() -> int:
     trajectory_paths = copy_trajectories()
     lag_paths = copy_lag()
     sources_aggregate_paths = copy_sources_aggregate()
+    baseline_path = copy_baseline()
+    tilt_paths = copy_tilt()
+    robustness_paths = copy_robustness()
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
@@ -461,6 +530,12 @@ def main() -> int:
             latest_payload["sources_aggregate_path"] = sources_aggregate_paths[latest]
         if sources_aggregate_paths:
             latest_payload["sources_aggregate_index"] = "/sources/aggregate/index.json"
+        if baseline_path:
+            latest_payload["wire_baseline_path"] = baseline_path
+        if tilt_paths:
+            latest_payload["tilt_index"] = "/tilt/index.json"
+        if robustness_paths:
+            latest_payload["robustness_index"] = "/robustness/index.json"
         (API / "latest.json").write_text(
             json.dumps(meta.stamp(latest_payload), indent=2),
             encoding="utf-8",
@@ -475,6 +550,12 @@ def main() -> int:
         print(f"  + {len(lag_paths)} lag pairs → api/lag/")
     if sources_aggregate_paths:
         print(f"  + {len(sources_aggregate_paths)} source-aggregate days → api/sources/aggregate/")
+    if baseline_path:
+        print(f"  + wire baseline → api{baseline_path}")
+    if tilt_paths:
+        print(f"  + {len(tilt_paths)} tilt files → api/tilt/")
+    if robustness_paths:
+        print(f"  + {len(robustness_paths)} robustness files → api/robustness/")
     return 0
 
 

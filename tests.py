@@ -1146,6 +1146,122 @@ class TestPhase3SourceAttribution(unittest.TestCase):
         self.assertTrue(any("not found verbatim" in e for e in errs))
 
 
+class TestPhase4Modules(unittest.TestCase):
+    """Phase 4e/4f/4h: wire baseline + tilt index + robustness check.
+    Plus Phase 3i bucket-feed-set hash."""
+
+    def test_bucket_feed_set_hash_stable(self):
+        # Same bucket should give the same hash on repeat calls.
+        if "meta" in sys.modules:
+            importlib.reload(sys.modules["meta"])
+        import meta as m
+        h1 = m.bucket_feed_set_hash("wire_services")
+        h2 = m.bucket_feed_set_hash("wire_services")
+        self.assertEqual(h1, h2)
+        self.assertEqual(len(h1), 16)  # truncated sha256
+
+    def test_bucket_feed_set_hash_differs_per_bucket(self):
+        import meta as m
+        h_wire = m.bucket_feed_set_hash("wire_services")
+        h_uk = m.bucket_feed_set_hash("uk")
+        self.assertNotEqual(h_wire, h_uk)
+
+    def test_wire_baseline_skips_insufficient_history(self):
+        if "analytical.wire_baseline" in sys.modules:
+            importlib.reload(sys.modules["analytical.wire_baseline"])
+        from analytical import wire_baseline as wb
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            articles = wb.collect_wire_articles(window_days=30,
+                                                  today="2026-05-09",
+                                                  briefings_dir=tdp)
+            self.assertEqual(articles, [])
+
+    def test_wire_baseline_collects_wire_articles(self):
+        from analytical import wire_baseline as wb
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            (tdp / "2026-05-08_x.json").write_text(json.dumps({
+                "corpus": [
+                    {"bucket": "wire_services", "title": "x",
+                     "signal_text": "wire copy here"},
+                    {"bucket": "uk", "title": "y",
+                     "signal_text": "non-wire"},
+                ]
+            }))
+            arts = wb.collect_wire_articles(window_days=30,
+                                              today="2026-05-09",
+                                              briefings_dir=tdp)
+            self.assertEqual(len(arts), 1)
+            self.assertEqual(arts[0]["bucket"], "wire_services")
+
+    def test_wire_baseline_build_bigrams(self):
+        from analytical import wire_baseline as wb
+        articles = [
+            {"title": "a", "signal_text": "supply shock crisis " * 5},
+        ]
+        bigrams = wb.build_bigrams(articles)
+        self.assertGreater(bigrams[("supply", "shock")], 0)
+
+    def test_tilt_index_log_odds_consistent(self):
+        if "analytical.tilt_index" in sys.modules:
+            importlib.reload(sys.modules["analytical.tilt_index"])
+        from analytical import tilt_index as ti
+        from collections import Counter
+        outlet = Counter({("a", "b"): 10, ("c", "d"): 1})
+        wire = Counter({("a", "b"): 1, ("e", "f"): 5})
+        result = ti.compute_outlet_tilt(outlet, wire, min_count=1, top_k=10)
+        # ('a','b') should be positive-tilt (10× more in outlet than wire).
+        pos_bigrams = {tuple(p["bigram"]) for p in result["positive_tilt"]}
+        self.assertIn(("a", "b"), pos_bigrams)
+        # ('e','f') should be negative-tilt (in wire, not outlet).
+        neg_bigrams = {tuple(p["bigram"]) for p in result["negative_tilt"]}
+        self.assertIn(("e", "f"), neg_bigrams)
+
+    def test_tilt_index_parse_baseline_bigrams(self):
+        from analytical import tilt_index as ti
+        baseline = {"bigrams": {"a|b": 5, "c|d": 3, "no_pipe": 1}}
+        cnt = ti.parse_baseline_bigrams(baseline)
+        self.assertEqual(cnt[("a", "b")], 5)
+        self.assertEqual(cnt[("c", "d")], 3)
+        self.assertNotIn("no_pipe", cnt)
+
+    def test_robustness_jaccard(self):
+        if "analytical.robustness_check" in sys.modules:
+            importlib.reload(sys.modules["analytical.robustness_check"])
+        from analytical import robustness_check as rc
+        self.assertEqual(rc.jaccard({"a", "b"}, {"a", "b"}), 1.0)
+        self.assertAlmostEqual(rc.jaccard({"a", "b", "c"}, {"a", "b", "d"}), 2 / 4)
+        self.assertEqual(rc.jaccard({"a"}, {"b"}), 0.0)
+        self.assertIsNone(rc.jaccard(set(), set()))
+
+    def test_robustness_compute(self):
+        from analytical import robustness_check as rc
+        traj = {
+            "frame_trajectories": {
+                "F1": [{"date": "2026-05-07"}, {"date": "2026-05-08"}],
+                "F2": [{"date": "2026-05-07"}],  # F2 disappeared on 5/8
+                "F3": [{"date": "2026-05-08"}],  # F3 new on 5/8
+            }
+        }
+        result = rc.compute_robustness(traj, threshold=0.5)
+        self.assertFalse(result.get("skipped"))
+        # Day1: {F1, F2}; Day2: {F1, F3}. Jaccard = 1/3 ≈ 0.333
+        self.assertAlmostEqual(result["stability"], 1 / 3, places=2)
+        self.assertTrue(result["low_stability"])  # below 0.5
+
+    def test_robustness_skips_one_day(self):
+        from analytical import robustness_check as rc
+        traj = {
+            "frame_trajectories": {
+                "F1": [{"date": "2026-05-07"}],
+            }
+        }
+        result = rc.compute_robustness(traj)
+        self.assertTrue(result.get("skipped"))
+        self.assertEqual(result["reason"], "insufficient_history")
+
+
 class TestMethodologyPin(unittest.TestCase):
     """meta.py: the methodology pin — hashes, stamping, drift detection."""
 

@@ -239,6 +239,25 @@
       frag.appendChild(sect);
     }
 
+    // Stability index (Phase 4h) — frame-allocation robustness over time
+    if (a._robustness && !a._robustness.skipped) {
+      const sect = section("Stability");
+      const r = a._robustness;
+      const flag = r.low_stability ? " ⚠ low_stability" : "";
+      const meta = document.createElement("p");
+      meta.className = "detail-meta";
+      meta.textContent =
+        `Frame-set Jaccard across ${r.n_consecutive_pairs} consecutive day-pair(s): ` +
+        `mean ${r.stability}${flag}. Threshold ${r.threshold}.`;
+      sect.appendChild(meta);
+      const note = document.createElement("p");
+      note.className = "detail-meta";
+      note.textContent = "Catches frame-allocation instability (analyzer reaching for different categories) " +
+        "but NOT model drift. Honest model-robustness needs LLM re-runs against past briefings.";
+      sect.appendChild(note);
+      frag.appendChild(sect);
+    }
+
     // Voices (Phase 3a) — source attribution, when available
     if (a._sources_doc && (a._sources_doc.sources || []).length > 0) {
       const sect = section("Voices");
@@ -459,6 +478,12 @@
         fetchJSON(`${latest.date}/${s.key}/sources.json`).catch(() => null)
       ])
     );
+    // Robustness (Phase 4h) — flat under api/robustness/<story>.json
+    const robustnessFetches = Object.fromEntries(
+      stories.map(s => [s.key,
+        fetchJSON(`robustness/${s.key}.json`).catch(() => null)
+      ])
+    );
 
     const [results, coverage] = await Promise.all([
       Promise.allSettled(analysisFetches),
@@ -471,6 +496,10 @@
     const sourcesByKey = {};
     for (const [k, p] of Object.entries(sourceFetches)) {
       sourcesByKey[k] = await p;
+    }
+    const robustnessByKey = {};
+    for (const [k, p] of Object.entries(robustnessFetches)) {
+      robustnessByKey[k] = await p;
     }
     const analyses = results.filter(r => r.status === "fulfilled").map(r => r.value);
 
@@ -487,6 +516,8 @@
     analyses.forEach(({ analysis }) => {
       // Attach sources doc so buildDetail's Voices section can use it.
       analysis._sources_doc = sourcesByKey[analysis.story_key] || null;
+      // Phase 4h/4i: stability index for the Stability section.
+      analysis._robustness = robustnessByKey[analysis.story_key] || null;
       grid.appendChild(renderCard(analysis, latest.date, trajectories[analysis.story_key]));
     });
   }

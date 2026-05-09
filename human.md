@@ -53,6 +53,38 @@ shipped and tested without live tokens.
   (Phase 0 + Phase 1 + this session's Phase 2 + Phase 3a-c), merge.
 - [ ] **Tag `meta-v7.3.0` on main** after the merge.
 
+## Tilt index public-claim commitment (Phase 4g — gate for v9.0.0)
+
+The tilt-index machinery shipped in `meta-v7.4.0` (`analytical/tilt_index.py`,
+`analytical/wire_baseline.py`) emits per-outlet log-odds vs the wire
+baseline. The output today is **descriptive**: "outlet X uses bigram Y at
+Z times the wire rate."
+
+Turning that into a public claim ("outlet X tilts toward / away from
+neutral") requires you to **commit publicly to defending the wire
+baseline as your neutral anchor**. Three paths:
+
+- [ ] **(A) Wire-as-neutral.** Adopt the existing `wire_services` bucket
+      (Reuters + AP + AFP + Google News wires) as the neutral anchor.
+      Document the choice in `docs/METHODOLOGY.md` with a rebuttal
+      stanza addressing "why wire is descriptively the most low-frame
+      copy in news." Pre-empts the obvious critique. This is the
+      cheapest path; it's also the one most aligned with prior academic
+      tilt-index work (Gentzkow-Shapiro).
+- [ ] **(B) Anchor poles.** Pick two opposing-pole outlets per major
+      story (e.g. FT vs Jacobin for English political coverage; Le Monde
+      vs Russia Today for European geopolitics) and report tilt as
+      distance from the midpoint of those poles. More principled but
+      needs N anchors per region.
+- [ ] **(C) Decline to publish tilt as a public claim.** Keep the
+      machinery as internal data; publish bigram statistics without the
+      "tilt vs neutral" framing.
+
+Whichever path you choose, the renderer and methodology doc need an
+update to match. After the commitment lands, the next pin bump is the
+`9.0.0` major (the bump-rules call this longitudinal-comparability-
+breaking because the public claim direction changes).
+
 ## Future-session prerequisites (listed for awareness, not yet actionable)
 
 - **Phase 3d–3f distribution channels.** Telegram bot token, Buttondown

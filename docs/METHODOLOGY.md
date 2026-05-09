@@ -405,6 +405,107 @@ The full Phase 3 (multimedia distribution, paid additions) is deferred
 to a future major bump (`8.0.0`) when those layers actually ship.
 Phase 3a-c (this slice) is honest as a minor bump.
 
+## Drift detection (7.4.0)
+
+Phase 1 added the longitudinal aggregator with `meta_version_segments`
+and `bucket_set_signatures`. 7.4.0 extends this with two finer-grained
+drift dimensions:
+
+- **`bucket_feed_set_drift`** (Phase 3i): per bucket, the sha256 hash of
+  the sorted feed-name list from `feeds.json`. A bucket's key stays
+  stable across a `feeds.json` edit even when the underlying feed set
+  changes; the feed-set hash exposes that sub-bucket drift.
+  `analytical.build_briefing` stamps `bucket_feed_set_hashes` per
+  briefing; `analytical.longitudinal` walks them across days and emits
+  per-bucket runs in `trajectory/<story>.json`.
+- **`canonical_stories_pattern_segments`** (Phase 3j): the pin's
+  `canonical_stories_hash` (already in `meta_version.json`) is now
+  stamped per briefing. The longitudinal aggregator detects pattern
+  changes — story regex revisions, new excludes — and flags the
+  boundary in trajectory output.
+
+A consumer plotting a frame trajectory should hedge claims spanning ANY
+of: a meta_version segment boundary, a bucket-set-signature change, a
+bucket-feed-set drift segment, or a canonical_stories pattern segment.
+The four flags are independent dimensions of "the underlying data
+collection rules changed."
+
+## Wire baseline + tilt index (7.4.0)
+
+Phase 4e ships `analytical/wire_baseline.py`: a rolling 90-day bigram
+counter built from `bucket=="wire_services"` articles across all
+briefings. Output: `baseline/wire_bigrams.json`.
+
+Phase 4f ships `analytical/tilt_index.py`: per-outlet log-odds (Jeffreys
+prior, same Monroe et al. apparatus as `within_language_pmi.py`) for
+bigrams against the wire baseline. Output: `tilt/<bucket>__<outlet>.json`
+with `positive_tilt` (over-represented vs wire) and `negative_tilt`
+(under-represented) bigrams + Z-scores. Z ≥ 1.96 / Z ≤ −1.96.
+
+**The machinery does NOT make a normative claim.** Output is "log-odds
+vs wire" — descriptive. The public-facing claim that wire is "neutral"
+is an editorial commitment the project owner has not yet made (Phase 4g
+in `human.md`). Without that commitment, "tilt" is best read as
+"distance from the most-replicated low-effort framing," not "tilt from
+neutral." Once the commitment lands, the renderer's framing of the tilt
+output should be updated.
+
+Insufficient-history skip: wire_baseline skips when fewer than 14 days
+of briefings carry wire articles. tilt_index skips per-outlet when fewer
+than 3 articles in the rolling window.
+
+## Robustness check (7.4.0)
+
+Phase 4h ships `analytical/robustness_check.py`: per-story frame-set
+Jaccard across consecutive day-pairs.
+
+```
+stability = mean(jaccard(frame_set_t, frame_set_{t+1}))
+            over consecutive day pairs
+```
+
+Range 0.0–1.0; threshold 0.5 default for the `low_stability` flag.
+
+**Honest scope:** this catches *frame-allocation instability*: the
+analyzer assigning different `frame_id` categories on similar inputs
+across days. It does NOT catch *model drift* (same prompt + same input
+→ different output across snapshots), which would require LLM re-runs
+against past briefings — Phase 4+ work, OAuth-metered, deferred.
+
+Output: `robustness/<story>.json` per story. Web view at
+`web/index.html` per-card "Stability" subsection.
+
+## Pin discipline for 7.4.0
+
+This phase is **forward-compatible**: every addition is a new artefact
+alongside existing layers. Frame trajectories from earlier pins remain
+comparable. Tilt index output exists as data without yet making a
+normative claim. Robustness check is a stability metric, not a new
+analytical formula.
+
+The honest 8.0.0 bump is reserved for vision (Phase 3h), which would
+expand the analyzer's input modality. The honest 9.0.0 bump is reserved
+for the tilt index *public commitment* (Phase 4g) — the moment the
+project starts publishing tilt-vs-neutral claims, longitudinal
+comparability changes character even though the underlying numbers
+don't.
+
+## Corrections + methodology challenge (7.4.0)
+
+The project ships two intake channels:
+- **Corrections** (`web/corrections.html`,
+  `.github/ISSUE_TEMPLATE/hallucinated_quote.md`) for factual errors
+  (hallucinated quote, wrong number). 24-hour SLA; appended to
+  `corrections.json`.
+- **Methodology challenge** (`web/methodology-challenge.html`,
+  `.github/ISSUE_TEMPLATE/methodology_challenge.md`) for editorial
+  disagreement with framing calls. NOT retracted; logged as candidates
+  for the next major-pin codebook revision.
+
+The two intakes have different SLAs because they need different
+remedies; conflating them treats methodology criticism as if it were
+fact error.
+
 ## Known limitations (7.1.0)
 
 - **HDBSCAN cluster contamination across similar-topic events.** The

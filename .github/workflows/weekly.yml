@@ -33,18 +33,24 @@ jobs:
       - name: Cross-outlet lag (CCF)
         run: python -m analytical.cross_outlet_lag
 
-      - name: Commit + push lag/
+      - name: Wire baseline (Phase 4e) — rolling 90-day wire bigram corpus
+        run: python -m analytical.wire_baseline
+
+      - name: Tilt index (Phase 4f) — per-outlet log-odds vs wire baseline
+        run: python -m analytical.tilt_index
+
+      - name: Commit + push lag/ + baseline/ + tilt/
         run: |
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add lag/
+          git add lag/ baseline/ tilt/
           if git diff --cached --quiet; then
-            echo "No CCF output changes to commit."
+            echo "No weekly-analytics output changes to commit."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
-          git commit -m "weekly CCF lag analysis ${DATE}"
+          git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt)"
           for i in 1 2 3; do
             if git push; then exit 0; fi
             git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true

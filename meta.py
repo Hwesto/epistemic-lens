@@ -106,6 +106,39 @@ def canonical_stories() -> dict:
 
 
 @lru_cache(maxsize=1)
+def _feeds_by_bucket() -> dict[str, list[str]]:
+    """Per-bucket sorted list of feed names, derived from feeds.json. Cached."""
+    raw = json.loads(FEEDS_PATH.read_text(encoding="utf-8"))
+    out: dict[str, list[str]] = {}
+    for bucket_key, bucket in (raw.get("countries") or {}).items():
+        names = sorted(f.get("name", "") for f in (bucket.get("feeds") or []))
+        out[bucket_key] = names
+    return out
+
+
+def bucket_feed_set_hash(bucket: str) -> str:
+    """sha256(:|sorted feed names) per bucket. Phase 3i.
+
+    A bucket's feed set is finer-grained than its key: when a feed is added
+    or removed within a bucket, the key stays but the hash changes. Used by
+    `analytical/longitudinal.py` to detect sub-bucket drift across days
+    that the existing `bucket_set_signature` (over bucket KEYS) misses.
+    Returns 16-char hex truncation; collision-resistant for our N.
+    """
+    import hashlib
+    names = _feeds_by_bucket().get(bucket, [])
+    s = "|".join(names)
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
+
+
+def bucket_feed_set_hashes(buckets: list[str] | None = None) -> dict[str, str]:
+    """Return {bucket: feed_set_hash} for the given buckets (default: all)."""
+    by = _feeds_by_bucket()
+    keys = buckets if buckets is not None else list(by.keys())
+    return {b: bucket_feed_set_hash(b) for b in keys}
+
+
+@lru_cache(maxsize=1)
 def bucket_quality() -> dict:
     """Per-bucket quality tier (see bucket_quality.json). Empty dict if absent."""
     if not BUCKET_QUALITY_PATH.exists():

@@ -1,0 +1,39 @@
+{
+  "bucket": "brazil",
+  "outlet": "Folha de São Paulo",
+  "window_days": 7,
+  "n_articles_in_window": 2,
+  "wire_baseline_pin": "7.3.0",
+  "wire_baseline_n_articles": 9,
+  "n_outlet_bigrams": 105,
+  "n_wire_bigrams": 222,
+  "n_outlet_distinct": 76,
+  "positive_tilt": [
+    {
+      "bigram": [
+        "para",
+        "reabrir"
+      ],
+      "count_in_outlet": 6,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.057143,
+      "rate_in_wire": 0.0,
+      "log_odds": 3.373,
+      "z_score": 2.3
+    },
+    {
+      "bigram": [
+        "reabrir",
+        "hormuz"
+      ],
+      "count_in_outlet": 4,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.038095,
+      "rate_in_wire": 0.0,
+      "log_odds": 2.985,
+      "z_score": 2.0
+    }
+  ],
+  "negative_tilt": [],
+  "meta_version": "7.3.0"
+}

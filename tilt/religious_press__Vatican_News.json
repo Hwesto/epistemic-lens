@@ -1,0 +1,27 @@
+{
+  "bucket": "religious_press",
+  "outlet": "Vatican News",
+  "window_days": 7,
+  "n_articles_in_window": 6,
+  "wire_baseline_pin": "7.3.0",
+  "wire_baseline_n_articles": 9,
+  "n_outlet_bigrams": 412,
+  "n_wire_bigrams": 222,
+  "n_outlet_distinct": 338,
+  "positive_tilt": [],
+  "negative_tilt": [
+    {
+      "bigram": [
+        "bateau",
+        "croisière"
+      ],
+      "count_in_outlet": 0,
+      "count_in_wire": 5,
+      "rate_in_outlet": 0.0,
+      "rate_in_wire": 0.022523,
+      "log_odds": -3.039,
+      "z_score": -2.06
+    }
+  ],
+  "meta_version": "7.3.0"
+}

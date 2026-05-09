@@ -312,6 +312,12 @@ jobs:
 
       - name: Longitudinal aggregator (Phase 1) — frame-share trajectories per story
         run: python -m analytical.longitudinal
+
+      - name: Robustness check (Phase 4h) — frame-allocation stability per story
+        run: python -m analytical.robustness_check
+        # Day-over-day Jaccard of frame_id sets per story. Catches frame-
+        # allocation instability; NOT model drift (would need LLM re-runs
+        # against past briefings, deferred).
         # Walks analyses/<date>_<story>.json across all dates, emits
         # trajectory/<story>.json. Reads-only on analyses/; idempotent;
         # writes-only to trajectory/. Flags meta_version segment changes
@@ -322,7 +328,7 @@ jobs:
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add analyses/ trajectory/ sources/
+          git add analyses/ trajectory/ sources/ robustness/
           if git diff --cached --quiet; then
             echo "No new MD or trajectory to commit (agent may have produced no qualifying stories)."
             exit 0

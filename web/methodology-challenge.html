@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology challenge — Epistemic Lens</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark">EL</div>
+    <div>
+      <h1 class="brand-title">METHODOLOGY CHALLENGE</h1>
+      <p class="brand-tag">how to argue with the framing analyses</p>
+    </div>
+  </div>
+</header>
+
+<main class="coverage" style="max-width: 760px;">
+
+<p>
+  Framing analyses are subjective by construction. The closed codebook
+  smooths real per-event variation, the 1500-char cap on signal text
+  affects what gets analysed, the bucket grouping decides what counts as
+  "the same story." If you disagree with a framing call, the project
+  treats that as a methodology challenge, not a correction request.
+</p>
+
+<h2 class="section-h" style="margin-top: 1.5rem;">The methodology you're challenging</h2>
+<ul>
+  <li>
+    <strong>Codebook:</strong>
+    <a href="https://github.com/hwesto/epistemic-lens/blob/main/frames_codebook.json"
+       rel="noopener"><code>frames_codebook.json</code></a>
+    (15 frames, closed; descended from Boydstun/Card Media Frames Corpus).
+  </li>
+  <li>
+    <strong>Prompt:</strong>
+    <a href="https://github.com/hwesto/epistemic-lens/blob/main/.claude/prompts/daily_analysis.md"
+       rel="noopener"><code>.claude/prompts/daily_analysis.md</code></a>
+    (the instruction Claude follows; pinned by <code>meta_version</code>).
+  </li>
+  <li>
+    <strong>Pipeline:</strong>
+    <a href="https://github.com/hwesto/epistemic-lens/blob/main/docs/METHODOLOGY.md"
+       rel="noopener"><code>docs/METHODOLOGY.md</code></a>.
+  </li>
+  <li>
+    <strong>Bucket grouping:</strong>
+    <a href="https://github.com/hwesto/epistemic-lens/blob/main/feeds.json"
+       rel="noopener"><code>feeds.json</code></a>
+    (235 feeds across 54 buckets).
+  </li>
+</ul>
+
+<h2 class="section-h" style="margin-top: 1.5rem;">Where to file a challenge</h2>
+<p>
+  Open an issue at
+  <a href="https://github.com/hwesto/epistemic-lens/issues/new?template=methodology_challenge.md"
+     rel="noopener">GitHub → Issues → Methodology challenge</a>.
+  The template asks for:
+</p>
+<ol>
+  <li>
+    The specific claim you're challenging (date + story_key + frame_id).
+  </li>
+  <li>
+    The methodology element you think is at fault (codebook, prompt, bucket grouping, signal-text cap, etc.).
+  </li>
+  <li>
+    What the alternative call would have been, and why.
+  </li>
+  <li>
+    Whether you think this is one-off (this story, this day) or systemic
+    (the codebook genuinely doesn't accommodate your reading).
+  </li>
+</ol>
+
+<h2 class="section-h" style="margin-top: 1.5rem;">How challenges are resolved</h2>
+<ul>
+  <li>
+    <strong>One-off.</strong> Logged in
+    <code>methodology_challenges.json</code>; no edit to the published
+    analysis. Future analyses unchanged.
+  </li>
+  <li>
+    <strong>Systemic.</strong> The challenge becomes a candidate for the
+    next major <code>meta_version</code> bump. Codebook revisions and
+    prompt rewrites are major-bump territory because they invalidate
+    longitudinal comparison.
+  </li>
+  <li>
+    <strong>Validation-set evidence.</strong> Phase 4 of the project
+    will hand-code 100 articles for ground truth; if a challenge is
+    backed by hand-code disagreement with the analyzer's call, it carries
+    more weight in the next codebook revision.
+  </li>
+</ul>
+
+<p style="margin-top: 1.5rem;">
+  Distinct from a
+  <a href="corrections.html">correction</a>:
+  a correction targets a factual error (hallucinated quote, wrong
+  number); a challenge targets a methodological choice. We treat them
+  with different SLAs because they need different remedies.
+</p>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="index.html">← back to today's analysis</a>
+    &middot;
+    <a href="corrections.html">corrections</a>
+    &middot;
+    <a href="https://github.com/hwesto/epistemic-lens" rel="noopener">source</a>
+  </div>
+</footer>
+
+</body>
+</html>

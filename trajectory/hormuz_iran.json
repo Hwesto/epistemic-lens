@@ -25,6 +25,38 @@
       ]
     }
   ],
+  "canonical_stories_pattern_segments": [
+    {
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742",
+      "from_date": "2026-05-08",
+      "to_date": "2026-05-08",
+      "n_days": 1
+    }
+  ],
+  "bucket_feed_set_segments": {
+    "canada": [
+      {
+        "feed_set_hash": "b6888cf28c8ba5b8",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "asia_pacific_regional": [
+      {
+        "feed_set_hash": "b1ce12559d577d98",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "brazil": [
+      {
+        "feed_set_hash": "9dadf8e5d5adc2c4",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ]
+  },
+  "bucket_feed_set_drift": {},
   "daily_summaries": [
     {
       "date": "2026-05-08",
@@ -32,7 +64,8 @@
       "n_buckets": 3,
       "n_articles": 59,
       "n_frames": 5,
-      "bucket_set_signature": "3c20fb4dea098a94"
+      "bucket_set_signature": "3c20fb4dea098a94",
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742"
     }
   ],
   "frame_trajectories": {
@@ -82,5 +115,5 @@
       }
     ]
   },
-  "meta_version": "7.0.1"
+  "meta_version": "7.3.0"
 }

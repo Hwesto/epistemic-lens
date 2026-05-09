@@ -102,6 +102,28 @@ def collect_analyses(story_key: str | None = None,
     return {sk: [p for _, p in sorted(items)] for sk, items in by_story.items()}
 
 
+BRIEFINGS = ROOT / "briefings"
+
+
+def _load_briefing_for(analysis_path: Path) -> dict | None:
+    """Load the sibling briefing for an analysis path, or None if missing.
+
+    Phase 3i + 3j: the bucket_feed_set_hashes and canonical_stories_hash
+    are stamped on the BRIEFING (build_briefing.py); longitudinal needs
+    to surface them per-day to detect drift across the trajectory."""
+    m = ANALYSIS_RE.match(analysis_path.name)
+    if not m:
+        return None
+    d, sk = m.group(1), m.group(2)
+    bp = BRIEFINGS / f"{d}_{sk}.json"
+    if not bp.exists():
+        return None
+    try:
+        return json.loads(bp.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
 def build_trajectory(paths: list[Path]) -> dict:
     """Read N analysis JSONs (already date-sorted) and emit one trajectory."""
     if not paths:
@@ -115,6 +137,13 @@ def build_trajectory(paths: list[Path]) -> dict:
     last_run_buckets: list[str] = []
     meta_version_runs: list[dict] = []
     last_meta_version: str | None = None
+    # Phase 3i: per-bucket feed-set drift segments — keyed by bucket, each
+    # value is a list of {feed_set_hash, from_date, to_date}.
+    feed_set_runs: dict[str, list[dict]] = defaultdict(list)
+    last_feed_set_hash: dict[str, str] = {}
+    # Phase 3j: canonical_stories pattern drift segments.
+    pattern_runs: list[dict] = []
+    last_pattern_hash: str | None = None
 
     for p in paths:
         try:
@@ -125,6 +154,11 @@ def build_trajectory(paths: list[Path]) -> dict:
         story_title = story_title or a.get("story_title")
         story_key = story_key or a.get("story_key") or ANALYSIS_RE.match(p.name).group(2)
         analysis_meta = str(a.get("meta_version") or "?")
+
+        # Sibling briefing carries Phase 3i/3j hashes.
+        briefing = _load_briefing_for(p) or {}
+        bucket_feed_set_hashes = briefing.get("bucket_feed_set_hashes") or {}
+        pattern_hash = briefing.get("canonical_stories_hash") or "?"
 
         # Buckets in this analysis: union over frames.
         buckets: list[str] = []
@@ -154,6 +188,7 @@ def build_trajectory(paths: list[Path]) -> dict:
             "n_articles": int(a.get("n_articles") or 0),
             "n_frames": len(a.get("frames") or []),
             "bucket_set_signature": signature,
+            "canonical_stories_hash": pattern_hash,
         })
 
         # Track meta_version runs (contiguous date-segments)
@@ -181,6 +216,37 @@ def build_trajectory(paths: list[Path]) -> dict:
             bucket_set_runs[-1]["to_date"] = d
             # Buckets identical by definition since signature matches.
 
+        # Phase 3i: per-bucket feed-set drift. For each bucket appearing
+        # in this day's analysis, compare its feed-set hash to the last
+        # observed value; open a new run on change.
+        for b in buckets:
+            cur = bucket_feed_set_hashes.get(b)
+            if not cur:
+                continue
+            if last_feed_set_hash.get(b) != cur:
+                feed_set_runs[b].append({
+                    "feed_set_hash": cur, "from_date": d, "to_date": d,
+                })
+                last_feed_set_hash[b] = cur
+            else:
+                feed_set_runs[b][-1]["to_date"] = d
+
+        # Phase 3j: canonical_stories pattern hash runs
+        if pattern_hash != last_pattern_hash:
+            pattern_runs.append({
+                "canonical_stories_hash": pattern_hash,
+                "from_date": d, "to_date": d, "n_days": 1,
+            })
+            last_pattern_hash = pattern_hash
+        else:
+            pattern_runs[-1]["to_date"] = d
+            pattern_runs[-1]["n_days"] += 1
+
+    # Phase 3i + 3j: surface drift summaries so consumers can hedge claims
+    # spanning a feed-set change or a canonical-stories pattern change.
+    bucket_feed_set_drift = {
+        b: runs for b, runs in feed_set_runs.items() if len(runs) > 1
+    }
     return {
         "story_key": story_key,
         "story_title": story_title,
@@ -189,6 +255,9 @@ def build_trajectory(paths: list[Path]) -> dict:
         "n_days_with_analysis": len(daily_summaries),
         "meta_version_segments": meta_version_runs,
         "bucket_set_signatures": bucket_set_runs,
+        "canonical_stories_pattern_segments": pattern_runs,
+        "bucket_feed_set_segments": dict(feed_set_runs),
+        "bucket_feed_set_drift": bucket_feed_set_drift,
         "daily_summaries": daily_summaries,
         "frame_trajectories": dict(frame_traj),
     }
