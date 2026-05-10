@@ -7,9 +7,6 @@ Tests:
   - ingest._annotate_item: flag computation (is_stub, is_google_news, age)
   - ingest._wait_for_host: rate limiter timing
   - ingest._http_get: retry behaviour (mocked)
-  - dedup.canonical_url: tracking-param strip, www/m, trailing slash
-  - dedup.normalise_title: lowercase, suffix strip, punctuation
-  - dedup.dedup_snapshot: collapses URL dupes, title near-dupes, intra-feed dupes
   - daily_health.health_for: error/stub/slow detection, bucket alerts
   - schema validation: snapshot, convergence, similarity files
 
@@ -237,73 +234,10 @@ class TestHttpRetry(unittest.TestCase):
 
 
 # ============================================================================
-# Dedup tests
-# ============================================================================
-class TestDedup(unittest.TestCase):
-    def setUp(self):
-        if "pipeline.dedup" in sys.modules:
-            importlib.reload(sys.modules["pipeline.dedup"])
-        from pipeline import dedup
-        self.dedup = dedup
-
-    def test_canonical_url_strip_tracking(self):
-        c = self.dedup.canonical_url
-        self.assertEqual(
-            c("https://www.example.com/article/?utm_source=newsletter&utm_campaign=x&id=42"),
-            "https://example.com/article?id=42"
-        )
-
-    def test_canonical_url_mobile(self):
-        self.assertEqual(self.dedup.canonical_url("https://m.bbc.co.uk/news/123"),
-                         "https://bbc.co.uk/news/123")
-
-    def test_canonical_url_google_news(self):
-        u = "https://news.google.com/rss/articles/CBMiAB?oc=5"
-        c = self.dedup.canonical_url(u)
-        # Google News: strip query but keep path
-        self.assertNotIn("?oc=", c)
-        self.assertIn("/articles/CBMi", c)
-
-    def test_canonical_url_trailing_slash_and_fragment(self):
-        self.assertEqual(self.dedup.canonical_url("https://x.com/a/#section"),
-                         "https://x.com/a")
-
-    def test_normalise_title_basic(self):
-        n = self.dedup.normalise_title
-        self.assertEqual(n("Hello, World!"), "hello world")
-        self.assertEqual(n("Headline - Reuters"), "headline")
-        self.assertEqual(n("Hostage news | CNN"), "hostage news")
-        # Unicode preserved
-        self.assertIn("hello", n("HELLO World"))
-
-    def test_normalise_title_keeps_cyrillic(self):
-        s = self.dedup.normalise_title("Москва объявила о новых санкциях")
-        self.assertIn("москва", s)
-
-    def test_dedup_snapshot_url_collapse(self):
-        snap = {
-            "date": "2026-05-06",
-            "countries": {
-                "a": {"label": "A", "feeds": [
-                    {"name": "F1", "items": [
-                        {"id": "1", "title": "Big news today",
-                         "link": "https://x.com/a?utm_source=foo",
-                         "summary": "long summary"},
-                    ]},
-                ]},
-                "b": {"label": "B", "feeds": [
-                    {"name": "F2", "items": [
-                        {"id": "2", "title": "Big news today",
-                         "link": "https://x.com/a?utm_source=bar",
-                         "summary": "another long summary that is longer"},
-                    ]},
-                ]},
-            },
-        }
-        result = self.dedup.dedup_snapshot(snap)
-        self.assertEqual(result["n_total_items"], 2)
-        self.assertEqual(result["n_deduped"], 1)
-        self.assertGreaterEqual(result["n_url_dupes"], 2)
+# Dedup tests removed when the dedup stage was deleted — see commit
+# "Stage 3: delete unused dedup stage". The annotations it wrote
+# (canonical_url, normalised_title, url_dup_*, title_dup_*) were never
+# read by any downstream consumer.
 
 
 # ============================================================================
@@ -355,14 +289,12 @@ class TestDailyHealth(unittest.TestCase):
 # ============================================================================
 class TestSchemaValidation(unittest.TestCase):
     def test_latest_snapshot_well_formed(self):
-        # Find the most recent snapshot regardless of pipeline version
-        cands = sorted(p for p in (ROOT / "snapshots").glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity",
-                                                "_prompt", "_dedup", "_health",
-                                                "_pull_report")))
-        if not cands:
+        # Find the most recent canonical snapshot via the shared helper
+        # (excludes every sidecar including legacy _dedup.json files).
+        from pipeline._paths import latest_snapshot
+        p = latest_snapshot(ROOT / "snapshots")
+        if p is None:
             self.skipTest("no snapshots in repo")
-        p = cands[-1]
         d = json.loads(p.read_text(encoding="utf-8"))
         # Universal v0.2-and-v0.4 schema
         self.assertIn("date", d)

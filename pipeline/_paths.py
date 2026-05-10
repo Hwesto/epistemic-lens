@@ -1,7 +1,7 @@
 """Snapshot path conventions — single source for the
 `YYYY-MM-DD.json without sidecars` filter.
 
-Every pipeline stage (extract, dedup, daily_health) and the analytical
+Every pipeline stage (extract, daily_health) and the analytical
 build_briefing all need to find the latest canonical snapshot, ignoring
 sidecar files that share the date prefix (`_convergence`, `_similarity`,
 `_health`, `_pull_report`, etc.). Each used to maintain its own

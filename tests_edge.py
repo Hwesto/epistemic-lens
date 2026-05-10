@@ -1,4 +1,4 @@
-"""Edge-case stress tests for ingest + dedup + health.
+"""Edge-case stress tests for ingest + health.
 
 Covers:
   - Malformed RSS (truncated, mixed encoding, illegal XML chars)
@@ -9,9 +9,6 @@ Covers:
   - Mixed RSS+Atom in one document
   - Items missing title (should be dropped)
   - Items missing link / summary / pubDate (should be tolerated)
-  - URL canonicalisation: edge URLs (no scheme, just hostname, query-only)
-  - Title normalisation: pure-emoji title, all-punctuation title
-  - Dedup: empty snapshot, one-item snapshot, all-stub snapshot
   - Health: missing keys gracefully handled
   - Annotation: future-dated published, malformed dates, very long summary
 """
@@ -103,66 +100,6 @@ class TestEdgeParser(unittest.TestCase):
                            "published": ""}, now)
         # Item dict carries the full summary unchanged
         self.assertEqual(a["summary_chars"], len(long))
-
-
-class TestEdgeDedup(unittest.TestCase):
-    def setUp(self):
-        if "dedup" in sys.modules:
-            importlib.reload(sys.modules["dedup"])
-        from pipeline import dedup
-        self.dedup = dedup
-
-    def test_canonical_no_scheme(self):
-        # Should not crash
-        self.dedup.canonical_url("example.com/path")
-
-    def test_canonical_empty(self):
-        self.assertEqual(self.dedup.canonical_url(""), "")
-        self.assertEqual(self.dedup.canonical_url(None) if False else "", "")
-
-    def test_canonical_just_host(self):
-        self.assertEqual(self.dedup.canonical_url("https://example.com/"),
-                         "https://example.com/")
-
-    def test_normalise_emoji_only(self):
-        # Should not crash; result may be empty after stripping
-        n = self.dedup.normalise_title("🔥🔥🔥")
-        self.assertIsInstance(n, str)
-
-    def test_normalise_punctuation_only(self):
-        n = self.dedup.normalise_title("!!!---???")
-        self.assertEqual(n, "")
-
-    def test_dedup_empty_snapshot(self):
-        snap = {"date": "2026-05-06", "countries": {}}
-        result = self.dedup.dedup_snapshot(snap)
-        self.assertEqual(result["n_total_items"], 0)
-        self.assertEqual(result["n_deduped"], 0)
-
-    def test_dedup_one_item(self):
-        snap = {"date": "2026-05-06", "countries": {
-            "a": {"label": "A", "feeds": [
-                {"name": "F1", "items": [
-                    {"id": "1", "title": "Solo headline", "link": "https://x.com/1", "summary": "ok"},
-                ]},
-            ]}}}
-        result = self.dedup.dedup_snapshot(snap)
-        self.assertEqual(result["n_total_items"], 1)
-        self.assertEqual(result["n_deduped"], 1)
-
-    def test_dedup_intra_feed_duplicates(self):
-        """Same headline appearing 3 times in the same feed (People's Daily pattern)."""
-        snap = {"date": "2026-05-06", "countries": {
-            "china": {"label": "China", "feeds": [
-                {"name": "PD", "items": [
-                    {"id": "1", "title": "Xi visits Belarus", "link": "https://x.com/1", "summary": "a"},
-                    {"id": "2", "title": "Xi visits Belarus", "link": "https://x.com/1", "summary": "b"},
-                    {"id": "3", "title": "Xi visits Belarus", "link": "https://x.com/1", "summary": "c"},
-                ]},
-            ]}}}
-        result = self.dedup.dedup_snapshot(snap)
-        self.assertEqual(result["n_total_items"], 3)
-        self.assertEqual(result["n_deduped"], 1)
 
 
 class TestEdgeIngest(unittest.TestCase):

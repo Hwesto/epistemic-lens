@@ -321,8 +321,8 @@ def main():
     snaps_dir = Path(args.snapshots_dir)
 
     # Resolve snapshot path via the shared snapshot-naming helper so
-    # extract / dedup / daily_health / build_briefing all agree on what
-    # counts as a snapshot file (vs a sidecar).
+    # extract / daily_health / build_briefing all agree on what counts
+    # as a snapshot file (vs a sidecar).
     from pipeline._paths import latest_snapshot
 
     if args.snapshot:

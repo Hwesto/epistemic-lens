@@ -6,10 +6,9 @@ sentence-transformers which isn't in this container):
   1. Build a tiny live config (5 known-good feeds)
   2. Run pull_all() against it
   3. Persist snapshot JSON
-  4. Run dedup_snapshot()
-  5. Run daily_health.health_for()
-  6. Run feed_rot_check (against 1 day of data — should run cleanly)
-  7. Verify all output files exist + parse + contain expected fields
+  4. Run daily_health.health_for()
+  5. Run feed_rot_check (against 1 day of data — should run cleanly)
+  6. Verify all output files exist + parse + contain expected fields
 
 Outputs report to stdout; exits non-zero if any assertion fails.
 """
@@ -136,20 +135,8 @@ snap_path.write_text(json.dumps(snap, indent=2, ensure_ascii=False))
 check("snapshot file exists", snap_path.exists())
 check("snapshot file >10KB", snap_path.stat().st_size > 10_000)
 
-# --- 3. Dedup ---
-print("\n[3] Running dedup")
-if "dedup" in sys.modules:
-    importlib.reload(sys.modules["dedup"])
-from pipeline import dedup
-result = dedup.dedup_snapshot(snap)
-print(f"    {result['n_total_items']} items -> {result['n_deduped']} deduped "
-      f"(url dupes={result['n_url_dupes']}, title dupes={result['n_title_dupes']})")
-check("dedup result has totals", result["n_total_items"] > 0)
-check("dedup didn't over-collapse",
-      result["n_deduped"] >= 0.7 * result["n_total_items"])
-
-# --- 4. Daily health ---
-print("\n[4] Running daily_health on the e2e snapshot")
+# --- 3. Daily health ---
+print("\n[3] Running daily_health on the e2e snapshot")
 if "daily_health" in sys.modules:
     importlib.reload(sys.modules["daily_health"])
 from pipeline import daily_health
@@ -161,8 +148,8 @@ check("health has all keys", all(k in h for k in (
     "items_per_bucket_now", "items_per_bucket_avg7", "bucket_alerts")))
 check("n_feeds matches", h["n_feeds"] == 5)
 
-# --- 5. Feed rot check ---
-print("\n[5] Running feed_rot_check (only 1 day, should produce empty report)")
+# --- 4. Feed rot check ---
+print("\n[4] Running feed_rot_check (only 1 day, should produce empty report)")
 if "feed_rot_check" in sys.modules:
     importlib.reload(sys.modules["feed_rot_check"])
 from pipeline import feed_rot_check as frc
@@ -177,8 +164,8 @@ try:
 except Exception as e:
     check("rot_check ran without exception", False, str(e))
 
-# --- 6. Schema validation ---
-print("\n[6] Schema validation on persisted JSON")
+# --- 5. Schema validation ---
+print("\n[5] Schema validation on persisted JSON")
 saved = json.loads(snap_path.read_text(encoding="utf-8"))
 check("date in saved snap", "date" in saved)
 check("max_items field set", saved.get("max_items") == 10)
@@ -189,8 +176,8 @@ for ck, cv in saved["countries"].items():
         check(f"  {f['name']} has http_status", "http_status" in f)
         check(f"  {f['name']} has bytes", "bytes" in f)
 
-# --- 7. Verify Cyrillic content actually flowed ---
-print("\n[7] Multilingual content check")
+# --- 6. Verify Cyrillic content actually flowed ---
+print("\n[6] Multilingual content check")
 ru_titles = []
 for f in snap["countries"]["russia_native"]["feeds"]:
     for it in f["items"]:
@@ -200,7 +187,7 @@ has_cyrillic = any(re.search(r"[Ѐ-ӿ]", t) for t in ru_titles)
 check("Kommersant returned Cyrillic titles", has_cyrillic,
       f"sample: {ru_titles[0] if ru_titles else 'none'}")
 
-# --- 8. Verify rate limiter actually fired ---
+# --- 7. Verify rate limiter actually fired ---
 # AFP, DW, Dawn, Kommersant, Pravda — all different hosts, no per-host wait
 # (5 hosts, 0.5s delay would take >2.5s if all same host; should be <2s here)
 check("parallel pull faster than serial would be",

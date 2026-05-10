@@ -24,10 +24,6 @@
                 │   • per-bucket coverage so every country has    │
                 │       at least N items extracted daily          │
                 │                                                 │
-                │  pipeline.dedup                                       │
-                │   • URL canonicalisation (utm/m./www/GN)        │
-                │   • title near-dup collapse                     │
-                │                                                 │
                 │  pipeline.daily_health                                │
                 │   • feed health + extraction stats              │
                 │   • alerts: volume_drop + low_extraction        │
@@ -184,12 +180,7 @@
               "extraction_status": "FULL",
               "extraction_ms": 1500,
               "extraction_http": 200,
-              "extraction_via_wayback": false,
-              // After pipeline.dedup:
-              "canonical_url": "https://...",
-              "normalised_title": "...",
-              "url_dup_count": 1,
-              "title_dup_count": 1
+              "extraction_via_wayback": false
             }
           ]
         }
@@ -280,7 +271,6 @@
 |---|---|---|
 | `pipeline.ingest` | `feeds.json` | `snapshots/<date>.json` + `_pull_report.md` |
 | `pipeline.extract_full_text` | snapshot + optional `_convergence.json` | annotates snapshot in place; checkpoints every N |
-| `pipeline.dedup` | snapshot | `_dedup.json` + annotates items in place |
 | `pipeline.daily_health` | snapshot + last 7 days | `_health.json` |
 | `pipeline.feed_rot_check` | last 7 `_health.json` | `review/rot_report_<date>.md` |
 | `analytical.build_briefing` | latest snapshot | `briefings/<date>_<story>.json` |
@@ -301,7 +291,7 @@
 
 | Cadence | Job | Action |
 |---|---|---|
-| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → health → commit |
+| Daily 07:00 UTC | `daily.yml` | ingest → extract → health → commit |
 | Sundays 09:00 UTC | `weekly_rot.yml` | feed rot check → commit `review/rot_report_<date>.md` |
 | Push to main / claude-* | `ci.yml` | unit + edge tests; e2e on main only |
 | On-demand (until A3 built) | manual or Claude Code session | build_briefing → write video_scripts → synthesize → render → post |

@@ -71,9 +71,6 @@ jobs:
           EXTRACT_TIMEOUT: '15'
         run: python -m pipeline.extract_full_text
 
-      - name: Deduplicate snapshot
-        run: python -m pipeline.dedup
-
       - name: Daily health snapshot
         run: python -m pipeline.daily_health
 

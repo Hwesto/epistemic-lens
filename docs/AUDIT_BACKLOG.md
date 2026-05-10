@@ -16,7 +16,7 @@ parked.
 
 | ID | Item | Why deferred | Trigger to pick up |
 |---|---|---|---|
-| **0-3** | Three different token-normalisation pipelines (`meta.tokenize` / `analytical.build_briefing._title_tokens` / `pipeline.dedup.normalise_title`) share the stopword set but not the regex / plural / casing pipeline. A future addition to `meta.tokenize` (e.g. stemming) won't propagate. | Each does the right thing for its own job today; collapsing them is a real refactor with surface area in three modules. | Stage 5 review (when looking at `analytical.build_briefing`). Factor `meta.normalise_token(t)` and have `_title_tokens` use it. Keep `dedup.normalise_title` as a separately-documented whole-string canonicaliser. |
+| **0-3** | Two different token-normalisation pipelines (`meta.tokenize` / `analytical.build_briefing._title_tokens`) share the stopword set but not the regex / plural-strip pipeline. A future addition to `meta.tokenize` (e.g. stemming) won't propagate. (Reduced from three pipelines after Stage 3 deleted `pipeline.dedup`, which had its own third normaliser.) | Each does the right thing for its own job today; collapsing them is a real refactor. | Stage 5 review (when looking at `analytical.build_briefing`). Factor `meta.normalise_token(t)` and have `_title_tokens` use it. |
 | **0-4** | `meta.dir_hash(PROMPTS_DIR)` defaults `glob="*.md"`. New `.json` / `.yaml` / `.j2` prompt assets in `.claude/prompts/` would not be hashed and could drift silently. | No non-`.md` files exist in `.claude/prompts/` today. | When the first non-`.md` file is added under `.claude/prompts/`. Fix: pass `glob="*"` and skip hidden files / dirs explicitly. |
 | **0-5** | `canonical_stories.json` has no JSON Schema. A typo in a regex pattern silently never matches; an `exclude` typo skips the wrong things. Pattern quality varies (`\bvietnam.*\bbeijing\b` is greedy; `\biran\b.{0,40}\bdeal\b` is bounded). | `build_briefing.matches_story` is defensive (`exclude or []`), so failures are silent rather than crashes. | Stage 5 review. Add `docs/api/schema/canonical_stories.schema.json` (per-story `title` + `patterns: [string]` + optional `exclude: [string]`); validate in `tests.py`. Patch bump. |
 
@@ -38,7 +38,19 @@ parked.
 | **2-min-C** | `body_chars` records the full extracted body length while `body_text` is truncated to `max_body_chars=4000`. Two consumers reading the snapshot could get inconsistent results if they assume `len(body_text) == body_chars`. | Working as designed (we cap storage but want the true length for `classify`). Today nothing assumes equality. | When a downstream consumer needs the full body. Fix: bump `max_body_chars` (storage cost) or add a separate `body_text_full` field gated behind a flag. Not urgent. |
 | **2-min-D** | The 8 per-item annotation fields written by `extract_one` (`extraction_status`, `body_text`, `body_chars`, `extraction_ms`, `extraction_http`, `extraction_final_url`, `extraction_via_wayback`, `extraction_error`) have no JSON Schema. Stage 4 / Stage 5 read them by name. A typo anywhere surfaces as a silent default. | Same root cause as the snapshot's overall lack of a schema; fixing one annotation set alone would be inconsistent. | When a snapshot-shape schema is added (likely as part of a broader Stage 1 / Stage 2 hand-off contract review). |
 
-## Stages 3 — 21
+## Stage 3 — Dedup
+
+Stage deleted entirely — see commit "Stage 3: delete unused dedup
+stage". Production audit found `pipeline/dedup.py`'s output was written
+but never read by any downstream consumer. Gaps 3-1 through 3-11 from
+the Stage 3 review are all moot. The only outstanding item that
+references the deleted stage:
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **3-residue** | `feeds.json:meta.notes` still includes "dedup" in the pipeline-step list. Updating it requires a methodology pin bump (feeds.json content is hashed). | Documentation-only and inside a hashed file; not worth a bump on its own. | Bundle with the next intentional `feeds.json` edit (e.g. adding a feed). |
+
+## Stages 4 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 

@@ -8,7 +8,6 @@ The 07:00 UTC GitHub Actions cron runs two jobs end-to-end:
 # Job 1: ingest (no secrets needed)
 python ingest.py                # 235 feeds → snapshots/<date>.json (~2 min)
 python extract_full_text.py     # +body text (top clusters + per-feed sample, ~3 min)
-python dedup.py                 # collapse near-dup items
 python daily_health.py          # health snapshot + alerts
 python build_briefing.py        # per-story corpora → briefings/<date>_<story>.json
 python build_metrics.py         # Jaccard + isolation + exclusive vocab

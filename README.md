@@ -12,7 +12,7 @@ The codebase decomposes into four loosely-coupled concerns. Each evolves on its 
 
 | Concern | What it is | Files |
 |---|---|---|
-| **Ingestion** | RSS pull, body extraction, dedup, health, rot detection | `pipeline/` |
+| **Ingestion** | RSS pull, body extraction, health, rot detection | `pipeline/` |
 | **Analytical** | Story detection, metrics, daily Claude framing analysis (JSON-canonical), validation, version-stamping | `analytical/`, `.claude/prompts/daily_analysis.md`, `docs/api/schema/analysis.schema.json` |
 | **Publication** | Markdown render, template-based thread/carousel drafts, Sonnet long-form, public API + landing page | `publication/`, `.claude/prompts/draft_long.md`, `web/` |
 | **Methodology pin** | Cross-cutting integrity layer: every input that affects analytical output is hashed; every artifact carries the active `meta_version` | `meta.py`, `meta_version.json`, `baseline_pin.py`, `stopwords.txt`, `canonical_stories.json`, `docs/METHODOLOGY.md` |
@@ -20,7 +20,7 @@ The codebase decomposes into four loosely-coupled concerns. Each evolves on its 
 ## Daily flow (07:00 UTC, fully unattended)
 
 ```
-ingest    →  pipeline.{ingest,extract_full_text,dedup,daily_health}    ~8 min
+ingest    →  pipeline.{ingest,extract_full_text,daily_health}    ~8 min
              then analytical.{build_briefing,build_metrics}; commit
 analyze   →  Sonnet writes JSON analyses; analytical.validate_analysis
              enforces schema + citation + number reconciliation;
@@ -39,7 +39,7 @@ For each story (currently 3–5/day):
 
 ```
 hwesto.github.io/epistemic-lens/<DATE>/<story_key>/
-  briefing.json     ← per-bucket corpus (full bodies, dedup'd)
+  briefing.json     ← per-bucket corpus (full bodies, within-bucket near-dup suppression)
   metrics.json      ← Jaccard, isolation, bucket-exclusive vocab
   analysis.json     ← canonical structured analysis (schema-validated)
   analysis.md       ← rendered for human reading
@@ -59,7 +59,6 @@ pip install -r requirements.txt
 # Run today's ingest stage locally (matches the cron's first job)
 python -m pipeline.ingest
 python -m pipeline.extract_full_text
-python -m pipeline.dedup
 python -m pipeline.daily_health
 python -m analytical.build_briefing
 python -m analytical.build_metrics
@@ -128,7 +127,6 @@ epistemic-lens/
 ├── pipeline/                  ← INGESTION concern
 │   ├── ingest.py              ← parallel async RSS fetcher
 │   ├── extract_full_text.py   ← trafilatura + Wayback fallback
-│   ├── dedup.py               ← URL canon + title near-dup
 │   ├── daily_health.py        ← health snapshot + bucket alerts
 │   └── feed_rot_check.py      ← weekly rot detection
 │

@@ -8,7 +8,7 @@ Changes from v0.2:
   - Retry with exponential backoff on 5xx / network errors
   - Sitemap-news.xml fallback when feed returns < 3 items
   - Per-item quality flags: summary_chars, is_stub, is_google_news, published_age_hours
-  - Per-feed metadata: fetch_ms, http_status, bytes, error, items_after_dedup
+  - Per-feed metadata: fetch_ms, http_status, bytes, error, item_count
   - Self-sufficient parser (xml.etree) — feedparser optional
   - MAX_ITEMS default 50 (was 10)
 """
