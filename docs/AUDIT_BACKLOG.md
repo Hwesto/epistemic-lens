@@ -71,7 +71,18 @@ references the deleted stage:
 | **5-min-D** | `matches_story` lowercases the search text once, then `re.search(p, txt, re.I)` adds case-insensitive flag — the flag is redundant since `txt` is already lowercase. The flag is kept because canonical_stories patterns may include character classes meant to be case-insensitive even after the text is normalised. | Cosmetic; code comment in Stage 5 part A explains the choice. | Don't pick up. |
 | **5-residue** | Existing briefings on disk still use the old `n_articles_total` field (Gap 5-1's pre-rename name). `publication.build_index` falls back per-field so they continue producing correct api/ output, but the on-disk artifacts are stale. | Briefings are immutable historical artifacts; rewriting them under a new pin would be back-dating. The fallback makes the field-rename graceful. | Don't pick up. |
 
-## Stages 6 — 21
+## Stage 6 — Compute metrics
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **6-min-A** | `bucket_isolation` silently omits buckets with no pairs (when only one bucket has vocab in the briefing). Edge case for tiny corpora; not documented. | Real corpora always have ≥2 buckets (build_briefing's `min_buckets` default is 4), so this can't fire in production today. | If the analytical pipeline is ever exercised on a single-bucket corpus, document the omission or emit `mean_jaccard: null`. |
+| **6-min-B** | `bucket_exclusive_vocab` returns empty lists for buckets with no exclusive terms. Schema-friendly, but adds noise to the JSON. | Empty-list handling is uniform; pruning would require special-casing readers. | Don't pick up unless metrics file size becomes a concern. |
+| **6-min-C** | Loop pattern `for term in c: df[term] += 1` (build_metrics.py, doc-frequency build) could be `df.update(c.keys())`. | Cosmetic; current form is unambiguous. | Whenever the function is next refactored. |
+| **6-min-D** | The `method` string is computed at runtime from pinned values (`meta.TOKENIZER`, `meta.METRICS`). Useful for human-eyeball reading; could just point at `meta.METRICS` instead. | Documentation choice. | Don't pick up. |
+| **6-min-E** | Implicit precision: `pairwise_jaccard` and `mean_jaccard` round to 3 decimal places at write time. Every consumer (LLM, validate_analysis, the analyses on disk) assumes 3 decimals. Load-bearing implicit; could pin as `meta.METRICS.jaccard_precision`. | Today consistent because all callers happen to use 3; not biting. | If a future consumer writes a Jaccard at different precision, pin then. |
+| **6-min-F** | `briefings_for_date` uses an ad-hoc glob with `_metrics` suffix exclusion. Stage 2 factored a similar helper into `pipeline._paths` for canonical snapshot date globs; briefings have their own naming convention so the helper doesn't apply directly. | Only one caller; low value. | If a second module starts globbing briefings (e.g. a re-render utility), factor `analytical/_paths.py`. |
+
+## Stages 7 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
