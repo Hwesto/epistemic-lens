@@ -23,13 +23,14 @@
     "hook": {
       "type": "string",
       "minLength": 1,
-      "description": "Opening tweet. Recommended <= 240 chars to leave room for thread indicator."
+      "maxLength": 240,
+      "description": "Opening tweet. Capped at 240 chars to leave room for thread indicator."
     },
     "tweets": {
       "type": "array",
       "minItems": 3,
       "maxItems": 12,
-      "description": "Body tweets. Recommended <= 280 chars each.",
+      "description": "Body tweets. Capped at 280 chars each (X/Twitter limit).",
       "items": {
         "type": "object",
         "required": ["text"],
@@ -37,7 +38,8 @@
         "properties": {
           "text": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "maxLength": 280
           },
           "sources": {
             "type": "array",

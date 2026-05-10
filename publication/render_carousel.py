@@ -29,35 +29,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import meta
+from publication._shared import (
+    ISOLATION_HERO_THRESHOLD,
+    corpus_source as _corpus_source,
+    load_briefing as _load_briefing,
+    truncate as _truncate,
+    validate_against_schema,
+)
 
 ROOT = meta.REPO_ROOT
 ANALYSES = ROOT / "analyses"
-BRIEFINGS = ROOT / "briefings"
 DRAFTS = ROOT / "drafts"
 
 MAX_SLIDE_BODY_CHARS = 200
-
-
-def _load_briefing(date: str, story_key: str) -> dict:
-    return json.loads((BRIEFINGS / f"{date}_{story_key}.json").read_text(encoding="utf-8"))
-
-
-def _corpus_source(briefing: dict, idx: int) -> dict | None:
-    corpus = briefing.get("corpus", [])
-    if 0 <= idx < len(corpus):
-        e = corpus[idx]
-        url = e.get("link") or ""
-        if not url:
-            return None
-        return {"bucket": e.get("bucket", ""), "url": url, "outlet": e.get("feed", "")}
-    return None
-
-
-def _truncate(s: str, n: int) -> str:
-    s = s.strip()
-    if len(s) <= n:
-        return s
-    return s[: n - 1].rstrip() + "…"
 
 
 def _title_slide(a: dict) -> dict:
@@ -82,7 +66,7 @@ def _hook_slide(a: dict, briefing: dict) -> dict | None:
             "kind": "paradox",
         }
     iso = a.get("isolation_top") or []
-    if iso and iso[0].get("mean_jaccard", 1) < 0.05:
+    if iso and iso[0].get("mean_jaccard", 1) < ISOLATION_HERO_THRESHOLD:
         b = iso[0]
         return {
             "title": f"`{b['bucket']}` stands alone",
@@ -205,6 +189,7 @@ def render_one(json_path: Path) -> Path:
     a = json.loads(json_path.read_text(encoding="utf-8"))
     briefing = _load_briefing(a["date"], a["story_key"])
     draft = render(a, briefing)
+    validate_against_schema(draft, "carousel")
     DRAFTS.mkdir(exist_ok=True)
     out = DRAFTS / f"{a['date']}_{a['story_key']}_carousel.json"
     out.write_text(json.dumps(draft, indent=2, ensure_ascii=False) + "\n",

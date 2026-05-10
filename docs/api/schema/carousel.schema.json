@@ -38,11 +38,15 @@
         "properties": {
           "title": {
             "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
             "description": "Slide heading. Often the bucket/outlet name in a frame-matrix carousel."
           },
           "body": {
             "type": "string",
-            "description": "Slide body. Often a verbatim quote. Recommended <= 200 chars."
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "Slide body. Often a verbatim quote. Capped at 200 chars."
           },
           "source": {
             "type": "object",

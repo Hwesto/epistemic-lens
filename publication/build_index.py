@@ -41,6 +41,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import meta
+from publication._shared import (
+    long_link_audit,
+    validate_against_schema,
+)
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
@@ -112,7 +116,13 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
     for key in sorted(stories):
         kinds = stories[key]
         if "briefing" not in kinds:
-            continue  # no briefing = skip; metrics/drafts/analysis without briefing is malformed
+            # No briefing means downstream artifacts can't be looked up by
+            # signal_text_idx — the resulting api/ entry would be malformed.
+            print(
+                f"  skip {date}/{key}: no briefing (have {sorted(kinds)})",
+                file=sys.stderr,
+            )
+            continue
 
         briefing_src = BRIEFINGS / f"{date}_{key}.json"
         try:
@@ -151,37 +161,62 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             except Exception:
                 pass
 
+        # JSON analysis is canonical — read paradox flag from it. Markdown
+        # is just the rendered presentation layer; it gets the regex
+        # heuristic only as a fallback for legacy days that have no JSON.
         paradox = None
-        analysis_md_src = ANALYSES / f"{date}_{key}.md"
-        if analysis_md_src.exists():
-            shutil.copy2(analysis_md_src, story_dir / "analysis.md")
-            artifacts["analysis"] = f"/{date}/{key}/analysis.md"
-            has["analysis"] = True
-            try:
-                paradox = detect_paradox(analysis_md_src.read_text(encoding="utf-8"))
-            except Exception:
-                pass
-
         analysis_json_src = ANALYSES / f"{date}_{key}.json"
         if analysis_json_src.exists():
             shutil.copy2(analysis_json_src, story_dir / "analysis.json")
             artifacts["analysis_json"] = f"/{date}/{key}/analysis.json"
             has["analysis_json"] = True
-            # JSON is the canonical source — read paradox flag directly if MD
-            # wasn't present or didn't yield one.
+            try:
+                aj = json.load(open(analysis_json_src, encoding="utf-8"))
+                paradox = aj.get("paradox") is not None
+            except Exception as e:
+                print(
+                    f"  warn {date}/{key}: analysis.json unreadable ({e})",
+                    file=sys.stderr,
+                )
+
+        analysis_md_src = ANALYSES / f"{date}_{key}.md"
+        if analysis_md_src.exists():
+            shutil.copy2(analysis_md_src, story_dir / "analysis.md")
+            artifacts["analysis"] = f"/{date}/{key}/analysis.md"
+            has["analysis"] = True
             if paradox is None:
                 try:
-                    aj = json.load(open(analysis_json_src, encoding="utf-8"))
-                    paradox = aj.get("paradox") is not None
+                    paradox = detect_paradox(
+                        analysis_md_src.read_text(encoding="utf-8")
+                    )
                 except Exception:
                     pass
 
         for fmt in ("thread", "carousel", "long"):
             src = DRAFTS / f"{date}_{key}_{fmt}.json"
-            if src.exists():
-                shutil.copy2(src, story_dir / f"{fmt}.json")
-                artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
-                has[fmt] = True
+            if not src.exists():
+                continue
+            # Schema-validate every draft before publishing it. Long-form
+            # drafts also get a link-vs-sources audit since the LLM produces
+            # them and could cite a URL not in sources[].
+            try:
+                draft = json.load(open(src, encoding="utf-8"))
+                validate_against_schema(draft, fmt)
+                if fmt == "long":
+                    link_errs = long_link_audit(draft)
+                    if link_errs:
+                        raise ValueError(
+                            f"{src.name} link audit failed: " + "; ".join(link_errs)
+                        )
+            except Exception as e:
+                print(
+                    f"  skip {date}/{key}/{fmt}: invalid draft ({e})",
+                    file=sys.stderr,
+                )
+                continue
+            shutil.copy2(src, story_dir / f"{fmt}.json")
+            artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
+            has[fmt] = True
 
         entry = {
             "key": key,

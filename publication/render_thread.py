@@ -33,67 +33,47 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import meta
+from publication._shared import (
+    corpus_source as _corpus_source,
+    load_briefing as _load_briefing,
+    pick_hero,
+    truncate as _truncate,
+    validate_against_schema,
+)
 
 ROOT = meta.REPO_ROOT
 ANALYSES = ROOT / "analyses"
-BRIEFINGS = ROOT / "briefings"
 DRAFTS = ROOT / "drafts"
-SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "thread.schema.json"
 
 MAX_TWEET_CHARS = 280
 MAX_HOOK_CHARS = 240
 
 
-def _load_briefing(date: str, story_key: str) -> dict:
-    p = BRIEFINGS / f"{date}_{story_key}.json"
-    return json.loads(p.read_text(encoding="utf-8"))
-
-
-def _corpus_source(briefing: dict, idx: int) -> dict | None:
-    """Return {bucket, url, outlet} for briefing.corpus[idx], or None."""
-    corpus = briefing.get("corpus", [])
-    if 0 <= idx < len(corpus):
-        e = corpus[idx]
-        url = e.get("link") or ""
-        if not url:
-            return None
-        return {"bucket": e.get("bucket", ""), "url": url, "outlet": e.get("feed", "")}
-    return None
-
-
-def _truncate(s: str, n: int) -> str:
-    s = s.strip()
-    if len(s) <= n:
-        return s
-    return s[: n - 1].rstrip() + "…"
-
-
 def _build_hook(a: dict) -> str:
-    """Pick the strongest finding for the lead tweet."""
-    # 1. Paradox — opposite-bloc convergence
-    p = a.get("paradox")
-    if p:
+    """Pick the strongest finding for the lead tweet.
+
+    Priority order is shared with publication._shared.pick_hero (which
+    web/app.js mirrors for the frontend hero card).
+    """
+    hero = pick_hero(a)
+    kind = hero["kind"]
+    if kind == "paradox":
+        p = hero["paradox"]
         ab = f"{p['a']['outlet']} and {p['b']['outlet']}"
         return _truncate(
             f"{ab} — opposite political universes — both said the same thing about "
             f"{a['story_title']}. Nobody else did.",
             MAX_HOOK_CHARS,
         )
-
-    # 2. Isolation outlier — one bucket sharply distinct
-    iso = a.get("isolation_top") or []
-    if iso and iso[0].get("mean_jaccard", 1) < 0.05:
-        b = iso[0]["bucket"]
+    if kind == "isolation":
+        b = hero["top"]["bucket"]
         return _truncate(
             f"{a['n_buckets']} outlets covered {a['story_title']}. "
             f"`{b}` used totally different words.",
             MAX_HOOK_CHARS,
         )
-
-    # 3. Bucket-exclusive vocab — a frame nobody else carries
-    excl = a.get("exclusive_vocab_highlights") or []
-    if excl:
-        h = excl[0]
+    if kind == "exclusive_vocab":
+        h = hero["top"]
         terms = ", ".join(f"\"{t}\"" for t in h["terms"][:3])
         return _truncate(
             f"On {a['story_title']}, only `{h['bucket']}` used: {terms}. "
@@ -101,7 +81,6 @@ def _build_hook(a: dict) -> str:
             MAX_HOOK_CHARS,
         )
 
-    # 4. Generic structural
     nf = len(a.get("frames") or [])
     return _truncate(
         f"{a['n_buckets']} outlets covered {a['story_title']}. "
@@ -226,6 +205,7 @@ def render_one(json_path: Path) -> Path:
     a = json.loads(json_path.read_text(encoding="utf-8"))
     briefing = _load_briefing(a["date"], a["story_key"])
     draft = render(a, briefing)
+    validate_against_schema(draft, "thread")
 
     DRAFTS.mkdir(exist_ok=True)
     out = DRAFTS / f"{a['date']}_{a['story_key']}_thread.json"

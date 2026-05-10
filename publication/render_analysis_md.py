@@ -23,6 +23,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from meta import REPO_ROOT as ROOT
+from publication._shared import validate_against_schema
+
 ANALYSES = ROOT / "analyses"
 
 
@@ -148,6 +150,7 @@ def render(a: dict) -> str:
 
 def render_one(json_path: Path) -> Path:
     a = json.loads(json_path.read_text(encoding="utf-8"))
+    validate_against_schema(a, "analysis")
     md = render(a)
     md_path = json_path.with_suffix(".md")
     md_path.write_text(md, encoding="utf-8")
