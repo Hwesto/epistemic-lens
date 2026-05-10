@@ -124,7 +124,18 @@ references the deleted stage:
 | **10-min-E** | The original carousel comment ("Silence (only if hook wasn't already a paradox covering similar ground)") contradicted the actual implementation, which added silence in both cases (gated by `len < 9` when hook was paradox). Stage 10's fix preserved the implementation semantics rather than the comment. Worth a deliberate review: should silence be skipped entirely when the hook is a paradox, or kept (as today)? | Editorial — both are defensible. The current behaviour is what we've published; changing it would alter live carousel drafts. | If editorial review decides paradox+silence is redundant on the same carousel. |
 | **10-min-F** | `_frame_tweet` / `_frame_slide` only use `frame['evidence'][0]` even when multiple evidence entries exist. | By design — keeps tweets/slides compact. | Don't pick up. |
 
-## Stages 11 — 21
+## Stage 11 — Long-form draft
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **11-min-A** | No verbatim-quote validator for long-form prose (analyses get one via `validate_analysis.check_citations`). A hallucinated `>` block would pass schema + link audit. | Hard to add — long-form is free prose, no `signal_text_idx` to ground against. Would need either prompt agent to emit citation indices, or fuzzy-match scan against briefing corpus. | If a published long-form is ever caught misquoting a source. |
+| **11-min-B** | Word count enforcement is prompt-only (600-900 words). Schema's `minLength: 2500` chars enforces a rough floor (~400 words), no ceiling. | Word counts on existing 6 drafts span 590-759 — within range. Adding a `validate_long.py` would be the right mirror to `validate_analysis.py` but is not load-bearing today. | If we ever see drafts drift below 500 or above 1000 words. |
+| **11-min-C** | Prompt step 4 (commit+push bash) is markdown-embedded bash, same pattern as Stage 7 Gap 7-min-A. | Working as designed under claude-code-action. | If the runtime context changes. |
+| **11-min-D** | `long_link_audit` in `_shared.py` checks body→sources only. Doesn't verify URLs in `sources[]` actually come from the briefing's corpus. Agent could fabricate a URL, put it in both body_md and sources, and pass. | Stage-12 territory (build_index.py is the call site). Adding the briefing-URL check requires plumbing the briefing into the audit signature. | If audit ever fails on a real published draft, or as part of Stage 12's review. |
+| **11-min-E** | The 6 backfilled long drafts now carry `meta_version: 2.5.0`, but they were actually written under earlier pins (probably 2.4.0 or lower). The "true" era is lost. | Honest acknowledgement: stamps reflect the pin under which the artifact was last stamped, not the pin under which it was originally written. Same convention as restamp_analyses. | Don't pick up — this is the accepted semantics. |
+| **11-min-F** | The validator at `daily.yml:344-368` only validates EXISTING draft files; if the agent writes ZERO long drafts (silent failure), no error trips. | More an analyze-pipeline concern than long-form specifically. | Stage 19 (CI workflows). |
+
+## Stages 12 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
