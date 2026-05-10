@@ -907,7 +907,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
             "story_title": "Test Story",
             "n_buckets": 6,
             "n_articles": 12,
-            "tldr": "A test analysis with three sentences. Six buckets carry two distinct frames. No paradox detected in this corpus.",
+            "tldr": "A test analysis with several complete sentences for fixture purposes. Six buckets carry two distinct frames. No paradox is detected in this corpus today. The vocabulary differences are linguistic rather than editorial. Bottom-line framing remains aligned across the cluster.",
             "frames": [
                 {"label": "FRAME_A", "description": "First frame.",
                  "buckets": ["italy", "usa"],
@@ -925,7 +925,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
             "single_outlet_findings": [
                 {"outlet": "RT", "bucket": "russia", "finding": "Iran-win frame.", "signal_text_idx": 5}
             ],
-            "bottom_line": "Two short sentences restating the headline. End.",
+            "bottom_line": "Two short sentences restating the headline finding here. The framing differs across buckets but the underlying event is shared.",
             "generated_at": "2026-05-08T14:00:00Z",
             "model": "claude-haiku-4-5-20251001",
         }
@@ -1022,7 +1022,7 @@ class TestTemplateRenderers(unittest.TestCase):
             "meta_version": "1.2.0", "date": "2026-05-06",
             "story_key": "hormuz_iran", "story_title": "Strait of Hormuz / US-Iran deal",
             "n_buckets": 27, "n_articles": 41,
-            "tldr": "Twenty-seven outlets ran the same wire. Italy used different words. Vocabulary carries the framing.",
+            "tldr": "Twenty-seven outlets ran the same wire copy in this corpus. Italian press used markedly different vocabulary, framing the deal as conflict rather than agreement. Vocabulary carries the framing here, as the bucket-exclusive terms confirm. The isolation metric flags Italy as the editorial outlier.",
             "frames": [
                 {"label": "ECONOMIC_CONTAGION", "buckets": ["philippines", "japan"],
                  "evidence": [{"bucket": "asia_pacific_regional", "outlet": "Asia Times",
@@ -1043,7 +1043,7 @@ class TestTemplateRenderers(unittest.TestCase):
                 {"outlet": "RT", "bucket": "russia", "finding": "Iran-win frame.",
                  "signal_text_idx": 5}
             ],
-            "bottom_line": "Headline converged. Framing did not.",
+            "bottom_line": "Headline converged across the corpus. Framing did not — Italian press kept its own vocabulary throughout.",
             "generated_at": "2026-05-08T15:00:00Z", "model": "haiku",
         }
 
@@ -1142,7 +1142,7 @@ class TestValidateAnalysis(unittest.TestCase):
             "story_key": "hormuz_iran", "story_title": "Strait of Hormuz / US-Iran deal",
             "n_buckets": self.metrics["n_buckets"],
             "n_articles": self.metrics["n_articles"],
-            "tldr": "A clean analysis with multiple complete sentences. The corpus has 41 articles. The pin is 1.3.0.",
+            "tldr": "A clean analysis fixture with multiple complete sentences for the validate-analysis test suite. The corpus contains 41 articles across 27 buckets. The methodology pin captured here is 1.3.0. Frames cite real corpus indices so citation-grounding passes.",
             "frames": [
                 {"label": "FRAME_A", "buckets": [first_bucket],
                  "evidence": [{
@@ -1303,7 +1303,7 @@ class TestRestampAnalyses(unittest.TestCase):
             "story_key": "demo",
             "story_title": "Demo",
             "n_buckets": 5, "n_articles": 12,
-            "tldr": ("Lead with the most surprising finding here. " * 5).strip(),
+            "tldr": ("Lead with the most surprising finding here today across all buckets. " * 4).strip(),
             "frames": [
                 {"label": "F1", "buckets": ["a", "b"],
                  "evidence": [{"bucket": "a", "quote": "q1",
@@ -1313,7 +1313,7 @@ class TestRestampAnalyses(unittest.TestCase):
                                "signal_text_idx": 1}]},
             ],
             "isolation_top": [{"bucket": "x", "mean_jaccard": 0.05}],
-            "bottom_line": "Two sentences restating the headline finding here.",
+            "bottom_line": "Two sentences restating the headline finding here for fixture purposes. The underlying corpus matters more than the headline framing.",
             "generated_at": "2026-05-06T08:00:00Z",
         }
 

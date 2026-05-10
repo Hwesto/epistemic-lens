@@ -30,14 +30,14 @@
     "n_articles": { "type": "integer", "minimum": 1 },
     "tldr": {
       "type": "string",
-      "minLength": 60,
+      "minLength": 200,
       "description": "3-6 sentences. Lead with the most surprising finding in the corpus."
     },
     "frames": {
       "type": "array",
       "minItems": 2,
-      "maxItems": 12,
-      "description": "Story-specific frames derived from the corpus. Not pre-defined.",
+      "maxItems": 8,
+      "description": "Story-specific frames derived from the corpus. Not pre-defined. Editorial floor: don't pad — fewer frames is better when the corpus is thin.",
       "items": {
         "type": "object",
         "required": ["label", "buckets", "evidence"],
@@ -169,7 +169,7 @@
     },
     "bottom_line": {
       "type": "string",
-      "minLength": 40,
+      "minLength": 60,
       "description": "2-3 sentences restating the headline finding."
     },
     "generated_at": {
