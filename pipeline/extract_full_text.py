@@ -29,7 +29,7 @@ import os
 import sys
 import threading
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -82,8 +82,10 @@ def _try_wayback(url: str, timeout: int = 12) -> tuple[int | None, str, str]:
     """Try to fetch the article via Wayback Machine when direct fetch failed.
     Returns (http_status, final_url, body_text). body_text is empty on failure.
     """
-    # Wayback's "newest available capture" redirect endpoint
-    wb_url = f"https://web.archive.org/web/2026/{url}"
+    # Wayback's "newest available capture" redirect endpoint. The year
+    # segment biases toward recent captures; use current UTC year so this
+    # keeps working past 2026.
+    wb_url = f"https://web.archive.org/web/{datetime.now(timezone.utc).year}/{url}"
     try:
         r = requests.get(wb_url, headers=HEADERS, timeout=timeout, allow_redirects=True)
         if r.status_code == 200 and r.content:
@@ -236,7 +238,9 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
             for it in f.get("items", []):
                 if not it.get("link"):
                     continue
-                if "extraction_status" in it and it["extraction_status"] not in ("ERROR", "NONE"):
+                # Idempotent: skip items already classified into a terminal
+                # state. ERROR and NONE are retried on the next run.
+                if it.get("extraction_status") in ("FULL", "PARTIAL", "STUB", "SKIPPED"):
                     continue
 
                 # Cluster membership

@@ -13,7 +13,7 @@ from __future__ import annotations
 import json
 import sys
 from collections import defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from meta import REPO_ROOT as ROOT
@@ -23,7 +23,7 @@ REVIEW.mkdir(exist_ok=True)
 
 
 def main(n_days: int = 7):
-    today = datetime.utcnow().date()
+    today = datetime.now(timezone.utc).date()
     health_files = []
     for i in range(n_days):
         d = (today - timedelta(days=i)).isoformat()
