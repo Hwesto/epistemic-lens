@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """validate_analysis.py — editorial checks on analysis JSON.
 
-Phase 4: makes over-reach impossible by construction, not by prompt
-discipline alone.
+Makes over-reach impossible by construction, not by prompt discipline
+alone.
 
 Three classes of check, in order of severity:
 
@@ -32,10 +32,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import meta
 from meta import REPO_ROOT as ROOT
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
-SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "analysis.schema.json"
 
 
 class ValidationError(Exception):
@@ -46,25 +46,31 @@ def _load_briefing(date: str, story_key: str) -> dict:
     p = BRIEFINGS / f"{date}_{story_key}.json"
     if not p.exists():
         raise ValidationError(f"briefing missing: {p}")
-    return json.loads(p.read_text(encoding="utf-8"))
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise ValidationError(f"briefing corrupt: {p}: {e}") from e
 
 
 def _load_metrics(date: str, story_key: str) -> dict:
     p = BRIEFINGS / f"{date}_{story_key}_metrics.json"
     if not p.exists():
         raise ValidationError(f"metrics missing: {p}")
-    return json.loads(p.read_text(encoding="utf-8"))
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise ValidationError(f"metrics corrupt: {p}: {e}") from e
 
 
 def check_schema(analysis: dict) -> list[str]:
     """Return list of schema violation messages (empty = pass).
 
-    Hard-requires jsonschema (declared in requirements.txt since
-    Phase 3). The earlier soft-fail-on-import-error was dead defensive
-    code once jsonschema became a pinned dependency.
+    Hard-requires jsonschema (pinned dependency). iter_errors collects
+    every violation in one pass — validate_analysis is a report-all-
+    errors tool, unlike meta.validate_schema which raises on first.
     """
     import jsonschema  # ImportError = environment misconfiguration; bubble it.
-    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    schema = meta.load_schema("analysis")
     errors: list[str] = []
     validator = jsonschema.Draft202012Validator(schema)
     for e in validator.iter_errors(analysis):
@@ -242,7 +248,12 @@ def check_numbers(analysis: dict, metrics: dict) -> list[str]:
 
 def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
     """Returns (exit_code, errors). 0 = clean."""
-    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    try:
+        analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        return 1, [f"corrupt JSON: {analysis_path.name}: {e}"]
+    except OSError as e:
+        return 1, [f"unreadable: {analysis_path.name}: {e}"]
 
     schema_errs = check_schema(analysis)
     if schema_errs:

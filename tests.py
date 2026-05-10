@@ -1123,7 +1123,7 @@ class TestTemplateRenderers(unittest.TestCase):
 
 
 class TestValidateAnalysis(unittest.TestCase):
-    """Phase 4: validate_analysis.py — citation + number checks."""
+    """validate_analysis.py — citation + number checks."""
 
     def setUp(self):
         try:
@@ -1282,6 +1282,26 @@ class TestValidateAnalysis(unittest.TestCase):
         }
         errs = v.check_citations(analysis, local_briefing)
         self.assertEqual(errs, [])
+
+    def test_validate_one_handles_corrupt_json(self):
+        """Gap 8-2: corrupt analysis file should fail as a normal validation
+        error, not crash the validator with a Python traceback."""
+        import tempfile
+        from analytical import validate_analysis as v
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            f.write("{ this is not valid json ::: ")
+            corrupt_path = Path(f.name)
+        try:
+            rc, errs = v.validate_one(corrupt_path)
+            self.assertEqual(rc, 1)
+            self.assertTrue(
+                any("corrupt JSON" in e for e in errs),
+                msg=f"expected 'corrupt JSON' in errors, got: {errs}",
+            )
+        finally:
+            corrupt_path.unlink(missing_ok=True)
 
 
 class TestRestampAnalyses(unittest.TestCase):
