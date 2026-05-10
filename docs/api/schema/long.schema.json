@@ -28,8 +28,8 @@
     },
     "body_md": {
       "type": "string",
-      "minLength": 200,
-      "description": "Markdown body. Verbatim quotes wrapped in > or \"...\". All factual claims cite a source from the sources[] array."
+      "minLength": 2500,
+      "description": "Markdown body. Verbatim quotes wrapped in > or \"...\". All factual claims cite a source from the sources[] array. Prompt asks for 600-900 words (~3500-5500 chars); floor catches stub-length drafts while leaving headroom for thin-corpus days."
     },
     "sources": {
       "type": "array",

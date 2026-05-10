@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.5.0",
-  "pinned_at": "2026-05-10T17:12:54Z",
-  "pin_reason": "Stage 7 alignment: prompt's analyze threshold lowered from n_buckets>=5 to >=4 to match build_briefing's --min-buckets default (Gap 7-2); analysis schema tightened — frames.maxItems 12→8 to match prompt's editorial intent (Gap 7-3), tldr.minLength 60→200 and bottom_line.minLength 40→60 to match prompt's '3-6 sentences' / 'two sentences' floors (Gap 7-4)",
+  "meta_version": "2.6.0",
+  "pinned_at": "2026-05-10T23:23:46Z",
+  "pin_reason": "Stage 11 alignment: long-form draft prompt threshold lowered n_buckets<5 → <4 to match analyze threshold (Gap 11-2); long.schema.json body_md.minLength tightened 200 → 2500 to enforce prompt's 600-word floor (Gap 11-3); skip rule extended with exclusive_vocab_highlights (Gap 11-4); new stamp_long_drafts.py inserts methodology pin on every long draft post-write (Gap 11-1)",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -80,7 +80,7 @@
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "claude": {
     "model": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:7465dec14e83dbcb9bc40036dcc4d9e0b6c81ee696bc1d7de1aaa35d43d2445c"
+    "prompts_hash": "sha256:2a0671f7f931b6f6197662bb78fa1475fbd595e93d4201ebe184ea0857bdb2e8"
   },
   "health": {
     "stub_pct_min": 80,
@@ -99,5 +99,5 @@
     "decline_min_history": 4,
     "top_n_declining": 20
   },
-  "pin_self_hash": "sha256:f6eb123d754468b54ac4bd6a1195ebffb9f6d164a9681d8149295c02f86b280b"
+  "pin_self_hash": "sha256:4086f92422f534408e1c616e01c67b2bc5bf3253caaf95244d618644bbc1127f"
 }

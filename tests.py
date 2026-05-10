@@ -1471,5 +1471,98 @@ class TestRestampAnalyses(unittest.TestCase):
             self.assertEqual(p.stat().st_mtime, mtime_before)
 
 
+class TestStampLongDrafts(unittest.TestCase):
+    """analytical/stamp_long_drafts.py: methodology pin stamping on
+    long-form draft JSON files (Gap 11-1)."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        if "analytical.stamp_long_drafts" in sys.modules:
+            importlib.reload(sys.modules["analytical.stamp_long_drafts"])
+        from analytical import stamp_long_drafts as sl
+        self.sl = sl
+
+    def _minimal_long(self) -> dict:
+        return {
+            "story_key": "test_story",
+            "date": "2026-05-08",
+            "title": "Test long-form post",
+            "body_md": "Lorem ipsum dolor sit amet, " * 100,  # ~2700 chars
+            "sources": [
+                {"bucket": "italy", "url": "https://ansa.it/x",
+                 "outlet": "ANSA"},
+            ],
+            "generated_at": "2026-05-08T15:00:00Z",
+            "model": "claude-sonnet-4-6",
+        }
+
+    def test_stamp_sets_meta_version_on_unstamped_draft(self):
+        import meta as _meta
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "2026-05-08_test_story_long.json"
+            d = self._minimal_long()
+            self.assertNotIn("meta_version", d)
+            p.write_text(json.dumps(d))
+            changed = self.sl.stamp(p)
+            self.assertTrue(changed)
+            after = json.loads(p.read_text())
+            self.assertEqual(after["meta_version"], _meta.VERSION)
+
+    def test_stamp_is_idempotent(self):
+        import meta as _meta
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "2026-05-08_test_story_long.json"
+            d = self._minimal_long()
+            d["meta_version"] = _meta.VERSION
+            p.write_text(json.dumps(d))
+            mtime_before = p.stat().st_mtime
+            self.assertFalse(self.sl.stamp(p))
+            self.assertEqual(p.stat().st_mtime, mtime_before)
+
+    def test_stamp_rejects_schema_invalid_draft(self):
+        """Defence in depth: post-stamp schema mismatch must warn + skip
+        rather than write a stamped-but-invalid artifact."""
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "2026-05-08_broken_long.json"
+            d = self._minimal_long()
+            d["body_md"] = "too short"   # below tightened minLength 2500
+            p.write_text(json.dumps(d))
+            mtime_before = p.stat().st_mtime
+            self.assertFalse(self.sl.stamp(p))
+            self.assertEqual(p.stat().st_mtime, mtime_before)
+
+
+class TestLongSchemaTightening(unittest.TestCase):
+    """long.schema.json: body_md.minLength tightened from 200 to 2500
+    (Gap 11-3) to enforce the prompt's 600-word floor."""
+
+    def setUp(self):
+        try:
+            import jsonschema
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self.jsonschema = jsonschema
+        with open(Path(__file__).parent / "docs/api/schema/long.schema.json",
+                  encoding="utf-8") as f:
+            self.schema = json.load(f)
+        self.base = {
+            "story_key": "k", "date": "2026-05-08", "title": "T",
+            "body_md": "Lorem ipsum dolor sit amet, " * 100,  # ~2700 chars
+            "sources": [{"bucket": "x", "url": "https://x.example/a"}],
+        }
+
+    def test_schema_accepts_long_body(self):
+        self.jsonschema.validate(self.base, self.schema)
+
+    def test_schema_rejects_stub_body(self):
+        bad = dict(self.base)
+        bad["body_md"] = "x" * 1000  # below 2500 floor
+        with self.assertRaises(self.jsonschema.ValidationError):
+            self.jsonschema.validate(bad, self.schema)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

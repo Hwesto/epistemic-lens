@@ -150,7 +150,8 @@ headers; use them as a discipline):
 
 Skip (write nothing, note in summary) if:
 - The analysis JSON doesn't exist for today.
-- `n_buckets < 5` in the analysis.
+- `n_buckets < 4` in the analysis.
 - The analysis has no paradox AND no silences AND no isolation_top
-  entry below 0.05 (very wire-convergent corpus). Note
-  "wire-converged, no long-form angle" in summary.
+  entry below 0.05 AND no exclusive_vocab_highlights (very wire-
+  convergent corpus with no distinct angle). Note "wire-converged,
+  no long-form angle" in summary.

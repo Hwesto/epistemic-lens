@@ -314,8 +314,7 @@ jobs:
           fi
 
       # Long-form remains an LLM call — prose can't be templated.
-      # Switched to Sonnet (per user decision Phase 1): faster than opus,
-      # smarter than haiku, and the right tier for prose-grade output.
+      # Sonnet is the right tier: faster than opus, smarter than haiku.
       - name: Read pinned model from meta_version.json
         id: pin_draft
         # Single source of truth for the model name (Gap 7-1).
@@ -340,6 +339,29 @@ jobs:
           claude_args: --model ${{ steps.pin_draft.outputs.model }} --permission-mode bypassPermissions
           show_full_output: true
           prompt: ${{ steps.load_long_prompt.outputs.content }}
+
+      - name: Stamp long-form drafts with methodology pin
+        # Gap 11-1: agent writes long.json without calling meta.stamp(),
+        # so meta_version is missing. Stamp + commit + push here so the
+        # validator gate runs against the final on-disk shape and
+        # longitudinal consumers see the methodology era.
+        run: |
+          set -e
+          pip install jsonschema >/dev/null
+          python -m analytical.stamp_long_drafts
+          git config user.name "epistemic-lens-bot"
+          git config user.email "bot@epistemic-lens"
+          git add drafts/
+          if git diff --cached --quiet; then
+            echo "No stamp changes to commit."
+          else
+            DATE=$(date -u +%Y-%m-%d)
+            git commit -m "drafts ${DATE} long-form: meta_version stamp"
+            for i in 1 2 3; do
+              if git push; then break; fi
+              git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+            done
+          fi
 
       - name: Validate drafts against schemas
         run: |
