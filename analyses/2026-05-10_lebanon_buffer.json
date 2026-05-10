@@ -1,0 +1,283 @@
+{
+  "meta_version": "2.0.1",
+  "date": "2026-05-10",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 12,
+  "n_articles": 20,
+  "tldr": "The most surprising finding is that an Israeli outlet (Haaretz) and a Turkish outlet (Anadolu Agency) independently converge on the same military-technical assessment: the IDF cannot counter Hezbollah's fiber-optic-guided drones because they cannot be jammed. Opinion/magazines and pan_arab are the two most editorially isolated buckets, diverging on rights-accountability framing (The Conversation on double-tap strikes killing journalists) and civilian displacement respectively. The religious press bucket's exclusive signal is Pope Leo XIV video-calling priests in southern Lebanon—pastoral engagement with the conflict that all other buckets ignore. Egypt alone foregrounds the Litani River geography (north/litani exclusive vocab), framing the escalation as deliberate pressure-relief for Israeli troops in a specific axis rather than indiscriminate bombardment.",
+  "frames": [
+    {
+      "label": "CEASEFIRE_FICTION",
+      "description": "Multiple outlets report Israeli strikes killing civilians and destroying buildings despite an ostensible ceasefire, framing the truce as largely nominal.",
+      "buckets": [
+        "russia",
+        "iraq",
+        "canada",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israeli strikes devastate Lebanese cities despite ceasefire (VIDEOS)\n\nIsraeli strikes on Lebanon have destroyed several buildings in Beirut and hit a commercial center in southern Lebanon despite a ceasefire Read Full Article at RT.com",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "1st Israeli strike on Beirut since truce kills top Hezbollah member\n\nIsrael claimed Thursday it had killed a commander from Hezbollah's elite Radwan force in an airstrike on Beirut a day earlier, marking the first Israeli strike on the Lebanese",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Israeli strikes kill 5 in southern Lebanon as Hezbollah rockets hit open areas in Israel\n\nIsraeli airstrikes on southern Lebanon killed at least five people Friday, while the Iran-backed Hezbollah militant group fired rockets on northern Israel without inflicting any casualties.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "label": "DRONE_TECHNOLOGY_GAP",
+      "description": "Coverage highlights Hezbollah's fiber-optic-guided drones as a weapon the IDF cannot jam, exposing a critical capability gap.",
+      "buckets": [
+        "israel",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Israel's defense establishment saw solutions for Hezbollah drones – but the IDF has yet to get them\n\nA surge in deadly Hezbollah drone attacks has exposed critical gaps in Israel's military preparedness, particularly against Hezbollah's fiber-optic-guided drones that cannot be jammed. Experts have w",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Military reportedly deploys new targeting systems as Hezbollah drones continue hitting troops, vehicles in southern Lebanon",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "label": "LITANI_BUFFER_EXPANSION",
+      "description": "Egyptian press uniquely frames Israeli strikes north of the Litani as a deliberate strategy to ease pressure on troops occupying a specific axis, not mere retaliation.",
+      "buckets": [
+        "egypt"
+      ],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "outlet": "Mada Masr",
+          "quote": "Israel attacks villages north of Litani to ease pressure on troops occupying crucial axis\n\nIsrael has stepped up strikes on villages north of the Litani River since the end of last week, after its troops operating in areas south of the river came under repeated fire from Hezbollah, according to a re",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "label": "WAR_WITHOUT_RULES_ACCOUNTABILITY",
+      "description": "Opinion press foregrounds international humanitarian law violations: double-tap strikes on journalists and rescue teams, normalizing conduct outside accepted rules of war.",
+      "buckets": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "In late April, Amal Khalil, a 43-year-old Lebanese journalist, was killed in a double-tap Israeli strike in southern Lebanon. When rescue teams tried to reach her and another injured journalist, they reportedly also came under fire.",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "The Israeli prime minister is using the ‘Gaza playbook’ to decimate southern Lebanon, but it won’t eliminate the threat from the militant group.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "label": "CIVILIAN_DISPLACEMENT_FRAME",
+      "description": "Pan-Arab coverage emphasizes families fleeing strikes and seeking refuge, with residents describing bombardment of residential areas.",
+      "buckets": [
+        "pan_arab",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Residents say Israeli strikes targetted families seeking refuge in Lebanon\n\nResidents say Israeli strikes targetted families seeking refuge in Lebanon Residents and rescue workers in southern Lebanon described scenes of devastation after Israeli bombardment struck residential areas, killing and woun",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Israel’s military carrys out a new wave of airstrikes across Lebanon, targeting what it said were Hezbollah positions, after issuing fresh evacuation warnings for residents of southern Lebanon and the Bekaa Valley. Read all",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "label": "PASTORAL_PAPAL_PRESENCE",
+      "description": "Religious press exclusively covers Pope Leo XIV's video call to priests in southern Lebanon—a pastoral response to the conflict absent from secular buckets.",
+      "buckets": [
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Pope Leo XIV video-calls priests in southern Lebanon\n\nDuring his audience with the Apostolic Nuncio to Lebanon, Archbishop Paolo Borgia, Pope Leo video-calls about ten priests from the southern regions of Lebanon and encourages them and assures them of his prayers. Read all",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "label": "DOMESTIC_ISRAELI_DISSENT",
+      "description": "Pan-Arab press surfaces Tel Aviv street protests against Netanyahu and the Lebanon war—internal Israeli political opposition invisible in Israeli and Western outlets.",
+      "buckets": [
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israelis protest against Netanyahu government and Lebanon war\n\nIsraelis protest against Netanyahu government and Lebanon war Dozens of Israelis protested overnight in Tel Aviv against the government of Prime Minister Benjamin Netanyahu and the continuing Israeli attacks on southern Lebanon. The demo",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "ukraine",
+      "mean_jaccard": 0.061,
+      "note": "Covers Lebanon only as part of a broader Middle East war roundup; editorial attention is diffuse rather than Lebanon-specific."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_jaccard": 0.063,
+      "note": "The Conversation's analytical framing (double-tap strikes, humanitarian law) uses distinct vocabulary from news wire coverage—editorial, not linguistic isolation."
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_jaccard": 0.07,
+      "note": "Civilian displacement and protest vocabulary diverges from military-operational language in most other buckets—editorial isolation."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_jaccard": 0.085,
+      "note": "Pastoral/papal vocabulary (pope, priest, call) is unique to Vatican News; both linguistic and editorial isolation."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "egypt",
+      "terms": [
+        "north",
+        "litani",
+        "ease",
+        "pressure",
+        "launched"
+      ],
+      "what_it_reveals": "Egyptian press is the only bucket to name the Litani River as a strategic axis and frame the escalation as tactical pressure-relief—a military geography angle absent elsewhere."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "terms": [
+        "journalist",
+        "humanitarian",
+        "hind",
+        "gaza",
+        "international"
+      ],
+      "what_it_reveals": "Accountability vocabulary including named journalist victims and explicit Gaza-comparison framing; 'hind' likely refers to journalist Hind Rajab, linking Lebanon strikes to an ongoing accountability narrative."
+    },
+    {
+      "bucket": "pan_arab",
+      "terms": [
+        "famil",
+        "seeking",
+        "targetted",
+        "refuge",
+        "protest"
+      ],
+      "what_it_reveals": "Civilian-experience vocabulary clusters around displacement and targeting of non-combatants; the 'protest' term captures Israeli domestic opposition that secular news buckets miss."
+    },
+    {
+      "bucket": "religious_press",
+      "terms": [
+        "pope",
+        "call",
+        "priest"
+      ],
+      "what_it_reveals": "Vatican News is the only outlet in any Lebanon-covering bucket to foreground the Pope's personal engagement with clergy in the conflict zone."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "israel",
+      "outlet": "Haaretz",
+      "quote": "A surge in deadly Hezbollah drone attacks has exposed critical gaps in Israel's military preparedness, particularly against Hezbollah's fiber-optic-guided drones that cannot be jammed. Experts have w",
+      "signal_text_idx": 6
+    },
+    "b": {
+      "bucket": "turkey",
+      "outlet": "Anadolu Agency English",
+      "quote": "Military reportedly deploys new targeting systems as Hezbollah drones continue hitting troops, vehicles in southern Lebanon",
+      "signal_text_idx": 17
+    },
+    "joint_conclusion": "Haaretz (critical Israeli press, typically cautious about amplifying IDF capability gaps) and Anadolu Agency (Turkish state news, routinely adversarial to Israeli military operations) independently arrive at the same assessment: the IDF cannot jam Hezbollah's fiber-optic drones and is scrambling to deploy improvised countermeasures."
+  },
+  "silences": [
+    {
+      "bucket": "russia",
+      "what_they_covered_instead": "RT covers the strikes and ceasefire violation frame but, unusually, sources the IDF's own statement (40 targets struck, 10 militants killed over the weekend) without adversarial framing—closer to TASS wire output than editorial commentary."
+    },
+    {
+      "bucket": "india",
+      "what_they_covered_instead": "The Hindu's Lebanon entry is buried inside an Iran-Israel war live blog, leading with the Qatar ship-fire story; Lebanon's buffer zone is not treated as a standalone story."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mada Masr",
+      "bucket": "egypt",
+      "finding": "Frames Israeli escalation north of the Litani as pressure-relief for troops on a 'crucial axis'—a specific operational geography angle that reframes the strikes as planned buffer expansion, not retaliation.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Conversation",
+      "bucket": "opinion_magazines",
+      "finding": "Reports the double-tap strike that killed Lebanese journalist Amal Khalil and then targeted her rescuers—an IHL-violation angle not covered by any news bucket in this corpus.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Pope Leo XIV video-calls approximately ten priests from southern Lebanon during his audience with the Apostolic Nuncio—pastoral engagement with the conflict zone invisible to all secular outlets.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Middle East Eye",
+      "bucket": "pan_arab",
+      "finding": "Reports overnight Tel Aviv protests against Netanyahu and the Lebanon war—domestic Israeli political opposition that Israeli outlets (Haaretz) do not foreground in this corpus.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Israel's defense establishment had identified solutions for fiber-optic drone threats but procurement was not completed—a procurement-failure accountability story that no other outlet reports.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "Lebanon's health ministry reports 39 killed in a single day of strikes, including at least seven in one strike on the town of Saksakiyeh including a child—the highest single-day toll figure in the corpus.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "The Lebanon buffer zone story fractures along a technology-accountability axis: the drone-gap paradox (both Haaretz and Anadolu agreeing Israel cannot counter fiber-optic drones) is the sharpest editorial convergence in the corpus, while the humanitarian accountability frame (journalist double-tap strikes, civilian displacement, papal outreach) is confined entirely to opinion press, pan-Arab, and religious outlets—absent from the news wires and most national dailies.",
+  "generated_at": "2026-05-10T09:20:11Z",
+  "model": "claude-sonnet-4-6"
+}
