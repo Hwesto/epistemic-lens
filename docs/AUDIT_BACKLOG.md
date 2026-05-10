@@ -50,7 +50,18 @@ references the deleted stage:
 |---|---|---|---|
 | **3-residue** | `feeds.json:meta.notes` still includes "dedup" in the pipeline-step list. Updating it requires a methodology pin bump (feeds.json content is hashed). | Documentation-only and inside a hashed file; not worth a bump on its own. | Bundle with the next intentional `feeds.json` edit (e.g. adding a feed). |
 
-## Stages 4 — 21
+## Stage 4 — Daily health
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **4-min-A** | `trailing_means` reads full daily snapshots (~5 MB each × 7 days = ~35 MB IO + parse) just to recompute `items_per_bucket`, but the prior `_health.json` files already carry `items_per_bucket_now`. Reading the lighter sidecars would be ~50× faster. | At today's scale (once daily, ~5s wall time), the cost is rounding error. | When feed count expands enough that the trailing-mean read becomes a hot spot, or whenever `trailing_means` is next touched. |
+| **4-min-B** | No top-level "ingest produced nothing today" alert. Per-bucket `volume_drop` fires if everything fails uniformly, producing N alerts but no concise summary signal. | Operationally the per-bucket alerts already surface the failure; an extra rollup adds noise more than signal. | If the cron starts having silent total-ingest failures that the per-bucket alerts don't make obvious. Add `n_items_zero` boolean or similar. |
+| **4-min-C** | `extraction_per_bucket` is built even for buckets where every feed has zero items — fills the dict with all-zero status counts. | Cosmetic; downstream consumers handle zero counts fine. | Whenever `health_for` is next refactored. Skip the `setdefault` if `items` is empty. |
+| **4-min-D** | Field-name asymmetry — `extraction_per_bucket` (singular) vs `items_per_bucket_now` / `items_per_bucket_avg7` (plural+suffix). Pinned by the schema now (Gap 4-1) so renaming requires a schema bump + downstream coordination. | Pure aesthetics; renaming costs more than the inconsistency. | Don't pick up unless renaming for another reason. |
+| **4-min-E** | "Phase 9" stale historical naming was in the docstring (corrected in Stage 4 commit). Same pattern still appears in other modules ("v0.4" in ingest.py, etc). | Cosmetic; doesn't affect behaviour. | Whenever a module's docstring is rewritten for any other reason. |
+| **4-min-F** | Test coverage of `health_for` is now 5 tests (Stage 4 added 4) but `trailing_means` itself has no direct tests. Currently exercised only indirectly via the live snapshot path. | Trailing-mean logic is simple and the e2e implicitly exercises it. | When `trailing_means` next changes. |
+
+## Stages 5 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
