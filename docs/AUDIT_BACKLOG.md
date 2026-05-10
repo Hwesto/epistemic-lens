@@ -16,7 +16,7 @@ parked.
 
 | ID | Item | Why deferred | Trigger to pick up |
 |---|---|---|---|
-| **0-3** | Two different token-normalisation pipelines (`meta.tokenize` / `analytical.build_briefing._title_tokens`) share the stopword set but not the regex / plural-strip pipeline. A future addition to `meta.tokenize` (e.g. stemming) won't propagate. (Reduced from three pipelines after Stage 3 deleted `pipeline.dedup`, which had its own third normaliser.) | Each does the right thing for its own job today; collapsing them is a real refactor. | Stage 5 review (when looking at `analytical.build_briefing`). Factor `meta.normalise_token(t)` and have `_title_tokens` use it. |
+| ~~**0-3**~~ | ~~Two different token-normalisation pipelines (`meta.tokenize` / `analytical.build_briefing._title_tokens`) share the stopword set but not the regex / plural-strip pipeline.~~ | Closed in `ac703c2` (meta-v2.4.0 Stage 5 part B): `_title_tokens` now `return set(meta.tokenize(s))`. New test `test_title_tokens_plural_stripped` pins the contract. | — |
 | **0-4** | `meta.dir_hash(PROMPTS_DIR)` defaults `glob="*.md"`. New `.json` / `.yaml` / `.j2` prompt assets in `.claude/prompts/` would not be hashed and could drift silently. | No non-`.md` files exist in `.claude/prompts/` today. | When the first non-`.md` file is added under `.claude/prompts/`. Fix: pass `glob="*"` and skip hidden files / dirs explicitly. |
 | **0-5** | `canonical_stories.json` has no JSON Schema. A typo in a regex pattern silently never matches; an `exclude` typo skips the wrong things. Pattern quality varies (`\bvietnam.*\bbeijing\b` is greedy; `\biran\b.{0,40}\bdeal\b` is bounded). | `build_briefing.matches_story` is defensive (`exclude or []`), so failures are silent rather than crashes. | Stage 5 review. Add `docs/api/schema/canonical_stories.schema.json` (per-story `title` + `patterns: [string]` + optional `exclude: [string]`); validate in `tests.py`. Patch bump. |
 
@@ -61,7 +61,17 @@ references the deleted stage:
 | **4-min-E** | "Phase 9" stale historical naming was in the docstring (corrected in Stage 4 commit). Same pattern still appears in other modules ("v0.4" in ingest.py, etc). | Cosmetic; doesn't affect behaviour. | Whenever a module's docstring is rewritten for any other reason. |
 | **4-min-F** | Test coverage of `health_for` is now 5 tests (Stage 4 added 4) but `trailing_means` itself has no direct tests. Currently exercised only indirectly via the live snapshot path. | Trailing-mean logic is simple and the e2e implicitly exercises it. | When `trailing_means` next changes. |
 
-## Stages 5 — 21
+## Stage 5 — Build per-story briefings
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **5-min-A** | `fresh_pull/` directory references in `build_briefing.py` (lines 30, 195) — local-dev convention from an earlier era; no production code writes there. | Harmless preference; falling through to `snapshots/` when `fresh_pull/` is absent. | Whenever `build_briefing` is next refactored, drop the `fresh_pull` preference unless someone documents an active use. |
+| **5-min-B** | `signal_breakdown` is computed from kept corpus only, not from candidates. Documents what made it through dedup, not what was tried. | By design — kept-counts match what every downstream consumer sees. | Don't pick up unless a "candidates pre-dedup" report becomes useful. |
+| **5-min-C** | `extraction_status` and `via_wayback` are stamped on every corpus entry but no downstream consumer reads them today. | Provenance breadcrumbs — kept because cheap and potentially useful for future debugging. | If `briefing.schema.json` ever moves to `additionalProperties: false` and these need explicit declaration, decide then whether to keep or drop. |
+| **5-min-D** | `matches_story` lowercases the search text once, then `re.search(p, txt, re.I)` adds case-insensitive flag — the flag is redundant since `txt` is already lowercase. The flag is kept because canonical_stories patterns may include character classes meant to be case-insensitive even after the text is normalised. | Cosmetic; code comment in Stage 5 part A explains the choice. | Don't pick up. |
+| **5-residue** | Existing briefings on disk still use the old `n_articles_total` field (Gap 5-1's pre-rename name). `publication.build_index` falls back per-field so they continue producing correct api/ output, but the on-disk artifacts are stale. | Briefings are immutable historical artifacts; rewriting them under a new pin would be back-dating. The fallback makes the field-rename graceful. | Don't pick up. |
+
+## Stages 6 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
