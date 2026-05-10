@@ -62,5 +62,9 @@ export type VideoScriptProps = {
   channel_name?: string; // displayed in the sting (default "DAILY FRAMINGS")
   // Ambient world tickers — shown on the map throughout the video
   world_tickers?: WorldTicker[];
+  // Optional music-bed overrides. Defaults: "music_bed.wav" at 0.10
+  // volume. Override for per-video tonal variation.
+  music_bed_file?: string;
+  music_bed_volume?: number;
   fact_check_provenance?: FactCheckProvenance;
 };

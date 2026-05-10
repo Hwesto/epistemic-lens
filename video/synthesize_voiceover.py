@@ -33,6 +33,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import functools
 import json
 import os
 import shutil
@@ -44,7 +45,7 @@ from pathlib import Path
 import wave
 
 from meta import REPO_ROOT as ROOT
-TEMPLATE = ROOT / "video_template"
+TEMPLATE = ROOT / "video"
 VOICES_DIR = TEMPLATE / "public" / "voices"
 VOICEOVERS_DIR = TEMPLATE / "public" / "voiceovers"
 
@@ -185,7 +186,6 @@ def synthesize_scene(text: str, voice_model: Path, out_path: Path,
 # ---------------------------------------------------------------------------
 # Kokoro provider — local ONNX, broadcast quality, no API key, no IP issues
 # ---------------------------------------------------------------------------
-_kokoro_singleton = None  # cache the loaded model across multiple calls
 
 def ensure_kokoro_model():
     """Download Kokoro model + voices file to public/voices/ if missing."""
@@ -199,13 +199,13 @@ def ensure_kokoro_model():
     return onnx_path, voices_path
 
 
+@functools.lru_cache(maxsize=1)
 def _get_kokoro():
-    global _kokoro_singleton
-    if _kokoro_singleton is None:
-        from kokoro_onnx import Kokoro
-        onnx_path, voices_path = ensure_kokoro_model()
-        _kokoro_singleton = Kokoro(str(onnx_path), str(voices_path))
-    return _kokoro_singleton
+    """Load Kokoro once per process. Cached so repeated synthesize_scene_kokoro
+    calls within a single render reuse the same loaded model."""
+    from kokoro_onnx import Kokoro
+    onnx_path, voices_path = ensure_kokoro_model()
+    return Kokoro(str(onnx_path), str(voices_path))
 
 
 def synthesize_scene_kokoro(text: str, voice: str, out_path: Path,

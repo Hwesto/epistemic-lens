@@ -16,45 +16,10 @@ import { IntroSting } from "./components/IntroSting";
 import { TopNewsBar } from "./components/TopNewsBar";
 import { ParadoxCard } from "./components/ParadoxCard";
 import { useCameraDolly } from "./useCameraDolly";
+import { COUNTRY_FLAG_MAP } from "./data/country-flags";
 
-const MUSIC_BED_FILE = "music_bed.wav";
-const MUSIC_BED_VOLUME = 0.10;
-
-const COUNTRY_FLAG_MAP: Array<[RegExp, string]> = [
-  [/🇺🇸|\bUSA\b|\bUnited States\b/, "us"],
-  [/🇬🇧|\bUK\b|\bBritain\b/, "uk"],
-  [/🇫🇷|\bFrance\b/, "fr"],
-  [/🇩🇪|\bGermany\b/, "de"],
-  [/🇮🇹|\bItaly\b/, "it"],
-  [/🇪🇸|\bSpain\b/, "es"],
-  [/🇷🇺|\bRussia\b/, "ru"],
-  [/🇺🇦|\bUkraine\b/, "ua"],
-  [/🇮🇷|\bIran\b/, "ir"],
-  [/🇮🇱|\bIsrael\b/, "il"],
-  [/🇱🇧|\bLebanon\b/, "lb"],
-  [/🇸🇦|\bSaudi\b/, "sa"],
-  [/🇶🇦|\bQatar\b/, "qa"],
-  [/🇪🇬|\bEgypt\b/, "eg"],
-  [/🇹🇷|\bTurkey|Türkiye\b/, "tr"],
-  [/🇮🇳|\bIndia\b/, "in"],
-  [/🇵🇰|\bPakistan\b/, "pk"],
-  [/🇨🇳|\bChina\b/, "cn"],
-  [/🇯🇵|\bJapan\b/, "jp"],
-  [/🇰🇷|\bSouth Korea\b/, "kr"],
-  [/🇰🇵|\bNorth Korea\b/, "kp"],
-  [/🇹🇼|\bTaiwan\b/, "tw"],
-  [/🇮🇩|\bIndonesia\b/, "id"],
-  [/🇵🇭|\bPhilippines\b/, "ph"],
-  [/🇦🇺|\bAustralia\b/, "au"],
-  [/🇨🇦|\bCanada\b/, "ca"],
-  [/🇲🇽|\bMexico\b/, "mx"],
-  [/🇧🇷|\bBrazil\b/, "br"],
-  [/🇿🇦|\bSouth Africa\b/, "za"],
-  [/🇰🇪|\bKenya\b/, "ke"],
-  [/🇳🇬|\bNigeria\b/, "ng"],
-  [/🇻🇦|\bVatican\b/, "va"],
-  [/🇬🇪|\bGeorgia\b/, "ge"],
-];
+const DEFAULT_MUSIC_BED_FILE = "music_bed.wav";
+const DEFAULT_MUSIC_BED_VOLUME = 0.10;
 
 function inferCountry(scene: Scene): string | undefined {
   if (scene.country) return scene.country;
@@ -100,9 +65,8 @@ const SceneInner: React.FC<{
   useCameraDolly(startPreset, endPreset, durationInFrames); // pre-warm for child components
   const preset = endPreset;
 
-  // News bar is hidden on title (clean intro) and outro (clean close).
-  // Visible during all middle scenes — replaces the noisy floating
-  // WorldTickers from v0.7.0.
+  // News bar is hidden on title (clean intro) and outro (clean close);
+  // visible during all middle scenes.
   const newsBarVisible = type !== "title" && type !== "outro";
 
   return (
@@ -185,6 +149,8 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
     intro_sting_seconds = 3,
     channel_name = "DAILY FRAMINGS",
     world_tickers,
+    music_bed_file = DEFAULT_MUSIC_BED_FILE,
+    music_bed_volume = DEFAULT_MUSIC_BED_VOLUME,
   } = props;
 
   // Compute frame ranges for each scene.
@@ -220,7 +186,7 @@ export const FramingVideo: React.FC<VideoScriptProps> = (props) => {
       {/* Continuous music bed — loops if shorter than the video.
           Volume is automatically lower under the intro sting since the
           sting's audio peaks above it. */}
-      <Audio src={staticFile(MUSIC_BED_FILE)} volume={MUSIC_BED_VOLUME} loop />
+      <Audio src={staticFile(music_bed_file)} volume={music_bed_volume} loop />
 
       {/* Optional intro sting + hard-cut black flash */}
       {intro_sting_audio ? (

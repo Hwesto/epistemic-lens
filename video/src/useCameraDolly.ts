@@ -1,7 +1,6 @@
-// Shared camera-dolly interpolation hook — used by both WorldMap and
-// WorldTickers so the tickers stay in lockstep with the panning map.
-// Both components are inside the same Sequence so they see the same
-// sequence-local frame, which makes their interpolation outputs match.
+// Camera-dolly interpolation hook used by WorldMapBackground (and any
+// other component that wants to track the same pan/zoom inside the
+// scene's Sequence so its frame-local interpolations match the map).
 
 import { interpolate, useCurrentFrame } from "remotion";
 import { CameraPreset } from "./cameraPresets";

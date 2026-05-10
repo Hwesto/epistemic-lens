@@ -21,10 +21,13 @@ videos/*.mov
 # if/when the videos directory exceeds ~500 MB.)
 
 # TTS voice models — too big for git, regen via synthesize_voiceover.py
-video_template/public/voices/*.onnx
-video_template/public/voices/*.onnx.json
-video_template/public/voices/voices.bin
-video_template/public/voices/kokoro-*.onnx
+video/public/voices/*.onnx
+video/public/voices/*.onnx.json
+video/public/voices/voices.bin
+video/public/voices/kokoro-*.onnx
 
 # Per-render voiceover WAVs — regen on demand
-video_template/public/voiceovers/
+video/public/voiceovers/
+
+# source_audit.py output — regenerated fresh on demand.
+source_audit.json

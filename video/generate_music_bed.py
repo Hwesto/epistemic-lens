@@ -10,7 +10,7 @@ No external network, no copyright concerns. Outputs a 2-minute WAV
 
 Style is intentionally tense+spacious — works under news-framing voiceover.
 
-Output: video_template/public/music_bed.wav (~21 MB at 44.1kHz).
+Output: video/public/music_bed.wav (~21 MB at 44.1kHz).
 
 Usage:
   python generate_music_bed.py            # default 120s
@@ -26,7 +26,7 @@ import wave
 from pathlib import Path
 
 from meta import REPO_ROOT as ROOT
-OUT_DEFAULT = ROOT / "video_template" / "public" / "music_bed.wav"
+OUT_DEFAULT = ROOT / "video" / "public" / "music_bed.wav"
 
 # Pre-tuned chord tones (Hz) for a few minor keys
 CHORDS: dict[str, list[float]] = {

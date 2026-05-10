@@ -4,8 +4,8 @@ Usage:
   python render_video.py video_scripts/2026-05-06_01_hormuz.json
   python render_video.py video_scripts/2026-05-06_*.json --out videos/
 
-The Remotion template lives in video_template/ and consumes the JSON's
-top-level shape as its props payload (matches src/types.ts VideoScriptProps).
+The Remotion template lives in video/ and consumes the JSON's top-level
+shape as its props payload (matches video/src/types.ts VideoScriptProps).
 
 Environment:
   Requires Node.js 18+, npm. Will run `npm install` once if node_modules
@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 
 from meta import REPO_ROOT as ROOT
-TEMPLATE = ROOT / "video_template"
+TEMPLATE = ROOT / "video"
 DEFAULT_OUT = ROOT / "videos"
 
 
