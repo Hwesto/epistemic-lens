@@ -76,6 +76,38 @@ def recompute_hashes(meta: dict) -> dict:
     return meta
 
 
+# Canonical key order for meta_version.json so the file's structure is
+# stable across bumps. Unknown keys (forward-compat) get appended at the end.
+_CANONICAL_ORDER = (
+    "_doc", "meta_version", "pinned_at", "pin_reason",
+    "feeds", "tokenizer", "embedding", "clustering", "metrics",
+    "extraction", "ingest", "signal_text", "briefing",
+    "canonical_stories_hash", "claude", "health", "feed_rot",
+    "pin_self_hash",
+)
+
+
+def write_pin(raw: dict) -> dict:
+    """Apply canonical key order, recompute pin_self_hash, write to disk.
+    Returns the dict that was written. Used by cmd_bump after all other
+    fields have been updated."""
+    ordered = {k: raw[k] for k in _CANONICAL_ORDER if k in raw}
+    for k, v in raw.items():
+        if k not in ordered:
+            ordered[k] = v
+
+    # Self-hash is computed last, after every other field has its final
+    # value. The hash itself is excluded from its own input (see
+    # meta._PIN_SELF_HASH_EXCLUDE).
+    ordered["pin_self_hash"] = M.pin_self_hash_of(ordered)
+
+    META_PATH.write_text(
+        json.dumps(ordered, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    return ordered
+
+
 def cmd_check() -> int:
     drift = M.assert_pinned(strict=False)
     if not drift:
@@ -109,23 +141,7 @@ def cmd_bump(level: str, reason: str | None) -> int:
     if reason:
         raw["pin_reason"] = reason
 
-    # Preserve `_doc` field at the top of the file by re-emitting in the
-    # canonical key order.
-    canonical_order = [
-        "_doc", "meta_version", "pinned_at", "pin_reason",
-        "feeds", "tokenizer", "embedding", "clustering", "metrics",
-        "extraction", "ingest", "signal_text", "briefing",
-        "canonical_stories_hash", "claude", "health", "feed_rot",
-    ]
-    ordered = {k: raw[k] for k in canonical_order if k in raw}
-    for k, v in raw.items():
-        if k not in ordered:
-            ordered[k] = v
-
-    META_PATH.write_text(
-        json.dumps(ordered, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    write_pin(raw)
 
     print(f"meta_version: {old_version} -> {new_version}")
     if reason:

@@ -140,7 +140,7 @@ headers; use them as a discipline):
   ],
   "tags": ["<optional free-text tags>"],
   "generated_at": "<ISO 8601 UTC>",
-  "model": "claude-sonnet-4-6"
+  "model": "<copy claude.model from meta_version.json — do NOT hardcode>"
 }
 ```
 

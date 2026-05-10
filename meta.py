@@ -58,6 +58,35 @@ def dir_hash(path: Path, glob: str = "*.md") -> str:
     return f"sha256:{h.hexdigest()}"
 
 
+# Fields excluded from the self-hash. Everything else inside meta_version.json
+# (every threshold, every nested config sub-tree, every embedded hash) is
+# covered, so a hand-edit of any pinned value without re-running
+# baseline_pin.py is detected by assert_pinned() at CI time.
+_PIN_SELF_HASH_EXCLUDE = (
+    "_doc",
+    "meta_version",
+    "pinned_at",
+    "pin_reason",
+    "pin_self_hash",
+)
+
+
+def pin_self_hash_of(d: dict) -> str:
+    """SHA-256 of the pin's value content, excluding identity / commentary
+    fields. Used by baseline_pin.py to write the hash and by assert_pinned()
+    to verify nobody hand-edited a threshold without bumping the version."""
+    payload = {k: v for k, v in d.items() if k not in _PIN_SELF_HASH_EXCLUDE}
+    serialised = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+    h = hashlib.sha256()
+    h.update(serialised.encode("utf-8"))
+    return f"sha256:{h.hexdigest()}"
+
+
+def pin_self_hash() -> str:
+    """Self-hash of the loaded methodology pin."""
+    return pin_self_hash_of(META)
+
+
 @lru_cache(maxsize=1)
 def _load() -> dict:
     return json.loads(META_PATH.read_text(encoding="utf-8"))
@@ -166,6 +195,18 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = dir_hash(PROMPTS_DIR)
         if declared != actual:
             drift["claude.prompts"] = (declared, actual)
+
+    # Self-hash: catches edits to any pinned value inside meta_version.json
+    # that didn't go through baseline_pin.py --bump. The four hashes above
+    # only check the external pinned files; this one closes the gap for
+    # values that live inside the pin itself (thresholds, model names,
+    # cluster knobs, etc).
+    declared_self = META.get("pin_self_hash")
+    actual_self = pin_self_hash()
+    if declared_self is None:
+        drift["pin_self_hash"] = ("(missing — run baseline_pin.py --bump)", actual_self)
+    elif declared_self != actual_self:
+        drift["pin_self_hash"] = (declared_self, actual_self)
 
     if drift and strict:
         lines = ["Methodology drift detected (meta_version=" + VERSION + "):"]

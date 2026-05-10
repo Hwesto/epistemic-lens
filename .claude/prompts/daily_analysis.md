@@ -84,6 +84,11 @@ For each story you analyse:
 
 ## Minimal output skeleton
 
+The block below shows the schema shape with **illustrative values**.
+Replace every value (including all numbers, all quotes, all bucket names)
+with content from your specific inputs. Never copy literal values from
+this skeleton.
+
 ```json
 {
   "meta_version": "<read from meta_version.json — do NOT copy from briefing>",
@@ -123,7 +128,7 @@ For each story you analyse:
   ],
   "bottom_line": "Two sentences restating the headline finding.",
   "generated_at": "2026-05-08T12:34:56Z",
-  "model": "claude-haiku-4-5-20251001"
+  "model": "<copy claude.model from meta_version.json — do NOT hardcode>"
 }
 ```
 

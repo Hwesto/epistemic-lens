@@ -680,6 +680,29 @@ class TestMethodologyPin(unittest.TestCase):
         finally:
             sw.write_bytes(original)
 
+    def test_pin_self_hash_ignores_metadata_fields(self):
+        """Editing _doc / version / pinned_at / pin_reason must not change the
+        self-hash — those are identity / commentary, not pinned values."""
+        import meta as _meta
+        d1 = dict(_meta.META)
+        d2 = dict(_meta.META)
+        d2["_doc"] = "different"
+        d2["meta_version"] = "99.99.99"
+        d2["pinned_at"] = "2099-01-01T00:00:00Z"
+        d2["pin_reason"] = "different reason"
+        self.assertEqual(_meta.pin_self_hash_of(d1), _meta.pin_self_hash_of(d2))
+
+    def test_pin_self_hash_changes_on_threshold_edit(self):
+        """Editing any pinned threshold inside meta_version.json (without
+        bumping the version) must change the self-hash so assert_pinned()
+        catches the drift in CI."""
+        import copy
+        import meta as _meta
+        d1 = copy.deepcopy(_meta.META)
+        d2 = copy.deepcopy(_meta.META)
+        d2["health"]["stub_pct_min"] = 50  # moved from 80
+        self.assertNotEqual(_meta.pin_self_hash_of(d1), _meta.pin_self_hash_of(d2))
+
 
 class TestAnalysisSchemaAndRender(unittest.TestCase):
     """Phase 1: analysis.schema.json + render_analysis_md.py round-trip."""

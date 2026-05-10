@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.1.0",
-  "pinned_at": "2026-05-10T11:06:59Z",
-  "pin_reason": "pin previously hardcoded thresholds: extraction body-length classifiers (FULL/PARTIAL/STUB), daily_health alert thresholds (stub_pct, slow_fetch, volume_drop, low_extraction), feed_rot windows + decline factor, briefing novelty_jaccard + signal_rank, ingest stub_summary_diff + sitemap_fallback_max — all hardcoded constants are now sourced from meta_version.json",
+  "meta_version": "2.1.1",
+  "pinned_at": "2026-05-10T12:33:27Z",
+  "pin_reason": "close pin self-consistency gap (pin_self_hash) and strip hardcoded model names from .claude/prompts/ skeletons; LLM now reads claude.model from meta_version.json",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -75,7 +75,7 @@
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "claude": {
     "model": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:a971329dd6fef5f98ee20ac231346d4eab0ccf8fd1b6441219a29cb3ed7af93f"
+    "prompts_hash": "sha256:494fdcbb30fc20bf46220f02bd9601b53cf0d8ef885816002276ab936872c84a"
   },
   "health": {
     "stub_pct_min": 80,
@@ -93,5 +93,6 @@
     "decline_min_baseline": 5,
     "decline_min_history": 4,
     "top_n_declining": 20
-  }
+  },
+  "pin_self_hash": "sha256:fd48097661b8cf4895c510ddfd7a47bbe671a8fbbd8ffbd12f2422b77328c0d4"
 }
