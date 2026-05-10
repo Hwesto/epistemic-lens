@@ -82,7 +82,18 @@ references the deleted stage:
 | **6-min-E** | Implicit precision: `pairwise_jaccard` and `mean_jaccard` round to 3 decimal places at write time. Every consumer (LLM, validate_analysis, the analyses on disk) assumes 3 decimals. Load-bearing implicit; could pin as `meta.METRICS.jaccard_precision`. | Today consistent because all callers happen to use 3; not biting. | If a future consumer writes a Jaccard at different precision, pin then. |
 | **6-min-F** | `briefings_for_date` uses an ad-hoc glob with `_metrics` suffix exclusion. Stage 2 factored a similar helper into `pipeline._paths` for canonical snapshot date globs; briefings have their own naming convention so the helper doesn't apply directly. | Only one caller; low value. | If a second module starts globbing briefings (e.g. a re-render utility), factor `analytical/_paths.py`. |
 
-## Stages 7 — 21
+## Stage 7 — LLM analysis
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **7-2-followup** | Stage 7 part B aligned the prompt's `n_buckets >= 4` threshold with build_briefing's `--min-buckets=4` default, but the value still lives in two places (the prompt and the CLI default). A future change to one without the other re-opens the original drift. | Pinning `meta.BRIEFING.min_buckets_for_analysis` requires either (a) prompt-time substitution (templating breaks the static prompt + hashed-prompt model) or (b) accepting that the prompt holds it as plain text and a tooling check ensures equality. Neither is cheap. | If the threshold ever changes, pin it in `meta.BRIEFING` and add a `tests.py` assertion that the prompt's literal threshold matches. |
+| **7-min-A** | Prompt step 6 (commit + push) is bash logic embedded in markdown. Works because claude-code-action runs in bash; brittle if the runtime context changes. | The agent has been reliable; replacing with a Python helper would mean teaching the prompt to call a helper, which it currently doesn't need. | If claude-code-action ever changes shell behaviour, lift the bash into `analytical/_agent_commit.py`. |
+| **7-min-B** | No iteration bound on the validate-fix-retry loop in prompt step 3i. Worst-case pathological agent behaviour caught by `daily.yml: timeout-minutes: 30`. | Real LLM iterations resolve in 1-3 passes. The 30-minute job ceiling is the safety net. | If we ever see runaway iteration in production logs, add a `--max-attempts` flag to `validate_analysis` and reference from the prompt. |
+| **7-min-C** | `--permission-mode bypassPermissions` is maximally permissive — agent can write any file, run any shell command. Necessary for autonomous analyze + draft + commit; risk concentration if a prompt is hijacked. | Tightening to a tool allowlist (e.g. `--allow-tools=Read,Write,Edit,Bash` only) requires testing that all current analyze + draft behaviours still complete. | Before any external/untrusted prompt content is loaded into the agent's context. |
+| **7-min-D** | Three layers of schema validation (in-prompt agent, post-commit workflow, render-time). Defensive depth is good; not documented in one place. | Each layer's purpose is clear from the workflow comments; a single doc would help a new contributor. | Whenever `docs/ARCHITECTURE.md` is next refreshed. |
+| **7-min-E** | Prompt step 5 ("print one summary line per story written") relies on the agent's stdout reaching the workflow log. Works today via `show_full_output: true`; coupled. | Working as designed. | Don't pick up. |
+
+## Stages 8 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
