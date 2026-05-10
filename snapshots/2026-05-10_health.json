@@ -1,0 +1,981 @@
+{
+  "date": "2026-05-10",
+  "n_feeds": 235,
+  "n_items": 6450,
+  "n_errors": 35,
+  "n_stub_feeds": 14,
+  "n_slow_feeds": 5,
+  "errors": [
+    {
+      "bucket": "wire_services",
+      "feed": "Liberation",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "usa",
+      "feed": "Politico",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "iran_state",
+      "feed": "Mehr News English (rsshub)",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "iran_state",
+      "feed": "Kayhan (rsshub)",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "india",
+      "feed": "News18",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "india",
+      "feed": "News18 India",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "india",
+      "feed": "Times Now",
+      "http": 404,
+      "error": null
+    },
+    {
+      "bucket": "india",
+      "feed": "Firstpost",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "saudi_arabia",
+      "feed": "Arab News",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "saudi_arabia",
+      "feed": "Al Arabiya English",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "pakistan",
+      "feed": "Express Tribune",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "lebanon",
+      "feed": "Al-Akhbar Lebanon",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "lebanon",
+      "feed": "LBCI English",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "jordan",
+      "feed": "Jordan Times",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "palestine",
+      "feed": "Maan News English",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "palestine",
+      "feed": "Palestine Chronicle",
+      "http": 429,
+      "error": null
+    },
+    {
+      "bucket": "russia_native",
+      "feed": "Novaya Gazeta Europe",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "russia_native",
+      "feed": "RIA Novosti Telegram",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "russia_native",
+      "feed": "Mash Telegram",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "hungary_central",
+      "feed": "Telex Hungary",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "indonesia",
+      "feed": "CNN Indonesia",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "philippines",
+      "feed": "ABS-CBN",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "australia_nz",
+      "feed": "News.com.au",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "australia_nz",
+      "feed": "The Australian",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "canada",
+      "feed": "Toronto Star",
+      "http": 429,
+      "error": null
+    },
+    {
+      "bucket": "mexico",
+      "feed": "El Economista",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "africa_other",
+      "feed": "Addis Standard Ethiopia",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "africa_other",
+      "feed": "Morocco World News",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "pan_arab",
+      "feed": "Middle East Monitor",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "pan_african",
+      "feed": "African Arguments",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "feed": "East Asia Forum",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "state_tv_intl",
+      "feed": "Sputnik International",
+      "http": null,
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='sputnikglobe.com', port=443): Max "
+    },
+    {
+      "bucket": "telegram_proxies",
+      "feed": "Readovka TG",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "telegram_proxies",
+      "feed": "Bashtanka TG (Iran-state via TG)",
+      "http": 403,
+      "error": null
+    },
+    {
+      "bucket": "telegram_proxies",
+      "feed": "Hamshahri TG",
+      "http": 403,
+      "error": null
+    }
+  ],
+  "stub_feeds": [
+    {
+      "bucket": "wire_services",
+      "feed": "Reuters (via Google News)",
+      "stub_pct": 82.0
+    },
+    {
+      "bucket": "wire_services",
+      "feed": "Le Parisien",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "uk",
+      "feed": "Daily Mail",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "china",
+      "feed": "Global Times",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "india",
+      "feed": "ABP Live",
+      "stub_pct": 84.2
+    },
+    {
+      "bucket": "south_korea",
+      "feed": "Hankyoreh English",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "japan",
+      "feed": "Asahi Shimbun",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "japan",
+      "feed": "Mainichi",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "japan",
+      "feed": "Nikkei Asia",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "japan",
+      "feed": "Mainichi (alt)",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "pakistan",
+      "feed": "ARY News English",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "russia_native",
+      "feed": "Lenta.ru",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "russia_native",
+      "feed": "RIA Novosti RU",
+      "stub_pct": 100.0
+    },
+    {
+      "bucket": "taiwan_hk",
+      "feed": "Taipei Times",
+      "stub_pct": 100.0
+    }
+  ],
+  "slow_feeds": [
+    {
+      "bucket": "uk",
+      "feed": "Daily Mail",
+      "ms": 5824
+    },
+    {
+      "bucket": "iran_state",
+      "feed": "Tehran Times",
+      "ms": 11303
+    },
+    {
+      "bucket": "iran_state",
+      "feed": "IRNA Farsi",
+      "ms": 7725
+    },
+    {
+      "bucket": "russia",
+      "feed": "RT",
+      "ms": 5549
+    },
+    {
+      "bucket": "state_tv_intl",
+      "feed": "Sputnik International",
+      "ms": 67412
+    }
+  ],
+  "items_per_bucket_now": {
+    "wire_services": 255,
+    "usa": 420,
+    "uk": 277,
+    "iran_state": 90,
+    "iran_opposition": 120,
+    "qatar": 50,
+    "china": 262,
+    "russia": 180,
+    "india": 395,
+    "israel": 121,
+    "turkey": 180,
+    "saudi_arabia": 0,
+    "south_korea": 260,
+    "japan": 160,
+    "brazil": 210,
+    "nigeria": 50,
+    "pakistan": 147,
+    "lebanon": 0,
+    "iraq": 10,
+    "egypt": 30,
+    "jordan": 0,
+    "syria": 40,
+    "palestine": 0,
+    "ukraine": 100,
+    "russia_native": 220,
+    "germany": 371,
+    "italy": 226,
+    "spain": 140,
+    "netherlands_belgium": 20,
+    "poland_balt": 62,
+    "balkans": 100,
+    "hungary_central": 15,
+    "belarus_caucasus": 26,
+    "nordic": 70,
+    "indonesia": 120,
+    "philippines": 40,
+    "vietnam_thai_my": 180,
+    "taiwan_hk": 165,
+    "korea_north": 60,
+    "australia_nz": 85,
+    "canada": 117,
+    "mexico": 190,
+    "argentina_chile": 110,
+    "colombia_ven_peru": 13,
+    "south_africa": 77,
+    "kenya": 30,
+    "africa_other": 95,
+    "opinion_magazines": 204,
+    "pan_arab": 70,
+    "pan_african": 60,
+    "asia_pacific_regional": 70,
+    "state_tv_intl": 97,
+    "telegram_proxies": 0,
+    "religious_press": 60
+  },
+  "items_per_bucket_avg7": {
+    "wire_services": 111.2,
+    "usa": 160.5,
+    "uk": 118.5,
+    "iran_state": 41.7,
+    "iran_opposition": 60,
+    "qatar": 30,
+    "china": 120.7,
+    "russia": 86.7,
+    "india": 157,
+    "israel": 67,
+    "turkey": 72.3,
+    "saudi_arabia": 13.3,
+    "south_korea": 100,
+    "japan": 64.7,
+    "brazil": 83.3,
+    "nigeria": 30,
+    "pakistan": 145,
+    "lebanon": 0,
+    "iraq": 10,
+    "egypt": 30,
+    "jordan": 0,
+    "syria": 40,
+    "palestine": 0,
+    "ukraine": 100,
+    "russia_native": 220,
+    "germany": 361,
+    "italy": 200,
+    "spain": 145.5,
+    "netherlands_belgium": 20,
+    "poland_balt": 62,
+    "balkans": 100,
+    "hungary_central": 65,
+    "belarus_caucasus": 26,
+    "nordic": 70,
+    "indonesia": 100,
+    "philippines": 40,
+    "vietnam_thai_my": 180,
+    "taiwan_hk": 167,
+    "korea_north": 60,
+    "australia_nz": 85.5,
+    "canada": 112.5,
+    "mexico": 190,
+    "argentina_chile": 110,
+    "colombia_ven_peru": 13,
+    "south_africa": 77.5,
+    "kenya": 30,
+    "africa_other": 94,
+    "opinion_magazines": 205,
+    "pan_arab": 70,
+    "pan_african": 60,
+    "asia_pacific_regional": 70,
+    "state_tv_intl": 96.5,
+    "telegram_proxies": 0,
+    "religious_press": 60
+  },
+  "bucket_alerts": [
+    {
+      "bucket": "saudi_arabia",
+      "alert_type": "volume_drop",
+      "now": 0,
+      "avg7": 13.3,
+      "drop_pct": 100.0
+    },
+    {
+      "bucket": "hungary_central",
+      "alert_type": "volume_drop",
+      "now": 15,
+      "avg7": 65,
+      "drop_pct": 76.9
+    },
+    {
+      "bucket": "iran_state",
+      "alert_type": "low_extraction",
+      "attempted": 9,
+      "full": 1,
+      "full_pct": 11.1,
+      "errors": 0,
+      "none": 0
+    },
+    {
+      "bucket": "south_korea",
+      "alert_type": "low_extraction",
+      "attempted": 18,
+      "full": 8,
+      "full_pct": 44.4,
+      "errors": 0,
+      "none": 6
+    },
+    {
+      "bucket": "japan",
+      "alert_type": "low_extraction",
+      "attempted": 18,
+      "full": 5,
+      "full_pct": 27.8,
+      "errors": 0,
+      "none": 0
+    },
+    {
+      "bucket": "state_tv_intl",
+      "alert_type": "low_extraction",
+      "attempted": 9,
+      "full": 3,
+      "full_pct": 33.3,
+      "errors": 6,
+      "none": 0
+    }
+  ],
+  "extraction_totals": {
+    "FULL": 472,
+    "PARTIAL": 74,
+    "STUB": 8,
+    "NONE": 9,
+    "ERROR": 37,
+    "SKIPPED": 0
+  },
+  "extraction_full_pct": 78.7,
+  "extraction_per_bucket": {
+    "wire_services": {
+      "FULL": 14,
+      "PARTIAL": 1,
+      "STUB": 0,
+      "NONE": 3,
+      "ERROR": 9,
+      "SKIPPED": 0,
+      "items_with_extraction": 27
+    },
+    "usa": {
+      "FULL": 34,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 6,
+      "SKIPPED": 0,
+      "items_with_extraction": 42
+    },
+    "uk": {
+      "FULL": 22,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 3,
+      "SKIPPED": 0,
+      "items_with_extraction": 27
+    },
+    "iran_state": {
+      "FULL": 1,
+      "PARTIAL": 2,
+      "STUB": 6,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "iran_opposition": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "qatar": {
+      "FULL": 4,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "china": {
+      "FULL": 16,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 18
+    },
+    "russia": {
+      "FULL": 10,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "india": {
+      "FULL": 30,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 3,
+      "SKIPPED": 0,
+      "items_with_extraction": 33
+    },
+    "israel": {
+      "FULL": 10,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "turkey": {
+      "FULL": 10,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "saudi_arabia": {
+      "FULL": 0,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 0
+    },
+    "south_korea": {
+      "FULL": 8,
+      "PARTIAL": 4,
+      "STUB": 0,
+      "NONE": 6,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 18
+    },
+    "japan": {
+      "FULL": 5,
+      "PARTIAL": 13,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 18
+    },
+    "brazil": {
+      "FULL": 13,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 15
+    },
+    "nigeria": {
+      "FULL": 3,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 3,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "pakistan": {
+      "FULL": 12,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "lebanon": {
+      "FULL": 0,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 0
+    },
+    "iraq": {
+      "FULL": 3,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 3
+    },
+    "egypt": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "jordan": {
+      "FULL": 0,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 0
+    },
+    "syria": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "palestine": {
+      "FULL": 0,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 0
+    },
+    "ukraine": {
+      "FULL": 6,
+      "PARTIAL": 3,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "russia_native": {
+      "FULL": 9,
+      "PARTIAL": 6,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 15
+    },
+    "germany": {
+      "FULL": 26,
+      "PARTIAL": 4,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 30
+    },
+    "italy": {
+      "FULL": 12,
+      "PARTIAL": 4,
+      "STUB": 2,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 18
+    },
+    "spain": {
+      "FULL": 11,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 1,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "netherlands_belgium": {
+      "FULL": 5,
+      "PARTIAL": 1,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "poland_balt": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "balkans": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "hungary_central": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "belarus_caucasus": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "nordic": {
+      "FULL": 8,
+      "PARTIAL": 1,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "indonesia": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "philippines": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "vietnam_thai_my": {
+      "FULL": 14,
+      "PARTIAL": 1,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 15
+    },
+    "taiwan_hk": {
+      "FULL": 9,
+      "PARTIAL": 3,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "korea_north": {
+      "FULL": 3,
+      "PARTIAL": 3,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "australia_nz": {
+      "FULL": 9,
+      "PARTIAL": 3,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "canada": {
+      "FULL": 12,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "mexico": {
+      "FULL": 15,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 15
+    },
+    "argentina_chile": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "colombia_ven_peru": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "south_africa": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "kenya": {
+      "FULL": 3,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 3
+    },
+    "africa_other": {
+      "FULL": 9,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 3,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "opinion_magazines": {
+      "FULL": 14,
+      "PARTIAL": 4,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 3,
+      "SKIPPED": 0,
+      "items_with_extraction": 21
+    },
+    "pan_arab": {
+      "FULL": 3,
+      "PARTIAL": 3,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "pan_african": {
+      "FULL": 4,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "asia_pacific_regional": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    },
+    "state_tv_intl": {
+      "FULL": 3,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 6,
+      "SKIPPED": 0,
+      "items_with_extraction": 9
+    },
+    "telegram_proxies": {
+      "FULL": 0,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 0
+    },
+    "religious_press": {
+      "FULL": 6,
+      "PARTIAL": 0,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 6
+    }
+  },
+  "meta_version": "2.0.1"
+}

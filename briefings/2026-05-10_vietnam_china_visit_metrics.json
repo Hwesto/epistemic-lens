@@ -1,0 +1,146 @@
+{
+  "date": "2026-05-10",
+  "story_key": "vietnam_china_visit",
+  "story_title": "Vietnam To Lam visits Beijing",
+  "n_buckets": 4,
+  "n_articles": 6,
+  "buckets": [
+    "china",
+    "korea_north",
+    "taiwan_hk",
+    "vietnam_thai_my"
+  ],
+  "bucket_token_counts": {
+    "china": 229,
+    "korea_north": 50,
+    "taiwan_hk": 63,
+    "vietnam_thai_my": 67
+  },
+  "pairwise_jaccard": [
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "jaccard": 0.139
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "jaccard": 0.06
+    },
+    {
+      "a": "korea_north",
+      "b": "taiwan_hk",
+      "jaccard": 0.051
+    },
+    {
+      "a": "china",
+      "b": "korea_north",
+      "jaccard": 0.046
+    },
+    {
+      "a": "korea_north",
+      "b": "vietnam_thai_my",
+      "jaccard": 0.041
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "jaccard": 0.024
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_jaccard": 0.043
+    },
+    {
+      "bucket": "korea_north",
+      "mean_jaccard": 0.046
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_jaccard": 0.071
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_jaccard": 0.08
+    }
+  ],
+  "bucket_exclusive_vocab": {
+    "china": [
+      {
+        "term": "china",
+        "count": 8
+      },
+      {
+        "term": "your",
+        "count": 5
+      },
+      {
+        "term": "beijing",
+        "count": 3
+      },
+      {
+        "term": "choose",
+        "count": 3
+      },
+      {
+        "term": "language",
+        "count": 3
+      },
+      {
+        "term": "fast",
+        "count": 3
+      },
+      {
+        "term": "trip",
+        "count": 3
+      },
+      {
+        "term": "office",
+        "count": 3
+      }
+    ],
+    "korea_north": [
+      {
+        "term": "ambassador",
+        "count": 4
+      },
+      {
+        "term": "north",
+        "count": 3
+      },
+      {
+        "term": "korea",
+        "count": 3
+      },
+      {
+        "term": "envoy",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [
+      {
+        "term": "brahmo",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [
+      {
+        "term": "upgrade",
+        "count": 3
+      },
+      {
+        "term": "ties",
+        "count": 3
+      },
+      {
+        "term": "salute",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Jaccard over per-bucket token sets; tokens via meta.tokenize (regex='[A-Za-z]{4,}', len>=4, stopword-filtered, plural normalization). Bucket-exclusive = doc_freq<=1, count>=3.",
+  "generated_at": "2026-05-10T09:06:24+00:00",
+  "meta_version": "2.0.1"
+}
