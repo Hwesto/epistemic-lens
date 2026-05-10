@@ -93,7 +93,17 @@ references the deleted stage:
 | **7-min-D** | Three layers of schema validation (in-prompt agent, post-commit workflow, render-time). Defensive depth is good; not documented in one place. | Each layer's purpose is clear from the workflow comments; a single doc would help a new contributor. | Whenever `docs/ARCHITECTURE.md` is next refreshed. |
 | **7-min-E** | Prompt step 5 ("print one summary line per story written") relies on the agent's stdout reaching the workflow log. Works today via `show_full_output: true`; coupled. | Working as designed. | Don't pick up. |
 
-## Stages 8 — 21
+## Stage 8 — Validate analysis
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **8-min-A** | `_load_briefing` / `_load_metrics` don't re-validate loaded JSON shape against the briefing/metrics schemas. | Stage 5 + 6 enforce these schemas at write time; re-validating at read time would be belt-and-braces. | If a non-pipeline source ever writes briefings/metrics files. |
+| **8-min-B** | `check_numbers` exclusive_vocab term comparison is exact-string + case-sensitive. | The pinned tokenizer lowercases; matches today. | If a future tokenizer change introduces case variation. |
+| **8-min-C** | `check_citations` quote check is a *substring* match, not full quote match. Agent could legitimately cite a 3-word verbatim fragment that misrepresents surrounding context. | By design — a verbatim slice is "verbatim". Editorial review catches semantic distortion; the validator catches fabrication. | Don't pick up — it's a feature, not a bug. |
+| **8-min-D** | check_schema uses `jsonschema.Draft202012Validator.iter_errors` (collect-all) where `meta.validate_schema` uses single-error raise. | Intentionally different — validate_analysis is a report-all-errors tool. Code comment added. | Don't pick up. |
+| **8-min-E** | `main()` --date default uses inline `datetime.now(timezone.utc).strftime('%Y-%m-%d')`. Same pattern as other CLIs; could be a `meta.today()` helper. | Trivial; not worth a helper for one site. | Whenever a second CLI ever needs the same expression and we haven't already DRYed it. |
+
+## Stages 9 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
