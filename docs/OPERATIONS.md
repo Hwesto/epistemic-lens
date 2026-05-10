@@ -104,7 +104,7 @@ python render_video.py video_scripts/<date>_*.json
 
 ```bash
 python feed_rot_check.py 7      # last 7 days of _health.json
-# ⇒ archive/review/rot_report_<date>.md
+# ⇒ review/rot_report_<date>.md
 git commit + push
 ```
 
@@ -177,14 +177,15 @@ When the rot report flags a feed:
 ## Adding a new country bucket
 
 1. Add `feeds.json` entry: `"countries": { "newcountry": { "label": "...", "feeds": [...] } }`
-2. Add a camera preset in `video_template/src/cameraPresets.ts`:
+2. Add a camera preset in `video/src/cameraPresets.ts`:
    ```typescript
    nc: { center: [lon, lat], zoom: 4, flag: "🇨🇨", label: "COUNTRY" }
    ```
-3. Add the country code → ISO numeric mapping in `video_template/src/components/WorldMap.tsx`
+3. Add the country code → ISO numeric mapping in `video/src/components/WorldMap.tsx`
    if you want the country shape highlighted on the map
-4. Add the regex pattern in `video_template/src/FramingVideo.tsx` `COUNTRY_FLAG_MAP`
-   so video scripts can auto-detect the country from text
+4. Add the regex tuple in `video/src/data/country-flags.ts`
+   (the `COUNTRY_FLAG_MAP`) so video scripts can auto-detect the country
+   from text
 
 ## Cost monitoring
 

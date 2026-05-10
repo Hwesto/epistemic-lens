@@ -81,10 +81,12 @@ print("=" * 78)
 print("2. SNAPSHOT HEALTH — uptime & volume across 39 days")
 print("=" * 78)
 
+# Match only canonical date-only snapshot files (e.g. 2026-05-09.json).
+# Using a positive pattern is more robust than maintaining a denylist of
+# every sidecar suffix the pipeline emits.
+_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 dates = sorted(p.stem for p in SNAPS.glob("[0-9]*.json")
-               if not any(p.stem.endswith(s) for s in
-                          ("_convergence", "_similarity", "_prompt",
-                           "_dedup", "_health", "_pull_report")))
+               if _DATE_RE.match(p.stem))
 raw = {d: json.loads((SNAPS / f"{d}.json").read_text(encoding="utf-8")) for d in dates}
 
 feed_records = defaultdict(list)  # (country_key, feed_name) -> list of dicts per day
@@ -328,13 +330,13 @@ print(f"\n  OBSERVED title scripts (across ALL items, ALL days):")
 for k, n in observed_titles.most_common():
     print(f"    {k:<18} {n}")
 
-print("\nMissing major languages entirely:")
-missing_langs = ["Spanish (es)", "German (de)", "Indonesian/Malay (id/ms)",
-                 "Vietnamese (vi)", "Thai (th)", "Tagalog (tl)",
-                 "Polish (pl)", "Ukrainian (uk)", "Swahili (sw)",
-                 "Urdu (ur)", "Pashto/Dari (ps/prs)", "Korean script in feeds (ko)"]
-for l in missing_langs:
-    print(f"  - {l}")
+print("\nLanguages observed in titles but not declared in feeds.json (per claimed):")
+declared_langs = {k.lower() for k in claimed}
+observed_langs = {k.lower() for k in observed_titles}
+for missing in sorted(observed_langs - declared_langs):
+    if missing in {"latin", "other"}:
+        continue
+    print(f"  - {missing}: {observed_titles.get(missing, 0)} title(s)")
 
 # ---------------------------------------------------------------------------
 # 6. Story-relevant gap analysis
