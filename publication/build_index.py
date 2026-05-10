@@ -95,7 +95,13 @@ def discover() -> dict[str, dict[str, set[str]]]:
 
 
 def detect_paradox(analysis_md: str) -> bool:
-    """Heuristic: the analysis declares a paradox section non-empty."""
+    """Legacy fallback: heuristic markdown scan for "paradox detected".
+
+    Only used when analysis.json is missing or unreadable (i.e. legacy
+    days before Stage 1's JSON-canonical era). Modern era always reads
+    paradox from analysis.json directly. Brittle to render wording
+    drift — kept covered by tests so changes to render_analysis_md.py
+    don't silently break this fallback."""
     text = analysis_md.lower()
     if "no paradox in this corpus" in text:
         return False
@@ -127,7 +133,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         briefing_src = BRIEFINGS / f"{date}_{key}.json"
         try:
             briefing = json.load(open(briefing_src, encoding="utf-8"))
-        except Exception as e:
+        except (json.JSONDecodeError, OSError) as e:
             print(f"  skip {key}: briefing unreadable ({e})", file=sys.stderr)
             continue
 
@@ -164,8 +170,11 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                 m = json.load(open(metrics_src, encoding="utf-8"))
                 if m.get("isolation"):
                     top_isolation = m["isolation"][0]["bucket"]
-            except Exception:
-                pass
+            except (json.JSONDecodeError, OSError, KeyError, IndexError) as e:
+                print(
+                    f"  warn {date}/{key}: metrics top-isolation derive failed ({e})",
+                    file=sys.stderr,
+                )
 
         # JSON analysis is canonical — read paradox flag from it. Markdown
         # is just the rendered presentation layer; it gets the regex
@@ -179,7 +188,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             try:
                 aj = json.load(open(analysis_json_src, encoding="utf-8"))
                 paradox = aj.get("paradox") is not None
-            except Exception as e:
+            except (json.JSONDecodeError, OSError) as e:
                 print(
                     f"  warn {date}/{key}: analysis.json unreadable ({e})",
                     file=sys.stderr,
@@ -195,8 +204,11 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                     paradox = detect_paradox(
                         analysis_md_src.read_text(encoding="utf-8")
                     )
-                except Exception:
-                    pass
+                except OSError as e:
+                    print(
+                        f"  warn {date}/{key}: paradox MD-fallback read failed ({e})",
+                        file=sys.stderr,
+                    )
 
         for fmt in ("thread", "carousel", "long"):
             src = DRAFTS / f"{date}_{key}_{fmt}.json"
@@ -209,12 +221,15 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                 draft = json.load(open(src, encoding="utf-8"))
                 validate_against_schema(draft, fmt)
                 if fmt == "long":
-                    link_errs = long_link_audit(draft)
+                    # Pass briefing in so sources[].url is verified
+                    # against the corpus, not just against body_md
+                    # (Gap 12-4 / 11-min-D carry-over).
+                    link_errs = long_link_audit(draft, briefing=briefing)
                     if link_errs:
                         raise ValueError(
                             f"{src.name} link audit failed: " + "; ".join(link_errs)
                         )
-            except Exception as e:
+            except (json.JSONDecodeError, OSError, ValueError) as e:
                 print(
                     f"  skip {date}/{key}/{fmt}: invalid draft ({e})",
                     file=sys.stderr,
@@ -318,7 +333,11 @@ def main() -> int:
     copy_web()
 
     if latest_built:
-        all_built = sorted(d for d in dates if (API / d / "index.json").exists())
+        # Read from disk, not from this invocation's dates list. Otherwise
+        # `build_index --date 2026-05-08` after an unfiltered run that
+        # built 05-09 + 05-10 would overwrite latest.json to point at the
+        # older day (Gap 12-5).
+        all_built = sorted(p.parent.name for p in API.glob("*/index.json"))
         latest = all_built[-1] if all_built else latest_built
         latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
         (API / "latest.json").write_text(

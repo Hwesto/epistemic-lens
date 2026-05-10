@@ -1535,6 +1535,190 @@ class TestStampLongDrafts(unittest.TestCase):
             self.assertEqual(p.stat().st_mtime, mtime_before)
 
 
+class TestBuildIndex(unittest.TestCase):
+    """publication/build_index.py: api/ tree assembly (Gap 12-1).
+
+    Uses unittest.mock.patch on the module-level path constants so each
+    test runs against a fresh temp directory without touching the real
+    repo's api/, briefings/, analyses/, drafts/.
+    """
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        if "publication.build_index" in sys.modules:
+            importlib.reload(sys.modules["publication.build_index"])
+        from publication import build_index
+        self.bi = build_index
+
+    def _briefing(self, date: str, key: str) -> dict:
+        return {
+            "meta_version": "2.5.0", "story_key": key, "story_title": "Test Story",
+            "date": date, "n_buckets": 6, "n_articles": 12,
+            "corpus": [
+                {"bucket": "italy", "feed": "ANSA", "lang": "it",
+                 "title": "x", "link": "https://ansa.it/a", "signal_level": "summary",
+                 "signal_text": "guerra"},
+                {"bucket": "usa", "feed": "AP", "lang": "en",
+                 "title": "y", "link": "https://ap.org/b", "signal_level": "summary",
+                 "signal_text": "deal"},
+            ],
+        }
+
+    def _setup_tmp(self, td: Path):
+        """Wire build_index's module-level paths to a temp tree."""
+        from unittest.mock import patch
+        for sub in ("briefings", "analyses", "drafts", "api",
+                    "docs/api/schema", "web"):
+            (td / sub).mkdir(parents=True, exist_ok=True)
+        # Copy real schemas so copy_schemas() works.
+        import shutil
+        for s in (Path(__file__).parent / "docs/api/schema").glob("*.json"):
+            shutil.copy2(s, td / "docs/api/schema" / s.name)
+        return patch.multiple(
+            self.bi,
+            BRIEFINGS=td / "briefings",
+            ANALYSES=td / "analyses",
+            DRAFTS=td / "drafts",
+            API=td / "api",
+            SCHEMAS_SRC=td / "docs/api/schema",
+            WEB_SRC=td / "web",
+        )
+
+    def test_skip_story_without_briefing(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            with self._setup_tmp(td), patch.object(sys, "argv", ["build_index"]):
+                # Analysis present but no briefing.
+                (td / "analyses/2026-05-08_orphan.md").write_text("# x")
+                rc = self.bi.main()
+                self.assertEqual(rc, 0)
+                # No api/<date>/<key>/ should exist.
+                self.assertFalse((td / "api/2026-05-08/orphan").exists())
+
+    def test_happy_path_publishes_all_artifacts(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            with self._setup_tmp(td), patch.object(sys, "argv", ["build_index"]):
+                date, key = "2026-05-08", "test_story"
+                briefing = self._briefing(date, key)
+                (td / f"briefings/{date}_{key}.json").write_text(
+                    json.dumps(briefing))
+                (td / f"analyses/{date}_{key}.md").write_text(
+                    "# Test Story\n\n## Paradox\n\n_No paradox in this corpus._")
+                rc = self.bi.main()
+                self.assertEqual(rc, 0)
+                story_dir = td / f"api/{date}/{key}"
+                self.assertTrue((story_dir / "briefing.json").exists())
+                self.assertTrue((story_dir / "analysis.md").exists())
+                idx = json.loads((td / f"api/{date}/index.json").read_text())
+                self.assertEqual(idx["n_stories"], 1)
+                self.assertEqual(idx["stories"][0]["key"], key)
+                # paradox=False from the sentinel.
+                self.assertEqual(idx["stories"][0]["paradox"], False)
+                # latest.json points at this date.
+                latest = json.loads((td / "api/latest.json").read_text())
+                self.assertEqual(latest["date"], date)
+
+    def test_invalid_draft_skipped_others_published(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            with self._setup_tmp(td), patch.object(sys, "argv", ["build_index"]):
+                date, key = "2026-05-08", "test_story"
+                (td / f"briefings/{date}_{key}.json").write_text(
+                    json.dumps(self._briefing(date, key)))
+                (td / f"analyses/{date}_{key}.md").write_text("# x")
+                # Schema-invalid thread (missing required fields).
+                (td / f"drafts/{date}_{key}_thread.json").write_text(
+                    json.dumps({"not": "a valid thread"}))
+                rc = self.bi.main()
+                self.assertEqual(rc, 0)
+                # Bad thread not copied.
+                self.assertFalse(
+                    (td / f"api/{date}/{key}/thread.json").exists())
+                # Briefing + analysis still published.
+                self.assertTrue(
+                    (td / f"api/{date}/{key}/briefing.json").exists())
+                self.assertTrue(
+                    (td / f"api/{date}/{key}/analysis.md").exists())
+
+    def test_latest_reads_from_disk_not_invocation(self):
+        """Gap 12-5: running --date 2026-05-08 after older + newer days
+        already on disk must NOT overwrite latest.json to point backward."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            with self._setup_tmp(td):
+                # Pre-existing api/ tree for two newer dates.
+                for d in ("2026-05-09", "2026-05-10"):
+                    (td / f"api/{d}").mkdir(parents=True)
+                    (td / f"api/{d}/index.json").write_text(json.dumps({
+                        "date": d, "n_stories": 1, "stories": [{"key": "x"}],
+                        "generated_at": "2026-05-10T00:00:00Z",
+                    }))
+                # Now invoke for the OLDER date with sources on disk.
+                date, key = "2026-05-08", "older"
+                (td / f"briefings/{date}_{key}.json").write_text(
+                    json.dumps(self._briefing(date, key)))
+                from unittest.mock import patch
+                with patch.object(sys, "argv",
+                                  ["build_index", "--date", date]):
+                    rc = self.bi.main()
+                self.assertEqual(rc, 0)
+                latest = json.loads((td / "api/latest.json").read_text())
+                # latest must NOT have moved backward to 2026-05-08.
+                self.assertEqual(latest["date"], "2026-05-10",
+                                 f"latest.json regressed to {latest['date']}")
+
+    def test_detect_paradox_sentinels(self):
+        """Gap 12-2: legacy fallback regex must keep recognising both
+        sentinels render_analysis_md emits."""
+        self.assertFalse(self.bi.detect_paradox(
+            "## Paradox\n\n_No paradox in this corpus._"))
+        self.assertFalse(self.bi.detect_paradox(
+            "## Paradox\n(none in this corpus)"))
+        self.assertTrue(self.bi.detect_paradox(
+            "## Paradox\n\nPressTV said X; Iran Intl said Y."))
+
+
+class TestLongLinkAuditCorpus(unittest.TestCase):
+    """_shared.long_link_audit extended sources->corpus URL check
+    (Gap 12-4 / 11-min-D carry-over)."""
+
+    def setUp(self):
+        if "publication._shared" in sys.modules:
+            importlib.reload(sys.modules["publication._shared"])
+        from publication import _shared
+        self.shared = _shared
+
+    def test_audit_passes_without_briefing(self):
+        draft = {
+            "body_md": "See [ANSA](https://ansa.it/a).",
+            "sources": [{"bucket": "italy", "url": "https://ansa.it/a"}],
+        }
+        self.assertEqual(self.shared.long_link_audit(draft), [])
+
+    def test_audit_flags_fabricated_source_with_briefing(self):
+        draft = {
+            "body_md": "See [ANSA](https://ansa.it/a) and [Fake](https://fake.example/x).",
+            "sources": [
+                {"bucket": "italy", "url": "https://ansa.it/a"},
+                {"bucket": "x", "url": "https://fake.example/x"},
+            ],
+        }
+        briefing = {"corpus": [
+            {"link": "https://ansa.it/a", "bucket": "italy"},
+        ]}
+        errs = self.shared.long_link_audit(draft, briefing=briefing)
+        self.assertTrue(any("fake.example" in e and "fabricated" in e for e in errs))
+        # The legit ANSA source must NOT be flagged.
+        self.assertFalse(any("ansa.it" in e for e in errs))
+
+
 class TestLongSchemaTightening(unittest.TestCase):
     """long.schema.json: body_md.minLength tightened from 200 to 2500
     (Gap 11-3) to enforce the prompt's 600-word floor."""

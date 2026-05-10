@@ -94,9 +94,17 @@ def pick_hero(analysis: dict) -> dict:
 _MD_LINK_RE = re.compile(r"\[[^\]]+\]\((https?://[^)\s]+)\)")
 
 
-def long_link_audit(draft: dict) -> list[str]:
-    """Return a list of error strings for any inline link in body_md whose
-    URL doesn't appear in sources[]. Empty list = clean."""
+def long_link_audit(draft: dict, briefing: dict | None = None) -> list[str]:
+    """Return a list of error strings for citation drift in a long-form draft.
+
+    Checks (in order):
+      1. Every inline link in body_md must appear in sources[].
+      2. If briefing supplied: every sources[].url must appear in the
+         briefing's corpus[].link. Catches fabricated URLs that are
+         self-consistent within the draft (cited in body and listed in
+         sources) but never actually came from the source material.
+
+    Empty list = clean."""
     body = draft.get("body_md", "")
     sources: Iterable[dict] = draft.get("sources") or []
     declared = {s.get("url") for s in sources if s.get("url")}
@@ -104,4 +112,18 @@ def long_link_audit(draft: dict) -> list[str]:
     for url in _MD_LINK_RE.findall(body):
         if url not in declared:
             errors.append(f"link {url!r} in body_md is not in sources[]")
+
+    if briefing is not None:
+        corpus_urls = {
+            c.get("link") for c in (briefing.get("corpus") or [])
+            if c.get("link")
+        }
+        for s in sources:
+            url = s.get("url")
+            if url and url not in corpus_urls:
+                errors.append(
+                    f"sources[] url {url!r} is not in briefing corpus[].link "
+                    f"(fabricated or off-corpus)"
+                )
+
     return errors
