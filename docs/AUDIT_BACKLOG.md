@@ -29,7 +29,16 @@ parked.
 | **1-9** | `_embed_text` is computed in `_annotate_item` and stripped before the snapshot is persisted (lines 261 & 547–550). The "skip stubs" decision and title-fallback rule live only inline; nothing documents the contract or asserts it on a frozen snapshot. | Behaviour is correct today; the cost is cognitive (a future maintainer wonders why `_embed_text` exists in memory but not on disk). | When re-clustering an old snapshot becomes a feature, or whenever `_annotate_item` is next touched. Fix: one-line module docstring describing the ephemeral contract, plus a test fixing the rule on a known item. |
 | **1-min** | `feeds.json:meta.version` (currently `"0.5.0"`) is stamped onto each snapshot as `config_version`, separate from `meta_version`. Two version fields with similar names; easy to confuse. | Both are real and serve different jobs (feeds-roster version vs methodology version), so renaming is non-trivial. | Whenever the feeds roster is next significantly restructured. Consider renaming `config_version` → `feeds_version` on snapshots; methodology bump if it changes the snapshot contract. |
 
-## Stages 2 — 21
+## Stage 2 — Extract full text
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **2-min-A** | `trafilatura.extract` has no per-call timeout. The HTTP fetch is bounded by `EXTRACT_TIMEOUT=15s`, but the body parser itself can in principle deadlock on pathological HTML. Today the only ceiling is daily.yml's `timeout-minutes: 30`. | Cheap mitigation isn't obvious — would need `signal.alarm` (Unix-only, fragile under threads) or a `ProcessPoolExecutor` (heavy). Hasn't bitten in production. | If the cron starts hitting the 30-min wall, or if a runaway `trafilatura.extract` is suspected. Fix: per-task `Future.result(timeout=…)` cancel + thread-kill is unreliable; switching to a `ProcessPoolExecutor` is the real fix. |
+| **2-min-B** | No way to force re-extraction of an item already classified `FULL` / `PARTIAL` / `STUB` / `SKIPPED`. The idempotent skip is correct daily-flow behaviour but blocks "refresh yesterday's bodies" workflows. | Not a daily-flow concern. | When backfill becomes a feature. Fix: `EXTRACT_FORCE=1` env (or `--force-status FULL,PARTIAL`) that clears `extraction_status` before `select_items` runs. |
+| **2-min-C** | `body_chars` records the full extracted body length while `body_text` is truncated to `max_body_chars=4000`. Two consumers reading the snapshot could get inconsistent results if they assume `len(body_text) == body_chars`. | Working as designed (we cap storage but want the true length for `classify`). Today nothing assumes equality. | When a downstream consumer needs the full body. Fix: bump `max_body_chars` (storage cost) or add a separate `body_text_full` field gated behind a flag. Not urgent. |
+| **2-min-D** | The 8 per-item annotation fields written by `extract_one` (`extraction_status`, `body_text`, `body_chars`, `extraction_ms`, `extraction_http`, `extraction_final_url`, `extraction_via_wayback`, `extraction_error`) have no JSON Schema. Stage 4 / Stage 5 read them by name. A typo anywhere surfaces as a silent default. | Same root cause as the snapshot's overall lack of a schema; fixing one annotation set alone would be inconsistent. | When a snapshot-shape schema is added (likely as part of a broader Stage 1 / Stage 2 hand-off contract review). |
+
+## Stages 3 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
