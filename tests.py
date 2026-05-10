@@ -894,7 +894,7 @@ class TestMethodologyPin(unittest.TestCase):
 
 
 class TestAnalysisSchemaAndRender(unittest.TestCase):
-    """Phase 1: analysis.schema.json + render_analysis_md.py round-trip."""
+    """analysis.schema.json + render_analysis_md.py round-trip."""
 
     def setUp(self):
         import json as _json
@@ -1002,6 +1002,50 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("Both treat the deal as accomplished", md)
         self.assertIn("future tariff", md)
         self.assertIn("farmers starving", md)
+
+    def test_render_one_raises_on_corrupt_json(self):
+        """Gap 9-2: corrupt JSON surfaces as a typed RenderError, not a
+        bare json.JSONDecodeError, so main() can catch + isolate it."""
+        import tempfile
+        if "publication.render_analysis_md" in sys.modules:
+            importlib.reload(sys.modules["publication.render_analysis_md"])
+        from publication import render_analysis_md
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            f.write("{ not valid json ::: ")
+            corrupt_path = Path(f.name)
+        try:
+            with self.assertRaises(render_analysis_md.RenderError) as ctx:
+                render_analysis_md.render_one(corrupt_path)
+            self.assertIn("corrupt JSON", str(ctx.exception))
+        finally:
+            corrupt_path.unlink(missing_ok=True)
+
+    def test_main_isolates_per_file_failures(self):
+        """Gap 9-1: one bad analysis must not block the others. Good file
+        renders to disk; bad file is reported; exit code reflects failure."""
+        import tempfile
+        from unittest.mock import patch
+        if "publication.render_analysis_md" in sys.modules:
+            importlib.reload(sys.modules["publication.render_analysis_md"])
+        from publication import render_analysis_md
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            good = tdp / "2026-05-08_good.json"
+            bad = tdp / "2026-05-08_bad.json"
+            good.write_text(json.dumps(self.minimal), encoding="utf-8")
+            bad.write_text("{ corrupt ::: ", encoding="utf-8")
+            with patch.object(
+                sys, "argv",
+                ["render_analysis_md", str(good), str(bad)],
+            ):
+                rc = render_analysis_md.main()
+            self.assertEqual(rc, 1, "exit code should reflect at least one failure")
+            self.assertTrue(good.with_suffix(".md").exists(),
+                            "good file must still be rendered when sibling fails")
+            self.assertFalse(bad.with_suffix(".md").exists(),
+                             "bad file must not produce a .md")
 
 
 class TestTemplateRenderers(unittest.TestCase):

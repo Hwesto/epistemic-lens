@@ -40,7 +40,7 @@ def render(a: dict) -> str:
     out.append(f"**Coverage:** {a['n_buckets']} buckets, {a['n_articles']} articles  ")
     if a.get("model"):
         out.append(f"**Model:** `{a['model']}`  ")
-    out.append(f"**Methodology pin:** `meta_version {a.get('meta_version', '?')}`  ")
+    out.append(f"**Methodology pin:** `meta_version {a['meta_version']}`  ")
     out.append("")
     out.append("---")
     out.append("")
@@ -148,8 +148,19 @@ def render(a: dict) -> str:
     return "\n".join(out)
 
 
+class RenderError(Exception):
+    """Raised by render_one for per-file failures (corrupt JSON, schema
+    rejection, unreadable file). main() catches these so one bad analysis
+    doesn't block the others."""
+
+
 def render_one(json_path: Path) -> Path:
-    a = json.loads(json_path.read_text(encoding="utf-8"))
+    try:
+        a = json.loads(json_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise RenderError(f"corrupt JSON: {e}") from e
+    except OSError as e:
+        raise RenderError(f"unreadable: {e}") from e
     validate_against_schema(a, "analysis")
     md = render(a)
     md_path = json_path.with_suffix(".md")
@@ -174,17 +185,28 @@ def main() -> int:
             print(f"No JSON analyses found for {date}.")
             return 0
 
+    n_failed = 0
     for t in targets:
         if not t.exists():
-            print(f"  skip: {t} not found", file=sys.stderr)
+            print(f"  FAIL  {t.name}: not found", file=sys.stderr)
+            n_failed += 1
             continue
         if t.suffix != ".json":
-            print(f"  skip: {t} is not .json", file=sys.stderr)
+            print(f"  FAIL  {t.name}: not a .json file", file=sys.stderr)
+            n_failed += 1
             continue
-        out = render_one(t)
-        print(f"  + {t.name:<48} -> {out.name}")
+        try:
+            out = render_one(t)
+        except (RenderError, ValueError, KeyError) as e:
+            print(f"  FAIL  {t.name}: {e}", file=sys.stderr)
+            n_failed += 1
+            continue
+        print(f"  +  {t.name:<48} -> {out.name}")
 
-    return 0
+    if n_failed:
+        print(f"\n{n_failed} render failure(s) across {len(targets)} file(s).",
+              file=sys.stderr)
+    return 1 if n_failed else 0
 
 
 if __name__ == "__main__":
