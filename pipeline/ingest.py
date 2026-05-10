@@ -81,11 +81,15 @@ _host_last_fetch: dict[str, float] = {}
 
 def _wait_for_host(host: str):
     with _host_lock:
+        now = time.time()
         last = _host_last_fetch.get(host, 0)
-        wait = (last + PER_HOST_DELAY) - time.time()
-        if wait > 0:
-            time.sleep(wait)
-        _host_last_fetch[host] = time.time()
+        wait = max(0.0, (last + PER_HOST_DELAY) - now)
+        # Reserve our slot so concurrent callers for the *same* host queue
+        # behind us. Sleep happens outside the lock, so threads fetching
+        # *other* hosts aren't blocked by our wait.
+        _host_last_fetch[host] = now + wait
+    if wait > 0:
+        time.sleep(wait)
 
 
 def _strip_html(s: str) -> str:
@@ -252,7 +256,7 @@ def _annotate_item(it: dict, now: datetime) -> dict:
         "link": link,
         "summary": summary,
         "published": it.get("published", ""),
-        "id": hashlib.md5((title + link).encode("utf-8", "ignore")).hexdigest()[:8],
+        "id": hashlib.md5((title + link).encode("utf-8", "ignore")).hexdigest()[:12],
         "summary_chars": len(summary),
         "is_stub": is_stub,
         "is_google_news": is_gn,
@@ -378,15 +382,19 @@ def cluster_topics(vectors,
         eps = float(meta.CLUSTERING["eps"])
     if min_samples is None:
         min_samples = int(meta.CLUSTERING["min_samples"])
-    dist = 1 - cosine_similarity(vectors)
-    dist = np.maximum(dist, 0)
-    labels = DBSCAN(eps=eps, min_samples=min_samples, metric="precomputed").fit_predict(dist)
+    # Stream cosine distance via sklearn's NearestNeighbors-backed DBSCAN
+    # instead of materialising a full N×N matrix. Same algorithm + same
+    # parameters; memory drops from O(n²) to ~O(n). At N=12k, the previous
+    # precomputed matrix was ~1.1 GB.
+    labels = DBSCAN(eps=eps, min_samples=min_samples,
+                    metric="cosine").fit_predict(vectors)
     n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
     print(f"Found {n_clusters} clusters, {list(labels).count(-1)} noise")
     return labels
 
 
 def compute_convergence(labels, vectors, all_meta):
+    rep_bucket = meta.CLUSTERING.get("representative_bucket", "wire_services")
     clusters = {}
     for idx, label in enumerate(labels):
         if label == -1:
@@ -398,7 +406,7 @@ def compute_convergence(labels, vectors, all_meta):
         cluster_vecs = vectors[idxs]
         mean_sim = float(np.mean(cosine_similarity(cluster_vecs)))
         countries = set(a["country"] for a in articles)
-        wire = [a for a in articles if a["country"] == "wire_services"]
+        wire = [a for a in articles if a["country"] == rep_bucket]
         rep = wire[0]["title"] if wire else articles[0]["title"]
         results.append({
             "cluster_id": int(label), "representative_title": rep,
@@ -423,53 +431,6 @@ def compute_similarity_matrix(vectors, all_meta):
     centroids = np.array([np.mean(feed_vecs[k], axis=0) for k in names])
     sim = cosine_similarity(centroids)
     return {"feeds": names, "matrix": [[round(float(v), 3) for v in row] for row in sim]}
-
-
-def generate_prompt(snapshot, convergence, similarity):
-    date = snapshot["date"]
-    lines = [f"# Epistemic Lens - {date}\n"]
-    lines.append("## HEADLINES BY COUNTRY\n")
-    for cdata in snapshot["countries"].values():
-        lines.append(f"### {cdata['label']}")
-        for feed in cdata["feeds"]:
-            lines.append(f"**{feed['name']}** ({feed.get('lang','en')}) - {feed.get('lean','')}")
-            for item in feed.get("items", [])[:7]:
-                lines.append(f"- {item['title']}")
-            lines.append("")
-    if convergence:
-        lines.append("## SHARED STORIES (auto-detected cross-lingual clusters)\n")
-        for c in convergence[:10]:
-            lines.append(f"### {c['representative_title']}")
-            lines.append(f"{c['country_count']} countries, {c['article_count']} articles, similarity: {c['mean_similarity']}")
-            for a in c["articles"]:
-                lines.append(f"  - [{a['lang']}] {a['feed']}: {a['title']}")
-            lines.append("")
-    if similarity:
-        lines.append("## NEWSPAPER SIMILARITY (top pairs)\n")
-        feeds = similarity["feeds"]
-        pairs = []
-        for i in range(len(feeds)):
-            for j in range(i + 1, len(feeds)):
-                pairs.append((feeds[i], feeds[j], similarity["matrix"][i][j]))
-        pairs.sort(key=lambda x: x[2], reverse=True)
-        lines.append("Most similar (echo chambers):")
-        for a, b, s in pairs[:10]:
-            lines.append(f"  {s:.3f} | {a} <-> {b}")
-        lines.append("\nMost different (epistemic gaps):")
-        pairs.sort(key=lambda x: x[2])
-        for a, b, s in pairs[:10]:
-            lines.append(f"  {s:.3f} | {a} <-> {b}")
-    lines.extend([
-        "\n## ANALYSIS TASK",
-        "1. For shared stories: how does each outlet frame it?",
-        "2. What does each outlet CALL the event?",
-        "3. Which countries ABSENT from major stories?",
-        "4. Claims converging across adversarial sources = likely facts",
-        "5. Claims in only one bloc = likely spin",
-        "6. Any outlet behaving unusually?",
-        "7. Produce: Claim | Sources agree | Sources contradict | Confidence",
-    ])
-    return "\n".join(lines)
 
 
 def write_pull_report(snapshot: dict, output_dir: Path):
@@ -515,6 +476,25 @@ def write_pull_report(snapshot: dict, output_dir: Path):
     (output_dir / f"{snapshot['date']}_pull_report.md").write_text("\n".join(md))
 
 
+def _validate_feeds_config(config: dict) -> None:
+    """Fail fast on a malformed feeds.json. Without this, a missing 'url'
+    or duplicate feed name surfaces as a KeyError mid-fetch."""
+    import jsonschema
+    schema_path = meta.REPO_ROOT / "docs" / "api" / "schema" / "feeds.schema.json"
+    schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    try:
+        jsonschema.validate(instance=config, schema=schema)
+    except jsonschema.ValidationError as e:
+        path = "/".join(str(p) for p in e.absolute_path) or "<root>"
+        sys.exit(f"feeds.json failed schema validation at {path}: {e.message}")
+    # Schema can't express "feed names unique within a bucket"; check here.
+    for ckey, cval in config["countries"].items():
+        names = [f["name"] for f in cval["feeds"]]
+        if len(names) != len(set(names)):
+            dupes = sorted({n for n in names if names.count(n) > 1})
+            sys.exit(f"feeds.json: duplicate feed names in bucket '{ckey}': {dupes}")
+
+
 if __name__ == "__main__":
     print("=" * 60)
     print("EPISTEMIC LENS v0.4")
@@ -523,6 +503,7 @@ if __name__ == "__main__":
 
     with open(FEEDS_CONFIG, encoding="utf-8") as f:
         config = json.load(f)
+    _validate_feeds_config(config)
 
     snapshot = pull_all(config)
     out_dir = Path(OUTPUT_DIR)
@@ -555,10 +536,6 @@ if __name__ == "__main__":
             (out_dir / f"{d}{name}.json").write_text(
                 json.dumps(data, indent=2, ensure_ascii=False)
             )
-
-    if convergence and similarity:
-        prompt = generate_prompt(snapshot, convergence, similarity)
-        (out_dir / f"{d}_prompt.md").write_text(prompt)
 
     write_pull_report(snapshot, out_dir)
 
