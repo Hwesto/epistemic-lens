@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """render_thread.py — template-based thread draft from a JSON analysis.
 
-Phase 3: drafts that don't need free-form prose are deterministic
-templates over the canonical analysis JSON. No LLM call.
+Drafts that don't need free-form prose are deterministic templates
+over the canonical analysis JSON. No LLM call.
 
 For each `analyses/<DATE>_<story_key>.json`, produces
 `drafts/<DATE>_<story_key>_thread.json` conforming to
@@ -201,8 +201,19 @@ def render(a: dict, briefing: dict) -> dict:
     return meta.stamp(out)
 
 
+class RenderError(Exception):
+    """Raised by render_one for per-file failures (corrupt JSON, schema
+    rejection, unreadable file). main() catches these so one bad analysis
+    doesn't block the others."""
+
+
 def render_one(json_path: Path) -> Path:
-    a = json.loads(json_path.read_text(encoding="utf-8"))
+    try:
+        a = json.loads(json_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise RenderError(f"corrupt JSON: {e}") from e
+    except OSError as e:
+        raise RenderError(f"unreadable: {e}") from e
     briefing = _load_briefing(a["date"], a["story_key"])
     draft = render(a, briefing)
     validate_against_schema(draft, "thread")
@@ -228,12 +239,24 @@ def main() -> int:
         print("No analyses to render threads from.")
         return 0
 
+    n_failed = 0
     for t in targets:
         if t.suffix != ".json":
+            print(f"  FAIL  {t.name}: not a .json file", file=sys.stderr)
+            n_failed += 1
             continue
-        out = render_one(t)
-        print(f"  + {t.name:<48} -> {out.name}")
-    return 0
+        try:
+            out = render_one(t)
+        except (RenderError, ValueError, KeyError) as e:
+            print(f"  FAIL  {t.name}: {e}", file=sys.stderr)
+            n_failed += 1
+            continue
+        print(f"  +  {t.name:<48} -> {out.name}")
+
+    if n_failed:
+        print(f"\n{n_failed} render failure(s) across {len(targets)} file(s).",
+              file=sys.stderr)
+    return 1 if n_failed else 0
 
 
 if __name__ == "__main__":

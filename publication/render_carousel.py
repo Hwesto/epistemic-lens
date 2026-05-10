@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """render_carousel.py — template-based carousel draft from a JSON analysis.
 
-Phase 3 sibling of render_thread.py. Slide-deck format suitable for
-Instagram / LinkedIn / TikTok-still rendering. Deterministic Python; no LLM.
+Sibling of render_thread.py. Slide-deck format suitable for Instagram /
+LinkedIn / TikTok-still rendering. Deterministic Python; no LLM.
 
 Slide order (variable; only the title slide is mandatory):
   1. Title (n_buckets, n_articles, story_title)
@@ -139,6 +139,7 @@ def render(a: dict, briefing: dict) -> dict:
     slides: list[dict] = [_title_slide(a)]
 
     h = _hook_slide(a, briefing)
+    hook_was_paradox = h is not None and h.get("kind") == "paradox"
     if h:
         slides.append(h)
 
@@ -150,19 +151,25 @@ def render(a: dict, briefing: dict) -> dict:
         if s:
             slides.append(s)
 
-    # Silence (only if hook wasn't already a paradox covering similar ground)
+    # Silence — preferred unless the hook already led on the paradox
+    # angle AND we're tight on slots. Equivalent to the original two-
+    # branch logic, but reads as one expression and doesn't index into
+    # slides[1] (which would IndexError if hook was None and frames
+    # was empty — unreachable today, but fragile).
     sil = _silence_slide(a.get("silences") or [])
-    if sil and slides[1].get("kind") != "paradox":
-        slides.append(sil)
-    elif sil and len(slides) < 9:
+    if sil and (not hook_was_paradox or len(slides) < 9):
         slides.append(sil)
 
+    # Schema requires 4..10 slides. Trim the BODY to 9 first, then
+    # append the closing CTA — so the closing is never the slide that
+    # gets dropped when we exceed the cap.
+    slides = slides[:9]
     slides.append(_closing_slide())
 
-    # Schema requires 4..10 slides.
-    slides = slides[:10]
     if len(slides) < 4:
-        # Pad with a metric callout if we're under the floor.
+        # Floor protection: pad with a metric callout if we're under
+        # schema's minItems=4. Unreachable today (frames.minItems=2
+        # guarantees ≥4), but kept for defence in depth.
         iso = a.get("isolation_top") or []
         if iso:
             top = iso[0]
@@ -185,8 +192,19 @@ def render(a: dict, briefing: dict) -> dict:
     return meta.stamp(out)
 
 
+class RenderError(Exception):
+    """Raised by render_one for per-file failures (corrupt JSON, schema
+    rejection, unreadable file). main() catches these so one bad analysis
+    doesn't block the others."""
+
+
 def render_one(json_path: Path) -> Path:
-    a = json.loads(json_path.read_text(encoding="utf-8"))
+    try:
+        a = json.loads(json_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise RenderError(f"corrupt JSON: {e}") from e
+    except OSError as e:
+        raise RenderError(f"unreadable: {e}") from e
     briefing = _load_briefing(a["date"], a["story_key"])
     draft = render(a, briefing)
     validate_against_schema(draft, "carousel")
@@ -210,12 +228,24 @@ def main() -> int:
         print("No analyses to render carousels from.")
         return 0
 
+    n_failed = 0
     for t in targets:
         if t.suffix != ".json":
+            print(f"  FAIL  {t.name}: not a .json file", file=sys.stderr)
+            n_failed += 1
             continue
-        out = render_one(t)
-        print(f"  + {t.name:<48} -> {out.name}")
-    return 0
+        try:
+            out = render_one(t)
+        except (RenderError, ValueError, KeyError) as e:
+            print(f"  FAIL  {t.name}: {e}", file=sys.stderr)
+            n_failed += 1
+            continue
+        print(f"  +  {t.name:<48} -> {out.name}")
+
+    if n_failed:
+        print(f"\n{n_failed} render failure(s) across {len(targets)} file(s).",
+              file=sys.stderr)
+    return 1 if n_failed else 0
 
 
 if __name__ == "__main__":

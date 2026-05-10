@@ -1049,7 +1049,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
 
 
 class TestTemplateRenderers(unittest.TestCase):
-    """Phase 3: template-based thread + carousel renderers (no LLM)."""
+    """Template-based thread + carousel renderers (no LLM)."""
 
     def setUp(self):
         try:
@@ -1164,6 +1164,61 @@ class TestTemplateRenderers(unittest.TestCase):
         import meta as _meta
         out = render_carousel.render(self.analysis, self.briefing)
         self.assertEqual(out.get("meta_version"), _meta.VERSION)
+
+    def test_thread_render_one_raises_on_corrupt_json(self):
+        """Gap 10-2: corrupt JSON surfaces as typed RenderError."""
+        import tempfile
+        if "publication.render_thread" in sys.modules:
+            importlib.reload(sys.modules["publication.render_thread"])
+        from publication import render_thread
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            f.write("{ not valid json ::: ")
+            corrupt_path = Path(f.name)
+        try:
+            with self.assertRaises(render_thread.RenderError) as ctx:
+                render_thread.render_one(corrupt_path)
+            self.assertIn("corrupt JSON", str(ctx.exception))
+        finally:
+            corrupt_path.unlink(missing_ok=True)
+
+    def test_carousel_render_one_raises_on_corrupt_json(self):
+        """Gap 10-2: corrupt JSON surfaces as typed RenderError."""
+        import tempfile
+        if "publication.render_carousel" in sys.modules:
+            importlib.reload(sys.modules["publication.render_carousel"])
+        from publication import render_carousel
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".json", delete=False, encoding="utf-8"
+        ) as f:
+            f.write("{ not valid json ::: ")
+            corrupt_path = Path(f.name)
+        try:
+            with self.assertRaises(render_carousel.RenderError) as ctx:
+                render_carousel.render_one(corrupt_path)
+            self.assertIn("corrupt JSON", str(ctx.exception))
+        finally:
+            corrupt_path.unlink(missing_ok=True)
+
+    def test_carousel_closing_survives_when_full(self):
+        """Gap 10-4: closing CTA must never be the slide dropped by the
+        slides[:9]+append trim, even when body slides max out."""
+        if "publication.render_carousel" in sys.modules:
+            importlib.reload(sys.modules["publication.render_carousel"])
+        from publication import render_carousel
+        # Inflate the analysis with extra frames so the body fills up.
+        loaded = dict(self.analysis)
+        loaded["frames"] = self.analysis["frames"] + [
+            {"label": f"FRAME_{i}", "buckets": ["x"],
+             "evidence": [{"bucket": "x", "quote": f"q{i}",
+                           "signal_text_idx": 0}]}
+            for i in range(6)
+        ]
+        out = render_carousel.render(loaded, self.briefing)
+        # Last slide must always be the closing callout.
+        self.assertEqual(out["slides"][-1]["kind"], "callout")
+        self.assertEqual(out["slides"][-1]["title"], "Daily framings")
 
 
 class TestValidateAnalysis(unittest.TestCase):
