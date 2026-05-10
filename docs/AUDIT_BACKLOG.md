@@ -103,7 +103,17 @@ references the deleted stage:
 | **8-min-D** | check_schema uses `jsonschema.Draft202012Validator.iter_errors` (collect-all) where `meta.validate_schema` uses single-error raise. | Intentionally different — validate_analysis is a report-all-errors tool. Code comment added. | Don't pick up. |
 | **8-min-E** | `main()` --date default uses inline `datetime.now(timezone.utc).strftime('%Y-%m-%d')`. Same pattern as other CLIs; could be a `meta.today()` helper. | Trivial; not worth a helper for one site. | Whenever a second CLI ever needs the same expression and we haven't already DRYed it. |
 
-## Stages 9 — 21
+## Stage 9 — Render MD
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **9-min-A** | Header field order is `Date / Story key / Coverage / Model / Methodology pin`. The pin is most relevant for longitudinal review and arguably should be more prominent. | Editorial preference; touching it changes every published .md and risks downstream parsers in `build_index.py` / `web/app.js`. | If we ever revisit the public-facing MD format end-to-end. |
+| **9-min-B** | The footer template string (L141-145 of render_analysis_md.py) is inline, duplicated on every render. | Only one site; extracting to a constant gains nothing today. | If we ever want to change the wording. |
+| **9-min-C** | `render()` is called unconditionally even when `frames` is empty. Schema currently requires `minItems: 2` (Stage 7 tightening), so unreachable today. | Defensive code without a real failure mode. | If schema's `minItems` floor on frames is ever loosened. |
+| **9-min-D** | `**Model:** {a['model']}` displays the model name from the analysis JSON. If `restamp_analyses.py` (Stage 7) restamps `meta_version` without also restamping `model`, the two could drift. | Currently restamp only touches meta_version; model stays consistent because restamp leaves it alone. | If restamp ever gains the ability to rewrite other fields. |
+| **9-min-E** | The `## Paradox` section header always renders, even when paradox is None (it prints `_No paradox in this corpus._`). | By design — explicit absence is more useful than silent omission for editorial review. | Don't pick up. |
+
+## Stages 10 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
