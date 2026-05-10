@@ -135,7 +135,19 @@ references the deleted stage:
 | **11-min-E** | The 6 backfilled long drafts now carry `meta_version: 2.5.0`, but they were actually written under earlier pins (probably 2.4.0 or lower). The "true" era is lost. | Honest acknowledgement: stamps reflect the pin under which the artifact was last stamped, not the pin under which it was originally written. Same convention as restamp_analyses. | Don't pick up — this is the accepted semantics. |
 | **11-min-F** | The validator at `daily.yml:344-368` only validates EXISTING draft files; if the agent writes ZERO long drafts (silent failure), no error trips. | More an analyze-pipeline concern than long-form specifically. | Stage 19 (CI workflows). |
 
-## Stages 12 — 21
+## Stage 12 — build_index.py
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **12-min-A** | Two regexes for parsing the `YYYY-MM-DD_<key>[_kind]` filename pattern (L57 + L88). Could unify. | Stylistic. | If a third caller ever needs the same parse. |
+| **12-min-B** | `copy_web()` copies only top-level files in `web/`, silently dropping subdirectories. | `web/` currently has only flat files; not a real failure mode today. | If we ever add `web/img/`, `web/js/`, etc. |
+| **12-min-C** | `extract_title` uses `or` chaining; empty string `""` falls through to next fallback. | Probably intentional — empty IS "no title". | Don't pick up. |
+| **12-min-D** | `api/latest.json` empty-day fallback omits the `url` field that the happy-path version includes. Frontend may default-handle this, or may crash. | No reported frontend issue; Stage 13 review is the right place to check. | Stage 13 (web). |
+| **12-min-E** | `main()` always returns 0 even when no stories were built. Workflow then publishes an empty/stale index instead of failing the deploy. | Defensible — don't break Pages on a bad day. | If editorial decides to fail-loud on empty days. |
+| **12-min-F** | No `index.schema.json` exists for `api/<date>/index.json`. Frontend's expected shape is an implicit contract. | Adding a schema is a Stage 14 (schema corpus) item — would also pin the index hash. | Stage 14. |
+| **12-min-G** | The api/ tree currently on disk is gitignored, so the stale 2.1.0 stamp on `api/2026-05-09/index.json` was invisible. Only a production rebuild refreshes it. | Working as designed — api/ is a build artifact. | Don't pick up. |
+
+## Stages 13 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
