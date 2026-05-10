@@ -206,7 +206,7 @@ def probe(name_url):
                     txt = m.group(1).decode("utf-8", "replace")
                     txt = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", txt, flags=re.S)
                     out["sample_title"] = txt.strip()[:80]
-            except Exception as e:
+            except (UnicodeDecodeError, AttributeError, ValueError) as e:
                 out["error"] = f"parse:{e.__class__.__name__}"
     except requests.exceptions.SSLError as e:
         out["error"] = f"SSL:{str(e)[:60]}"
@@ -214,7 +214,8 @@ def probe(name_url):
         out["error"] = f"CONN:{str(e)[:60]}"
     except requests.exceptions.Timeout:
         out["error"] = "TIMEOUT"
-    except Exception as e:
+    except (requests.RequestException, ValueError, OSError) as e:
+        # Last-resort: covers InvalidURL / MissingSchema / decode errors / etc.
         out["error"] = f"{e.__class__.__name__}:{str(e)[:60]}"
     out["elapsed"] = round(time.time() - t0, 2)
     return out

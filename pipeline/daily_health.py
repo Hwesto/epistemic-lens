@@ -48,7 +48,9 @@ def trailing_means(date_str: str, n: int = 7):
             continue
         try:
             snap = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"  trailing_means: skipping {p.name} ({e.__class__.__name__})",
+                  file=sys.stderr)
             continue
         for ck, n_items in items_per_bucket(snap).items():
             by_bucket.setdefault(ck, []).append(n_items)

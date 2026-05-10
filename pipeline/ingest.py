@@ -41,7 +41,17 @@ try:
 except ImportError:
     ML_AVAILABLE = False
 
-ssl._create_default_https_context = ssl._create_unverified_context
+# SSL verification is disabled globally only when explicitly opted in via
+# ALLOW_INSECURE_SSL=1. Many international RSS feeds (state media, smaller
+# regional outlets) ship expired or self-signed certificates, so the
+# production cron sets this to 1 in .github/workflows/daily.yml. Local
+# development and CI default to verified SSL so cert problems surface
+# clearly. Future work: replace global toggle with a per-feed allowlist
+# tracked in feeds.json.
+if os.environ.get("ALLOW_INSECURE_SSL") == "1":
+    ssl._create_default_https_context = ssl._create_unverified_context
+    print("WARN: ALLOW_INSECURE_SSL=1 — TLS certificate verification disabled",
+          file=sys.stderr)
 
 import meta
 
@@ -142,7 +152,8 @@ def _parse_pub(s: str):
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             return dt
-        except Exception:
+        except ValueError:
+            # Format didn't match; try the next one.
             continue
     return None
 
@@ -175,7 +186,9 @@ def _http_get(url: str, lang: str, attempts: int = 3) -> tuple[int, bytes, str |
             if i < attempts - 1:
                 time.sleep(backoff); backoff *= 2
                 continue
-        except Exception as e:
+        except (requests.RequestException, ValueError, OSError) as e:
+            # Last-resort: anything else requests can raise (InvalidURL,
+            # MissingSchema, ChunkedEncodingError, ContentDecodingError, …)
             last_err = f"{e.__class__.__name__}: {str(e)[:60]}"
             break
     return 0, b"", last_err
@@ -217,8 +230,9 @@ def _try_sitemap_fallback(url: str, lang: str) -> list[dict]:
                         break
                 if items:
                     return items
-    except Exception:
-        pass
+    except (requests.RequestException, ET.ParseError, ValueError, OSError) as e:
+        print(f"  sitemap_fallback: {url} ({e.__class__.__name__}: {str(e)[:60]})",
+              file=sys.stderr)
     return []
 
 

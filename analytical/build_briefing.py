@@ -51,10 +51,12 @@ def matches_story(item: dict, patterns, exclude=None) -> bool:
 
 
 def _title_tokens(s: str) -> set[str]:
-    return set(t for t in re.findall(r"[a-z]{4,}", s.lower())
-               if t not in {"says", "with", "from", "this", "after", "their", "have",
-                            "been", "over", "into", "what", "when", "where", "warns",
-                            "could", "would", "will", "more", "than", "they", "while"})
+    """Tokens for within-bucket near-duplicate detection. Uses the
+    methodology-pinned stopword set so the filter is identical to what
+    metrics use elsewhere. The 4-letter floor matches meta.tokenize().
+    """
+    stop = meta.stopwords()
+    return {t for t in re.findall(r"[a-z]{4,}", s.lower()) if t not in stop}
 
 
 def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
@@ -129,8 +131,20 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
 
 def find_emerging_stories(snap: dict, min_buckets: int = 5,
                           ignore_canonical: bool = True) -> list[tuple[str, set]]:
-    """Token-frequency detection of unrecognised cross-bucket stories."""
-    STOP = set("the and that with from this their have been over into about because while says will could trump iran said".split())
+    """Token-frequency detection of unrecognised cross-bucket stories.
+
+    Filter set is the pinned stopwords plus a small inline allowlist of
+    "already-tracked" terms (the heads of canonical stories) so we don't
+    surface tokens we already cover via canonical_stories.json. The
+    inline set is intentionally narrow — broader noise belongs in
+    stopwords.txt.
+    """
+    # Canonical-story-head terms that survive the title filter would
+    # otherwise dominate emerging-story output. Comment line spelling
+    # matches the canonical_stories.json keys for grep-ability.
+    DOMAIN_NOISE = {"trump", "iran", "said"}
+    stop = meta.stopwords() | DOMAIN_NOISE
+
     canon_pat = re.compile(
         "|".join(p for s in CANONICAL_STORIES.values() for p in s["patterns"]),
         re.I,
@@ -145,7 +159,7 @@ def find_emerging_stories(snap: dict, min_buckets: int = 5,
                     continue
                 seen = set()
                 for tok in re.findall(r"[A-Za-z]{5,}", title.lower()):
-                    if tok not in STOP:
+                    if tok not in stop:
                         seen.add(tok)
                 for tok in seen:
                     token_buckets[tok].add(ck)

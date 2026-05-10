@@ -98,7 +98,8 @@ def _try_wayback(url: str, timeout: int = 12) -> tuple[int | None, str, str]:
                                        include_tables=False, favor_recall=True) or ""
             return r.status_code, r.url, body
         return r.status_code, r.url, ""
-    except Exception:
+    except (requests.RequestException, ValueError, OSError):
+        # Wayback is best-effort fallback; swallow network/parse errors.
         return None, "", ""
 
 
@@ -156,7 +157,8 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
             if i < attempts - 1:
                 time.sleep(2 ** i)
                 continue
-        except Exception as e:
+        except (requests.RequestException, ValueError, OSError) as e:
+            # Last-resort: anything else requests/trafilatura can raise.
             last_err = f"{e.__class__.__name__}: {str(e)[:60]}"
             break
 

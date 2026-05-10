@@ -42,7 +42,8 @@ def canonical_url(url: str) -> str:
         return ""
     try:
         p = urlparse(url)
-    except Exception:
+    except ValueError:
+        # urlparse raises ValueError for IPv6-with-brackets edge cases etc.
         return url
     netloc = p.netloc.lower()
     if netloc.startswith("www."):

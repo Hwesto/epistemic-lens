@@ -56,6 +56,9 @@ jobs:
           MAX_WORKERS: '30'
           PER_HOST_DELAY: '1.0'
           FETCH_TIMEOUT: '20'
+          # Many international RSS feeds ship expired/self-signed certs.
+          # Future work: replace with per-feed allowlist in feeds.json.
+          ALLOW_INSECURE_SSL: '1'
         run: python -m pipeline.ingest
 
       - name: Extract full article text (hybrid — clusters + per-feed coverage)

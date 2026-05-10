@@ -63,7 +63,9 @@ def main(n_days: int = _WINDOW_DAYS):
             continue
         try:
             snap = json.loads(snap_p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"  feed_rot: skipping {snap_p.name} ({e.__class__.__name__})",
+                  file=sys.stderr)
             continue
         for ck, cv in snap["countries"].items():
             for f in cv["feeds"]:
