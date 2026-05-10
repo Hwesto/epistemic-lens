@@ -14,20 +14,17 @@ from __future__ import annotations
 
 import json
 import re
-from pathlib import Path
 from typing import Iterable
 
 import meta
+# Re-export the shared schema validator so renderers can import it from
+# the publication-shared module without depending on the meta module
+# directly. Kept as `validate_against_schema` for back-compat with
+# existing renderer call sites.
+from meta import validate_schema as validate_against_schema  # noqa: F401
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
-SCHEMAS = ROOT / "docs" / "api" / "schema"
-
-try:
-    import jsonschema
-    HAS_JSONSCHEMA = True
-except ImportError:
-    HAS_JSONSCHEMA = False
 
 
 # ---------------------------------------------------------------------------
@@ -88,36 +85,6 @@ def pick_hero(analysis: dict) -> dict:
         return {"kind": "exclusive_vocab", "top": excl[0]}
 
     return {"kind": "generic"}
-
-
-# ---------------------------------------------------------------------------
-# Schema validation
-# ---------------------------------------------------------------------------
-
-def _load_schema(name: str) -> dict:
-    return json.loads((SCHEMAS / f"{name}.schema.json").read_text(encoding="utf-8"))
-
-
-def validate_against_schema(data: dict, schema_name: str) -> None:
-    """Raise ValueError if `data` doesn't match `<schema_name>.schema.json`.
-
-    Fails closed so a malformed draft cannot be written. If jsonschema
-    isn't installed, raises — schema validation is a hard requirement of
-    the publication path.
-    """
-    if not HAS_JSONSCHEMA:
-        raise RuntimeError(
-            "jsonschema is required for renderer validation but is not "
-            "installed. Run: pip install jsonschema"
-        )
-    schema = _load_schema(schema_name)
-    try:
-        jsonschema.validate(instance=data, schema=schema)
-    except jsonschema.ValidationError as e:
-        raise ValueError(
-            f"{schema_name} draft failed schema: {e.message} "
-            f"(at {'/'.join(str(p) for p in e.absolute_path) or '<root>'})"
-        ) from e
 
 
 # ---------------------------------------------------------------------------

@@ -227,6 +227,43 @@ def stamp(artifact: dict) -> dict:
     return artifact
 
 
+# ---------------------------------------------------------------------------
+# Schema validation — shared utility used by the publication renderers and
+# the pipeline observability layer. Each schema lives at
+# docs/api/schema/<name>.schema.json. This wrapper fails closed so a
+# malformed artifact cannot be written.
+# ---------------------------------------------------------------------------
+
+SCHEMAS_DIR = ROOT / "docs" / "api" / "schema"
+
+
+def load_schema(name: str) -> dict:
+    """Load `docs/api/schema/<name>.schema.json` as a parsed dict."""
+    return json.loads((SCHEMAS_DIR / f"{name}.schema.json").read_text(encoding="utf-8"))
+
+
+def validate_schema(data: dict, schema_name: str) -> None:
+    """Validate `data` against `<schema_name>.schema.json`.
+
+    Raises ValueError on schema mismatch, RuntimeError if jsonschema is
+    missing (hard dependency for the renderer + observability paths).
+    """
+    try:
+        import jsonschema
+    except ImportError as e:
+        raise RuntimeError(
+            "jsonschema is required for schema validation but is not "
+            "installed. Run: pip install jsonschema"
+        ) from e
+    try:
+        jsonschema.validate(instance=data, schema=load_schema(schema_name))
+    except jsonschema.ValidationError as e:
+        path = "/".join(str(p) for p in e.absolute_path) or "<root>"
+        raise ValueError(
+            f"{schema_name} failed schema: {e.message} (at {path})"
+        ) from e
+
+
 def fingerprint() -> dict:
     """Compact summary suitable for logging or job-summary lines."""
     return {

@@ -283,6 +283,93 @@ class TestDailyHealth(unittest.TestCase):
             self.assertEqual(h["n_stub_feeds"], 1)
             self.assertEqual(h["n_slow_feeds"], 1)
 
+    def _snap_with_extraction(self, date, statuses_per_bucket):
+        """Build a snapshot where each bucket has one feed whose items
+        carry the given extraction_status values."""
+        countries = {}
+        for bucket, statuses in statuses_per_bucket.items():
+            items = [{"is_stub": False, "extraction_status": s} for s in statuses]
+            countries[bucket] = {"label": bucket, "feeds": [{
+                "name": f"{bucket}_feed",
+                "http_status": 200, "fetch_ms": 500,
+                "error": None, "item_count": len(items), "items": items,
+            }]}
+        return {"date": date, "countries": countries}
+
+    def test_low_extraction_alert_fires_on_low_full_pct(self):
+        """Bucket with attempted >= low_extraction_min_attempted (5)
+        but FULL-rate < low_extraction_full_pct (50%) must fire an alert."""
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td); (tdp / "snapshots").mkdir()
+            self.dh.SNAPS = tdp / "snapshots"
+            # 6 attempted, 1 FULL → 16.7%, well below 50% threshold
+            snap = self._snap_with_extraction("2026-05-06", {
+                "uk": ["FULL", "ERROR", "ERROR", "ERROR", "ERROR", "NONE"],
+            })
+            sp = tdp / "snapshots" / "2026-05-06.json"
+            sp.write_text(json.dumps(snap))
+            h, _ = self.dh.health_for(sp)
+            alerts = [a for a in h["bucket_alerts"]
+                      if a["alert_type"] == "low_extraction"]
+            self.assertEqual(len(alerts), 1)
+            self.assertEqual(alerts[0]["bucket"], "uk")
+            self.assertEqual(alerts[0]["attempted"], 6)
+            self.assertEqual(alerts[0]["full"], 1)
+
+    def test_low_extraction_alert_suppressed_below_min_attempted(self):
+        """If fewer than low_extraction_min_attempted items have a status,
+        the alert must not fire even if FULL-rate is 0%."""
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td); (tdp / "snapshots").mkdir()
+            self.dh.SNAPS = tdp / "snapshots"
+            snap = self._snap_with_extraction("2026-05-06", {
+                "uk": ["NONE", "NONE"],  # 2 attempted < 5 threshold
+            })
+            sp = tdp / "snapshots" / "2026-05-06.json"
+            sp.write_text(json.dumps(snap))
+            h, _ = self.dh.health_for(sp)
+            self.assertEqual(
+                [a for a in h["bucket_alerts"]
+                 if a["alert_type"] == "low_extraction"], []
+            )
+
+    def test_health_output_passes_schema(self):
+        """The validate_schema call inside health_for must not raise on a
+        well-formed snapshot. Guards the cross-stage hand-off contract."""
+        import meta as _meta
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td); (tdp / "snapshots").mkdir()
+            self.dh.SNAPS = tdp / "snapshots"
+            snap = self._snap_with_extraction("2026-05-06", {
+                "uk": ["FULL"] * 5,
+                "us": ["FULL"] * 3 + ["PARTIAL"] * 2,
+            })
+            sp = tdp / "snapshots" / "2026-05-06.json"
+            sp.write_text(json.dumps(snap))
+            h, _ = self.dh.health_for(sp)
+            # If schema validation broke, health_for would raise; the
+            # explicit re-validation here documents the hand-off.
+            _meta.validate_schema(h, "health")
+
+    def test_health_for_tolerates_missing_feeds_key(self):
+        """Defensive .get('feeds', []) — a malformed bucket entry
+        without the 'feeds' key shouldn't crash the run."""
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td); (tdp / "snapshots").mkdir()
+            self.dh.SNAPS = tdp / "snapshots"
+            snap = {"date": "2026-05-06", "countries": {
+                "wonky": {"label": "no feeds key here"},
+                "ok": {"label": "OK", "feeds": [
+                    {"name": "f", "http_status": 200, "fetch_ms": 1,
+                     "error": None, "item_count": 0, "items": []},
+                ]},
+            }}
+            sp = tdp / "snapshots" / "2026-05-06.json"
+            sp.write_text(json.dumps(snap))
+            h, _ = self.dh.health_for(sp)  # must not raise
+            self.assertEqual(h["n_feeds"], 1)
+            self.assertEqual(h["items_per_bucket_now"]["wonky"], 0)
+
 
 # ============================================================================
 # Schema validation on real snapshot
