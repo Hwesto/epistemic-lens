@@ -753,6 +753,40 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertEqual(iso[0]["bucket"], "c")
         self.assertEqual(iso[0]["mean_jaccard"], 0.0)
 
+    def test_build_metrics_passes_schema(self):
+        """Output must validate against metrics.schema.json. Guards the
+        cross-stage hand-off: LLM analyze copies these numbers verbatim,
+        validate_analysis compares them by field name."""
+        briefing = {
+            "date": "2026-05-06", "story_key": "x", "story_title": "X",
+            "corpus": [
+                {"bucket": "a", "feed": "fa", "lang": "en",
+                 "title": "Alpha beta gamma", "link": "https://x/1",
+                 "signal_level": "title", "signal_text": "alpha beta gamma"},
+                {"bucket": "b", "feed": "fb", "lang": "en",
+                 "title": "Alpha beta delta", "link": "https://x/2",
+                 "signal_level": "title", "signal_text": "alpha beta delta"},
+            ],
+        }
+        # build_metrics calls validate_schema internally; this just
+        # asserts it doesn't raise on a well-formed briefing.
+        m = self.bm.build_metrics(briefing)
+        self.assertEqual(m["n_buckets"], 2)
+        self.assertEqual(m["n_articles"], 2)
+
+    def test_process_one_skips_briefing_without_corpus(self):
+        """A malformed briefing must log to stderr and return None
+        rather than raising SystemExit and aborting the whole run."""
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            bad = tdp / "2026-05-06_bad.json"
+            bad.write_text(json.dumps({"date": "2026-05-06", "story_key": "bad"}))
+            # No 'corpus' key. Should return None, not raise.
+            result = self.bm.process_one(bad)
+            self.assertIsNone(result)
+            # No metrics sidecar should have been written.
+            self.assertFalse((tdp / "2026-05-06_bad_metrics.json").exists())
+
     def test_build_metrics_against_real_briefing(self):
         path = ROOT / "briefings" / "2026-05-06_hormuz_iran.json"
         if not path.exists():

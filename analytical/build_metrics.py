@@ -5,10 +5,15 @@ containing pairwise Jaccard similarity, per-bucket isolation, and
 bucket-exclusive vocabulary. The Claude analysis pass uses these numbers
 verbatim so it doesn't fabricate counts or correlations.
 
-Method matches docs/HORMUZ_CORRELATION.md "Recap of method":
+Method (also pinned in docs/api/schema/metrics.schema.json + emitted as
+the `method` field of the output):
   - Jaccard on per-bucket vocabulary (signal_text + title concatenated)
-  - lowercase, stopword-filtered, len>3, light-touch normalization
-  - bucket-exclusive: terms with document frequency == 1, count >= 3
+  - meta.tokenize: regex [A-Za-z]{4,}, lowercase, plural-strip, stopword filter
+  - bucket-exclusive: terms with document frequency <= max_doc_freq, count >= min_count
+
+Output shape is pinned by docs/api/schema/metrics.schema.json and validated
+before write so a typo can't silently break downstream consumers
+(LLM analyze, validate_analysis, build_index).
 
 Usage:
   python build_metrics.py                            # all today's briefings
@@ -145,18 +150,38 @@ def build_metrics(briefing: dict) -> dict:
         ),
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
-    return meta.stamp(out)
+    out = meta.stamp(out)
+    # Fail closed on schema mismatch so a typo in the metrics shape can't
+    # silently propagate to the LLM analyze step (which copies numbers
+    # verbatim) or to validate_analysis (which compares by field name).
+    meta.validate_schema(out, "metrics")
+    return out
 
 
 def metrics_path_for(briefing_path: Path) -> Path:
     return briefing_path.with_name(briefing_path.stem + "_metrics.json")
 
 
-def process_one(briefing_path: Path) -> Path:
-    briefing = json.loads(briefing_path.read_text(encoding="utf-8"))
+def process_one(briefing_path: Path) -> Path | None:
+    """Compute metrics for one briefing. Returns the metrics path on
+    success, None on skippable failure (logs to stderr). Designed so
+    one bad briefing doesn't abort the whole run."""
+    try:
+        briefing = json.loads(briefing_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"  ! {briefing_path.name}: unreadable ({e.__class__.__name__})",
+              file=sys.stderr)
+        return None
     if "corpus" not in briefing:
-        raise SystemExit(f"{briefing_path} is not a briefing JSON (no 'corpus' key)")
-    metrics = build_metrics(briefing)
+        print(f"  ! {briefing_path.name}: not a briefing (no 'corpus' key)",
+              file=sys.stderr)
+        return None
+    try:
+        metrics = build_metrics(briefing)
+    except ValueError as e:
+        print(f"  ! {briefing_path.name}: schema validation failed — {e}",
+              file=sys.stderr)
+        return None
     out = metrics_path_for(briefing_path)
     out.write_text(json.dumps(metrics, indent=2, ensure_ascii=False))
     print(
