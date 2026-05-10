@@ -62,16 +62,25 @@ _host_last_fetch: dict[str, float] = {}
 
 def _wait_for_host(host: str, delay: float):
     with _host_lock:
+        now = time.time()
         last = _host_last_fetch.get(host, 0)
-        wait = (last + delay) - time.time()
-        if wait > 0:
-            time.sleep(wait)
-        _host_last_fetch[host] = time.time()
+        wait = max(0.0, (last + delay) - now)
+        # Reserve our slot under the lock; sleep happens outside so other
+        # hosts' workers aren't blocked by ours. Same fix as ingest.py.
+        _host_last_fetch[host] = now + wait
+    if wait > 0:
+        time.sleep(wait)
 
 
 _BODY_FULL_MIN = int(meta.EXTRACTION["body_full_min"])
 _BODY_PARTIAL_MIN = int(meta.EXTRACTION["body_partial_min"])
 _BODY_STUB_MIN = int(meta.EXTRACTION["body_stub_min"])
+_FETCH_ATTEMPTS = int(meta.EXTRACTION["fetch_attempts"])
+
+# 4xx codes worth retrying via Wayback. 401 (auth) won't help — Wayback
+# doesn't have credentials. 429 (rate-limit) means we should back off the
+# original host, not pile onto a fallback. So we skip both.
+_WAYBACK_RETRY_HTTP = (None, 400, 403, 404)
 
 
 def classify(body_chars: int, error: str | None) -> str:
@@ -103,10 +112,18 @@ def _try_wayback(url: str, timeout: int = 12) -> tuple[int | None, str, str]:
         return None, "", ""
 
 
-def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
-                attempts: int = 2, per_host_delay: float = 1.0,
+def extract_one(item: dict, lang: str = "en",
+                max_body: int = 4000, timeout: int = 15,
+                attempts: int | None = None, per_host_delay: float = 1.0,
                 use_wayback_fallback: bool = True) -> dict:
-    """Fetch + extract a single article. Returns dict with annotations."""
+    """Fetch + extract a single article. Returns dict with annotations.
+
+    `lang` is the parent feed's language code; it's used to set
+    Accept-Language so a French / Russian / German outlet doesn't
+    content-negotiate to its English landing page.
+    """
+    if attempts is None:
+        attempts = _FETCH_ATTEMPTS
     url = item.get("link") or ""
     out = {
         "extraction_status": "NONE",
@@ -123,13 +140,18 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
         out["extraction_error"] = "no link"
         return out
 
+    headers = {
+        **HEADERS,
+        "Accept-Language": f"{lang},en;q=0.5" if lang != "en" else HEADERS["Accept-Language"],
+    }
+
     host = urlparse(url).netloc
     t0 = time.time()
     last_err = None
     for i in range(attempts):
         _wait_for_host(host, per_host_delay)
         try:
-            r = requests.get(url, headers=HEADERS, timeout=timeout, allow_redirects=True)
+            r = requests.get(url, headers=headers, timeout=timeout, allow_redirects=True)
             out["extraction_http"] = r.status_code
             out["extraction_final_url"] = r.url
             if r.status_code >= 500 and i < attempts - 1:
@@ -162,11 +184,13 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
             last_err = f"{e.__class__.__name__}: {str(e)[:60]}"
             break
 
-    # Wayback fallback when direct fetch returned 4xx (anti-bot/paywall)
-    # or when extraction yielded too-thin a body.
+    # Wayback fallback when direct fetch returned a status worth retrying
+    # via the archive, or when extraction yielded too-thin a body. The
+    # threshold matches body_partial_min so the fallback fires whenever
+    # the direct fetch wouldn't already classify as PARTIAL or better.
     if (use_wayback_fallback
-        and out["body_chars"] < 200
-        and out["extraction_http"] in (None, 400, 401, 403, 404, 429)):
+        and out["body_chars"] < _BODY_PARTIAL_MIN
+        and out["extraction_http"] in _WAYBACK_RETRY_HTTP):
         wb_status, wb_url, wb_body = _try_wayback(url, timeout=timeout)
         if wb_body and len(wb_body) > out["body_chars"]:
             out["body_text"] = wb_body[:max_body]
@@ -216,19 +240,25 @@ def signal_text(item: dict, prefer_body: bool = True,
 
 def select_items(snap: dict, conv: list | None, top_clusters: int,
                  max_per_feed: int = 0) -> list[tuple]:
-    """Return list of (country_key, feed_name, item_dict) to extract.
+    """Return list of (country_key, feed_name, lang, item_dict) to extract.
 
     Selection rule (UNION of the two strategies):
       An item is selected if EITHER
         (a) it appears in one of the top-N convergence clusters, OR
-        (b) it is one of the first `max_per_feed` items in its feed.
+        (b) it is among the first `max_per_feed` selected items in its feed.
     Plus:
       - Skip items with no link.
       - Skip items already extracted (idempotent).
 
+    Per-feed quota counts every kept item from the feed, whether kept
+    by cluster or by quota — so a feed with cluster items in positions
+    0..N consumes all N quota slots up front, and beyond the quota only
+    cluster items continue to be kept. Net effect: every feed
+    contributes at least min(max_per_feed, |items_with_link|) items,
+    plus all of its cluster items.
+
     If both top_clusters=0 and max_per_feed=0, selects everything.
     """
-    # Build cluster-target set
     cluster_ids: set[str] = set()
     if top_clusters > 0 and conv:
         for cl in sorted(conv, key=lambda c: -c.get("country_count", 0))[:top_clusters]:
@@ -236,11 +266,11 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
                 if art.get("id"):
                     cluster_ids.add(art["id"])
 
-    # Selection
     use_any_filter = (top_clusters > 0 and conv) or (max_per_feed > 0)
     out = []
     for ck, cv in snap["countries"].items():
         for f in cv.get("feeds", []):
+            lang = f.get("lang", "en")
             kept_per_feed_count = 0
             for it in f.get("items", []):
                 if not it.get("link"):
@@ -250,24 +280,15 @@ def select_items(snap: dict, conv: list | None, top_clusters: int,
                 if it.get("extraction_status") in ("FULL", "PARTIAL", "STUB", "SKIPPED"):
                     continue
 
-                # Cluster membership
                 in_cluster = it.get("id") in cluster_ids
-                # Per-feed quota
                 in_per_feed_quota = (max_per_feed > 0 and kept_per_feed_count < max_per_feed)
 
-                if use_any_filter:
-                    if not (in_cluster or in_per_feed_quota):
-                        continue
-                # else: no filters, take everything
+                if use_any_filter and not (in_cluster or in_per_feed_quota):
+                    continue
 
-                out.append((ck, f["name"], it))
-                if in_per_feed_quota and not in_cluster:
-                    # Only consume per-feed quota for items kept solely on that basis
+                out.append((ck, f["name"], lang, it))
+                if in_per_feed_quota:
                     kept_per_feed_count += 1
-                elif in_per_feed_quota:
-                    # Item also in cluster — still counts toward per-feed quota
-                    kept_per_feed_count += 1
-    # Dedupe (an item could match both rules but is only added once above)
     return out
 
 
@@ -299,17 +320,17 @@ def main():
 
     snaps_dir = Path(args.snapshots_dir)
 
-    # Resolve snapshot path
+    # Resolve snapshot path via the shared snapshot-naming helper so
+    # extract / dedup / daily_health / build_briefing all agree on what
+    # counts as a snapshot file (vs a sidecar).
+    from pipeline._paths import latest_snapshot
+
     if args.snapshot:
         snap_path = Path(args.snapshot)
     else:
-        cands = sorted(p for p in snaps_dir.glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity",
-                                                "_prompt", "_dedup", "_health",
-                                                "_pull_report", "_baseline")))
-        if not cands:
+        snap_path = latest_snapshot(snaps_dir)
+        if snap_path is None:
             sys.exit(f"No snapshot found in {snaps_dir}")
-        snap_path = cands[-1]
     print(f"Snapshot: {snap_path}")
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
 
@@ -338,13 +359,14 @@ def main():
     last_checkpoint_done = 0
     last_progress_t = t_start
     statuses_running = {}
-    fn = lambda payload: extract_one(payload[2], max_body=args.max_body_chars,
+    fn = lambda payload: extract_one(payload[3], lang=payload[2],
+                                     max_body=args.max_body_chars,
                                      timeout=args.timeout, per_host_delay=args.per_host_delay)
     print_every = max(1, min(50, len(targets) // 50))  # print 50 progress lines max
     with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
         futures = {ex.submit(fn, t): t for t in targets}
         for fut in cf.as_completed(futures):
-            ck, fname, item = futures[fut]
+            ck, fname, _lang, item = futures[fut]
             result = fut.result()
             # Annotate item in place
             item.update(result)

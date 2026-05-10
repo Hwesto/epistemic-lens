@@ -153,13 +153,13 @@ def health_for(snap_path: Path):
 
 
 def main():
+    from pipeline._paths import latest_snapshot
     if len(sys.argv) > 1:
         snap_path = Path(sys.argv[1])
     else:
-        cands = sorted(p for p in SNAPS.glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity",
-                                                "_prompt", "_dedup", "_health")))
-        snap_path = cands[-1]
+        snap_path = latest_snapshot(SNAPS)
+        if snap_path is None:
+            sys.exit(f"No snapshot found in {SNAPS}")
     h, out = health_for(snap_path)
     print(f"Health for {h['date']} -> {out.name}")
     print(f"  feeds: {h['n_feeds']}  items: {h['n_items']}")

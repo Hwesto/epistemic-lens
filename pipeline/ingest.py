@@ -68,6 +68,7 @@ SKIP_EMBED = os.environ.get("SKIP_EMBED", "0") == "1"
 
 _STUB_SUMMARY_DIFF = int(meta.INGEST["stub_summary_diff"])
 _SITEMAP_FALLBACK_MAX = int(meta.INGEST["sitemap_fallback_max"])
+_FETCH_ATTEMPTS = int(meta.INGEST["fetch_attempts"])
 _STUB_PCT_MIN = float(meta.HEALTH["stub_pct_min"])
 _SLOW_FETCH_MS = int(meta.HEALTH["slow_fetch_ms"])
 
@@ -162,8 +163,13 @@ def _parse_pub(s: str):
     return None
 
 
-def _http_get(url: str, lang: str, attempts: int = 3) -> tuple[int, bytes, str | None]:
-    """GET with backoff. Returns (status_code|0, body, error|None)."""
+def _http_get(url: str, lang: str, attempts: int | None = None) -> tuple[int, bytes, str | None]:
+    """GET with backoff. Returns (status_code|0, body, error|None).
+
+    `attempts` defaults to meta.INGEST.fetch_attempts so the retry budget
+    is part of the methodology pin, not a per-call magic number."""
+    if attempts is None:
+        attempts = _FETCH_ATTEMPTS
     host = urlparse(url).netloc
     headers = {
         "User-Agent": UA,

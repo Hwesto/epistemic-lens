@@ -169,11 +169,11 @@ def find_emerging_stories(snap: dict, min_buckets: int = 5,
 
 
 def latest_snapshot_path(snap_dir: Path | None = None) -> Path | None:
-    snap_dir = snap_dir or SNAPS
-    cands = sorted(p for p in snap_dir.glob("[0-9]*.json")
-                   if not p.stem.endswith(("_convergence", "_similarity",
-                                           "_prompt", "_dedup", "_health")))
-    return cands[-1] if cands else None
+    """Most recent canonical snapshot. Thin wrapper around the shared
+    pipeline.latest_snapshot helper, retained so existing callers
+    (and tests) keep working."""
+    from pipeline._paths import latest_snapshot
+    return latest_snapshot(snap_dir or SNAPS)
 
 
 def main():

@@ -447,11 +447,11 @@ class TestExtractFullText(unittest.TestCase):
         ]
         # Top-1 should pick only x1
         targets = self.eft.select_items(snap, conv, top_clusters=1, max_per_feed=0)
-        ids = [it["id"] for _, _, it in targets]
+        ids = [it["id"] for *_, it in targets]
         self.assertEqual(ids, ["x1"])
         # Top-0 + max-per-feed-0 means no filter: take all (with non-empty links)
         targets = self.eft.select_items(snap, conv, top_clusters=0, max_per_feed=0)
-        ids = sorted(it["id"] for _, _, it in targets)
+        ids = sorted(it["id"] for *_, it in targets)
         self.assertEqual(ids, ["x1", "x2"])
 
     def test_select_items_hybrid_union(self):
@@ -476,7 +476,7 @@ class TestExtractFullText(unittest.TestCase):
         # Hybrid: top-1 cluster + max-per-feed=2
         # Should pick: x1, x2 (first 2 of F1), x4 (cluster), y1 (first of F2)
         targets = self.eft.select_items(snap, conv, top_clusters=1, max_per_feed=2)
-        ids = sorted(it["id"] for _, _, it in targets)
+        ids = sorted(it["id"] for *_, it in targets)
         self.assertEqual(ids, ["x1", "x2", "x4", "y1"])
 
     def test_select_items_skips_already_extracted(self):
@@ -490,7 +490,7 @@ class TestExtractFullText(unittest.TestCase):
             ]},
         }}
         targets = self.eft.select_items(snap, None, top_clusters=0)
-        ids = [it["id"] for _, _, it in targets]
+        ids = [it["id"] for *_, it in targets]
         self.assertEqual(ids, ["x2"])  # x1 already extracted, skipped
 
 
