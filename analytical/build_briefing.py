@@ -37,6 +37,9 @@ BRIEFINGS.mkdir(exist_ok=True)
 # stories not in this list.
 CANONICAL_STORIES = meta.canonical_stories()
 
+_NOVELTY_JACCARD = float(meta.BRIEFING["novelty_jaccard"])
+_SIGNAL_RANK: dict[str, int] = {k: int(v) for k, v in meta.BRIEFING["signal_rank"].items()}
+
 
 def matches_story(item: dict, patterns, exclude=None) -> bool:
     txt = (item.get("title", "") + " " + item.get("summary", "") +
@@ -56,7 +59,7 @@ def _title_tokens(s: str) -> set[str]:
 
 def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
                              per_bucket_max: int = 2,
-                             novelty_threshold: float = 0.4) -> dict:
+                             novelty_threshold: float = _NOVELTY_JACCARD) -> dict:
     """For one story definition, collect signal-text per bucket.
 
     Per bucket, keeps up to `per_bucket_max` articles that have meaningfully
@@ -84,12 +87,12 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
                     "via_wayback": it.get("extraction_via_wayback", False),
                 })
 
-    rank = {"body": 3, "summary": 2, "title": 1}
     corpus = []
     for ck in sorted(by_bucket):
-        # Highest signal first, longer text wins ties
+        # Highest signal first, longer text wins ties. Rank pinned in
+        # meta_version.json under briefing.signal_rank.
         arts = sorted(by_bucket[ck],
-                      key=lambda a: (-rank.get(a["signal_level"], 0),
+                      key=lambda a: (-_SIGNAL_RANK.get(a["signal_level"], 0),
                                      -len(a["signal_text"])))
         kept_for_bucket: list[dict] = []
         kept_token_sets: list[set] = []

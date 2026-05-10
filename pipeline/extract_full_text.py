@@ -69,12 +69,17 @@ def _wait_for_host(host: str, delay: float):
         _host_last_fetch[host] = time.time()
 
 
+_BODY_FULL_MIN = int(meta.EXTRACTION["body_full_min"])
+_BODY_PARTIAL_MIN = int(meta.EXTRACTION["body_partial_min"])
+_BODY_STUB_MIN = int(meta.EXTRACTION["body_stub_min"])
+
+
 def classify(body_chars: int, error: str | None) -> str:
     if error:
         return "ERROR"
-    if body_chars >= 1000: return "FULL"
-    if body_chars >= 200:  return "PARTIAL"
-    if body_chars >= 50:   return "STUB"
+    if body_chars >= _BODY_FULL_MIN: return "FULL"
+    if body_chars >= _BODY_PARTIAL_MIN: return "PARTIAL"
+    if body_chars >= _BODY_STUB_MIN: return "STUB"
     return "NONE"
 
 

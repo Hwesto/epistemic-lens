@@ -56,6 +56,11 @@ OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "snapshots")
 FEEDS_CONFIG = os.environ.get("FEEDS_CONFIG", "feeds.json")
 SKIP_EMBED = os.environ.get("SKIP_EMBED", "0") == "1"
 
+_STUB_SUMMARY_DIFF = int(meta.INGEST["stub_summary_diff"])
+_SITEMAP_FALLBACK_MAX = int(meta.INGEST["sitemap_fallback_max"])
+_STUB_PCT_MIN = float(meta.HEALTH["stub_pct_min"])
+_SLOW_FETCH_MS = int(meta.HEALTH["slow_fetch_ms"])
+
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124 Safari/537.36")
 
@@ -177,7 +182,8 @@ def _http_get(url: str, lang: str, attempts: int = 3) -> tuple[int, bytes, str |
 
 
 def _try_sitemap_fallback(url: str, lang: str) -> list[dict]:
-    """If RSS returns <3 items, try sitemap-news.xml at the site root."""
+    """If RSS returns fewer than ingest.sitemap_fallback_max items,
+    try sitemap-news.xml at the site root."""
     try:
         u = urlparse(url)
         base = f"{u.scheme}://{u.netloc}"
@@ -222,7 +228,8 @@ def _annotate_item(it: dict, now: datetime) -> dict:
     link = it.get("link", "")
     pub = _parse_pub(it.get("published", ""))
     is_stub = (not summary) or (
-        summary.startswith(title[:60]) and len(summary) - len(title) < 40
+        summary.startswith(title[:60])
+        and len(summary) - len(title) < _STUB_SUMMARY_DIFF
     )
     is_gn = "news.google.com" in link
     age_h = round((now - pub).total_seconds() / 3600, 1) if pub else None
@@ -248,7 +255,7 @@ def pull_feed(feed_info: dict) -> dict:
     status, body, err = _http_get(url, lang)
     bytes_n = len(body)
     items = _parse_feed(body) if status == 200 else []
-    if 0 < len(items) < 3:
+    if 0 < len(items) < _SITEMAP_FALLBACK_MAX:
         # Thin RSS — try sitemap fallback for more content
         more = _try_sitemap_fallback(url, lang)
         # Merge by title to avoid dupes
@@ -465,7 +472,7 @@ def write_pull_report(snapshot: dict, output_dir: Path):
                 "stub_pct": round(stub_pct, 1), "error": f["error"],
             })
     n_err = sum(1 for r in rows if r["error"] or r["http"] != 200)
-    n_stub = sum(1 for r in rows if r["stub_pct"] >= 80 and r["items"] > 0)
+    n_stub = sum(1 for r in rows if r["stub_pct"] >= _STUB_PCT_MIN and r["items"] > 0)
     n_total = sum(r["items"] for r in rows)
     by_bucket = {}
     for r in rows:
@@ -475,7 +482,7 @@ def write_pull_report(snapshot: dict, output_dir: Path):
     md.append(f"- Total feeds: **{len(rows)}**")
     md.append(f"- Total items: **{n_total}**")
     md.append(f"- Errored feeds: **{n_err}**")
-    md.append(f"- Stub-only feeds (>=80% stubs): **{n_stub}**")
+    md.append(f"- Stub-only feeds (>={_STUB_PCT_MIN:g}% stubs): **{n_stub}**")
     md.append("")
     md.append("## Items per bucket")
     for b in sorted(by_bucket, key=lambda x: -by_bucket[x]):
@@ -484,12 +491,12 @@ def write_pull_report(snapshot: dict, output_dir: Path):
     for r in sorted(rows, key=lambda x: (x["http"] or 0, x["bucket"])):
         if r["error"] or r["http"] != 200:
             md.append(f"- {r['bucket']} / {r['feed']} — http={r['http']} err={r['error']}")
-    md.append("\n## Slow feeds (>5s)")
+    md.append(f"\n## Slow feeds (>{_SLOW_FETCH_MS / 1000:g}s)")
     for r in sorted(rows, key=lambda x: -x["ms"])[:15]:
         md.append(f"- {r['ms']:>5}ms  {r['bucket']} / {r['feed']}")
     md.append("\n## Stub-only feeds")
     for r in rows:
-        if r["stub_pct"] >= 80 and r["items"] > 0:
+        if r["stub_pct"] >= _STUB_PCT_MIN and r["items"] > 0:
             md.append(f"- {r['bucket']} / {r['feed']} — stub {r['stub_pct']}%")
     (output_dir / f"{snapshot['date']}_pull_report.md").write_text("\n".join(md))
 

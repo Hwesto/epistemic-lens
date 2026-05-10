@@ -2,10 +2,12 @@
 
 Run after each ingest. Emits snapshots/<date>_health.json describing:
   - errored feeds (http != 200 or had transport error)
-  - stub-only feeds (>=80% of items had is_stub flag)
-  - slow feeds (>5s fetch_ms)
+  - stub-only feeds (>=stub_pct_min items had is_stub flag)
+  - slow feeds (fetch_ms above slow_fetch_ms)
   - items-per-bucket vs trailing-7-day mean
   - language script distribution
+
+Alert thresholds are pinned in meta_version.json under "health".
 """
 from __future__ import annotations
 
@@ -19,6 +21,13 @@ import meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"
+
+_STUB_PCT_MIN = float(meta.HEALTH["stub_pct_min"])
+_SLOW_FETCH_MS = int(meta.HEALTH["slow_fetch_ms"])
+_VOLUME_DROP_FACTOR = float(meta.HEALTH["volume_drop_factor"])
+_VOLUME_MIN_BASELINE = int(meta.HEALTH["volume_min_baseline"])
+_LOW_EXTRACTION_MIN = int(meta.HEALTH["low_extraction_min_attempted"])
+_LOW_EXTRACTION_FULL_PCT = float(meta.HEALTH["low_extraction_full_pct"])
 
 
 def items_per_bucket(snap):
@@ -61,9 +70,9 @@ def health_for(snap_path: Path):
             items = f.get("items", [])
             if items:
                 stub_pct = 100 * sum(1 for i in items if i.get("is_stub")) / len(items)
-                if stub_pct >= 80:
+                if stub_pct >= _STUB_PCT_MIN:
                     stubs.append({"bucket": ck, "feed": f["name"], "stub_pct": round(stub_pct, 1)})
-            if (f.get("fetch_ms") or 0) > 5000:
+            if (f.get("fetch_ms") or 0) > _SLOW_FETCH_MS:
                 slow.append({"bucket": ck, "feed": f["name"], "ms": f["fetch_ms"]})
             # Extraction stats per bucket
             ek = extraction_per_bucket.setdefault(ck, {
@@ -81,8 +90,9 @@ def health_for(snap_path: Path):
     bucket_alerts = []
     for ck, n_now in bucket_now.items():
         avg = bucket_avg7.get(ck, 0)
-        # Alert if bucket dropped by >50% vs 7-day avg AND avg was non-trivial
-        if avg >= 5 and n_now < 0.5 * avg:
+        # Volume-drop alert (factor + min-baseline pinned in meta_version.json
+        # under "health"): suppress alerts when the bucket is normally tiny.
+        if avg >= _VOLUME_MIN_BASELINE and n_now < _VOLUME_DROP_FACTOR * avg:
             bucket_alerts.append({
                 "bucket": ck, "alert_type": "volume_drop",
                 "now": n_now, "avg7": avg,
@@ -90,16 +100,16 @@ def health_for(snap_path: Path):
             })
 
     # Per-bucket low-extraction alert: when extraction was attempted
-    # (>=5 items have a non-SKIPPED status) but FULL rate is < 50%.
-    # This catches the UK-2026-05-06 pattern where 5 of 9 UK feeds
-    # had body extraction fail even though RSS worked — silently losing
-    # the editorially-distinct UK voice unless flagged.
+    # for at least low_extraction_min_attempted items but FULL rate is
+    # below low_extraction_full_pct. Catches the case where RSS worked
+    # but body extraction broke for a whole bucket (silently losing the
+    # editorially-distinct voice unless flagged). Both knobs pinned.
     for ck, ext in extraction_per_bucket.items():
         attempted = sum(ext.get(k, 0) for k in ("FULL", "PARTIAL", "STUB", "NONE", "ERROR"))
-        if attempted < 5:
+        if attempted < _LOW_EXTRACTION_MIN:
             continue
         full_pct = 100 * ext.get("FULL", 0) / max(1, attempted)
-        if full_pct < 50:
+        if full_pct < _LOW_EXTRACTION_FULL_PCT:
             bucket_alerts.append({
                 "bucket": ck, "alert_type": "low_extraction",
                 "attempted": attempted, "full": ext.get("FULL", 0),

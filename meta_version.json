@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.0.1",
-  "pinned_at": "2026-05-08T18:20:25Z",
-  "pin_reason": "Tier 3 directory restructure: moved scripts into pipeline/ analytical/ publication/ video/; prompt updated to reference new module paths",
+  "meta_version": "2.1.0",
+  "pinned_at": "2026-05-10T11:06:59Z",
+  "pin_reason": "pin previously hardcoded thresholds: extraction body-length classifiers (FULL/PARTIAL/STUB), daily_health alert thresholds (stub_pct, slow_fetch, volume_drop, low_extraction), feed_rot windows + decline factor, briefing novelty_jaccard + signal_rank, ingest stub_summary_diff + sitemap_fallback_max — all hardcoded constants are now sourced from meta_version.json",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -41,13 +41,18 @@
     "top_clusters": 20,
     "max_per_feed": 3,
     "extract_timeout_s": 15,
-    "wayback_fallback": true
+    "wayback_fallback": true,
+    "body_full_min": 1000,
+    "body_partial_min": 200,
+    "body_stub_min": 50
   },
   "ingest": {
     "max_items_per_feed": 50,
     "max_workers": 30,
     "per_host_delay_s": 1.0,
-    "fetch_timeout_s": 20
+    "fetch_timeout_s": 20,
+    "stub_summary_diff": 40,
+    "sitemap_fallback_max": 3
   },
   "signal_text": {
     "fallback_chain": [
@@ -59,9 +64,34 @@
     "min_summary_chars_for_summary": 60,
     "max_chars": 2500
   },
+  "briefing": {
+    "novelty_jaccard": 0.4,
+    "signal_rank": {
+      "body": 3,
+      "summary": 2,
+      "title": 1
+    }
+  },
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "claude": {
     "model": "claude-sonnet-4-6",
     "prompts_hash": "sha256:a971329dd6fef5f98ee20ac231346d4eab0ccf8fd1b6441219a29cb3ed7af93f"
+  },
+  "health": {
+    "stub_pct_min": 80,
+    "slow_fetch_ms": 5000,
+    "volume_drop_factor": 0.5,
+    "volume_min_baseline": 5,
+    "low_extraction_min_attempted": 5,
+    "low_extraction_full_pct": 50
+  },
+  "feed_rot": {
+    "window_days": 7,
+    "error_days_min": 4,
+    "stub_days_min": 4,
+    "decline_factor": 0.5,
+    "decline_min_baseline": 5,
+    "decline_min_history": 4,
+    "top_n_declining": 20
   }
 }

@@ -114,8 +114,8 @@ def cmd_bump(level: str, reason: str | None) -> int:
     canonical_order = [
         "_doc", "meta_version", "pinned_at", "pin_reason",
         "feeds", "tokenizer", "embedding", "clustering", "metrics",
-        "extraction", "ingest", "signal_text", "canonical_stories_hash",
-        "claude",
+        "extraction", "ingest", "signal_text", "briefing",
+        "canonical_stories_hash", "claude", "health", "feed_rot",
     ]
     ordered = {k: raw[k] for k in canonical_order if k in raw}
     for k, v in raw.items():

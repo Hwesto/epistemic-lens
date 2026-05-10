@@ -74,8 +74,11 @@ METRICS = META["metrics"]
 EXTRACTION = META["extraction"]
 INGEST = META["ingest"]
 SIGNAL_TEXT = META["signal_text"]
+BRIEFING = META["briefing"]
 CLAUDE = META["claude"]
 FEEDS_META = META["feeds"]
+HEALTH = META["health"]
+FEED_ROT = META["feed_rot"]
 
 
 @lru_cache(maxsize=1)
