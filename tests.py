@@ -1257,6 +1257,100 @@ class TestValidateAnalysis(unittest.TestCase):
         errs = v.check_citations(bad, self.briefing)
         self.assertTrue(any("paradox.a" in e and "wrong_paradox_bucket" in e for e in errs))
 
+    def test_quote_match_is_whitespace_normalised(self):
+        """Gap 7-8: a quote that differs from corpus signal_text only by
+        runs of whitespace (newline / multiple spaces / tabs) must still
+        match. Both sides are normalised before substring check."""
+        from analytical import validate_analysis as v
+        # Construct a corpus entry whose signal_text has irregular
+        # whitespace, and a quote that has different whitespace but the
+        # same words.
+        local_briefing = {"corpus": [{
+            "bucket": "uk", "feed": "BBC", "lang": "en",
+            "title": "x", "link": "https://x", "signal_level": "summary",
+            "signal_text": "Tankers   in the\nStrait of   Hormuz reportedly stalled.",
+        }]}
+        analysis = {
+            "frames": [{
+                "label": "X", "buckets": ["uk"],
+                "evidence": [{
+                    "bucket": "uk",
+                    "quote": "Tankers in the Strait of Hormuz reportedly stalled.",
+                    "signal_text_idx": 0,
+                }],
+            }],
+        }
+        errs = v.check_citations(analysis, local_briefing)
+        self.assertEqual(errs, [])
+
+
+class TestRestampAnalyses(unittest.TestCase):
+    """restamp_analyses.py: idempotent meta_version refresh + post-restamp
+    schema validation (Gap 7-7)."""
+
+    def setUp(self):
+        if "analytical.restamp_analyses" in sys.modules:
+            importlib.reload(sys.modules["analytical.restamp_analyses"])
+        from analytical import restamp_analyses
+        self.ra = restamp_analyses
+        import meta as _meta
+        self.meta = _meta
+
+    def _minimal_analysis(self) -> dict:
+        return {
+            "meta_version": "1.0.0",
+            "date": "2026-05-06",
+            "story_key": "demo",
+            "story_title": "Demo",
+            "n_buckets": 5, "n_articles": 12,
+            "tldr": ("Lead with the most surprising finding here. " * 5).strip(),
+            "frames": [
+                {"label": "F1", "buckets": ["a", "b"],
+                 "evidence": [{"bucket": "a", "quote": "q1",
+                               "signal_text_idx": 0}]},
+                {"label": "F2", "buckets": ["c"],
+                 "evidence": [{"bucket": "c", "quote": "q2",
+                               "signal_text_idx": 1}]},
+            ],
+            "isolation_top": [{"bucket": "x", "mean_jaccard": 0.05}],
+            "bottom_line": "Two sentences restating the headline finding here.",
+            "generated_at": "2026-05-06T08:00:00Z",
+        }
+
+    def test_restamp_updates_meta_version_and_revalidates(self):
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            p = tdp / "2026-05-06_demo.json"
+            p.write_text(json.dumps(self._minimal_analysis()))
+            changed = self.ra.restamp(p)
+            self.assertTrue(changed)
+            updated = json.loads(p.read_text())
+            self.assertEqual(updated["meta_version"], self.meta.VERSION)
+
+    def test_restamp_skips_when_already_current(self):
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            p = tdp / "2026-05-06_demo.json"
+            a = self._minimal_analysis()
+            a["meta_version"] = self.meta.VERSION
+            p.write_text(json.dumps(a))
+            self.assertFalse(self.ra.restamp(p))
+
+    def test_restamp_refuses_to_save_schema_invalid_file(self):
+        """A file with shape drift (e.g. missing required field) should
+        warn and skip rather than write a stamped-but-invalid artifact."""
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            p = tdp / "2026-05-06_broken.json"
+            a = self._minimal_analysis()
+            del a["bottom_line"]   # required field
+            p.write_text(json.dumps(a))
+            mtime_before = p.stat().st_mtime
+            changed = self.ra.restamp(p)
+            self.assertFalse(changed)
+            # File untouched (mtime unchanged).
+            self.assertEqual(p.stat().st_mtime, mtime_before)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

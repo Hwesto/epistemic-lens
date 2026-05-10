@@ -57,11 +57,13 @@ def _load_metrics(date: str, story_key: str) -> dict:
 
 
 def check_schema(analysis: dict) -> list[str]:
-    """Return list of schema violation messages (empty = pass)."""
-    try:
-        import jsonschema
-    except ImportError:
-        return ["jsonschema not installed; cannot run schema check"]
+    """Return list of schema violation messages (empty = pass).
+
+    Hard-requires jsonschema (declared in requirements.txt since
+    Phase 3). The earlier soft-fail-on-import-error was dead defensive
+    code once jsonschema became a pinned dependency.
+    """
+    import jsonschema  # ImportError = environment misconfiguration; bubble it.
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     errors: list[str] = []
     validator = jsonschema.Draft202012Validator(schema)
@@ -90,10 +92,18 @@ def _collect_signal_text_idxs(analysis: dict) -> list[tuple[str, int]]:
 
 
 def check_citations(analysis: dict, briefing: dict) -> list[str]:
-    """Verify every signal_text_idx resolves AND quote substring matches."""
+    """Verify every signal_text_idx resolves AND quote substring matches.
+
+    Both the claimed quote and the corpus signal_text are whitespace-
+    normalised before the substring check so a stray newline or
+    double-space in either side doesn't trigger a false positive.
+    """
     errors: list[str] = []
     corpus = briefing.get("corpus", [])
     n = len(corpus)
+
+    def _normalise_ws(s: str) -> str:
+        return " ".join((s or "").split())
 
     # Every claimed bucket in evidence/paradox/findings must match the
     # corpus entry's bucket at that index. Prevents "I quoted Italy but
@@ -116,8 +126,8 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
                     f"{ev['bucket']!r} but corpus[{idx}].bucket is "
                     f"{entry.get('bucket')!r}"
                 )
-            quote = (ev.get("quote") or "").strip()
-            text = (entry.get("signal_text") or "")
+            quote = _normalise_ws(ev.get("quote") or "")
+            text = _normalise_ws(entry.get("signal_text") or "")
             if quote and quote not in text:
                 errors.append(
                     f"citation: frames[{fi}].evidence[{ei}] quote not found "
@@ -145,8 +155,8 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
                     f"{s['bucket']!r} but corpus[{idx}].bucket is "
                     f"{entry.get('bucket')!r}"
                 )
-            quote = (s.get("quote") or "").strip()
-            text = (entry.get("signal_text") or "")
+            quote = _normalise_ws(s.get("quote") or "")
+            text = _normalise_ws(entry.get("signal_text") or "")
             if quote and quote not in text:
                 errors.append(
                     f"citation: paradox.{side} quote not found verbatim in "

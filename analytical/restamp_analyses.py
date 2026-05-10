@@ -29,12 +29,24 @@ ANALYSES = ROOT / "analyses"
 
 
 def restamp(p: Path) -> bool:
-    """Set p's meta_version to current pin. Return True if changed."""
+    """Set p's meta_version to current pin. Return True if changed.
+
+    Re-validates the file against analysis.schema.json after restamp so
+    stamp drift doesn't mask other shape drift; warns and skips on
+    schema mismatch rather than raising (defense-in-depth: the
+    workflow's validate_analysis step is the load-bearing gate).
+    """
     a = json.loads(p.read_text(encoding="utf-8"))
     old = a.get("meta_version")
     if old == meta.VERSION:
         return False
     a["meta_version"] = meta.VERSION
+    try:
+        meta.validate_schema(a, "analysis")
+    except ValueError as e:
+        print(f"  ! {p.name}: post-restamp schema mismatch — {e}",
+              file=sys.stderr)
+        return False
     p.write_text(
         json.dumps(a, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",

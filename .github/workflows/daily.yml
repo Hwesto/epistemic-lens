@@ -169,6 +169,17 @@ jobs:
       - name: Install jsonschema (agent uses it in-prompt to validate before commit)
         run: pip install jsonschema
 
+      - name: Read pinned model from meta_version.json
+        id: pin_analyze
+        # Single source of truth for the model name. Stage 0 fixed the
+        # prompt skeletons; this closes Stage 7 Gap 7-1 (workflow was
+        # still hardcoding claude-sonnet-4-6 alongside the prompt that
+        # said "copy claude.model from meta_version.json").
+        run: |
+          MODEL=$(python -c "import json;print(json.load(open('meta_version.json'))['claude']['model'])")
+          echo "model=$MODEL" >> "$GITHUB_OUTPUT"
+          echo "analyze model: $MODEL"
+
       - name: Load daily-analysis prompt
         id: load_analysis_prompt
         run: |
@@ -182,7 +193,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-sonnet-4-6 --permission-mode bypassPermissions
+          claude_args: --model ${{ steps.pin_analyze.outputs.model }} --permission-mode bypassPermissions
           show_full_output: true
           prompt: ${{ steps.load_analysis_prompt.outputs.content }}
         # Agent commits its own JSON outputs (per the prompt's final step).
@@ -305,6 +316,14 @@ jobs:
       # Long-form remains an LLM call — prose can't be templated.
       # Switched to Sonnet (per user decision Phase 1): faster than opus,
       # smarter than haiku, and the right tier for prose-grade output.
+      - name: Read pinned model from meta_version.json
+        id: pin_draft
+        # Single source of truth for the model name (Gap 7-1).
+        run: |
+          MODEL=$(python -c "import json;print(json.load(open('meta_version.json'))['claude']['model'])")
+          echo "model=$MODEL" >> "$GITHUB_OUTPUT"
+          echo "draft model: $MODEL"
+
       - name: Load long-draft prompt
         id: load_long_prompt
         run: |
@@ -318,7 +337,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-sonnet-4-6 --permission-mode bypassPermissions
+          claude_args: --model ${{ steps.pin_draft.outputs.model }} --permission-mode bypassPermissions
           show_full_output: true
           prompt: ${{ steps.load_long_prompt.outputs.content }}
 
