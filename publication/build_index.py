@@ -131,11 +131,17 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             print(f"  skip {key}: briefing unreadable ({e})", file=sys.stderr)
             continue
 
+        # Fall back to corpus-derived counts independently per field —
+        # legacy briefings expose only `n_buckets` (with the kept count
+        # under the dead name `n_articles_total`), so we can't gate the
+        # fallback on n_buckets being missing.
         n_buckets = briefing.get("n_buckets")
         n_articles = briefing.get("n_articles")
-        if n_buckets is None and "corpus" in briefing:
-            n_buckets = len({e.get("bucket") for e in briefing["corpus"]})
-            n_articles = len(briefing["corpus"])
+        if "corpus" in briefing:
+            if n_buckets is None:
+                n_buckets = len({e.get("bucket") for e in briefing["corpus"]})
+            if n_articles is None:
+                n_articles = len(briefing["corpus"])
 
         story_dir = out_dir / key
         story_dir.mkdir(exist_ok=True)

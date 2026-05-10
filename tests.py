@@ -535,6 +535,126 @@ class TestSitemapFallback(unittest.TestCase):
         self.assertEqual(items[0]["link"], "https://x.com/article-1")
 
 
+class TestBuildBriefing(unittest.TestCase):
+    """build_briefing.py: matches_story, _title_tokens, novelty dedup,
+    find_emerging_stories, schema validation."""
+
+    def setUp(self):
+        if "analytical.build_briefing" in sys.modules:
+            importlib.reload(sys.modules["analytical.build_briefing"])
+        from analytical import build_briefing
+        self.bb = build_briefing
+
+    def test_matches_story_positive_and_negative(self):
+        story = {"patterns": [r"\bhormuz\b"], "exclude": []}
+        self.assertTrue(self.bb.matches_story(
+            {"title": "Tankers in the Strait of Hormuz", "summary": "", "body_text": ""},
+            story["patterns"]))
+        self.assertFalse(self.bb.matches_story(
+            {"title": "Unrelated headline", "summary": "", "body_text": ""},
+            story["patterns"]))
+
+    def test_matches_story_body_match(self):
+        """Pattern only in body_text (not title/summary) must still match —
+        that's why the search includes body[:body_match_chars]."""
+        story = {"patterns": [r"\bhantavirus\b"]}
+        item = {"title": "Cruise ship outbreak",
+                "summary": "details inside",
+                "body_text": "The investigators confirmed it was hantavirus."}
+        self.assertTrue(self.bb.matches_story(item, story["patterns"]))
+
+    def test_matches_story_exclude_vetoes(self):
+        story = {"patterns": [r"\biran\b"], "exclude": [r"\bhormuz\b"]}
+        self.assertFalse(self.bb.matches_story(
+            {"title": "Iran tankers in Hormuz", "summary": "", "body_text": ""},
+            story["patterns"], story["exclude"]))
+        self.assertTrue(self.bb.matches_story(
+            {"title": "Iran nuclear deal", "summary": "", "body_text": ""},
+            story["patterns"], story["exclude"]))
+
+    def test_title_tokens_filters_stopwords(self):
+        toks = self.bb._title_tokens("These are some words about something")
+        self.assertNotIn("these", toks)  # stopword
+        self.assertNotIn("are", toks)    # < 4 chars
+        self.assertIn("words", toks)
+        self.assertIn("something", toks)
+
+    def test_briefing_dedup_within_bucket(self):
+        """Two near-identical titles in the same bucket should collapse
+        to one corpus entry under the novelty Jaccard threshold."""
+        snap = {"date": "2026-05-06", "countries": {
+            "uk": {"label": "UK", "feeds": [
+                {"name": "BBC", "lang": "en", "items": [
+                    {"id": "1", "title": "UK strikes target Beirut buildings",
+                     "link": "https://x.com/1",
+                     "summary": "x" * 100, "body_text": "lebanon hezbollah israel " * 50},
+                    {"id": "2", "title": "UK strikes target Beirut buildings today",
+                     "link": "https://x.com/2",
+                     "summary": "y" * 100, "body_text": "lebanon hezbollah israel " * 50},
+                ]},
+            ]},
+        }}
+        story = {"title": "Lebanon", "patterns": [r"\blebanon\b"], "exclude": []}
+        b = self.bb.build_briefing_for_story(snap, "lebanon", story)
+        # Both items match the story; Jaccard near 1 → second collapses.
+        self.assertEqual(b["n_buckets"], 1)
+        self.assertEqual(b["n_articles"], 1)
+        self.assertEqual(len(b["corpus"]), 1)
+
+    def test_briefing_signal_breakdown_matches_corpus(self):
+        snap = {"date": "2026-05-06", "countries": {
+            "uk": {"label": "UK", "feeds": [
+                {"name": "F", "lang": "en", "items": [
+                    {"id": "1", "title": "story headline",
+                     "link": "https://x.com/1",
+                     "summary": "story " * 30, "body_text": ""},
+                ]},
+            ]},
+        }}
+        story = {"title": "S", "patterns": [r"\bstory\b"], "exclude": []}
+        b = self.bb.build_briefing_for_story(snap, "s", story)
+        # signal_breakdown counts must equal corpus[].signal_level histogram
+        from collections import Counter
+        self.assertEqual(b["signal_breakdown"],
+                         dict(Counter(c["signal_level"] for c in b["corpus"])))
+
+    def test_briefing_passes_schema(self):
+        """build_briefing output must validate against briefing.schema.json."""
+        import meta as _meta
+        snap = {"date": "2026-05-06", "countries": {
+            "uk": {"label": "UK", "feeds": [
+                {"name": "BBC", "lang": "en", "items": [
+                    {"id": "1", "title": "Lebanon strike report",
+                     "link": "https://bbc.example/1",
+                     "summary": "details " * 30, "body_text": ""},
+                ]},
+            ]},
+        }}
+        story = {"title": "Lebanon", "patterns": [r"\blebanon\b"], "exclude": []}
+        b = self.bb.build_briefing_for_story(snap, "lebanon", story)
+        # Should not raise
+        _meta.validate_schema(b, "briefing")
+
+    def test_find_emerging_skips_canonical_pattern_titles(self):
+        """A title that matches a canonical pattern (e.g. 'hormuz') must
+        not contribute its tokens to the emerging-stories report."""
+        snap = {"countries": {
+            "uk": {"label": "UK", "feeds": [{"name": "F", "lang": "en", "items": [
+                {"title": "Hormuz crisis deepens with new vessel attack"},
+                {"title": "Hormuz crisis deepens with new vessel attack"},
+                {"title": "Hormuz crisis deepens with new vessel attack"},
+                {"title": "Hormuz crisis deepens with new vessel attack"},
+            ]}]},
+            "us": {"label": "US", "feeds": [{"name": "F", "lang": "en", "items": [
+                {"title": "Hormuz crisis deepens with new vessel attack"},
+            ]}]},
+        }}
+        emerging = self.bb.find_emerging_stories(snap, min_buckets=1)
+        toks = {t for t, _ in emerging}
+        self.assertNotIn("crisis", toks)  # filtered via canonical
+        self.assertNotIn("deepens", toks)
+
+
 class TestBuildMetrics(unittest.TestCase):
     """build_metrics.py: pairwise Jaccard, isolation, bucket-exclusive vocab."""
 

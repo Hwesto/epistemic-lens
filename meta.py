@@ -124,8 +124,14 @@ def stopwords() -> frozenset[str]:
 
 @lru_cache(maxsize=1)
 def canonical_stories() -> dict:
-    """Compiled story-group definitions for build_briefing.py."""
+    """Compiled story-group definitions for build_briefing.py.
+
+    Validated against docs/api/schema/canonical_stories.schema.json on
+    load so a typo in a regex pattern (or a missing required field)
+    fails fast instead of silently never matching.
+    """
     raw = json.loads(CANONICAL_STORIES_PATH.read_text(encoding="utf-8"))
+    validate_schema(raw, "canonical_stories")
     return raw["stories"]
 
 

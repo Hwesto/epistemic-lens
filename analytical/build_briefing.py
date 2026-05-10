@@ -5,7 +5,11 @@ briefing JSON files containing one signal-text excerpt per bucket. Falls
 back to summary-only or title-only when body extraction failed (using
 extract_full_text.signal_text()).
 
-Output: briefings/<date>_<slug>.json — feed for video script generation.
+Output: briefings/<date>_<slug>.json — the central analytical artifact,
+consumed by analytical.build_metrics, the LLM analyze prompt,
+analytical.validate_analysis (citation grounding via signal_text_idx)
+and publication.build_index. Shape pinned by
+docs/api/schema/briefing.schema.json and validated before write.
 
 Usage:
   python build_briefing.py                    # all auto-detected top stories
@@ -19,7 +23,6 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
-from datetime import datetime
 from pathlib import Path
 
 import meta
@@ -123,25 +126,42 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
         "story_key": story_key,
         "story_title": story_def["title"],
         "n_buckets": len(by_bucket),
-        "n_articles_total": sum(len(v) for v in by_bucket.values()),
+        # n_articles is the kept-corpus count (post per-bucket dedup),
+        # which is what every downstream consumer (build_index,
+        # validate_analysis, the LLM analyze prompt's number-reconciliation
+        # check) expects. The pre-dedup candidate count was previously
+        # exposed as `n_articles_total` and read by nothing.
+        "n_articles": len(corpus),
         "signal_breakdown": dict(Counter(a["signal_level"] for a in corpus)),
         "corpus": corpus,
     })
 
 
-def find_emerging_stories(snap: dict, min_buckets: int = 5,
-                          ignore_canonical: bool = True) -> list[tuple[str, set]]:
+def _validate_or_skip(briefing: dict, story_key: str) -> bool:
+    """Validate against briefing.schema.json. Print a stderr diag and
+    return False on failure so main() can skip the write rather than
+    crash mid-loop."""
+    try:
+        meta.validate_schema(briefing, "briefing")
+        return True
+    except ValueError as e:
+        print(f"  ! {story_key}: schema validation failed — {e}",
+              file=sys.stderr)
+        return False
+
+
+def find_emerging_stories(snap: dict, min_buckets: int = 4,
+                          ignore_canonical: bool = True,
+                          top_n: int = 10) -> list[tuple[str, set]]:
     """Token-frequency detection of unrecognised cross-bucket stories.
 
     Filter set is the pinned stopwords plus a small inline allowlist of
-    "already-tracked" terms (the heads of canonical stories) so we don't
-    surface tokens we already cover via canonical_stories.json. The
-    inline set is intentionally narrow — broader noise belongs in
+    canonical-story heads — those terms appear in many titles even when
+    no canonical pattern matches (e.g. "Trump praises X" with no Hormuz
+    context), so they would otherwise dominate emerging output. The
+    inline set is intentionally narrow; broader noise belongs in
     stopwords.txt.
     """
-    # Canonical-story-head terms that survive the title filter would
-    # otherwise dominate emerging-story output. Comment line spelling
-    # matches the canonical_stories.json keys for grep-ability.
     DOMAIN_NOISE = {"trump", "iran", "said"}
     stop = meta.stopwords() | DOMAIN_NOISE
 
@@ -165,7 +185,7 @@ def find_emerging_stories(snap: dict, min_buckets: int = 5,
                     token_buckets[tok].add(ck)
     emerging = [(t, b) for t, b in token_buckets.items() if len(b) >= min_buckets]
     emerging.sort(key=lambda x: -len(x[1]))
-    return emerging[:10]
+    return emerging[:top_n]
 
 
 def latest_snapshot_path(snap_dir: Path | None = None) -> Path | None:
@@ -210,6 +230,8 @@ def main():
         if b["n_buckets"] < args.min_buckets:
             print(f"  - {key:<24} {b['n_buckets']} buckets — under threshold, skipped")
             continue
+        if not _validate_or_skip(b, key):
+            continue
         out_path = args.out_dir / f"{snap['date']}_{key}.json"
         out_path.write_text(json.dumps(b, indent=2, ensure_ascii=False))
         sb = b["signal_breakdown"]
@@ -223,10 +245,10 @@ def main():
     print(f"\n{n_written} briefings written to {args.out_dir}/")
 
     # Emerging-stories report (just informational)
-    emerging = find_emerging_stories(snap, min_buckets=4)
+    emerging = find_emerging_stories(snap)
     if emerging:
         print("\nEmerging stories not in canonical list (>=4 buckets):")
-        for tok, buckets in emerging[:8]:
+        for tok, buckets in emerging:
             print(f"  {tok:<18} {len(buckets):>2} buckets")
 
 
