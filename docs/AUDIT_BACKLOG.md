@@ -18,7 +18,7 @@ parked.
 |---|---|---|---|
 | ~~**0-3**~~ | ~~Two different token-normalisation pipelines (`meta.tokenize` / `analytical.build_briefing._title_tokens`) share the stopword set but not the regex / plural-strip pipeline.~~ | Closed in `ac703c2` (meta-v2.4.0 Stage 5 part B): `_title_tokens` now `return set(meta.tokenize(s))`. New test `test_title_tokens_plural_stripped` pins the contract. | — |
 | **0-4** | `meta.dir_hash(PROMPTS_DIR)` defaults `glob="*.md"`. New `.json` / `.yaml` / `.j2` prompt assets in `.claude/prompts/` would not be hashed and could drift silently. | No non-`.md` files exist in `.claude/prompts/` today. | When the first non-`.md` file is added under `.claude/prompts/`. Fix: pass `glob="*"` and skip hidden files / dirs explicitly. |
-| **0-5** | `canonical_stories.json` has no JSON Schema. A typo in a regex pattern silently never matches; an `exclude` typo skips the wrong things. Pattern quality varies (`\bvietnam.*\bbeijing\b` is greedy; `\biran\b.{0,40}\bdeal\b` is bounded). | `build_briefing.matches_story` is defensive (`exclude or []`), so failures are silent rather than crashes. | Stage 5 review. Add `docs/api/schema/canonical_stories.schema.json` (per-story `title` + `patterns: [string]` + optional `exclude: [string]`); validate in `tests.py`. Patch bump. |
+| ~~**0-5**~~ | ~~`canonical_stories.json` has no JSON Schema.~~ | Closed in `ba93c80` (Stage 5 part A): `docs/api/schema/canonical_stories.schema.json` added; `meta.canonical_stories()` validates against it on load so a typo in a regex pattern fails fast instead of silently never matching. | — |
 
 ## Stage 1 — Ingest
 
