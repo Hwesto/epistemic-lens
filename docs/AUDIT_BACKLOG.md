@@ -113,7 +113,18 @@ references the deleted stage:
 | **9-min-D** | `**Model:** {a['model']}` displays the model name from the analysis JSON. If `restamp_analyses.py` (Stage 7) restamps `meta_version` without also restamping `model`, the two could drift. | Currently restamp only touches meta_version; model stays consistent because restamp leaves it alone. | If restamp ever gains the ability to rewrite other fields. |
 | **9-min-E** | The `## Paradox` section header always renders, even when paradox is None (it prints `_No paradox in this corpus._`). | By design — explicit absence is more useful than silent omission for editorial review. | Don't pick up. |
 
-## Stages 10 — 21
+## Stage 10 — Thread + carousel renderers
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **10-min-A** | `MAX_TWEET_CHARS=280`, `MAX_HOOK_CHARS=240`, `MAX_SLIDE_BODY_CHARS=200` hardcoded across renderers. Could move to `meta.PUBLICATION` for consistency with other pinned thresholds. | Stylistic; no consumer reads them. | If we ever add a fourth template renderer that needs the same limits, or want to vary platform limits per surface. |
+| **10-min-B** | The `model` field stores `"template:render_thread.py"` / `"template:render_carousel.py"` for templates and the Claude model string for LLM artifacts. Same field name, different semantics. | Defensible — answers "what produced this?" in both cases. Frontend consumers don't currently parse `template:`-prefixed values. | If a downstream consumer ever needs to filter template vs LLM artifacts programmatically. |
+| **10-min-C** | Thread `tweets[:8]` trim has the same architectural risk Gap 10-4 fixed in carousel — if a new tweet type is appended after `_outlet_finding_tweet`, the outlet finding (currently the last and most "human" tweet) drops first. | Today's max tweets is exactly 8, so the trim is a no-op. Comment-only risk. | If a 9th tweet type is ever added. |
+| **10-min-D** | Carousel pad-to-4 floor logic (L165-178) is unreachable today (frames.minItems=2 guarantees ≥4 slides) AND incomplete (only adds 1 slide, can't pad from <3). | Defensive code without a real failure mode under current schemas. | If `analysis.schema.json` ever loosens `frames.minItems`. |
+| **10-min-E** | The original carousel comment ("Silence (only if hook wasn't already a paradox covering similar ground)") contradicted the actual implementation, which added silence in both cases (gated by `len < 9` when hook was paradox). Stage 10's fix preserved the implementation semantics rather than the comment. Worth a deliberate review: should silence be skipped entirely when the hook is a paradox, or kept (as today)? | Editorial — both are defensible. The current behaviour is what we've published; changing it would alter live carousel drafts. | If editorial review decides paradox+silence is redundant on the same carousel. |
+| **10-min-F** | `_frame_tweet` / `_frame_slide` only use `frame['evidence'][0]` even when multiple evidence entries exist. | By design — keeps tweets/slides compact. | Don't pick up. |
+
+## Stages 11 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
