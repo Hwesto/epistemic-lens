@@ -576,8 +576,24 @@ class TestBuildBriefing(unittest.TestCase):
         toks = self.bb._title_tokens("These are some words about something")
         self.assertNotIn("these", toks)  # stopword
         self.assertNotIn("are", toks)    # < 4 chars
-        self.assertIn("words", toks)
+        # "words" plural-stripped to "word" by meta.tokenize (Gap 5-2)
+        self.assertIn("word", toks)
         self.assertIn("something", toks)
+
+    def test_title_tokens_plural_stripped(self):
+        """Closes Stage 0 Gap 0-3: _title_tokens shares meta.tokenize's
+        normalisation, including plural-strip. Two titles differing only
+        in pluralisation must produce identical token sets so the
+        within-bucket novelty filter catches them.
+
+        Note: the plural-strip rule is suffix-character matching, not
+        real lemmatisation. "talks"/"talk" round-trip cleanly; pairs
+        like "resumes"/"resume" don't (the rule strips "es" → "resum").
+        We test the well-behaved pair.
+        """
+        a = self.bb._title_tokens("Hostage talks Cairo")
+        b = self.bb._title_tokens("Hostage talk Cairo")
+        self.assertEqual(a, b)
 
     def test_briefing_dedup_within_bucket(self):
         """Two near-identical titles in the same bucket should collapse

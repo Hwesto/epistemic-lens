@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.3.0",
-  "pinned_at": "2026-05-10T13:15:59Z",
-  "pin_reason": "Stage 2 cleanup: per-host throttle no longer holds global lock during sleep (concurrency fix mirroring Stage 1); Wayback fallback threshold pinned to body_partial_min; Wayback retry list trimmed (drop 401/429 — no useful retry); per-language Accept-Language header per feed lang (was fixed English); fetch_attempts pinned for both ingest (3) and extraction (2); snapshot-path filter factored into pipeline._paths shared by extract / dedup-glob / daily_health / build_briefing",
+  "meta_version": "2.4.0",
+  "pinned_at": "2026-05-10T14:50:27Z",
+  "pin_reason": "Stage 5 cleanup: _title_tokens delegates to meta.tokenize (closes Stage 0 Gap 0-3 — within-bucket novelty filter now shares plural-strip with metrics vocab); per_bucket_max (2) and body_match_chars (1500) pinned under briefing (were function-default magic numbers); DOMAIN_NOISE in find_emerging_stories cleaned up (said removed — already in stopwords.txt; trump/iran retained as canonical-story-head leakage)",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -73,7 +73,9 @@
       "body": 3,
       "summary": 2,
       "title": 1
-    }
+    },
+    "per_bucket_max": 2,
+    "body_match_chars": 1500
   },
   "canonical_stories_hash": "sha256:d059c6f47cd4b10b55464622ddbbe1304e2ac40f0cf58df31fdfe85907bd59c2",
   "claude": {
@@ -97,5 +99,5 @@
     "decline_min_history": 4,
     "top_n_declining": 20
   },
-  "pin_self_hash": "sha256:74c73f7b3dd2ae55da16d4415190ebc09f57eae7bf7fe70fcc44720c2a2857a1"
+  "pin_self_hash": "sha256:7d9482ccf1f7f02c4578f6b2a5c2ecfd0fe36f09bf6a0f990aa8057bb3ec95b6"
 }

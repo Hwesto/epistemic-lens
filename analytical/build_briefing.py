@@ -42,28 +42,35 @@ CANONICAL_STORIES = meta.canonical_stories()
 
 _NOVELTY_JACCARD = float(meta.BRIEFING["novelty_jaccard"])
 _SIGNAL_RANK: dict[str, int] = {k: int(v) for k, v in meta.BRIEFING["signal_rank"].items()}
+_PER_BUCKET_MAX = int(meta.BRIEFING["per_bucket_max"])
+_BODY_MATCH_CHARS = int(meta.BRIEFING["body_match_chars"])
 
 
 def matches_story(item: dict, patterns, exclude=None) -> bool:
     txt = (item.get("title", "") + " " + item.get("summary", "") +
-           " " + item.get("body_text", "")[:1500]).lower()
+           " " + item.get("body_text", "")[:_BODY_MATCH_CHARS]).lower()
     for ex in (exclude or []):
         if re.search(ex, txt):
             return False
+    # txt is already lowercase, so re.I is redundant — but keep it on
+    # the patterns side because canonical_stories.json patterns may
+    # include character classes meant to be case-insensitive.
     return any(re.search(p, txt, re.I) for p in patterns)
 
 
 def _title_tokens(s: str) -> set[str]:
-    """Tokens for within-bucket near-duplicate detection. Uses the
-    methodology-pinned stopword set so the filter is identical to what
-    metrics use elsewhere. The 4-letter floor matches meta.tokenize().
+    """Tokens for within-bucket near-duplicate detection.
+
+    Delegates to meta.tokenize so the normalisation (regex + plural-strip
+    + stopword filter + 4-letter floor) is identical to what metrics
+    use. Closes Stage 0 Gap 0-3: a future stemming change to
+    meta.tokenize now propagates to this filter automatically.
     """
-    stop = meta.stopwords()
-    return {t for t in re.findall(r"[a-z]{4,}", s.lower()) if t not in stop}
+    return set(meta.tokenize(s))
 
 
 def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
-                             per_bucket_max: int = 2,
+                             per_bucket_max: int = _PER_BUCKET_MAX,
                              novelty_threshold: float = _NOVELTY_JACCARD) -> dict:
     """For one story definition, collect signal-text per bucket.
 
@@ -162,7 +169,11 @@ def find_emerging_stories(snap: dict, min_buckets: int = 4,
     inline set is intentionally narrow; broader noise belongs in
     stopwords.txt.
     """
-    DOMAIN_NOISE = {"trump", "iran", "said"}
+    # Domain-specific noise — canonical-story heads that survive the
+    # canonical-pattern filter when they appear in unrelated titles
+    # ("Trump praises X" with no Hormuz context). Pure-English noise
+    # like "said" doesn't belong here — it's already in stopwords.txt.
+    DOMAIN_NOISE = {"trump", "iran"}
     stop = meta.stopwords() | DOMAIN_NOISE
 
     canon_pat = re.compile(
