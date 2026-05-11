@@ -1690,6 +1690,83 @@ class TestBuildIndex(unittest.TestCase):
             "## Paradox\n\nPressTV said X; Iran Intl said Y."))
 
 
+class TestValidateDrafts(unittest.TestCase):
+    """publication/validate_drafts.py: post-hoc draft schema gate.
+
+    Stage 19 Gap 19-1: extracted from a 22-line inline heredoc in
+    daily.yml so the logic is testable and uses meta.validate_schema
+    (which Stage 14's schemas_hash discipline depends on)."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        if "publication.validate_drafts" in sys.modules:
+            importlib.reload(sys.modules["publication.validate_drafts"])
+        from publication import validate_drafts
+        self.vd = validate_drafts
+
+    def test_kind_of_recognises_three_kinds(self):
+        self.assertEqual(
+            self.vd._kind_of(Path("2026-05-08_story_thread.json")), "thread")
+        self.assertEqual(
+            self.vd._kind_of(Path("2026-05-08_story_carousel.json")), "carousel")
+        self.assertEqual(
+            self.vd._kind_of(Path("2026-05-08_story_long.json")), "long")
+        # Bare analysis JSON or unrelated files: skipped (returns None).
+        self.assertIsNone(self.vd._kind_of(Path("2026-05-08_story.json")))
+        self.assertIsNone(self.vd._kind_of(Path("readme.json")))
+
+    def test_validate_one_passes_clean_thread(self):
+        import meta as _meta
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            p = td / "2026-05-08_test_story_thread.json"
+            p.write_text(json.dumps({
+                "meta_version": _meta.VERSION,
+                "story_key": "test_story",
+                "date": "2026-05-08",
+                "hook": "A test hook string.",
+                "tweets": [
+                    {"text": "First tweet"},
+                    {"text": "Second tweet"},
+                    {"text": "Third tweet"},
+                ],
+            }))
+            rc, errs = self.vd.validate_one(p)
+            self.assertEqual(rc, 0, msg=f"clean thread failed: {errs}")
+            self.assertEqual(errs, [])
+
+    def test_validate_one_flags_schema_failure(self):
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            p = td / "2026-05-08_broken_thread.json"
+            # Missing required meta_version, hook, tweets — should fail.
+            p.write_text(json.dumps({"story_key": "x", "date": "2026-05-08"}))
+            rc, errs = self.vd.validate_one(p)
+            self.assertEqual(rc, 1)
+            self.assertTrue(errs, "expected schema errors on broken draft")
+
+    def test_validate_one_flags_corrupt_json(self):
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            p = td / "2026-05-08_broken_long.json"
+            p.write_text("{ not valid json ::: ")
+            rc, errs = self.vd.validate_one(p)
+            self.assertEqual(rc, 1)
+            self.assertTrue(any("corrupt JSON" in e for e in errs))
+
+    def test_validate_one_silently_skips_unrecognised_kind(self):
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            p = td / "2026-05-08_random_other.json"
+            p.write_text(json.dumps({"anything": "here"}))
+            rc, errs = self.vd.validate_one(p)
+            self.assertEqual(rc, 0)
+            self.assertEqual(errs, [])
+
+
 class TestLongLinkAuditCorpus(unittest.TestCase):
     """_shared.long_link_audit extended sources->corpus URL check
     (Gap 12-4 / 11-min-D carry-over)."""

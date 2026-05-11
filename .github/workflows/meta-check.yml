@@ -46,4 +46,4 @@ jobs:
         run: pip install requests
 
       - name: Run unit + edge tests
-        run: python -m unittest tests.py tests_edge.py -v
+        run: python -m unittest tests tests_edge -v

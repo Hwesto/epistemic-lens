@@ -287,8 +287,8 @@ jobs:
       - name: Install jsonschema (for renderers + agent in-prompt validation)
         run: pip install jsonschema
 
-      # Phase 3: thread + carousel are deterministic templates over the
-      # canonical analysis JSON. No LLM required — saves ~8 messages/day.
+      # Thread + carousel are deterministic templates over the canonical
+      # analysis JSON. No LLM required — saves ~8 messages/day.
       - name: Render thread drafts (template)
         run: python -m publication.render_thread
 
@@ -364,37 +364,18 @@ jobs:
           fi
 
       - name: Validate drafts against schemas
-        run: |
-          set -e
-          pip install jsonschema >/dev/null
-          python3 - <<'PY'
-          import json, sys
-          from pathlib import Path
-          import jsonschema
-          schemas = {
-              "thread":   json.load(open("docs/api/schema/thread.schema.json")),
-              "carousel": json.load(open("docs/api/schema/carousel.schema.json")),
-              "long":     json.load(open("docs/api/schema/long.schema.json")),
-          }
-          fails = 0
-          for p in sorted(Path("drafts").glob("*.json")):
-              fmt = p.stem.rsplit("_", 1)[-1]
-              if fmt not in schemas:
-                  continue
-              try:
-                  jsonschema.validate(json.load(open(p)), schemas[fmt])
-              except jsonschema.ValidationError as e:
-                  print(f"::error file={p}::schema fail: {e.message}")
-                  fails += 1
-          sys.exit(fails)
-          PY
+        # Gap 19-1: extracted from inline heredoc to publication.validate_drafts
+        # so the logic is testable + benefits from meta.validate_schema's
+        # schemas_hash discipline (a hand-edited schema not paired with a pin
+        # bump fails CI here AND at the meta-check pin gate).
+        run: python -m publication.validate_drafts
 
       # Note: each of the three draft sub-actions commits + pushes its own
       # outputs (per its prompt). The external "Commit and push drafts" step
-      # was removed in Phase 0 — same sandbox issue as the analyze job.
-      # Schema validation above runs post-hoc; if it fails, the workflow
-      # fails but the drafts are already on main. Self-correcting on next
-      # run via the date filter.
+      # was removed earlier — same sandbox issue as the analyze job. Schema
+      # validation above runs post-hoc; if it fails, the workflow fails but
+      # the drafts are already on main. Self-correcting on next run via the
+      # date filter.
 
   publish_api:
     needs: draft
