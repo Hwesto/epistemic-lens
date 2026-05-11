@@ -2553,6 +2553,248 @@ def _version_at_least(actual: str, threshold: str) -> bool:
     return a >= t
 
 
+class TestPageRenderers(unittest.TestCase):
+    """Plan 2: page-level composers in publication/page_renderers.py.
+    Tests cover each renderer with synthetic data — structural checks
+    only (presence of expected elements + safe handling of missing data)."""
+
+    def setUp(self):
+        from publication import page_renderers as pr
+        self.pr = pr
+
+    def _signals(self, story_key: str = "test", with_paradox: bool = False,
+                  with_llr: bool = False, with_tilt: bool = False,
+                  with_sources: bool = False) -> dict:
+        s = {
+            "date": "2026-05-11", "story_key": story_key,
+            "briefing": {"corpus": []},
+            "analysis": {"frames": [], "bottom_line": "Test bottom line."},
+            "trajectory": None, "coverage": None,
+            "sources": None, "within_lang_llr": None, "tilt_files": [],
+        }
+        if with_paradox:
+            s["analysis"]["paradox"] = {
+                "a": {"bucket": "uk", "outlet": "BBC", "quote": "A says X"},
+                "b": {"bucket": "russia", "outlet": "RT", "quote": "B says Y"},
+                "joint_conclusion": "Both said the same thing." * 5,
+            }
+        if with_llr:
+            s["within_lang_llr"] = {"by_bucket": {
+                "uk": {"lang": "en", "distinctive_terms": [
+                    {"term": "westminster", "llr": 25.0}]}}}
+        if with_tilt:
+            s["tilt_files"] = [{
+                "bucket": "russia", "outlet": "RT",
+                "anchors": {"wire": {"positive_tilt": [
+                    {"bigram": ["a", "b"], "z_score": 4.0}]}}}]
+        if with_sources:
+            s["sources"] = {"sources": [
+                {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "state"}] * 5}
+        return s
+
+    def test_archetypes_with_signal_returns_word_fallback(self):
+        out = self.pr._archetypes_with_signal(self._signals())
+        self.assertEqual(out, ["word"])
+
+    def test_archetypes_with_signal_detects_paradox(self):
+        out = self.pr._archetypes_with_signal(self._signals(with_paradox=True))
+        self.assertIn("paradox", out)
+
+    def test_render_frames_matrix_with_data(self):
+        analysis = {"frames": [
+            {"frame_id": "ECONOMIC", "buckets": ["italy", "germany"],
+             "evidence": [{"bucket": "italy", "quote": "the euro fell"}]},
+            {"frame_id": "SECURITY_DEFENSE", "buckets": ["uk"], "evidence": []},
+        ]}
+        html = self.pr.render_frames_matrix(analysis)
+        self.assertIn("frames-matrix", html)
+        self.assertIn("ECONOMIC", html)
+        self.assertIn("SECURITY_DEFENSE", html)
+        self.assertIn("italy", html)
+        self.assertIn("the euro fell", html)  # tooltip content
+
+    def test_render_frames_matrix_empty(self):
+        self.assertEqual(self.pr.render_frames_matrix({"frames": []}), "")
+
+    def test_render_isolation_panel_sorts_ascending(self):
+        metrics = {"isolation": [
+            {"bucket": "italy", "mean_similarity": 0.85},
+            {"bucket": "japan", "mean_similarity": 0.45},
+            {"bucket": "spain", "mean_similarity": 0.65},
+        ]}
+        html = self.pr.render_isolation_panel(metrics)
+        # Most-isolated first → japan (0.45) before italy (0.85)
+        japan_pos = html.find("japan")
+        italy_pos = html.find("italy")
+        self.assertGreater(italy_pos, japan_pos)
+        self.assertIn("isolation-bar", html)
+
+    def test_render_exclusive_vocab_renders_tiles(self):
+        analysis = {"exclusive_vocab_highlights": [
+            {"bucket": "italy", "terms": ["guerra", "accordo"],
+             "what_it_reveals": "war framing"},
+        ]}
+        html = self.pr.render_exclusive_vocab(analysis)
+        self.assertIn("exclusive-vocab-tile", html)
+        self.assertIn("guerra", html)
+        self.assertIn("war framing", html)
+
+    def test_render_long_form_details_collapsed_by_default(self):
+        draft = {
+            "title": "The Hormuz blockade", "subtitle": "What's at stake",
+            "body_md": "First paragraph here.\n\n> A quoted line.\n\nSecond paragraph.",
+            "sources": [{"bucket": "uk", "url": "https://example/x", "outlet": "BBC"}],
+            "model": "claude-haiku-4-5", "meta_version": "8.7.2",
+            "generated_at": "2026-05-11T17:00:00Z",
+        }
+        html = self.pr.render_long_form_details(draft)
+        self.assertIn("<details class=\"long-form-details\">", html)
+        self.assertNotIn("<details open", html)  # collapsed by default
+        self.assertIn("First paragraph here", html)
+        self.assertIn("<blockquote>A quoted line.</blockquote>", html)
+        self.assertIn("Sources", html)
+        self.assertIn("BBC", html)
+
+    def test_render_long_form_details_handles_none(self):
+        self.assertEqual(self.pr.render_long_form_details(None), "")
+        self.assertEqual(self.pr.render_long_form_details({}), "")
+
+    def test_render_story_page_assembles_full_html(self):
+        story_entry = {
+            "key": "hormuz_iran", "title": "Hormuz crisis",
+            "n_buckets": 30, "n_articles": 50, "card_kind": "paradox",
+            "event_summary": "Iran blocked the strait Tuesday.",
+            "finding_synthesis": "Same conclusion, opposite framings.",
+        }
+        signals = self._signals("hormuz_iran", with_paradox=True, with_llr=True)
+        html = self.pr.render_story_page("2026-05-11", "hormuz_iran",
+                                          signals, story_entry)
+        self.assertIn("<!DOCTYPE html>", html)
+        self.assertIn("Hormuz crisis", html)
+        self.assertIn("story-section--paradox", html)
+        self.assertIn("story-section--word", html)
+        # Per-card brand/H1 are hidden by CSS, but card class is present
+        self.assertIn("card--paradox", html)
+        # Footer links
+        self.assertIn("/methodology/", html)
+        self.assertIn("← back to today", html)
+
+    def test_render_coverage_page_renders_matrix(self):
+        coverage = {
+            "feeds": [{"bucket": "italy"}, {"bucket": "germany"}],
+            "coverage": {
+                "story_a": [
+                    {"feed_name": "ANSA", "bucket": "italy",
+                     "n_matching": 2, "first_match_title": "Iran blocks"},
+                    {"feed_name": "Tagesschau", "bucket": "germany",
+                     "n_matching": 0, "first_match_title": ""},
+                ],
+            },
+        }
+        story_entries = [{"key": "story_a", "title": "Iran"}]
+        html = self.pr.render_coverage_page("2026-05-11", coverage, story_entries)
+        self.assertIn("coverage-matrix", html)
+        self.assertIn("cov-covered", html)  # italy covered
+        self.assertIn("cov-silent", html)    # germany silent
+        self.assertIn("Iran blocks", html)   # title in tooltip
+
+    def test_render_outlet_page_handles_pre_pr7_schema(self):
+        # Pre-PR-7 single-anchor shape (today's actual on-disk tilt files)
+        tilt = {
+            "bucket": "russia", "outlet": "RT",
+            "n_articles_in_window": 12, "window_days": 7,
+            "wire_baseline_pin": "8.7.2",
+            "positive_tilt": [{"bigram": ["western", "powers"],
+                                "z_score": 4.2, "log_odds": 2.1,
+                                "count_in_outlet": 8}],
+            "negative_tilt": [{"bigram": ["ceasefire", "talks"],
+                                "z_score": -3.1, "log_odds": -1.8,
+                                "count_in_outlet": 0}],
+        }
+        html = self.pr.render_outlet_page("russia", "RT", tilt)
+        self.assertIn("RT", html)
+        self.assertIn("western powers", html)
+        self.assertIn("ceasefire talks", html)
+        # Single-anchor → don't show the bucket_mean panel
+        self.assertNotIn("vs cross-bucket mean", html)
+
+    def test_render_outlet_page_handles_dual_anchor_schema(self):
+        tilt = {
+            "bucket": "russia", "outlet": "RT",
+            "n_articles_in_window": 12, "window_days": 7,
+            "wire_baseline_pin": "8.7.2",
+            "anchors": {
+                "wire": {"positive_tilt": [{"bigram": ["western", "powers"],
+                                             "z_score": 4.2}],
+                         "negative_tilt": []},
+                "bucket_mean": {"positive_tilt": [{"bigram": ["regime", "change"],
+                                                    "z_score": 3.5}],
+                                 "negative_tilt": []},
+            },
+        }
+        html = self.pr.render_outlet_page("russia", "RT", tilt)
+        self.assertIn("vs cross-bucket mean", html)
+        self.assertIn("regime change", html)
+
+    def test_render_methodology_page_includes_pin_and_codebook(self):
+        meta_dict = {
+            "meta_version": "8.7.2",
+            "pinned_at": "2026-05-11T16:00:00Z",
+            "pin_reason": "test",
+            "schemas_hash": "sha256:" + "a" * 64,
+            "prompts_hash": "sha256:" + "b" * 64,
+        }
+        codebook = {"frames": [
+            {"frame_id": "ECONOMIC", "label": "Economic",
+             "description": "Money + markets."},
+        ]}
+        card_picker = {"cascade": [
+            {"kind": "paradox", "precondition": {"type": "field_present",
+                                                  "path": "analysis.paradox"}},
+            {"kind": "word", "precondition": {"type": "fallback"}},
+        ]}
+        today_picker = {"scoring": {"archetype_strength_weights":
+                                      {"paradox": 1.0, "word": 0.4}}}
+        todays_card = {"story_title": "Hormuz", "card_kind": "paradox",
+                       "score_breakdown": {"magnitude": 0.2,
+                                            "archetype_strength": 1.0,
+                                            "diversity_bonus": 1.0,
+                                            "final_score": 1.2}}
+        html = self.pr.render_methodology_page(meta_dict, codebook, "PROMPT",
+                                                 card_picker, today_picker,
+                                                 todays_card)
+        self.assertIn("Methodology", html)
+        self.assertIn("8.7.2", html)
+        self.assertIn("ECONOMIC", html)
+        self.assertIn("PROMPT", html)
+        self.assertIn("Hormuz", html)
+        self.assertIn("paradox", html)
+
+    def test_render_archive_page_groups_by_month(self):
+        date_indexes = [
+            ("2026-05-11", {"stories": [{"key": "a", "title": "A"},
+                                          {"key": "b", "title": "B"}],
+                             "todays_card": {"card_kind": "paradox",
+                                              "story_title": "A"}}),
+            ("2026-04-30", {"stories": [{"key": "c", "title": "C"}],
+                             "todays_card": {"card_kind": "word",
+                                              "story_title": "C"}}),
+        ]
+        html = self.pr.render_archive_page(date_indexes)
+        self.assertIn("Archive", html)
+        self.assertIn("May 2026", html)
+        self.assertIn("April 2026", html)
+        self.assertIn("paradox", html)
+        # The flat link to date pages
+        self.assertIn('href="/2026-05-11/"', html)
+
+    def test_md_inline_links_and_emphasis(self):
+        out = self.pr._md_inline("see [BBC](https://example/x) for **important** *facts*")
+        self.assertIn('<a href="https://example/x"', out)
+        self.assertIn("<strong>important</strong>", out)
+        self.assertIn("<em>facts</em>", out)
+
+
 class TestCardRenderers(unittest.TestCase):
     """PR D-1: per-archetype HTML renderers. Each test feeds synthetic
     signals to the renderer and asserts the load-bearing fields show

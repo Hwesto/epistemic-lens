@@ -695,6 +695,46 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
     (out_dir / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"
     )
+
+    # Plan 2: per-story HTML pages + today's coverage matrix.
+    # Each story gets a multi-card-stack page at /<date>/<story>/index.html
+    # composed from every archetype renderer that has signal.
+    from publication.page_renderers import render_story_page, render_coverage_page
+    for entry in story_entries:
+        story_key = entry["key"]
+        story_dir_local = out_dir / story_key
+        if not story_dir_local.exists():
+            continue
+        try:
+            briefing = json.loads(
+                (BRIEFINGS / f"{date}_{story_key}.json").read_text(encoding="utf-8")
+            )
+        except (OSError, json.JSONDecodeError):
+            continue
+        signals_local = collect_story_signals(date, story_key, briefing)
+        long_path = DRAFTS / f"{date}_{story_key}_long.json"
+        long_draft = None
+        if long_path.exists():
+            try:
+                long_draft = json.loads(long_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                long_draft = None
+        try:
+            story_html = render_story_page(date, story_key, signals_local, entry, long_draft)
+            (story_dir_local / "index.html").write_text(story_html, encoding="utf-8")
+        except Exception as e:  # pragma: no cover — defensive
+            print(f"  story page render failed for {story_key}: {e}", file=sys.stderr)
+
+    # Today's coverage matrix — single page rendering coverage/<DATE>.json.
+    coverage_src = COVERAGE / f"{date}.json"
+    if coverage_src.exists():
+        try:
+            coverage_data = json.loads(coverage_src.read_text(encoding="utf-8"))
+            coverage_html = render_coverage_page(date, coverage_data, story_entries)
+            (out_dir / "coverage.html").write_text(coverage_html, encoding="utf-8")
+        except (OSError, json.JSONDecodeError, Exception) as e:  # pragma: no cover
+            print(f"  coverage page render failed: {e}", file=sys.stderr)
+
     return index
 
 
@@ -906,6 +946,111 @@ def copy_web() -> None:
         shutil.copy2(p, API / p.name)
 
 
+def copy_outlet_pages() -> int:
+    """Plan 2: walk tilt/<bucket>__<outlet>.json and emit a per-outlet HTML
+    page at api/outlet/<bucket>__<outlet>/index.html. Returns the number
+    written."""
+    if not TILT.is_dir():
+        return 0
+    from publication.page_renderers import render_outlet_page
+    out_base = API / "outlet"
+    out_base.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for p in sorted(TILT.glob("*.json")):
+        try:
+            tilt = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        bucket = tilt.get("bucket") or p.stem.split("__", 1)[0]
+        outlet = tilt.get("outlet") or p.stem.split("__", 1)[-1]
+        # Filename-safe directory: same stem as the tilt file.
+        slug = p.stem
+        out_dir = out_base / slug
+        out_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            html = render_outlet_page(bucket, outlet, tilt)
+            (out_dir / "index.html").write_text(html, encoding="utf-8")
+            n += 1
+        except Exception as e:  # pragma: no cover
+            print(f"  outlet page render failed for {slug}: {e}", file=sys.stderr)
+    return n
+
+
+def write_methodology_page() -> None:
+    """Plan 2: render the methodology page that surfaces today's pin +
+    codebook + analysis prompt + picker explanation + drift segments."""
+    from publication.page_renderers import render_methodology_page
+    meta_dict = json.loads(meta.META_PATH.read_text(encoding="utf-8"))
+    # Load the codebook (frames + descriptions).
+    codebook_path = ROOT / "frames_codebook.json"
+    codebook = None
+    if codebook_path.exists():
+        try:
+            codebook = json.loads(codebook_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            codebook = None
+    # Daily analysis prompt.
+    prompt_path = ROOT / ".claude" / "prompts" / "daily_analysis.md"
+    prompt_md = prompt_path.read_text(encoding="utf-8") if prompt_path.exists() else ""
+    # Picker configs.
+    card_picker = json.loads(meta.CARD_PICKER_PATH.read_text(encoding="utf-8")) \
+        if meta.CARD_PICKER_PATH.exists() else {}
+    today_picker = json.loads(meta.TODAY_PICKER_PATH.read_text(encoding="utf-8")) \
+        if meta.TODAY_PICKER_PATH.exists() else {}
+    # Today's score breakdown (from api/today.json if present).
+    todays_card = None
+    today_json = API / "today.json"
+    if today_json.exists():
+        try:
+            todays_card = json.loads(today_json.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            todays_card = None
+    # Drift segments section from METHODOLOGY.md.
+    drift_md = ""
+    method_md = ROOT / "docs" / "METHODOLOGY.md"
+    if method_md.exists():
+        try:
+            text = method_md.read_text(encoding="utf-8")
+            # Capture "## Drift-segment collapses" through the next h2 or EOF.
+            m = re.search(r"## Drift-segment collapses\n(.+?)(?=\n## |\Z)", text, re.S)
+            if m:
+                drift_md = m.group(1).strip()
+        except OSError:
+            drift_md = ""
+    html = render_methodology_page(meta_dict, codebook, prompt_md,
+                                     card_picker, today_picker, todays_card,
+                                     drift_md)
+    out_dir = API / "methodology"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "index.html").write_text(html, encoding="utf-8")
+
+
+def write_archive_page() -> None:
+    """Plan 2: render the archive browser. Walks every api/<date>/index.json
+    and produces a chronological table."""
+    from publication.page_renderers import render_archive_page
+    date_indexes: list[tuple[str, dict]] = []
+    for sub in sorted(API.iterdir(), reverse=True):
+        if not sub.is_dir():
+            continue
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", sub.name):
+            continue
+        idx_path = sub / "index.json"
+        if not idx_path.exists():
+            continue
+        try:
+            idx = json.loads(idx_path.read_text(encoding="utf-8"))
+            date_indexes.append((sub.name, idx))
+        except (OSError, json.JSONDecodeError):
+            continue
+    if not date_indexes:
+        return
+    html = render_archive_page(date_indexes)
+    out_dir = API / "archive"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "index.html").write_text(html, encoding="utf-8")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="Build only this date (YYYY-MM-DD)")
@@ -953,6 +1098,24 @@ def main() -> int:
     baseline_path = copy_baseline()
     tilt_paths = copy_tilt()
     robustness_paths = copy_robustness()
+
+    # Plan 2: site-level pages (methodology + archive + outlet fingerprints).
+    try:
+        write_methodology_page()
+        print("  + methodology page → api/methodology/")
+    except Exception as e:  # pragma: no cover
+        print(f"  methodology page failed: {e}", file=sys.stderr)
+    try:
+        write_archive_page()
+        print("  + archive page → api/archive/")
+    except Exception as e:  # pragma: no cover
+        print(f"  archive page failed: {e}", file=sys.stderr)
+    try:
+        n_outlet = copy_outlet_pages()
+        if n_outlet:
+            print(f"  + {n_outlet} outlet fingerprint pages → api/outlet/")
+    except Exception as e:  # pragma: no cover
+        print(f"  outlet pages failed: {e}", file=sys.stderr)
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
