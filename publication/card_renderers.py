@@ -397,7 +397,8 @@ def render_index_html(today_card: dict, signals: dict,
 {strip_html}
 {archive_html}
 <footer class="site-footer">
-  <a href="/methodology-challenge.html">methodology</a>
+  <a href="/methodology/">methodology</a>
+  <a href="/archive/">archive</a>
   <a href="/corrections.html">corrections</a>
   <span>meta · v{_e(today_card.get("meta_version", ""))}</span>
 </footer>
