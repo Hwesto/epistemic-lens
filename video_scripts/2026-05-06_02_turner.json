@@ -1,4 +1,5 @@
 {
+  "meta_version": "2.8.0",
   "video_id": "2026-05-06_02_turner",
   "story_date": "2026-05-06",
   "story_title": "Ted Turner, CNN founder, dies at 87",
@@ -14,13 +15,41 @@
   "intro_sting_seconds": 3.03,
   "channel_name": "DAILY FRAMINGS",
   "world_tickers": [
-    {"country_code": "ir", "headline": "US-Iran one-page memo near", "outlet": "Axios"},
-    {"country_code": "br", "headline": "Trump recua: operação Hormuz suspensa", "outlet": "Folha"},
-    {"country_code": "jp", "headline": "Japan to buy 20m UAE oil bypassing Hormuz", "outlet": "Nikkei"},
-    {"country_code": "ke", "headline": "US trade gap widens on AI imports", "outlet": "Standard Kenya"},
-    {"country_code": "de", "headline": "Lufthansa fuel bill +€1.7B", "outlet": "DW"},
-    {"country_code": "lb", "headline": "Israeli strikes kill 4 in Bekaa", "outlet": "CNA"},
-    {"country_code": "ua", "headline": "Russian drones hit Sumy kindergarten", "outlet": "Pravda"}
+    {
+      "country_code": "ir",
+      "headline": "US-Iran one-page memo near",
+      "outlet": "Axios"
+    },
+    {
+      "country_code": "br",
+      "headline": "Trump recua: operação Hormuz suspensa",
+      "outlet": "Folha"
+    },
+    {
+      "country_code": "jp",
+      "headline": "Japan to buy 20m UAE oil bypassing Hormuz",
+      "outlet": "Nikkei"
+    },
+    {
+      "country_code": "ke",
+      "headline": "US trade gap widens on AI imports",
+      "outlet": "Standard Kenya"
+    },
+    {
+      "country_code": "de",
+      "headline": "Lufthansa fuel bill +€1.7B",
+      "outlet": "DW"
+    },
+    {
+      "country_code": "lb",
+      "headline": "Israeli strikes kill 4 in Bekaa",
+      "outlet": "CNA"
+    },
+    {
+      "country_code": "ua",
+      "headline": "Russian drones hit Sumy kindergarten",
+      "outlet": "Pravda"
+    }
   ],
   "scenes": [
     {
@@ -84,11 +113,31 @@
   "fact_check_provenance": {
     "primary_event_source": "Turner Enterprises press release via CNN",
     "supporting_quotes_per_frame": [
-      {"frame": "Wire", "outlet": "Globe and Mail / Al Jazeera / Bangkok Post", "exact_headline": "Ted Turner, cable-news pioneer who founded CNN, dies at 87"},
-      {"frame": "USA", "outlet": "Daily Caller / DW / Carta Capital (citing Truth Social)", "exact_headline": "Ted Turner, one of the Greats of All Time, just died"},
-      {"frame": "UK", "outlet": "The Independent", "exact_headline": "Trump pays tribute after Ted Turner death by taking a shot at CNN: 'Destroyed his baby'"},
-      {"frame": "Brazil", "outlet": "Carta Capital", "exact_headline": "Morre aos 87 anos Ted Turner, fundador da 'CNN'"},
-      {"frame": "Pakistan", "outlet": "Geo News English", "exact_headline": "Ted Turner dies at 87: Everything to know about CNN founder's life, career, legacy"}
+      {
+        "frame": "Wire",
+        "outlet": "Globe and Mail / Al Jazeera / Bangkok Post",
+        "exact_headline": "Ted Turner, cable-news pioneer who founded CNN, dies at 87"
+      },
+      {
+        "frame": "USA",
+        "outlet": "Daily Caller / DW / Carta Capital (citing Truth Social)",
+        "exact_headline": "Ted Turner, one of the Greats of All Time, just died"
+      },
+      {
+        "frame": "UK",
+        "outlet": "The Independent",
+        "exact_headline": "Trump pays tribute after Ted Turner death by taking a shot at CNN: 'Destroyed his baby'"
+      },
+      {
+        "frame": "Brazil",
+        "outlet": "Carta Capital",
+        "exact_headline": "Morre aos 87 anos Ted Turner, fundador da 'CNN'"
+      },
+      {
+        "frame": "Pakistan",
+        "outlet": "Geo News English",
+        "exact_headline": "Ted Turner dies at 87: Everything to know about CNN founder's life, career, legacy"
+      }
     ],
     "briefing_corpus": "briefings/2026-05-06_turner_cnn.json",
     "note": "UK contribution arrived via summary-fallback (BBC and Independent body extraction failed); confirms value of signal_text() architecture from v0.6"

@@ -1719,6 +1719,64 @@ class TestLongLinkAuditCorpus(unittest.TestCase):
         self.assertFalse(any("ansa.it" in e for e in errs))
 
 
+class TestVideoScript(unittest.TestCase):
+    """Stage 17: video_script.schema.json + render_video.merge_voiceover.
+
+    Video pipeline is manual / optional (not in any workflow), but the
+    script JSON is now schema-pinned via Stage 14's schemas_hash, so a
+    shape drift is detected at PR time.
+    """
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        import meta
+        self.meta = meta
+
+    def test_all_existing_video_scripts_pass_schema(self):
+        repo = Path(__file__).parent
+        scripts = sorted((repo / "video_scripts").glob("*.json"))
+        self.assertGreater(len(scripts), 0,
+                           "no video scripts to validate")
+        for sp in scripts:
+            with self.subTest(script=sp.name):
+                d = json.loads(sp.read_text(encoding="utf-8"))
+                self.meta.validate_schema(d, "video_script")
+
+    def test_schema_rejects_missing_required_fields(self):
+        bad = {"video_id": "x", "story_date": "2026-05-08"}
+        with self.assertRaises(ValueError):
+            self.meta.validate_schema(bad, "video_script")
+
+    def test_schema_rejects_scene_missing_required(self):
+        # `voiceover` is required on each scene.
+        bad = {
+            "meta_version": "2.8.0",
+            "video_id": "x", "story_date": "2026-05-08",
+            "story_title": "Test",
+            "scenes": [{"scene": 1, "on_screen_text": "no voiceover here"}],
+        }
+        with self.assertRaises(ValueError):
+            self.meta.validate_schema(bad, "video_script")
+
+    def test_merge_voiceover_unchanged_without_durations(self):
+        """render_video.merge_voiceover must be a no-op when no
+        durations.json exists for the script's video_id."""
+        if "video.render_video" in sys.modules:
+            importlib.reload(sys.modules["video.render_video"])
+        from video import render_video
+        script = {
+            "video_id": "no_such_id_on_disk_xyz",
+            "scenes": [{"scene": 1, "voiceover": "hi"}],
+        }
+        out = render_video.merge_voiceover(script)
+        # No 'audio' / 'duration_seconds' fields injected.
+        self.assertNotIn("audio", out["scenes"][0])
+        self.assertNotIn("duration_seconds", out["scenes"][0])
+
+
 class TestSourceAudit(unittest.TestCase):
     """source_audit.py: developer tool. Gap 16-1: importing the module
     must NOT fire HTTP requests or any other side effects — until Stage

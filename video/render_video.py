@@ -20,8 +20,10 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
+import meta
 from meta import REPO_ROOT as ROOT
 TEMPLATE = ROOT / "video"
 DEFAULT_OUT = ROOT / "videos"
@@ -41,7 +43,7 @@ def merge_voiceover(script: dict) -> dict:
     """If a synthesize_voiceover.py output exists for this script, merge
     per-scene `audio` paths and `duration_seconds` into the script so
     Remotion's <Audio> + Sequence durations match the actual narration."""
-    video_id = script.get("video_id") or script.get("video_id".upper()) or ""
+    video_id = script.get("video_id") or ""
     if not video_id:
         return script
     durations_path = TEMPLATE / "public" / "voiceovers" / video_id / "durations.json"
@@ -69,11 +71,23 @@ def render_one(script_path: Path, out_dir: Path) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{script_path.stem}.mp4"
 
-    # Load, merge voiceover info, write a temp script for Remotion to consume.
     script = json.loads(script_path.read_text(encoding="utf-8"))
+    # Schema-validate before any side effects. Gap 17-1: video scripts
+    # used to be unschema'd; a field rename silently broke the render.
+    meta.validate_schema(script, "video_script")
     script = merge_voiceover(script)
-    tmp_props = TEMPLATE / "public" / f".tmp_props_{script_path.stem}.json"
-    tmp_props.write_text(json.dumps(script, ensure_ascii=False))
+
+    # Stage 17 (Gap 17-4): tmp props via tempfile.NamedTemporaryFile so
+    # concurrent renders of the same stem can't collide and a crashed
+    # render can't leak a `.tmp_props_*.json` into video/public/.
+    public_dir = TEMPLATE / "public"
+    public_dir.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", dir=public_dir, prefix=".tmp_props_",
+        suffix=".json", delete=False, encoding="utf-8",
+    ) as f:
+        json.dump(script, f, ensure_ascii=False)
+        tmp_props = Path(f.name)
     props_arg = f"--props={tmp_props.resolve()}"
 
     cmd = [

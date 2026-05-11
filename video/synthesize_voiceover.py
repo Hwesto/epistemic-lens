@@ -44,10 +44,31 @@ import urllib.request
 from pathlib import Path
 import wave
 
+import meta
 from meta import REPO_ROOT as ROOT
 TEMPLATE = ROOT / "video"
 VOICES_DIR = TEMPLATE / "public" / "voices"
 VOICEOVERS_DIR = TEMPLATE / "public" / "voiceovers"
+
+# Gap 17-5: model downloads from third-party hosts are NOT
+# integrity-verified. The methodology pin doesn't cover these because
+# video is manual / optional. If you care, pin your own sha256 outside
+# this repo and verify post-download. Warned once per process at first
+# download via _warn_unverified_download().
+_WARNED_UNVERIFIED = False
+
+
+def _warn_unverified_download(url: str) -> None:
+    global _WARNED_UNVERIFIED
+    if _WARNED_UNVERIFIED:
+        return
+    _WARNED_UNVERIFIED = True
+    print(
+        f"[tts] WARNING: downloading model from {url} without integrity check. "
+        f"Video pipeline is manual / optional and not covered by the methodology "
+        f"pin's schemas_hash. Pin your own SHA256 if you care.",
+        file=sys.stderr, flush=True,
+    )
 
 # Piper default voice — alan-medium is a British male broadcaster-style.
 # Free, runs locally. Override with --voice to test alternatives.
@@ -90,6 +111,7 @@ def ensure_voice_model(voice: str) -> Path:
         if dest.exists():
             continue
         url = f"{base}/{fname}?download=true"
+        _warn_unverified_download(url)
         print(f"[tts] downloading {fname} (~63MB) ...", flush=True)
         urllib.request.urlretrieve(url, dest)
     return onnx_path
@@ -194,6 +216,7 @@ def ensure_kokoro_model():
     voices_path = VOICES_DIR / "voices.bin"
     for url, dest in [(KOKORO_MODEL_URL, onnx_path), (KOKORO_VOICES_URL, voices_path)]:
         if not dest.exists():
+            _warn_unverified_download(url)
             print(f"[tts] downloading {dest.name} ...", flush=True)
             urllib.request.urlretrieve(url, dest)
     return onnx_path, voices_path
@@ -284,6 +307,8 @@ def process_script(script_path: Path, voice: str = DEFAULT_VOICE,
                    provider: str = "piper") -> dict:
     """Synthesize all scene voiceovers for one video script."""
     script = json.loads(script_path.read_text(encoding="utf-8"))
+    # Gap 17-1: validate before any side effects.
+    meta.validate_schema(script, "video_script")
     video_id = script.get("video_id") or script_path.stem
     out_dir = VOICEOVERS_DIR / video_id
     out_dir.mkdir(parents=True, exist_ok=True)

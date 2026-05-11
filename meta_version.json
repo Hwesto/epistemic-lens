@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.8.0",
-  "pinned_at": "2026-05-11T10:36:53Z",
-  "pin_reason": "Stage 15: feed_rot_check decline detection was inverted — flagged growing feeds, ignored real declines (Gap 15-1). Iteration now chronological (oldest → today); decline-section semantics change, so longitudinal comparison of pre/post rot reports on the 'declining' dimension is invalidated. Test coverage added for both regression directions. Report now stamps meta_version (Gap 15-3).",
+  "meta_version": "2.9.0",
+  "pinned_at": "2026-05-11T10:52:05Z",
+  "pin_reason": "Stage 17: new video_script.schema.json pins the (manual / optional) video pipeline's primary input shape (Gap 17-1); video scripts now require meta_version (Gap 17-2 — 3 existing scripts backfilled); render_video.py uses tempfile.NamedTemporaryFile for the Remotion props handoff to avoid public/ leakage on crash (Gap 17-4); synthesize_voiceover.py warns once per process on unverified model downloads (Gap 17-5). schemas_hash refreshed by the new schema.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -99,6 +99,6 @@
     "decline_min_history": 4,
     "top_n_declining": 20
   },
-  "schemas_hash": "sha256:56872665935dd868ac75f18061d1d17581cc5848d6f7fb77173c3445710d3da9",
-  "pin_self_hash": "sha256:b7593a229e9c17eb2a96063a3e919dacfa32c098133ee6575c819a7dc3e011e5"
+  "schemas_hash": "sha256:2bb16c58e000b8f89f31faa3c010e45105ff292e5ad187187a3f3c93ca67205e",
+  "pin_self_hash": "sha256:c3137bf224a22927470fafb34d1fa0298581540055cf595336686be867ec57d2"
 }
