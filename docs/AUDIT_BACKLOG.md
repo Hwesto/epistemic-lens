@@ -180,7 +180,17 @@ references the deleted stage:
 | **15-min-C** | Inversion of decline detection (Gap 15-1) wasn't caught for several pin eras. A self-check that cross-references this week's flagged feeds against last week's flag list could surface drift in the rot logic itself. | Defensive layer on top of the now-tested logic. | If a similar inversion recurs. |
 | **15-min-D** | Workflow runs only on Sundays. A feed that goes dark mid-week isn't surfaced until up to 7 days later. | Designed cadence — rot is intentionally slow-moving review. | If a critical-bucket dark-feed window is ever a problem. |
 
-## Stages 16 — 21
+## Stage 16 — source_audit.py
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **16-min-A** | Section 6 "STORY-RELEVANT GAPS" (L348-369 pre-refactor) hardcodes editorial commentary about Iran/Russia/China narratives ("the 39-day dominant story"). Frozen in the codebase; will rot. | Editorial; not load-bearing. | If a developer updates the narrative focus, refactor to a sidecar `narrative_gaps.md` file the script reads. |
+| **16-min-B** | Hardcoded UA string. | Cosmetic. UA strings rot. | If a feed ever rejects this exact UA. |
+| **16-min-C** | Section 2 prints a 235-row flat table — no filtering / grouping. | Editorial. | If output becomes unreadable. |
+| **16-min-D** | The 6 audit sections aren't pulled into individual top-level functions (`static_audit()`, `snapshot_health()`, etc.). One big `main()` retains the procedural shape — easier to read but harder to unit-test sections independently. | Stage 16 prioritised the import-side-effect fix. Section-level extraction is scope creep. | If we ever want fine-grained test coverage of individual audit sections. |
+| **16-min-E** | `REGIONS["present"]` entries use mixed forms — plain bucket keys (`"usa"`) plus editorial annotations (`"wire_services (FR via AFP)"`). The sanity check skips annotation forms. | The annotation form is editorial human context that's useful in stdout. Splitting into separate `present_keys: list[str]` + `present_note: str` would be cleaner but invasive. | If the sanity check ever produces a false negative because an annotation form hid a real stale key. |
+
+## Stages 17 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
