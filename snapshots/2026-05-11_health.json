@@ -1,10 +1,10 @@
 {
   "date": "2026-05-11",
   "n_feeds": 235,
-  "n_items": 6475,
+  "n_items": 6453,
   "n_errors": 36,
   "n_stub_feeds": 14,
-  "n_slow_feeds": 6,
+  "n_slow_feeds": 9,
   "errors": [
     {
       "bucket": "wire_services",
@@ -73,6 +73,12 @@
       "error": null
     },
     {
+      "bucket": "pakistan",
+      "feed": "ARY News English",
+      "http": 403,
+      "error": null
+    },
+    {
       "bucket": "lebanon",
       "feed": "Al-Akhbar Lebanon",
       "http": 403,
@@ -121,20 +127,8 @@
       "error": null
     },
     {
-      "bucket": "germany",
-      "feed": "Junge Freiheit",
-      "http": null,
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='jungefreiheit.de', port=443): Max "
-    },
-    {
       "bucket": "indonesia",
       "feed": "CNN Indonesia",
-      "http": 403,
-      "error": null
-    },
-    {
-      "bucket": "indonesia",
-      "feed": "Tribunnews",
       "http": 403,
       "error": null
     },
@@ -200,6 +194,12 @@
     },
     {
       "bucket": "state_tv_intl",
+      "feed": "France 24 Arabic",
+      "http": 404,
+      "error": null
+    },
+    {
+      "bucket": "state_tv_intl",
       "feed": "Sputnik International",
       "http": null,
       "error": "ConnectTimeout: HTTPSConnectionPool(host='sputnikglobe.com', port=443): Max "
@@ -227,7 +227,7 @@
     {
       "bucket": "wire_services",
       "feed": "Reuters (via Google News)",
-      "stub_pct": 86.0
+      "stub_pct": 82.0
     },
     {
       "bucket": "wire_services",
@@ -247,7 +247,7 @@
     {
       "bucket": "india",
       "feed": "ABP Live",
-      "stub_pct": 90.0
+      "stub_pct": 84.2
     },
     {
       "bucket": "south_korea",
@@ -275,11 +275,6 @@
       "stub_pct": 100.0
     },
     {
-      "bucket": "pakistan",
-      "feed": "ARY News English",
-      "stub_pct": 100.0
-    },
-    {
       "bucket": "russia_native",
       "feed": "Lenta.ru",
       "stub_pct": 100.0
@@ -290,6 +285,11 @@
       "stub_pct": 100.0
     },
     {
+      "bucket": "vietnam_thai_my",
+      "feed": "Channel News Asia",
+      "stub_pct": 85.0
+    },
+    {
       "bucket": "taiwan_hk",
       "feed": "Taipei Times",
       "stub_pct": 100.0
@@ -297,54 +297,69 @@
   ],
   "slow_feeds": [
     {
-      "bucket": "wire_services",
-      "feed": "AFP / France 24 EN",
-      "ms": 5078
+      "bucket": "uk",
+      "feed": "Daily Mail",
+      "ms": 6254
     },
     {
-      "bucket": "wire_services",
-      "feed": "AFP / France 24 FR",
-      "ms": 5142
+      "bucket": "iran_state",
+      "feed": "Tehran Times",
+      "ms": 5603
     },
     {
       "bucket": "iran_state",
       "feed": "IRNA English",
-      "ms": 5330
+      "ms": 7576
     },
     {
       "bucket": "iran_state",
       "feed": "IRNA Farsi",
-      "ms": 8667
+      "ms": 6088
     },
     {
-      "bucket": "germany",
-      "feed": "Junge Freiheit",
-      "ms": 69347
+      "bucket": "china",
+      "feed": "Sixth Tone",
+      "ms": 9098
+    },
+    {
+      "bucket": "russia",
+      "feed": "RT",
+      "ms": 5110
+    },
+    {
+      "bucket": "india",
+      "feed": "OpIndia",
+      "ms": 5232
+    },
+    {
+      "bucket": "netherlands_belgium",
+      "feed": "DutchNews.nl",
+      "ms": 5255
     },
     {
       "bucket": "state_tv_intl",
       "feed": "Sputnik International",
-      "ms": 68119
+      "ms": 67384
     }
   ],
   "items_per_bucket_now": {
-    "wire_services": 253,
-    "usa": 421,
-    "uk": 296,
+    "wire_services": 252,
+    "usa": 418,
+    "uk": 297,
     "iran_state": 90,
     "iran_opposition": 120,
     "qatar": 50,
     "china": 262,
     "russia": 180,
-    "india": 409,
-    "israel": 121,
-    "turkey": 180,
+    "india": 412,
+    "israel": 119,
+    "turkey": 178,
     "saudi_arabia": 0,
     "south_korea": 260,
     "japan": 160,
     "brazil": 210,
     "nigeria": 50,
-    "pakistan": 142,
+    "pakistan": 94,
     "lebanon": 0,
     "iraq": 10,
     "egypt": 30,
@@ -353,33 +368,33 @@
     "palestine": 0,
     "ukraine": 100,
     "russia_native": 220,
-    "germany": 345,
-    "italy": 225,
-    "spain": 144,
+    "germany": 367,
+    "italy": 224,
+    "spain": 148,
     "netherlands_belgium": 20,
     "poland_balt": 62,
     "balkans": 100,
     "hungary_central": 65,
     "belarus_caucasus": 26,
     "nordic": 70,
-    "indonesia": 98,
+    "indonesia": 119,
     "philippines": 40,
     "vietnam_thai_my": 180,
-    "taiwan_hk": 166,
+    "taiwan_hk": 170,
     "korea_north": 60,
     "australia_nz": 83,
-    "canada": 113,
+    "canada": 119,
     "mexico": 190,
     "argentina_chile": 110,
     "colombia_ven_peru": 13,
-    "south_africa": 77,
+    "south_africa": 76,
     "kenya": 30,
-    "africa_other": 94,
+    "africa_other": 92,
     "opinion_magazines": 204,
     "pan_arab": 70,
     "pan_african": 60,
     "asia_pacific_regional": 70,
-    "state_tv_intl": 96,
+    "state_tv_intl": 73,
     "telegram_proxies": 0,
     "religious_press": 60
   },
@@ -460,8 +475,8 @@
       "bucket": "japan",
       "alert_type": "low_extraction",
       "attempted": 18,
-      "full": 2,
-      "full_pct": 11.1,
+      "full": 4,
+      "full_pct": 22.2,
       "errors": 0,
       "none": 0
     },
@@ -473,26 +488,17 @@
       "full_pct": 46.7,
       "errors": 0,
       "none": 0
-    },
-    {
-      "bucket": "state_tv_intl",
-      "alert_type": "low_extraction",
-      "attempted": 9,
-      "full": 3,
-      "full_pct": 33.3,
-      "errors": 6,
-      "none": 0
     }
   ],
   "extraction_totals": {
-    "FULL": 463,
-    "PARTIAL": 75,
-    "STUB": 6,
+    "FULL": 461,
+    "PARTIAL": 81,
+    "STUB": 7,
     "NONE": 9,
-    "ERROR": 44,
+    "ERROR": 39,
     "SKIPPED": 0
   },
-  "extraction_full_pct": 77.6,
+  "extraction_full_pct": 77.2,
   "extraction_per_bucket": {
     "wire_services": {
       "FULL": 14,
@@ -513,11 +519,11 @@
       "items_with_extraction": 42
     },
     "uk": {
-      "FULL": 20,
+      "FULL": 17,
       "PARTIAL": 4,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 3,
+      "ERROR": 6,
       "SKIPPED": 0,
       "items_with_extraction": 27
     },
@@ -558,8 +564,8 @@
       "items_with_extraction": 18
     },
     "russia": {
-      "FULL": 12,
-      "PARTIAL": 0,
+      "FULL": 10,
+      "PARTIAL": 2,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -567,8 +573,8 @@
       "items_with_extraction": 12
     },
     "india": {
-      "FULL": 29,
-      "PARTIAL": 1,
+      "FULL": 30,
+      "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 3,
@@ -585,8 +591,8 @@
       "items_with_extraction": 12
     },
     "turkey": {
-      "FULL": 11,
-      "PARTIAL": 1,
+      "FULL": 10,
+      "PARTIAL": 2,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -603,8 +609,8 @@
       "items_with_extraction": 0
     },
     "south_korea": {
-      "FULL": 9,
-      "PARTIAL": 3,
+      "FULL": 10,
+      "PARTIAL": 2,
       "STUB": 0,
       "NONE": 6,
       "ERROR": 0,
@@ -612,8 +618,8 @@
       "items_with_extraction": 18
     },
     "japan": {
-      "FULL": 2,
-      "PARTIAL": 16,
+      "FULL": 4,
+      "PARTIAL": 14,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -621,8 +627,8 @@
       "items_with_extraction": 18
     },
     "brazil": {
-      "FULL": 15,
-      "PARTIAL": 0,
+      "FULL": 14,
+      "PARTIAL": 1,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -639,13 +645,13 @@
       "items_with_extraction": 6
     },
     "pakistan": {
-      "FULL": 12,
+      "FULL": 9,
       "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
       "SKIPPED": 0,
-      "items_with_extraction": 12
+      "items_with_extraction": 9
     },
     "lebanon": {
       "FULL": 0,
@@ -666,8 +672,8 @@
       "items_with_extraction": 3
     },
     "egypt": {
-      "FULL": 8,
-      "PARTIAL": 1,
+      "FULL": 9,
+      "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -702,8 +708,8 @@
       "items_with_extraction": 0
     },
     "ukraine": {
-      "FULL": 8,
-      "PARTIAL": 1,
+      "FULL": 9,
+      "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -720,18 +726,18 @@
       "items_with_extraction": 15
     },
     "germany": {
-      "FULL": 25,
+      "FULL": 28,
       "PARTIAL": 2,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
       "SKIPPED": 0,
-      "items_with_extraction": 27
+      "items_with_extraction": 30
     },
     "italy": {
-      "FULL": 12,
-      "PARTIAL": 6,
-      "STUB": 0,
+      "FULL": 9,
+      "PARTIAL": 8,
+      "STUB": 1,
       "NONE": 0,
       "ERROR": 0,
       "SKIPPED": 0,
@@ -774,8 +780,8 @@
       "items_with_extraction": 6
     },
     "hungary_central": {
-      "FULL": 9,
-      "PARTIAL": 0,
+      "FULL": 8,
+      "PARTIAL": 1,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -783,8 +789,8 @@
       "items_with_extraction": 9
     },
     "belarus_caucasus": {
-      "FULL": 5,
-      "PARTIAL": 1,
+      "FULL": 6,
+      "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -805,22 +811,22 @@
       "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 0,
+      "ERROR": 3,
       "SKIPPED": 0,
-      "items_with_extraction": 6
+      "items_with_extraction": 9
     },
     "philippines": {
-      "FULL": 8,
-      "PARTIAL": 0,
+      "FULL": 5,
+      "PARTIAL": 4,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 1,
+      "ERROR": 0,
       "SKIPPED": 0,
       "items_with_extraction": 9
     },
     "vietnam_thai_my": {
-      "FULL": 15,
-      "PARTIAL": 0,
+      "FULL": 13,
+      "PARTIAL": 2,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -828,8 +834,8 @@
       "items_with_extraction": 15
     },
     "taiwan_hk": {
-      "FULL": 9,
-      "PARTIAL": 3,
+      "FULL": 11,
+      "PARTIAL": 1,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -846,6 +852,15 @@
       "items_with_extraction": 6
     },
     "australia_nz": {
+      "FULL": 10,
+      "PARTIAL": 2,
+      "STUB": 0,
+      "NONE": 0,
+      "ERROR": 0,
+      "SKIPPED": 0,
+      "items_with_extraction": 12
+    },
+    "canada": {
       "FULL": 12,
       "PARTIAL": 0,
       "STUB": 0,
@@ -854,21 +869,12 @@
       "SKIPPED": 0,
       "items_with_extraction": 12
     },
-    "canada": {
-      "FULL": 9,
-      "PARTIAL": 0,
-      "STUB": 0,
-      "NONE": 0,
-      "ERROR": 3,
-      "SKIPPED": 0,
-      "items_with_extraction": 12
-    },
     "mexico": {
-      "FULL": 11,
-      "PARTIAL": 0,
+      "FULL": 13,
+      "PARTIAL": 2,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 4,
+      "ERROR": 0,
       "SKIPPED": 0,
       "items_with_extraction": 15
     },
@@ -909,11 +915,11 @@
       "items_with_extraction": 3
     },
     "africa_other": {
-      "FULL": 8,
-      "PARTIAL": 1,
+      "FULL": 10,
+      "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 3,
+      "ERROR": 2,
       "SKIPPED": 0,
       "items_with_extraction": 12
     },
@@ -927,8 +933,8 @@
       "items_with_extraction": 21
     },
     "pan_arab": {
-      "FULL": 3,
-      "PARTIAL": 3,
+      "FULL": 4,
+      "PARTIAL": 2,
       "STUB": 0,
       "NONE": 0,
       "ERROR": 0,
@@ -945,11 +951,11 @@
       "items_with_extraction": 6
     },
     "asia_pacific_regional": {
-      "FULL": 6,
+      "FULL": 5,
       "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 0,
+      "ERROR": 1,
       "SKIPPED": 0,
       "items_with_extraction": 6
     },
@@ -958,9 +964,9 @@
       "PARTIAL": 0,
       "STUB": 0,
       "NONE": 0,
-      "ERROR": 6,
+      "ERROR": 3,
       "SKIPPED": 0,
-      "items_with_extraction": 9
+      "items_with_extraction": 6
     },
     "telegram_proxies": {
       "FULL": 0,
@@ -981,5 +987,5 @@
       "items_with_extraction": 6
     }
   },
-  "meta_version": "2.0.1"
+  "meta_version": "8.7.1"
 }

@@ -1,42 +1,42 @@
 # Pull Report — 2026-05-11
 
 - Total feeds: **235**
-- Total items: **6475**
+- Total items: **6453**
 - Errored feeds: **36**
 - Stub-only feeds (>=80% stubs): **14**
 
 ## Items per bucket
-- usa: 421
-- india: 409
-- germany: 345
-- uk: 296
+- usa: 418
+- india: 412
+- germany: 367
+- uk: 297
 - china: 262
 - south_korea: 260
-- wire_services: 253
-- italy: 225
+- wire_services: 252
+- italy: 224
 - russia_native: 220
 - brazil: 210
 - opinion_magazines: 204
 - mexico: 190
 - russia: 180
-- turkey: 180
 - vietnam_thai_my: 180
-- taiwan_hk: 166
+- turkey: 178
+- taiwan_hk: 170
 - japan: 160
-- spain: 144
-- pakistan: 142
-- israel: 121
+- spain: 148
 - iran_opposition: 120
-- canada: 113
+- israel: 119
+- indonesia: 119
+- canada: 119
 - argentina_chile: 110
 - ukraine: 100
 - balkans: 100
-- indonesia: 98
-- state_tv_intl: 96
-- africa_other: 94
+- pakistan: 94
+- africa_other: 92
 - iran_state: 90
 - australia_nz: 83
-- south_africa: 77
+- south_africa: 76
+- state_tv_intl: 73
 - nordic: 70
 - pan_arab: 70
 - asia_pacific_regional: 70
@@ -62,7 +62,6 @@
 - telegram_proxies: 0
 
 ## Errored feeds
-- germany / Junge Freiheit — http=None err=ConnectTimeout: HTTPSConnectionPool(host='jungefreiheit.de', port=443): Max 
 - state_tv_intl / Sputnik International — http=None err=ConnectTimeout: HTTPSConnectionPool(host='sputnikglobe.com', port=443): Max 
 - africa_other / Addis Standard Ethiopia — http=403 err=None
 - africa_other / Morocco World News — http=403 err=None
@@ -73,7 +72,6 @@
 - india / News18 India — http=403 err=None
 - india / Firstpost — http=403 err=None
 - indonesia / CNN Indonesia — http=403 err=None
-- indonesia / Tribunnews — http=403 err=None
 - iran_state / Mehr News English (rsshub) — http=403 err=None
 - iran_state / Kayhan (rsshub) — http=403 err=None
 - jordan / Jordan Times — http=403 err=None
@@ -81,6 +79,7 @@
 - lebanon / LBCI English — http=403 err=None
 - mexico / El Economista — http=403 err=None
 - pakistan / Express Tribune — http=403 err=None
+- pakistan / ARY News English — http=403 err=None
 - palestine / Maan News English — http=403 err=None
 - pan_african / African Arguments — http=403 err=None
 - pan_arab / Middle East Monitor — http=403 err=None
@@ -96,38 +95,39 @@
 - usa / Politico — http=403 err=None
 - wire_services / Liberation — http=403 err=None
 - india / Times Now — http=404 err=None
+- state_tv_intl / France 24 Arabic — http=404 err=None
 - canada / Toronto Star — http=429 err=None
 - palestine / Palestine Chronicle — http=429 err=None
 
 ## Slow feeds (>5s)
-- 69347ms  germany / Junge Freiheit
-- 68119ms  state_tv_intl / Sputnik International
--  8667ms  iran_state / IRNA Farsi
--  5330ms  iran_state / IRNA English
--  5142ms  wire_services / AFP / France 24 FR
--  5078ms  wire_services / AFP / France 24 EN
--  4914ms  iran_state / Tehran Times
--  4908ms  netherlands_belgium / DutchNews.nl
--  4881ms  netherlands_belgium / NL Times
--  4847ms  spain / El Pais English
--  4691ms  balkans / Balkan Insight
--  4562ms  poland_balt / ERR News (Estonia)
--  4518ms  uk / Daily Mail
--  4474ms  balkans / N1 Serbia English
--  4450ms  hungary_central / Hungary Today
+- 67384ms  state_tv_intl / Sputnik International
+-  9098ms  china / Sixth Tone
+-  7576ms  iran_state / IRNA English
+-  6254ms  uk / Daily Mail
+-  6088ms  iran_state / IRNA Farsi
+-  5603ms  iran_state / Tehran Times
+-  5255ms  netherlands_belgium / DutchNews.nl
+-  5232ms  india / OpIndia
+-  5110ms  russia / RT
+-  4676ms  hungary_central / Prague Morning
+-  4516ms  nordic / The Local Germany
+-  4446ms  netherlands_belgium / NL Times
+-  4297ms  balkans / Balkan Insight
+-  4211ms  germany / ZDF Heute
+-  4177ms  poland_balt / ERR News (Estonia)
 
 ## Stub-only feeds
-- wire_services / Reuters (via Google News) — stub 86.0%
+- wire_services / Reuters (via Google News) — stub 82.0%
 - wire_services / Le Parisien — stub 100.0%
 - uk / Daily Mail — stub 100.0%
 - china / Global Times — stub 100.0%
-- india / ABP Live — stub 90.0%
+- india / ABP Live — stub 84.2%
 - south_korea / Hankyoreh English — stub 100.0%
 - japan / Asahi Shimbun — stub 100.0%
 - japan / Mainichi — stub 100.0%
 - japan / Nikkei Asia — stub 100.0%
 - japan / Mainichi (alt) — stub 100.0%
-- pakistan / ARY News English — stub 100.0%
 - russia_native / Lenta.ru — stub 100.0%
 - russia_native / RIA Novosti RU — stub 100.0%
+- vietnam_thai_my / Channel News Asia — stub 85.0%
 - taiwan_hk / Taipei Times — stub 100.0%
