@@ -1,11 +1,20 @@
 // epistemic-lens / daily framings — landing page client
 //
 // Fetches /latest.json + per-story analysis.json (lazy on expand) and
-// renders the daily front page. No frameworks, no build step. The
-// hero-pick logic mirrors render_thread.py:_build_hook so the front
-// page leads with the same finding the social drafts lead with.
+// renders the daily front page. No frameworks, no build step.
+//
+// Hero pick: shares priority ORDER with publication/_shared.py:pick_hero
+// (paradox > isolation outlier > exclusive vocab > generic) but operates
+// on a different SCOPE — Python picks within one analysis (per-story
+// thread/carousel hero); JS picks across all of today's analyses
+// (cross-story landing-page hero). Same priority, different population.
 
 (() => {
+  // Cross-language constant: must match
+  // publication/_shared.py:ISOLATION_HERO_THRESHOLD. If you bump one,
+  // bump the other or the carousel/landing-page hero pick will diverge.
+  const ISOLATION_HERO_THRESHOLD = 0.05;
+
   const cache = new Map(); // analysis_url -> parsed JSON
 
   // ---------- helpers ----------
@@ -25,11 +34,7 @@
     return j;
   }
 
-  function fmtNumber(n) {
-    return Number.isFinite(n) ? n.toLocaleString() : String(n ?? "?");
-  }
-
-  // ---------- hero pick (same priority order as render_thread.py) ----------
+  // ---------- hero pick (see header comment for scope vs Python) ----------
 
   function pickHero(analyses) {
     // analyses: [{ analysis, briefing }] (briefing optional)
@@ -44,10 +49,10 @@
         attr: `${a.paradox.a.outlet} (${a.paradox.a.bucket}) & ${a.paradox.b.outlet} (${a.paradox.b.bucket}) — ${a.story_title}`,
       };
     }
-    // priority 2: strongest isolation outlier (mean_jaccard < 0.05)
+    // priority 2: strongest isolation outlier (mean_jaccard below threshold)
     const isoSorted = analyses
       .map(a => ({ a, top: a.analysis?.isolation_top?.[0] }))
-      .filter(x => x.top && x.top.mean_jaccard < 0.05)
+      .filter(x => x.top && x.top.mean_jaccard < ISOLATION_HERO_THRESHOLD)
       .sort((x, y) => x.top.mean_jaccard - y.top.mean_jaccard);
     if (isoSorted.length) {
       const { a, top } = isoSorted[0];
@@ -296,10 +301,17 @@
     }
 
     let dateIndex;
+    // Prefer latest.url (root-anchored, set by build_index) but tolerate
+    // its absence by falling back to a relative construct. Strip the
+    // leading slash so fetch resolves it relative to the page rather
+    // than failing when the site is hosted off-root.
+    const indexUrl = latest.url
+      ? latest.url.replace(/^\//, "")
+      : `${latest.date}/index.json`;
     try {
-      dateIndex = await fetchJSON(`${latest.date}/index.json`);
+      dateIndex = await fetchJSON(indexUrl);
     } catch (e) {
-      $("#hero").innerHTML = `<p class="hero-loading">Couldn't load <code>${latest.date}/index.json</code>: ${escape(e.message)}.</p>`;
+      $("#hero").innerHTML = `<p class="hero-loading">Couldn't load <code>${escape(indexUrl)}</code>: ${escape(e.message)}.</p>`;
       $("#stories").innerHTML = "";
       return;
     }
@@ -312,6 +324,13 @@
 
     const results = await Promise.allSettled(analysisFetches);
     const analyses = results.filter(r => r.status === "fulfilled").map(r => r.value);
+    const failed = results.filter(r => r.status === "rejected");
+    if (failed.length) {
+      console.warn(
+        `[epistemic-lens] ${failed.length} of ${results.length} analysis fetches failed:`,
+        failed.map(f => f.reason?.message || String(f.reason))
+      );
+    }
 
     renderHero(pickHero(analyses));
 
