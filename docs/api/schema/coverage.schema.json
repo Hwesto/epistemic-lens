@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/coverage.schema.json",
+  "title": "Coverage matrix",
+  "description": "Per-(story, feed) deterministic coverage product written by pipeline/coverage_matrix.py. The `coverage` map records feeds that carried a matching item; the `non_coverage` map (added in PR 2 / meta-v8.2.0) classifies each non-covering bucket as silent / errored / dark by joining with the same date's daily_health output.",
+  "type": "object",
+  "required": [
+    "meta_version", "date", "n_feeds_total", "n_stories_total",
+    "stories", "feeds", "coverage", "summary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin version this matrix was produced under (added by meta.stamp())."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "n_feeds_total": {"type": "integer", "minimum": 0},
+    "n_stories_total": {"type": "integer", "minimum": 0},
+    "stories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key"],
+        "properties": {
+          "key": {"type": "string"},
+          "title": {"type": ["string", "null"]},
+          "tier": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "feeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "bucket"],
+        "properties": {
+          "name": {"type": "string"},
+          "bucket": {"type": "string"},
+          "section": {"type": "string"},
+          "lang": {"type": "string"}
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "description": "story_key -> array of per-feed coverage rows.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["feed_name", "bucket", "section", "n_matching"],
+          "properties": {
+            "feed_name": {"type": "string"},
+            "bucket": {"type": "string"},
+            "section": {"type": "string"},
+            "n_matching": {"type": "integer", "minimum": 1},
+            "first_match_rank": {"type": "integer"},
+            "first_match_body_chars": {"type": "integer"},
+            "first_match_extraction_status": {"type": ["string", "null"]},
+            "first_match_url": {"type": "string"},
+            "first_match_title": {"type": "string"},
+            "first_match_age_hours": {"type": "number"}
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["n_feeds_covered", "n_buckets_covered"],
+        "properties": {
+          "n_feeds_covered": {"type": "integer"},
+          "n_feeds_covered_by_section": {
+            "type": "object",
+            "additionalProperties": {"type": "integer"}
+          },
+          "n_buckets_covered": {"type": "integer"},
+          "coverage_pct_news": {"type": "number"},
+          "median_age_hours": {"type": ["number", "null"]},
+          "tier": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "non_coverage": {
+      "type": "object",
+      "description": "story_key -> {bucket: state}. State is one of `silent` (bucket returned items today, none matched), `errored` (every feed in the bucket appears in health.errors[]), or `dark` (no items today). Only present when daily_health was joined at build time.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "enum": ["silent", "errored", "dark"]
+        }
+      }
+    }
+  }
+}

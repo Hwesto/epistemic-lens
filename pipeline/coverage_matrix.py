@@ -97,9 +97,58 @@ def _age_hours(item: dict, snapshot_dt: datetime) -> float | None:
     return round(delta.total_seconds() / 3600.0, 1)
 
 
+def _classify_non_coverage(snapshot: dict, health: dict | None,
+                           buckets_covered: set[str]) -> dict[str, str]:
+    """For each bucket NOT in `buckets_covered`, classify as silent /
+    errored / dark. Bucket states:
+      - silent  : feeds returned items today, none matched this story
+      - errored : every feed in the bucket appears in health.errors[]
+      - dark    : bucket has no feeds with items in today's snapshot
+    """
+    feeds_by_bucket: dict[str, list[str]] = defaultdict(list)
+    items_by_bucket: dict[str, int] = defaultdict(int)
+    for bucket_key, bucket in snapshot.get("countries", {}).items():
+        for f in bucket.get("feeds", []):
+            feeds_by_bucket[bucket_key].append(f.get("name", "?"))
+            items_by_bucket[bucket_key] += len(f.get("items", []) or [])
+
+    errored_feeds_by_bucket: dict[str, set[str]] = defaultdict(set)
+    if health:
+        for e in health.get("errors", []) or []:
+            b = e.get("bucket")
+            n = e.get("feed")
+            if b and n:
+                errored_feeds_by_bucket[b].add(n)
+
+    out: dict[str, str] = {}
+    all_buckets = set(feeds_by_bucket.keys()) | set(errored_feeds_by_bucket.keys())
+    for b in all_buckets:
+        if b in buckets_covered:
+            continue
+        feeds = feeds_by_bucket.get(b, [])
+        n_total = len(feeds)
+        n_errored = len(errored_feeds_by_bucket.get(b, set()))
+        n_items = items_by_bucket.get(b, 0)
+        if n_total == 0:
+            out[b] = "dark"
+        elif n_items == 0 and n_errored >= n_total:
+            out[b] = "errored"
+        elif n_items == 0:
+            out[b] = "dark"
+        else:
+            out[b] = "silent"
+    return out
+
+
 def build_coverage_matrix(snapshot: dict,
-                           stories: dict | None = None) -> dict:
-    """Build the full coverage matrix from a (typically dedup'd) snapshot."""
+                           stories: dict | None = None,
+                           health: dict | None = None) -> dict:
+    """Build the full coverage matrix from a (typically dedup'd) snapshot.
+
+    If `health` (the same date's `<DATE>_health.json`) is supplied, the
+    output gains a `non_coverage` field: per-(story, bucket) classification
+    of why a non-covered bucket isn't covered (silent / errored / dark).
+    """
     if stories is None:
         stories = meta.canonical_stories()
 
@@ -122,6 +171,7 @@ def build_coverage_matrix(snapshot: dict,
     # Per-story coverage
     coverage: dict[str, list[dict]] = {}
     summary: dict[str, dict] = {}
+    non_coverage: dict[str, dict[str, str]] = {}
     for story_key, story_def in stories.items():
         rows: list[dict] = []
         buckets_covered: set[str] = set()
@@ -159,6 +209,8 @@ def build_coverage_matrix(snapshot: dict,
                 feeds_covered_by_section[row["section"]] += 1
 
         coverage[story_key] = rows
+        non_coverage[story_key] = _classify_non_coverage(
+            snapshot, health, buckets_covered)
 
         # Summary stats per story
         n_feeds_news = sum(
@@ -177,7 +229,7 @@ def build_coverage_matrix(snapshot: dict,
             "tier": story_def.get("tier"),
         }
 
-    return {
+    out = {
         "date": snap_date,
         "n_feeds_total": len(feeds_meta),
         "n_stories_total": len(stories),
@@ -189,6 +241,9 @@ def build_coverage_matrix(snapshot: dict,
         "coverage": coverage,
         "summary": summary,
     }
+    if health is not None:
+        out["non_coverage"] = non_coverage
+    return out
 
 
 def main() -> int:
@@ -220,8 +275,21 @@ def main() -> int:
 
     print(f"Coverage matrix from {snap_path}")
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
-    matrix = build_coverage_matrix(snap)
+    health = None
+    health_path = snap_path.parent / f"{snap.get('date') or snap_path.stem}_health.json"
+    if health_path.exists():
+        try:
+            health = json.loads(health_path.read_text(encoding="utf-8"))
+            print(f"  joining with {health_path.name} for non_coverage")
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"FAIL: {health_path}: {e}", file=sys.stderr)
+    matrix = build_coverage_matrix(snap, health=health)
     matrix = meta.stamp(matrix)
+    try:
+        meta.validate_schema(matrix, "coverage")
+    except ValueError as e:
+        print(f"FAIL: coverage matrix failed schema: {e}", file=sys.stderr)
+        return 1
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)

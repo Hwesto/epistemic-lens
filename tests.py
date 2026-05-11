@@ -24,6 +24,8 @@ import sys
 import tempfile
 import time
 import unittest
+
+import meta
 from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch, MagicMock
@@ -1860,6 +1862,102 @@ class TestSchemaCorpus(unittest.TestCase):
                     self.assertIn(
                         "meta_version", schema.get("required", []),
                         f"{name} must require meta_version")
+
+
+class TestCoverageMatrix4State(unittest.TestCase):
+    """PR 2: pipeline/coverage_matrix.py classifies non-covering buckets
+    as silent / errored / dark when joined with daily_health output."""
+
+    def setUp(self):
+        from pipeline import coverage_matrix as cm
+        self.cm = cm
+
+    def test_classify_non_coverage_distinguishes_three_states(self):
+        snapshot = {
+            "countries": {
+                "italy": {"feeds": [
+                    {"name": "ANSA", "items": [{"title": "x"}]},
+                ]},
+                "germany": {"feeds": [
+                    {"name": "Tagesschau", "items": []},
+                    {"name": "FAZ", "items": []},
+                ]},
+                "spain": {"feeds": [
+                    {"name": "El Pais", "items": []},
+                ]},
+            }
+        }
+        health = {
+            "errors": [
+                {"bucket": "germany", "feed": "Tagesschau", "http": 503},
+                {"bucket": "germany", "feed": "FAZ", "http": 500},
+            ]
+        }
+        # Italy was the only bucket that "covered" the story.
+        states = self.cm._classify_non_coverage(
+            snapshot, health, buckets_covered={"italy"})
+        # italy is excluded (it's covered); germany has all feeds errored
+        # and zero items → errored; spain has feeds but zero items and no
+        # errors → dark.
+        self.assertNotIn("italy", states)
+        self.assertEqual(states.get("germany"), "errored")
+        self.assertEqual(states.get("spain"), "dark")
+
+    def test_silent_state_when_feeds_have_items_but_none_match(self):
+        snapshot = {
+            "countries": {
+                "italy": {"feeds": [
+                    {"name": "ANSA", "items": [{"title": "x"}]},
+                ]},
+                "france": {"feeds": [
+                    {"name": "Le Monde", "items": [
+                        {"title": "unrelated story"},
+                        {"title": "another"},
+                    ]},
+                ]},
+            }
+        }
+        health = {"errors": []}
+        states = self.cm._classify_non_coverage(
+            snapshot, health, buckets_covered={"italy"})
+        self.assertEqual(states.get("france"), "silent")
+
+    def test_no_health_yields_no_non_coverage(self):
+        snapshot = {"countries": {"italy": {"feeds": []}}}
+        # build_coverage_matrix without health should NOT include
+        # non_coverage in the output.
+        canon = {"x": {"title": "X", "patterns": ["x"]}}
+        out = self.cm.build_coverage_matrix(snapshot, stories=canon, health=None)
+        self.assertNotIn("non_coverage", out)
+
+    def test_coverage_matrix_passes_its_own_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        # Build a minimal valid matrix with non_coverage and verify it
+        # round-trips through the new coverage.schema.json.
+        snapshot = {
+            "date": "2026-05-11",
+            "countries": {
+                "italy": {"feeds": [
+                    {"name": "ANSA", "section": "news", "lang": "it",
+                     "items": [{"title": "hormuz crisis"}]},
+                ]},
+                "germany": {"feeds": [
+                    {"name": "Tagesschau", "section": "news", "lang": "de",
+                     "items": []},
+                ]},
+            },
+        }
+        health = {"errors": [
+            {"bucket": "germany", "feed": "Tagesschau", "http": 503}
+        ]}
+        canon = {"hormuz": {"title": "Hormuz", "tier": "long_running",
+                            "patterns": ["hormuz"]}}
+        out = self.cm.build_coverage_matrix(snapshot, stories=canon, health=health)
+        out["meta_version"] = "test"
+        meta.validate_schema(out, "coverage")
 
 
 if __name__ == "__main__":
