@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (changed Jaccard formula, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "2.7.0",
-  "pinned_at": "2026-05-11T09:55:13Z",
-  "pin_reason": "Stage 14 schema corpus: schemas_hash added to meta (Gap 14-1 — schemas now pinned, drift gates at PR time); meta_version added to required[] on briefing, metrics, health, long, thread, carousel schemas (Gap 14-2); new index.schema.json + latest.schema.json pin the api/ tree's public contract (Gaps 14-4, 14-5); build_index validates both before write",
+  "meta_version": "2.8.0",
+  "pinned_at": "2026-05-11T10:36:53Z",
+  "pin_reason": "Stage 15: feed_rot_check decline detection was inverted — flagged growing feeds, ignored real declines (Gap 15-1). Iteration now chronological (oldest → today); decline-section semantics change, so longitudinal comparison of pre/post rot reports on the 'declining' dimension is invalidated. Test coverage added for both regression directions. Report now stamps meta_version (Gap 15-3).",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,

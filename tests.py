@@ -1719,6 +1719,132 @@ class TestLongLinkAuditCorpus(unittest.TestCase):
         self.assertFalse(any("ansa.it" in e for e in errs))
 
 
+class TestFeedRotCheck(unittest.TestCase):
+    """pipeline/feed_rot_check.py: weekly rot detection (Gap 15-1 + 15-2).
+
+    Stage 15 found the decline detection was inverted — it flagged GROWING
+    feeds and ignored declines. The decline + growth cases below are
+    regression guards against re-introducing that sign error.
+    """
+
+    def setUp(self):
+        if "pipeline.feed_rot_check" in sys.modules:
+            importlib.reload(sys.modules["pipeline.feed_rot_check"])
+        from pipeline import feed_rot_check
+        self.frc = feed_rot_check
+
+    def _write_window(self, td: Path, days: list[dict]) -> None:
+        """days = list of {date, errors, stub_feeds, feeds} dicts from
+        OLDEST to NEWEST. Writes both <date>_health.json and <date>.json
+        for each day."""
+        snaps = td / "snapshots"
+        snaps.mkdir(parents=True, exist_ok=True)
+        for d in days:
+            date = d["date"]
+            (snaps / f"{date}_health.json").write_text(json.dumps({
+                "date": date,
+                "errors": d.get("errors", []),
+                "stub_feeds": d.get("stub_feeds", []),
+            }))
+            (snaps / f"{date}.json").write_text(json.dumps({
+                "countries": {
+                    "wire": {
+                        "feeds": [
+                            {"name": fn, "item_count": ic}
+                            for fn, ic in d.get("feeds", {}).items()
+                        ]
+                    }
+                }
+            }))
+
+    def _run(self, td: Path, n_days: int, today_iso: str = "2026-05-09") -> str:
+        from unittest.mock import patch
+        import datetime as _dt
+        review = td / "review"
+        review.mkdir(parents=True, exist_ok=True)
+        # Pin "today" so the test is reproducible regardless of when it runs.
+        fixed_today = _dt.date.fromisoformat(today_iso)
+
+        class FixedDateTime(_dt.datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return _dt.datetime.combine(fixed_today, _dt.time(0), tzinfo=tz)
+
+        with patch.multiple(self.frc, SNAPS=td / "snapshots", REVIEW=review), \
+             patch.object(self.frc, "datetime", FixedDateTime):
+            self.frc.main(n_days=n_days)
+        return (review / f"rot_report_{today_iso}.md").read_text(encoding="utf-8")
+
+    def test_decline_detection_flags_actually_declining_feeds(self):
+        """Regression for Gap 15-1: a feed with item counts dropping
+        from 100 → 20 over 7 days MUST be flagged."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            days = []
+            counts = [100, 90, 80, 60, 40, 30, 20]  # chronological
+            for i, c in enumerate(counts):
+                d = (today - _dt.timedelta(days=6 - i)).isoformat()
+                days.append({"date": d, "feeds": {"DeclineFeed": c}})
+            self._write_window(td, days)
+            report = self._run(td, n_days=7, today_iso=base_date)
+            self.assertIn("DeclineFeed", report,
+                          "actually-declining feed must be in the rot report")
+            self.assertIn("100 -> 20", report,
+                          "report should show chronological oldest → today")
+
+    def test_decline_detection_ignores_growing_feeds(self):
+        """Regression for Gap 15-1: a feed growing from 20 → 100 must NOT
+        be flagged. The original bug flagged this as 'declining'."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            days = []
+            counts = [20, 30, 40, 60, 80, 90, 100]  # chronological growth
+            for i, c in enumerate(counts):
+                d = (today - _dt.timedelta(days=6 - i)).isoformat()
+                days.append({"date": d, "feeds": {"GrowingFeed": c}})
+            self._write_window(td, days)
+            report = self._run(td, n_days=7, today_iso=base_date)
+            self.assertNotIn("GrowingFeed", report,
+                             "growing feed must NOT be flagged as declining")
+
+    def test_persistent_error_streak_flagged(self):
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            days = []
+            # 5 of 7 days erroring → ≥ error_days_min (4) → flagged
+            for i in range(7):
+                d = (today - _dt.timedelta(days=6 - i)).isoformat()
+                errors = ([{"bucket": "wire", "feed": "BrokenFeed"}]
+                          if i < 5 else [])
+                days.append({"date": d, "errors": errors})
+            self._write_window(td, days)
+            report = self._run(td, n_days=7, today_iso=base_date)
+            self.assertIn("BrokenFeed", report)
+            self.assertIn("errored 5/7 days", report)
+
+    def test_report_carries_meta_version(self):
+        """Gap 15-3: report must declare the methodology pin."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            d = (today - _dt.timedelta(days=1)).isoformat()
+            self._write_window(td, [{"date": d, "feeds": {"X": 1}}])
+            report = self._run(td, n_days=7, today_iso=base_date)
+            import meta as _meta
+            self.assertIn(f"meta_version {_meta.VERSION}", report)
+
+
 class TestSchemaCorpus(unittest.TestCase):
     """Stage 14: every schema in docs/api/schema/ must itself be a valid
     JSON Schema Draft 2020-12 document. Catches typos at PR time instead
