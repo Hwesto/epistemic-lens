@@ -1719,6 +1719,37 @@ class TestLongLinkAuditCorpus(unittest.TestCase):
         self.assertFalse(any("ansa.it" in e for e in errs))
 
 
+class TestSourceAudit(unittest.TestCase):
+    """source_audit.py: developer tool. Gap 16-1: importing the module
+    must NOT fire HTTP requests or any other side effects — until Stage
+    16, the entire 387-line audit ran at module import time, including
+    235 parallel live HTTP probes."""
+
+    def test_import_has_no_side_effects(self):
+        from unittest.mock import patch
+
+        def _blow_up(*a, **kw):
+            raise AssertionError(
+                "source_audit module-import triggered network or filesystem write — "
+                "Gap 16-1 regressed; audit should only run inside main()"
+            )
+
+        # Force a fresh import so module-level side effects (if any) fire now.
+        sys.modules.pop("source_audit", None)
+        with patch("requests.get", side_effect=_blow_up), \
+             patch("builtins.print", side_effect=_blow_up):
+            # The only side effect we tolerate at import is reading constants;
+            # writing source_audit.json or calling requests.get is not.
+            import source_audit  # noqa: F401
+
+        # And confirm the public entry points exist post-refactor.
+        import source_audit as sa
+        self.assertTrue(callable(sa.main),
+                        "main() must be the entry point")
+        self.assertTrue(callable(sa.probe))
+        self.assertTrue(callable(sa.detect_script))
+
+
 class TestFeedRotCheck(unittest.TestCase):
     """pipeline/feed_rot_check.py: weekly rot detection (Gap 15-1 + 15-2).
 
