@@ -140,7 +140,7 @@ main {
   background: var(--bg);
   border: 1px solid var(--rule); border-radius: var(--radius);
   box-shadow: var(--shadow);
-  display: grid; grid-template-rows: auto auto auto 1fr auto;
+  display: grid; grid-template-rows: auto auto auto auto 1fr auto;
   gap: clamp(16px, 3vw, 28px);
 }
 @media (min-width: 720px) {
@@ -168,6 +168,22 @@ main {
   font-size: clamp(22px, 3.4vw, 34px);
   line-height: 1.15; color: var(--ink);
   letter-spacing: -0.005em; max-width: 28ch;
+}
+
+/* Kicker — the reader's entry into the story. One short neutral-voice
+   paraphrase of what actually happened. Sits between the framing
+   headline and the content receipts. Pulled from analysis.event_summary
+   (or the lead sentence of analysis.tldr if that field isn't on schema
+   yet). Visually subordinate — small, muted, with a left rule. */
+.card-kicker {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.55vw, 16px);
+  line-height: 1.45;
+  color: var(--ink-muted);
+  max-width: 60ch;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
 }
 
 .card-content { display: flex; flex-direction: column; justify-content: center; }
