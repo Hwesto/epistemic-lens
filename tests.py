@@ -2311,5 +2311,61 @@ class TestTiltIndexTwoAnchors(unittest.TestCase):
             self.assertNotIn("count_in_wire", row)
 
 
+class TestClusterDiagnostic(unittest.TestCase):
+    """PR 8: pipeline/cluster_diagnostic._cluster_both runs HDBSCAN and
+    DBSCAN over the same distance matrix and reports cluster counts,
+    silhouette / persistence, and pairwise agreement. Run for a week
+    post-merge to validate the HDBSCAN swap; revert if numbers don't
+    support it."""
+
+    def setUp(self):
+        try:
+            import numpy as np
+            import sklearn  # noqa
+            import hdbscan  # noqa
+        except ImportError:
+            self.skipTest("numpy / sklearn / hdbscan required")
+        from pipeline import cluster_diagnostic as cd
+        self.cd = cd
+
+    def _synthetic_distance_matrix(self):
+        """Three obvious clusters of three points each: every algorithm
+        should find roughly the same structure."""
+        import numpy as np
+        # 9 points, 3 clusters of 3.
+        coords = np.array([
+            [0.0, 0.0], [0.05, 0.0], [0.0, 0.05],
+            [10.0, 10.0], [10.05, 10.0], [10.0, 10.05],
+            [-5.0, 5.0], [-5.05, 5.0], [-5.0, 5.05],
+        ])
+        from sklearn.metrics.pairwise import euclidean_distances
+        dist = euclidean_distances(coords)
+        dist = dist / dist.max()  # normalize to [0,1] for cosine-like behavior
+        return dist
+
+    def test_cluster_both_returns_expected_keys(self):
+        dist = self._synthetic_distance_matrix()
+        result = self.cd._cluster_both(dist, min_cluster_size=2,
+                                        eps=0.1, min_samples=2)
+        self.assertIn("hdbscan", result)
+        self.assertIn("dbscan", result)
+        self.assertIn("pair_agreement", result)
+        self.assertIn("n_clusters", result["hdbscan"])
+        self.assertIn("n_clusters", result["dbscan"])
+        self.assertIn("n_noise", result["hdbscan"])
+        self.assertIn("n_noise", result["dbscan"])
+        self.assertIn("pct_disagree", result["pair_agreement"])
+
+    def test_cluster_both_finds_three_clusters_on_separable_data(self):
+        dist = self._synthetic_distance_matrix()
+        result = self.cd._cluster_both(dist, min_cluster_size=2,
+                                        eps=0.1, min_samples=2)
+        # Both algorithms should agree on 3 clusters for this data.
+        self.assertEqual(result["hdbscan"]["n_clusters"], 3)
+        self.assertEqual(result["dbscan"]["n_clusters"], 3)
+        # And pairwise disagreement should be 0% (full agreement).
+        self.assertEqual(result["pair_agreement"]["pct_disagree"], 0.0)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

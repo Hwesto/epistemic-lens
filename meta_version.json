@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "8.5.0",
-  "pinned_at": "2026-05-11T13:19:53Z",
-  "pin_reason": "PR 7: tilt_index second anchor. analytical/tilt_index.py now computes per-outlet log-odds against TWO baselines (wire-services + cross-bucket-mean) instead of one. Output gains anchors.{wire,bucket_mean}.{positive_tilt,negative_tilt} structure. Honest-naming: avoids treating wire as a hidden 'neutral' truth-baseline. Field names renamed from count_in_wire to count_in_baseline for anchor-neutrality. Adds tilt.schema.json.",
+  "meta_version": "8.5.1",
+  "pinned_at": "2026-05-11T13:23:10Z",
+  "pin_reason": "PR 8: honesty pass. METHODOLOGY.md gains a cross-cultural-validity caveat for the Boydstun/PFC 15-frame codebook (US-domestic origin; stretched on non-Anglo foreign-policy framings). New pipeline/cluster_diagnostic.py runs HDBSCAN + DBSCAN over the same distance matrix and emits diagnostic/<date>_cluster_compare.json — zero production impact; run weekly to validate or revert the HDBSCAN swap. No analytical output change.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,

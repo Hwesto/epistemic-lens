@@ -520,6 +520,19 @@ fact error.
   trade-off is interpretability and longitudinal comparability vs.
   expressive precision. Phase 4 validation will measure the gap quantitatively
   (per-frame F1 vs. hand-coded ground truth).
+- **Cross-cultural validity of the PFC codebook.** Boydstun, Card &
+  Gross (2014) derived the 15-frame Policy Frames Codebook from
+  US domestic-political coverage. The categories map cleanly onto
+  the genre they were calibrated on; they are *stretched* (not
+  invalid, but stretched) on foreign-policy stories framed in
+  non-US registers — e.g. Italian Vatican coverage, Japanese
+  diplomatic stories, Russian-language framing of regional
+  conflicts. The free-text `sub_frame` field is the escape valve
+  the analyzer uses when a story doesn't sit comfortably in any
+  of the 15. Consumers should treat per-frame_id shares as more
+  reliable on US/Anglo coverage and as suggestive-only on
+  non-Anglo foreign-policy framings until a cross-cultural
+  validation study lands.
 
 ## What's NOT pinned
 
