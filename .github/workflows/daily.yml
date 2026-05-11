@@ -428,6 +428,15 @@ jobs:
           show_full_output: true
           prompt: ${{ steps.load_long_prompt.outputs.content }}
 
+      - name: Stamp meta_version on any long-form drafts that lack it
+        # The draft_long agent's prompt doesn't (and pre-8.7.2 couldn't)
+        # reliably stamp meta_version into its JSON output. PR 1's
+        # analytical/stamp_long_drafts.py exists specifically for this.
+        # Pre-8.7.2 wasn't wired into the workflow → today's long drafts
+        # land schema-noncompliant and the validator below trips on
+        # `'meta_version' is a required property`. Wiring fixes that.
+        run: python -m analytical.stamp_long_drafts
+
       - name: Validate drafts against schemas
         run: |
           set -e
