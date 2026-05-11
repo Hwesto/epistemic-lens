@@ -22,6 +22,8 @@ from __future__ import annotations
 import html as _html
 from datetime import date as _date
 
+from publication.site_config import SITE_BASE
+
 
 # Bucket → emoji flag. Not exhaustive; unknown buckets render with
 # an empty string (the bucket name still carries the visual identity).
@@ -336,7 +338,7 @@ def render_today_strip(other_stories: list[dict]) -> str:
     if not other_stories:
         return ""
     items = "".join(
-        f'<li><a href="/{_e(date)}/{_e(s["key"])}/">'
+        f'<li><a href="{SITE_BASE}/{_e(date)}/{_e(s["key"])}/">'
         f'<span class="today-kind">{_e((s.get("card_kind") or "word").title())}</span>'
         f'<p class="today-headline">{_e(s.get("event_summary") or s.get("title", ""))}</p>'
         f'<p class="today-finding">{_e(s.get("finding_synthesis", ""))}</p>'
@@ -369,7 +371,7 @@ def render_index_html(today_card: dict, signals: dict,
             '<section class="archive">'
             '<h2>This week</h2>'
             '<ul class="archive-list">'
-            + "".join(f'<li><a href="/{_e(d)}/">{_e(_human_date(d))}</a></li>'
+            + "".join(f'<li><a href="{SITE_BASE}/{_e(d)}/">{_e(_human_date(d))}</a></li>'
                        for d in archive_dates)
             + '</ul></section>'
         )
@@ -382,8 +384,8 @@ def render_index_html(today_card: dict, signals: dict,
   <title>The Same Story · {_e(_human_date(iso))}</title>
   <meta property="og:title" content="{_e(today_card.get("headline", "The Same Story"))}">
   <meta property="og:description" content="{_e(today_card.get("kicker", ""))}">
-  <meta property="og:image" content="/today.png">
-  <link rel="stylesheet" href="styles.css">
+  <meta property="og:image" content="{SITE_BASE}/today.png">
+  <link rel="stylesheet" href="{SITE_BASE}/styles.css">
 </head>
 <body>
 <main class="hero">
@@ -391,18 +393,18 @@ def render_index_html(today_card: dict, signals: dict,
   <div class="card-actions">
     <button type="button" data-action="share">Share</button>
     <button type="button" data-action="copy-link">Copy link</button>
-    <a href="/today.png" download>Download image</a>
+    <a href="{SITE_BASE}/today.png" download>Download image</a>
   </div>
 </main>
 {strip_html}
 {archive_html}
 <footer class="site-footer">
-  <a href="/methodology/">methodology</a>
-  <a href="/archive/">archive</a>
-  <a href="/corrections.html">corrections</a>
+  <a href="{SITE_BASE}/methodology/">methodology</a>
+  <a href="{SITE_BASE}/archive/">archive</a>
+  <a href="{SITE_BASE}/corrections.html">corrections</a>
   <span>meta · v{_e(today_card.get("meta_version", ""))}</span>
 </footer>
-<script src="app.js" defer></script>
+<script src="{SITE_BASE}/app.js" defer></script>
 </body>
 </html>
 '''

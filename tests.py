@@ -2553,14 +2553,106 @@ def _version_at_least(actual: str, threshold: str) -> bool:
     return a >= t
 
 
+class TestSiteBasePrefix(unittest.TestCase):
+    """Plan 3: SITE_BASE is the URL prefix the deployed site is served
+    under. Default /epistemic-lens for the project page; override via
+    EPISTEMIC_LENS_BASE env var. Every absolute path emitted in
+    rendered HTML must be prefixed."""
+
+    def test_default_is_epistemic_lens(self):
+        # Reload to read fresh env state.
+        import importlib, os
+        from publication import site_config
+        os.environ.pop("EPISTEMIC_LENS_BASE", None)
+        importlib.reload(site_config)
+        self.assertEqual(site_config.SITE_BASE, "/epistemic-lens")
+
+    def test_env_override(self):
+        import importlib, os
+        from publication import site_config
+        os.environ["EPISTEMIC_LENS_BASE"] = "/foo"
+        try:
+            importlib.reload(site_config)
+            self.assertEqual(site_config.SITE_BASE, "/foo")
+        finally:
+            os.environ.pop("EPISTEMIC_LENS_BASE", None)
+            importlib.reload(site_config)
+
+    def test_trailing_slash_stripped(self):
+        import importlib, os
+        from publication import site_config
+        os.environ["EPISTEMIC_LENS_BASE"] = "/foo/"
+        try:
+            importlib.reload(site_config)
+            self.assertEqual(site_config.SITE_BASE, "/foo")
+        finally:
+            os.environ.pop("EPISTEMIC_LENS_BASE", None)
+            importlib.reload(site_config)
+
+    def test_empty_is_valid(self):
+        # For org-page or custom-domain deploys at the root.
+        import importlib, os
+        from publication import site_config
+        os.environ["EPISTEMIC_LENS_BASE"] = ""
+        try:
+            importlib.reload(site_config)
+            self.assertEqual(site_config.SITE_BASE, "")
+        finally:
+            os.environ.pop("EPISTEMIC_LENS_BASE", None)
+            importlib.reload(site_config)
+
+    def test_render_emits_prefixed_paths(self):
+        """End-to-end: with SITE_BASE='/epistemic-lens', a rendered
+        story page's <link rel="stylesheet"> uses the prefixed path."""
+        import importlib
+        from publication import site_config, page_renderers, card_renderers
+        site_config.SITE_BASE = "/epistemic-lens"
+        page_renderers.SITE_BASE = "/epistemic-lens"
+        card_renderers.SITE_BASE = "/epistemic-lens"
+        try:
+            html = page_renderers._wrap_html_document(
+                title="t", og_title="t", og_description="d",
+                body_class="b", main_class="m", main_content="<p>x</p>",
+            )
+            self.assertIn('href="/epistemic-lens/styles.css"', html)
+            self.assertIn('src="/epistemic-lens/app.js"', html)
+            self.assertIn('href="/epistemic-lens/methodology/"', html)
+            self.assertIn('href="/epistemic-lens/archive/"', html)
+            self.assertIn('href="/epistemic-lens/corrections.html"', html)
+            # No bare absolute (org-root) emissions
+            self.assertNotIn('href="/methodology/"', html)
+            self.assertNotIn('href="/styles.css"', html)
+        finally:
+            importlib.reload(site_config)
+            page_renderers.SITE_BASE = site_config.SITE_BASE
+            card_renderers.SITE_BASE = site_config.SITE_BASE
+
+
 class TestPageRenderers(unittest.TestCase):
     """Plan 2: page-level composers in publication/page_renderers.py.
     Tests cover each renderer with synthetic data — structural checks
     only (presence of expected elements + safe handling of missing data)."""
 
     def setUp(self):
+        # Monkey-patch SITE_BASE to empty so tests assert root-relative paths
+        # without coupling to the deploy-prefix value. Production uses the
+        # real env-derived prefix; tests verify path SHAPE not exact prefix.
         from publication import page_renderers as pr
+        from publication import card_renderers as cr
+        from publication import site_config as sc
+        self._site_base_orig = sc.SITE_BASE
+        sc.SITE_BASE = ""
+        pr.SITE_BASE = ""
+        cr.SITE_BASE = ""
         self.pr = pr
+
+    def tearDown(self):
+        from publication import page_renderers as pr
+        from publication import card_renderers as cr
+        from publication import site_config as sc
+        sc.SITE_BASE = self._site_base_orig
+        pr.SITE_BASE = self._site_base_orig
+        cr.SITE_BASE = self._site_base_orig
 
     def _signals(self, story_key: str = "test", with_paradox: bool = False,
                   with_llr: bool = False, with_tilt: bool = False,
@@ -2803,6 +2895,10 @@ class TestCardRenderers(unittest.TestCase):
 
     def setUp(self):
         from publication import card_renderers as cr
+        from publication import site_config as sc
+        self._site_base_orig = sc.SITE_BASE
+        sc.SITE_BASE = ""
+        cr.SITE_BASE = ""
         self.cr = cr
         self.today_card_base = {
             "card_kind": "word", "date": "2026-05-11",
@@ -2810,6 +2906,12 @@ class TestCardRenderers(unittest.TestCase):
             "headline": "Test headline with <html>", "kicker": "Factual anchor.",
             "see_how_path": "/2026-05-11/test/", "meta_version": "8.7.0",
         }
+
+    def tearDown(self):
+        from publication import card_renderers as cr
+        from publication import site_config as sc
+        sc.SITE_BASE = self._site_base_orig
+        cr.SITE_BASE = self._site_base_orig
 
     def test_word_card_renders_distinctive_terms(self):
         signals = {"story_key": "test",

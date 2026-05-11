@@ -39,6 +39,7 @@ from publication.card_renderers import (
     _render_word, _render_paradox, _render_silence,
     _render_shift, _render_sources, _render_tilt,
 )
+from publication.site_config import SITE_BASE
 
 
 # Archetype → section heading tagline pair (shown above each per-story card).
@@ -414,7 +415,7 @@ def render_story_page(date: str, story_key: str, signals: dict,
         f'<a href="within_lang_llr.json">llr</a> · '
         f'<a href="within_lang_pmi.json">pmi</a>'
         '</p>'
-        '<p class="story-page-back"><a href="/">← back to today</a></p>'
+        f'<p class="story-page-back"><a href="{SITE_BASE}/">← back to today</a></p>'
         '</footer>'
     )
 
@@ -490,7 +491,7 @@ def render_coverage_page(date: str, coverage: dict, story_entries: list[dict]) -
             symbol = {"covered": "●", "silent": "○", "errored": "⊘", "dark": "▪"}[state]
             cells.append(f'<td class="cov-cell cov-{state}" title="{title}">{symbol}</td>')
         rows.append(
-            f'<tr><th class="cov-story-header"><a href="/{_e(date)}/{_e(sk)}/">{_e(story_title.get(sk, sk))}</a></th>'
+            f'<tr><th class="cov-story-header"><a href="{SITE_BASE}/{_e(date)}/{_e(sk)}/">{_e(story_title.get(sk, sk))}</a></th>'
             f'{"".join(cells)}</tr>'
         )
 
@@ -516,7 +517,7 @@ def render_coverage_page(date: str, coverage: dict, story_entries: list[dict]) -
         '</header>'
         f'{legend_html}'
         f'<div class="coverage-matrix-wrap">{table_html}</div>'
-        '<p class="coverage-back"><a href="/">← back to today</a></p>'
+        f'<p class="coverage-back"><a href="{SITE_BASE}/">← back to today</a></p>'
     )
     return _wrap_html_document(
         title=f"Coverage · {_human_date(date)}",
@@ -601,7 +602,7 @@ def render_outlet_page(bucket: str, outlet: str, tilt_data: dict) -> str:
         'log-odds vs wire baseline — descriptive, not normative. '
         'Wire ≠ truth-baseline; bucket-mean is one alternative anchor. '
         'Two-anchor presentation is the project’s honesty discipline; '
-        'see <a href="/methodology/">methodology</a> for the rationale.'
+        f'see <a href="{SITE_BASE}/methodology/">methodology</a> for the rationale.'
         '</p>'
     )
 
@@ -615,7 +616,7 @@ def render_outlet_page(bucket: str, outlet: str, tilt_data: dict) -> str:
         '</header>'
         f'<div class="outlet-fingerprint">{panels}</div>'
         f'{disclaimer}'
-        '<p class="outlet-back"><a href="/">← back to today</a></p>'
+        f'<p class="outlet-back"><a href="{SITE_BASE}/">← back to today</a></p>'
     )
     return _wrap_html_document(
         title=f"{outlet} · outlet fingerprint",
@@ -724,7 +725,7 @@ def render_methodology_page(
         '<section class="methodology-section">'
         '<h2>Challenge a framing</h2>'
         '<p>If you disagree with how a story was framed — not "you got a number wrong" '
-        '(that’s a <a href="/corrections.html">correction</a>) but "your method picks '
+        f'(that’s a <a href="{SITE_BASE}/corrections.html">correction</a>) but "your method picks '
         'a frame that erases X" — file a methodology challenge.</p>'
         '<p>Methodology challenges are GitHub issues with these elements:</p>'
         '<ol>'
@@ -748,7 +749,7 @@ def render_methodology_page(
         f'pinned {_e(meta_dict.get("pinned_at"))}</p>'
         '</header>'
         f'{pin_section}{codebook_section}{prompt_section}{picker_section_html}{drift_section}{challenge_section}'
-        '<p class="methodology-back"><a href="/">← back to today</a></p>'
+        f'<p class="methodology-back"><a href="{SITE_BASE}/">← back to today</a></p>'
     )
     return _wrap_html_document(
         title="Methodology · The Same Story",
@@ -867,7 +868,7 @@ def render_archive_page(date_indexes: list[tuple[str, dict]]) -> str:
             stories_compact += f" + {len(stories) - 3} more"
         rows.append(
             '<tr class="archive-day-row">'
-            f'<td class="archive-date"><a href="/{_e(date_str)}/">{_e(date_str)}</a></td>'
+            f'<td class="archive-date"><a href="{SITE_BASE}/{_e(date_str)}/">{_e(date_str)}</a></td>'
             f'<td class="archive-hero"><span class="archive-hero-kind">{hero_kind}</span> {hero_story}</td>'
             f'<td class="archive-stories">{stories_compact}</td>'
             f'<td class="archive-count num">{len(stories)}</td>'
@@ -888,7 +889,7 @@ def render_archive_page(date_indexes: list[tuple[str, dict]]) -> str:
         '</tr></thead>'
         f'<tbody>{"".join(rows)}</tbody>'
         '</table>'
-        '<p class="archive-back"><a href="/">← back to today</a></p>'
+        f'<p class="archive-back"><a href="{SITE_BASE}/">← back to today</a></p>'
     )
     return _wrap_html_document(
         title="Archive · The Same Story",
@@ -909,9 +910,9 @@ def _wrap_html_document(*, title: str, og_title: str, og_description: str,
     """Common <html> shell — keeps the home page's head/footer pattern."""
     footer = (
         '<footer class="site-footer">'
-        '<a href="/methodology/">methodology</a>'
-        '<a href="/corrections.html">corrections</a>'
-        '<a href="/archive/">archive</a>'
+        f'<a href="{SITE_BASE}/methodology/">methodology</a>'
+        f'<a href="{SITE_BASE}/corrections.html">corrections</a>'
+        f'<a href="{SITE_BASE}/archive/">archive</a>'
         f'<span>meta · v{_e(meta.VERSION)}</span>'
         '</footer>'
     )
@@ -923,12 +924,12 @@ def _wrap_html_document(*, title: str, og_title: str, og_description: str,
   <title>{_e(title)}</title>
   <meta property="og:title" content="{_e(og_title)}">
   <meta property="og:description" content="{_e(og_description)}">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="{SITE_BASE}/styles.css">
 </head>
 <body class="{_e(body_class)}">
 <main class="{_e(main_class)}">{main_content}</main>
 {footer}
-<script src="/app.js" defer></script>
+<script src="{SITE_BASE}/app.js" defer></script>
 </body>
 </html>
 '''

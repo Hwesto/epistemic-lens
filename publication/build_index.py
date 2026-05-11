@@ -41,6 +41,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import meta
+from publication.site_config import SITE_BASE
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
@@ -480,7 +481,7 @@ def pick_todays_card(stories: list[dict], today: str) -> dict | None:
         "kicker": (a.get("event_summary") or a.get("tldr") or "").strip(),
         "finding_synthesis": story.get("finding_synthesis", ""),
         "score_breakdown": breakdown,
-        "see_how_path": f"/{today}/{story['story_key']}/analysis.md",
+        "see_how_path": f"{SITE_BASE}/{today}/{story['story_key']}/",
     }
 
 
@@ -517,14 +518,14 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                                  "divergence", "headline", "sources")}
 
         shutil.copy2(briefing_src, story_dir / "briefing.json")
-        artifacts["briefing"] = f"/{date}/{key}/briefing.json"
+        artifacts["briefing"] = f"{SITE_BASE}/{date}/{key}/briefing.json"
         has["briefing"] = True
 
         metrics_src = BRIEFINGS / f"{date}_{key}_metrics.json"
         top_isolation = None
         if metrics_src.exists():
             shutil.copy2(metrics_src, story_dir / "metrics.json")
-            artifacts["metrics"] = f"/{date}/{key}/metrics.json"
+            artifacts["metrics"] = f"{SITE_BASE}/{date}/{key}/metrics.json"
             has["metrics"] = True
             try:
                 m = json.load(open(metrics_src, encoding="utf-8"))
@@ -537,7 +538,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         analysis_md_src = ANALYSES / f"{date}_{key}.md"
         if analysis_md_src.exists():
             shutil.copy2(analysis_md_src, story_dir / "analysis.md")
-            artifacts["analysis"] = f"/{date}/{key}/analysis.md"
+            artifacts["analysis"] = f"{SITE_BASE}/{date}/{key}/analysis.md"
             has["analysis"] = True
             try:
                 paradox = detect_paradox(analysis_md_src.read_text(encoding="utf-8"))
@@ -547,7 +548,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         analysis_json_src = ANALYSES / f"{date}_{key}.json"
         if analysis_json_src.exists():
             shutil.copy2(analysis_json_src, story_dir / "analysis.json")
-            artifacts["analysis_json"] = f"/{date}/{key}/analysis.json"
+            artifacts["analysis_json"] = f"{SITE_BASE}/{date}/{key}/analysis.json"
             has["analysis_json"] = True
             # JSON is the canonical source — read paradox flag directly if MD
             # wasn't present or didn't yield one.
@@ -562,7 +563,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             src = DRAFTS / f"{date}_{key}_{fmt}.json"
             if src.exists():
                 shutil.copy2(src, story_dir / f"{fmt}.json")
-                artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
+                artifacts[fmt] = f"{SITE_BASE}/{date}/{key}/{fmt}.json"
                 has[fmt] = True
 
         # Phase 2 + Phase 3a sibling artefacts. Each is optional; the
@@ -577,7 +578,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             src = src_dir / f"{date}_{key}{src_suffix}.json"
             if src.exists():
                 shutil.copy2(src, story_dir / dst_name)
-                artifacts[kind] = f"/{date}/{key}/{dst_name}"
+                artifacts[kind] = f"{SITE_BASE}/{date}/{key}/{dst_name}"
                 has[has_key] = True
 
         entry = {
@@ -760,7 +761,7 @@ def copy_coverage() -> dict[str, str]:
         if not m:
             continue
         shutil.copy2(p, dst / p.name)
-        out[m.group(1)] = f"/coverage/{p.name}"
+        out[m.group(1)] = f"{SITE_BASE}/coverage/{p.name}"
     # Index of all available coverage dates
     if out:
         idx = meta.stamp({
@@ -790,7 +791,7 @@ def copy_sources_aggregate() -> dict[str, str]:
         if not m:
             continue
         shutil.copy2(p, dst / p.name)
-        out[m.group(1)] = f"/sources/aggregate/{p.name}"
+        out[m.group(1)] = f"{SITE_BASE}/sources/aggregate/{p.name}"
     if out:
         idx = meta.stamp({
             "_doc": "Index of daily source-attribution aggregates.",
@@ -813,7 +814,7 @@ def copy_baseline() -> str | None:
     dst_dir = API / "baseline"
     dst_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(src, dst_dir / src.name)
-    return f"/baseline/{src.name}"
+    return f"{SITE_BASE}/baseline/{src.name}"
 
 
 def copy_tilt() -> dict[str, str]:
@@ -827,7 +828,7 @@ def copy_tilt() -> dict[str, str]:
         if p.stem == "index":
             continue
         shutil.copy2(p, dst / p.name)
-        out[p.stem] = f"/tilt/{p.name}"
+        out[p.stem] = f"{SITE_BASE}/tilt/{p.name}"
     if out:
         idx = meta.stamp({
             "_doc": "Index of per-outlet tilt-vs-wire-baseline files (Phase 4f).",
@@ -853,7 +854,7 @@ def copy_robustness() -> dict[str, str]:
         if p.stem == "index":
             continue
         shutil.copy2(p, dst / p.name)
-        out[p.stem] = f"/robustness/{p.name}"
+        out[p.stem] = f"{SITE_BASE}/robustness/{p.name}"
     if out:
         idx = meta.stamp({
             "_doc": "Index of per-story stability indices (Phase 4h).",
@@ -880,7 +881,7 @@ def copy_lag() -> dict[str, str]:
         if p.stem == "index":
             continue
         shutil.copy2(p, dst / p.name)
-        out[p.stem] = f"/lag/{p.name}"
+        out[p.stem] = f"{SITE_BASE}/lag/{p.name}"
     if out:
         idx = meta.stamp({
             "_doc": "Index of curated outlet-pair CCF lag analyses (weekly).",
@@ -907,7 +908,7 @@ def copy_trajectories() -> dict[str, str]:
         if p.stem == "index":
             continue
         shutil.copy2(p, dst / p.name)
-        out[p.stem] = f"/trajectory/{p.name}"
+        out[p.stem] = f"{SITE_BASE}/trajectory/{p.name}"
     if out:
         idx = meta.stamp({
             "_doc": "Index of per-story longitudinal trajectories.",
@@ -1123,7 +1124,7 @@ def main() -> int:
         latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
         latest_payload = {
             "date": latest,
-            "url": f"/{latest}/index.json",
+            "url": f"{SITE_BASE}/{latest}/index.json",
             "n_stories": latest_idx["n_stories"],
             "generated_at": latest_idx["generated_at"],
         }
@@ -1131,23 +1132,23 @@ def main() -> int:
         # reach them from latest.json without re-walking the api/ tree.
         if trajectory_paths:
             latest_payload["trajectory_paths"] = trajectory_paths
-            latest_payload["trajectory_index"] = "/trajectory/index.json"
+            latest_payload["trajectory_index"] = f"{SITE_BASE}/trajectory/index.json"
         if latest in coverage_paths:
             latest_payload["coverage_path"] = coverage_paths[latest]
         if coverage_paths:
-            latest_payload["coverage_index"] = "/coverage/index.json"
+            latest_payload["coverage_index"] = f"{SITE_BASE}/coverage/index.json"
         if lag_paths:
-            latest_payload["lag_index"] = "/lag/index.json"
+            latest_payload["lag_index"] = f"{SITE_BASE}/lag/index.json"
         if latest in sources_aggregate_paths:
             latest_payload["sources_aggregate_path"] = sources_aggregate_paths[latest]
         if sources_aggregate_paths:
-            latest_payload["sources_aggregate_index"] = "/sources/aggregate/index.json"
+            latest_payload["sources_aggregate_index"] = f"{SITE_BASE}/sources/aggregate/index.json"
         if baseline_path:
             latest_payload["wire_baseline_path"] = baseline_path
         if tilt_paths:
-            latest_payload["tilt_index"] = "/tilt/index.json"
+            latest_payload["tilt_index"] = f"{SITE_BASE}/tilt/index.json"
         if robustness_paths:
-            latest_payload["robustness_index"] = "/robustness/index.json"
+            latest_payload["robustness_index"] = f"{SITE_BASE}/robustness/index.json"
         (API / "latest.json").write_text(
             json.dumps(meta.stamp(latest_payload), indent=2),
             encoding="utf-8",
@@ -1163,7 +1164,7 @@ def main() -> int:
     if sources_aggregate_paths:
         print(f"  + {len(sources_aggregate_paths)} source-aggregate days → api/sources/aggregate/")
     if baseline_path:
-        print(f"  + wire baseline → api{baseline_path}")
+        print(f"  + wire baseline → api/baseline/wire_bigrams.json")
     if tilt_paths:
         print(f"  + {len(tilt_paths)} tilt files → api/tilt/")
     if robustness_paths:
