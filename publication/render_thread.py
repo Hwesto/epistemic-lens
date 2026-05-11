@@ -119,8 +119,12 @@ def _frame_tweet(frame: dict, briefing: dict) -> dict | None:
     source = _corpus_source(briefing, ev["signal_text_idx"])
     n_b = len(frame.get("buckets", []))
     plural = "s" if n_b != 1 else ""
+    # PR A+ analyses use `frame_id` (closed Boydstun codebook ID); legacy
+    # analyses had `label`. Mirror the fallback pattern used by
+    # analytical/longitudinal.py:_frame_key().
+    frame_label = (frame.get("frame_id") or frame.get("label") or "UNLABELED").strip()
     text = _truncate(
-        f"Frame: {frame['label']} ({n_b} bucket{plural}). "
+        f"Frame: {frame_label} ({n_b} bucket{plural}). "
         f"\"{_truncate(ev['quote'], 140)}\" — {ev.get('outlet') or ev['bucket']}",
         MAX_TWEET_CHARS,
     )

@@ -119,8 +119,11 @@ def _frame_slide(frame: dict, briefing: dict) -> dict | None:
         body_parts.append(frame["description"])
     body_parts.append(f'"{ev["quote"]}" — {ev.get("outlet") or ev["bucket"]}')
     body = " · ".join(body_parts)
+    # PR A+ analyses use `frame_id`; legacy had `label`. Same fallback
+    # pattern as analytical/longitudinal.py and render_thread.py.
+    frame_label = (frame.get("frame_id") or frame.get("label") or "UNLABELED").strip()
     slide: dict = {
-        "title": frame["label"],
+        "title": frame_label,
         "body": _truncate(body, MAX_SLIDE_BODY_CHARS),
         "kind": "frame",
     }
