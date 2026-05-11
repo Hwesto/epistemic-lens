@@ -1,58 +1,11 @@
 // The Same Story — minimal client JS
 //
-// In the final design (PR D, post-merge) all rendering is server-side
-// via build_index.py. Until that lands, this script hydrates the
-// load-bearing card fields (eyebrow / headline / kicker / byline /
-// see-how) from /today.json so the deployed site shows real data
-// rather than the placeholder design-preview content baked into
-// index.html. The archetype-specific .card-content body remains
-// design-preview until PR D ships proper archetype renderers.
+// All page content is rendered server-side by publication/build_index.py
+// via publication/card_renderers.py (PR D-1). This script only handles
+// interaction: share, copy-link, keyboard nav between days.
 
 (() => {
   const $ = (sel, root = document) => root.querySelector(sel);
-
-  // ----- Hydrate the daily card from /today.json -----
-  // Temporary bridge until build_index.py renders the card server-side
-  // (PR D). Sets text on the load-bearing fields only; leaves the
-  // archetype body alone.
-  const ARCHETYPE_EYEBROWS = {
-    word:    "Word · how each language named it",
-    paradox: "Paradox · opposing blocs, same conclusion",
-    silence: "Silence · who didn't cover it",
-    shift:   "Shift · what moved this week",
-    sources: "Sources · whose voices made the cut",
-    tilt:    "Tilt · log-odds vs wire baseline",
-    echo:    "Echo · who echoed whom, how late",
-  };
-  (async () => {
-    try {
-      const res = await fetch("/today.json", {cache: "no-cache"});
-      if (!res.ok) return;
-      const t = await res.json();
-      const card = $(".card");
-      if (card && t.card_kind) {
-        card.dataset.cardKind = t.card_kind;
-        card.classList.forEach((c) => {
-          if (c.startsWith("card--")) card.classList.remove(c);
-        });
-        card.classList.add(`card--${t.card_kind}`);
-      }
-      const eyebrow = $(".card-eyebrow");
-      if (eyebrow) eyebrow.textContent = ARCHETYPE_EYEBROWS[t.card_kind] || eyebrow.textContent;
-      const headline = $(".card-headline");
-      if (headline && t.headline) headline.textContent = t.headline;
-      const kicker = $(".card-kicker");
-      if (kicker && t.kicker) kicker.textContent = t.kicker;
-      const seeHow = $(".card-byline .see-how, .see-how");
-      if (seeHow && t.see_how_path) seeHow.setAttribute("href", t.see_how_path);
-      const date = $(".card-brand time");
-      if (date && t.date) {
-        date.setAttribute("datetime", t.date);
-        date.textContent = new Date(t.date).toLocaleDateString("en-GB",
-          {day: "numeric", month: "long", year: "numeric"});
-      }
-    } catch (_) { /* offline / no today.json yet — keep placeholders */ }
-  })();
 
   // ----- Share button -----
   const shareBtn = $('[data-action="share"]');

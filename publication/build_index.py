@@ -380,6 +380,23 @@ def compute_finding_synthesis(signals: dict, card_kind: str) -> str:
     return ""
 
 
+def _recent_dates(today: str, lookback_days: int) -> list[str]:
+    """Return the last `lookback_days` dates ending at `today` (exclusive
+    of today itself) that have an api/<date>/index.json on disk. Used
+    to populate the home page's 5-day archive list."""
+    from datetime import date as _date, timedelta
+    try:
+        today_d = _date.fromisoformat(today)
+    except ValueError:
+        return []
+    out: list[str] = []
+    for offset in range(1, lookback_days + 1):
+        prev = (today_d - timedelta(days=offset)).isoformat()
+        if (API / prev / "index.json").exists():
+            out.append(prev)
+    return out
+
+
 def _recent_hero_history(today: str, lookback_days: int) -> list[dict]:
     """Walk api/<prev_date>/index.json for the lookback window; pull the
     todays_card block out of each. Used by pick_todays_card to apply
@@ -626,6 +643,31 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             encoding="utf-8",
         )
 
+        # PR D-1: render the full home page server-side. Pulls the
+        # picked story's signals fresh from disk (the in-memory
+        # _signals were stripped above) + every other story's display
+        # fields + a 5-day archive list, and writes api/index.html.
+        # Replaces the design-preview placeholder content from the
+        # cherry-pick.
+        from publication.card_renderers import render_index_html
+        picked_briefing = json.loads(
+            (BRIEFINGS / f"{date}_{todays_card['story_key']}.json")
+            .read_text(encoding="utf-8")
+        )
+        picked_signals = collect_story_signals(
+            date, todays_card["story_key"], picked_briefing
+        )
+        other_stories = [
+            {**e, "date": date}
+            for e in story_entries
+            if e["key"] != todays_card["story_key"]
+        ]
+        archive_dates = _recent_dates(date, lookback_days=5)
+        index_html = render_index_html(
+            today_payload, picked_signals, other_stories, archive_dates
+        )
+        (API / "index.html").write_text(index_html, encoding="utf-8")
+
     index = meta.stamp(index_payload)
     (out_dir / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -818,17 +860,27 @@ def copy_trajectories() -> dict[str, str]:
 
 
 def copy_web() -> None:
-    """Copy web/ assets (index.html, styles.css, app.js) into api/.
+    """Copy web/ assets (styles.css, app.js, corrections.html,
+    methodology-challenge.html) into api/.
 
-    Pages serves api/ at the site root, so dropping web/* directly into
-    api/ exposes them as the landing page. Idempotent.
+    Pages serves api/ at the site root. As of PR D-1 (meta-v8.7.0)
+    api/index.html is RENDERED server-side per day by
+    render_index_html() — we skip copying web/index.html here so the
+    rendered version isn't overwritten by the design-preview
+    template. If build_one_date() doesn't run (empty pipeline day),
+    the design-preview index.html falls back via the explicit
+    fallback path below. Idempotent.
     """
     if not WEB_SRC.is_dir():
         return
     API.mkdir(parents=True, exist_ok=True)
     for p in WEB_SRC.iterdir():
-        if p.is_file():
-            shutil.copy2(p, API / p.name)
+        if not p.is_file():
+            continue
+        if p.name == "index.html" and (API / "index.html").exists():
+            # The renderer wrote api/index.html; don't clobber.
+            continue
+        shutil.copy2(p, API / p.name)
 
 
 def main() -> int:

@@ -2553,6 +2553,137 @@ def _version_at_least(actual: str, threshold: str) -> bool:
     return a >= t
 
 
+class TestCardRenderers(unittest.TestCase):
+    """PR D-1: per-archetype HTML renderers. Each test feeds synthetic
+    signals to the renderer and asserts the load-bearing fields show
+    up in the rendered HTML. Renderers must escape user content
+    (html.escape on every interpolation)."""
+
+    def setUp(self):
+        from publication import card_renderers as cr
+        self.cr = cr
+        self.today_card_base = {
+            "card_kind": "word", "date": "2026-05-11",
+            "story_key": "test", "story_title": "Test",
+            "headline": "Test headline with <html>", "kicker": "Factual anchor.",
+            "see_how_path": "/2026-05-11/test/", "meta_version": "8.7.0",
+        }
+
+    def test_word_card_renders_distinctive_terms(self):
+        signals = {"story_key": "test",
+                   "within_lang_llr": {"by_bucket": {
+                       "uk":    {"lang": "en", "distinctive_terms": [{"term": "westminster", "llr": 25.0}]},
+                       "spain": {"lang": "es", "distinctive_terms": [{"term": "madrid", "llr": 14.0}]},
+                   }}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "word"}, signals)
+        self.assertIn("card--word", html)
+        self.assertIn("westminster", html)
+        self.assertIn("madrid", html)
+        # Headline is escaped — < > become entities
+        self.assertNotIn("<html>", html)
+        self.assertIn("&lt;html&gt;", html)
+
+    def test_paradox_card_renders_two_sides_and_joint_conclusion(self):
+        signals = {"analysis": {"paradox": {
+            "a": {"bucket": "uk", "outlet": "BBC", "quote": "A says X."},
+            "b": {"bucket": "russia", "outlet": "RT", "quote": "B says Y."},
+            "joint_conclusion": "Both said the same thing."
+        }}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "paradox"}, signals)
+        self.assertIn("card--paradox", html)
+        self.assertIn("A says X.", html)
+        self.assertIn("B says Y.", html)
+        self.assertIn("Both said the same thing.", html)
+        self.assertIn("BBC", html)
+        self.assertIn("RT", html)
+
+    def test_silence_card_renders_silent_buckets(self):
+        signals = {"story_key": "hormuz",
+                   "coverage": {"non_coverage": {"hormuz": {
+                       "egypt": {"state": "silent", "what_they_covered_instead": "Water rationing."},
+                       "germany": {"state": "covered"},
+                       "italy": {"state": "covered"},
+                   }}}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "silence"}, signals)
+        self.assertIn("card--silence", html)
+        self.assertIn("egypt", html)
+        self.assertIn("didn", html)  # "didn't cover" — apostrophe may render either way
+        self.assertIn("Water rationing.", html)
+
+    def test_shift_card_renders_trajectory_window(self):
+        signals = {"trajectory": {"frame_trajectories": {
+            "ECONOMIC": [
+                {"date": "2026-05-05", "share": 0.20},
+                {"date": "2026-05-06", "share": 0.30, "delta_share": 0.10},
+                {"date": "2026-05-07", "share": 0.55, "delta_share": 0.25},
+            ],
+        }}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "shift"}, signals)
+        self.assertIn("card--shift", html)
+        self.assertIn("ECONOMIC", html)
+        self.assertIn("25pp", html)  # 0.25 * 100
+
+    def test_sources_card_renders_speaker_breakdown(self):
+        signals = {"sources": {"sources": [
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "state"},
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "state"},
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "civilian"},
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "academic"},
+        ]}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "sources"}, signals)
+        self.assertIn("card--sources", html)
+        self.assertIn("BBC", html)
+        self.assertIn("State", html)
+        self.assertIn("Civilian", html)
+        self.assertIn("4 voices", html)
+
+    def test_tilt_card_renders_both_anchors(self):
+        signals = {"tilt_files": [{
+            "bucket": "russia", "outlet": "RT",
+            "anchors": {
+                "wire": {"positive_tilt": [{"bigram": ["foo", "bar"], "z_score": 4.2}]},
+                "bucket_mean": {"positive_tilt": [{"bigram": ["foo", "bar"], "z_score": 3.8}]},
+            },
+        }]}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "tilt"}, signals)
+        self.assertIn("card--tilt", html)
+        self.assertIn("RT", html)
+        self.assertIn("+4.2", html)
+        self.assertIn("+3.8", html)
+        self.assertIn("vs wire", html)
+        self.assertIn("vs cross-bucket", html)
+
+    def test_render_index_html_wraps_card_and_aux_sections(self):
+        signals = {"story_key": "test",
+                   "within_lang_llr": {"by_bucket": {
+                       "uk": {"lang": "en", "distinctive_terms": [{"term": "x", "llr": 25.0}]},
+                   }}}
+        other = [{"key": "second", "title": "Second", "card_kind": "shift",
+                  "finding_synthesis": "moved 30pp", "event_summary": "happened too.",
+                  "date": "2026-05-11"}]
+        html = self.cr.render_index_html(
+            {**self.today_card_base, "card_kind": "word"}, signals, other, ["2026-05-10"]
+        )
+        self.assertIn("<!DOCTYPE html>", html)
+        self.assertIn("og:image", html)
+        self.assertIn("Also today", html)
+        self.assertIn("This week", html)
+        self.assertIn("methodology", html)
+
+    def test_empty_signals_falls_back_gracefully(self):
+        # No on-disk artifacts → renderer shows empty-state.
+        signals = {"story_key": "test"}
+        for kind in ("word", "paradox", "silence", "shift", "sources", "tilt"):
+            with self.subTest(kind=kind):
+                html = self.cr.render_card_html(
+                    {**self.today_card_base, "card_kind": kind}, signals
+                )
+                self.assertIn(f"card--{kind}", html)
+                # No exceptions, no Python traceback markers, no None dumps
+                self.assertNotIn("None</", html)
+                self.assertNotIn("Traceback", html)
+
+
 class TestCardPickers(unittest.TestCase):
     """PR A+: pick_per_story_card_kind walks card_picker.json cascade;
     pick_todays_card scores stories per today_picker.json. Both must
