@@ -160,7 +160,18 @@ references the deleted stage:
 | **13-min-F** | No client-side error reporting / telemetry. If Pages serves a broken latest.json, errors only surface in the UI. | Adds dependency + privacy considerations. | If post-deploy issues become hard to diagnose. |
 | **13-min-G** | Frontend has no client-side schema awareness. If `analysis.schema.json` drifts, JS may crash on missing fields. | build_index validator gates writes into api/, so safe in practice; client validation would add a JS dep. | If a schema change ever produces an in-the-wild crash. |
 
-## Stages 14 — 21
+## Stage 14 — Schema corpus
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **14-3** | `additionalProperties: true` on 5 schemas: briefing, canonical_stories, feeds, health, metrics. Strict-by-default catches typos + silent drift. | Tightening requires auditing every existing artifact for stray fields (e.g. legacy `n_articles_total` on briefings). Worth a dedicated pass. | When time allows, or if a stray field is ever discovered in production. |
+| **14-6** | Carry-over 13-5: hardcoded footer `235 feeds · 54 buckets · 16+ languages` in index.html. Best home: new `meta.json` endpoint exposing pin facts. Requires meta.schema.json, build_index.write_meta_json(), and web/app.js fetch + render. | Bigger lift than other Stage 14 items. | When we want footer to reflect live pin facts rather than a snapshot. |
+| **14-7** | All schemas declare Draft 2020-12 — consistent and good. | Already covered. | Don't pick up. |
+| **14-8** | `$id` uses placeholder `https://epistemic-lens/...`. JSON Schema $id is for cross-schema $ref resolution; we don't use $ref across files. | Not load-bearing. | If we ever migrate to real domain or use cross-schema $ref. |
+| **14-10** | No automated backward-compat regression test for schema tightenings. Manual verification per stage has sufficed. | Manual verification is OK at this scale; no production drift surfaced. | If a schema-tightening PR ever lands without manual artifact audit. |
+| **14-min-A** | 4 legacy 2026-05-06 briefings now carry meta_version: 2.6.0 stamps — the pin under which they were backfilled, not the era they were originally written. Same convention as Stage 11 long-draft backfill. | Accepted convention: stamps reflect when stamping happened. Original era is lost. | Don't pick up. |
+
+## Stages 15 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
