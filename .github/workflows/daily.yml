@@ -126,7 +126,12 @@ jobs:
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add snapshots/ briefings/ coverage/ cross_day_dedup_state.json archive/rollup/
+          git add snapshots/ briefings/ coverage/ cross_day_dedup_state.json
+          # archive/rollup/ only exists on weeks the rollup job ran. Conditional
+          # add so a missing directory doesn't abort `set -e` and fail the
+          # whole ingest job — that cascade was skipping analyze entirely
+          # (analyze's `if:` requires needs.ingest.result in success/skipped).
+          [ -d archive/rollup ] && git add archive/rollup/ || true
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
