@@ -2,7 +2,9 @@
 
 **Branch:** `claude/web-card-first-draft` (off main, trashable)
 **Status:** design artifact for review. Not wired to the backend yet.
-**For:** integration into the 3-way merge between `main`, `claude/review-branch-commercial-MFTEU` (audit / v2.9.0), and `claude/review-stress-test-06asX` (analytical / v8.0.0).
+**Target merge branch:** `claude/merge-analytics-integration-xdbJs` (the active integration of `main` × audit × v8 — currently at meta-v8.5.2 with 8 PRs already landed). When this design is picked up, it goes into THAT branch, not main directly.
+
+**Brand:** "The Same Story" — consumer-facing. The technical repo name `epistemic-lens` stays for the methodology pages and the GitHub repo.
 
 ## What this is
 
@@ -16,15 +18,18 @@ The technical depth (trajectory, frame matrix, voices, methodology pin) doesn't 
 web/
 ├── README.md                 ← this file
 ├── index.html                ← home page · single card · server-rendered by build_index
-├── styles.css                ← site shell + 5 card archetypes · ~350 lines · no build step
+├── styles.css                ← site shell + 7 card archetypes · ~540 lines · no build step
 ├── app.js                    ← ~50 lines · share / copy / keyboard nav only
-└── samples/
-    ├── index.html            ← menu — open this first
-    ├── word.html             ← Word archetype preview
-    ├── paradox.html          ← Paradox archetype preview
-    ├── silence.html          ← Silence archetype preview
-    ├── shift.html            ← Shift archetype preview
-    └── echo.html             ← Echo archetype preview (Mondays only)
+├── samples/
+│   ├── index.html            ← menu — open this first
+│   ├── word.html             ← Word archetype preview
+│   ├── paradox.html          ← Paradox archetype preview
+│   ├── silence.html          ← Silence archetype preview
+│   ├── shift.html            ← Shift archetype preview
+│   ├── sources.html          ← Sources archetype preview (NEW — needs merge-branch data)
+│   ├── tilt.html             ← Tilt archetype preview (NEW — needs merge-branch data)
+│   └── echo.html             ← Echo archetype preview (Mondays only)
+└── screenshots/              ← Playwright renders (desktop + share + mobile) for review
 ```
 
 Open `web/samples/index.html` in a browser. Everything renders standalone — no server, no build, no dependencies.
@@ -36,24 +41,30 @@ Tagline: *"how the world told the same news today"*.
 
 The technical name `epistemic-lens` stays for the GitHub repo and methodology pages. "The Same Story" is what readers see.
 
-## The five card archetypes
+## The seven card archetypes
 
 Each card is a single screenshot-ready unit. The daily cron picks ONE based on what's most striking. Rotation prevents fatigue; reader doesn't know what shape they'll get tomorrow.
 
-| Archetype | Pulled from | Availability |
+| Archetype | Pulled from (merge-branch schemas) | Availability |
 |---|---|---|
-| **Word** | Within-language LLR distinctive vocab (`bucket_distinctive_vocab_llr`) | Daily — always available, fallback |
-| **Paradox** | `analysis.paradox` field (opposing-bloc convergence detection) | Rare (~1 in 4 days) |
-| **Silence** | Coverage matrix (4-state) + `analysis.silences` | Frequent when ≥10 buckets cover a story |
-| **Shift** | Longitudinal trajectory + frame-id sequence | Needs 5+ days of story history |
-| **Echo** | Weekly cross-outlet lag CCF (`lag/<a>__<b>.json`) | **Mondays only** (weekly job) |
+| **Word** | Within-language LLR distinctive vocab. Each row carries an italic bracketed translation (added 11 May, see screenshots). | Daily — always available, fallback |
+| **Paradox** | `analysis.paradox` (opposing-bloc convergence) | Rare (~1 in 4 days) |
+| **Silence** | `coverage.schema.json` (4-state) + `analysis.silences`. Big-absent-flag-with-X design (redesigned 11 May). | Frequent when ≥10 buckets cover a story |
+| **Shift** | `trajectory.schema.json` + frame-id sequence + PR 5's article-level provenance | Needs 5+ days of story history |
+| **Sources** | `sources.schema.json` + PR 3's `speaker_affiliation_bucket` / `speaker_affiliation_kind` | Daily — every story with quotes |
+| **Tilt** | `tilt.schema.json` + PR 7's second anchor (`bucket_mean` alongside wire) | Weekly (Mondays or Fridays) |
+| **Echo** | `cross_outlet_lag.py` output (CCF). No schema pinned yet on the merge branch — needs `lag.schema.json` before this card ships. | Mondays only |
 
 Selection priority (in `build_index.pick_todays_card()`):
-1. Monday + strong CCF → Echo
-2. Strong paradox today → Paradox
-3. Sharp silence (≥10 buckets covering, 1 doesn't) → Silence
-4. Story with 5+ days trajectory + frame change → Shift
-5. Fallback → Word (always works)
+1. Monday + strong tilt drift → Tilt
+2. Monday + strong CCF → Echo
+3. Strong paradox today → Paradox
+4. Sharp silence (≥10 buckets covering, 1 doesn't) → Silence
+5. Outlet with stark speaker-type imbalance (e.g. 0 civilians) → Sources
+6. Story with 5+ days trajectory + frame change → Shift
+7. Fallback → Word (always works)
+
+(Tilt and Echo could share Monday with a sub-priority based on signal strength; or alternate weeks.)
 
 ## How the next LLM should integrate this
 
@@ -150,11 +161,32 @@ The next LLM should treat this as a **visual spec + scaffold** for the home page
 
 ## Suggested first action for the next LLM
 
-1. Open `web/samples/index.html` in a browser. Walk all five archetypes.
-2. Read the audit branch's `docs/AUDIT_BACKLOG.md` for context on the methodology discipline.
-3. Read the v8 branch's `analytical/longitudinal.py` and `analytical/within_language_llr.py` to understand the data feeding the Word and Shift cards.
-4. Write `publication/build_index.pick_todays_card()` against the v8 data shapes.
-5. Add Playwright. Render the first PNG. Compare to the HTML — they should look identical.
-6. Replace the existing `web/index.html` with the server-rendered version that inlines today's card.
+1. Open `web/samples/index.html` in a browser. Walk all SEVEN archetypes (Word, Paradox, Silence, Shift, Sources, Tilt, Echo).
+2. Read the merge branch's existing `web/` — it currently has the old multi-story dashboard plus `corrections.html` and `methodology-challenge.html`. Decide which to keep:
+   - **Keep** `corrections.html` + `methodology-challenge.html` (they're the credibility layer; this design doesn't replace them)
+   - **Replace** `index.html`, `app.js`, `styles.css` with the versions from this branch
+   - **Add** the `samples/` and `screenshots/` directories as design reference (optional — can delete after integration if desired)
+3. Read the merge branch's `analytical/within_language_llr.py`, `analytical/source_attribution.py`, `analytical/tilt_index.py`, `analytical/longitudinal.py` to understand the data feeding the cards.
+4. Write `publication/build_index.pick_todays_card()` against the merge-branch data shapes — selector priority documented in the table above.
+5. Pin a new schema: `today.schema.json` for the card-pick artifact (`api/today.json`). Add to `meta.schemas_hash` (existing discipline on the merge branch).
+6. Add Playwright. Render the first PNG. Compare to the HTML — they should look identical.
+7. Replace the merge branch's `web/index.html` with the server-rendered version that inlines today's card. Methodology + corrections pages stay as-is.
+8. The `lag.schema.json` is NOT yet pinned on the merge branch — the Echo card can be deferred to a follow-up PR that adds it.
 
 Trash this branch when done; the files are meant to be cherry-picked, not merged as-is.
+
+## Specifically what to keep vs replace on the merge branch's web/
+
+```
+merge-branch's web/                 action
+─────────────────────────────────   ───────────────────────────────────────
+index.html                          REPLACE with this branch's home page
+app.js                              REPLACE with this branch's minimal app.js
+styles.css                          REPLACE with this branch's styles.css (~540 lines, 7 archetypes)
+corrections.html                    KEEP — accountability layer from PR 6+
+methodology-challenge.html          KEEP — accountability layer from PR 6+
+(no samples/)                       OPTIONAL — bring across for reference, can delete later
+(no screenshots/)                   OPTIONAL — bring across for review, can delete later
+```
+
+If `methodology-challenge.html` and `corrections.html` use different design tokens, port them to the `--bg / --ink / --accent` variable set in this branch's `styles.css` for visual consistency — they can keep their layout, just adopt the palette.

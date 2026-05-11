@@ -10,13 +10,13 @@
 <div class="sample-index">
   <h1>The Same Story — design samples</h1>
   <p>
-    Five card archetypes. The daily selector picks ONE based on what's most striking
+    Seven card archetypes. The daily selector picks ONE based on what's most striking
     in today's analysis. Open any of these in a browser to preview.
   </p>
   <ol>
     <li>
       <a href="word.html">Word card</a>
-      <span class="desc">Six countries, six words for the same event. Default fallback — always available from within-language LLR.</span>
+      <span class="desc">Six countries, six words for the same event. Translations under each in italics. Default fallback — always available from within-language LLR.</span>
     </li>
     <li>
       <a href="paradox.html">Paradox card</a>
@@ -24,11 +24,19 @@
     </li>
     <li>
       <a href="silence.html">Silence card</a>
-      <span class="desc">N countries covered this; 1 didn't. Pulled from coverage_matrix (4-state) + silence detection.</span>
+      <span class="desc">One country didn't cover something everyone else did. Pulled from coverage_matrix (4-state) + silence detection.</span>
     </li>
     <li>
       <a href="shift.html">Shift card</a>
       <span class="desc">One bucket's frame shifts over five days. Pulled from longitudinal trajectory. Needs 5+ days of story history.</span>
+    </li>
+    <li>
+      <a href="sources.html">Sources card</a>
+      <span class="desc">Whose voices an outlet platformed today, broken down by speaker type. Pulled from sources.schema + PR 3's speaker_affiliation enrichment. Daily.</span>
+    </li>
+    <li>
+      <a href="tilt.html">Tilt card</a>
+      <span class="desc">Outlets whose vocabulary drifted most this week, triangulated against two anchors (wire + cross-bucket-mean). Pulled from tilt.schema + PR 7's second anchor. Weekly.</span>
     </li>
     <li>
       <a href="echo.html">Echo card</a>

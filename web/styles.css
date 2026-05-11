@@ -400,7 +400,128 @@ main {
   font-weight: 700; color: var(--accent); padding: 4px 0;
 }
 
+/* ---------- Archetype 6: Sources ---------- */
+.card--sources .card-content {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(16px, 3vw, 28px); align-content: center;
+}
+.sources-outlet { display: flex; flex-direction: column; gap: clamp(12px, 2vw, 18px); }
+.sources-outlet-head {
+  display: flex; align-items: baseline; gap: 12px;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: clamp(10px, 1.6vw, 14px);
+}
+.sources-outlet-head .flag {
+  font-size: clamp(22px, 2.8vw, 30px); line-height: 1;
+}
+.sources-outlet-name {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(22px, 3vw, 32px); color: var(--ink); letter-spacing: -0.01em;
+}
+.sources-outlet-meta {
+  margin-left: auto; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-muted); font-variant-numeric: tabular-nums;
+}
+.sources-breakdown {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: clamp(4px, 0.8vw, 8px);
+}
+.sources-breakdown li {
+  display: grid; grid-template-columns: 7.5em 1fr 2em;
+  gap: clamp(8px, 1.5vw, 16px); align-items: center;
+  font-size: clamp(13px, 1.6vw, 16px);
+}
+.sources-breakdown .speaker-type {
+  font-weight: 600; color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.sources-breakdown .speaker-bar {
+  height: 10px; background: var(--bg-soft); border-radius: 5px; overflow: hidden;
+  position: relative;
+}
+.sources-breakdown .speaker-bar > span {
+  display: block; height: 100%;
+  background: var(--accent);
+  border-radius: 5px;
+}
+.sources-breakdown li.zero .speaker-bar { background: transparent; border: 1px dashed var(--ink-faded); }
+.sources-breakdown li.zero .speaker-type { color: var(--accent); font-style: italic; }
+.sources-breakdown .speaker-count {
+  text-align: right; font-variant-numeric: tabular-nums;
+  font-weight: 700; color: var(--ink);
+  font-size: clamp(14px, 1.7vw, 17px);
+}
+.sources-breakdown li.zero .speaker-count { color: var(--accent); }
+.sources-callout {
+  margin: 0; padding-top: clamp(8px, 1.5vw, 12px);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(15px, 1.9vw, 19px);
+  color: var(--ink-muted); line-height: 1.4;
+}
+.sources-callout strong {
+  font-style: normal; font-weight: 700; color: var(--accent);
+}
+
+
+/* ---------- Archetype 7: Tilt ---------- */
+.card--tilt .card-content {
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(16px, 2.5vw, 24px); align-content: center;
+}
+.tilt-stack {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column;
+}
+.tilt-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(10px, 2vw, 18px);
+  padding: clamp(8px, 1.4vw, 12px) 0;
+  border-bottom: 1px dashed var(--rule);
+}
+.tilt-row:last-child { border-bottom: none; }
+.tilt-row .flag {
+  font-size: clamp(20px, 2.4vw, 26px); line-height: 1;
+}
+.tilt-outlet {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(16px, 2.1vw, 22px); color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.tilt-row.featured .tilt-outlet { color: var(--accent); }
+.tilt-row.featured {
+  background: linear-gradient(to right, transparent, var(--bg-soft) 60%, transparent);
+  border-radius: var(--radius);
+  margin: 0 -8px; padding-left: 8px; padding-right: 8px;
+}
+.tilt-scores {
+  display: flex; gap: clamp(12px, 2vw, 20px);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(13px, 1.6vw, 16px);
+}
+.tilt-score {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 2px;
+  font-weight: 700; color: var(--ink);
+}
+.tilt-score em {
+  font-style: normal; font-weight: 400;
+  font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.tilt-synthesis {
+  margin: 0; padding-top: clamp(10px, 1.6vw, 14px);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: var(--ink-muted); text-align: center; line-height: 1.4;
+}
+
+
 /* ---------- Sample-index page ---------- */
+
 .sample-index {
   max-width: 720px; margin: 40px auto; padding: 0 24px;
 }
