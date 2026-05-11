@@ -47,6 +47,8 @@ For each quote, emit:
   "speaker_name": "Donald Trump"  // or null for unnamed
   "role_or_affiliation": "US President" // or "Tehran resident" if unnamed
   "speaker_type": "official" | "civilian" | "expert" | "journalist" | "spokesperson" | "unknown",
+  "speaker_affiliation_bucket": "state" | "political" | "civilian" | "wire" | "corporate" | "academic" | "NGO" | "unknown",
+  "speaker_affiliation_kind": "US Executive Branch"  // or "Brookings Institution", "Tehran market", etc.
   "exact_quote": "verbatim text from signal_text, including punctuation",
   "attributive_verb": "said" | "claimed" | "warned" | "told" | "argued" | "denied" | etc.,
   "stance_toward_target": "for" | "against" | "neutral" | "unclear",
@@ -70,6 +72,23 @@ Notes on each field:
   **journalist** = the reporter or another journalist quoted in their
   professional capacity; **spokesperson** = institutional press
   representatives; **unknown** when ambiguous.
+- `speaker_affiliation_bucket`: closed enum capturing the
+  *organizational* category the speaker speaks for. Distinct from
+  `speaker_type` (which is the *individual* role). Values:
+  **state** = government / military / state agency (US Executive,
+  IRGC, Bundeswehr); **political** = party officials, candidates,
+  elected legislators acting in party capacity; **civilian** =
+  ordinary people, no institutional capacity; **wire** = news-agency
+  staff (Reuters, AFP, AP) speaking for the agency itself, rare;
+  **corporate** = private-sector executives, spokespeople (Maersk,
+  Boeing, KLM); **academic** = university faculty, think-tank
+  fellows; **NGO** = NGO / charity / international-org spokespeople
+  (UN, WHO, Amnesty, MSF); **unknown** when ambiguous.
+- `speaker_affiliation_kind`: free-text specifier of the organization
+  ("US Executive Branch", "Brookings Institution", "Maersk Tankers",
+  "Médecins Sans Frontières"). Pair with `speaker_affiliation_bucket`
+  to enable per-organization aggregation. Use null for `civilian` and
+  `unknown` buckets where no organization applies.
 - `exact_quote`: must appear **verbatim** in
   `corpus[signal_text_idx].signal_text`. The validator will reject
   hallucinated quotes.

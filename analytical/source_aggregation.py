@@ -118,6 +118,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
         "verb_mix": Counter(),
         "type_mix": Counter(),
         "stance_mix": Counter(),
+        "affiliation_mix": Counter(),
     })
     by_bucket: dict[str, dict] = defaultdict(lambda: {
         "n_quotes": 0,
@@ -125,6 +126,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
         "verb_mix": Counter(),
         "type_mix": Counter(),
         "stance_mix": Counter(),
+        "affiliation_mix": Counter(),
         "outlets": set(),
     })
     by_region: dict[str, dict] = defaultdict(lambda: {
@@ -133,6 +135,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
         "outlets_per_speaker": defaultdict(set),
         "type_mix": Counter(),
         "stance_mix": Counter(),
+        "affiliation_mix": Counter(),
         "buckets": set(),
     })
 
@@ -144,18 +147,21 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
         verb = (s.get("attributive_verb") or "?").lower()
         stype = s.get("speaker_type") or "unknown"
         stance = s.get("stance_toward_target") or "unclear"
+        affil = s.get("speaker_affiliation_bucket") or "unknown"
 
         by_outlet[outlet]["n_quotes"] += 1
         by_outlet[outlet]["speakers"][speaker] += 1
         by_outlet[outlet]["verb_mix"][verb] += 1
         by_outlet[outlet]["type_mix"][stype] += 1
         by_outlet[outlet]["stance_mix"][stance] += 1
+        by_outlet[outlet]["affiliation_mix"][affil] += 1
 
         by_bucket[bucket]["n_quotes"] += 1
         by_bucket[bucket]["speakers"][speaker] += 1
         by_bucket[bucket]["verb_mix"][verb] += 1
         by_bucket[bucket]["type_mix"][stype] += 1
         by_bucket[bucket]["stance_mix"][stance] += 1
+        by_bucket[bucket]["affiliation_mix"][affil] += 1
         by_bucket[bucket]["outlets"].add(outlet)
 
         by_region[region]["n_quotes"] += 1
@@ -163,6 +169,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
         by_region[region]["outlets_per_speaker"][speaker].add(outlet)
         by_region[region]["type_mix"][stype] += 1
         by_region[region]["stance_mix"][stance] += 1
+        by_region[region]["affiliation_mix"][affil] += 1
         by_region[region]["buckets"].add(bucket)
 
     # Serialise (Counters → ordered dicts; sets → lists)
@@ -173,6 +180,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
             "verb_mix": dict(d["verb_mix"].most_common()),
             "type_mix": dict(d["type_mix"].most_common()),
             "stance_mix": dict(d["stance_mix"].most_common()),
+            "affiliation_mix": dict(d["affiliation_mix"].most_common()),
         }
 
     def _ser_bucket(d: dict) -> dict:
@@ -184,6 +192,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
             "verb_mix": dict(d["verb_mix"].most_common()),
             "type_mix": dict(d["type_mix"].most_common()),
             "stance_mix": dict(d["stance_mix"].most_common()),
+            "affiliation_mix": dict(d["affiliation_mix"].most_common()),
         }
 
     def _ser_region(d: dict) -> dict:
@@ -202,6 +211,7 @@ def aggregate(sources: list[dict], top_k: int = 10) -> dict:
             ],
             "type_mix": dict(d["type_mix"].most_common()),
             "stance_mix": dict(d["stance_mix"].most_common()),
+            "affiliation_mix": dict(d["affiliation_mix"].most_common()),
         }
 
     return {

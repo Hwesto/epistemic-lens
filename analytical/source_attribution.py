@@ -47,6 +47,15 @@ VALID_SPEAKER_TYPES = {
     "official", "civilian", "expert", "journalist", "spokesperson", "unknown"
 }
 VALID_STANCES = {"for", "against", "neutral", "unclear"}
+# PR 3: organizational/institutional dimension. Distinct from
+# speaker_type — that captures the individual role; this captures the
+# organization the speaker speaks for. Enables per-affiliation
+# aggregation (e.g. "what % of state-source quotes use 'said' vs
+# 'claimed'") downstream of analytical/source_aggregation.py.
+VALID_AFFILIATION_BUCKETS = {
+    "state", "political", "civilian", "wire", "corporate",
+    "academic", "NGO", "unknown",
+}
 
 
 def article_sha(article: dict) -> str:
@@ -112,6 +121,7 @@ def validate_sources(sources_doc: dict, briefing: dict) -> list[str]:
 
     required_fields = {
         "speaker_name", "role_or_affiliation", "speaker_type",
+        "speaker_affiliation_bucket", "speaker_affiliation_kind",
         "exact_quote", "attributive_verb", "stance_toward_target",
         "signal_text_idx", "bucket", "outlet",
     }
@@ -124,6 +134,12 @@ def validate_sources(sources_doc: dict, briefing: dict) -> list[str]:
             errors.append(
                 f"sources[{ii}]: speaker_type {s['speaker_type']!r} "
                 f"not in {sorted(VALID_SPEAKER_TYPES)}"
+            )
+        if s["speaker_affiliation_bucket"] not in VALID_AFFILIATION_BUCKETS:
+            errors.append(
+                f"sources[{ii}]: speaker_affiliation_bucket "
+                f"{s['speaker_affiliation_bucket']!r} "
+                f"not in {sorted(VALID_AFFILIATION_BUCKETS)}"
             )
         if s["stance_toward_target"] not in VALID_STANCES:
             errors.append(

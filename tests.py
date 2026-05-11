@@ -1046,6 +1046,8 @@ class TestPhase3SourceAttribution(unittest.TestCase):
             "sources": [
                 {"speaker_name": "Trump", "role_or_affiliation": "US President",
                  "speaker_type": "official",
+                 "speaker_affiliation_bucket": "state",
+                 "speaker_affiliation_kind": "US Executive Branch",
                  "exact_quote": 'We will continue the blockade.',
                  "attributive_verb": "said",
                  "stance_toward_target": "for",
@@ -1053,6 +1055,8 @@ class TestPhase3SourceAttribution(unittest.TestCase):
                  "bucket": "usa", "outlet": "Outlet A"},
                 {"speaker_name": None, "role_or_affiliation": "spokesperson",
                  "speaker_type": "spokesperson",
+                 "speaker_affiliation_bucket": "state",
+                 "speaker_affiliation_kind": "Iran Foreign Ministry",
                  "exact_quote": 'Sanctions will fail.',
                  "attributive_verb": "claimed",
                  "stance_toward_target": "against",
@@ -1958,6 +1962,86 @@ class TestCoverageMatrix4State(unittest.TestCase):
         out = self.cm.build_coverage_matrix(snapshot, stories=canon, health=health)
         out["meta_version"] = "test"
         meta.validate_schema(out, "coverage")
+
+
+class TestSourceAttributionAffiliation(unittest.TestCase):
+    """PR 3: source-attribution validator enforces the new
+    speaker_affiliation_bucket + speaker_affiliation_kind fields, and
+    source_aggregation rolls up the affiliation distribution per outlet
+    / bucket / region."""
+
+    def setUp(self):
+        from analytical import source_attribution as sa
+        from analytical import source_aggregation as sg
+        self.sa = sa
+        self.sg = sg
+
+    def _valid_source(self, **overrides) -> dict:
+        base = {
+            "speaker_name": "Trump",
+            "role_or_affiliation": "US President",
+            "speaker_type": "official",
+            "speaker_affiliation_bucket": "state",
+            "speaker_affiliation_kind": "US Executive Branch",
+            "exact_quote": "We will respond.",
+            "attributive_verb": "said",
+            "stance_toward_target": "for",
+            "signal_text_idx": 0,
+            "bucket": "usa",
+            "outlet": "Reuters",
+        }
+        base.update(overrides)
+        return base
+
+    def test_validator_requires_new_affiliation_fields(self):
+        s = self._valid_source()
+        s.pop("speaker_affiliation_bucket")
+        briefing = {"corpus": [{"bucket": "usa", "signal_text": "We will respond."}]}
+        doc = {"sources": [s]}
+        errors = self.sa.validate_sources(doc, briefing)
+        self.assertTrue(any("speaker_affiliation_bucket" in e for e in errors),
+                        f"missing affiliation_bucket should error; got {errors}")
+
+    def test_validator_rejects_unknown_affiliation_bucket(self):
+        s = self._valid_source(speaker_affiliation_bucket="militia")
+        briefing = {"corpus": [{"bucket": "usa", "signal_text": "We will respond."}]}
+        doc = {"sources": [s]}
+        errors = self.sa.validate_sources(doc, briefing)
+        self.assertTrue(any("speaker_affiliation_bucket" in e for e in errors))
+
+    def test_aggregation_emits_affiliation_mix(self):
+        sources = [
+            self._valid_source(speaker_affiliation_bucket="state"),
+            self._valid_source(speaker_affiliation_bucket="state"),
+            self._valid_source(speaker_affiliation_bucket="academic",
+                               outlet="The Atlantic"),
+            self._valid_source(speaker_affiliation_bucket="civilian",
+                               speaker_affiliation_kind=None),
+        ]
+        agg = self.sg.aggregate(sources)
+        # by_outlet for "Reuters" should show state:2, civilian:1
+        reuters = agg["by_outlet"].get("Reuters")
+        self.assertIsNotNone(reuters)
+        self.assertEqual(reuters["affiliation_mix"].get("state"), 2)
+        self.assertEqual(reuters["affiliation_mix"].get("civilian"), 1)
+        # The Atlantic is a separate outlet → only academic:1
+        atlantic = agg["by_outlet"].get("The Atlantic")
+        self.assertEqual(atlantic["affiliation_mix"].get("academic"), 1)
+
+    def test_doc_passes_sources_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        doc = {
+            "meta_version": "test",
+            "story_key": "hormuz",
+            "date": "2026-05-11",
+            "story_title": "Hormuz",
+            "n_articles_processed": 1,
+            "sources": [self._valid_source()],
+        }
+        meta.validate_schema(doc, "sources")
 
 
 if __name__ == "__main__":
