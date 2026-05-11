@@ -3,6 +3,10 @@ fresh_pull/
 __pycache__/
 *.pyc
 
+# Translation cache — content-hash keyed, regenerated as needed.
+# Persisted across CI runs via actions/cache (see .github/workflows/daily.yml).
+cache/
+
 # Public API tree — derivative of briefings/+analyses/+drafts/.
 # Regenerated fresh by build_index.py in the cron and deployed to
 # GitHub Pages as a build artifact. Never committed.

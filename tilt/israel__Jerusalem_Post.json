@@ -1,0 +1,51 @@
+{
+  "bucket": "israel",
+  "outlet": "Jerusalem Post",
+  "window_days": 7,
+  "n_articles_in_window": 3,
+  "wire_baseline_pin": "7.3.0",
+  "wire_baseline_n_articles": 9,
+  "n_outlet_bigrams": 509,
+  "n_wire_bigrams": 222,
+  "n_outlet_distinct": 478,
+  "positive_tilt": [],
+  "negative_tilt": [
+    {
+      "bigram": [
+        "bateau",
+        "croisière"
+      ],
+      "count_in_outlet": 0,
+      "count_in_wire": 5,
+      "rate_in_outlet": 0.0,
+      "rate_in_wire": 0.022523,
+      "log_odds": -3.25,
+      "z_score": -2.2
+    },
+    {
+      "bigram": [
+        "with",
+        "iran"
+      ],
+      "count_in_outlet": 1,
+      "count_in_wire": 4,
+      "rate_in_outlet": 0.001965,
+      "rate_in_wire": 0.018018,
+      "log_odds": -1.945,
+      "z_score": -2.06
+    },
+    {
+      "bigram": [
+        "croisière",
+        "hondiu"
+      ],
+      "count_in_outlet": 0,
+      "count_in_wire": 4,
+      "rate_in_outlet": 0.0,
+      "rate_in_wire": 0.018018,
+      "log_odds": -3.045,
+      "z_score": -2.04
+    }
+  ],
+  "meta_version": "7.3.0"
+}

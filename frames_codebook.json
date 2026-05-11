@@ -1,0 +1,82 @@
+{
+  "_doc": "Closed frame taxonomy (Boydstun et al., Policy Frames Codebook; Card et al., Media Frames Corpus). Pinned by meta_version.json -> frames_codebook_hash. Adding a frame is a minor bump. Removing or relabeling a frame is a major bump (invalidates longitudinal frame tracking). The closed taxonomy is what makes longitudinal claims like 'Italy's framing of Iran shifted from SECURITY to ECONOMIC over 30 days' defensible — re-derived per-story labels (the pre-4.0.0 behaviour) are not commensurable across stories or days. Each frame entry must include `frame_id` (one of the IDs below) plus an optional story-specific `sub_frame` label for human-readable color. The frame_id is what aggregation tracks; the sub_frame preserves story specificity.",
+  "version": "1.0.0",
+  "source": "Boydstun, A.E., Card, D., Gross, J., Resnik, P., & Smith, N.A. (2014). Tracking the Development of Media Frames within and across Policy Issues. Card, D., Boydstun, A.E., Gross, J., Resnik, P., & Smith, N.A. (2015). The Media Frames Corpus: Annotations of Frames Across Issues. ACL.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "label": "Economic",
+      "definition": "Costs, benefits, or financial implications — for individuals, families, communities, or the broader economy. Includes inflation, growth, jobs, prices, deficits, trade, taxes."
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "label": "Capacity and Resources",
+      "definition": "Availability or lack of physical, geographic, financial, or human resources, or the capacity of existing systems to address a problem."
+    },
+    {
+      "frame_id": "MORALITY",
+      "label": "Morality",
+      "definition": "Religious or ethical implications. Stories framed around right vs. wrong, social responsibility, or duties of God / family / community."
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "label": "Fairness and Equality",
+      "definition": "Equality or inequality of outcomes, treatment, opportunity, or rights between groups (race, class, gender, nationality, religion, region)."
+    },
+    {
+      "frame_id": "LEGALITY",
+      "label": "Legality, Constitutionality, and Jurisprudence",
+      "definition": "Rights, freedoms, and legal authority of individuals, corporations, or government. Court decisions, treaty interpretation, constitutional questions, jurisdiction."
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "label": "Policy Prescription and Evaluation",
+      "definition": "Specific policies proposed for addressing the problem, or evaluation of how well existing policies are working."
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "label": "Crime and Punishment",
+      "definition": "Specific actions that violate laws or norms, or punishment of those actions. Investigations, arrests, prosecutions, sentences, sanctions framed as punitive."
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "label": "Security and Defense",
+      "definition": "Threats to welfare of the individual, community, nation, or international system. Military, terrorism, war, deterrence, alliance commitments, infrastructure protection."
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "label": "Health and Safety",
+      "definition": "Health care, sanitation, public health, mental health, illness, disease, food and drug safety, environmental safety, accidents."
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "label": "Quality of Life",
+      "definition": "Effects on individuals' wealth, mobility, daily routines, community life, happiness — distinct from economic aggregates above. Framed through lived experience."
+    },
+    {
+      "frame_id": "CULTURAL",
+      "label": "Cultural Identity",
+      "definition": "Traditions, customs, values, history, identity of a social group. Often invoked in stories about national identity, religion, ethnicity, language, immigration."
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "label": "Public Sentiment",
+      "definition": "Attitudes and opinions of the general public, including polls and demographic patterns. Stories framed around what 'the public' or 'voters' think."
+    },
+    {
+      "frame_id": "POLITICAL",
+      "label": "Political",
+      "definition": "Considerations related to politics and politicians: campaigns, partisanship, deal-making, elections, lobbying, intra-party dynamics, coalition strategy."
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "label": "External Regulation and Reputation",
+      "definition": "International relations, foreign policy, treaties, sanctions, reputation of a country or institution among its peers, behaviour of foreign actors."
+    },
+    {
+      "frame_id": "OTHER",
+      "label": "Other",
+      "definition": "Use only when no other frame applies. Must be paired with `sub_frame` explaining the framing — used as an escape hatch, not a default."
+    }
+  ]
+}

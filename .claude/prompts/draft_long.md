@@ -71,8 +71,9 @@ headers; use them as a discipline):
    piece is worth their next four minutes.
 
 2. **The shared frame** (1–2 paragraphs). What did most of the corpus
-   agree on? Cite 1–2 wire-line outlets. Use Jaccard / convergence
-   numbers from metrics.json verbatim if relevant.
+   agree on? Cite 1–2 wire-line outlets. Use LaBSE cosine similarity
+   numbers from metrics.json verbatim if relevant (read from
+   `pairwise_similarity[*].score` and `isolation[*].mean_similarity`).
 
 3. **The deviations** (2–4 paragraphs). The arcs from the analysis —
    one paragraph per arc, each with at least one verbatim quote
@@ -140,7 +141,7 @@ headers; use them as a discipline):
   ],
   "tags": ["<optional free-text tags>"],
   "generated_at": "<ISO 8601 UTC>",
-  "model": "claude-sonnet-4-6"
+  "model": "claude-haiku-4-5"
 }
 ```
 

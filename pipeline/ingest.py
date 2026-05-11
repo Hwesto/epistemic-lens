@@ -32,14 +32,32 @@ from urllib.parse import urlparse
 import requests
 
 # Optional ML imports — pipeline still works for fetch-only.
+# Split so the clusterer is usable when sklearn+numpy are installed
+# even if sentence_transformers (heavy) is missing.
 try:
     import numpy as np
-    from sentence_transformers import SentenceTransformer
     from sklearn.cluster import DBSCAN
     from sklearn.metrics.pairwise import cosine_similarity
-    ML_AVAILABLE = True
+    SKLEARN_AVAILABLE = True
 except ImportError:
-    ML_AVAILABLE = False
+    SKLEARN_AVAILABLE = False
+
+try:
+    from sentence_transformers import SentenceTransformer
+    SENTENCE_TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    SENTENCE_TRANSFORMERS_AVAILABLE = False
+
+ML_AVAILABLE = SKLEARN_AVAILABLE and SENTENCE_TRANSFORMERS_AVAILABLE
+
+# HDBSCAN is the primary clusterer as of meta_version 6.0.0 (Phase C.5).
+# Density-adaptive; replaces unjustified DBSCAN eps + min_samples. DBSCAN is
+# kept above as a fallback when hdbscan isn't installed.
+try:
+    import hdbscan as _hdbscan_lib  # type: ignore
+    HDBSCAN_AVAILABLE = True
+except ImportError:
+    HDBSCAN_AVAILABLE = False
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -352,17 +370,57 @@ def embed_snapshot(snapshot, model):
 
 def cluster_topics(vectors,
                    eps: float | None = None,
-                   min_samples: int | None = None):
-    if eps is None:
-        eps = float(meta.CLUSTERING["eps"])
-    if min_samples is None:
-        min_samples = int(meta.CLUSTERING["min_samples"])
+                   min_samples: int | None = None,
+                   min_cluster_size: int | None = None):
+    """Cluster article embeddings into cross-bucket topics.
+
+    Primary: HDBSCAN (density-adaptive; no eps; exposes stability scores).
+    Selected by `meta.CLUSTERING['method'] == 'HDBSCAN'`. Falls back to DBSCAN
+    when hdbscan isn't installed or when CLUSTERING.method == 'DBSCAN' is
+    pinned (legacy behaviour). Returns the labels array as before, with
+    `cluster_topics.last_stability_scores` populated for HDBSCAN runs so
+    downstream consumers can filter unstable clusters.
+    """
+    method = (meta.CLUSTERING.get("method") or "DBSCAN").upper()
     dist = 1 - cosine_similarity(vectors)
     dist = np.maximum(dist, 0)
-    labels = DBSCAN(eps=eps, min_samples=min_samples, metric="precomputed").fit_predict(dist)
+
+    if method == "HDBSCAN" and HDBSCAN_AVAILABLE:
+        if min_cluster_size is None:
+            min_cluster_size = int(
+                meta.CLUSTERING.get("min_cluster_size") or meta.CLUSTERING.get("min_samples") or 3
+            )
+        clusterer = _hdbscan_lib.HDBSCAN(
+            min_cluster_size=min_cluster_size,
+            metric="precomputed",
+            cluster_selection_method=meta.CLUSTERING.get("cluster_selection_method", "eom"),
+        )
+        labels = clusterer.fit_predict(dist.astype("float64"))
+        cluster_topics.last_stability_scores = (
+            list(map(float, getattr(clusterer, "cluster_persistence_", []) or []))
+        )
+        cluster_topics.last_method = "HDBSCAN"
+    else:
+        if eps is None:
+            eps = float(meta.CLUSTERING.get("eps", 0.35))
+        if min_samples is None:
+            min_samples = int(meta.CLUSTERING.get("min_samples", 3))
+        labels = DBSCAN(eps=eps, min_samples=min_samples, metric="precomputed").fit_predict(dist)
+        cluster_topics.last_stability_scores = []
+        cluster_topics.last_method = "DBSCAN"
+
     n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
-    print(f"Found {n_clusters} clusters, {list(labels).count(-1)} noise")
+    print(
+        f"[{cluster_topics.last_method}] Found {n_clusters} clusters, "
+        f"{list(labels).count(-1)} noise"
+    )
     return labels
+
+
+# Function attributes initialised so callers can read them safely before
+# cluster_topics() has run.
+cluster_topics.last_stability_scores = []  # type: ignore[attr-defined]
+cluster_topics.last_method = "UNCALLED"  # type: ignore[attr-defined]
 
 
 def compute_convergence(labels, vectors, all_meta):

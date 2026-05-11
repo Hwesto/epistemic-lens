@@ -3,9 +3,11 @@ trafilatura>=2.0
 sentence-transformers>=2.2.0
 numpy>=1.24.0
 scikit-learn>=1.3.0
+regex>=2024.0.0        # Unicode-aware \p{L} tokenizer (handles diacritics in original-language text)
+hdbscan>=0.8.33        # density-adaptive clustering (replaces DBSCAN; falls back if missing)
+anthropic>=0.40.0      # Claude API for canary/run.py (manual model-snapshot drift check)
 kokoro-onnx>=0.5.0     # local offline TTS — broadcast quality (default)
 soundfile>=0.13.0      # WAV writing for kokoro
 piper-tts>=1.2.0       # alternative local TTS (lighter, lower quality)
 elevenlabs>=2.0.0      # cloud TTS — free tier 10K chars/mo (residential IPs only)
 # feedparser no longer required (v0.4 uses xml.etree directly)
-# argostranslate no longer required (v0.2 had translation; v0.4 relies on multilingual embeddings)

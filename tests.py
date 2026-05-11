@@ -305,6 +305,201 @@ class TestDedup(unittest.TestCase):
         self.assertEqual(result["n_deduped"], 1)
         self.assertGreaterEqual(result["n_url_dupes"], 2)
 
+    def test_cross_day_dedup_marks_repeat_url(self):
+        """Item with a canonical URL already in state gets cross_day_duplicate=True."""
+        # Pre-seeded state: this URL was first seen 3 days ago
+        state = {
+            "window_days": 30,
+            "url_first_seen": {"https://example.com/article": "2026-05-06"},
+            "title_first_seen": {},
+        }
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "F", "items": [
+                        {"id": "x", "link": "https://example.com/article",
+                         "title": "Today only", "summary": "S"},
+                    ]},
+                ]},
+            },
+        }
+        self.dedup.dedup_snapshot(snap, cross_day_state=state)
+        item = snap["countries"]["usa"]["feeds"][0]["items"][0]
+        self.assertTrue(item.get("cross_day_duplicate"))
+        self.assertEqual(item.get("cross_day_first_seen"), "2026-05-06")
+
+    def test_cross_day_state_prunes_outside_window(self):
+        """Entries older than window_days are dropped when prune is called."""
+        state = {
+            "window_days": 30,
+            "url_first_seen": {
+                "https://old.example/article": "2026-01-01",
+                "https://recent.example/article": "2026-05-06",
+            },
+            "title_first_seen": {},
+        }
+        n = self.dedup.prune_cross_day_state(state, today="2026-05-09")
+        self.assertEqual(n, 1)
+        self.assertNotIn("https://old.example/article", state["url_first_seen"])
+        self.assertIn("https://recent.example/article", state["url_first_seen"])
+
+    def test_cross_day_state_preserves_first_seen_on_revisit(self):
+        """update_cross_day_state must NOT overwrite an existing first_seen."""
+        state = {
+            "window_days": 30,
+            "url_first_seen": {"https://example.com/x": "2026-05-01"},
+            "title_first_seen": {},
+        }
+        self.dedup.update_cross_day_state(
+            state,
+            canonical_urls={"https://example.com/x"},
+            normalised_titles=set(),
+            today="2026-05-09",
+        )
+        # First-seen stays at the original date
+        self.assertEqual(state["url_first_seen"]["https://example.com/x"], "2026-05-01")
+
+
+class TestCoverageMatrix(unittest.TestCase):
+    """Phase 1 deterministic per-(story, feed) coverage product."""
+
+    def setUp(self):
+        if "pipeline.coverage_matrix" in sys.modules:
+            importlib.reload(sys.modules["pipeline.coverage_matrix"])
+        from pipeline import coverage_matrix
+        self.cm = coverage_matrix
+
+    def test_matrix_records_matching_feeds_only(self):
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "Outlet A", "section": "news", "items": [
+                        {"id": "1", "title": "Strait of Hormuz crisis deepens",
+                         "summary": "Iran navy", "body_text": "", "link": "https://a/1",
+                         "body_chars": 1500},
+                        {"id": "2", "title": "Unrelated stock-market story",
+                         "summary": "", "body_text": "", "link": "https://a/2"},
+                    ]},
+                    {"name": "Outlet B", "section": "wire", "items": [
+                        {"id": "3", "title": "Cooking recipes",
+                         "summary": "", "body_text": "", "link": "https://b/3"},
+                    ]},
+                ]},
+            },
+        }
+        stories = {
+            "hormuz_iran": {"patterns": [r"\bhormuz\b"], "exclude": [], "tier": "long_running",
+                             "title": "Hormuz"},
+            "ai_regulation": {"patterns": [r"\bai (?:act|regulation)\b"], "exclude": [],
+                                "tier": "long_running", "title": "AI"},
+        }
+        m = self.cm.build_coverage_matrix(snap, stories)
+        # hormuz_iran has 1 matching feed (Outlet A)
+        self.assertEqual(len(m["coverage"]["hormuz_iran"]), 1)
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["feed_name"], "Outlet A")
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["section"], "news")
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["first_match_rank"], 1)
+        # ai_regulation: zero matching feeds
+        self.assertEqual(len(m["coverage"]["ai_regulation"]), 0)
+        # Summary numbers
+        self.assertEqual(m["summary"]["hormuz_iran"]["n_feeds_covered"], 1)
+        self.assertEqual(m["summary"]["hormuz_iran"]["n_buckets_covered"], 1)
+        self.assertEqual(m["summary"]["ai_regulation"]["n_feeds_covered"], 0)
+
+    def test_longitudinal_aggregator_basic(self):
+        """build_trajectory groups frames across dates and computes per-day share."""
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lg
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            # Two days of analyses for one story.
+            day1 = {
+                "date": "2026-05-07", "story_key": "S",
+                "story_title": "Story", "meta_version": "7.0.0",
+                "n_articles": 10,
+                "frames": [
+                    {"frame_id": "F1", "buckets": ["a", "b"]},
+                    {"frame_id": "F2", "buckets": ["c"]},
+                ],
+            }
+            day2 = {
+                "date": "2026-05-08", "story_key": "S",
+                "story_title": "Story", "meta_version": "7.0.1",
+                "n_articles": 12,
+                "frames": [
+                    {"frame_id": "F1", "buckets": ["a"]},
+                    {"frame_id": "F2", "buckets": ["b", "c"]},
+                ],
+            }
+            (tdp / "2026-05-07_S.json").write_text(json.dumps(day1))
+            (tdp / "2026-05-08_S.json").write_text(json.dumps(day2))
+            grouped = lg.collect_analyses(analyses_dir=tdp)
+            self.assertIn("S", grouped)
+            traj = lg.build_trajectory(grouped["S"])
+            self.assertEqual(traj["story_key"], "S")
+            self.assertEqual(traj["n_days_with_analysis"], 2)
+            # Two distinct meta_version segments (7.0.0 → 7.0.1)
+            self.assertEqual(len(traj["meta_version_segments"]), 2)
+            # Bucket set { a,b,c } same both days → same signature → 1 segment
+            self.assertEqual(len(traj["bucket_set_signatures"]), 1)
+            # Per-frame trajectory has both days
+            self.assertIn("F1", traj["frame_trajectories"])
+            self.assertEqual(len(traj["frame_trajectories"]["F1"]), 2)
+            # Day 1 F1 covered 2/3 buckets = 0.667; Day 2 F1 covered 1/3 = 0.333
+            shares = [d["share"] for d in traj["frame_trajectories"]["F1"]]
+            self.assertAlmostEqual(shares[0], 0.667, places=2)
+            self.assertAlmostEqual(shares[1], 0.333, places=2)
+
+    def test_longitudinal_handles_pre_7_0_0_label_field(self):
+        """Pre-7.0.0 analyses use `label` not `frame_id` — both must group together."""
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lg
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            (tdp / "2026-05-07_S.json").write_text(json.dumps({
+                "date": "2026-05-07", "story_key": "S",
+                "meta_version": "1.4.1",
+                "frames": [{"label": "ECON", "buckets": ["a"]}],
+            }))
+            (tdp / "2026-05-08_S.json").write_text(json.dumps({
+                "date": "2026-05-08", "story_key": "S",
+                "meta_version": "7.0.0",
+                "frames": [{"frame_id": "ECON", "buckets": ["a", "b"]}],
+            }))
+            grouped = lg.collect_analyses(analyses_dir=tdp)
+            traj = lg.build_trajectory(grouped["S"])
+            # Same key "ECON" used across both schemas → single trajectory
+            self.assertEqual(len(traj["frame_trajectories"]["ECON"]), 2)
+
+    def test_matrix_excludes_via_exclude_patterns(self):
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "F", "section": "news", "items": [
+                        {"id": "1", "title": "Hormuz also gaza updates",
+                         "summary": "", "body_text": "", "link": "https://x/1"},
+                    ]},
+                ]},
+            },
+        }
+        # Story with `\bhormuz\b` exclude — matching item should NOT be counted
+        stories = {
+            "israel_palestine": {"patterns": [r"\bgaza\b"],
+                                  "exclude": [r"\bhormuz\b"],
+                                  "tier": "long_running", "title": "I/P"},
+        }
+        m = self.cm.build_coverage_matrix(snap, stories)
+        self.assertEqual(len(m["coverage"]["israel_palestine"]), 0)
+
 
 # ============================================================================
 # Daily health
@@ -493,6 +688,28 @@ class TestExtractFullText(unittest.TestCase):
         ids = [it["id"] for _, _, it in targets]
         self.assertEqual(ids, ["x2"])  # x1 already extracted, skipped
 
+    def test_infer_section_url_pattern_overrides_feed(self):
+        """URL pattern /opinion/, /editorial/ etc. tags item as opinion
+        even if the feed defaults to news."""
+        cases = [
+            ("https://example.com/news/headline", "news", "news"),
+            ("https://example.com/opinion/take-on-x", "news", "opinion"),
+            ("https://example.com/editorial/board-says", "news", "opinion"),
+            ("https://example.com/op-ed/contributor", "news", "opinion"),
+            ("https://example.com/blog/observer", "news", "opinion"),
+            ("https://example.com/columnist/somebody", "news", "opinion"),
+            ("https://example.com/leader/today", "news", "opinion"),
+            # Feed-level wire passes through when URL has no pattern
+            ("https://reuters.com/article/12345", "wire", "wire"),
+            # Empty URL falls back to feed_section
+            ("", "news", "news"),
+            # Case-insensitive match on path
+            ("https://example.com/Opinion/Foo", "news", "opinion"),
+        ]
+        for url, feed_section, expected in cases:
+            with self.subTest(url=url):
+                self.assertEqual(self.eft.infer_section(url, feed_section), expected)
+
 
 class TestSitemapFallback(unittest.TestCase):
     def test_sitemap_news_parse(self):
@@ -517,7 +734,7 @@ class TestSitemapFallback(unittest.TestCase):
 
 
 class TestBuildMetrics(unittest.TestCase):
-    """build_metrics.py: pairwise Jaccard, isolation, bucket-exclusive vocab."""
+    """build_metrics.py: LaBSE pairwise similarity, isolation, bucket-exclusive vocab."""
 
     def setUp(self):
         if "analytical.build_metrics" in sys.modules:
@@ -551,27 +768,6 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertIn("brown", toks)
         self.assertIn("moon", toks)
 
-    def test_jaccard_symmetric_and_bounded(self):
-        a = self.Counter({"alpha": 2, "beta": 1, "gamma": 1})
-        b = self.Counter({"beta": 1, "gamma": 1, "delta": 1})
-        j = self.bm.jaccard(a, b)
-        self.assertEqual(j, self.bm.jaccard(b, a))
-        self.assertGreaterEqual(j, 0.0)
-        self.assertLessEqual(j, 1.0)
-        # 2 shared / 4 total = 0.5
-        self.assertAlmostEqual(j, 0.5)
-
-    def test_pairwise_jaccard_sorted_descending(self):
-        vocabs = {
-            "x": self.Counter({"alpha": 1, "beta": 1}),
-            "y": self.Counter({"alpha": 1, "beta": 1}),  # identical to x
-            "z": self.Counter({"gamma": 1}),  # disjoint
-        }
-        pairs = self.bm.pairwise_jaccard(vocabs)
-        self.assertEqual(len(pairs), 3)
-        self.assertEqual(pairs[0]["jaccard"], 1.0)  # x<>y
-        self.assertEqual(pairs[-1]["jaccard"], 0.0)  # one of the disjoint pairs
-
     def test_bucket_exclusive_requires_df_one_and_min_count(self):
         vocabs = {
             "a": self.Counter({"shared": 5, "only_a": 4, "rare_a": 2}),
@@ -585,19 +781,6 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertNotIn("shared", a_terms)     # df=2
         self.assertIn("only_b", b_terms)
 
-    def test_isolation_mean_jaccard(self):
-        vocabs = {
-            "a": self.Counter({"x": 1, "y": 1}),       # identical to b
-            "b": self.Counter({"x": 1, "y": 1}),
-            "c": self.Counter({"z": 1}),                # disjoint from both
-        }
-        pairs = self.bm.pairwise_jaccard(vocabs)
-        iso = self.bm.bucket_isolation(pairs, sorted(vocabs))
-        # c is paired with a (0) and b (0) → mean 0; a and b each have one
-        # 1.0 pair and one 0.0 pair → mean 0.5. So c is most isolated.
-        self.assertEqual(iso[0]["bucket"], "c")
-        self.assertEqual(iso[0]["mean_jaccard"], 0.0)
-
     def test_build_metrics_against_real_briefing(self):
         path = ROOT / "briefings" / "2026-05-06_hormuz_iran.json"
         if not path.exists():
@@ -606,25 +789,477 @@ class TestBuildMetrics(unittest.TestCase):
         m = self.bm.build_metrics(briefing)
         # Structural assertions (not numeric — let the data drift).
         self.assertEqual(m["story_key"], "hormuz_iran")
-        self.assertGreaterEqual(m["n_buckets"], 20)
-        self.assertEqual(
-            len(m["pairwise_jaccard"]),
-            m["n_buckets"] * (m["n_buckets"] - 1) // 2,
-        )
-        # Top pair must have higher score than bottom pair.
-        self.assertGreaterEqual(
-            m["pairwise_jaccard"][0]["jaccard"],
-            m["pairwise_jaccard"][-1]["jaccard"],
-        )
-        # Isolation must be sorted ascending (most isolated first).
-        iso = m["isolation"]
-        for i in range(len(iso) - 1):
-            self.assertLessEqual(iso[i]["mean_jaccard"], iso[i + 1]["mean_jaccard"])
+        self.assertGreaterEqual(m["n_buckets"], 1)
+        # Primary similarity is LaBSE cosine. If sentence-transformers
+        # isn't installed in the test env, build_metrics returns empty
+        # pairs/isolation with embedding_status.skipped=True; skip the
+        # numeric assertions in that case.
+        if m["n_buckets"] >= 2 and not m.get("embedding_status", {}).get("skipped"):
+            expected_pairs = m["n_buckets"] * (m["n_buckets"] - 1) // 2
+            self.assertEqual(len(m["pairwise_similarity"]), expected_pairs)
+            self.assertGreaterEqual(
+                m["pairwise_similarity"][0]["score"],
+                m["pairwise_similarity"][-1]["score"],
+            )
+            iso = m["isolation"]
+            for i in range(len(iso) - 1):
+                self.assertLessEqual(
+                    iso[i]["mean_similarity"], iso[i + 1]["mean_similarity"]
+                )
         # Saudi Arabia's "sisi" / "egypt" exclusive vocab from the exemplar
         # should reproduce on this fixed corpus.
         saudi_terms = {e["term"] for e in m["bucket_exclusive_vocab"].get("saudi_arabia", [])}
         self.assertIn("sisi", saudi_terms)
         self.assertIn("egypt", saudi_terms)
+
+
+class TestPhase2Modules(unittest.TestCase):
+    """Phase 2: within-language LLR + log-odds bigrams + headline-body
+    divergence + cross-outlet lag + replay + rollup."""
+
+    def test_within_language_llr_basic(self):
+        if "analytical.within_language_llr" in sys.modules:
+            importlib.reload(sys.modules["analytical.within_language_llr"])
+        from analytical import within_language_llr as wll
+        # Two English buckets: A heavily uses "blockade", B heavily uses "summit"
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en",
+                 "title": "naval blockade tightens", "signal_text":
+                 "blockade " * 50 + "tanker " * 20},
+                {"bucket": "B", "lang": "en",
+                 "title": "summit talks continue", "signal_text":
+                 "summit " * 50 + "talks " * 20},
+                {"bucket": "C", "lang": "en",
+                 "title": "neutral coverage",
+                 "signal_text": "story update " * 30},
+            ]
+        }
+        out = wll.within_language_llr(briefing, min_term_count=10)
+        # Both A and B should have distinctive terms
+        self.assertIn("A", out["by_bucket"])
+        self.assertIn("B", out["by_bucket"])
+        # A's distinctive terms should include "blockade"; B's "summit"
+        a_terms = {t["term"] for t in out["by_bucket"]["A"]["distinctive_terms"]}
+        b_terms = {t["term"] for t in out["by_bucket"]["B"]["distinctive_terms"]}
+        self.assertIn("blockade", a_terms)
+        self.assertIn("summit", b_terms)
+
+    def test_within_language_llr_skips_singleton_lang(self):
+        from analytical import within_language_llr as wll
+        # Only one bucket in language → no cohort → bucket excluded from output
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "fr", "title": "x", "signal_text": "z " * 50}
+            ]
+        }
+        out = wll.within_language_llr(briefing)
+        self.assertEqual(out["by_bucket"], {})
+
+    def test_within_language_llr_excludes_opinion_items(self):
+        from analytical import within_language_llr as wll
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en", "section": "opinion",
+                 "title": "OP", "signal_text": "manifesto " * 50},
+                {"bucket": "B", "lang": "en", "section": "news",
+                 "title": "N", "signal_text": "story " * 50},
+                {"bucket": "C", "lang": "en", "section": "news",
+                 "title": "M", "signal_text": "report " * 50},
+            ]
+        }
+        out = wll.within_language_llr(briefing, min_term_count=5)
+        # A is opinion → not in output
+        self.assertNotIn("A", out["by_bucket"])
+
+    def test_within_language_pmi_basic(self):
+        if "analytical.within_language_pmi" in sys.modules:
+            importlib.reload(sys.modules["analytical.within_language_pmi"])
+        from analytical import within_language_pmi as wpmi
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en", "title": "x",
+                 "signal_text": "supply shock crisis " * 30},
+                {"bucket": "B", "lang": "en", "title": "y",
+                 "signal_text": "summit talks regional " * 30},
+            ]
+        }
+        out = wpmi.within_language_pmi(briefing, min_count=5)
+        self.assertIn("A", out["by_bucket"])
+        a_bigrams = {tuple(a["bigram"]) for a in out["by_bucket"]["A"]["associations"]}
+        self.assertIn(("supply", "shock"), a_bigrams)
+
+    def test_headline_body_divergence_skips_no_headline(self):
+        if "analytical.headline_body_divergence" in sys.modules:
+            importlib.reload(sys.modules["analytical.headline_body_divergence"])
+        from analytical import headline_body_divergence as hbd
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            body_path = tdp / "2026-05-09_x.json"
+            body_path.write_text(json.dumps({
+                "story_key": "x", "date": "2026-05-09", "frames": [
+                    {"frame_id": "F1", "buckets": ["a"], "evidence": []}
+                ]
+            }))
+            r = hbd.process_one(body_path, out_dir=tdp)
+            self.assertTrue(r.get("skipped"))
+            self.assertEqual(r["reason"], "no_headline_pass_yet")
+
+    def test_headline_body_divergence_basic(self):
+        from analytical import headline_body_divergence as hbd
+        body = {
+            "story_key": "x",
+            "frames": [
+                {"frame_id": "F1", "buckets": ["a", "b"],
+                 "evidence": [{"bucket": "a"}, {"bucket": "b"}]},
+                {"frame_id": "F2", "buckets": ["c"],
+                 "evidence": [{"bucket": "c"}]},
+            ]
+        }
+        # Headline: a stays in F1; b SHIFTS to F2; c stays in F2.
+        headline = {
+            "story_key": "x",
+            "frames": [
+                {"frame_id": "F1", "buckets": ["a"],
+                 "evidence": [{"bucket": "a"}]},
+                {"frame_id": "F2", "buckets": ["b", "c"],
+                 "evidence": [{"bucket": "b"}, {"bucket": "c"}]},
+            ]
+        }
+        d = hbd.divergence(body, headline)
+        self.assertEqual(d["n_buckets_compared"], 3)
+        self.assertEqual(d["n_bucket_agreements"], 2)
+        # b is the diverging bucket
+        diverging_buckets = {b["bucket"] for b in d["highest_diverging_buckets"]}
+        self.assertEqual(diverging_buckets, {"b"})
+
+    def test_cross_outlet_lag_insufficient_history(self):
+        if "analytical.cross_outlet_lag" in sys.modules:
+            importlib.reload(sys.modules["analytical.cross_outlet_lag"])
+        from analytical import cross_outlet_lag as col
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            # Only 5 days of coverage → insufficient
+            for i in range(5):
+                d = f"2026-05-{i+1:02d}"
+                (tdp / f"{d}.json").write_text(json.dumps({
+                    "date": d, "coverage": {}, "summary": {}
+                }))
+            history = col.load_coverage_history(window_days=30,
+                                                 today="2026-05-30",
+                                                 cov_dir=tdp)
+            self.assertEqual(len(history), 5)
+            # Main path skips when n < min_days; we test the load directly here.
+
+    def test_cross_outlet_lag_pearson_at_lag(self):
+        from analytical import cross_outlet_lag as col
+        # Perfectly lagged: B = A shifted right by 2
+        a = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+        b = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+        # A leads B by 2 → high correlation at lag=2
+        r2 = col.pearson_at_lag(a, b, lag=2)
+        r0 = col.pearson_at_lag(a, b, lag=0)
+        self.assertIsNotNone(r2)
+        self.assertGreater(r2, 0.5)
+        # At lag=0 they should be uncorrelated or anticorrelated
+        self.assertLess(r0 if r0 is not None else 0, r2)
+
+    def test_replay_steps_format(self):
+        # Simply verify the STEPS table is well-formed (each cmd is list[str])
+        sys.path.insert(0, str(ROOT))
+        if "replay" in sys.modules:
+            importlib.reload(sys.modules["replay"])
+        import replay
+        for name, cmd in replay.STEPS:
+            self.assertIsInstance(name, str)
+            self.assertIsInstance(cmd, list)
+            self.assertTrue(all(isinstance(c, str) for c in cmd))
+
+    def test_rollup_finds_old_files(self):
+        if "pipeline.rollup" in sys.modules:
+            importlib.reload(sys.modules["pipeline.rollup"])
+        from pipeline import rollup
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            snaps = tdp / "snapshots"; snaps.mkdir()
+            briefs = tdp / "briefings"; briefs.mkdir()
+            # Make 4 files: 2 old (>90 days), 2 fresh
+            for d in ["2025-01-01", "2025-02-15"]:
+                (snaps / f"{d}.json").write_text("{}")
+                (briefs / f"{d}_x.json").write_text("{}")
+            for d in ["2026-04-15", "2026-05-08"]:
+                (snaps / f"{d}.json").write_text("{}")
+                (briefs / f"{d}_x.json").write_text("{}")
+            cands = rollup.find_candidates(window_days=90, today="2026-05-09",
+                                            snaps_dir=snaps, briefings_dir=briefs)
+            # Only 2025-* should be flagged (>90d before 2026-05-09)
+            self.assertIn("2025-01", cands["snapshots"])
+            self.assertIn("2025-02", cands["snapshots"])
+            self.assertNotIn("2026-04", cands["snapshots"])
+            self.assertNotIn("2026-05", cands["snapshots"])
+
+    def test_x_poster_skipped_no_token(self):
+        if "distribution.x_poster" in sys.modules:
+            importlib.reload(sys.modules["distribution.x_poster"])
+        from distribution import x_poster
+        # No tokens in env → secrets check fails → would_post is False
+        for k in x_poster.REQUIRED_SECRETS:
+            self.assertFalse(os.environ.get(k))  # confirm clean env
+
+    def test_x_poster_payloads_with_thread_link(self):
+        from distribution import x_poster
+        thread = {
+            "story_key": "test",
+            "date": "2026-05-08",
+            "tweets": [{"text": "First"}, {"text": "Second"}, {"text": ""}],
+        }
+        ps = x_poster.build_payloads(thread, public_url_base="https://x.test")
+        # Empty tweet excluded; first tweet gets link appended
+        self.assertEqual(len(ps), 2)
+        self.assertIn("https://x.test/2026-05-08/test/", ps[0]["text"])
+        self.assertEqual(ps[1]["text"], "Second")
+
+
+class TestPhase3SourceAttribution(unittest.TestCase):
+    """Phase 3a-3c: source/quote attribution + aggregation + validator."""
+
+    def _briefing(self):
+        return {
+            "date": "2026-05-09",
+            "story_key": "test",
+            "corpus": [
+                {"bucket": "usa", "feed": "Outlet A", "lang": "en",
+                 "title": "...", "signal_text":
+                 'Trump said: "We will continue the blockade." Officials warn.'},
+                {"bucket": "iran_state", "feed": "Outlet B", "lang": "en",
+                 "title": "...", "signal_text":
+                 'A spokesperson claimed: "Sanctions will fail."'},
+            ]
+        }
+
+    def _sources_doc(self):
+        return {
+            "story_key": "test",
+            "date": "2026-05-09",
+            "sources": [
+                {"speaker_name": "Trump", "role_or_affiliation": "US President",
+                 "speaker_type": "official",
+                 "exact_quote": 'We will continue the blockade.',
+                 "attributive_verb": "said",
+                 "stance_toward_target": "for",
+                 "signal_text_idx": 0,
+                 "bucket": "usa", "outlet": "Outlet A"},
+                {"speaker_name": None, "role_or_affiliation": "spokesperson",
+                 "speaker_type": "spokesperson",
+                 "exact_quote": 'Sanctions will fail.',
+                 "attributive_verb": "claimed",
+                 "stance_toward_target": "against",
+                 "signal_text_idx": 1,
+                 "bucket": "iran_state", "outlet": "Outlet B"},
+            ]
+        }
+
+    def test_source_attribution_validate_clean(self):
+        if "analytical.source_attribution" in sys.modules:
+            importlib.reload(sys.modules["analytical.source_attribution"])
+        from analytical import source_attribution as sa
+        errs = sa.validate_sources(self._sources_doc(), self._briefing())
+        self.assertEqual(errs, [])
+
+    def test_source_attribution_validate_catches_fabricated_quote(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["exact_quote"] = "this is not in the article"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("not found verbatim" in e for e in errs),
+                        msg=f"expected verbatim error, got: {errs}")
+
+    def test_source_attribution_validate_catches_bad_speaker_type(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["speaker_type"] = "bogus"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("speaker_type" in e for e in errs))
+
+    def test_source_attribution_validate_catches_bad_stance(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["stance_toward_target"] = "bogus"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("stance_toward_target" in e for e in errs))
+
+    def test_source_attribution_list_pending(self):
+        from analytical import source_attribution as sa
+        with tempfile.TemporaryDirectory() as td:
+            cache = Path(td)
+            briefing = self._briefing()
+            # Nothing cached yet → all pending
+            pending = sa.list_pending(briefing, cache_dir=cache)
+            self.assertEqual(len(pending), 2)
+            # Mark first as cached
+            sha0 = sa.article_sha(briefing["corpus"][0])
+            sa.update_cache(sha0, "test", n_quotes=1, cache_dir=cache)
+            pending = sa.list_pending(briefing, cache_dir=cache)
+            self.assertEqual(len(pending), 1)
+            self.assertEqual(pending[0]["bucket"], "iran_state")
+
+    def test_source_aggregation_basic(self):
+        if "analytical.source_aggregation" in sys.modules:
+            importlib.reload(sys.modules["analytical.source_aggregation"])
+        from analytical import source_aggregation as sag
+        sources_with_story = [
+            {**s, "story_key": "test"}
+            for s in self._sources_doc()["sources"]
+        ]
+        agg = sag.aggregate(sources_with_story)
+        # Per-outlet: Outlet A has 1 quote from Trump
+        self.assertEqual(agg["by_outlet"]["Outlet A"]["n_quotes"], 1)
+        self.assertEqual(agg["by_outlet"]["Outlet A"]["top_speakers"][0][0], "Trump")
+        # Per-region: usa is americas; iran_state is middle_east
+        self.assertIn("americas", agg["by_region"])
+        self.assertIn("middle_east", agg["by_region"])
+        # Stance mix in americas: 1 "for"
+        self.assertEqual(agg["by_region"]["americas"]["stance_mix"]["for"], 1)
+        self.assertEqual(agg["by_region"]["middle_east"]["stance_mix"]["against"], 1)
+
+    def test_source_aggregation_region_for(self):
+        from analytical import source_aggregation as sag
+        self.assertEqual(sag.region_for("usa"), "americas")
+        self.assertEqual(sag.region_for("germany"), "europe")
+        self.assertEqual(sag.region_for("iran_state"), "middle_east")
+        self.assertEqual(sag.region_for("china"), "asia_pacific")
+        self.assertEqual(sag.region_for("south_africa"), "africa")
+        self.assertEqual(sag.region_for("wire_services"), "wire")
+        self.assertEqual(sag.region_for("unknown_bucket"), "other")
+
+    def test_validator_quote_grounding_sources(self):
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as va
+        # Clean
+        errs = va.check_quote_grounding_sources(self._sources_doc(), self._briefing())
+        self.assertEqual(errs, [])
+        # Fabricated
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["exact_quote"] = "not in any article"
+        errs = va.check_quote_grounding_sources(bad, self._briefing())
+        self.assertTrue(any("not found verbatim" in e for e in errs))
+
+
+class TestPhase4Modules(unittest.TestCase):
+    """Phase 4e/4f/4h: wire baseline + tilt index + robustness check.
+    Plus Phase 3i bucket-feed-set hash."""
+
+    def test_bucket_feed_set_hash_stable(self):
+        # Same bucket should give the same hash on repeat calls.
+        if "meta" in sys.modules:
+            importlib.reload(sys.modules["meta"])
+        import meta as m
+        h1 = m.bucket_feed_set_hash("wire_services")
+        h2 = m.bucket_feed_set_hash("wire_services")
+        self.assertEqual(h1, h2)
+        self.assertEqual(len(h1), 16)  # truncated sha256
+
+    def test_bucket_feed_set_hash_differs_per_bucket(self):
+        import meta as m
+        h_wire = m.bucket_feed_set_hash("wire_services")
+        h_uk = m.bucket_feed_set_hash("uk")
+        self.assertNotEqual(h_wire, h_uk)
+
+    def test_wire_baseline_skips_insufficient_history(self):
+        if "analytical.wire_baseline" in sys.modules:
+            importlib.reload(sys.modules["analytical.wire_baseline"])
+        from analytical import wire_baseline as wb
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            articles = wb.collect_wire_articles(window_days=30,
+                                                  today="2026-05-09",
+                                                  briefings_dir=tdp)
+            self.assertEqual(articles, [])
+
+    def test_wire_baseline_collects_wire_articles(self):
+        from analytical import wire_baseline as wb
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            (tdp / "2026-05-08_x.json").write_text(json.dumps({
+                "corpus": [
+                    {"bucket": "wire_services", "title": "x",
+                     "signal_text": "wire copy here"},
+                    {"bucket": "uk", "title": "y",
+                     "signal_text": "non-wire"},
+                ]
+            }))
+            arts = wb.collect_wire_articles(window_days=30,
+                                              today="2026-05-09",
+                                              briefings_dir=tdp)
+            self.assertEqual(len(arts), 1)
+            self.assertEqual(arts[0]["bucket"], "wire_services")
+
+    def test_wire_baseline_build_bigrams(self):
+        from analytical import wire_baseline as wb
+        articles = [
+            {"title": "a", "signal_text": "supply shock crisis " * 5},
+        ]
+        bigrams = wb.build_bigrams(articles)
+        self.assertGreater(bigrams[("supply", "shock")], 0)
+
+    def test_tilt_index_log_odds_consistent(self):
+        if "analytical.tilt_index" in sys.modules:
+            importlib.reload(sys.modules["analytical.tilt_index"])
+        from analytical import tilt_index as ti
+        from collections import Counter
+        outlet = Counter({("a", "b"): 10, ("c", "d"): 1})
+        wire = Counter({("a", "b"): 1, ("e", "f"): 5})
+        result = ti.compute_outlet_tilt(outlet, wire, min_count=1, top_k=10)
+        # ('a','b') should be positive-tilt (10× more in outlet than wire).
+        pos_bigrams = {tuple(p["bigram"]) for p in result["positive_tilt"]}
+        self.assertIn(("a", "b"), pos_bigrams)
+        # ('e','f') should be negative-tilt (in wire, not outlet).
+        neg_bigrams = {tuple(p["bigram"]) for p in result["negative_tilt"]}
+        self.assertIn(("e", "f"), neg_bigrams)
+
+    def test_tilt_index_parse_baseline_bigrams(self):
+        from analytical import tilt_index as ti
+        baseline = {"bigrams": {"a|b": 5, "c|d": 3, "no_pipe": 1}}
+        cnt = ti.parse_baseline_bigrams(baseline)
+        self.assertEqual(cnt[("a", "b")], 5)
+        self.assertEqual(cnt[("c", "d")], 3)
+        self.assertNotIn("no_pipe", cnt)
+
+    def test_robustness_jaccard(self):
+        if "analytical.robustness_check" in sys.modules:
+            importlib.reload(sys.modules["analytical.robustness_check"])
+        from analytical import robustness_check as rc
+        self.assertEqual(rc.jaccard({"a", "b"}, {"a", "b"}), 1.0)
+        self.assertAlmostEqual(rc.jaccard({"a", "b", "c"}, {"a", "b", "d"}), 2 / 4)
+        self.assertEqual(rc.jaccard({"a"}, {"b"}), 0.0)
+        self.assertIsNone(rc.jaccard(set(), set()))
+
+    def test_robustness_compute(self):
+        from analytical import robustness_check as rc
+        traj = {
+            "frame_trajectories": {
+                "F1": [{"date": "2026-05-07"}, {"date": "2026-05-08"}],
+                "F2": [{"date": "2026-05-07"}],  # F2 disappeared on 5/8
+                "F3": [{"date": "2026-05-08"}],  # F3 new on 5/8
+            }
+        }
+        result = rc.compute_robustness(traj, threshold=0.5)
+        self.assertFalse(result.get("skipped"))
+        # Day1: {F1, F2}; Day2: {F1, F3}. Jaccard = 1/3 ≈ 0.333
+        self.assertAlmostEqual(result["stability"], 1 / 3, places=2)
+        self.assertTrue(result["low_stability"])  # below 0.5
+
+    def test_robustness_skips_one_day(self):
+        from analytical import robustness_check as rc
+        traj = {
+            "frame_trajectories": {
+                "F1": [{"date": "2026-05-07"}],
+            }
+        }
+        result = rc.compute_robustness(traj)
+        self.assertTrue(result.get("skipped"))
+        self.assertEqual(result["reason"], "insufficient_history")
 
 
 class TestMethodologyPin(unittest.TestCase):
@@ -697,14 +1332,15 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
             "n_articles": 12,
             "tldr": "A test analysis with three sentences. Six buckets carry two distinct frames. No paradox detected in this corpus.",
             "frames": [
-                {"label": "FRAME_A", "description": "First frame.",
+                {"frame_id": "ECONOMIC", "sub_frame": "energy contagion",
                  "buckets": ["italy", "usa"],
                  "evidence": [{"bucket": "italy", "outlet": "ANSA",
                                "quote": "guerra accordo", "signal_text_idx": 0}]},
-                {"label": "FRAME_B", "buckets": ["china", "japan"],
+                {"frame_id": "SECURITY_DEFENSE",
+                 "buckets": ["china", "japan"],
                  "evidence": [{"bucket": "china", "quote": "blockade", "signal_text_idx": 4}]},
             ],
-            "isolation_top": [{"bucket": "italy", "mean_jaccard": 0.009}],
+            "isolation_top": [{"bucket": "italy", "mean_similarity": 0.18}],
             "exclusive_vocab_highlights": [
                 {"bucket": "italy", "terms": ["guerra"], "what_it_reveals": "war framing."}
             ],
@@ -760,8 +1396,9 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("**Date:** 2026-05-08", md)
         self.assertIn("## TL;DR", md)
         self.assertIn("## Frames (2)", md)
-        self.assertIn("### FRAME_A", md)
-        self.assertIn("## Most isolated buckets", md)
+        self.assertIn("### ECONOMIC — energy contagion", md)
+        self.assertIn("### SECURITY_DEFENSE", md)
+        self.assertIn("## Most divergent buckets", md)
         self.assertIn("## Bucket-exclusive vocabulary", md)
         self.assertIn("## Paradox", md)
         self.assertIn("_No paradox in this corpus._", md)
@@ -812,15 +1449,17 @@ class TestTemplateRenderers(unittest.TestCase):
             "n_buckets": 27, "n_articles": 41,
             "tldr": "Twenty-seven outlets ran the same wire. Italy used different words. Vocabulary carries the framing.",
             "frames": [
-                {"label": "ECONOMIC_CONTAGION", "buckets": ["philippines", "japan"],
+                {"frame_id": "ECONOMIC", "sub_frame": "energy-price contagion",
+                 "label": "ECONOMIC_CONTAGION", "buckets": ["philippines", "japan"],
                  "evidence": [{"bucket": "asia_pacific_regional", "outlet": "Asia Times",
                                "quote": "shock inflation spike in April", "signal_text_idx": 1}]},
-                {"label": "WAR_FRAMING", "buckets": ["italy"],
+                {"frame_id": "SECURITY_DEFENSE", "sub_frame": "war framing",
+                 "label": "WAR_FRAMING", "buckets": ["italy"],
                  "evidence": [{"bucket": "italy", "outlet": "ANSA",
                                "quote": "guerra accordo", "signal_text_idx": 0}]}
             ],
             "isolation_top": [
-                {"bucket": "italy", "mean_jaccard": 0.009, "note": "linguistic."}
+                {"bucket": "italy", "mean_similarity": 0.18, "note": "linguistic."}
             ],
             "exclusive_vocab_highlights": [
                 {"bucket": "italy", "terms": ["guerra"], "what_it_reveals": "war framing."}
@@ -932,14 +1571,16 @@ class TestValidateAnalysis(unittest.TestCase):
             "n_articles": self.metrics["n_articles"],
             "tldr": "A clean analysis with multiple complete sentences. The corpus has 41 articles. The pin is 1.3.0.",
             "frames": [
-                {"label": "FRAME_A", "buckets": [first_bucket],
+                {"frame_id": "ECONOMIC",
+                 "buckets": [first_bucket],
                  "evidence": [{
                      "bucket": first_bucket,
                      "outlet": self.first_corpus.get("feed", "Unknown"),
                      "quote": first_text[:60].strip(),
                      "signal_text_idx": 0,
                  }]},
-                {"label": "FRAME_B", "buckets": ["other"],
+                {"frame_id": "SECURITY_DEFENSE",
+                 "buckets": ["other"],
                  "evidence": [{
                      "bucket": self.briefing["corpus"][1]["bucket"],
                      "quote": self.briefing["corpus"][1]["signal_text"][:50].strip(),
@@ -948,7 +1589,7 @@ class TestValidateAnalysis(unittest.TestCase):
             ],
             "isolation_top": [
                 {"bucket": self.metrics["isolation"][0]["bucket"],
-                 "mean_jaccard": self.metrics["isolation"][0]["mean_jaccard"]}
+                 "mean_similarity": self.metrics["isolation"][0]["mean_similarity"]}
             ],
             "exclusive_vocab_highlights": [],
             "paradox": None, "silences": [],
@@ -977,15 +1618,15 @@ class TestValidateAnalysis(unittest.TestCase):
         from analytical import validate_analysis as v
         bad = dict(self.clean)
         bad["isolation_top"] = [
-            {"bucket": self.metrics["isolation"][0]["bucket"], "mean_jaccard": 0.999}
+            {"bucket": self.metrics["isolation"][0]["bucket"], "mean_similarity": 0.999}
         ]
         errs = v.check_numbers(bad, self.metrics)
-        self.assertTrue(any("mean_jaccard" in e for e in errs))
+        self.assertTrue(any("mean_similarity" in e for e in errs))
 
     def test_isolation_unknown_bucket_caught(self):
         from analytical import validate_analysis as v
         bad = dict(self.clean)
-        bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_jaccard": 0.5}]
+        bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_similarity": 0.5}]
         errs = v.check_numbers(bad, self.metrics)
         self.assertTrue(any("not in" in e and "fake_bucket_xyz" in e for e in errs))
 

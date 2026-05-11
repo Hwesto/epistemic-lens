@@ -34,6 +34,15 @@
     <p class="hero-loading">Loading today's findings…</p>
   </section>
 
+  <section class="coverage" id="coverage" hidden>
+    <h2 class="section-h">Today's coverage</h2>
+    <p class="muted section-sub">
+      Per-story × per-feed coverage: which outlets carried each canonical story today.
+      News-section feeds only (opinion + wire excluded). Phase 1 deterministic product.
+    </p>
+    <div id="coverage-body"></div>
+  </section>
+
   <section class="stories" id="stories" aria-busy="true">
     <div class="loader">Fetching analyses…</div>
   </section>
@@ -47,6 +56,10 @@
     <a href="https://github.com/hwesto/epistemic-lens" rel="noopener">source</a>
     &middot;
     <a id="footer-latest" href="latest.json">latest.json</a>
+    &middot;
+    <a href="corrections.html">corrections</a>
+    &middot;
+    <a href="methodology-challenge.html">methodology challenge</a>
   </div>
   <div class="muted">235 feeds · 54 buckets · 16+ languages</div>
 </footer>
@@ -70,7 +83,7 @@
       <li><a class="link" data-artifact="long">long-form</a></li>
     </ul>
     <details class="card-detail">
-      <summary>Show frames, isolation, paradox</summary>
+      <summary>Show frames, divergence, paradox, trajectory, voices, stability</summary>
       <div class="card-detail-body" data-status="idle"></div>
     </details>
   </article>

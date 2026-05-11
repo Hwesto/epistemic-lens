@@ -37,21 +37,38 @@
       "type": "array",
       "minItems": 2,
       "maxItems": 12,
-      "description": "Story-specific frames derived from the corpus. Not pre-defined.",
+      "description": "Frames identified in the corpus. `frame_id` is drawn from the closed Boydstun/Card codebook (frames_codebook.json) so longitudinal aggregation is possible. `sub_frame` is an optional short tag for story-specific color (1-3 words, no full sentences).",
       "items": {
         "type": "object",
-        "required": ["label", "buckets", "evidence"],
+        "required": ["frame_id", "buckets", "evidence"],
         "additionalProperties": false,
         "properties": {
-          "label": {
+          "frame_id": {
+            "type": "string",
+            "enum": [
+              "ECONOMIC",
+              "CAPACITY_RESOURCES",
+              "MORALITY",
+              "FAIRNESS",
+              "LEGALITY",
+              "POLICY_PRESCRIPTION",
+              "CRIME_PUNISHMENT",
+              "SECURITY_DEFENSE",
+              "HEALTH_SAFETY",
+              "QUALITY_OF_LIFE",
+              "CULTURAL",
+              "PUBLIC_OPINION",
+              "POLITICAL",
+              "EXTERNAL_REGULATION",
+              "OTHER"
+            ],
+            "description": "Required closed-taxonomy frame from frames_codebook.json. Use OTHER only when no other frame applies; pair with sub_frame."
+          },
+          "sub_frame": {
             "type": "string",
             "minLength": 2,
-            "maxLength": 80,
-            "description": "Short, story-specific frame label (e.g. ECONOMIC_CONTAGION)."
-          },
-          "description": {
-            "type": "string",
-            "description": "One-sentence interpretation of what this frame means in this story."
+            "maxLength": 40,
+            "description": "Optional short tag (1-3 words, no full sentences) for story-specific color, e.g. 'energy contagion', 'sovereign reputation'. Human-readable; not used for longitudinal aggregation."
           },
           "buckets": {
             "type": "array",
@@ -88,17 +105,20 @@
     "isolation_top": {
       "type": "array",
       "maxItems": 8,
-      "description": "Top-N most isolated buckets, copied verbatim from metrics.json.",
+      "description": "Top-N most isolated buckets, copied verbatim from metrics.json. As of meta_version 7.0.0 the primary metric is LaBSE bucket-mean cosine on original signal_text (`mean_similarity`).",
       "items": {
         "type": "object",
-        "required": ["bucket", "mean_jaccard"],
+        "required": ["bucket", "mean_similarity"],
         "additionalProperties": false,
         "properties": {
           "bucket": { "type": "string" },
-          "mean_jaccard": { "type": "number" },
+          "mean_similarity": {
+            "type": "number",
+            "description": "LaBSE bucket-mean cosine from metrics.isolation."
+          },
           "note": {
             "type": "string",
-            "description": "One-line interpretation: linguistic vs editorial isolation."
+            "description": "One-line interpretation. Flag suspected language confounding when lexical highlights look like language artefacts."
           }
         }
       }

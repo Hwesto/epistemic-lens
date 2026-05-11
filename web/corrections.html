@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corrections — Epistemic Lens</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark">EL</div>
+    <div>
+      <h1 class="brand-title">CORRECTIONS</h1>
+      <p class="brand-tag">how we fix what we got wrong</p>
+    </div>
+  </div>
+</header>
+
+<main class="coverage" style="max-width: 760px;">
+
+<h2 class="section-h">If you found an error</h2>
+<p>
+  Three classes of error get treated differently:
+</p>
+
+<h3 style="margin-top: 1.5rem;">1. Hallucinated quote (a quote that doesn't appear in the article)</h3>
+<p>
+  This is the most serious class. The validator
+  (<code>analytical.validate_analysis</code>) checks every quote in
+  every analysis against the source corpus before publication, but
+  validation has gaps. If you find one we missed:
+</p>
+<ul>
+  <li>
+    Open an issue at
+    <a href="https://github.com/hwesto/epistemic-lens/issues/new?template=hallucinated_quote.md"
+       rel="noopener">GitHub → Issues → Hallucinated quote</a>
+    with the date, story_key, the quote text, and the URL of the source article.
+  </li>
+  <li>
+    We retract the quote within 24 hours by editing the canonical
+    <code>analyses/&lt;DATE&gt;_&lt;story&gt;.json</code>, re-render the
+    markdown, and publish a correction note in
+    <code>corrections.json</code> (linked below).
+  </li>
+</ul>
+
+<h3 style="margin-top: 1.5rem;">2. Number reconciliation error</h3>
+<p>
+  An analysis cites a count or share that doesn't match the
+  <code>metrics.json</code> for that story. Same channel, same SLA.
+  Number errors are rarer than quote errors because the validator's
+  number-reconciliation pass catches most of them.
+</p>
+
+<h3 style="margin-top: 1.5rem;">3. Framing call you disagree with</h3>
+<p>
+  This is not a correction request — it's editorial criticism, which we
+  welcome but handle differently. The framing analyses are produced by
+  Claude under the prompt at
+  <a href="https://github.com/hwesto/epistemic-lens/blob/main/.claude/prompts/daily_analysis.md"
+     rel="noopener"><code>.claude/prompts/daily_analysis.md</code></a>,
+  constrained to the closed 15-frame Boydstun/Card codebook
+  (<a href="https://github.com/hwesto/epistemic-lens/blob/main/frames_codebook.json"
+      rel="noopener"><code>frames_codebook.json</code></a>).
+  If you think a frame call is wrong, please use the
+  <a href="methodology-challenge.html">methodology-challenge intake</a>
+  rather than the corrections channel.
+</p>
+
+<h2 class="section-h" style="margin-top: 2rem;">Published corrections log</h2>
+<p>
+  Each retraction is recorded in
+  <a href="corrections.json"><code>corrections.json</code></a>
+  with the date, the original claim, the corrected claim, and the source
+  evidence. The log is append-only.
+</p>
+
+<h2 class="section-h" style="margin-top: 2rem;">What does NOT get corrected</h2>
+<p>
+  We do not retract published analyses because:
+</p>
+<ul>
+  <li>
+    The framing changed in our subjective view. Analyses are stamped to
+    <code>meta_version</code>; readers can read them as
+    "what the system said on day X" not "what's true today."
+  </li>
+  <li>
+    A source you don't like was quoted. The source-attribution layer is
+    descriptive — who appeared in the corpus — not prescriptive.
+  </li>
+  <li>
+    A bucket was missing or uneven. The bucket-quality tier system in
+    <code>bucket_quality.json</code> handles this transparently;
+    EXCLUDE_QUANT buckets are quarantined from quantitative metrics
+    automatically.
+  </li>
+</ul>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="index.html">← back to today's analysis</a>
+    &middot;
+    <a href="https://github.com/hwesto/epistemic-lens" rel="noopener">source</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "bucket": "opinion_magazines",
+  "outlet": "Foreign Policy",
+  "window_days": 7,
+  "n_articles_in_window": 1,
+  "wire_baseline_pin": "7.3.0",
+  "wire_baseline_n_articles": 9,
+  "n_outlet_bigrams": 15,
+  "n_wire_bigrams": 222,
+  "n_outlet_distinct": 11,
+  "positive_tilt": [
+    {
+      "bigram": [
+        "eroding",
+        "israel"
+      ],
+      "count_in_outlet": 2,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.133333,
+      "rate_in_wire": 0.0,
+      "log_odds": 4.447,
+      "z_score": 2.87
+    },
+    {
+      "bigram": [
+        "israel",
+        "nuclear"
+      ],
+      "count_in_outlet": 2,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.133333,
+      "rate_in_wire": 0.0,
+      "log_odds": 4.447,
+      "z_score": 2.87
+    },
+    {
+      "bigram": [
+        "iran",
+        "eroding"
+      ],
+      "count_in_outlet": 2,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.133333,
+      "rate_in_wire": 0.0,
+      "log_odds": 4.447,
+      "z_score": 2.87
+    },
+    {
+      "bigram": [
+        "nuclear",
+        "ambiguity"
+      ],
+      "count_in_outlet": 2,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.133333,
+      "rate_in_wire": 0.0,
+      "log_odds": 4.447,
+      "z_score": 2.87
+    }
+  ],
+  "negative_tilt": [],
+  "meta_version": "7.3.0"
+}

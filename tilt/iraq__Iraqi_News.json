@@ -1,0 +1,63 @@
+{
+  "bucket": "iraq",
+  "outlet": "Iraqi News",
+  "window_days": 7,
+  "n_articles_in_window": 2,
+  "wire_baseline_pin": "7.3.0",
+  "wire_baseline_n_articles": 9,
+  "n_outlet_bigrams": 84,
+  "n_wire_bigrams": 222,
+  "n_outlet_distinct": 49,
+  "positive_tilt": [
+    {
+      "bigram": [
+        "strait",
+        "hormuz"
+      ],
+      "count_in_outlet": 5,
+      "count_in_wire": 2,
+      "rate_in_outlet": 0.059524,
+      "rate_in_wire": 0.009009,
+      "log_odds": 1.813,
+      "z_score": 2.38
+    },
+    {
+      "bigram": [
+        "stuck",
+        "west"
+      ],
+      "count_in_outlet": 4,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.047619,
+      "rate_in_wire": 0.0,
+      "log_odds": 3.218,
+      "z_score": 2.16
+    },
+    {
+      "bigram": [
+        "west",
+        "strait"
+      ],
+      "count_in_outlet": 4,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.047619,
+      "rate_in_wire": 0.0,
+      "log_odds": 3.218,
+      "z_score": 2.16
+    },
+    {
+      "bigram": [
+        "iran",
+        "clash"
+      ],
+      "count_in_outlet": 4,
+      "count_in_wire": 0,
+      "rate_in_outlet": 0.047619,
+      "rate_in_wire": 0.0,
+      "log_odds": 3.218,
+      "z_score": 2.16
+    }
+  ],
+  "negative_tilt": [],
+  "meta_version": "7.3.0"
+}

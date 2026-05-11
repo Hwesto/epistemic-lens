@@ -22,14 +22,22 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
+import re as _stdlib_re
 from functools import lru_cache
 from pathlib import Path
+
+try:
+    import regex as _re  # Unicode-aware: supports \p{L} property escapes.
+except ImportError:  # pragma: no cover - graceful fallback
+    _re = _stdlib_re
 
 ROOT = Path(__file__).parent
 META_PATH = ROOT / "meta_version.json"
 STOPWORDS_PATH = ROOT / "stopwords.txt"
 CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
+FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
+BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
+BUCKET_WEIGHTS_PATH = ROOT / "bucket_weights.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
 
@@ -97,9 +105,88 @@ def canonical_stories() -> dict:
     return raw["stories"]
 
 
+@lru_cache(maxsize=1)
+def _feeds_by_bucket() -> dict[str, list[str]]:
+    """Per-bucket sorted list of feed names, derived from feeds.json. Cached."""
+    raw = json.loads(FEEDS_PATH.read_text(encoding="utf-8"))
+    out: dict[str, list[str]] = {}
+    for bucket_key, bucket in (raw.get("countries") or {}).items():
+        names = sorted(f.get("name", "") for f in (bucket.get("feeds") or []))
+        out[bucket_key] = names
+    return out
+
+
+def bucket_feed_set_hash(bucket: str) -> str:
+    """sha256(:|sorted feed names) per bucket. Phase 3i.
+
+    A bucket's feed set is finer-grained than its key: when a feed is added
+    or removed within a bucket, the key stays but the hash changes. Used by
+    `analytical/longitudinal.py` to detect sub-bucket drift across days
+    that the existing `bucket_set_signature` (over bucket KEYS) misses.
+    Returns 16-char hex truncation; collision-resistant for our N.
+    """
+    import hashlib
+    names = _feeds_by_bucket().get(bucket, [])
+    s = "|".join(names)
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
+
+
+def bucket_feed_set_hashes(buckets: list[str] | None = None) -> dict[str, str]:
+    """Return {bucket: feed_set_hash} for the given buckets (default: all)."""
+    by = _feeds_by_bucket()
+    keys = buckets if buckets is not None else list(by.keys())
+    return {b: bucket_feed_set_hash(b) for b in keys}
+
+
+@lru_cache(maxsize=1)
+def bucket_quality() -> dict:
+    """Per-bucket quality tier (see bucket_quality.json). Empty dict if absent."""
+    if not BUCKET_QUALITY_PATH.exists():
+        return {}
+    return json.loads(BUCKET_QUALITY_PATH.read_text(encoding="utf-8")).get("buckets") or {}
+
+
+def is_quant_excluded(bucket: str) -> bool:
+    """True if bucket is tier=EXCLUDE_QUANT (drop from cross-bucket lexical metrics)."""
+    return bucket_quality().get(bucket, {}).get("tier") == "EXCLUDE_QUANT"
+
+
+@lru_cache(maxsize=1)
+def bucket_weights_table() -> dict:
+    """Per-bucket weighting parameters (see bucket_weights.json)."""
+    if not BUCKET_WEIGHTS_PATH.exists():
+        return {}
+    return json.loads(BUCKET_WEIGHTS_PATH.read_text(encoding="utf-8")).get("buckets") or {}
+
+
+def bucket_weight(bucket: str) -> float:
+    """Weight for population-weighted aggregates. Defaults to 1.0 for unknown buckets.
+
+    Formula: population_m * audience_reach (see bucket_weights.json doc).
+    Returns 0 for buckets explicitly weighted to 0 (wires, opinion, EXCLUDE_QUANT
+    aggregators) so they don't double-count against country buckets.
+    """
+    entry = bucket_weights_table().get(bucket)
+    if entry is None:
+        return 1.0
+    pop = float(entry.get("population_m", 0))
+    reach = float(entry.get("audience_reach", 0))
+    return pop * reach
+
+
+def bucket_weight_confidence(bucket: str) -> str:
+    """Returns 'high', 'medium', 'low', or 'unknown' (when bucket isn't in table)."""
+    entry = bucket_weights_table().get(bucket)
+    if entry is None:
+        return "unknown"
+    return entry.get("confidence", "unknown")
+
+
 # Tokenisation primitives — kept here so build_metrics, build_briefing, and
 # any future analytical script use the same regex + normalization rules.
-_TOKEN_RE = re.compile(TOKENIZER["regex"])
+# Compiled with the `regex` lib when available so Unicode property escapes
+# (\p{L}) work; otherwise falls back to stdlib `re` (ASCII-only).
+_TOKEN_RE = _re.compile(TOKENIZER["regex"])
 _PLURAL_SUFFIXES = tuple(TOKENIZER["plural_suffixes"])
 _MIN_LEN = int(TOKENIZER["min_token_length"])
 
@@ -157,6 +244,24 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = file_hash(CANONICAL_STORIES_PATH)
         if declared != actual:
             drift["canonical_stories"] = (declared, actual)
+
+    declared = META.get("frames_codebook_hash")
+    if declared and FRAMES_CODEBOOK_PATH.exists():
+        actual = file_hash(FRAMES_CODEBOOK_PATH)
+        if declared != actual:
+            drift["frames_codebook"] = (declared, actual)
+
+    declared = META.get("bucket_quality_hash")
+    if declared and BUCKET_QUALITY_PATH.exists():
+        actual = file_hash(BUCKET_QUALITY_PATH)
+        if declared != actual:
+            drift["bucket_quality"] = (declared, actual)
+
+    declared = META.get("bucket_weights_hash")
+    if declared and BUCKET_WEIGHTS_PATH.exists():
+        actual = file_hash(BUCKET_WEIGHTS_PATH)
+        if declared != actual:
+            drift["bucket_weights"] = (declared, actual)
 
     declared = CLAUDE.get("prompts_hash")
     if declared and PROMPTS_DIR.exists():

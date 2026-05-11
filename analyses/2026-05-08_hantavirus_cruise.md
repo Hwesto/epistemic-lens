@@ -16,8 +16,6 @@ The MV Hondius cruise ship outbreak killed three people and sparked a 31-country
 
 ### RISK_REASSURANCE_PARADOX
 
-_Health authorities simultaneously minimize public danger while marshalling extraordinary response measures—a strategic tension between epidemiology and perceived threat._
-
 **Buckets:** `kenya`, `south_africa`, `canada`
 
 > The World Health Organization said Thursday that more hantavirus cases could emerge after the disease killed three passengers from a cruise ship, but it expected the outbreak to be limited if precautions were taken.
@@ -34,8 +32,6 @@ _Health authorities simultaneously minimize public danger while marshalling extr
 
 ### TRANSMISSION_RARITY_DEBATE
 
-_Disagreement over whether person-to-person transmission is exceptional or merely infrequent—with the Andes strain capability driving close-contact quarantine regardless._
-
 **Buckets:** `canada`, `india`
 
 > WHO confirms Andes strain of hantavirus in cruise ship passengers, with 3 transferred from ship for treatment
@@ -47,8 +43,6 @@ _Disagreement over whether person-to-person transmission is exceptional or merel
 > — `india` / Times of India (corpus[12])
 
 ### ORIGIN_UNCERTAINTY
-
-_Multiple health authorities unable to pinpoint infection source despite intensive investigation, suggesting environmental exposure in South America before embarkation._
 
 **Buckets:** `argentina_chile`, `mexico`
 
@@ -62,8 +56,6 @@ _Multiple health authorities unable to pinpoint infection source despite intensi
 
 ### MEDICAL_IMPROVISATION_HEROISM
 
-_A physician-passenger assumes emergency medical authority when the ship's doctor falls ill, becoming the de facto coordinator of crisis response aboard a floating isolation ward._
-
 **Buckets:** `italy`, `opinion_magazines`
 
 > Hantavirus, il passeggero Usa che è diventato medico di bordo
@@ -75,8 +67,6 @@ _A physician-passenger assumes emergency medical authority when the ship's docto
 > — `opinion_magazines` / The Atlantic (corpus[27])
 
 ### LOGISTICAL_SOVEREIGNTY_CRISIS
-
-_Repatriation of 140+ people from 22+ nations requires unprecedented diplomatic coordination, with Spain asserting control while negotiating individual bilateral arrangements._
 
 **Buckets:** `spain`, `uk`
 
@@ -90,8 +80,6 @@ _Repatriation of 140+ people from 22+ nations requires unprecedented diplomatic 
 
 ### DISTRIBUTED_PASSENGER_SCATTER
 
-_Thirty passengers disembarked at St Helena on April 24 before detection, now scattered across 12+ countries with limited historical contact knowledge, creating untraceability._
-
 **Buckets:** `taiwan_hk`, `australia_nz`
 
 > Countries scramble to track passengers of hantavirus-hit cruise ship
@@ -104,8 +92,6 @@ _Thirty passengers disembarked at St Helena on April 24 before detection, now sc
 
 ### COVID_PANDEMIC_ANXIETY_ECHO
 
-_Media outlets in outbreak-sensitive regions invoke COVID-19 comparison, signaling residual pandemic trauma despite expert rejection of equivalence._
-
 **Buckets:** `germany`, `india`
 
 > Fünf Länder betroffen Das neue Corona? Hantavirus breitet sich aus
@@ -116,13 +102,31 @@ _Media outlets in outbreak-sensitive regions invoke COVID-19 comparison, signali
 >
 > — `india` / Times of India (corpus[12])
 
-## Most isolated buckets
+## Population-weighted view
 
-| Bucket | mean_jaccard | Note |
+Weighted by bucket population × audience reach (`bucket_weights.json`); bootstrap CI 5–95% over 1000 bucket-resampled iterations. Unweighted share = 1 / (frames carrying any bucket) for comparison.
+
+| Frame | Weighted share | 90% CI | Unweighted | Buckets |
+| --- | ---: | --- | ---: | ---: |
+| `RISK_REASSURANCE_PARADOX` | 0.083 | [0.01, 0.34] | 0.231 | 3 |
+| `TRANSMISSION_RARITY_DEBATE` | 0.631 | [0.00, 0.85] | 0.154 | 2 |
+| `ORIGIN_UNCERTAINTY` | 0.106 | [0.00, 0.42] | 0.154 | 2 |
+| `MEDICAL_IMPROVISATION_HEROISM` | 0.039 | [0.00, 0.21] | 0.154 | 2 |
+| `LOGISTICAL_SOVEREIGNTY_CRISIS` | 0.084 | [0.00, 0.36] | 0.154 | 2 |
+| `DISTRIBUTED_PASSENGER_SCATTER` | 0.026 | [0.00, 0.15] | 0.154 | 2 |
+| `COVID_PANDEMIC_ANXIETY_ECHO` | 0.662 | [0.00, 0.86] | 0.154 | 2 |
+
+_Low-confidence weights (treat with caution): `argentina_chile`, `kenya`._
+
+_Default-weight buckets (no entry in `bucket_weights.json`): `taiwan_hk`._
+
+## Most divergent buckets
+
+| Bucket | mean_similarity | Note |
 | --- | --- | --- |
-| `brazil` | 0.011 | Minimal coverage; linguistically and editorially marginal to global response narrative. |
-| `germany` | 0.011 | German-language sources isolate on contact-tracing focus, diverging from English-language patient-outcome narratives. |
-| `italy` | 0.012 | Italian emphasis on shipboard medical heroism and clinical terminology; narrative angle unique to this bucket. |
+| `brazil` |  | Minimal coverage; linguistically and editorially marginal to global response narrative. |
+| `germany` |  | German-language sources isolate on contact-tracing focus, diverging from English-language patient-outcome narratives. |
+| `italy` |  | Italian emphasis on shipboard medical heroism and clinical terminology; narrative angle unique to this bucket. |
 
 ## Bucket-exclusive vocabulary
 
@@ -131,6 +135,52 @@ _Media outlets in outbreak-sensitive regions invoke COVID-19 comparison, signali
 | `italy` | *medico*, *passeggeri*, *kornfeld* | Focus on physician narrative and clinical intervention; 'medico di bordo' and personal heroism dominate framing. |
 | `spain` | *fondeo*, *lancha*, *cuarentena* | Emphasis on logistics (anchorage, lifeboats) and quarantine procedures in repatriation coordination. |
 | `germany` | *kontaktpersonen*, *dafrika* | Contact-tracing methodology and South Africa as central transit hub for infected passengers. |
+
+## Within-language LLR distinctive vocab
+
+Per-bucket terms over-represented vs the same-language cohort (Dunning log-likelihood ratio; p ≤ 0.001). Effect size is log-rate-ratio.
+
+| Bucket | Lang | Top distinctive terms (LLR) |
+| --- | --- | --- |
+| `australia_nz` | en | `australian` (36.259), `onboard` (18.213) |
+| `canada` | en | `canadian` (25.363) |
+| `nigeria` | en | `attendant` (35.395), `negative` (33.986), `flight` (32.546), `tested` (19.935) |
+| `pan_african` | en | `cape` (20.293), `verde` (20.293) |
+| `taiwan_hk` | en | `taiwanese` (25.1) |
+| `uk` | en | `briton` (24.854), `operator` (17.596) |
+| `usa` | en | `iran` (25.97) |
+
+## Associative bigrams (within-language)
+
+Bigrams over-represented in this bucket vs the same-language cohort. Log-odds with Jeffreys prior; |Z| ≥ 1.96.
+
+| Bucket | Lang | Top bigram associations |
+| --- | --- | --- |
+| `argentina_chile` | en | `ship hantaviru` (z=5.26), `expert cruise` (z=5.25), `hantaviru outbreak` (z=4.92), `originated ushuaia` (z=4.42) |
+| `mexico` | es | `crucero detectaron` (z=2.63), `detectaron caso` (z=2.63), `hantaviru hacia` (z=2.63), `hacia españa` (z=2.63) |
+| `state_tv_intl` | es | `pasajero contagiado` (z=2.86), `comunidad internacional` (z=2.86), `directo madrid` (z=2.56), `madrid actualizacion` (z=2.56) |
+| `australia_nz` | en | `four australian` (z=3.16), `australian onboard` (z=2.94), `onboard cruise` (z=2.94), `remain route` (z=2.94) |
+| `canada` | en | `ande strain` (z=3.37), `strain hantaviru` (z=3.37), `hantaviru cruise` (z=2.98), `canary island` (z=2.86) |
+| `india` | en | `immediate threat` (z=3.69), `threat india` (z=3.69), `hantaviru scare` (z=3.37), `scare cruise` (z=3.37) |
+| `israel` | en | `hantaviru stricken` (z=5.64), `health race` (z=4.15), `race find` (z=4.15), `find dozen` (z=4.15) |
+| `japan` | en | `outbreak cause` (z=4.2), `cause caution` (z=4.2), `caution panic` (z=4.2), `hantaviru outbreak` (z=3.92) |
+| `kenya` | en | `limited outbreak` (z=2.89), `netherland patient` (z=2.71), `viru cruise` (z=2.71), `ship evacue` (z=2.71) |
+| `netherlands_belgium` | en | `contact with` (z=4.82), `close contact` (z=4.63), `flight attendant` (z=4.48), `attendant test` (z=4.43) |
+| `nigeria` | en | `flight attendant` (z=7.84), `negative hantaviru` (z=6.3), `tested negative` (z=5.55), `dutch airline` (z=5.19) |
+| `nordic` | en | `hantaviru ship` (z=5.46), `ship heading` (z=4.2), `heading german` (z=4.2), `german hospital` (z=4.2) |
+| `opinion_magazines` | en | `doctor board` (z=4.67), `hantaviru cruise` (z=3.98), `hantaviru covid` (z=3.82), `covid noroviru` (z=3.82) |
+| `pakistan` | en | `risk public` (z=5.88), `limited outbreak` (z=5.88), `warn hantaviru` (z=5.58), `case limited` (z=5.58) |
+| `pan_african` | en | `cape verde` (z=6.12), `suspected hantaviru` (z=4.87), `three evacuated` (z=4.08), `passenger crew` (z=3.69) |
+| `philippines` | en | `crew member` (z=4.41), `medical clearance` (z=3.94), `filipino cruise` (z=3.62), `ship crew` (z=3.62) |
+| `poland_balt` | en | `ship hantaviru` (z=5.61), `expert cruise` (z=5.57), `outbreak pose` (z=4.26), `pose threat` (z=4.26) |
+| `qatar` | en | `suspected hantaviru` (z=5.63), `hantaviru case` (z=5.27), `identif suspected` (z=4.32), `case remote` (z=4.32) |
+| `russia` | en | `ship passenger` (z=5.36), `outbreak hantaviru` (z=4.43), `captain hantaviru` (z=4.0), `hantaviru plague` (z=3.68) |
+| `south_africa` | en | `mild symptom` (z=3.96), `case emerge` (z=3.5), `outbreak limited` (z=3.5), `precaution taken` (z=3.5) |
+| `taiwan_hk` | en | `case hantaviru` (z=2.38), `carrying passenger` (z=2.38), `disembarked helena` (z=2.38), `returned home` (z=2.38) |
+| `turkey` | en | `hantaviru outbreak` (z=4.67), `track passenger` (z=4.46), `passenger hantaviru` (z=4.46), `ship countr` (z=4.46) |
+| `uk` | en | `ship operator` (z=3.19), `south africa` (z=2.73), `evacuated hantaviru` (z=2.56), `with ship` (z=2.56) |
+| `usa` | en | `intercept iranian` (z=2.35), `iranian attack` (z=2.35), `attack ship` (z=2.35), `ship know` (z=2.35) |
+| `vietnam_thai_my` | en | `island tenerife` (z=2.51), `home countr` (z=2.51), `with infected` (z=2.51), `fallen sick` (z=2.38) |
 
 ## Paradox
 

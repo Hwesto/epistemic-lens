@@ -46,11 +46,30 @@ ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
 ANALYSES = ROOT / "analyses"
 DRAFTS = ROOT / "drafts"
+COVERAGE = ROOT / "coverage"
+TRAJECTORY = ROOT / "trajectory"
+LAG = ROOT / "lag"
+SOURCES = ROOT / "sources"
+BASELINE = ROOT / "baseline"
+TILT = ROOT / "tilt"
+ROBUSTNESS = ROOT / "robustness"
 SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
 WEB_SRC = ROOT / "web"
 API = ROOT / "api"
 
-DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})_(.+?)(?:_metrics|_thread|_carousel|_long)?$")
+DATE_RE = re.compile(
+    r"^(\d{4}-\d{2}-\d{2})_(.+?)"
+    r"(?:_metrics|_thread|_carousel|_long"
+    r"|_within_lang_llr|_within_lang_pmi"
+    r"|_headline|_divergence)?$"
+)
+# Suffixes that flag a sibling artefact, not a primary story key. Used by
+# discover() to skip them when enumerating stories.
+SIBLING_SUFFIXES = (
+    "_within_lang_llr", "_within_lang_pmi",
+    "_headline", "_divergence",
+    "_metrics",  # already covered by DATE_RE but listed here for clarity
+)
 
 
 def discover() -> dict[str, dict[str, set[str]]]:
@@ -58,6 +77,13 @@ def discover() -> dict[str, dict[str, set[str]]]:
     found: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
 
     for p in BRIEFINGS.glob("*.json"):
+        # Phase 2 sibling artefacts (within_lang_*, headline, divergence)
+        # are copied per-story in build_one_date; not used as primary
+        # discovery keys.
+        if any(p.stem.endswith(suf) for suf in
+               ("_within_lang_llr", "_within_lang_pmi",
+                "_headline", "_divergence")):
+            continue
         m = DATE_RE.match(p.stem)
         if not m:
             continue
@@ -66,6 +92,8 @@ def discover() -> dict[str, dict[str, set[str]]]:
         found[date][key].add(kind)
 
     for p in ANALYSES.glob("*.md"):
+        if any(p.stem.endswith(suf) for suf in ("_headline", "_divergence")):
+            continue
         m = DATE_RE.match(p.stem)
         if not m:
             continue
@@ -73,6 +101,8 @@ def discover() -> dict[str, dict[str, set[str]]]:
         found[date][key].add("analysis_md")
 
     for p in ANALYSES.glob("*.json"):
+        if any(p.stem.endswith(suf) for suf in ("_headline", "_divergence")):
+            continue
         m = DATE_RE.match(p.stem)
         if not m:
             continue
@@ -132,7 +162,9 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         artifacts: dict[str, str] = {}
         has: dict[str, bool] = {k: False for k in
                                 ("briefing", "metrics", "analysis", "analysis_json",
-                                 "thread", "carousel", "long")}
+                                 "thread", "carousel", "long",
+                                 "within_lang_llr", "within_lang_pmi",
+                                 "divergence", "headline", "sources")}
 
         shutil.copy2(briefing_src, story_dir / "briefing.json")
         artifacts["briefing"] = f"/{date}/{key}/briefing.json"
@@ -183,6 +215,21 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
                 artifacts[fmt] = f"/{date}/{key}/{fmt}.json"
                 has[fmt] = True
 
+        # Phase 2 + Phase 3a sibling artefacts. Each is optional; the
+        # per-story API entry advertises only what's actually present.
+        for kind, src_dir, src_suffix, dst_name, has_key in [
+            ("within_lang_llr",  BRIEFINGS, "_within_lang_llr",  "within_lang_llr.json",  "within_lang_llr"),
+            ("within_lang_pmi",  BRIEFINGS, "_within_lang_pmi",  "within_lang_pmi.json",  "within_lang_pmi"),
+            ("divergence",       ANALYSES,  "_divergence",       "divergence.json",       "divergence"),
+            ("headline",         ANALYSES,  "_headline",         "headline.json",         "headline"),
+            ("sources",          SOURCES,   "",                  "sources.json",          "sources"),
+        ]:
+            src = src_dir / f"{date}_{key}{src_suffix}.json"
+            if src.exists():
+                shutil.copy2(src, story_dir / dst_name)
+                artifacts[kind] = f"/{date}/{key}/{dst_name}"
+                has[has_key] = True
+
         entry = {
             "key": key,
             "title": extract_title(briefing, key),
@@ -219,6 +266,181 @@ def copy_schemas() -> None:
     dst.mkdir(parents=True, exist_ok=True)
     for p in SCHEMAS_SRC.glob("*.json"):
         shutil.copy2(p, dst / p.name)
+
+
+def copy_coverage() -> dict[str, str]:
+    """Copy every `coverage/<DATE>.json` into `api/coverage/`. Phase 1.
+    Returns {date: api_path} for inclusion in latest.json."""
+    out: dict[str, str] = {}
+    if not COVERAGE.is_dir():
+        return out
+    dst = API / "coverage"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in COVERAGE.glob("*.json"):
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})$", p.stem)
+        if not m:
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[m.group(1)] = f"/coverage/{p.name}"
+    # Index of all available coverage dates
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of available daily coverage matrices.",
+            "n_dates": len(out),
+            "dates": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_sources_aggregate() -> dict[str, str]:
+    """Copy `sources/aggregate/<DATE>.json` (Phase 3a daily rollup) into
+    `api/sources/aggregate/`. Returns {date: api_path}."""
+    out: dict[str, str] = {}
+    src_dir = SOURCES / "aggregate"
+    if not src_dir.is_dir():
+        return out
+    dst = API / "sources" / "aggregate"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in src_dir.glob("*.json"):
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})$", p.stem)
+        if not m:
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[m.group(1)] = f"/sources/aggregate/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of daily source-attribution aggregates.",
+            "n_dates": len(out),
+            "dates": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_baseline() -> str | None:
+    """Copy `baseline/wire_bigrams.json` (Phase 4e) into `api/baseline/`."""
+    src = BASELINE / "wire_bigrams.json"
+    if not src.exists():
+        return None
+    dst_dir = API / "baseline"
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst_dir / src.name)
+    return f"/baseline/{src.name}"
+
+
+def copy_tilt() -> dict[str, str]:
+    """Copy `tilt/<bucket>__<outlet>.json` (Phase 4f) into `api/tilt/`."""
+    out: dict[str, str] = {}
+    if not TILT.is_dir():
+        return out
+    dst = API / "tilt"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in TILT.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/tilt/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of per-outlet tilt-vs-wire-baseline files (Phase 4f).",
+            "n_outlets": len(out),
+            "outlet_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_robustness() -> dict[str, str]:
+    """Copy `robustness/<story>.json` (Phase 4h) into `api/robustness/`."""
+    out: dict[str, str] = {}
+    if not ROBUSTNESS.is_dir():
+        return out
+    dst = API / "robustness"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in ROBUSTNESS.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/robustness/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of per-story stability indices (Phase 4h).",
+            "n_stories": len(out),
+            "story_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_lag() -> dict[str, str]:
+    """Copy `lag/<bucket_a>__<bucket_b>.json` (CCF outputs, Phase 2) into
+    `api/lag/`. Returns {pair_key: api_path}."""
+    out: dict[str, str] = {}
+    if not LAG.is_dir():
+        return out
+    dst = API / "lag"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in LAG.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/lag/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of curated outlet-pair CCF lag analyses (weekly).",
+            "n_pairs": len(out),
+            "pair_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
+
+
+def copy_trajectories() -> dict[str, str]:
+    """Copy every `trajectory/<story>.json` into `api/trajectory/`. Phase 1.
+    Returns {story_key: api_path} for inclusion in latest.json."""
+    out: dict[str, str] = {}
+    if not TRAJECTORY.is_dir():
+        return out
+    dst = API / "trajectory"
+    dst.mkdir(parents=True, exist_ok=True)
+    for p in TRAJECTORY.glob("*.json"):
+        if p.stem == "index":
+            continue
+        shutil.copy2(p, dst / p.name)
+        out[p.stem] = f"/trajectory/{p.name}"
+    if out:
+        idx = meta.stamp({
+            "_doc": "Index of per-story longitudinal trajectories.",
+            "n_stories": len(out),
+            "story_keys": sorted(out.keys()),
+            "paths": dict(sorted(out.items())),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        (dst / "index.json").write_text(
+            json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    return out
 
 
 def copy_web() -> None:
@@ -275,25 +497,65 @@ def main() -> int:
 
     copy_schemas()
     copy_web()
+    coverage_paths = copy_coverage()
+    trajectory_paths = copy_trajectories()
+    lag_paths = copy_lag()
+    sources_aggregate_paths = copy_sources_aggregate()
+    baseline_path = copy_baseline()
+    tilt_paths = copy_tilt()
+    robustness_paths = copy_robustness()
 
     if latest_built:
         all_built = sorted(d for d in dates if (API / d / "index.json").exists())
         latest = all_built[-1] if all_built else latest_built
         latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
+        latest_payload = {
+            "date": latest,
+            "url": f"/{latest}/index.json",
+            "n_stories": latest_idx["n_stories"],
+            "generated_at": latest_idx["generated_at"],
+        }
+        # Phase 1: surface trajectory + coverage paths so the frontend can
+        # reach them from latest.json without re-walking the api/ tree.
+        if trajectory_paths:
+            latest_payload["trajectory_paths"] = trajectory_paths
+            latest_payload["trajectory_index"] = "/trajectory/index.json"
+        if latest in coverage_paths:
+            latest_payload["coverage_path"] = coverage_paths[latest]
+        if coverage_paths:
+            latest_payload["coverage_index"] = "/coverage/index.json"
+        if lag_paths:
+            latest_payload["lag_index"] = "/lag/index.json"
+        if latest in sources_aggregate_paths:
+            latest_payload["sources_aggregate_path"] = sources_aggregate_paths[latest]
+        if sources_aggregate_paths:
+            latest_payload["sources_aggregate_index"] = "/sources/aggregate/index.json"
+        if baseline_path:
+            latest_payload["wire_baseline_path"] = baseline_path
+        if tilt_paths:
+            latest_payload["tilt_index"] = "/tilt/index.json"
+        if robustness_paths:
+            latest_payload["robustness_index"] = "/robustness/index.json"
         (API / "latest.json").write_text(
-            json.dumps(
-                meta.stamp({
-                    "date": latest,
-                    "url": f"/{latest}/index.json",
-                    "n_stories": latest_idx["n_stories"],
-                    "generated_at": latest_idx["generated_at"],
-                }),
-                indent=2,
-            ),
+            json.dumps(meta.stamp(latest_payload), indent=2),
             encoding="utf-8",
         )
 
     print(f"\nBuilt {n_total} stories across {len(dates)} dates → api/")
+    if coverage_paths:
+        print(f"  + {len(coverage_paths)} coverage matrices → api/coverage/")
+    if trajectory_paths:
+        print(f"  + {len(trajectory_paths)} trajectories → api/trajectory/")
+    if lag_paths:
+        print(f"  + {len(lag_paths)} lag pairs → api/lag/")
+    if sources_aggregate_paths:
+        print(f"  + {len(sources_aggregate_paths)} source-aggregate days → api/sources/aggregate/")
+    if baseline_path:
+        print(f"  + wire baseline → api{baseline_path}")
+    if tilt_paths:
+        print(f"  + {len(tilt_paths)} tilt files → api/tilt/")
+    if robustness_paths:
+        print(f"  + {len(robustness_paths)} robustness files → api/robustness/")
     return 0
 
 
