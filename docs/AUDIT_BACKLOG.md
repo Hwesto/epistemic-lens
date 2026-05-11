@@ -231,9 +231,27 @@ references the deleted stage:
 | **20-min-B** | `docs/archive/HORMUZ_CORRELATION.md` + `docs/archive/TEST_REPORT.md` are historical archives. Probably stable; not spot-checked. | Already in archive/. | If a misleading version claim ever surfaces. |
 | **20-min-C** | ARCHITECTURE.md + OPERATIONS.md + API.md weren't deep-reviewed in Stage 20. Spot-checks were clean (no stale model names). | Not flagged as broken. | If a future schema or workflow change leaves them out of sync. |
 
-## Stage 21
+## Stage 21 — Build / runtime config
 
-(Not yet reviewed.)
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **21-1-full** | Full reproducibility of Python deps: generate `requirements.lock.txt` via `pip-compile`, hash it as `meta.requirements_hash` in `meta_version.json`, add to `meta.check_drift`. Stage 21 added semver upper bounds as a cheap partial fix; the full lock would close the gap. | Adds pip-tools dependency + per-PR lock regeneration burden. Worth the friction once analytical reproducibility ever needs to defend against "but did you have the same numpy?" questions. | When a longitudinal claim is challenged on dep-version grounds. |
+| **21-min-A** | `video/package.json` Node deps use `^4.0.300` style (Node convention). Same upper-bound philosophy as Python but for a manual/optional path. | Lower stakes. | If a Remotion 5 release ever lands and breaks the render. |
+| **21-min-B** | No `pyproject.toml` — no canonical project metadata (description, license, author, homepage). | Not required for a private bot repo. | If we ever publish a wheel or share with a wider audience. |
+| **21-min-C** | `package.json:lint` script runs `tsc --noEmit` but isn't invoked in CI. | Manual lint only. | If a TypeScript regression ever ships. |
+
+---
+
+## Audit complete
+
+**Pin journey:** 2.0.1 → 2.9.0 across 21 stages (8 minor bumps).
+**Test coverage:** ~50 → 122 tests (4 new test classes per stage average).
+**Schemas pinned:** 11 (analysis, briefing, metrics, health, canonical_stories, feeds, thread, carousel, long, index, latest, video_script). All hashed via `schemas_hash`.
+**Methodology stamps:** every artifact now carries `meta_version` — verified backfilled where missing (legacy briefings, long drafts, video scripts).
+**Drift gates:** `meta.check_drift` covers `feeds.hash`, `tokenizer.stopwords_hash`, `canonical_stories_hash`, `claude.prompts_hash`, `schemas_hash`, `pin_self_hash`.
+**Validators:** `validate_analysis` + `validate_drafts` + per-renderer schema gates + post-write stampers.
+
+Residue (everything in this file above) is real but non-load-bearing — backlog rather than blocker. Each entry has a documented "trigger to pick up" so the next contributor knows when to act.
 
 ## Convention
 
