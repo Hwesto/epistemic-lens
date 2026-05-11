@@ -171,7 +171,16 @@ references the deleted stage:
 | **14-10** | No automated backward-compat regression test for schema tightenings. Manual verification per stage has sufficed. | Manual verification is OK at this scale; no production drift surfaced. | If a schema-tightening PR ever lands without manual artifact audit. |
 | **14-min-A** | 4 legacy 2026-05-06 briefings now carry meta_version: 2.6.0 stamps — the pin under which they were backfilled, not the era they were originally written. Same convention as Stage 11 long-draft backfill. | Accepted convention: stamps reflect when stamping happened. Original era is lost. | Don't pick up. |
 
-## Stages 15 — 21
+## Stage 15 — Weekly rot check
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **15-min-A** | `main()` accepts `n_days` parameter but thresholds (`error_days_min=4`, `stub_days_min=4`, `decline_min_history=4`) were calibrated for `_WINDOW_DAYS=7`. Running with `n_days=14` silently shifts false-positive rate. | Workflow passes 7 explicitly; CLI override is rarely used. | If a manual rot-check run with custom window ever lands a misleading report. |
+| **15-min-B** | Summary `print()` counts at end of `main()` go to stdout but not to `GITHUB_STEP_SUMMARY` (only the .md file does). | Recoverable from the report itself. | If future rot dashboards need the counts. |
+| **15-min-C** | Inversion of decline detection (Gap 15-1) wasn't caught for several pin eras. A self-check that cross-references this week's flagged feeds against last week's flag list could surface drift in the rot logic itself. | Defensive layer on top of the now-tested logic. | If a similar inversion recurs. |
+| **15-min-D** | Workflow runs only on Sundays. A feed that goes dark mid-week isn't surfaced until up to 7 days later. | Designed cadence — rot is intentionally slow-moving review. | If a critical-bucket dark-feed window is ever a problem. |
+
+## Stages 16 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
