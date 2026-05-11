@@ -1,7 +1,12 @@
-"""End-to-end smoke test for the epistemic-lens v0.4 pipeline.
+"""End-to-end smoke test for the epistemic-lens pipeline.
+
+Manual smoke test — NOT auto-discovered by `python -m unittest tests
+tests_edge`. Run directly:
+
+    python tests_e2e.py
 
 Pipeline steps exercised (no embedding/clustering — those need
-sentence-transformers which isn't in this container):
+sentence-transformers which isn't always installed):
 
   1. Build a tiny live config (5 known-good feeds)
   2. Run pull_all() against it

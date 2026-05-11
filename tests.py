@@ -1058,10 +1058,13 @@ class TestTemplateRenderers(unittest.TestCase):
             self.skipTest("jsonschema not installed")
         self.jsonschema = jsonschema
         repo = Path(__file__).parent
-        self.thread_schema = json.load(open(repo / "docs/api/schema/thread.schema.json"))
-        self.carousel_schema = json.load(open(repo / "docs/api/schema/carousel.schema.json"))
+        self.thread_schema = json.loads(
+            (repo / "docs/api/schema/thread.schema.json").read_text(encoding="utf-8"))
+        self.carousel_schema = json.loads(
+            (repo / "docs/api/schema/carousel.schema.json").read_text(encoding="utf-8"))
         # Use the existing 2026-05-06_hormuz_iran briefing as a real corpus.
-        self.briefing = json.load(open(repo / "briefings/2026-05-06_hormuz_iran.json"))
+        self.briefing = json.loads(
+            (repo / "briefings/2026-05-06_hormuz_iran.json").read_text(encoding="utf-8"))
         self.analysis = {
             "meta_version": "1.2.0", "date": "2026-05-06",
             "story_key": "hormuz_iran", "story_title": "Strait of Hormuz / US-Iran deal",
@@ -1230,8 +1233,10 @@ class TestValidateAnalysis(unittest.TestCase):
         except ImportError:
             self.skipTest("jsonschema not installed")
         repo = Path(__file__).parent
-        self.briefing = json.load(open(repo / "briefings/2026-05-06_hormuz_iran.json"))
-        self.metrics = json.load(open(repo / "briefings/2026-05-06_hormuz_iran_metrics.json"))
+        self.briefing = json.loads(
+            (repo / "briefings/2026-05-06_hormuz_iran.json").read_text(encoding="utf-8"))
+        self.metrics = json.loads(
+            (repo / "briefings/2026-05-06_hormuz_iran_metrics.json").read_text(encoding="utf-8"))
         self.first_corpus = self.briefing["corpus"][0]
         first_text = self.first_corpus["signal_text"]
         first_bucket = self.first_corpus["bucket"]

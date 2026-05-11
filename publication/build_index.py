@@ -132,7 +132,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
 
         briefing_src = BRIEFINGS / f"{date}_{key}.json"
         try:
-            briefing = json.load(open(briefing_src, encoding="utf-8"))
+            briefing = json.loads(briefing_src.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError) as e:
             print(f"  skip {key}: briefing unreadable ({e})", file=sys.stderr)
             continue
@@ -167,7 +167,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             artifacts["metrics"] = f"/{date}/{key}/metrics.json"
             has["metrics"] = True
             try:
-                m = json.load(open(metrics_src, encoding="utf-8"))
+                m = json.loads(metrics_src.read_text(encoding="utf-8"))
                 if m.get("isolation"):
                     top_isolation = m["isolation"][0]["bucket"]
             except (json.JSONDecodeError, OSError, KeyError, IndexError) as e:
@@ -186,7 +186,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             artifacts["analysis_json"] = f"/{date}/{key}/analysis.json"
             has["analysis_json"] = True
             try:
-                aj = json.load(open(analysis_json_src, encoding="utf-8"))
+                aj = json.loads(analysis_json_src.read_text(encoding="utf-8"))
                 paradox = aj.get("paradox") is not None
             except (json.JSONDecodeError, OSError) as e:
                 print(
@@ -218,7 +218,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             # drafts also get a link-vs-sources audit since the LLM produces
             # them and could cite a URL not in sources[].
             try:
-                draft = json.load(open(src, encoding="utf-8"))
+                draft = json.loads(src.read_text(encoding="utf-8"))
                 validate_against_schema(draft, fmt)
                 if fmt == "long":
                     # Pass briefing in so sources[].url is verified
@@ -345,7 +345,7 @@ def main() -> int:
         # older day (Gap 12-5).
         all_built = sorted(p.parent.name for p in API.glob("*/index.json"))
         latest = all_built[-1] if all_built else latest_built
-        latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
+        latest_idx = json.loads((API / latest / "index.json").read_text(encoding="utf-8"))
         latest_doc = meta.stamp({
             "date": latest,
             "url": f"/{latest}/index.json",
