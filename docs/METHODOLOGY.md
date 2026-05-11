@@ -578,12 +578,21 @@ individual bumps don't correspond to user-visible analytical change,
 document it here so trajectory consumers can collapse the segment
 list mentally for longitudinal comparison.
 
-- **May 2026 audit-integration cycle: 8.0.0 → 8.6.0.** Nine PRs
-  landed across feed_rot fix, schemas_hash discipline, coverage 4-state
-  matrix, source-attribution affiliation, canary design, longitudinal
-  drivers, distribution approval-gate, tilt second anchor, Boydstun
-  caveat + cluster diagnostic, pin_self_hash backport, and the
-  deterministic canary itself. Treat trajectory plots crossing this
-  boundary as a single segment for longitudinal comparison purposes;
-  no day-pair on either side of the cycle warrants a methodology-
-  change caveat that wouldn't apply to the cycle as a whole.
+- **May 2026 audit-integration cycle: 8.0.0 → 8.7.0.** Ten coherent
+  units of work landed across feed_rot fix, schemas_hash discipline,
+  coverage 4-state matrix, source-attribution affiliation, canary
+  design, longitudinal drivers, distribution approval-gate, tilt
+  second anchor, Boydstun caveat + cluster diagnostic, pin_self_hash
+  backport, deterministic canary Tier 1, and the card-first frontend
+  integration (new today/card/word schemas, card_picker.json +
+  today_picker.json pinned configs, event_summary prompt extension,
+  build_index picker functions, cherry-picked single-archetype hero
+  design). Treat trajectory plots crossing this boundary as a single
+  segment for longitudinal comparison purposes; no day-pair on
+  either side of the cycle warrants a methodology-change caveat that
+  wouldn't apply to the cycle as a whole. The frontend integration
+  did not change analytical output — the daily framing analyses,
+  metrics, trajectory, coverage, sources, and tilt outputs are
+  semantically identical before and after 8.7.0; what changed is
+  how those artifacts get composed into a per-day public-facing
+  card.

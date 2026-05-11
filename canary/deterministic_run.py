@@ -45,6 +45,9 @@ import meta
 from pipeline.dedup import dedup_snapshot
 from analytical.within_language_llr import within_language_llr
 from analytical.within_language_pmi import within_language_pmi
+from publication.build_index import (
+    pick_per_story_card_kind, compute_finding_synthesis,
+)
 
 ROOT = meta.REPO_ROOT
 CANARY = ROOT / "canary"
@@ -103,12 +106,32 @@ def run_canary() -> dict:
     llr = within_language_llr(briefing)
     pmi = within_language_pmi(briefing)
 
+    # PR A+ (8.7.0): exercise the card picker over the LLR output. The
+    # canary corpus's UK / Spain / Mexico buckets are designed to
+    # produce distinctive_terms (Westminster / Madrid / Chihuahua) with
+    # llr values; whether they clear the 20.0 threshold determines
+    # whether the cascade picks `word` or falls through. Either way is
+    # a stable deterministic outcome — drift in the picker logic or
+    # threshold tuning shows up as a structural diff.
+    picker_signals = {
+        "date": "2026-05-11", "story_key": "canary",
+        "briefing": briefing,
+        "analysis": None, "trajectory": None, "coverage": None,
+        "sources": None, "within_lang_llr": llr, "tilt_files": [],
+    }
+    picker_kind = pick_per_story_card_kind(picker_signals)
+    picker_synthesis = compute_finding_synthesis(picker_signals, picker_kind)
+
     out = meta.stamp({
         "corpus_path": "canary/deterministic_corpus.json",
         "corpus_hash": _file_sha256(CORPUS),
         "dedup": _summarise_dedup(deduped),
         "llr": _summarise_llr(llr),
         "pmi": _summarise_pmi(pmi),
+        "picker": {
+            "card_kind": picker_kind,
+            "finding_synthesis": picker_synthesis,
+        },
     })
     return out
 

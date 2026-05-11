@@ -1,0 +1,72 @@
+{
+  "corpus_path": "canary/deterministic_corpus.json",
+  "corpus_hash": "sha256:172b7a81843957eb20acd3aceb16325d57599c79ee1ac5f79e09cae779a794c6",
+  "dedup": {
+    "n_url_dupes": 2,
+    "n_title_dupes": 2,
+    "n_cross_day_duplicates": 0,
+    "n_total_items": 17,
+    "n_deduped": 16
+  },
+  "llr": {
+    "n_languages": 2,
+    "by_bucket": {
+      "usa": {
+        "lang": "en",
+        "n_distinctive": 0,
+        "top3_terms": []
+      },
+      "uk": {
+        "lang": "en",
+        "n_distinctive": 1,
+        "top3_terms": [
+          "westminster"
+        ]
+      },
+      "spain": {
+        "lang": "es",
+        "n_distinctive": 1,
+        "top3_terms": [
+          "madrid"
+        ]
+      },
+      "mexico": {
+        "lang": "es",
+        "n_distinctive": 1,
+        "top3_terms": [
+          "chihuahua"
+        ]
+      }
+    }
+  },
+  "pmi": {
+    "n_languages": 2,
+    "by_bucket": {
+      "usa": {
+        "lang": "en",
+        "n_distinctive": 0,
+        "top3_bigrams": []
+      },
+      "uk": {
+        "lang": "en",
+        "n_distinctive": 0,
+        "top3_bigrams": []
+      },
+      "spain": {
+        "lang": "es",
+        "n_distinctive": 0,
+        "top3_bigrams": []
+      },
+      "mexico": {
+        "lang": "es",
+        "n_distinctive": 0,
+        "top3_bigrams": []
+      }
+    }
+  },
+  "picker": {
+    "card_kind": "word",
+    "finding_synthesis": "spain corpus over-uses 'madrid' (llr 14) vs same-language cohort."
+  },
+  "meta_version": "8.7.0"
+}
