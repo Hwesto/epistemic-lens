@@ -314,9 +314,13 @@ main {
   color: var(--accent); text-align: center; font-weight: 700;
   padding: 4px 12px; white-space: nowrap;
 }
-.paradox-synthesis {
-  grid-column: 1 / -1; margin: 8px 0 0;
-  font-family: var(--font-serif); font-size: clamp(14px, 1.8vw, 17px);
+.paradox-synthesis,
+.word-synthesis,
+.silence-synthesis,
+.sources-synthesis,
+.tilt-synthesis {
+  grid-column: 1 / -1; margin: 16px 0 0;
+  font-family: var(--font-serif); font-size: clamp(13px, 1.6vw, 15px);
   font-style: italic; color: var(--ink-muted); text-align: center;
 }
 
