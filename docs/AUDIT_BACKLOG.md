@@ -223,9 +223,17 @@ references the deleted stage:
 | **19-min-C** | No step-level `timeout-minutes`. Job-level timeouts (30, 60, 10) catch outliers but a single hung step can consume the whole budget. | Defensive only. | If a step ever hangs in production. |
 | **19-min-D** | Analyze + draft jobs install only `jsonschema`, not `requirements.txt`. Works today because the scripts they invoke only need stdlib + jsonschema + meta. | Fragile but functional. | If a new dependency is added to analytical/ or publication/. |
 
-## Stages 20 — 21
+## Stage 20 — Docs
 
-(Not yet reviewed. Each stage's residue gets appended here as we go.)
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **20-min-A** | `README.md:158`-area lists video scripts but the optional/manual nature isn't called out in the file-tree narrative. Stage 17's docstrings already make this clear at the source. | Cosmetic. | If a contributor expects video to run on cron. |
+| **20-min-B** | `docs/archive/HORMUZ_CORRELATION.md` + `docs/archive/TEST_REPORT.md` are historical archives. Probably stable; not spot-checked. | Already in archive/. | If a misleading version claim ever surfaces. |
+| **20-min-C** | ARCHITECTURE.md + OPERATIONS.md + API.md weren't deep-reviewed in Stage 20. Spot-checks were clean (no stale model names). | Not flagged as broken. | If a future schema or workflow change leaves them out of sync. |
+
+## Stage 21
+
+(Not yet reviewed.)
 
 ## Convention
 
