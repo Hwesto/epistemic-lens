@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/trajectory.schema.json",
+  "title": "Frame-share trajectory per story",
+  "description": "Per-story longitudinal aggregator output written by analytical/longitudinal.py. One file per canonical story. Records the day-by-day share of buckets carrying each frame, plus drift segments for meta_version / bucket-set / canonical-stories / per-bucket feed-set changes. PR 5 / meta-v8.4.0 added per-(frame, day) `drivers` arrays — article URLs that fed the frame on a day where the share moved by more than the DRIVERS_DELTA_THRESHOLD (0.10).",
+  "type": "object",
+  "required": [
+    "meta_version", "story_key", "n_days_with_analysis",
+    "daily_summaries", "frame_trajectories"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "meta_version": {"type": "string"},
+    "story_key": {"type": "string"},
+    "story_title": {"type": ["string", "null"]},
+    "window_start": {"type": ["string", "null"]},
+    "window_end": {"type": ["string", "null"]},
+    "n_days_with_analysis": {"type": "integer", "minimum": 0},
+    "meta_version_segments": {"type": "array"},
+    "bucket_set_signatures": {"type": "array"},
+    "canonical_stories_pattern_segments": {"type": "array"},
+    "bucket_feed_set_segments": {"type": "object"},
+    "bucket_feed_set_drift": {"type": "object"},
+    "daily_summaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "n_buckets", "n_frames"],
+        "properties": {
+          "date": {"type": "string"},
+          "meta_version": {"type": ["string", "null"]},
+          "n_buckets": {"type": "integer"},
+          "n_articles": {"type": "integer"},
+          "n_frames": {"type": "integer"},
+          "bucket_set_signature": {"type": "string"},
+          "canonical_stories_hash": {"type": "string"}
+        }
+      }
+    },
+    "frame_trajectories": {
+      "type": "object",
+      "description": "frame_id -> chronological array of per-day share entries.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["date", "n_buckets_carrying", "n_buckets_total", "share"],
+          "properties": {
+            "date": {"type": "string"},
+            "n_buckets_carrying": {"type": "integer", "minimum": 0},
+            "n_buckets_total": {"type": "integer", "minimum": 0},
+            "share": {"type": "number"},
+            "meta_version": {"type": ["string", "null"]},
+            "delta_share": {
+              "type": "number",
+              "description": "Day-over-day change in share. Only present on entries with `drivers`."
+            },
+            "drivers": {
+              "type": "array",
+              "description": "Article-level provenance for frame-share movements > 10pp day-over-day. Each driver records the article URL that contributed evidence for this frame on this day. Empty / absent when |Δshare| <= 0.10.",
+              "items": {
+                "type": "object",
+                "required": ["url", "bucket"],
+                "properties": {
+                  "url": {"type": "string"},
+                  "bucket": {"type": "string"},
+                  "outlet": {"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

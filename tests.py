@@ -2044,5 +2044,122 @@ class TestSourceAttributionAffiliation(unittest.TestCase):
         meta.validate_schema(doc, "sources")
 
 
+class TestLongitudinalDrivers(unittest.TestCase):
+    """PR 5: longitudinal.py attaches article-level `drivers` to
+    frame_trajectories entries where day-over-day |Δshare| > 0.10."""
+
+    def setUp(self):
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lt
+        self.lt = lt
+        self.tmp = tempfile.TemporaryDirectory()
+        self.td = Path(self.tmp.name)
+        (self.td / "analyses").mkdir()
+        (self.td / "briefings").mkdir()
+        # Patch the module's paths.
+        self.lt.ANALYSES = self.td / "analyses"
+        self.lt.BRIEFINGS = self.td / "briefings"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _write(self, date: str, story: str, frames: list, corpus: list):
+        ap = self.td / "analyses" / f"{date}_{story}.json"
+        bp = self.td / "briefings" / f"{date}_{story}.json"
+        ap.write_text(json.dumps({
+            "story_key": story, "story_title": "X",
+            "date": date, "n_articles": len(corpus),
+            "frames": frames, "meta_version": "test",
+        }), encoding="utf-8")
+        bp.write_text(json.dumps({
+            "corpus": corpus,
+        }), encoding="utf-8")
+        return ap
+
+    def test_drivers_attached_above_threshold(self):
+        # Day 1: 2 frames. Frame "A" has 1/3 buckets carrying. Day 2: A has
+        # 3/3 buckets carrying. |Δshare| = 0.667 > 0.10 → drivers attached.
+        for date, frames in [
+            ("2026-05-08", [
+                {"label": "A", "buckets": ["italy"],
+                 "evidence": [{"bucket": "italy", "signal_text_idx": 0,
+                               "outlet": "ANSA"}]},
+                {"label": "B", "buckets": ["italy", "germany", "spain"],
+                 "evidence": []},
+            ]),
+            ("2026-05-09", [
+                {"label": "A", "buckets": ["italy", "germany", "spain"],
+                 "evidence": [
+                     {"bucket": "italy", "signal_text_idx": 0, "outlet": "ANSA"},
+                     {"bucket": "germany", "signal_text_idx": 1,
+                      "outlet": "Tagesschau"},
+                     {"bucket": "spain", "signal_text_idx": 2, "outlet": "El Pais"},
+                 ]},
+                {"label": "B", "buckets": ["italy", "germany", "spain"],
+                 "evidence": []},
+            ]),
+        ]:
+            self._write(date, "hormuz", frames=frames,
+                corpus=[
+                    {"link": f"https://italy/{date}.html", "bucket": "italy",
+                     "feed": "ANSA"},
+                    {"link": f"https://germany/{date}.html", "bucket": "germany",
+                     "feed": "Tagesschau"},
+                    {"link": f"https://spain/{date}.html", "bucket": "spain",
+                     "feed": "El Pais"},
+                ])
+        paths = sorted((self.td / "analyses").glob("*_hormuz.json"))
+        traj = self.lt.build_trajectory(paths)
+        a_entries = traj["frame_trajectories"]["A"]
+        self.assertEqual(len(a_entries), 2)
+        # Day 1: no drivers (no prior day to compare against)
+        self.assertNotIn("drivers", a_entries[0])
+        # Day 2: drivers attached (|Δshare| = 0.667 > 0.10)
+        self.assertIn("drivers", a_entries[1])
+        self.assertIn("delta_share", a_entries[1])
+        self.assertGreater(a_entries[1]["delta_share"], 0.10)
+        urls = {d["url"] for d in a_entries[1]["drivers"]}
+        self.assertIn("https://italy/2026-05-09.html", urls)
+        self.assertIn("https://germany/2026-05-09.html", urls)
+
+    def test_drivers_omitted_below_threshold(self):
+        # Day 1: share 0.333 (1/3 buckets). Day 2: share 0.333 (1/3). Δ = 0.
+        # No drivers, no delta_share.
+        for date in ("2026-05-08", "2026-05-09"):
+            self._write(date, "hormuz",
+                frames=[
+                    {"label": "A", "buckets": ["italy"],
+                     "evidence": [{"bucket": "italy", "signal_text_idx": 0,
+                                   "outlet": "ANSA"}]},
+                    {"label": "B", "buckets": ["italy", "germany", "spain"],
+                     "evidence": []},
+                ],
+                corpus=[
+                    {"link": f"https://italy/{date}.html", "bucket": "italy",
+                     "feed": "ANSA"},
+                ])
+        paths = sorted((self.td / "analyses").glob("*_hormuz.json"))
+        traj = self.lt.build_trajectory(paths)
+        a_entries = traj["frame_trajectories"]["A"]
+        for e in a_entries:
+            self.assertNotIn("drivers", e)
+            self.assertNotIn("delta_share", e)
+
+    def test_trajectory_passes_its_own_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self._write("2026-05-08", "hormuz",
+            frames=[{"label": "A", "buckets": ["italy"], "evidence": []}],
+            corpus=[{"link": "https://italy/x.html", "bucket": "italy",
+                     "feed": "ANSA"}])
+        paths = sorted((self.td / "analyses").glob("*_hormuz.json"))
+        traj = self.lt.build_trajectory(paths)
+        traj["meta_version"] = "test"
+        meta.validate_schema(traj, "trajectory")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

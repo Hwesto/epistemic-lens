@@ -67,6 +67,12 @@ TRAJECTORY = ROOT / "trajectory"
 # analyses/<YYYY-MM-DD>_<story_key>.json
 ANALYSIS_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})_(.+)\.json$")
 
+# PR 5: only emit per-(frame, day) `drivers` arrays when the day-over-day
+# change in share crosses this absolute threshold. Caps trajectory file
+# growth — drivers below 10pp movement aren't analytically interesting
+# enough to pre-join into the trajectory artifact.
+DRIVERS_DELTA_THRESHOLD = 0.10
+
 
 def _frame_key(frame: dict) -> str:
     """Schema-tolerant frame identifier — `frame_id` (>=7.0.0) or `label`."""
@@ -171,17 +177,36 @@ def build_trajectory(paths: list[Path]) -> dict:
         signature = _bucket_set_signature(buckets)
         n_buckets_total = max(1, len(buckets))
 
-        # Per-frame share for the day
+        # Per-frame share for the day. PR 5: also collect driver URLs
+        # per (frame, day) from evidence → briefing.corpus lookup so the
+        # second pass can attach `drivers` to day-pairs whose share
+        # moved by more than the threshold.
+        corpus = briefing.get("corpus") or []
         for f in a.get("frames") or []:
             fk = _frame_key(f)
             n_carrying = len(f.get("buckets") or [])
-            frame_traj[fk].append({
+            drivers_today: list[dict] = []
+            for ev in f.get("evidence") or []:
+                idx = ev.get("signal_text_idx")
+                art = corpus[idx] if isinstance(idx, int) and 0 <= idx < len(corpus) else {}
+                url = art.get("link")
+                if not url:
+                    continue
+                drivers_today.append({
+                    "url": url,
+                    "bucket": ev.get("bucket") or art.get("bucket") or "?",
+                    "outlet": ev.get("outlet") or art.get("feed") or "?",
+                })
+            entry = {
                 "date": d,
                 "n_buckets_carrying": n_carrying,
                 "n_buckets_total": len(buckets),
                 "share": round(n_carrying / n_buckets_total, 3),
                 "meta_version": analysis_meta,
-            })
+            }
+            if drivers_today:
+                entry["_drivers_today"] = drivers_today  # private; filtered to drivers in 2nd pass
+            frame_traj[fk].append(entry)
 
         daily_summaries.append({
             "date": d,
@@ -249,6 +274,22 @@ def build_trajectory(paths: list[Path]) -> dict:
     bucket_feed_set_drift = {
         b: runs for b, runs in feed_set_runs.items() if len(runs) > 1
     }
+
+    # PR 5: attach article-level drivers on day-pairs where the frame
+    # share moved by more than DRIVERS_DELTA_THRESHOLD. Below threshold,
+    # the per-day evidence URLs are dropped — they're already in the
+    # per-day analyses/ file; we only persist them here when the move
+    # is large enough to be worth pre-joining for consumers.
+    for fk, entries in frame_traj.items():
+        for i, entry in enumerate(entries):
+            drivers_today = entry.pop("_drivers_today", None)
+            if i == 0 or drivers_today is None:
+                continue
+            delta = entry["share"] - entries[i - 1]["share"]
+            if abs(delta) > DRIVERS_DELTA_THRESHOLD:
+                entry["delta_share"] = round(delta, 3)
+                entry["drivers"] = drivers_today
+
     return {
         "story_key": story_key,
         "story_title": story_title,
