@@ -24,6 +24,8 @@ declared hashes no longer match the live files.
 | `stopwords.txt` | `tokenizer.stopwords_hash` | Words that survive filtering are the entire signal in bucket-exclusive vocab metrics. |
 | `canonical_stories.json` | `canonical_stories_hash` | Patterns that decide which articles cluster into a "story." |
 | `.claude/prompts/*.md` | `claude.prompts_hash` | LLM analyses are downstream of these prompts word-for-word. |
+| `docs/api/schema/*.schema.json` | `schemas_hash` | Schemas define every artifact's contract. A loosened or tightened schema changes what downstream consumers can rely on. Added in Stage 14 of the methodology audit. |
+| (the pin itself) | `pin_self_hash` | Hash of every other pinned value inside `meta_version.json`. Catches hand-edits of thresholds, model names, cluster knobs, etc. that bypass `baseline_pin.py --bump`. |
 
 It also declares (without hashing) the structural constants:
 
@@ -37,7 +39,7 @@ It also declares (without hashing) the structural constants:
   title otherwise; max 2500 chars
 - **Extraction** — top 20 clusters + 3 per feed, 4000 char body cap,
   15s timeout, Wayback fallback
-- **Claude model** — `claude-opus-4-7`
+- **Claude model** — `claude-sonnet-4-6` (read from `meta.CLAUDE.model`; both daily.yml jobs use this single source of truth, no hardcoded fallback)
 
 ## How to change something
 
@@ -103,14 +105,16 @@ ruleset for `main` makes it required.
 ## How artifacts are tagged
 
 Every artifact (snapshot, briefing, metrics, analysis, draft,
-api/index, api/latest) carries `"meta_version": "1.0.0"` at its top
-level. This is added by `meta.stamp()` at write time. Downstream
-consumers (the longitudinal aggregator, the static-card renderer,
-external API readers) can branch on it:
+api/index, api/latest, video_script) carries `"meta_version": "<current-pin>"`
+at its top level. This is added by `meta.stamp()` at write time — or by
+a one-shot stamping module (`analytical/restamp_analyses.py`,
+`analytical/stamp_long_drafts.py`) for paths where the agent writes the
+JSON directly. Downstream consumers (the longitudinal aggregator, the
+static-card renderer, external API readers) can branch on it:
 
 ```python
-art = json.load(open("briefings/2026-05-06_hormuz_iran.json"))
-if art["meta_version"].split(".")[0] != "1":
+art = json.loads(Path("briefings/2026-05-06_hormuz_iran.json").read_text(encoding="utf-8"))
+if art["meta_version"].split(".")[0] != "2":
     raise ValueError("incompatible meta version")
 ```
 
@@ -118,8 +122,9 @@ if art["meta_version"].split(".")[0] != "1":
 
 ```python
 import meta
-print(meta.VERSION)               # "1.0.0"
+print(meta.VERSION)               # e.g. "2.9.0"
 print(meta.EMBEDDING["model"])    # "paraphrase-multilingual-MiniLM-L12-v2"
+print(meta.CLAUDE["model"])       # "claude-sonnet-4-6"
 print(meta.fingerprint())         # one-line summary for logs
 meta.assert_pinned()              # raises if drift
 ```

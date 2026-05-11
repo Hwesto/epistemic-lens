@@ -118,8 +118,15 @@ epistemic-lens/
 │   ├── daily_analysis.md      ← analyze job (haiku, JSON output)
 │   └── draft_long.md          ← long-form draft (sonnet, prose output)
 │
-├── docs/api/schema/
+├── docs/api/schema/            ← all schemas hashed into meta.schemas_hash
 │   ├── analysis.schema.json   ← canonical analysis shape
+│   ├── briefing.schema.json
+│   ├── metrics.schema.json
+│   ├── health.schema.json
+│   ├── canonical_stories.schema.json
+│   ├── index.schema.json      ← api/<date>/index.json
+│   ├── latest.schema.json     ← api/latest.json (oneOf happy/empty-day)
+│   ├── video_script.schema.json ← manual video pipeline input
 │   ├── thread.schema.json
 │   ├── carousel.schema.json
 │   └── long.schema.json
@@ -134,12 +141,14 @@ epistemic-lens/
 │   ├── build_briefing.py      ← per-story corpus assembler
 │   ├── build_metrics.py       ← Jaccard + isolation + exclusive vocab
 │   ├── validate_analysis.py   ← schema + citation + number reconciliation
-│   └── restamp_analyses.py    ← refresh meta_version on agent JSON output
+│   ├── restamp_analyses.py    ← refresh meta_version on agent JSON output
+│   └── stamp_long_drafts.py   ← post-write methodology stamp on long-form
 │
 ├── publication/               ← PUBLICATION concern
 │   ├── render_analysis_md.py  ← JSON analysis → human MD
 │   ├── render_thread.py       ← analysis JSON → thread draft (template)
 │   ├── render_carousel.py     ← analysis JSON → carousel draft (template)
+│   ├── validate_drafts.py     ← post-hoc schema gate for all draft kinds
 │   └── build_index.py         ← assemble api/ tree for GitHub Pages
 │
 ├── tests.py / tests_edge.py / tests_e2e.py
@@ -197,9 +206,10 @@ See `URGENT.md` for the one-shot setup checklist (push the `meta-v1.0.0` tag, pa
 | 0.5.0 | May 2026 | Cleanup release. Briefing builder + voice + music + captions + video template. End-to-end at $0/mo. |
 | 0.6–0.7.x | May 2026 | Creative pass: BBC voice, intro sting, world tickers, hero-quote layout, paradox split |
 | 0.8.0 | May 2026 | Daily analyze job in cron: Claude Code Action writes `analyses/<date>_<story>.md` |
-| **meta-v1.0.0** | **May 2026** | **Methodology pin baseline.** 235 feeds + tokenizer + clustering + extraction + signal_text + 5 canonical stories + 4 prompts all hashed in `meta_version.json`. CI enforces drift detection. |
-| meta-v1.1.0 | May 2026 | Phase 0: agent commits its own work (claude-code-action sandboxing fix) |
-| meta-v1.2.0 | May 2026 | Phase 1: JSON-first analyses + render_analysis_md.py + archive HORMUZ exemplar |
-| meta-v1.3.0 | May 2026 | Phase 3: template-based thread + carousel drafts; long-form → Sonnet |
-| meta-v1.4.0 | May 2026 | Phase 4: editorial validator (citation grounding + number reconciliation) |
-| **meta-v1.4.1** | **May 2026** | **Current. Bug-fix on meta_version stamping, full end-to-end pipeline green.** |
+| **meta-v1.0.0** | May 2026 | **Methodology pin baseline.** 235 feeds + tokenizer + clustering + extraction + signal_text + 5 canonical stories + 4 prompts all hashed in `meta_version.json`. CI enforces drift detection. |
+| meta-v1.1.0 — v1.4.1 | May 2026 | Agent commits own work; JSON-first analyses + render_analysis_md.py; template thread/carousel drafts; long-form → Sonnet; editorial validator (citation grounding + number reconciliation). |
+| meta-v2.0.1 — v2.4.0 | May 2026 | Audit Stages 0 — 5: stopwords / canonical_stories hashed; ingest + extract + dedup-deleted; daily_health hardened; briefing + metrics schemas pinned; tokenizer unified across pipeline. |
+| meta-v2.5.0 — v2.6.0 | May 2026 | Audit Stages 7 + 11: analyze threshold aligned with build_briefing (≥4 buckets); analysis schema tightened; long-form drafts stamped via new `stamp_long_drafts.py`; long.schema body_md floor raised 200→2500 chars. |
+| meta-v2.7.0 | May 2026 | Audit Stage 14: **`schemas_hash` added** — every schema in `docs/api/schema/` now part of the methodology pin. `meta_version` required on all artifact schemas. New `index.schema.json` + `latest.schema.json` pin the api/ tree's public contract. |
+| meta-v2.8.0 | May 2026 | Audit Stage 15: fixed inverted decline detection in `feed_rot_check` — was flagging GROWING feeds as declining. Regression tests pin both directions. |
+| **meta-v2.9.0** | **May 2026** | **Current.** Audit Stages 12-13 + 16-19: build_index test coverage + correctness fixes; web frontend cross-language threshold const + latest.url use; source_audit wrapped in `main()` (no longer fires HTTP at import); video pipeline schema-pinned; draft validator extracted to `publication/validate_drafts.py`. See `docs/AUDIT_BACKLOG.md` for residue. |

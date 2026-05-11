@@ -1,5 +1,18 @@
 # URGENT — one-shot setup from a computer
 
+> **Historical (meta-v1.0.0 era).** This file is the one-time setup
+> checklist used when the methodology pin was first established. The
+> setup it describes is long-done — the daily cron has been running
+> unattended for many pin eras (current: meta-v2.9.0). Kept for
+> reproducibility and in case a from-scratch deployment is ever needed.
+>
+> For the current operational guide, see
+> [`docs/OPERATIONS.md`](docs/OPERATIONS.md).
+> For the methodology pin contract, see
+> [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md).
+> For audit progress + backlog, see
+> [`docs/AUDIT_BACKLOG.md`](docs/AUDIT_BACKLOG.md).
+
 This is a checklist for the **next time you're at a laptop**. After it's
 done, the entire pipeline runs unattended and you can review on your
 phone every day.
