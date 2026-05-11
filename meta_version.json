@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "8.7.0",
-  "pinned_at": "2026-05-11T14:53:23Z",
-  "pin_reason": "PR A+: frontend integration scaffolding. New schemas (today, card, word) + extensions (event_summary on analysis; event_summary/card_kind/finding_synthesis/todays_card on index). New pinned configs (card_picker.json with cascade-based per-story archetype picker; today_picker.json with magnitude*strength*diversity hero scoring). Prompt edit: event_summary instruction added as step 3.g of .claude/prompts/daily_analysis.md with explicit anti-framing-language self-check. Pin machinery: card_picker_hash + today_picker_hash wired into meta.py assert_pinned() and baseline_pin.py recompute_hashes() following the bucket_quality_hash template. Tests cover schema validity, picker config structure, and pin drift detection. Echo card + Playwright PNG rendering deferred (post-merge).",
+  "meta_version": "8.7.1",
+  "pinned_at": "2026-05-11T16:43:50Z",
+  "pin_reason": "draft_long.md gains 'Reading large briefings' section: instructs the agent to look up corpus[i] by signal_text_idx via python3 -c instead of slurping the whole briefing through Read (hits Claude Code's 25K-token cap on briefings >50 articles, burns turns retrying). Pairs with the workflow fix for archive/rollup pathspec that unblocks the analyze cascade. Both surfaced on the first post-merge cron tick.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -80,7 +80,7 @@
     "_doc": "Dated snapshot ID (claude-<model>-<version>-YYYYMMDD) pins model weights as far as the API permits — the alias may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`. v8.0.0 swap from sonnet to haiku is a deliberate test-pass swap on the simplification branch — see pin_reason.",
     "model": "claude-haiku-4-5-20251001",
     "model_alias": "claude-haiku-4-5",
-    "prompts_hash": "sha256:08638abb923344b685d2b8040f2b101d42ff877daa0b1b59f4f967f0e2b84abc"
+    "prompts_hash": "sha256:bbe4dd4738fb440e502878f8e37aa689f1987b749f3a6ba0de68e69c7bbf714b"
   },
-  "pin_self_hash": "sha256:f34a3d06770f93444cd9624c8484387019ff1c41c9b2c75c09bb80dccd1a32fd"
+  "pin_self_hash": "sha256:5a2c57667b79767bbe036ea08af6f319eabdf101cd4f8e0066be9bfaeebf363e"
 }
