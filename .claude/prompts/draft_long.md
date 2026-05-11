@@ -152,6 +152,7 @@ headers; use them as a discipline):
 
 ```json
 {
+  "meta_version": "<read from meta_version.json — do NOT copy from briefing>",
   "story_key": "<from briefing filename>",
   "date": "<YYYY-MM-DD>",
   "title": "<post title, <= 90 chars>",
@@ -165,6 +166,12 @@ headers; use them as a discipline):
   "model": "claude-haiku-4-5"
 }
 ```
+
+`meta_version` is required by `long.schema.json`. If your output is
+missing it the workflow's post-write stamp step will backfill it,
+but writing it directly avoids a no-op commit and keeps the audit
+trail clean. Read from `meta_version.json` at the repo root and
+copy the value verbatim into the `meta_version` field.
 
 ---
 
