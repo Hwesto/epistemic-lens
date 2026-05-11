@@ -563,3 +563,27 @@ unchanged).
 
 When in doubt, bump higher. A spurious major bump is cheap; a missed
 one corrupts longitudinal credibility.
+
+## Drift-segment collapses
+
+The longitudinal aggregator emits `meta_version_segments` so consumers
+can see which pin a given day's analysis was stamped under. Most weeks
+that list has one or two entries. Integration cycles produce
+discontinuity-heavy strips that are not analytically meaningful — a
+batch of small, defensible PRs each does its own bump, and the
+trajectory plot now shows eight version boundaries within a week.
+
+When a sequence of bumps is in fact a single integration cycle whose
+individual bumps don't correspond to user-visible analytical change,
+document it here so trajectory consumers can collapse the segment
+list mentally for longitudinal comparison.
+
+- **May 2026 audit-integration cycle: 8.0.0 → 8.6.0.** Nine PRs
+  landed across feed_rot fix, schemas_hash discipline, coverage 4-state
+  matrix, source-attribution affiliation, canary design, longitudinal
+  drivers, distribution approval-gate, tilt second anchor, Boydstun
+  caveat + cluster diagnostic, pin_self_hash backport, and the
+  deterministic canary itself. Treat trajectory plots crossing this
+  boundary as a single segment for longitudinal comparison purposes;
+  no day-pair on either side of the cycle warrants a methodology-
+  change caveat that wouldn't apply to the cycle as a whole.
