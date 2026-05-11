@@ -472,7 +472,11 @@ def pick_todays_card(stories: list[dict], today: str) -> dict | None:
         "story_key": story["story_key"],
         "story_title": story.get("title"),
         "card_kind": story["card_kind"],
-        "headline": story.get("finding_synthesis", ""),
+        # Headline is the journalistic name of the story — the H1 readers see.
+        # The finding_synthesis (machine-generated analytical observation) is
+        # surfaced separately by the renderer as a synthesis line; it should
+        # not be the H1.
+        "headline": story.get("title") or story.get("story_key", ""),
         "kicker": (a.get("event_summary") or a.get("tldr") or "").strip(),
         "finding_synthesis": story.get("finding_synthesis", ""),
         "score_breakdown": breakdown,

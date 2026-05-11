@@ -90,6 +90,21 @@ def _common_footer(today_card: dict, byline_text: str) -> str:
     )
 
 
+def _synthesis_line(today_card: dict, css_class: str) -> str:
+    """Render the finding_synthesis as a small line inside card-content.
+
+    Used by archetype renderers that don't already have their own
+    archetype-specific synthesis pattern (paradox-synthesis from
+    joint_conclusion; shift-synthesis from computed Δshare). Word,
+    silence, sources, and tilt cards previously displayed nothing
+    here — the machine-generated analytical observation was wasted.
+    """
+    syn = (today_card.get("finding_synthesis") or "").strip()
+    if not syn:
+        return ""
+    return f'<p class="{_e(css_class)}">{_e(syn)}</p>'
+
+
 # ---------------------------------------------------------------------------
 # Archetype renderers
 # ---------------------------------------------------------------------------
@@ -121,7 +136,7 @@ def _render_word(today_card: dict, signals: dict) -> str:
             f'</div>'
             for b, term, llr_score in rows
         )
-        body = f'<div class="card-content">{word_rows}</div>'
+        body = f'<div class="card-content">{word_rows}{_synthesis_line(today_card, "word-synthesis")}</div>'
     byline = f"{len(rows)} bucket{'s' if len(rows) != 1 else ''} · same-language cohorts"
     return f'<article class="card card--word">{_common_header(today_card)}{body}{_common_footer(today_card, byline)}</article>'
 
@@ -182,7 +197,7 @@ def _render_silence(today_card: dict, signals: dict) -> str:
             f'<div class="silence-covered-row">{covered_flags}</div>'
             '</div>'
         )
-        body = f'<div class="card-content">{silent_block}<div>{replacement}{covered_block}</div></div>'
+        body = f'<div class="card-content">{silent_block}<div>{replacement}{covered_block}</div>{_synthesis_line(today_card, "silence-synthesis")}</div>'
     byline = f"{len(covered)} carried · {len(silent)} silent"
     return f'<article class="card card--silence">{_common_header(today_card)}{body}{_common_footer(today_card, byline)}</article>'
 
@@ -253,6 +268,7 @@ def _render_sources(today_card: dict, signals: dict) -> str:
             '</div>'
             f'<ol class="sources-breakdown">{rows}</ol>'
             '</div>'
+            f'{_synthesis_line(today_card, "sources-synthesis")}'
             '</div>'
         )
         distinct_buckets = len({s.get("bucket") for s in sd if s.get("bucket")})
@@ -287,7 +303,7 @@ def _render_tilt(today_card: dict, signals: dict) -> str:
             '</li>'
             for i, (bucket, outlet, z_wire, z_mean) in enumerate(rows)
         )
-        body = f'<div class="card-content"><ol class="tilt-stack">{items}</ol></div>'
+        body = f'<div class="card-content"><ol class="tilt-stack">{items}</ol>{_synthesis_line(today_card, "tilt-synthesis")}</div>'
         byline = f"{len(rows)} outlets · two anchors"
     return f'<article class="card card--tilt">{_common_header(today_card)}{body}{_common_footer(today_card, byline)}</article>'
 
