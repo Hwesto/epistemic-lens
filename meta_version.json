@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "8.5.1",
-  "pinned_at": "2026-05-11T13:23:10Z",
-  "pin_reason": "PR 8: honesty pass. METHODOLOGY.md gains a cross-cultural-validity caveat for the Boydstun/PFC 15-frame codebook (US-domestic origin; stretched on non-Anglo foreign-policy framings). New pipeline/cluster_diagnostic.py runs HDBSCAN + DBSCAN over the same distance matrix and emits diagnostic/<date>_cluster_compare.json — zero production impact; run weekly to validate or revert the HDBSCAN swap. No analytical output change.",
+  "meta_version": "8.5.2",
+  "pinned_at": "2026-05-11T13:52:17Z",
+  "pin_reason": "pin_self_hash backport. meta_version.json itself is now tamper-evident: hand-edits to pin_reason / pinned_at / any field that should only flow through baseline_pin.py trigger drift on assert_pinned(). Closes the load-bearing gap deferred in PR 1.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -79,5 +79,6 @@
     "model": "claude-haiku-4-5-20251001",
     "model_alias": "claude-haiku-4-5",
     "prompts_hash": "sha256:342681a209b984e27a2ecdf1e16c061c9888753b730973f6e1679d439488531b"
-  }
+  },
+  "pin_self_hash": "sha256:d18db8f24d7620f4ab88f0ee9933e1ebc0550d353b02fd38c8346cf39c489c1d"
 }

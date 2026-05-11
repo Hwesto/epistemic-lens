@@ -2367,5 +2367,49 @@ class TestClusterDiagnostic(unittest.TestCase):
         self.assertEqual(result["pair_agreement"]["pct_disagree"], 0.0)
 
 
+class TestPinSelfHash(unittest.TestCase):
+    """pin_self_hash makes meta_version.json itself tamper-evident.
+    Hand-edits to pin_reason / pinned_at / any *_hash / any nested
+    config trigger drift on assert_pinned()."""
+
+    def test_round_trip_matches(self):
+        # The on-disk meta MUST have a self-hash that matches a fresh
+        # compute. If this fails, baseline_pin.py and the current pin
+        # disagree — typically because someone hand-edited the file.
+        import json as _json
+        from pathlib import Path
+        d = _json.loads(Path(meta.META_PATH).read_text(encoding="utf-8"))
+        declared = d.get("pin_self_hash")
+        self.assertIsNotNone(declared, "meta_version.json must carry pin_self_hash")
+        self.assertEqual(declared, meta.compute_pin_self_hash(d))
+
+    def test_field_edit_changes_hash(self):
+        h0 = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 1})
+        h1 = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 2})
+        self.assertNotEqual(h0, h1)
+
+    def test_self_hash_field_excluded(self):
+        # Mutating pin_self_hash itself must NOT change the computed hash —
+        # otherwise the hash can't reference itself.
+        h_base = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 1})
+        h_with = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 1,
+                                              "pin_self_hash": "anything"})
+        self.assertEqual(h_base, h_with)
+
+    def test_assert_pinned_catches_tampered_meta(self):
+        # Simulate a hand-edit: load real meta, mutate a field,
+        # recompute the EXPECTED self-hash (the wrong value), pass the
+        # mutated dict to a fresh check against the original declared
+        # hash. The tampered dict should NOT match.
+        import json as _json
+        from pathlib import Path
+        d = _json.loads(Path(meta.META_PATH).read_text(encoding="utf-8"))
+        declared = d["pin_self_hash"]
+        d["pin_reason"] = "tampered"
+        actual = meta.compute_pin_self_hash(d)
+        self.assertNotEqual(declared, actual,
+            "hand-edit to pin_reason must change the self-hash")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

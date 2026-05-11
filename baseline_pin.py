@@ -81,6 +81,9 @@ def recompute_hashes(meta: dict) -> dict:
         meta["feeds"]["n_feeds"] = sum(
             len(v.get("feeds", [])) for v in feeds_doc["countries"].values()
         )
+    # NOTE: pin_self_hash is NOT computed here. It's computed in
+    # cmd_bump() AFTER meta_version / pinned_at / pin_reason are
+    # written — otherwise the self-hash signs a stale config.
     return meta
 
 
@@ -130,6 +133,11 @@ def cmd_bump(level: str, reason: str | None) -> int:
     for k, v in raw.items():
         if k not in ordered:
             ordered[k] = v
+
+    # Self-hash signs the FINAL ordered dict. Must run after every
+    # mutation above (meta_version / pinned_at / pin_reason / hash
+    # refreshes) so it covers the actual on-disk content.
+    ordered["pin_self_hash"] = M.compute_pin_self_hash(ordered)
 
     META_PATH.write_text(
         json.dumps(ordered, indent=2, ensure_ascii=False) + "\n",

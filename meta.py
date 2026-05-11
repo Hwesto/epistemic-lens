@@ -67,6 +67,25 @@ def dir_hash(path: Path, glob: str = "*.md") -> str:
     return f"sha256:{h.hexdigest()}"
 
 
+def compute_pin_self_hash(meta_dict: dict) -> str:
+    """Tamper-evidence for meta_version.json itself.
+
+    Hashes the entire pinned config minus the `pin_self_hash` field
+    (chicken-and-egg). Hand-editing any field — pin_reason, pinned_at,
+    any *_hash, any nested config — without rerunning
+    `baseline_pin.py --bump` produces a mismatch that
+    `assert_pinned()` raises on.
+
+    Without this, the audit's per-input-file hashes only catch drift
+    in the *referenced* files. They can't catch a hand-edit to
+    meta_version.json that, say, shuffles `prompts_hash` to a stale
+    value or rewrites `pin_reason` to lie about what changed.
+    """
+    sanitized = {k: v for k, v in meta_dict.items() if k != "pin_self_hash"}
+    payload = json.dumps(sanitized, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    return "sha256:" + hashlib.sha256(payload).hexdigest()
+
+
 @lru_cache(maxsize=1)
 def _load() -> dict:
     return json.loads(META_PATH.read_text(encoding="utf-8"))
@@ -275,6 +294,15 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = dir_hash(SCHEMAS_DIR, "*.json")
         if declared != actual:
             drift["schemas"] = (declared, actual)
+
+    # Self-tamper-evidence: hand-edits to meta_version.json itself
+    # (pin_reason rewrites, hash shuffles, anything not via baseline_pin.py)
+    # trigger drift on this check.
+    declared = META.get("pin_self_hash")
+    if declared:
+        actual = compute_pin_self_hash(META)
+        if declared != actual:
+            drift["pin_self"] = (declared, actual)
 
     if drift and strict:
         lines = ["Methodology drift detected (meta_version=" + VERSION + "):"]
