@@ -1,0 +1,19 @@
+# Optional / manual video pipeline deps.
+#
+# The video tree (video/render_video.py, video/synthesize_voiceover.py,
+# video/generate_music_bed.py) is NOT part of the daily cron — see
+# docs/ARCHITECTURE.md and docs/OPERATIONS.md. Install only when
+# producing videos locally.
+#
+# Note: requirements.txt is required first — these add to it, not
+# replace it.
+#
+#   pip install -r requirements.txt -r requirements-video.txt
+#
+# Stage 21 (Gap 21-2) split these out so the daily cron doesn't pull
+# ~300MB of TTS deps it never uses.
+
+kokoro-onnx>=0.5.0,<1.0    # local offline TTS — broadcast quality (default)
+soundfile>=0.13.0,<1.0     # WAV writing for kokoro
+piper-tts>=1.2.0,<2.0      # alternative local TTS (lighter, lower quality)
+elevenlabs>=2.0.0,<4.0     # cloud TTS — free tier 10K chars/mo (residential IPs only)

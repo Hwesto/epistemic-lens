@@ -55,6 +55,8 @@ Plus per-date `index.json`, root `latest.json`, and the static landing page at `
 ```bash
 git clone <repo> && cd epistemic-lens
 pip install -r requirements.txt
+# For the optional video pipeline, also:
+#   pip install -r requirements-video.txt
 
 # Run today's ingest stage locally (matches the cron's first job)
 python -m pipeline.ingest
