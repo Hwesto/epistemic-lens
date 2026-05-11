@@ -186,23 +186,36 @@ main {
 /* ---------- Archetype 1: Word ---------- */
 .card--word .card-content {
   display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: clamp(8px, 2vw, 24px) clamp(20px, 4vw, 56px);
+  gap: clamp(12px, 2.5vw, 28px) clamp(20px, 4vw, 56px);
   align-content: center;
 }
 @media (min-width: 900px) {
   .card--word .card-content { grid-template-columns: repeat(3, 1fr); }
 }
 .word-row {
-  display: flex; align-items: baseline;
+  display: flex; align-items: flex-start;
   gap: clamp(8px, 1.5vw, 16px);
-  padding: clamp(4px, 1vw, 8px) 0;
+  padding: clamp(6px, 1.2vw, 10px) 0;
   border-bottom: 1px dashed var(--rule);
 }
-.word-row .flag { font-size: clamp(20px, 2.8vw, 28px); line-height: 1; }
+.word-row .flag {
+  font-size: clamp(20px, 2.8vw, 28px); line-height: 1;
+  padding-top: 4px;  /* baseline-nudge so flag aligns with the word, not the descenders */
+}
+.word-row .word-stack {
+  display: flex; flex-direction: column; align-items: flex-start;
+  min-width: 0;  /* let it shrink in narrow grids */
+}
 .word-row .word {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(24px, 3.4vw, 40px);
   letter-spacing: -0.01em; color: var(--ink); line-height: 1.05;
+}
+.word-row .translation {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(12px, 1.4vw, 15px);
+  color: var(--ink-muted); margin-top: 4px;
+  letter-spacing: 0.01em;
 }
 
 /* ---------- Archetype 2: Paradox ---------- */
@@ -242,33 +255,92 @@ main {
 /* ---------- Archetype 3: Silence ---------- */
 .card--silence .card-content {
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(16px, 3vw, 28px); align-content: center;
+  gap: clamp(20px, 3.5vw, 36px);
+  align-content: center;
 }
 @media (min-width: 720px) {
   .card--silence .card-content {
-    grid-template-columns: auto 1fr; align-items: center;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: clamp(24px, 4vw, 56px);
   }
 }
-.silence-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr);
-  gap: clamp(6px, 1vw, 10px); max-width: 320px;
+
+/* The missing bucket — the visual focal point. */
+.silence-absent {
+  position: relative;
+  width: clamp(160px, 22vw, 220px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  flex-shrink: 0;
 }
-.silence-grid .flag {
-  font-size: clamp(24px, 3.4vw, 36px); line-height: 1;
-  text-align: center; padding: 4px;
-  border-radius: 4px; background: var(--bg-soft);
+.silence-absent .flag {
+  font-size: clamp(90px, 13vw, 140px);
+  line-height: 1;
+  opacity: 0.55;
+  filter: saturate(0.55);
 }
-.silence-grid .flag.absent { opacity: 0.22; position: relative; }
-.silence-grid .flag.absent::after {
-  content: ""; position: absolute; inset: 50% 10% auto;
-  height: 2px; background: var(--accent); transform: rotate(-12deg);
+.silence-absent::before,
+.silence-absent::after {
+  content: "";
+  position: absolute;
+  inset: 12% auto auto 12%;
+  width: 76%;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 3px;
+  transform-origin: 0% 50%;
 }
+.silence-absent::before {
+  transform: rotate(34deg);
+  top: 14%;
+}
+.silence-absent::after {
+  transform: rotate(-34deg);
+  top: 78%;
+}
+.silence-absent .silence-label {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Right-hand column: what they ran instead + tiny row of who DID cover. */
 .silence-replacement {
-  margin: 0; font-family: var(--font-serif);
-  font-size: clamp(17px, 2.2vw, 22px); line-height: 1.4;
+  margin: 0 0 clamp(14px, 2.5vw, 22px);
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.4vw, 24px); line-height: 1.35;
   font-style: italic; color: var(--ink);
 }
-.silence-replacement strong { font-style: normal; font-weight: 700; color: var(--accent); }
+.silence-replacement strong {
+  font-style: normal; font-weight: 700; color: var(--accent);
+}
+.silence-covered {
+  display: flex; flex-direction: column; gap: 6px;
+  padding-top: clamp(10px, 1.6vw, 16px);
+  border-top: 1px solid var(--rule);
+}
+.silence-covered-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); font-weight: 600;
+}
+.silence-covered-row {
+  display: flex; flex-wrap: wrap; gap: clamp(4px, 0.8vw, 8px);
+  font-size: clamp(18px, 2.2vw, 24px); line-height: 1;
+}
+.silence-covered-row .flag { display: inline-block; }
 
 /* ---------- Archetype 4: Shift ---------- */
 .card--shift .card-content {
