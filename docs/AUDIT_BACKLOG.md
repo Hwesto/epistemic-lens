@@ -202,7 +202,18 @@ references the deleted stage:
 | **17-min-F** | `generate_music_bed.py` produces deterministic output but doesn't dump synth parameters as a sidecar JSON for reproducibility. | Out of scope; music bed is a one-shot artifact. | If musical parameters need to change per video. |
 | **17-min-G** | Strict pinning of TTS model SHA256 in meta_version.json (Gap 17-5 option (a)) — would put video on the same integrity-verified footing as analytical inputs. | Over-engineering for a manual / optional path. The one-shot warning surfaces the risk; operators can opt in. | If video output ever becomes part of the published pipeline. |
 
-## Stages 18 — 21
+## Stage 18 — Tests
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **18-2** | 9 of 12 `skipTest` calls are `try: import jsonschema except: self.skipTest("jsonschema not installed")`. jsonschema is hard-required since Stage 7 — meta.validate_schema imports unconditionally — so the skip branch is dead. | Mechanically invasive to remove (9 sites) without surfacing a real issue today. Conservative read: degrade gracefully if a future contributor accidentally lets jsonschema become optional again. | If we ever drop a hard dependency that some tests guard against in similar fashion. |
+| **18-min-A** | `tests.py` is 2,018 lines. Splitting by domain (test_pipeline / test_analytical / test_publication / test_validators) would improve navigation. | Scope creep — file split touches every commit's diff. | If contributors complain about file size. |
+| **18-min-B** | No coverage measurement (pytest-cov / coverage.py). Stage 12 found build_index had 0% coverage; coverage instrumentation in CI would have surfaced it automatically. | Workflow addition; not load-bearing today. | If we close out the audit and want a green-field coverage report. |
+| **18-min-C** | No JS test harness (Stage 13 carry-over). `node --check + ESLint` would catch obvious regressions in `web/app.js`. | Adds Node dependency to CI. | If a JS regression ever lands. |
+| **18-min-D** | No integration test exercising `ingest → cluster_canonical → build_briefing → build_metrics` end-to-end with synthetic data. tests_e2e.py covers ingest + health + feed_rot only. | Embedding/clustering requires sentence-transformers in CI, which adds ~500MB + setup time. | If the cluster→briefing→metrics chain ever produces a real regression. |
+| **18-min-E** | tests_e2e.py not in any workflow. Manual smoke only. | Adds CI cost (live network pulls). | If pipeline-level regressions ever slip past the unit suite. |
+
+## Stages 19 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
