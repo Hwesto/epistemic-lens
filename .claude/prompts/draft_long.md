@@ -28,6 +28,27 @@ uniformly across formats.
   the full body, link, outlet, and bucket for citation lookup.
 - `briefings/<DATE>_<story_key>_metrics.json` — numbers (use verbatim).
 
+## Reading large briefings (IMPORTANT)
+
+Briefings can exceed the Read tool's 25,000-token cap (50+ articles ×
+2,500-char `signal_text` ≈ 30K tokens). Do NOT call `Read` on a
+briefing without `offset`/`limit` — it will error and you'll burn
+turns retrying.
+
+Instead, look up `corpus[i]` entries by index using Bash + Python.
+The analysis JSON's `frames[].evidence[].signal_text_idx` and
+`paradox.{a,b}.signal_text_idx` give you the exact indices you need.
+For each citation you want to use:
+
+    python3 -c "import json; d=json.load(open('briefings/<DATE>_<story_key>.json')); print(json.dumps(d['corpus'][<idx>], indent=2))"
+
+Substitute `<DATE>`, `<story_key>`, and `<idx>` for the specific
+citation. This returns ONE corpus item (bucket / outlet / link /
+signal_text) at a fraction of the token cost.
+
+For the small `_metrics.json` and `analyses/*.json` files, regular
+`Read` is fine — those are well under the cap.
+
 ---
 
 ## Procedure
