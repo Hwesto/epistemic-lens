@@ -190,7 +190,19 @@ references the deleted stage:
 | **16-min-D** | The 6 audit sections aren't pulled into individual top-level functions (`static_audit()`, `snapshot_health()`, etc.). One big `main()` retains the procedural shape — easier to read but harder to unit-test sections independently. | Stage 16 prioritised the import-side-effect fix. Section-level extraction is scope creep. | If we ever want fine-grained test coverage of individual audit sections. |
 | **16-min-E** | `REGIONS["present"]` entries use mixed forms — plain bucket keys (`"usa"`) plus editorial annotations (`"wire_services (FR via AFP)"`). The sanity check skips annotation forms. | The annotation form is editorial human context that's useful in stdout. Splitting into separate `present_keys: list[str]` + `present_note: str` would be cleaner but invasive. | If the sanity check ever produces a false negative because an annotation form hid a real stale key. |
 
-## Stages 17 — 21
+## Stage 17 — Video pipeline
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **17-min-A** | `mp3_duration` hand-rolls MPEG layer 3 frame counting (99 lines). The `mutagen` library would be ~3 lines. | Avoids a dependency. | If `mp3_duration` ever produces wrong values for a new ElevenLabs encoding. |
+| **17-min-B** | `synthesize_scene_kokoro` detects British vs American via `voice.startswith("b")` — convention from Kokoro voice naming. | Documented in `KOKORO_VOICES`. | If Kokoro ever ships a non-`b`/`a` British voice. |
+| **17-min-C** | ElevenLabs error message hardcodes the signup URL. | Cosmetic. | If the URL ever rots. |
+| **17-min-D** | Script field `voiceover_provider` exists but `render_video.merge_voiceover` doesn't read it; provider is CLI-only. | Operator workflow already passes the flag explicitly. | If we add a wrapper that auto-picks provider from the script. |
+| **17-min-E** | `durations.json` sidecar has no `meta_version` stamp. | Local intermediate artifact; not consumed by methodology-tracked code. | If durations.json ever needs longitudinal traceability. |
+| **17-min-F** | `generate_music_bed.py` produces deterministic output but doesn't dump synth parameters as a sidecar JSON for reproducibility. | Out of scope; music bed is a one-shot artifact. | If musical parameters need to change per video. |
+| **17-min-G** | Strict pinning of TTS model SHA256 in meta_version.json (Gap 17-5 option (a)) — would put video on the same integrity-verified footing as analytical inputs. | Over-engineering for a manual / optional path. The one-shot warning surfaces the risk; operators can opt in. | If video output ever becomes part of the published pipeline. |
+
+## Stages 18 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
