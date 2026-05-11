@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Same Story — design samples</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="sample-index">
+  <h1>The Same Story — design samples</h1>
+  <p>
+    Five card archetypes. The daily selector picks ONE based on what's most striking
+    in today's analysis. Open any of these in a browser to preview.
+  </p>
+  <ol>
+    <li>
+      <a href="word.html">Word card</a>
+      <span class="desc">Six countries, six words for the same event. Default fallback — always available from within-language LLR.</span>
+    </li>
+    <li>
+      <a href="paradox.html">Paradox card</a>
+      <span class="desc">Two opposing-bloc outlets, same conclusion. Pulled from analysis.paradox detection. Rare (~1 in 4 days).</span>
+    </li>
+    <li>
+      <a href="silence.html">Silence card</a>
+      <span class="desc">N countries covered this; 1 didn't. Pulled from coverage_matrix (4-state) + silence detection.</span>
+    </li>
+    <li>
+      <a href="shift.html">Shift card</a>
+      <span class="desc">One bucket's frame shifts over five days. Pulled from longitudinal trajectory. Needs 5+ days of story history.</span>
+    </li>
+    <li>
+      <a href="echo.html">Echo card</a>
+      <span class="desc">Outlet A's headline, then outlet B's 48 hours later. Pulled from weekly cross_outlet_lag CCF. Mondays only.</span>
+    </li>
+  </ol>
+  <p>
+    <a href="../index.html">← Home page (full shell)</a>
+  </p>
+</div>
+</body>
+</html>
