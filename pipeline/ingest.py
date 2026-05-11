@@ -396,8 +396,10 @@ def cluster_topics(vectors,
             cluster_selection_method=meta.CLUSTERING.get("cluster_selection_method", "eom"),
         )
         labels = clusterer.fit_predict(dist.astype("float64"))
+        # numpy 2.x raises on `array or []`; check len explicitly.
+        _pers = getattr(clusterer, "cluster_persistence_", None)
         cluster_topics.last_stability_scores = (
-            list(map(float, getattr(clusterer, "cluster_persistence_", []) or []))
+            list(map(float, _pers)) if _pers is not None and len(_pers) else []
         )
         cluster_topics.last_method = "HDBSCAN"
     else:
