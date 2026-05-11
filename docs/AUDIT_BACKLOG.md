@@ -213,7 +213,17 @@ references the deleted stage:
 | **18-min-D** | No integration test exercising `ingest → cluster_canonical → build_briefing → build_metrics` end-to-end with synthetic data. tests_e2e.py covers ingest + health + feed_rot only. | Embedding/clustering requires sentence-transformers in CI, which adds ~500MB + setup time. | If the cluster→briefing→metrics chain ever produces a real regression. |
 | **18-min-E** | tests_e2e.py not in any workflow. Manual smoke only. | Adds CI cost (live network pulls). | If pipeline-level regressions ever slip past the unit suite. |
 
-## Stages 19 — 21
+## Stage 19 — CI workflows
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **19-4** | `daily.yml:60-61` stale TODO: "Many international RSS feeds ship expired/self-signed certs. Future work: replace with per-feed allowlist in feeds.json." Has lived in this comment for many pin eras. | Either prioritize the work or drop the optimistic TODO. Today `ALLOW_INSECURE_SSL=1` covers it broadly. | If a single bucket's compromised TLS ever surfaces (in which case scope the allowlist to the unaffected feeds). |
+| **19-min-A** | Daily + weekly jobs duplicate `pip install jsonschema` per-step. Not breaking — pip cache makes this fast. | Cosmetic. | If install time ever shows up in workflow telemetry. |
+| **19-min-B** | Job summary at `daily.yml:83-113` is a bash heredoc with embedded Python — same untested-logic concern as Gap 19-1 (now fixed). | Summary is editorial / not load-bearing. | If the summary format ever needs a contract. |
+| **19-min-C** | No step-level `timeout-minutes`. Job-level timeouts (30, 60, 10) catch outliers but a single hung step can consume the whole budget. | Defensive only. | If a step ever hangs in production. |
+| **19-min-D** | Analyze + draft jobs install only `jsonschema`, not `requirements.txt`. Works today because the scripts they invoke only need stdlib + jsonschema + meta. | Fragile but functional. | If a new dependency is added to analytical/ or publication/. |
+
+## Stages 20 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
