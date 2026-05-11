@@ -2,13 +2,25 @@
   "story_key": "lebanon_buffer",
   "story_title": "Israeli buffer zone in southern Lebanon",
   "window_start": "2026-05-08",
-  "window_end": "2026-05-08",
-  "n_days_with_analysis": 1,
+  "window_end": "2026-05-11",
+  "n_days_with_analysis": 4,
   "meta_version_segments": [
     {
       "meta_version": "1.4.1",
       "from_date": "2026-05-08",
       "to_date": "2026-05-08",
+      "n_days": 1
+    },
+    {
+      "meta_version": "2.0.1",
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "n_days": 2
+    },
+    {
+      "meta_version": "8.7.1",
+      "from_date": "2026-05-11",
+      "to_date": "2026-05-11",
       "n_days": 1
     }
   ],
@@ -23,8 +35,112 @@
         "israel",
         "pan_african"
       ]
+    },
+    {
+      "signature": "bf199714b4672126",
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-09",
+      "n_buckets": 10,
+      "buckets": [
+        "pan_african",
+        "russia",
+        "turkey",
+        "qatar",
+        "pan_arab",
+        "israel",
+        "canada",
+        "opinion_magazines",
+        "religious_press",
+        "taiwan_hk"
+      ]
+    },
+    {
+      "signature": "10a6866ef1e74c3a",
+      "from_date": "2026-05-10",
+      "to_date": "2026-05-10",
+      "n_buckets": 9,
+      "buckets": [
+        "russia",
+        "iraq",
+        "canada",
+        "turkey",
+        "israel",
+        "egypt",
+        "opinion_magazines",
+        "pan_arab",
+        "religious_press"
+      ]
+    },
+    {
+      "signature": "6fab0cd47050c452",
+      "from_date": "2026-05-11",
+      "to_date": "2026-05-11",
+      "n_buckets": 3,
+      "buckets": [
+        "canada",
+        "egypt",
+        "india"
+      ]
     }
   ],
+  "canonical_stories_pattern_segments": [
+    {
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742",
+      "from_date": "2026-05-08",
+      "to_date": "2026-05-08",
+      "n_days": 1
+    },
+    {
+      "canonical_stories_hash": "?",
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "n_days": 2
+    },
+    {
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742",
+      "from_date": "2026-05-11",
+      "to_date": "2026-05-11",
+      "n_days": 1
+    }
+  ],
+  "bucket_feed_set_segments": {
+    "canada": [
+      {
+        "feed_set_hash": "b6888cf28c8ba5b8",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-11"
+      }
+    ],
+    "israel": [
+      {
+        "feed_set_hash": "fe587d28e4659102",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "pan_african": [
+      {
+        "feed_set_hash": "0fc6fe9e8b0db6d6",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "egypt": [
+      {
+        "feed_set_hash": "839475f1034bb39c",
+        "from_date": "2026-05-11",
+        "to_date": "2026-05-11"
+      }
+    ],
+    "india": [
+      {
+        "feed_set_hash": "259be0fb195861f2",
+        "from_date": "2026-05-11",
+        "to_date": "2026-05-11"
+      }
+    ]
+  },
+  "bucket_feed_set_drift": {},
   "daily_summaries": [
     {
       "date": "2026-05-08",
@@ -32,7 +148,35 @@
       "n_buckets": 3,
       "n_articles": 17,
       "n_frames": 4,
-      "bucket_set_signature": "baaae5c41be6392d"
+      "bucket_set_signature": "baaae5c41be6392d",
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742"
+    },
+    {
+      "date": "2026-05-09",
+      "meta_version": "2.0.1",
+      "n_buckets": 10,
+      "n_articles": 20,
+      "n_frames": 7,
+      "bucket_set_signature": "bf199714b4672126",
+      "canonical_stories_hash": "?"
+    },
+    {
+      "date": "2026-05-10",
+      "meta_version": "2.0.1",
+      "n_buckets": 9,
+      "n_articles": 20,
+      "n_frames": 7,
+      "bucket_set_signature": "10a6866ef1e74c3a",
+      "canonical_stories_hash": "?"
+    },
+    {
+      "date": "2026-05-11",
+      "meta_version": "8.7.1",
+      "n_buckets": 3,
+      "n_articles": 17,
+      "n_frames": 3,
+      "bucket_set_signature": "6fab0cd47050c452",
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742"
     }
   ],
   "frame_trajectories": {
@@ -71,7 +215,160 @@
         "share": 0.333,
         "meta_version": "1.4.1"
       }
+    ],
+    "CEASEFIRE_AS_LEGAL_FICTION": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 5,
+        "n_buckets_total": 10,
+        "share": 0.5,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "IDF_DRONE_VULNERABILITY_EXPOSED": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 10,
+        "share": 0.1,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "HEZBOLLAH_DISARMAMENT_AS_STATE_SOVEREIGNTY": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 10,
+        "share": 0.1,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "IHL_VIOLATIONS_AND_WAR_WITHOUT_RULES": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 10,
+        "share": 0.1,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "CHRISTIAN_SYMBOL_DESECRATION": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 10,
+        "share": 0.1,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "PASTORAL_RELIGIOUS_SOLIDARITY": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 10,
+        "share": 0.1,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "DIPLOMATIC_TRACK_OPTIMISM": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 10,
+        "share": 0.2,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "CEASEFIRE_FICTION": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 4,
+        "n_buckets_total": 9,
+        "share": 0.444,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "DRONE_TECHNOLOGY_GAP": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 9,
+        "share": 0.222,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "LITANI_BUFFER_EXPANSION": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 9,
+        "share": 0.111,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "WAR_WITHOUT_RULES_ACCOUNTABILITY": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 9,
+        "share": 0.111,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "CIVILIAN_DISPLACEMENT_FRAME": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 9,
+        "share": 0.222,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "PASTORAL_PAPAL_PRESENCE": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 9,
+        "share": 0.111,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "DOMESTIC_ISRAELI_DISSENT": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 9,
+        "share": 0.111,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "SECURITY_DEFENSE": [
+      {
+        "date": "2026-05-11",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 3,
+        "share": 0.667,
+        "meta_version": "8.7.1"
+      }
+    ],
+    "EXTERNAL_REGULATION": [
+      {
+        "date": "2026-05-11",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 3,
+        "share": 0.667,
+        "meta_version": "8.7.1"
+      }
+    ],
+    "FAIRNESS": [
+      {
+        "date": "2026-05-11",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 3,
+        "share": 0.667,
+        "meta_version": "8.7.1"
+      }
     ]
   },
-  "meta_version": "7.0.1"
+  "meta_version": "8.7.1"
 }

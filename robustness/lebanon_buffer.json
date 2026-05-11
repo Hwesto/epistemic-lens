@@ -1,9 +1,76 @@
 {
   "story_key": "lebanon_buffer",
   "story_title": "Israeli buffer zone in southern Lebanon",
-  "computed_at": "2026-05-09T18:31:13.758530+00:00",
-  "skipped": true,
-  "reason": "insufficient_history",
-  "n_days": 1,
-  "meta_version": "7.3.0"
+  "computed_at": "2026-05-11T17:12:45.897514+00:00",
+  "skipped": false,
+  "n_days": 4,
+  "n_consecutive_pairs": 3,
+  "stability": 0.0,
+  "low_stability": true,
+  "threshold": 0.5,
+  "consecutive_pairs": [
+    {
+      "from_date": "2026-05-08",
+      "to_date": "2026-05-09",
+      "from_frames": [
+        "CEASEFIRE_VIOLATION_PATTERN",
+        "CIVILIAN_CASUALTIES_ONGOING",
+        "HEZBOLLAH_CONTINUED_OPERATIONS",
+        "STATE_SOVEREIGNTY_STRUGGLE"
+      ],
+      "to_frames": [
+        "CEASEFIRE_AS_LEGAL_FICTION",
+        "CHRISTIAN_SYMBOL_DESECRATION",
+        "DIPLOMATIC_TRACK_OPTIMISM",
+        "HEZBOLLAH_DISARMAMENT_AS_STATE_SOVEREIGNTY",
+        "IDF_DRONE_VULNERABILITY_EXPOSED",
+        "IHL_VIOLATIONS_AND_WAR_WITHOUT_RULES",
+        "PASTORAL_RELIGIOUS_SOLIDARITY"
+      ],
+      "jaccard": 0.0
+    },
+    {
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "from_frames": [
+        "CEASEFIRE_AS_LEGAL_FICTION",
+        "CHRISTIAN_SYMBOL_DESECRATION",
+        "DIPLOMATIC_TRACK_OPTIMISM",
+        "HEZBOLLAH_DISARMAMENT_AS_STATE_SOVEREIGNTY",
+        "IDF_DRONE_VULNERABILITY_EXPOSED",
+        "IHL_VIOLATIONS_AND_WAR_WITHOUT_RULES",
+        "PASTORAL_RELIGIOUS_SOLIDARITY"
+      ],
+      "to_frames": [
+        "CEASEFIRE_FICTION",
+        "CIVILIAN_DISPLACEMENT_FRAME",
+        "DOMESTIC_ISRAELI_DISSENT",
+        "DRONE_TECHNOLOGY_GAP",
+        "LITANI_BUFFER_EXPANSION",
+        "PASTORAL_PAPAL_PRESENCE",
+        "WAR_WITHOUT_RULES_ACCOUNTABILITY"
+      ],
+      "jaccard": 0.0
+    },
+    {
+      "from_date": "2026-05-10",
+      "to_date": "2026-05-11",
+      "from_frames": [
+        "CEASEFIRE_FICTION",
+        "CIVILIAN_DISPLACEMENT_FRAME",
+        "DOMESTIC_ISRAELI_DISSENT",
+        "DRONE_TECHNOLOGY_GAP",
+        "LITANI_BUFFER_EXPANSION",
+        "PASTORAL_PAPAL_PRESENCE",
+        "WAR_WITHOUT_RULES_ACCOUNTABILITY"
+      ],
+      "to_frames": [
+        "EXTERNAL_REGULATION",
+        "FAIRNESS",
+        "SECURITY_DEFENSE"
+      ],
+      "jaccard": 0.0
+    }
+  ],
+  "meta_version": "8.7.1"
 }

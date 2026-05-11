@@ -2,13 +2,25 @@
   "story_key": "hantavirus_cruise",
   "story_title": "Hantavirus outbreak on MV Hondius",
   "window_start": "2026-05-08",
-  "window_end": "2026-05-08",
-  "n_days_with_analysis": 1,
+  "window_end": "2026-05-11",
+  "n_days_with_analysis": 4,
   "meta_version_segments": [
     {
       "meta_version": "1.4.1",
       "from_date": "2026-05-08",
       "to_date": "2026-05-08",
+      "n_days": 1
+    },
+    {
+      "meta_version": "2.0.1",
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "n_days": 2
+    },
+    {
+      "meta_version": "8.7.1",
+      "from_date": "2026-05-11",
+      "to_date": "2026-05-11",
       "n_days": 1
     }
   ],
@@ -33,8 +45,197 @@
         "australia_nz",
         "germany"
       ]
+    },
+    {
+      "signature": "ccc575d1b872403f",
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-09",
+      "n_buckets": 21,
+      "buckets": [
+        "argentina_chile",
+        "taiwan_hk",
+        "india",
+        "nigeria",
+        "wire_services",
+        "qatar",
+        "turkey",
+        "usa",
+        "japan",
+        "poland_balt",
+        "australia_nz",
+        "germany",
+        "netherlands_belgium",
+        "vietnam_thai_my",
+        "kenya",
+        "philippines",
+        "colombia_ven_peru",
+        "spain",
+        "uk",
+        "russia",
+        "opinion_magazines"
+      ]
+    },
+    {
+      "signature": "5c6b0409b49b7d5e",
+      "from_date": "2026-05-10",
+      "to_date": "2026-05-10",
+      "n_buckets": 20,
+      "buckets": [
+        "canada",
+        "uk",
+        "philippines",
+        "netherlands_belgium",
+        "kenya",
+        "state_tv_intl",
+        "australia_nz",
+        "israel",
+        "japan",
+        "qatar",
+        "turkey",
+        "russia",
+        "poland_balt",
+        "usa",
+        "argentina_chile",
+        "colombia_ven_peru",
+        "spain",
+        "nordic",
+        "south_africa",
+        "africa_other"
+      ]
+    },
+    {
+      "signature": "670c5d1b1e1db80f",
+      "from_date": "2026-05-11",
+      "to_date": "2026-05-11",
+      "n_buckets": 3,
+      "buckets": [
+        "argentina_chile",
+        "asia_pacific_regional",
+        "australia_nz"
+      ]
     }
   ],
+  "canonical_stories_pattern_segments": [
+    {
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742",
+      "from_date": "2026-05-08",
+      "to_date": "2026-05-08",
+      "n_days": 1
+    },
+    {
+      "canonical_stories_hash": "?",
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "n_days": 2
+    },
+    {
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742",
+      "from_date": "2026-05-11",
+      "to_date": "2026-05-11",
+      "n_days": 1
+    }
+  ],
+  "bucket_feed_set_segments": {
+    "kenya": [
+      {
+        "feed_set_hash": "b701f6742880872a",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "south_africa": [
+      {
+        "feed_set_hash": "972ebb3718426a8b",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "canada": [
+      {
+        "feed_set_hash": "b6888cf28c8ba5b8",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "india": [
+      {
+        "feed_set_hash": "259be0fb195861f2",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "argentina_chile": [
+      {
+        "feed_set_hash": "122af9442a3fa210",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-11"
+      }
+    ],
+    "mexico": [
+      {
+        "feed_set_hash": "69d8cbef93ec9ed2",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "italy": [
+      {
+        "feed_set_hash": "e0e3e7cc444e771b",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "opinion_magazines": [
+      {
+        "feed_set_hash": "4aa2ab5e2677b14d",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "spain": [
+      {
+        "feed_set_hash": "f49143f3b05cef8b",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "uk": [
+      {
+        "feed_set_hash": "60824c313d02147b",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "taiwan_hk": [
+      {
+        "feed_set_hash": "f53b57d5a0a1dc09",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "australia_nz": [
+      {
+        "feed_set_hash": "8e85f6dc3f926813",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-11"
+      }
+    ],
+    "germany": [
+      {
+        "feed_set_hash": "554de27c9784949d",
+        "from_date": "2026-05-08",
+        "to_date": "2026-05-08"
+      }
+    ],
+    "asia_pacific_regional": [
+      {
+        "feed_set_hash": "b1ce12559d577d98",
+        "from_date": "2026-05-11",
+        "to_date": "2026-05-11"
+      }
+    ]
+  },
+  "bucket_feed_set_drift": {},
   "daily_summaries": [
     {
       "date": "2026-05-08",
@@ -42,7 +243,35 @@
       "n_buckets": 13,
       "n_articles": 55,
       "n_frames": 7,
-      "bucket_set_signature": "fc1605e0f833c571"
+      "bucket_set_signature": "fc1605e0f833c571",
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742"
+    },
+    {
+      "date": "2026-05-09",
+      "meta_version": "2.0.1",
+      "n_buckets": 21,
+      "n_articles": 55,
+      "n_frames": 8,
+      "bucket_set_signature": "ccc575d1b872403f",
+      "canonical_stories_hash": "?"
+    },
+    {
+      "date": "2026-05-10",
+      "meta_version": "2.0.1",
+      "n_buckets": 20,
+      "n_articles": 61,
+      "n_frames": 8,
+      "bucket_set_signature": "5c6b0409b49b7d5e",
+      "canonical_stories_hash": "?"
+    },
+    {
+      "date": "2026-05-11",
+      "meta_version": "8.7.1",
+      "n_buckets": 3,
+      "n_articles": 58,
+      "n_frames": 3,
+      "bucket_set_signature": "670c5d1b1e1db80f",
+      "canonical_stories_hash": "sha256:79667ce43c0b206e9e2707f81e728c7b7b7ba52e3157dab5fa2f7fafc3aeb742"
     }
   ],
   "frame_trajectories": {
@@ -108,7 +337,178 @@
         "share": 0.154,
         "meta_version": "1.4.1"
       }
+    ],
+    "ORIGIN_EXCULPATION": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 21,
+        "share": 0.095,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "WHO_COORDINATION_AS_REASSURANCE": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 4,
+        "n_buckets_total": 21,
+        "share": 0.19,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "COVID_COMPARISON_REJECTED": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 4,
+        "n_buckets_total": 21,
+        "share": 0.19,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "IVERMECTIN_MISINFORMATION_RESURGENCE": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 21,
+        "share": 0.048,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "NATIONALS_TRACKING_AND_REPATRIATION": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 8,
+        "n_buckets_total": 21,
+        "share": 0.381,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "TENERIFE_POLITICAL_FLASHPOINT": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 3,
+        "n_buckets_total": 21,
+        "share": 0.143,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "PLAGUE_SHIP_ALARMISM": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 21,
+        "share": 0.048,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "CRUISE_SHIP_SYSTEMIC_VULNERABILITY": [
+      {
+        "date": "2026-05-09",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 21,
+        "share": 0.048,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "REPATRIATION_LOGISTICS": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 7,
+        "n_buckets_total": 20,
+        "share": 0.35,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "PANDEMIC_ANXIETY_REFLEX": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 6,
+        "n_buckets_total": 20,
+        "share": 0.3,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "PLAGUE_SHIP_SENSATIONALISM": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 20,
+        "share": 0.05,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "PREDICTION_MARKET_SPECTACLE": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 20,
+        "share": 0.05,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "ORIGIN_DISPUTE": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 20,
+        "share": 0.1,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "CRISIS_MANAGEMENT_CRITIQUE": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 1,
+        "n_buckets_total": 20,
+        "share": 0.05,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "DOMESTIC_EXPOSURE_TRACKING": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 3,
+        "n_buckets_total": 20,
+        "share": 0.15,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "WHO_INSTITUTIONAL_AUTHORITY": [
+      {
+        "date": "2026-05-10",
+        "n_buckets_carrying": 4,
+        "n_buckets_total": 20,
+        "share": 0.2,
+        "meta_version": "2.0.1"
+      }
+    ],
+    "HEALTH_SAFETY": [
+      {
+        "date": "2026-05-11",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 3,
+        "share": 0.667,
+        "meta_version": "8.7.1"
+      }
+    ],
+    "CAPACITY_RESOURCES": [
+      {
+        "date": "2026-05-11",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 3,
+        "share": 0.667,
+        "meta_version": "8.7.1"
+      }
+    ],
+    "POLICY_PRESCRIPTION": [
+      {
+        "date": "2026-05-11",
+        "n_buckets_carrying": 2,
+        "n_buckets_total": 3,
+        "share": 0.667,
+        "meta_version": "8.7.1"
+      }
     ]
   },
-  "meta_version": "7.0.1"
+  "meta_version": "8.7.1"
 }

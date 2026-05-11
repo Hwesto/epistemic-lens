@@ -1,156 +1,128 @@
-# Hantavirus outbreak on MV Hondius
+# Hantavirus outbreak on cruise ship
 
 **Date:** 2026-05-11  
 **Story key:** `hantavirus_cruise`  
-**Coverage:** 37 buckets, 66 articles  
-**Model:** `claude-sonnet-4-6`  
-**Methodology pin:** `meta_version 2.0.1`  
+**Coverage:** 32 buckets, 58 articles  
+**Model:** `claude-haiku-4-5-20251001`  
+**Methodology pin:** `meta_version 8.7.1`  
 
 ---
 
 ## TL;DR
 
-The most surprising finding is that South Africa and South Korea leveraged the outbreak to claim national biomedical prestige, while the US uniquely diverged from WHO and allied quarantine norms by declining to mandate isolation for returning passengers. Russian state media coined 'plague ship' and amplified the WHO director-general's explicit warning that the US approach 'may have risks.' French wire services (Le Figaro/AFP) are alone in naming the probable patient zero: Leo Schilperoord, a 70-year-old Dutch ornithologist who had been birdwatching in Argentina before boarding. Despite Asia Times explicitly framing the outbreak as exposing a US-China mRNA technology gap, Chinese state media generated no signal in the corpus.
+Global coverage of hantavirus outbreak reveals public health framing.
 
-## Frames (7)
+## Frames (3)
 
-### SCIENTIFIC_PRESTIGE_CLAIM
+### HEALTH_SAFETY
 
-_South Africa and South Korea each use the outbreak to showcase national achievements in hantavirus research and detection._
+**Buckets:** `argentina_chile`, `asia_pacific_regional`
 
-**Buckets:** `africa_other`, `south_korea`
-
-> South African medical scientists have, just like with Covid-19, once again done the country proud by working fast and efficiently to discover the cause of death and illness on a stricken cruise ship.
+> Hantavirus en el crucero: en qué consiste la cepa Andes, la única que se contagia entre humanos y qu
 >
-> — `africa_other` / AllAfrica / Daily Maverick (corpus[0])
+> — `argentina_chile` (corpus[0])
 
-> Korean frontier in discovery, prevention of Hantavirus returns to spotlight The Korea Herald
+### CAPACITY_RESOURCES
+
+**Buckets:** `argentina_chile`, `australia_nz`
+
+> Hantavirus en el crucero: en qué consiste la cepa Andes, la única que se contagia entre humanos y qu
 >
-> — `south_korea` / Korea Herald (corpus[47])
+> — `argentina_chile` (corpus[0])
 
-### US_QUARANTINE_EXCEPTIONALISM
+### POLICY_PRESCRIPTION
 
-_The US declines to mandate 42-day quarantine consistent with WHO guidance, while the UK, France, and Australia impose facility isolation; WHO chief publicly warns the American approach carries risk._
+**Buckets:** `argentina_chile`, `asia_pacific_regional`
 
-**Buckets:** `russia`, `south_africa`, `australia_nz`
-
-> The US decision not to quarantine passengers of the hantavirus-stricken cruise ship, the MV Hondius, could be dangerous, the chief of the World Health Organization has said.
+> Hantavirus en el crucero: en qué consiste la cepa Andes, la única que se contagia entre humanos y qu
 >
-> — `russia` / RT (corpus[41])
+> — `argentina_chile` (corpus[0])
 
-> American passengers evacuated from a cruise ship struck by a deadly hantavirus outbreak will not necessarily be quarantined, a top US health official said on Sunday.
-J
->
-> — `south_africa` / News24 World (corpus[45])
+## Population-weighted view
 
-### ARGENTINA_CULPABILITY_DISPUTE
+Weighted by bucket population × audience reach (`bucket_weights.json`); bootstrap CI 5–95% over 1000 bucket-resampled iterations. Unweighted share = 1 / (frames carrying any bucket) for comparison.
 
-_Argentine officials mount an active public-relations defence claiming the infection originated before Ushuaia; the UK Guardian simultaneously spotlights Patagonia as the historical and probable geographic source._
+| Frame | Weighted share | Unweighted | Buckets |
+| --- | ---: | ---: | ---: |
+| `HEALTH_SAFETY` | 0.781 | 0.667 | 2 |
+| `CAPACITY_RESOURCES` | 0.558 | 0.667 | 2 |
+| `POLICY_PRESCRIPTION` | 0.781 | 0.667 | 2 |
 
-**Buckets:** `argentina_chile`, `uk`
+_Low-confidence weights (treat with caution): `argentina_chile`, `asia_pacific_regional`._
 
-> Tierra del Fuego epidemiology director Juan Petrina says that the likelihood that the Dutch man linked to the hantavirus outbreak on the MV Hondius cruise ship contracted the disease in the port city of Ushuaia is "almost zero.”
->
-> — `argentina_chile` / Buenos Aires Herald (corpus[1])
+_Bootstrap CIs skipped: numpy unavailable._
 
-> Thirty years after first person-to-person transmission was documented in Patagonia, scientists say global heating could increase world’s exposure
->
-> — `uk` / The Guardian World (corpus[58])
+## Most divergent buckets
 
-### PATIENT_ZERO_INVESTIGATION
-
-_French wire services alone publish the identity and backstory of the probable patient zero, a Dutch ornithologist couple who had been birdwatching in Argentina._
-
-**Buckets:** `wire_services`
-
-> Leo Schilperoord est mort à bord, infecté par un virus assassin. Il vient d’être identifié comme étant le probable patient zéro de l’épidémie d’hantavirus qui a touché le navire.
->
-> — `wire_services` / Le Figaro (corpus[64])
-
-### PANDEMIC_CALIBRATION_DEBATE
-
-_Anglophone public-health and US press stress that hantavirus is categorically distinct from COVID; Russian state media amplifies the 'plague ship' framing and the captain's alleged deception of passengers._
-
-**Buckets:** `usa`, `russia`
-
-> The outbreak of a deadly virus aboard a cruise ship may sound like a familiar story — but while it's a serious scenario, public health figures aren't anticipating the next global pandemic.
->
-> — `usa` / Axios World (corpus[60])
-
-> A newly released video shows the captain of a hantavirus-stricken cruise ship telling passengers a man who died aboard was “not infectious”
->
-> — `russia` / RT (corpus[42])
-
-### MRNA_GEOPOLITICS
-
-_Asia-Pacific regional commentary uniquely frames the outbreak as a stress-test revealing a US-China mRNA vaccine technology gap, absent from all other bucket coverage._
-
-**Buckets:** `asia_pacific_regional`
-
-> Hantavirus scare exposes US-China mRNA gap
-
-A Dutch expedition cruise ship, the MV Hondius, docked in Tenerife on Sunday after weeks adrift with three deaths and eight hantavirus cases on board. The strain involved is the Andes virus, the only hantavirus known to transmit between humans.
->
-> — `asia_pacific_regional` / Asia Times (corpus[3])
-
-### MILITARY_RESPONSE_SPECTACLE
-
-_Hong Kong and SCMP angle uniquely covers the dramatic British paratrooper mission to the South Atlantic island of Tristan da Cunha, and Hong Kong's bid to position itself as a global pandemic-preparedness hub._
-
-**Buckets:** `taiwan_hk`
-
-> Paratroopers jump onto Britain’s most remote inhabited island for hantavirus mission
-
-British paratroopers landed on a “golf course covered in rocks” to supply medical personnel and oxygen to Britain’s most remote overseas territory as it deals with a suspected hantavirus case, an army commander said on Sunday.
->
-> — `taiwan_hk` / South China Morning Post (corpus[53])
-
-## Most isolated buckets
-
-| Bucket | mean_jaccard | Note |
+| Bucket | mean_similarity | Note |
 | --- | --- | --- |
-| `russia_native` | 0.01 | Russian-language only; Kommersant ran brief wire items, linguistic isolation is expected. |
-| `brazil` | 0.011 | Portuguese-language isolation; O Globo ran two original evacuation-logistics pieces. |
-| `colombia_ven_peru` | 0.017 | Both corpus entries appear to be paywalled El Tiempo pages returning cookie/navigation boilerplate; vocabulary is noise, not editorial. |
-| `wire_services` | 0.017 | Surprising for an English wire bucket; both Le Figaro entries are French-language, pulling the bucket into isolation despite being the sole corpus source naming patient zero. |
-| `balkans` | 0.02 | N1 Serbia English ran a single Serbian-language item; linguistic isolation. |
-| `egypt` | 0.02 | Egypt Independent ran a flu-vs-hantavirus symptom piece; editorially distinct public-health-education angle drove the isolation. |
-| `spain` | 0.02 | Spanish-language ABC.es covered port logistics and social commentary; linguistic plus editorial isolation. |
-| `italy` | 0.022 | Italian-language La Repubblica and ANSA; linguistic isolation with Italy as a repatriation country. |
+| `balkans` | 0.481 |  |
 
-## Bucket-exclusive vocabulary
+## Within-language LLR distinctive vocab
 
-| Bucket | Distinctive terms | What it reveals |
+Per-bucket terms over-represented vs the same-language cohort (Dunning log-likelihood ratio; p ≤ 0.001). Effect size is log-rate-ratio.
+
+| Bucket | Lang | Top distinctive terms (LLR) |
 | --- | --- | --- |
-| `asia_pacific_regional` | *expos*, *china*, *mrna* | Only bucket to frame this as a geopolitical technology-race story; 'mRNA' and 'China' appear nowhere else in the corpus. |
-| `south_korea` | *korea*, *korean*, *frontier*, *discovery*, *herald*, *danger* | South Korean press used the outbreak to revisit Korea's historical leadership in hantavirus research while simultaneously covering North Korea's alarm — both national-identity frames. |
-| `taiwan_hk` | *paratrooper*, *unrivalled*, *statu*, *hong*, *kong*, *innovation* | SCMP covers the British military spectacle and Hong Kong's pandemic-hub positioning — angles entirely absent from the main news wire. |
-| `russia` | *captain* | RT's exclusive focus on the captain's alleged deception is the only corpus entry foregrounding shipboard institutional failure rather than the epidemiology. |
+| `mexico` | es | `sheinbaum` (13.467), `cártel` (13.467), `méxico` (11.775) |
+| `state_tv_intl` | es | `hantaviru` (15.957) |
+| `india` | en | `noroviru` (31.098), `infection` (14.131) |
+| `kenya` | en | `tedro` (37.424) |
+| `south_korea` | en | `korea` (52.208) |
+| `taiwan_hk` | en | `medical` (17.887) |
+| `uk` | en | `french` (14.71) |
+| `vietnam_thai_my` | en | `evacuation` (13.294) |
+
+## Associative bigrams (within-language)
+
+Bigrams over-represented in this bucket vs the same-language cohort. Log-odds with Jeffreys prior; |Z| ≥ 1.96.
+
+| Bucket | Lang | Top bigram associations |
+| --- | --- | --- |
+| `argentina_chile` | en | `tierra fuego` (z=4.37), `fuego health` (z=4.03), `health zero` (z=4.03), `zero chance` (z=4.03) |
+| `state_tv_intl` | es | `francesa estadounidense` (z=2.96), `siete número` (z=2.69), `brote hantaviru` (z=2.69), `cinco frances` (z=2.54) |
+| `asia_pacific_regional` | en | `hantaviru scare` (z=5.21), `scare expos` (z=4.09), `expos china` (z=4.09), `china mrna` (z=4.09) |
+| `australia_nz` | en | `three week` (z=2.96), `flight home` (z=2.96), `ship struck` (z=2.85), `passenger remain` (z=2.85) |
+| `balkans` | en | `naučnica objašnjava` (z=3.92), `objašnjava zašto` (z=3.92), `zašto nema` (z=3.92), `nema mesta` (z=3.92) |
+| `canada` | en | `four canadian` (z=2.92), `case linked` (z=2.44), `linked cruise` (z=2.44), `reassure public` (z=2.33) |
+| `germany` | en | `south america` (z=3.22), `outbreak contained` (z=2.9), `contained passenger` (z=2.9), `hondiu cruise` (z=2.74) |
+| `india` | en | `killed three` (z=3.2), `noroviru hantaviru` (z=2.93), `global concern` (z=2.72), `ship outbreak` (z=2.71) |
+| `indonesia` | en | `cruise outbreak` (z=5.83), `hantaviru cruise` (z=5.55), `test foreigner` (z=4.41), `foreigner negative` (z=4.41) |
+| `iraq` | en | `hantaviru ship` (z=6.33), `ship test` (z=6.28), `test positive` (z=5.7), `citizen hantaviru` (z=4.5) |
+| `japan` | en | `national hantaviru` (z=4.91), `does expect` (z=4.75), `hantaviru ship` (z=4.4), `japan does` (z=3.87) |
+| `kenya` | en | `health organisation` (z=3.05), `strain hantaviru` (z=3.05), `three death` (z=3.05), `viru cruise` (z=3.05) |
+| `netherlands_belgium` | en | `hondiu passenger` (z=3.94), `three died` (z=3.28), `trust hondiu` (z=3.01), `passenger quarantine` (z=3.01) |
+| `nigeria` | en | `hantaviru full` (z=4.58), `full list` (z=4.58), `list case` (z=4.58), `case countr` (z=4.58) |
+| `nordic` | en | `finland exposed` (z=4.82), `exposed hantaviru` (z=4.82) |
+| `opinion_magazines` | en | `hantaviru covid` (z=4.86), `disease outbreak` (z=4.7), `citizen test` (z=4.7), `covid noroviru` (z=3.85) |
+| `pakistan` | en | `national hantaviru` (z=4.14), `ship test` (z=4.06), `french national` (z=3.69), `hantaviru ship` (z=3.44) |
+| `pan_african` | en | `stricken cruise` (z=5.84), `passenger evacuated` (z=4.94), `cruise ship` (z=3.96), `hantaviru stricken` (z=3.93) |
+| `qatar` | en | `passenger test` (z=6.16), `test positive` (z=5.35), `ship passenger` (z=4.83), `positive hantaviru` (z=4.19) |
+| `russia` | en | `fear hantaviru` (z=4.45), `response team` (z=4.45), `chief dismiss` (z=3.68), `dismiss covid` (z=3.68) |
+| `south_africa` | en | `ande viru` (z=3.45), `aboard hondiu` (z=3.02), `necessarily quarantined` (z=3.01), `authorit track` (z=3.01) |
+| `south_korea` | en | `ship outbreak` (z=4.45), `korean frontier` (z=4.18), `frontier discovery` (z=4.18), `discovery prevention` (z=4.18) |
+| `taiwan_hk` | en | `britain remote` (z=3.5), `hong kong` (z=3.5), `paratrooper jump` (z=3.19), `jump britain` (z=3.19) |
+| `turkey` | en | `canary island` (z=3.81), `spanish health` (z=2.83), `cape verde` (z=2.83), `island oversee` (z=2.77) |
+| `uk` | en | `french national` (z=3.14), `hantaviru leaving` (z=3.01), `with case` (z=2.9), `american national` (z=2.9) |
+| `usa` | en | `hantaviru stricken` (z=4.44), `stricken cruise` (z=4.33), `different covid` (z=3.87), `covid pandemic` (z=3.8) |
+| `vietnam_thai_my` | en | `ship captain` (z=3.02), `passenger crew` (z=2.85), `started feel` (z=2.74), `feel unwell` (z=2.74) |
+
+## Voices
+
+19 direct quote(s) extracted across 7 outlet(s).
+
+**Top speakers:** <unnamed: ,> (3), Health Minister (1), <unnamed: for them to quarantine for three weeks.
+Health Minister Mark Butler> (1), Butler (1), Spanish (1)
+
+**Speaker types:** unknown 15, official 4
 
 ## Paradox
 
 _No paradox in this corpus._
 
-## Silence as data
-
-- **`china`** — Hormuz crisis, Trump-Xi summit preparations (CGTN, SCMP covered those angles); the mRNA-gap framing surfaced only in Asia Times, not in Chinese state media itself.
-- **`iran_state`** — Entirely absorbed by Hormuz ceasefire negotiations and IRNA's war-framing coverage.
-- **`pan_arab`** — Lebanon buffer zone and Hormuz; regional Arab press left the hantavirus story to wire feeds.
-
-## Single-outlet findings
-
-1. **Asia Times** (`asia_pacific_regional`): Frames the outbreak as a geopolitical stress-test revealing a US-China mRNA vaccine gap — the only outlet to treat this as a technology-competition story. (corpus[3])
-2. **Le Figaro** (`wire_services`): Names Leo Schilperoord, a 70-year-old Dutch ornithologist who had been birdwatching in Argentina, as the probable patient zero — an identification not found in any other corpus bucket. (corpus[64])
-3. **RT** (`russia`): Publishes video of captain telling passengers a dead passenger was 'not infectious'; sole outlet foregrounding institutional concealment rather than epidemiology. (corpus[42])
-4. **South China Morning Post** (`taiwan_hk`): Covers British paratroopers jumping onto Tristan da Cunha to supply oxygen and medical personnel to the South Atlantic island dealing with a suspected hantavirus case. (corpus[53])
-5. **Daily Maverick** (`south_africa`): Reports a Western Cape resident being tested for the Andes virus after exposure on a flight — the only corpus entry tracking domestic geographic spread within Africa. (corpus[46])
-6. **Yonhap News** (`south_korea`): Alone covers North Korea raising a hantavirus alarm in response to the cruise-ship outbreak — the only corpus entry where the DPRK appears as an actor. (corpus[48])
-7. **DutchNews.nl** (`netherlands_belgium`): Reports a new possible hantavirus case linked to a KLM flight — the first indication of potential airline-based secondary transmission in the corpus. (corpus[30])
-8. **Egypt Independent** (`egypt`): Runs a symptom-differentiation guide (hantavirus vs. seasonal flu) rather than outbreak news — repositioning the story as a domestic public-health-literacy piece. (corpus[13])
-
 ## Bottom line
 
-The MV Hondius outbreak exposed a structural split: the US declined WHO-recommended quarantine in the name of 'this is not Covid,' while allies (UK, France, Australia) imposed 42-day facility isolation. French wire services hold the patient-zero scoop — a Dutch ornithologist who birdwatched in Patagonia — but the identity has not yet migrated into English-language buckets.
+Global coverage of hantavirus_cruise varies by regional interest and security posture.
 
 ---
 

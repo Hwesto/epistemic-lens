@@ -1,9 +1,83 @@
 {
   "story_key": "hantavirus_cruise",
   "story_title": "Hantavirus outbreak on MV Hondius",
-  "computed_at": "2026-05-09T18:31:13.757697+00:00",
-  "skipped": true,
-  "reason": "insufficient_history",
-  "n_days": 1,
-  "meta_version": "7.3.0"
+  "computed_at": "2026-05-11T17:12:45.896513+00:00",
+  "skipped": false,
+  "n_days": 4,
+  "n_consecutive_pairs": 3,
+  "stability": 0.0,
+  "low_stability": true,
+  "threshold": 0.5,
+  "consecutive_pairs": [
+    {
+      "from_date": "2026-05-08",
+      "to_date": "2026-05-09",
+      "from_frames": [
+        "COVID_PANDEMIC_ANXIETY_ECHO",
+        "DISTRIBUTED_PASSENGER_SCATTER",
+        "LOGISTICAL_SOVEREIGNTY_CRISIS",
+        "MEDICAL_IMPROVISATION_HEROISM",
+        "ORIGIN_UNCERTAINTY",
+        "RISK_REASSURANCE_PARADOX",
+        "TRANSMISSION_RARITY_DEBATE"
+      ],
+      "to_frames": [
+        "COVID_COMPARISON_REJECTED",
+        "CRUISE_SHIP_SYSTEMIC_VULNERABILITY",
+        "IVERMECTIN_MISINFORMATION_RESURGENCE",
+        "NATIONALS_TRACKING_AND_REPATRIATION",
+        "ORIGIN_EXCULPATION",
+        "PLAGUE_SHIP_ALARMISM",
+        "TENERIFE_POLITICAL_FLASHPOINT",
+        "WHO_COORDINATION_AS_REASSURANCE"
+      ],
+      "jaccard": 0.0
+    },
+    {
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "from_frames": [
+        "COVID_COMPARISON_REJECTED",
+        "CRUISE_SHIP_SYSTEMIC_VULNERABILITY",
+        "IVERMECTIN_MISINFORMATION_RESURGENCE",
+        "NATIONALS_TRACKING_AND_REPATRIATION",
+        "ORIGIN_EXCULPATION",
+        "PLAGUE_SHIP_ALARMISM",
+        "TENERIFE_POLITICAL_FLASHPOINT",
+        "WHO_COORDINATION_AS_REASSURANCE"
+      ],
+      "to_frames": [
+        "CRISIS_MANAGEMENT_CRITIQUE",
+        "DOMESTIC_EXPOSURE_TRACKING",
+        "ORIGIN_DISPUTE",
+        "PANDEMIC_ANXIETY_REFLEX",
+        "PLAGUE_SHIP_SENSATIONALISM",
+        "PREDICTION_MARKET_SPECTACLE",
+        "REPATRIATION_LOGISTICS",
+        "WHO_INSTITUTIONAL_AUTHORITY"
+      ],
+      "jaccard": 0.0
+    },
+    {
+      "from_date": "2026-05-10",
+      "to_date": "2026-05-11",
+      "from_frames": [
+        "CRISIS_MANAGEMENT_CRITIQUE",
+        "DOMESTIC_EXPOSURE_TRACKING",
+        "ORIGIN_DISPUTE",
+        "PANDEMIC_ANXIETY_REFLEX",
+        "PLAGUE_SHIP_SENSATIONALISM",
+        "PREDICTION_MARKET_SPECTACLE",
+        "REPATRIATION_LOGISTICS",
+        "WHO_INSTITUTIONAL_AUTHORITY"
+      ],
+      "to_frames": [
+        "CAPACITY_RESOURCES",
+        "HEALTH_SAFETY",
+        "POLICY_PRESCRIPTION"
+      ],
+      "jaccard": 0.0
+    }
+  ],
+  "meta_version": "8.7.1"
 }

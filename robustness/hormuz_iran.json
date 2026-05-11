@@ -1,9 +1,83 @@
 {
   "story_key": "hormuz_iran",
   "story_title": "Strait of Hormuz / US-Iran deal",
-  "computed_at": "2026-05-09T18:31:13.757972+00:00",
-  "skipped": true,
-  "reason": "insufficient_history",
-  "n_days": 1,
-  "meta_version": "7.3.0"
+  "computed_at": "2026-05-11T17:12:45.896991+00:00",
+  "skipped": false,
+  "n_days": 4,
+  "n_consecutive_pairs": 3,
+  "stability": 0.0,
+  "low_stability": true,
+  "threshold": 0.5,
+  "consecutive_pairs": [
+    {
+      "from_date": "2026-05-08",
+      "to_date": "2026-05-09",
+      "from_frames": [
+        "CEASEFIRE_FRAGILITY",
+        "DEAL_NEGOTIATION_WINDOW",
+        "ECONOMIC_BLOCKADE_EFFICACY",
+        "MARITIME_CONTROL_FORMALIZATION",
+        "REGIONAL_ECONOMIC_CRISIS"
+      ],
+      "to_frames": [
+        "AFRICA_DOWNSTREAM_FERTILIZER_SHOCK",
+        "CEASEFIRE_INTEGRITY_DISPUTE",
+        "CIA_BLOCKADE_ENDURANCE_ESTIMATE",
+        "CONSUMER_AVIATION_DISRUPTION",
+        "GLOBAL_OIL_AND_MARKET_SHOCK",
+        "PETROYUAN_CURRENCY_WARFARE",
+        "SEAFARER_PSYCHOLOGICAL_COST",
+        "TRUMP_THREAT_AS_ESCALATION_DRIVER"
+      ],
+      "jaccard": 0.0
+    },
+    {
+      "from_date": "2026-05-09",
+      "to_date": "2026-05-10",
+      "from_frames": [
+        "AFRICA_DOWNSTREAM_FERTILIZER_SHOCK",
+        "CEASEFIRE_INTEGRITY_DISPUTE",
+        "CIA_BLOCKADE_ENDURANCE_ESTIMATE",
+        "CONSUMER_AVIATION_DISRUPTION",
+        "GLOBAL_OIL_AND_MARKET_SHOCK",
+        "PETROYUAN_CURRENCY_WARFARE",
+        "SEAFARER_PSYCHOLOGICAL_COST",
+        "TRUMP_THREAT_AS_ESCALATION_DRIVER"
+      ],
+      "to_frames": [
+        "ALTERNATIVE_ROUTE_SCRAMBLE",
+        "DEAL_OR_NO_DEAL_STALEMATE",
+        "ENERGY_PRICE_CONTAGION",
+        "HISTORICAL_SOVEREIGNTY_CLAIM",
+        "MILITARY_ESCALATION_SPIRAL",
+        "PETROYUAN_DIGITAL_LEVERAGE",
+        "RUSSIA_PLAYBOOK_RISK",
+        "WINDFALL_PROFIT_BACKLASH"
+      ],
+      "jaccard": 0.0
+    },
+    {
+      "from_date": "2026-05-10",
+      "to_date": "2026-05-11",
+      "from_frames": [
+        "ALTERNATIVE_ROUTE_SCRAMBLE",
+        "DEAL_OR_NO_DEAL_STALEMATE",
+        "ENERGY_PRICE_CONTAGION",
+        "HISTORICAL_SOVEREIGNTY_CLAIM",
+        "MILITARY_ESCALATION_SPIRAL",
+        "PETROYUAN_DIGITAL_LEVERAGE",
+        "RUSSIA_PLAYBOOK_RISK",
+        "WINDFALL_PROFIT_BACKLASH"
+      ],
+      "to_frames": [
+        "CAPACITY_RESOURCES",
+        "ECONOMIC",
+        "EXTERNAL_REGULATION",
+        "POLICY_PRESCRIPTION",
+        "SECURITY_DEFENSE"
+      ],
+      "jaccard": 0.0
+    }
+  ],
+  "meta_version": "8.7.1"
 }
