@@ -1,4 +1,4 @@
-"""Per-archetype card renderers (PR D-1 / meta-v8.7.0).
+"""Per-archetype card renderers (PR D-1 + PR D-2 / meta-v8.7.0).
 
 Produces the HTML for the daily hero card. Six archetypes mirror
 card_picker.json's cascade outputs (word / paradox / silence / shift /
@@ -389,3 +389,71 @@ def render_index_html(today_card: dict, signals: dict,
 </body>
 </html>
 '''
+
+
+# ---------------------------------------------------------------------------
+# PR D-2: Playwright PNG renderer
+# ---------------------------------------------------------------------------
+
+# Viewport sizes for the og:image / social-share outputs. The native
+# card aspect (1200×675) matches the design; 1200×630 is the Twitter
+# card spec; 1080×1920 is Instagram Story 9:16.
+PNG_VIEWPORTS: dict[str, tuple[int, int]] = {
+    "today":         (1200, 675),
+    "today-twitter": (1200, 630),
+    "today-story":   (1080, 1920),
+}
+
+
+def _png_wrapper_html(card_html: str, styles_css_text: str,
+                       viewport_w: int, viewport_h: int) -> str:
+    """A self-contained HTML doc that embeds the card + the site CSS
+    inline. Inlining the CSS rather than linking it means Playwright
+    can render against a `data:` URL with no external fetches —
+    deterministic and offline-capable. The body is forced to
+    viewport dimensions so the card fills the PNG frame."""
+    return f'''<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<style>{styles_css_text}
+html, body {{ margin: 0; padding: 0; width: {viewport_w}px; height: {viewport_h}px; overflow: hidden; }}
+body {{ display: flex; align-items: center; justify-content: center; }}
+.card {{ width: 100% !important; max-width: {viewport_w}px !important;
+         height: 100%; max-height: {viewport_h}px;
+         box-shadow: none !important; border-radius: 0 !important; }}
+</style></head><body>{card_html}</body></html>'''
+
+
+def render_card_png(card_html: str, styles_css_text: str,
+                     viewport: str = "today") -> bytes:
+    """Render the given card HTML to a PNG at the named viewport size.
+    Raises RuntimeError if playwright isn't installed or chromium
+    isn't downloaded — the caller (build_index) should treat this as
+    "skip PNG generation, fall back to og:image text-only" rather
+    than fail the publish step.
+
+    `card_html` is the <article class="card card--<kind>">…</article>
+    fragment produced by render_card_html. `styles_css_text` is the
+    full content of web/styles.css (inlined so Playwright doesn't
+    need to fetch over the network).
+    """
+    if viewport not in PNG_VIEWPORTS:
+        raise ValueError(f"unknown viewport {viewport!r}; valid: {list(PNG_VIEWPORTS)}")
+    w, h = PNG_VIEWPORTS[viewport]
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as e:
+        raise RuntimeError(f"playwright not installed: {e}") from e
+
+    doc = _png_wrapper_html(card_html, styles_css_text, w, h)
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        try:
+            context = browser.new_context(viewport={"width": w, "height": h},
+                                            device_scale_factor=2)
+            page = context.new_page()
+            page.set_content(doc, wait_until="networkidle")
+            buf = page.screenshot(type="png", full_page=False, omit_background=False)
+        finally:
+            browser.close()
+    return buf
+

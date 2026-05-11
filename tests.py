@@ -2684,6 +2684,54 @@ class TestCardRenderers(unittest.TestCase):
                 self.assertNotIn("Traceback", html)
 
 
+class TestCardPNGRender(unittest.TestCase):
+    """PR D-2: render_card_png produces a valid PNG via Playwright.
+    Gated on playwright + chromium being available — skips cleanly
+    in environments that don't have either (the production cron
+    workflow installs both in CI)."""
+
+    def setUp(self):
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            self.skipTest("playwright not installed")
+        from publication import card_renderers as cr
+        self.cr = cr
+        # Smoke-launch to confirm Chromium is downloaded. If launch
+        # fails with "Executable doesn't exist", the runner doesn't
+        # have the browser binary — skip rather than fail.
+        try:
+            with sync_playwright() as p:
+                b = p.chromium.launch(headless=True)
+                b.close()
+        except Exception as e:
+            self.skipTest(f"chromium unavailable: {e}")
+
+    def test_render_card_png_produces_valid_png_bytes(self):
+        today_card = {
+            "card_kind": "word", "date": "2026-05-11",
+            "story_key": "test", "story_title": "Test",
+            "headline": "Test headline", "kicker": "Factual anchor.",
+            "see_how_path": "/", "meta_version": "8.7.0",
+        }
+        signals = {"story_key": "test",
+                   "within_lang_llr": {"by_bucket": {
+                       "uk": {"lang": "en", "distinctive_terms": [{"term": "westminster", "llr": 25.0}]},
+                   }}}
+        card_html = self.cr.render_card_html(today_card, signals)
+        styles = "body{font-family:sans-serif}.card{padding:48px}"
+        png = self.cr.render_card_png(card_html, styles, viewport="today")
+        # PNG magic bytes
+        self.assertTrue(png.startswith(b"\x89PNG\r\n\x1a\n"))
+        # Reasonable size — a card-shaped image at 1200x675 should be
+        # at least a few KB
+        self.assertGreater(len(png), 5_000)
+
+    def test_render_card_png_rejects_unknown_viewport(self):
+        with self.assertRaises(ValueError):
+            self.cr.render_card_png("<div/>", "", viewport="nope")
+
+
 class TestCardPickers(unittest.TestCase):
     """PR A+: pick_per_story_card_kind walks card_picker.json cascade;
     pick_todays_card scores stories per today_picker.json. Both must

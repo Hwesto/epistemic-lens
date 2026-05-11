@@ -668,6 +668,25 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         )
         (API / "index.html").write_text(index_html, encoding="utf-8")
 
+        # PR D-2: render PNGs for og:image / social share. Two
+        # viewports: 1200x675 native (the og:image the page declares)
+        # and 1200x630 twitter (Twitter card spec). Wrapped in
+        # try/except so a missing playwright install or chromium
+        # download skips PNG generation rather than failing publish —
+        # the HTML home page still works.
+        try:
+            from publication.card_renderers import render_card_html, render_card_png
+            card_html = render_card_html(today_payload, picked_signals)
+            styles_text = (WEB_SRC / "styles.css").read_text(encoding="utf-8")
+            for viewport, name in (("today", "today.png"),
+                                     ("today-twitter", "today-twitter.png")):
+                png_bytes = render_card_png(card_html, styles_text, viewport=viewport)
+                (API / name).write_bytes(png_bytes)
+        except RuntimeError as e:
+            print(f"  PNG render skipped: {e}", file=sys.stderr)
+        except Exception as e:  # pragma: no cover — chromium can be flaky
+            print(f"  PNG render failed: {e}", file=sys.stderr)
+
     index = meta.stamp(index_payload)
     (out_dir / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"

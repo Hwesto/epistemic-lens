@@ -482,7 +482,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build api/ tree
+      - name: Install runtime deps (publish path needs playwright for PNG cards)
+        run: pip install -r requirements.txt
+
+      # PR D-2: cache the Playwright Chromium download (~112 MB). Cache
+      # key is the playwright version pin so a bumped pin invalidates
+      # the cache automatically. Without this, every cron tick redownloads.
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install Playwright Chromium (cache miss only)
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: python -m playwright install chromium --with-deps
+
+      - name: Build api/ tree (renders HTML cards + PNGs)
         run: python -m publication.build_index
 
       - uses: actions/configure-pages@v4
