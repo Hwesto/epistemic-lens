@@ -175,8 +175,11 @@ jobs:
             exit 1
           fi
 
-      - name: Install jsonschema (agent uses it in-prompt to validate before commit)
-        run: pip install jsonschema
+      - name: Install jsonschema + regex (agent imports meta which needs both)
+        # regex is required because meta.py's tokenizer uses \p{L} Unicode
+        # property escapes that stdlib `re` cannot compile. Importing meta
+        # crashes at module load without it.
+        run: pip install jsonschema regex
 
       - name: Load daily-analysis prompt
         id: load_analysis_prompt
@@ -369,8 +372,10 @@ jobs:
             exit 1
           fi
 
-      - name: Install jsonschema (for renderers + agent in-prompt validation)
-        run: pip install jsonschema
+      - name: Install jsonschema + regex (renderers import meta which needs both)
+        # regex is required because meta.py's tokenizer uses \p{L} Unicode
+        # property escapes that stdlib `re` cannot compile.
+        run: pip install jsonschema regex
 
       # Phase 3: thread + carousel are deterministic templates over the
       # canonical analysis JSON. No LLM required — saves ~8 messages/day.

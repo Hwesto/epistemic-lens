@@ -28,8 +28,10 @@ from pathlib import Path
 
 try:
     import regex as _re  # Unicode-aware: supports \p{L} property escapes.
-except ImportError:  # pragma: no cover - graceful fallback
+    _REGEX_LIB_AVAILABLE = True
+except ImportError:  # pragma: no cover
     _re = _stdlib_re
+    _REGEX_LIB_AVAILABLE = False
 
 ROOT = Path(__file__).parent
 META_PATH = ROOT / "meta_version.json"
@@ -207,8 +209,18 @@ def bucket_weight_confidence(bucket: str) -> str:
 # Tokenisation primitives — kept here so build_metrics, build_briefing, and
 # any future analytical script use the same regex + normalization rules.
 # Compiled with the `regex` lib when available so Unicode property escapes
-# (\p{L}) work; otherwise falls back to stdlib `re` (ASCII-only).
-_TOKEN_RE = _re.compile(TOKENIZER["regex"])
+# (\p{L}) work. If the pinned regex uses Unicode property escapes and the
+# `regex` package is not installed, fail loudly with an actionable message
+# instead of crashing inside re.compile() with a cryptic "bad escape \p".
+_TOKEN_RE_PATTERN = TOKENIZER["regex"]
+if not _REGEX_LIB_AVAILABLE and r"\p" in _TOKEN_RE_PATTERN:
+    raise ImportError(
+        f"meta.py: pinned tokenizer regex {_TOKEN_RE_PATTERN!r} uses "
+        f"Unicode property escapes (\\p{{...}}) that stdlib `re` does not "
+        f"support. Install the `regex` package:\n"
+        f"    pip install regex"
+    )
+_TOKEN_RE = _re.compile(_TOKEN_RE_PATTERN)
 _PLURAL_SUFFIXES = tuple(TOKENIZER["plural_suffixes"])
 _MIN_LEN = int(TOKENIZER["min_token_length"])
 
