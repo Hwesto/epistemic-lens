@@ -2553,5 +2553,118 @@ def _version_at_least(actual: str, threshold: str) -> bool:
     return a >= t
 
 
+class TestCardPickers(unittest.TestCase):
+    """PR A+: pick_per_story_card_kind walks card_picker.json cascade;
+    pick_todays_card scores stories per today_picker.json. Both must
+    gracefully handle missing signal sources (day-1 stories)."""
+
+    def setUp(self):
+        from publication import build_index as bi
+        self.bi = bi
+        # Reset the lru_cache between tests so config edits land.
+        bi._card_picker_cfg.cache_clear()
+        bi._today_picker_cfg.cache_clear()
+
+    def _empty_signals(self, story_key: str = "test") -> dict:
+        return {
+            "date": "2026-05-11", "story_key": story_key,
+            "briefing": {"corpus": []},
+            "analysis": None, "trajectory": None, "coverage": None,
+            "sources": None, "within_lang_llr": None, "tilt_files": [],
+        }
+
+    def test_paradox_picked_when_joint_conclusion_present(self):
+        s = self._empty_signals()
+        s["analysis"] = {"paradox": {
+            "joint_conclusion": "x" * 80,
+            "a": {}, "b": {},
+        }}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "paradox")
+
+    def test_shift_picked_when_delta_share_above_20pct(self):
+        s = self._empty_signals()
+        s["trajectory"] = {"frame_trajectories": {
+            "ECONOMIC": [
+                {"date": "2026-05-08", "share": 0.20},
+                {"date": "2026-05-09", "share": 0.50, "delta_share": 0.30},
+            ],
+        }}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "shift")
+
+    def test_silence_picked_when_3plus_silent_buckets(self):
+        s = self._empty_signals(story_key="hormuz")
+        s["coverage"] = {"non_coverage": {"hormuz": {
+            "italy":   {"state": "silent", "coverage_pct_news": 12},
+            "germany": {"state": "silent", "coverage_pct_news": 8},
+            "spain":   {"state": "silent", "coverage_pct_news": 22},
+            "usa":     {"state": "covered"},
+        }}}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "silence")
+
+    def test_tilt_picked_when_zscore_above_4(self):
+        s = self._empty_signals()
+        s["tilt_files"] = [{
+            "bucket": "canada", "outlet": "CBC World",
+            "anchors": {
+                "wire": {"positive_tilt": [{"bigram": ["foo", "bar"], "z_score": 5.1}]},
+            },
+        }]
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "tilt")
+
+    def test_sources_picked_when_diversity_met(self):
+        s = self._empty_signals()
+        s["sources"] = {"sources": [
+            {"bucket": "italy",   "speaker_affiliation_bucket": "state"},
+            {"bucket": "germany", "speaker_affiliation_bucket": "civilian"},
+            {"bucket": "spain",   "speaker_affiliation_bucket": "state"},
+            {"bucket": "france",  "speaker_affiliation_bucket": "academic"},
+            {"bucket": "uk",      "speaker_affiliation_bucket": "civilian"},
+        ]}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "sources")
+
+    def test_word_picked_when_llr_above_20(self):
+        s = self._empty_signals()
+        s["within_lang_llr"] = {"by_bucket": {
+            "uk": {"lang": "en", "distinctive_terms": [
+                {"term": "westminster", "llr": 25.5},
+            ]},
+        }}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "word")
+
+    def test_fallback_word_when_nothing_matches(self):
+        s = self._empty_signals()
+        # Empty everything → fallback to word.
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "word")
+
+    def test_compute_finding_synthesis_empty_state_for_word(self):
+        s = self._empty_signals()
+        out = self.bi.compute_finding_synthesis(s, "word")
+        self.assertIn("accruing", out.lower())  # empty-state marker
+
+    def test_pick_todays_card_respects_min_buckets(self):
+        # 7-bucket story is below min_n_buckets_for_hero = 8; should
+        # be filtered out.
+        stories = [
+            {"story_key": "small", "title": "x", "n_buckets": 7,
+             "card_kind": "paradox", "finding_synthesis": "x",
+             "signals": self._empty_signals("small")},
+        ]
+        self.assertIsNone(self.bi.pick_todays_card(stories, "2026-05-11"))
+
+    def test_pick_todays_card_picks_highest_score(self):
+        stories = [
+            {"story_key": "hormuz", "title": "Hormuz",
+             "n_buckets": 33, "card_kind": "paradox",
+             "finding_synthesis": "p", "signals": self._empty_signals("hormuz")},
+            {"story_key": "small_word", "title": "Small",
+             "n_buckets": 9, "card_kind": "word",
+             "finding_synthesis": "w", "signals": self._empty_signals("small_word")},
+        ]
+        result = self.bi.pick_todays_card(stories, "2026-05-11")
+        self.assertEqual(result["story_key"], "hormuz")
+        self.assertEqual(result["card_kind"], "paradox")
+        self.assertIn("final_score", result["score_breakdown"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

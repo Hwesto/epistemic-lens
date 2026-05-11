@@ -134,6 +134,335 @@ def extract_title(briefing: dict, fallback_key: str) -> str:
     return briefing.get("story_title") or briefing.get("title") or fallback_key.replace("_", " ").title()
 
 
+# ---------------------------------------------------------------------------
+# Card-archetype picker (PR A+ / meta-v8.7.0)
+#
+# pick_per_story_card_kind(signals) → archetype assigned per story
+# compute_finding_synthesis(signals, kind) → headline-finding sentence the renderer uses verbatim
+# pick_todays_card(stories, recent_history) → daily hero card
+# ---------------------------------------------------------------------------
+
+from functools import lru_cache
+
+
+@lru_cache(maxsize=1)
+def _card_picker_cfg() -> dict:
+    return json.loads(meta.CARD_PICKER_PATH.read_text(encoding="utf-8"))
+
+
+@lru_cache(maxsize=1)
+def _today_picker_cfg() -> dict:
+    return json.loads(meta.TODAY_PICKER_PATH.read_text(encoding="utf-8"))
+
+
+def _safe_load(path: Path) -> dict | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def collect_story_signals(date: str, key: str, briefing: dict) -> dict:
+    """Load every on-disk artifact the cascade evaluates.
+
+    Returns a dict the picker / synthesis helpers consume. Each section
+    is None when its underlying file is absent — pickers must handle
+    missing sections without raising. This is the gracefully-degrades
+    surface for day-1 stories (no trajectory, no tilt, etc.).
+    """
+    out: dict = {"date": date, "story_key": key, "briefing": briefing}
+    out["analysis"] = _safe_load(ANALYSES / f"{date}_{key}.json")
+    out["trajectory"] = _safe_load(TRAJECTORY / f"{key}.json")
+    out["coverage"] = _safe_load(COVERAGE / f"{date}.json")
+    out["sources"] = _safe_load(SOURCES / f"{date}_{key}.json")
+    out["within_lang_llr"] = _safe_load(BRIEFINGS / f"{date}_{key}_within_lang_llr.json")
+
+    # Tilt is per-(bucket, outlet). Collect all tilt files for buckets
+    # present in this story's briefing corpus.
+    story_buckets = {e.get("bucket") for e in (briefing.get("corpus") or [])
+                      if e.get("bucket")}
+    tilt_files: list[dict] = []
+    if TILT.is_dir():
+        for bucket in story_buckets:
+            for p in TILT.glob(f"{bucket}__*.json"):
+                t = _safe_load(p)
+                if t:
+                    tilt_files.append(t)
+    out["tilt_files"] = tilt_files
+    return out
+
+
+def _precondition_matches(precond: dict, signals: dict) -> bool:
+    """Evaluate a card_picker.json precondition against a signals dict."""
+    t = precond.get("type")
+    if t == "fallback":
+        return True
+
+    if t == "field_present":
+        # E.g. "analysis.paradox" must be non-null + .joint_conclusion min length
+        path = precond.get("path", "")
+        val = _walk_path(signals, path)
+        if val in (None, "", {}, []):
+            return False
+        sub = precond.get("and")
+        if sub:
+            return _precondition_matches(sub, signals)
+        return True
+
+    if t == "min_length":
+        val = _walk_path(signals, precond.get("path", ""))
+        return isinstance(val, str) and len(val) >= int(precond.get("min", 0))
+
+    if t == "max_abs_delta_share":
+        traj = signals.get("trajectory") or {}
+        frame_trajectories = traj.get("frame_trajectories") or {}
+        lookback = int(precond.get("lookback_days", 7))
+        threshold = float(precond.get("min", 0.20))
+        # Walk recent entries per frame; check |delta_share|.
+        best = 0.0
+        for entries in frame_trajectories.values():
+            recent = (entries or [])[-lookback:]
+            for e in recent:
+                d = e.get("delta_share")
+                if d is None:
+                    continue
+                if abs(d) > best:
+                    best = abs(d)
+        return best >= threshold
+
+    if t == "count_in_state":
+        coverage = signals.get("coverage") or {}
+        non_cov = coverage.get("non_coverage") or {}
+        target_state = precond.get("state")
+        # non_coverage shape: {story_key: {bucket: {state: ..., coverage_pct_news: ...}}}
+        story = signals.get("story_key")
+        per_bucket = (non_cov.get(story) or {})
+        count = 0
+        for bucket_info in per_bucket.values():
+            if not isinstance(bucket_info, dict):
+                continue
+            if bucket_info.get("state") != target_state:
+                continue
+            extra = precond.get("additional_bucket_filter")
+            if extra and extra.get("field") == "coverage_pct_news_lt":
+                pct = bucket_info.get("coverage_pct_news")
+                if pct is None or pct >= extra.get("value", 100):
+                    continue
+            count += 1
+        return count >= int(precond.get("min_count", 0))
+
+    if t == "max_z_score":
+        threshold = float(precond.get("min", 0.0))
+        for tilt in signals.get("tilt_files") or []:
+            wire = ((tilt.get("anchors") or {}).get("wire") or {})
+            pos = wire.get("positive_tilt") or []
+            if pos and float(pos[0].get("z_score", 0)) >= threshold:
+                return True
+        return False
+
+    if t == "sources_diversity":
+        sd = (signals.get("sources") or {}).get("sources") or []
+        if len(sd) < int(precond.get("min_total", 0)):
+            return False
+        if len({s.get("bucket") for s in sd}) < int(precond.get("min_distinct_buckets", 0)):
+            return False
+        affil_buckets = {s.get("speaker_affiliation_bucket") for s in sd
+                          if s.get("speaker_affiliation_bucket")}
+        if len(affil_buckets) < int(precond.get("min_distinct_speaker_affiliation_buckets", 0)):
+            return False
+        return True
+
+    if t == "max_llr":
+        threshold = float(precond.get("min", 0.0))
+        llr = (signals.get("within_lang_llr") or {}).get("by_bucket") or {}
+        for bucket_data in llr.values():
+            terms = bucket_data.get("distinctive_terms") or []
+            if terms and float(terms[0].get("llr", 0)) >= threshold:
+                return True
+        return False
+
+    return False  # unknown type — fail closed
+
+
+def _walk_path(obj: dict, dotted: str):
+    """Walk an 'analysis.paradox.joint_conclusion'-style path. Returns
+    None on any missing step."""
+    cur = obj
+    for part in dotted.split("."):
+        if not isinstance(cur, dict):
+            return None
+        cur = cur.get(part)
+        if cur is None:
+            return None
+    return cur
+
+
+def pick_per_story_card_kind(signals: dict) -> str:
+    """Walk card_picker.json's cascade; first match wins. The last entry
+    is always a fallback so a kind is always returned."""
+    cfg = _card_picker_cfg()
+    for entry in cfg.get("cascade") or []:
+        if _precondition_matches(entry.get("precondition") or {}, signals):
+            return entry["kind"]
+    return "word"  # belt-and-suspenders; cascade always ends in fallback
+
+
+def compute_finding_synthesis(signals: dict, card_kind: str) -> str:
+    """Produce the archetype-specific headline-finding string. The
+    renderer uses this verbatim — no further editing in the frontend."""
+    a = signals.get("analysis") or {}
+    if card_kind == "paradox":
+        p = a.get("paradox") or {}
+        return (p.get("joint_conclusion") or "").strip() or "Opposing-bloc convergence detected."
+    if card_kind == "shift":
+        traj = (signals.get("trajectory") or {}).get("frame_trajectories") or {}
+        best = (None, 0.0, None)  # (frame_id, abs_delta, signed_delta)
+        for fid, entries in traj.items():
+            recent = (entries or [])[-7:]
+            for e in recent:
+                d = e.get("delta_share")
+                if d is None:
+                    continue
+                if abs(d) > best[1]:
+                    best = (fid, abs(d), d)
+        fid, _, signed = best
+        if fid:
+            direction = "up" if signed and signed > 0 else "down"
+            return f"{fid} share moved {direction} {abs(signed) * 100:.0f}pp in the last week."
+        return "Frame share moved sharply across the bucket cohort."
+    if card_kind == "silence":
+        coverage = signals.get("coverage") or {}
+        non_cov = (coverage.get("non_coverage") or {}).get(signals.get("story_key")) or {}
+        silent = [b for b, info in non_cov.items()
+                   if isinstance(info, dict) and info.get("state") == "silent"]
+        n = len(silent)
+        if n >= 1:
+            sample = ", ".join(silent[:3])
+            tail = f" and {n - 3} more" if n > 3 else ""
+            return f"{n} buckets that usually cover this stayed silent — {sample}{tail}."
+        return "Coverage gap detected across the bucket cohort."
+    if card_kind == "tilt":
+        best = None  # (z, term, outlet, bucket)
+        for tilt in signals.get("tilt_files") or []:
+            wire = ((tilt.get("anchors") or {}).get("wire") or {})
+            pos = wire.get("positive_tilt") or []
+            if not pos:
+                continue
+            top = pos[0]
+            z = float(top.get("z_score", 0))
+            if best is None or z > best[0]:
+                bg = top.get("bigram") or []
+                term = " ".join(bg) if isinstance(bg, list) else str(bg)
+                best = (z, term, tilt.get("outlet"), tilt.get("bucket"))
+        if best:
+            z, term, outlet, bucket = best
+            return f"{outlet} ({bucket}) over-uses '{term}' vs wire at z={z:.1f}."
+        return "Per-outlet vocabulary tilt detected vs wire baseline."
+    if card_kind == "sources":
+        sd = (signals.get("sources") or {}).get("sources") or []
+        affil = {s.get("speaker_affiliation_bucket") for s in sd if s.get("speaker_affiliation_bucket")}
+        return (f"{len(sd)} speakers across {len({s.get('bucket') for s in sd})} "
+                f"buckets, {len(affil)} distinct affiliation types.")
+    if card_kind == "word":
+        llr = (signals.get("within_lang_llr") or {}).get("by_bucket") or {}
+        best = None  # (llr, term, bucket)
+        for bucket, data in llr.items():
+            terms = data.get("distinctive_terms") or []
+            if not terms:
+                continue
+            top = terms[0]
+            score = float(top.get("llr", 0))
+            if best is None or score > best[0]:
+                best = (score, top.get("term"), bucket)
+        if best:
+            return f"{best[2]} corpus over-uses '{best[1]}' (llr {best[0]:.0f}) vs same-language cohort."
+        return "Vocabulary signal accruing." # empty-state for day-zero stories
+    return ""
+
+
+def _recent_hero_history(today: str, lookback_days: int) -> list[dict]:
+    """Walk api/<prev_date>/index.json for the lookback window; pull the
+    todays_card block out of each. Used by pick_todays_card to apply
+    the diversity penalty. Bootstraps gracefully (empty list = no
+    penalty)."""
+    from datetime import date as _date, timedelta
+    try:
+        today_d = _date.fromisoformat(today)
+    except ValueError:
+        return []
+    history: list[dict] = []
+    for offset in range(1, lookback_days + 1):
+        prev = (today_d - timedelta(days=offset)).isoformat()
+        idx = _safe_load(API / prev / "index.json")
+        if idx and idx.get("todays_card"):
+            history.append(idx["todays_card"])
+    return history
+
+
+def pick_todays_card(stories: list[dict], today: str) -> dict | None:
+    """Score every story per today_picker.json and pick the max.
+
+    `stories` is a list of dicts each carrying at minimum: story_key,
+    n_buckets, card_kind, and `signals` (the collect_story_signals
+    output). Returns a dict with story_key + card_kind + headline +
+    kicker + finding_synthesis + score_breakdown, or None if no story
+    clears the min_n_buckets_for_hero gate.
+    """
+    cfg = _today_picker_cfg()
+    scoring = cfg.get("scoring") or {}
+    min_buckets = int(scoring.get("min_n_buckets_for_hero", 0))
+    mag = scoring.get("magnitude") or {}
+    mag_weight = float(mag.get("weight", 0.30))
+    strength_weights = scoring.get("archetype_strength_weights") or {}
+    div = scoring.get("diversity_bonus") or {}
+    penalty_same_kind = float(div.get("penalty_for_same_archetype", 0.0))
+    penalty_same_key = float(div.get("penalty_for_same_story_key", 0.0))
+    history = _recent_hero_history(today, int(div.get("lookback_days", 5)))
+    recent_kinds = {h.get("card_kind") for h in history}
+    recent_keys = {h.get("story_key") for h in history}
+
+    eligible: list[tuple[float, dict, dict]] = []
+    for s in stories:
+        if (s.get("n_buckets") or 0) < min_buckets:
+            continue
+        kind = s.get("card_kind") or "word"
+        strength = float(strength_weights.get(kind, 0.0))
+        n_b = float(s.get("n_buckets") or 0)
+        magnitude = (n_b / 54.0) * mag_weight  # normalize: 54 = current n_buckets
+        diversity = 1.0
+        if kind in recent_kinds:
+            diversity -= penalty_same_kind
+        if s.get("story_key") in recent_keys:
+            diversity -= penalty_same_key
+        diversity = max(diversity, 0.0)
+        score = (magnitude + strength) * diversity
+        breakdown = {
+            "magnitude": round(magnitude, 3),
+            "archetype_strength": round(strength, 3),
+            "diversity_bonus": round(diversity, 3),
+            "final_score": round(score, 3),
+        }
+        eligible.append((score, s, breakdown))
+
+    if not eligible:
+        return None
+    # Sort by score desc, tie-break story_key asc.
+    eligible.sort(key=lambda r: (-r[0], r[1].get("story_key", "")))
+    score, story, breakdown = eligible[0]
+    signals = story.get("signals") or {}
+    a = signals.get("analysis") or {}
+    return {
+        "story_key": story["story_key"],
+        "story_title": story.get("title"),
+        "card_kind": story["card_kind"],
+        "headline": story.get("finding_synthesis", ""),
+        "kicker": (a.get("event_summary") or a.get("tldr") or "").strip(),
+        "finding_synthesis": story.get("finding_synthesis", ""),
+        "score_breakdown": breakdown,
+        "see_how_path": f"/{today}/{story['story_key']}/analysis.md",
+    }
+
+
 def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
     out_dir = API / date
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -242,17 +571,62 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             entry["top_isolation_bucket"] = top_isolation
         if paradox is not None:
             entry["paradox"] = paradox
+
+        # PR A+: collect signals, run cascade picker, stamp card_kind +
+        # event_summary + finding_synthesis. The picker gracefully
+        # degrades when any signal source is absent.
+        signals = collect_story_signals(date, key, briefing)
+        card_kind = pick_per_story_card_kind(signals)
+        a = signals.get("analysis") or {}
+        event_summary = a.get("event_summary") or a.get("tldr") or ""
+        entry["card_kind"] = card_kind
+        if event_summary:
+            entry["event_summary"] = event_summary.strip()
+        entry["finding_synthesis"] = compute_finding_synthesis(signals, card_kind)
+        # Stash signals on the entry for pick_todays_card; stripped
+        # before writing to disk.
+        entry["_signals"] = signals
+
         story_entries.append(entry)
 
     if not story_entries:
         return None
 
-    index = meta.stamp({
+    # PR A+: daily hero pick across the story list. Writes api/today.json
+    # and stamps a todays_card block at the top of the per-date index.
+    todays_card = pick_todays_card(
+        [{"story_key": e["key"], "title": e["title"],
+          "n_buckets": e.get("n_buckets"),
+          "card_kind": e.get("card_kind"),
+          "finding_synthesis": e.get("finding_synthesis", ""),
+          "signals": e.get("_signals", {})}
+         for e in story_entries],
+        date,
+    )
+    # Strip the private _signals before serialising story entries.
+    for e in story_entries:
+        e.pop("_signals", None)
+
+    index_payload: dict = {
         "date": date,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "n_stories": len(story_entries),
         "stories": story_entries,
-    })
+    }
+    if todays_card:
+        index_payload["todays_card"] = {k: v for k, v in todays_card.items()
+                                          if k != "see_how_path"}
+        # Write api/today.json with full hero payload (includes see_how_path).
+        today_payload = meta.stamp({
+            "date": date,
+            **todays_card,
+        })
+        (API / "today.json").write_text(
+            json.dumps(today_payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
+    index = meta.stamp(index_payload)
     (out_dir / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"
     )
