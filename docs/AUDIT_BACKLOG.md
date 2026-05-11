@@ -147,7 +147,20 @@ references the deleted stage:
 | **12-min-F** | No `index.schema.json` exists for `api/<date>/index.json`. Frontend's expected shape is an implicit contract. | Adding a schema is a Stage 14 (schema corpus) item — would also pin the index hash. | Stage 14. |
 | **12-min-G** | The api/ tree currently on disk is gitignored, so the stale 2.1.0 stamp on `api/2026-05-09/index.json` was invisible. Only a production rebuild refreshes it. | Working as designed — api/ is a build artifact. | Don't pick up. |
 
-## Stages 13 — 21
+## Stage 13 — Web frontend
+
+| ID | Item | Why deferred | Trigger to pick up |
+|---|---|---|---|
+| **13-5** | Footer text `235 feeds · 54 buckets · 16+ languages` is hardcoded in `index.html`. Today's pin facts (235 feeds, 54 buckets) coincidentally align, but if feed count moves the footnote silently rots. | Best home is a `meta.json` endpoint exposing pin facts — natural Stage 14 work. | Stage 14 (schema corpus). |
+| **13-min-A** | `escape()` in app.js handles only `& < >`. Fine for current text-content usage; risky if ever used inside HTML attribute context. | All current call sites are inside element text, never attributes. | If a future render path interpolates user content into `attr="${...}"`. |
+| **13-min-B** | No per-day `<title>` or meta description (static SEO). | MVP-acceptable. | If we ever want indexed-by-date search visibility. |
+| **13-min-C** | No cache-busting on `app.js` / `styles.css`. Pages caches aggressively. | Hash-suffixed URLs would force refresh; adds build complexity. | If a frontend change ever ships and users see stale assets. |
+| **13-min-D** | `cardLinkUrl` returns `"#"` silently on unknown artifact type. | No caller passes unknown values today. | Defensive only. |
+| **13-min-E** | `12-min-D` carry-over: latest.json empty-day shape omits `url` field. Verified handled — JS short-circuits on `!latest?.date` before consulting `url`. | Resolved by Stage 12's empty-day fallback design. | Don't pick up. |
+| **13-min-F** | No client-side error reporting / telemetry. If Pages serves a broken latest.json, errors only surface in the UI. | Adds dependency + privacy considerations. | If post-deploy issues become hard to diagnose. |
+| **13-min-G** | Frontend has no client-side schema awareness. If `analysis.schema.json` drifts, JS may crash on missing fields. | build_index validator gates writes into api/, so safe in practice; client validation would add a JS dep. | If a schema change ever produces an in-the-wild crash. |
+
+## Stages 14 — 21
 
 (Not yet reviewed. Each stage's residue gets appended here as we go.)
 
