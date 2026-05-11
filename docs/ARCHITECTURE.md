@@ -51,8 +51,8 @@
                                  ▼
         ┌──────────────────────────────────────────────────┐
         │  analytical.build_metrics                                │
-        │   • pairwise Jaccard on per-bucket vocabulary    │
-        │   • bucket isolation (mean Jaccard vs others)    │
+        │   • pairwise LaBSE cosine on per-bucket means    │
+        │   • bucket divergence (mean cosine vs others)    │
         │   • bucket-exclusive vocab (df==1, count>=3)     │
         │   • emits briefings/<date>_<story>_metrics.json  │
         └────────────────┬─────────────────────────────────┘
@@ -82,7 +82,7 @@
         │     resolves; quote substring match; bucket      │
         │     label matches corpus[idx].bucket             │
         │   • number reconciliation: n_buckets/n_articles  │
-        │     match metrics.json; isolation scores match;  │
+        │     match metrics.json; divergence scores match; │
         │     exclusive_vocab terms present in metrics     │
         │   • exits non-zero on any violation              │
         └────────────────┬─────────────────────────────────┘
@@ -103,7 +103,7 @@
         │                                                 │
         │  Python templates (no LLM):                     │
         │   • publication.render_thread    → thread.json           │
-        │     (hook priority: paradox > isolation         │
+        │     (hook priority: paradox > divergence        │
         │      outlier > exclusive vocab > generic)       │
         │   • publication.render_carousel  → carousel.json         │
         │                                                 │

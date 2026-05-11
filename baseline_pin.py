@@ -63,8 +63,20 @@ def recompute_hashes(meta: dict) -> dict:
     meta["tokenizer"]["stopwords_hash"] = M.file_hash(M.STOPWORDS_PATH)
     if M.CANONICAL_STORIES_PATH.exists():
         meta["canonical_stories_hash"] = M.file_hash(M.CANONICAL_STORIES_PATH)
+    if M.FRAMES_CODEBOOK_PATH.exists():
+        meta["frames_codebook_hash"] = M.file_hash(M.FRAMES_CODEBOOK_PATH)
+    if M.BUCKET_QUALITY_PATH.exists():
+        meta["bucket_quality_hash"] = M.file_hash(M.BUCKET_QUALITY_PATH)
+    if M.BUCKET_WEIGHTS_PATH.exists():
+        meta["bucket_weights_hash"] = M.file_hash(M.BUCKET_WEIGHTS_PATH)
+    if M.CARD_PICKER_PATH.exists():
+        meta["card_picker_hash"] = M.file_hash(M.CARD_PICKER_PATH)
+    if M.TODAY_PICKER_PATH.exists():
+        meta["today_picker_hash"] = M.file_hash(M.TODAY_PICKER_PATH)
     if M.PROMPTS_DIR.exists():
         meta["claude"]["prompts_hash"] = M.dir_hash(M.PROMPTS_DIR)
+    if M.SCHEMAS_DIR.exists():
+        meta["schemas_hash"] = M.dir_hash(M.SCHEMAS_DIR, "*.json")
 
     # Refresh feed counts so the human-readable summary stays accurate.
     feeds_doc = json.loads(M.FEEDS_PATH.read_text(encoding="utf-8"))
@@ -73,6 +85,9 @@ def recompute_hashes(meta: dict) -> dict:
         meta["feeds"]["n_feeds"] = sum(
             len(v.get("feeds", [])) for v in feeds_doc["countries"].values()
         )
+    # NOTE: pin_self_hash is NOT computed here. It's computed in
+    # cmd_bump() AFTER meta_version / pinned_at / pin_reason are
+    # written — otherwise the self-hash signs a stale config.
     return meta
 
 
@@ -115,12 +130,19 @@ def cmd_bump(level: str, reason: str | None) -> int:
         "_doc", "meta_version", "pinned_at", "pin_reason",
         "feeds", "tokenizer", "embedding", "clustering", "metrics",
         "extraction", "ingest", "signal_text", "canonical_stories_hash",
-        "claude",
+        "frames_codebook_hash", "bucket_quality_hash", "bucket_weights_hash",
+        "card_picker_hash", "today_picker_hash",
+        "schemas_hash", "claude",
     ]
     ordered = {k: raw[k] for k in canonical_order if k in raw}
     for k, v in raw.items():
         if k not in ordered:
             ordered[k] = v
+
+    # Self-hash signs the FINAL ordered dict. Must run after every
+    # mutation above (meta_version / pinned_at / pin_reason / hash
+    # refreshes) so it covers the actual on-disk content.
+    ordered["pin_self_hash"] = M.compute_pin_self_hash(ordered)
 
     META_PATH.write_text(
         json.dumps(ordered, indent=2, ensure_ascii=False) + "\n",

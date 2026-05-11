@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/video_script.schema.json",
+  "title": "Video script (Remotion + TTS input)",
+  "description": "Hand- or LLM-authored script consumed by video/synthesize_voiceover.py (per-scene TTS) and video/render_video.py (Remotion render). Not part of the daily pipeline — manual / optional path. Schema lets render_video and synthesize_voiceover fail closed on shape drift.",
+  "type": "object",
+  "required": ["meta_version", "video_id", "story_date", "story_title", "scenes"],
+  "additionalProperties": true,
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin (added by meta.stamp() or backfilled)."
+    },
+    "video_id": {
+      "type": "string",
+      "description": "Stable id; used as the output filename stem and the voiceover dir name."
+    },
+    "story_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "story_title": { "type": "string" },
+    "rank": { "type": "integer" },
+    "n_buckets_in_briefing": { "type": "integer" },
+    "story_one_liner": { "type": "string" },
+    "duration_seconds": { "type": "number", "minimum": 0 },
+    "format": { "type": "string" },
+    "voice_style": { "type": "string" },
+    "voiceover_provider": {
+      "type": "string",
+      "description": "Hint for the operator running synthesize_voiceover.py. Read by docs/operations; the CLI --provider flag wins."
+    },
+    "music_brief": { "type": "string" },
+    "intro_sting_audio": { "type": "string" },
+    "intro_sting_seconds": { "type": "number", "minimum": 0 },
+    "channel_name": { "type": "string" },
+    "world_tickers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["country_code", "headline"],
+        "additionalProperties": true,
+        "properties": {
+          "country_code": { "type": "string" },
+          "headline": { "type": "string" },
+          "outlet": { "type": "string" }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scene", "voiceover", "on_screen_text"],
+        "additionalProperties": true,
+        "properties": {
+          "scene": { "type": "integer", "minimum": 1 },
+          "time": { "type": "string" },
+          "voiceover": { "type": "string" },
+          "on_screen_text": { "type": "string" },
+          "country": { "type": ["string", "null"] },
+          "speech_rate": { "type": "number", "minimum": 0.1, "maximum": 3.0 },
+          "audio": {
+            "type": "string",
+            "description": "Set by render_video.merge_voiceover after TTS — path to the scene's audio file under video/public/."
+          },
+          "duration_seconds": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "fact_check_provenance": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

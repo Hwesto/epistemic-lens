@@ -71,14 +71,23 @@ jobs:
       - name: Deduplicate snapshot
         run: python -m pipeline.dedup
 
+      - name: Coverage matrix (deterministic per-story × per-feed coverage product, Phase 1)
+        run: python -m pipeline.coverage_matrix
+
       - name: Daily health snapshot
         run: python -m pipeline.daily_health
 
       - name: Build per-story briefings
         run: python -m analytical.build_briefing
 
-      - name: Compute briefing metrics (Jaccard + bucket-exclusive vocab)
+      - name: Compute briefing metrics (LaBSE cosine + bucket-exclusive vocab)
         run: python -m analytical.build_metrics
+
+      - name: Within-language LLR distinctive vocab (Phase 2)
+        run: python -m analytical.within_language_llr
+
+      - name: Within-language PMI/log-odds bigram associations (Phase 2)
+        run: python -m analytical.within_language_pmi
 
       - name: Job summary
         if: always()
@@ -117,7 +126,7 @@ jobs:
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add snapshots/ briefings/
+          git add snapshots/ briefings/ coverage/ cross_day_dedup_state.json archive/rollup/
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
@@ -166,8 +175,11 @@ jobs:
             exit 1
           fi
 
-      - name: Install jsonschema (agent uses it in-prompt to validate before commit)
-        run: pip install jsonschema
+      - name: Install jsonschema + regex (agent imports meta which needs both)
+        # regex is required because meta.py's tokenizer uses \p{L} Unicode
+        # property escapes that stdlib `re` cannot compile. Importing meta
+        # crashes at module load without it.
+        run: pip install jsonschema regex
 
       - name: Load daily-analysis prompt
         id: load_analysis_prompt
@@ -182,7 +194,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-sonnet-4-6 --permission-mode bypassPermissions
+          claude_args: --model claude-haiku-4-5 --permission-mode bypassPermissions
           show_full_output: true
           prompt: ${{ steps.load_analysis_prompt.outputs.content }}
         # Agent commits its own JSON outputs (per the prompt's final step).
@@ -206,6 +218,37 @@ jobs:
           AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
           git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
 
+      - name: Load headline-analysis prompt (Phase 2)
+        id: load_headline_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/headline_analysis.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code headline-only framing analysis (Phase 2)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: --model claude-haiku-4-5 --permission-mode bypassPermissions
+          show_full_output: true
+          prompt: ${{ steps.load_headline_prompt.outputs.content }}
+        # Produces analyses/<DATE>_<story>_headline.json with the same
+        # 15-frame codebook constraint as the body pass, but operating only
+        # on titles. The headline-body divergence step compares the two.
+
+      - name: Pull agent's headline-pass commits
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - name: Re-authenticate git after headline pass
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
+
       - name: Re-stamp meta_version on analyses (in case agent copied briefing pin)
         run: python -m analytical.restamp_analyses
         # Defense in depth. Agents have historically copied
@@ -221,25 +264,81 @@ jobs:
         # Defense in depth — the agent also runs schema validation
         # before its own commit per the prompt.
 
+      - name: Headline-body divergence (Phase 2) — sensationalism index
+        run: python -m analytical.headline_body_divergence
+        # Compares body and headline framings per (bucket, frame_id).
+        # Skips silently when headline pass hasn't produced a sibling JSON.
+
+      - name: Load source-attribution prompt (Phase 3a)
+        id: load_sources_prompt
+        run: |
+          {
+            echo 'content<<__PROMPT_EOF__'
+            cat .claude/prompts/source_attribution.md
+            echo '__PROMPT_EOF__'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code source attribution (Phase 3a)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: --model claude-haiku-4-5 --permission-mode bypassPermissions
+          show_full_output: true
+          prompt: ${{ steps.load_sources_prompt.outputs.content }}
+        # Produces sources/<DATE>_<story>.json with per-quote speaker
+        # attribution. Quote-grounding is verified post-hoc by validate_analysis.
+
+      - name: Pull agent's source-attribution commits
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - name: Re-authenticate git after source-attribution pass
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH}"
+
+      - name: Source aggregation (Phase 3a) — daily rollup per outlet/region
+        run: python -m analytical.source_aggregation
+        # Reads sources/<DATE>_*.json; writes sources/aggregate/<DATE>.json.
+        # Skips cleanly when no sources files exist yet.
+
+      - name: Render sources markdown (Phase 3a)
+        run: python -m publication.render_sources_md
+
       - name: Render analysis markdown from JSON
         run: python -m publication.render_analysis_md
         # Reads analyses/<date>_<story>.json (canonical, from agent),
         # writes analyses/<date>_<story>.md (presentation layer).
         # Idempotent: re-runs against the same JSON produce identical MD.
 
-      - name: Commit and push rendered markdown
+      - name: Longitudinal aggregator (Phase 1) — frame-share trajectories per story
+        run: python -m analytical.longitudinal
+
+      - name: Robustness check (Phase 4h) — frame-allocation stability per story
+        run: python -m analytical.robustness_check
+        # Day-over-day Jaccard of frame_id sets per story. Catches frame-
+        # allocation instability; NOT model drift (would need LLM re-runs
+        # against past briefings, deferred).
+        # Walks analyses/<date>_<story>.json across all dates, emits
+        # trajectory/<story>.json. Reads-only on analyses/; idempotent;
+        # writes-only to trajectory/. Flags meta_version segment changes
+        # and bucket-set signature changes for downstream consumers.
+
+      - name: Commit and push rendered markdown + trajectories
         run: |
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add analyses/
+          git add analyses/ trajectory/ sources/ robustness/
           if git diff --cached --quiet; then
-            echo "No new MD to commit (agent may have produced no qualifying stories)."
+            echo "No new MD or trajectory to commit (agent may have produced no qualifying stories)."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
           N=$(ls analyses/${DATE}_*.md 2>/dev/null | wc -l | tr -d ' ')
-          git commit -m "render analyses ${DATE} markdown (${N} files)"
+          git commit -m "render analyses ${DATE} markdown (${N} files) + trajectories"
           for i in 1 2 3; do
             if git push; then exit 0; fi
             git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
@@ -273,8 +372,10 @@ jobs:
             exit 1
           fi
 
-      - name: Install jsonschema (for renderers + agent in-prompt validation)
-        run: pip install jsonschema
+      - name: Install jsonschema + regex (renderers import meta which needs both)
+        # regex is required because meta.py's tokenizer uses \p{L} Unicode
+        # property escapes that stdlib `re` cannot compile.
+        run: pip install jsonschema regex
 
       # Phase 3: thread + carousel are deterministic templates over the
       # canonical analysis JSON. No LLM required — saves ~8 messages/day.
@@ -318,7 +419,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: --model claude-sonnet-4-6 --permission-mode bypassPermissions
+          claude_args: --model claude-haiku-4-5 --permission-mode bypassPermissions
           show_full_output: true
           prompt: ${{ steps.load_long_prompt.outputs.content }}
 
@@ -386,7 +487,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build api/ tree
+      - name: Install runtime deps (publish path needs playwright for PNG cards)
+        run: pip install -r requirements.txt
+
+      # PR D-2: cache the Playwright Chromium download (~112 MB). Cache
+      # key is the playwright version pin so a bumped pin invalidates
+      # the cache automatically. Without this, every cron tick redownloads.
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install Playwright Chromium (cache miss only)
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: python -m playwright install chromium --with-deps
+
+      - name: Build api/ tree (renders HTML cards + PNGs)
         run: python -m publication.build_index
 
       - uses: actions/configure-pages@v4
@@ -397,3 +515,48 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  distribute:
+    needs: publish_api
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Only run when publish_api succeeded (skipped is fine — distributing
+    # yesterday's content is also OK on a re-run). Phase 2.
+    if: ${{ always() && (needs.publish_api.result == 'success' || needs.publish_api.result == 'skipped') }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+
+      - name: Pull latest drafts + videos
+        run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime deps
+        run: pip install -r requirements.txt
+
+      # PR 6: distribution approval-gate. Cron no longer auto-fires the
+      # X poster or YouTube Shorts uploader. Instead, today's drafts are
+      # staged to distribution/pending/<date>/ as approval envelopes.
+      # A separate workflow (or a human running
+      # `python -m distribution.publish --approve <id>`) moves an
+      # envelope to distribution/approved/, where the actual posting
+      # picks it up. Rationale in distribution/stage.py docstring +
+      # docs/MERGE_PLAN.md PR 6.
+      - name: Stage drafts to distribution/pending/
+        run: python -m distribution.stage
+
+      - name: Commit pending envelopes
+        run: |
+          git add distribution/pending/ || true
+          if ! git diff --cached --quiet; then
+            git -c user.name="epistemic-lens-bot" \
+                -c user.email="bot@epistemic-lens" \
+              commit -m "distribution: stage $(date -u +%Y-%m-%d) drafts to pending/"
+            git push || echo "(push failed; pending envelopes still on disk)"
+          fi

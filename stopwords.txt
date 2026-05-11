@@ -1,17 +1,94 @@
-# Conservative English stopword list for the methodology pin.
+# English stopwords for the methodology pin.
 #
 # Pinned by meta_version.json -> tokenizer.stopwords_hash. Changes here
 # require a meta_version bump: 'minor' if you only add words (back-compat),
 # 'major' if you remove words (invalidates longitudinal vocab comparisons).
 #
-# Comments and blank lines are ignored. Words must be lowercase, len>=4,
-# one per line OR whitespace-separated.
+# Comments and blank lines are ignored. Words must be lowercase, len>=4
+# (the tokenizer regex drops anything shorter), one per line OR
+# whitespace-separated.
+#
+# Scope: as of meta_version 3.0.0 the metric layer reads pivot-language
+# (English) fields produced by analytical/translate.py. This file is
+# therefore an English-only list — that is correct, not a bug. It is
+# expanded vs prior pins to cover NLTK / spaCy English plus news-attribution
+# verbs ("said", "told", "reported", "according") and meta words ("today",
+# "yesterday", "breaking") that swamp bucket-exclusive vocab metrics.
 
-the and that with from this their have been over into about because while
-says will could would should might must just like also even then than they
-them there here when where what which whose whom into upon onto without
-within against between among across through during before after under such
-some most more many much these those very only ever never said say saying
-told tells telling reports reported reporting according via per amid amidst
-toward towards yet still already once also however nevertheless meanwhile
-furthermore therefore thus hence indeed perhaps maybe likely possibly
+# Determiners, demonstratives, articles
+the that this those these another other others same such some most more many much
+both each every either neither
+
+# Pronouns and possessives (4+ chars only — shorter forms are filtered by min_token_length)
+their theirs themselves themself yourself yourselves himself herself itself ourselves
+they them what which whom whose
+
+# Auxiliary / modal verbs
+have having have hath
+will shall would could might must should
+been being
+
+# Linking verbs / forms of be
+were
+
+# Common prepositions and conjunctions
+about above across after against along amid amidst among around because
+before behind below beneath beside besides between beyond despite during
+except from inside into onto outside over since through throughout till
+toward towards under underneath unless until upon while within without
+than then though although whereas wherever whenever whether whilst
+upon
+
+# Common adverbs and intensifiers
+also already always almost altogether anyway barely briefly certainly
+clearly currently easily eventually especially finally fully further
+generally hardly hence here however immediately indeed instead later
+likely maybe meanwhile merely mostly mainly nearly never nevertheless
+nonetheless often once only otherwise overall partly perhaps possibly
+previously probably quickly quite rarely really recently regardless
+seemingly several similarly simply slightly somehow sometimes somewhat
+soon still subsequently suddenly there therefore thereby thereafter
+together too truly typically ultimately unfortunately unlike usually
+very widely yet
+
+# Quantifiers / determiners (4+ chars)
+fewer least less lots much none plenty rather
+
+# News-attribution verbs (the biggest noise source in the prior list)
+said says saying tell told tells telling reports reported reporting
+state stated states stating claim claims claimed claiming
+denied denies denying confirm confirmed confirms confirming
+note noted notes noting add added adds adding
+write wrote writes writing announce announced announces announcing
+suggest suggested suggests suggesting believe believes believed believing
+according stating spokesperson spokesman spokeswoman speaker
+official officials sources source statement statements remarks remark
+comment comments commented commenting respond responds responded responding
+quote quotes quoted quoting cite cites cited citing
+declare declares declared declaring describe describes described describing
+
+# News meta vocabulary
+news today yesterday tomorrow latest update updates updated updating
+breaking exclusive scoop coverage report reports reporter reporters
+correspondent journalist journalists editor editors editorial
+agency agencies wire wires bureau bureaus
+press release releases briefing briefings interview interviews
+follow follows followed following article articles piece pieces
+story stories series headlines headline overnight earlier later
+announce announcement announcements
+
+# Time and date adverbs
+hours minutes weeks month months years yearly weekly daily
+recent recently soon late later early earlier morning afternoon
+evening night tonight weekend weekday weekdays season seasonal
+century decade decades
+
+# Vague-attribution / vague-quantity (often confounding)
+people person somebody someone anybody anyone nobody everybody
+something anything nothing everything nowhere somewhere anywhere everywhere
+amount lots part parts pieces
+
+# Politeness / hedge words
+please thank thanks indeed maybe possibly perhaps potentially
+likely unlikely apparently reportedly allegedly purportedly supposedly
+seemingly arguably presumably

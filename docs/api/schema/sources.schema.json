@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/sources.schema.json",
+  "title": "Source / quote attribution",
+  "description": "Per-story output of the source-attribution Claude pass: every direct quote in today's corpus with the speaker, role, attributive verb, and stance toward the story's target. PR 3 / meta-v8.3.0 added the speaker_affiliation_bucket + speaker_affiliation_kind fields so quotes can be aggregated by the *organization* the speaker speaks for, not just the individual role (speaker_type).",
+  "type": "object",
+  "required": [
+    "meta_version", "story_key", "date", "story_title",
+    "n_articles_processed", "sources"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta_version": {"type": "string"},
+    "story_key": {"type": "string"},
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "story_title": {"type": ["string", "null"]},
+    "n_articles_processed": {"type": "integer", "minimum": 0},
+    "model": {"type": ["string", "null"]},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "speaker_name", "role_or_affiliation", "speaker_type",
+          "speaker_affiliation_bucket", "speaker_affiliation_kind",
+          "exact_quote", "attributive_verb", "stance_toward_target",
+          "signal_text_idx", "bucket", "outlet"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "speaker_name": {
+            "type": ["string", "null"],
+            "description": "Proper name (no titles), or null for unnamed speakers."
+          },
+          "role_or_affiliation": {
+            "type": "string",
+            "description": "Institutional role at time of quotation, or descriptor for civilians."
+          },
+          "speaker_type": {
+            "type": "string",
+            "enum": ["official", "civilian", "expert", "journalist",
+                     "spokesperson", "unknown"],
+            "description": "Individual role taxonomy."
+          },
+          "speaker_affiliation_bucket": {
+            "type": "string",
+            "enum": ["state", "political", "civilian", "wire",
+                     "corporate", "academic", "NGO", "unknown"],
+            "description": "Organizational/institutional category. Distinct from speaker_type — captures the org rather than the role. Enables per-affiliation aggregation in source_aggregation.py."
+          },
+          "speaker_affiliation_kind": {
+            "type": ["string", "null"],
+            "description": "Free-text specifier of the organization (e.g. 'US Executive Branch', 'Brookings Institution'). Null for civilian / unknown buckets where no organization applies."
+          },
+          "exact_quote": {
+            "type": "string",
+            "description": "Verbatim from corpus[signal_text_idx].signal_text. Validator rejects hallucinations."
+          },
+          "attributive_verb": {
+            "type": "string",
+            "description": "Lemma form of the verb (said / claimed / warned / etc.)."
+          },
+          "stance_toward_target": {
+            "type": "string",
+            "enum": ["for", "against", "neutral", "unclear"]
+          },
+          "signal_text_idx": {"type": "integer", "minimum": 0},
+          "bucket": {"type": "string"},
+          "outlet": {"type": "string"}
+        }
+      }
+    }
+  }
+}

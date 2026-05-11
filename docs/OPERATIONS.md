@@ -11,7 +11,7 @@ python extract_full_text.py     # +body text (top clusters + per-feed sample, ~3
 python dedup.py                 # collapse near-dup items
 python daily_health.py          # health snapshot + alerts
 python build_briefing.py        # per-story corpora → briefings/<date>_<story>.json
-python build_metrics.py         # Jaccard + isolation + exclusive vocab
+python build_metrics.py         # LaBSE cosine + divergence + exclusive vocab
 git commit + push               # snapshots/, briefings/
 
 # Job 2: analyze (needs CLAUDE_CODE_OAUTH_TOKEN secret — see setup below)
@@ -220,3 +220,92 @@ If those produce reasonable output, the pipeline is healthy.
 5. Engage with comments for first 30 min after posting (algo signal)
 
 Cross-post automation via Buffer or Later API is deferred to phase B4.
+
+---
+
+## X / Twitter poster auth (Phase 2)
+
+The cron's `distribute` job posts daily threads via
+`distribution.x_poster`. The job is **secret-gated**: missing secrets =
+graceful skip, present secrets = live posting.
+
+### One-time setup
+
+1. Visit https://developer.x.com → Apps → Create App.
+2. Free tier (no payment): ~50 posts/day, sufficient for 3-5 stories/day.
+3. App permissions: **Read and Write**.
+4. Generate user-context OAuth 1.0a credentials:
+   - Consumer keys (key + secret).
+   - Access tokens (token + secret) for the posting account.
+5. Add to GitHub repo secrets at
+   Settings → Secrets and variables → Actions → New repository secret:
+   - `X_CONSUMER_KEY`
+   - `X_CONSUMER_SECRET`
+   - `X_ACCESS_TOKEN`
+   - `X_ACCESS_TOKEN_SECRET`
+
+### Verifying the wiring
+
+Local dry-run (no secrets needed):
+```bash
+python -m distribution.x_poster --date 2026-05-08 --dry-run
+```
+
+Once secrets land, the `distribute` cron job auto-activates next run.
+Each thread posts as a chained reply chain; the first tweet appends the
+public link to the per-story page on GitHub Pages.
+
+---
+
+## YouTube Shorts auth (Phase 2)
+
+The cron uploads `videos/<DATE>_*.mp4` as unlisted YouTube Shorts via
+`distribution.youtube_shorts`. Default privacy: **unlisted** — user flips
+public after review.
+
+### One-time setup
+
+1. Google Cloud Console → create project (or reuse).
+2. APIs & Services → Library → enable **YouTube Data API v3**.
+3. APIs & Services → OAuth consent screen → fill in basics; add the
+   posting Google account as a Test User.
+4. APIs & Services → Credentials → Create credentials → OAuth client ID
+   → Application type: **Desktop app**.
+5. Run a local OAuth flow to exchange the client ID/secret for a
+   refresh token granting `youtube.upload` scope. Quickest path:
+   ```bash
+   pip install google-auth-oauthlib
+   python - <<'PY'
+   from google_auth_oauthlib.flow import InstalledAppFlow
+   flow = InstalledAppFlow.from_client_secrets_file(
+       "client_secret.json",
+       scopes=["https://www.googleapis.com/auth/youtube.upload"])
+   creds = flow.run_local_server(port=0)
+   print("REFRESH TOKEN:", creds.refresh_token)
+   PY
+   ```
+6. Add to GitHub repo secrets:
+   - `YT_CLIENT_ID`
+   - `YT_CLIENT_SECRET`
+   - `YT_REFRESH_TOKEN`
+
+### Verifying the wiring
+
+Local dry-run:
+```bash
+python -m distribution.youtube_shorts --date 2026-05-06 --dry-run
+```
+
+Free-tier quota: 10,000 units/day; an upload costs ~1600 units, so
+5 uploads/day is comfortable. Daily quota resets at midnight Pacific.
+
+---
+
+## Phase 2 monthly retention rollup
+
+`pipeline/rollup.py` archives snapshots + briefings ≥ 90 days old. The
+recommended cron lives in `.github/workflows/monthly-rollup.yml`
+(template in `docs/RETENTION.md`); it runs the 1st of each month. Adding
+the workflow file is left as a deliberate next step — bare-bones today
+since v7.2.0 ships with <120 days of accumulated data and no candidates
+to roll up yet.

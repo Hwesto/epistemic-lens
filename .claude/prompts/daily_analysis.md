@@ -19,9 +19,18 @@ For each story you analyse:
 - `briefings/<DATE>_<story_key>.json` — corpus. Each `corpus[i]` entry has
   `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`.
   **The index `i` is the `signal_text_idx` you cite in evidence.**
-- `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers:
-  `pairwise_jaccard`, `isolation`, `bucket_exclusive_vocab`, `n_buckets`,
-  `n_articles`. **Use these numbers verbatim. Never invent counts or scores.**
+  Quote verbatim from `signal_text` in its source language.
+- `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers.
+  Primary similarity (meta-v7.0.0): `pairwise_similarity` and `isolation`
+  with `mean_similarity` per bucket — both are LaBSE bucket-mean cosine
+  on original signal_text (multilingual; no translation pivot). Plus
+  `bucket_exclusive_vocab` (operates on raw originals — flag in the
+  bucket's `note` if the distinctive terms look like language artefacts
+  rather than story-specific vocabulary), `n_buckets`, `n_articles`,
+  `buckets_excluded_quant`. **Use these numbers verbatim. Never invent
+  counts or scores.**
+- `frames_codebook.json` — closed taxonomy of 15 valid `frame_id` values
+  (Boydstun/Card). **Every frame you emit must use one of these IDs.**
 - `docs/api/schema/analysis.schema.json` — required output shape.
 
 ---
@@ -30,26 +39,45 @@ For each story you analyse:
 
 1. `date -u +%Y-%m-%d` to get today's date.
 2. `ls briefings/<DATE>_*.json` (excluding `_metrics.json` files) to find today's stories.
-3. For each briefing where `n_buckets >= 5`:
+3. For each briefing where `n_buckets >= 3`:
    a. Read the briefing and matching `_metrics.json`.
    b. Read every `signal_text` in `corpus[]`. Note the index of each — you cite by index.
-   c. Derive **2–8 frames** specific to this story by what the corpus actually contains.
-      Each frame = a label + which buckets carry it + at least one verbatim quote.
+   c. Read `frames_codebook.json` and identify **2–8 frames** carried by the corpus.
+      Each frame entry is:
+        - `frame_id` — REQUIRED. One of the 15 codebook IDs (e.g.
+          `SECURITY_DEFENSE`, `ECONOMIC`, `MORALITY`). This is what
+          longitudinal aggregation tracks; do not invent IDs.
+        - `sub_frame` — OPTIONAL. Story-specific human-readable label
+          (e.g. `"energy contagion"`, `"sovereign reputation"`). This is
+          where story-specific color goes — NOT in `frame_id`.
+        - `buckets` — list of bucket keys carrying the frame.
+        - `evidence` — at least one verbatim quote per frame, citing
+          `corpus[i].signal_text` by `signal_text_idx`.
+      Use `OTHER` only when no codebook frame applies, and pair it with
+      a non-empty `sub_frame` explaining the framing.
    d. Look for a paradox: opposing-bloc buckets converging on the same conclusion.
       Quote both verbatim with their `signal_text_idx`. If no genuine paradox, set `"paradox": null`.
    e. List silences: buckets that plausibly should cover this and didn't (or covered
       something else). Cross-reference today's snapshot if needed.
    f. Pick up to 10 single-outlet findings worth surfacing.
-   g. Assemble the JSON conforming to the schema.
-   h. Validate the file with the project's full validator (schema +
+   g. Write a 1-2 sentence factual `event_summary` describing what
+      concretely happened — places, people, decisions, dates. This
+      is the anchor for readers not already across the story. NO
+      framing language ("frames as", "casts as", "narrative"), NO
+      editorial voice, NO cross-outlet comparison. If you reach
+      for the word "frames", delete it and try again. Then write
+      `tldr` (3–6 sentences) which extends into the framing
+      observation.
+   h. Assemble the JSON conforming to the schema.
+   i. Validate the file with the project's full validator (schema +
       citation grounding + number reconciliation):
       `python -m analytical.validate_analysis analyses/<DATE>_<story>.json`
-   i. If it reports any errors, fix them in your JSON and re-run the
+   j. If it reports any errors, fix them in your JSON and re-run the
       validator until it prints `OK`. The same validator runs in the
       workflow post-commit; if you skip this step and any error is
       caught downstream, the workflow fails and your work has to be
       manually reverted.
-4. Skip stories with `n_buckets < 5`. Note in your final summary.
+4. Skip stories with `n_buckets < 3`. Note in your final summary.
 5. Print one summary line per story written: `<story_key> n_buckets=N paradox=yes|no n_frames=N`.
 6. **Commit and push** (uncommitted writes do not persist):
 
@@ -72,9 +100,11 @@ For each story you analyse:
   (Phase 4) will reject mismatches.
 - **Numbers from metrics only.** `n_buckets`, `n_articles`, isolation scores,
   exclusive-vocab terms — all from `metrics.json`. Never invent.
-- **Frames are story-specific.** Re-derive every time. Do NOT reuse labels
-  across stories or across days. (Once we accumulate a few weeks of data we
-  may pin a taxonomy; for now, free-form per story.)
+- **Frames use the closed codebook.** `frame_id` MUST be one of the 15
+  IDs in `frames_codebook.json`. The codebook is what makes longitudinal
+  comparison ("Italy's framing of Iran shifted from SECURITY_DEFENSE to
+  ECONOMIC over 30 days") defensible. Story-specific color belongs in
+  the optional `sub_frame` field, not in `frame_id`.
 - **No paradox if none exists.** Set `"paradox": null`. Do not invent.
 - **Schema-conformant or it doesn't ship.** Validate before commit; the
   workflow's render step depends on conforming JSON.
@@ -92,11 +122,12 @@ For each story you analyse:
   "story_title": "...",
   "n_buckets": 27,
   "n_articles": 41,
+  "event_summary": "What concretely happened. 1-2 sentences. Factual only — no framing language, no editorial voice, no cross-outlet comparison.",
   "tldr": "Lead with the most surprising finding (3-6 sentences).",
   "frames": [
     {
-      "label": "ECONOMIC_CONTAGION",
-      "description": "Coverage focuses on price spillovers to the bucket's home economy.",
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy-price contagion",
       "buckets": ["philippines", "south_korea", "japan"],
       "evidence": [
         {"bucket": "philippines", "outlet": "Asia Times",
@@ -106,8 +137,8 @@ For each story you analyse:
     }
   ],
   "isolation_top": [
-    {"bucket": "italy", "mean_jaccard": 0.009,
-     "note": "Italian-language; isolation is linguistic, not editorial."}
+    {"bucket": "italy", "mean_similarity": 0.74,
+     "note": "Aligned semantically with the corpus mean."}
   ],
   "exclusive_vocab_highlights": [
     {"bucket": "italy", "terms": ["guerra", "accordo", "uniti"],

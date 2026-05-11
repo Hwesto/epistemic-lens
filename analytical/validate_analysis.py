@@ -13,7 +13,7 @@ Three classes of check, in order of severity:
 3. Number reconciliation — every n_buckets, n_articles, isolation
    score, and bucket-exclusive vocab term referenced in the analysis
    must match the matching values in metrics.json. Catches inflated
-   counts and fabricated jaccard scores.
+   counts and fabricated similarity scores.
 
 Exit non-zero on ANY violation, with a human-readable error per issue.
 Designed to run as a pre-commit step (agent runs it before git commit)
@@ -36,6 +36,15 @@ from meta import REPO_ROOT as ROOT
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "analysis.schema.json"
+CODEBOOK_PATH = ROOT / "frames_codebook.json"
+
+
+def _codebook_ids() -> set[str]:
+    """Closed taxonomy of valid frame_id values (Boydstun/Card)."""
+    if not CODEBOOK_PATH.exists():
+        return set()
+    raw = json.loads(CODEBOOK_PATH.read_text(encoding="utf-8"))
+    return {f["frame_id"] for f in raw.get("frames") or []}
 
 
 class ValidationError(Exception):
@@ -174,6 +183,40 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
     return errors
 
 
+def check_codebook(analysis: dict) -> list[str]:
+    """Every frame must use a frame_id from frames_codebook.json (Boydstun/Card).
+
+    Schema enum already enforces this at the JSON-schema layer; this check
+    produces a clearer error message and additionally requires that frames
+    using `frame_id == 'OTHER'` carry a non-empty `sub_frame`, since OTHER
+    is meant as an escape hatch with explicit justification.
+    """
+    errors: list[str] = []
+    valid = _codebook_ids()
+    if not valid:
+        errors.append(
+            "codebook: frames_codebook.json missing or empty — cannot validate frame_id"
+        )
+        return errors
+    for fi, f in enumerate(analysis.get("frames") or []):
+        fid = f.get("frame_id")
+        if not fid:
+            errors.append(f"codebook: frames[{fi}] missing required frame_id")
+            continue
+        if fid not in valid:
+            errors.append(
+                f"codebook: frames[{fi}].frame_id {fid!r} not in codebook "
+                f"(valid: {sorted(valid)})"
+            )
+            continue
+        if fid == "OTHER" and not (f.get("sub_frame") or "").strip():
+            errors.append(
+                f"codebook: frames[{fi}].frame_id is OTHER but sub_frame is "
+                f"empty — OTHER requires a sub_frame justification"
+            )
+    return errors
+
+
 def check_numbers(analysis: dict, metrics: dict) -> list[str]:
     """Reconcile n_buckets, n_articles, isolation values against metrics."""
     errors: list[str] = []
@@ -190,22 +233,23 @@ def check_numbers(analysis: dict, metrics: dict) -> list[str]:
             f"metrics.n_articles {metrics.get('n_articles')}"
         )
 
-    # isolation_top mean_jaccard values must match metrics.isolation entries.
-    metrics_iso = {r["bucket"]: r["mean_jaccard"]
-                   for r in metrics.get("isolation") or []}
+    # isolation_top values must match metrics.isolation (LaBSE cosine, primary).
+    metrics_iso_primary = {
+        r["bucket"]: r["mean_similarity"] for r in metrics.get("isolation") or []
+    }
     for ii, r in enumerate(analysis.get("isolation_top") or []):
         b = r.get("bucket")
-        v = r.get("mean_jaccard")
-        if b not in metrics_iso:
+        if b not in metrics_iso_primary:
             errors.append(
                 f"numbers: isolation_top[{ii}].bucket {b!r} not in "
                 f"metrics.isolation"
             )
             continue
-        if v is not None and abs(metrics_iso[b] - v) > 1e-6:
+        v = r.get("mean_similarity")
+        if v is not None and abs(metrics_iso_primary[b] - v) > 1e-6:
             errors.append(
-                f"numbers: isolation_top[{ii}] mean_jaccard {v} != "
-                f"metrics value {metrics_iso[b]} for bucket {b!r}"
+                f"numbers: isolation_top[{ii}].mean_similarity {v} != "
+                f"metrics value {metrics_iso_primary[b]} for bucket {b!r}"
             )
 
     # exclusive_vocab terms claimed must appear in metrics.bucket_exclusive_vocab.
@@ -252,9 +296,51 @@ def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
         return 1, [str(e)]
 
     errs: list[str] = []
+    errs.extend(check_codebook(analysis))
     errs.extend(check_citations(analysis, briefing))
     errs.extend(check_numbers(analysis, metrics))
     return (1 if errs else 0), errs
+
+
+def check_quote_grounding_sources(
+    sources_doc: dict, briefing: dict
+) -> list[str]:
+    """Phase 3a: parallel-validate source-attribution JSON.
+
+    Each `sources[i].exact_quote` must appear verbatim in the article it's
+    attributed to (`corpus[signal_text_idx].signal_text`). The bucket field
+    must match. Catches hallucinated quotes the same way the body validator
+    does.
+
+    Defers schema validity to the producer (the source-attribution agent
+    runs its own self-check); this is defence in depth at validate time.
+    """
+    errors: list[str] = []
+    sources = sources_doc.get("sources") or []
+    corpus = briefing.get("corpus") or []
+    n_articles = len(corpus)
+    for ii, s in enumerate(sources):
+        idx = s.get("signal_text_idx")
+        if not isinstance(idx, int) or idx < 0 or idx >= n_articles:
+            errors.append(
+                f"sources[{ii}]: signal_text_idx {idx} out of range "
+                f"(corpus length {n_articles})"
+            )
+            continue
+        article = corpus[idx]
+        quote = (s.get("exact_quote") or "").strip()
+        text = article.get("signal_text") or ""
+        if quote and quote not in text:
+            errors.append(
+                f"sources[{ii}]: quote not found verbatim in "
+                f"corpus[{idx}].signal_text — {quote[:60]!r}"
+            )
+        if s.get("bucket") != article.get("bucket"):
+            errors.append(
+                f"sources[{ii}]: claims bucket {s.get('bucket')!r} but "
+                f"corpus[{idx}].bucket = {article.get('bucket')!r}"
+            )
+    return errors
 
 
 def main() -> int:
@@ -274,6 +360,10 @@ def main() -> int:
     for t in targets:
         if t.suffix != ".json":
             continue
+        # Skip Phase 2 sibling artefacts (headline, divergence) — they
+        # share the analysis schema but are validated elsewhere.
+        if t.stem.endswith(("_headline", "_divergence")):
+            continue
         rc, errs = validate_one(t)
         if rc == 0:
             print(f"  OK  {t.name}")
@@ -283,8 +373,37 @@ def main() -> int:
                 print(f"    - {e}")
             total_errors += len(errs)
 
+    # Phase 3a: parallel-validate source-attribution outputs.
+    SOURCES = ROOT / "sources"
+    if SOURCES.exists():
+        date = args.date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        for sp in sorted(SOURCES.glob(f"{date}_*.json")):
+            if sp.parent.name == "aggregate":
+                continue
+            try:
+                sd = json.loads(sp.read_text(encoding="utf-8"))
+            except Exception as e:
+                print(f"  FAIL  {sp.name}: {e}")
+                total_errors += 1
+                continue
+            story_key = sd.get("story_key")
+            try:
+                briefing = _load_briefing(date, story_key)
+            except ValidationError as e:
+                print(f"  FAIL  {sp.name}: {e}")
+                total_errors += 1
+                continue
+            errs = check_quote_grounding_sources(sd, briefing)
+            if errs:
+                print(f"  FAIL  {sp.name}")
+                for e in errs:
+                    print(f"    - {e}")
+                total_errors += len(errs)
+            else:
+                print(f"  OK    {sp.name}  ({len(sd.get('sources') or [])} sources)")
+
     if total_errors:
-        print(f"\n{total_errors} validation error(s) across {len(targets)} file(s).")
+        print(f"\n{total_errors} validation error(s).")
     return 1 if total_errors else 0
 
 

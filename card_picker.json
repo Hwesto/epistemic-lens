@@ -1,0 +1,68 @@
+{
+  "_doc": "Per-story card archetype picker. Ordered cascade — first matching precondition wins. Final entry is the fallback. Threshold values are first-pass; tunable in a follow-on bump. All thresholds chosen to gracefully degrade on day-1 stories (when trajectory has only 1 day, tilt may not exist, etc.). Each precondition is a structured object that publication/build_index.pick_per_story_card_kind() interprets — see that function for the field-path conventions.",
+  "version": "1.0.0",
+  "cascade": [
+    {
+      "kind": "paradox",
+      "precondition": {
+        "type": "field_present",
+        "path": "analysis.paradox",
+        "and": {
+          "type": "min_length",
+          "path": "analysis.paradox.joint_conclusion",
+          "min": 60
+        }
+      }
+    },
+    {
+      "kind": "shift",
+      "precondition": {
+        "type": "max_abs_delta_share",
+        "path": "trajectory.frame_trajectories",
+        "lookback_days": 7,
+        "min": 0.20
+      }
+    },
+    {
+      "kind": "silence",
+      "precondition": {
+        "type": "count_in_state",
+        "path": "coverage.non_coverage",
+        "state": "silent",
+        "additional_bucket_filter": {"field": "coverage_pct_news_lt", "value": 30},
+        "min_count": 3
+      }
+    },
+    {
+      "kind": "tilt",
+      "precondition": {
+        "type": "max_z_score",
+        "path": "tilt.anchors.wire.positive_tilt",
+        "field": "z_score",
+        "min": 4.0
+      }
+    },
+    {
+      "kind": "sources",
+      "precondition": {
+        "type": "sources_diversity",
+        "min_total": 5,
+        "min_distinct_buckets": 3,
+        "min_distinct_speaker_affiliation_buckets": 2
+      }
+    },
+    {
+      "kind": "word",
+      "precondition": {
+        "type": "max_llr",
+        "path": "within_lang_llr.by_bucket",
+        "field": "distinctive_terms[0].llr",
+        "min": 20.0
+      }
+    },
+    {
+      "kind": "word",
+      "precondition": {"type": "fallback"}
+    }
+  ]
+}

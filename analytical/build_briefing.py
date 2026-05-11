@@ -113,6 +113,10 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
         for a in kept_for_bucket:
             corpus.append({"bucket": ck, **a})
 
+    # Phase 3i + 3j: stamp per-bucket feed-set hash + the active
+    # canonical_stories pin so longitudinal aggregator can detect drift
+    # in either dimension across days.
+    bucket_feed_set_hashes = meta.bucket_feed_set_hashes(list(by_bucket.keys()))
     return meta.stamp({
         "date": snap.get("date"),
         "story_key": story_key,
@@ -121,6 +125,8 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
         "n_articles_total": sum(len(v) for v in by_bucket.values()),
         "signal_breakdown": dict(Counter(a["signal_level"] for a in corpus)),
         "corpus": corpus,
+        "bucket_feed_set_hashes": bucket_feed_set_hashes,
+        "canonical_stories_hash": meta.META.get("canonical_stories_hash", ""),
     })
 
 

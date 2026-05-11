@@ -1,5 +1,5 @@
 {
-  "_doc": "Canonical story-group patterns. Pinned by meta_version.json -> canonical_stories_hash. Adding a story = minor version bump. Changing patterns or excludes = major version bump (invalidates which articles past briefings would have grouped together).",
+  "_doc": "Canonical story-group patterns. Pinned by meta_version.json -> canonical_stories_hash. Adding a story = minor version bump. Changing patterns or excludes = major version bump (invalidates which articles past briefings would have grouped together).\n\nAs of meta_version 6.0.0 the base expands from 5 to 15+ entries: long-running geopolitical / economic / scientific dossiers that produce daily coverage across multiple buckets and therefore enable real longitudinal frame tracking under the closed Boydstun codebook. Dated short-lived stories (Hantavirus cruise, Vietnam-China visit, Ted Turner death) are retained for back-compatibility on prior briefings but the daily pipeline weights long-running dossiers higher.\n\nAuto-promoted candidates from analytical/auto_promote.py write to archive/auto_promoted_<date>.md for review. Promoting a candidate = manual edit of this file + minor pin bump.",
   "stories": {
     "hormuz_iran": {
       "title": "Strait of Hormuz / US-Iran deal",
@@ -10,7 +10,8 @@
         "\\bone[\\- ]page memo\\b",
         "\\biran\\b.{0,40}\\bdeal\\b"
       ],
-      "exclude": []
+      "exclude": [],
+      "tier": "long_running"
     },
     "turner_cnn": {
       "title": "Ted Turner death (CNN founder)",
@@ -20,7 +21,8 @@
         "\\bcnn founder\\b",
         "\\bcnn.*\\bturner\\b"
       ],
-      "exclude": []
+      "exclude": [],
+      "tier": "dated"
     },
     "lebanon_buffer": {
       "title": "Israeli buffer zone in southern Lebanon",
@@ -33,7 +35,8 @@
       ],
       "exclude": [
         "\\bhormuz\\b"
-      ]
+      ],
+      "tier": "long_running"
     },
     "hantavirus_cruise": {
       "title": "Hantavirus outbreak on MV Hondius",
@@ -42,7 +45,8 @@
         "\\bmv hondius\\b",
         "\\bcruise.*\\bvirus\\b"
       ],
-      "exclude": []
+      "exclude": [],
+      "tier": "dated"
     },
     "vietnam_china_visit": {
       "title": "Vietnam To Lam visits Beijing",
@@ -50,7 +54,133 @@
         "\\bto lam\\b",
         "\\bvietnam.*\\bbeijing\\b"
       ],
-      "exclude": []
+      "exclude": [],
+      "tier": "dated"
+    },
+    "iran_nuclear": {
+      "title": "Iran nuclear program / negotiations",
+      "patterns": [
+        "\\biran(?:ian)?\\b.{0,40}\\bnuclear\\b",
+        "\\bjcpoa\\b",
+        "\\benrichment\\b.*\\biran",
+        "\\biaea\\b.*\\biran",
+        "\\bfordow\\b",
+        "\\bnatanz\\b"
+      ],
+      "exclude": [
+        "\\bhormuz\\b"
+      ],
+      "tier": "long_running"
+    },
+    "ukraine_war": {
+      "title": "Russia-Ukraine war",
+      "patterns": [
+        "\\bukrain(?:e|ian)\\b.{0,60}\\b(?:russia|invasion|war|frontline|kursk|donbas)",
+        "\\bzelensk(?:y|yy|iy)\\b",
+        "\\bkremlin\\b.*\\bukraine\\b",
+        "\\bnato\\b.*\\bukraine\\b",
+        "\\bdrone strike\\b.*\\b(?:ukraine|russia)"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "china_taiwan": {
+      "title": "China-Taiwan tensions",
+      "patterns": [
+        "\\btaiwan\\b.{0,60}\\b(?:china|beijing|pla|incursion|strait)",
+        "\\btaiwan strait\\b",
+        "\\bone[\\- ]china\\b",
+        "\\btsai\\b.*\\btaiwan\\b",
+        "\\blai ching[\\- ]te\\b"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "climate_policy": {
+      "title": "Global climate policy / COP / emissions",
+      "patterns": [
+        "\\bcop\\d{2}\\b",
+        "\\bclimate (?:summit|treaty|deal|talks|conference)\\b",
+        "\\bnet[\\- ]zero\\b",
+        "\\bparis agreement\\b",
+        "\\b(?:carbon|emissions) (?:tax|credit|market|trading|cut)\\b"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "ai_regulation": {
+      "title": "AI regulation / governance",
+      "patterns": [
+        "\\bai (?:act|regulation|safety|policy|governance)\\b",
+        "\\bartificial intelligence\\b.*\\b(?:regulat|govern|ban|polic)",
+        "\\beu ai act\\b",
+        "\\bopenai\\b.*\\b(?:lawsuit|investigation|ftc|fine)",
+        "\\bdeepfake\\b.*\\b(?:law|regulation|election)"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "israel_palestine": {
+      "title": "Israel-Palestine / Gaza conflict",
+      "patterns": [
+        "\\bgaza\\b",
+        "\\bwest bank\\b",
+        "\\bhamas\\b",
+        "\\bidf\\b.*\\b(?:strike|operation|incursion)",
+        "\\bnetanyahu\\b.*\\b(?:gaza|palestin)",
+        "\\bceasefire\\b.*\\b(?:gaza|israel|hamas)"
+      ],
+      "exclude": [
+        "\\blebanon\\b",
+        "\\bhormuz\\b"
+      ],
+      "tier": "long_running"
+    },
+    "india_pakistan": {
+      "title": "India-Pakistan relations",
+      "patterns": [
+        "\\bindia\\b.{0,40}\\bpakistan\\b",
+        "\\bpakistan\\b.{0,40}\\bindia\\b",
+        "\\bkashmir\\b",
+        "\\bline of control\\b",
+        "\\bislamabad\\b.*\\bdelhi\\b",
+        "\\bdelhi\\b.*\\bislamabad\\b"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "us_election_cycle": {
+      "title": "US 2028 election cycle",
+      "patterns": [
+        "\\b2028 (?:election|primary|presidential|race)\\b",
+        "\\b(?:republican|democratic) (?:primary|nomination|frontrunner)\\b",
+        "\\biowa caucus\\b",
+        "\\bnew hampshire primary\\b",
+        "\\b(?:trump|harris|vance|newsom|desantis)\\b.*\\b2028\\b"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "eu_expansion": {
+      "title": "EU expansion / accession negotiations",
+      "patterns": [
+        "\\beu (?:accession|enlargement|expansion|candidate)\\b",
+        "\\b(?:ukraine|moldova|georgia|albania|montenegro|serbia|kosovo|bosnia|north macedonia)\\b.{0,60}\\beu\\b",
+        "\\b(?:brussels|european commission)\\b.*\\b(?:accession|membership)\\b"
+      ],
+      "exclude": [],
+      "tier": "long_running"
+    },
+    "africa_political_transitions": {
+      "title": "Africa political transitions / coups / elections",
+      "patterns": [
+        "\\bcoup\\b.*\\b(?:africa|sahel|niger|mali|burkina|gabon|guinea|sudan|chad)",
+        "\\b(?:niger|mali|burkina faso|gabon|guinea|sudan|chad|senegal|nigeria|kenya|ethiopia|south africa)\\b.{0,60}\\b(?:election|junta|transition|protest)\\b",
+        "\\becowas\\b",
+        "\\bafrican union\\b.*\\b(?:summit|sanction|mediation)"
+      ],
+      "exclude": [],
+      "tier": "long_running"
     }
   }
 }

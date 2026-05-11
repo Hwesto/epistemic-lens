@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/canonical_stories.schema.json",
+  "title": "Canonical story-group definitions",
+  "description": "Pinned by meta_version.json -> canonical_stories_hash. Each entry is a story key -> {title, patterns: [regex, ...], exclude?: [regex, ...]}. Patterns are searched against the lowercased title+summary+body[:meta.BRIEFING.body_match_chars]; exclude regexes are veto rules.",
+  "type": "object",
+  "required": ["stories"],
+  "additionalProperties": true,
+  "properties": {
+    "_doc": {"type": "string"},
+    "stories": {
+      "type": "object",
+      "minProperties": 1,
+      "description": "Story key -> definition. Keys are stable identifiers used by every downstream stage; renames invalidate longitudinal comparison.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["title", "patterns"],
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human-readable story label."
+          },
+          "patterns": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Python re.search regex (case-insensitive). Test it before pinning — typos silently never match."
+            }
+          },
+          "exclude": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "description": "Veto regexes. Match here = item is excluded from the story even if a positive pattern matches."
+          }
+        }
+      }
+    }
+  }
+}

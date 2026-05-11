@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/tilt.schema.json",
+  "title": "Per-outlet tilt index",
+  "description": "Per-(bucket, outlet) bigram log-odds against two baselines (PR 7 / meta-v8.5.0): the wire-services baseline (Reuters/AFP/AP) and the cross-bucket-mean baseline (average of all non-wire outlets in the window). Two anchors triangulate: single-anchor 'tilt vs wire' privileges wire as a hidden truth-baseline; bucket_mean offers no such privilege but has its own selection bias. Reporting both honestly surfaces the choice.",
+  "type": "object",
+  "required": [
+    "meta_version", "bucket", "outlet", "window_days",
+    "n_articles_in_window", "anchors"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "meta_version": {"type": "string"},
+    "bucket": {"type": "string"},
+    "outlet": {"type": "string"},
+    "window_days": {"type": "integer", "minimum": 1},
+    "n_articles_in_window": {"type": "integer", "minimum": 0},
+    "wire_baseline_pin": {"type": ["string", "null"]},
+    "wire_baseline_n_articles": {"type": "integer"},
+    "n_outlet_distinct": {"type": "integer"},
+    "anchors": {
+      "type": "object",
+      "required": ["wire", "bucket_mean"],
+      "additionalProperties": false,
+      "properties": {
+        "wire":        {"$ref": "#/$defs/anchor_result"},
+        "bucket_mean": {"$ref": "#/$defs/anchor_result"}
+      }
+    }
+  },
+  "$defs": {
+    "anchor_result": {
+      "type": "object",
+      "required": ["n_baseline_bigrams", "positive_tilt", "negative_tilt"],
+      "properties": {
+        "n_baseline_bigrams": {"type": "integer"},
+        "positive_tilt": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/tilt_row"}
+        },
+        "negative_tilt": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/tilt_row"}
+        }
+      }
+    },
+    "tilt_row": {
+      "type": "object",
+      "required": ["bigram", "count_in_outlet", "count_in_baseline",
+                    "log_odds", "z_score"],
+      "properties": {
+        "bigram": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "count_in_outlet": {"type": "integer"},
+        "count_in_baseline": {"type": "integer"},
+        "rate_in_outlet": {"type": "number"},
+        "rate_in_baseline": {"type": "number"},
+        "log_odds": {"type": "number"},
+        "z_score": {"type": "number"}
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/distribution_pending.schema.json",
+  "title": "Distribution pending envelope",
+  "description": "Approval-gate wrapper around a single (story, target-platform) distribution draft. Written by distribution/stage.py from the daily cron; the operator moves it to distribution/approved/ or distribution/rejected/ via distribution.publish. The envelope holds metadata + a reference to the underlying draft on disk — not the draft content itself, so a re-render to drafts/ between staging and publish auto-propagates.",
+  "type": "object",
+  "required": [
+    "meta_version", "id", "date", "story_key", "target_platform",
+    "draft_kind", "draft_path", "stage_status", "staged_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta_version": {"type": "string"},
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}_.+_(x|youtube_shorts|linkedin|threads|bluesky)$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "story_key": {"type": "string"},
+    "target_platform": {
+      "type": "string",
+      "enum": ["x", "youtube_shorts", "linkedin", "threads", "bluesky"]
+    },
+    "draft_kind": {
+      "type": "string",
+      "enum": ["thread", "carousel", "long", "video"]
+    },
+    "draft_path": {
+      "type": "string",
+      "description": "Relative path from repo root to the underlying draft JSON."
+    },
+    "media_path": {
+      "type": "string",
+      "description": "Relative path to associated media (e.g. videos/<date>_<story>.mp4 for youtube_shorts)."
+    },
+    "stage_status": {
+      "type": "string",
+      "enum": ["pending", "approved", "rejected", "published"]
+    },
+    "staged_at": {"type": "string"},
+    "approved_at": {"type": ["string", "null"]},
+    "approved_by": {"type": ["string", "null"]},
+    "published_at": {"type": ["string", "null"]},
+    "publish_result": {
+      "type": "object",
+      "description": "Filled in by the actual posting workflow when status flips to `published`."
+    }
+  }
+}

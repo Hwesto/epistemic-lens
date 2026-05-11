@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/briefing.schema.json",
+  "title": "Per-story briefing",
+  "description": "The central analytical artifact: per-bucket corpus assembled from a snapshot, written by analytical.build_briefing. Consumed by analytical.build_metrics, the LLM analyze prompt, analytical.validate_analysis (citation grounding via signal_text_idx, which is the corpus[] position), and publication.build_index. The corpus[] order and field names are the cross-stage hand-off contract — renaming or reordering silently breaks downstream consumers.",
+  "type": "object",
+  "required": [
+    "meta_version",
+    "date",
+    "story_key",
+    "story_title",
+    "n_buckets",
+    "n_articles",
+    "signal_breakdown",
+    "corpus"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin version this briefing was produced under (added by meta.stamp())."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "story_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "story_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "n_buckets": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "n_articles": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Kept-corpus count (== len(corpus)). The candidate count (pre per-bucket dedup) is intentionally not exposed."
+    },
+    "signal_breakdown": {
+      "type": "object",
+      "description": "Counts of corpus[] entries by signal_level.",
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "summary": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "title": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "corpus": {
+      "type": "array",
+      "description": "Per-article entries. The position `i` is the signal_text_idx the LLM analyze step cites by — order matters and must be stable.",
+      "items": {
+        "type": "object",
+        "required": [
+          "bucket",
+          "feed",
+          "lang",
+          "title",
+          "link",
+          "signal_level",
+          "signal_text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "bucket": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feed": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string",
+            "format": "uri"
+          },
+          "signal_level": {
+            "type": "string",
+            "enum": [
+              "body",
+              "summary",
+              "title"
+            ]
+          },
+          "signal_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "extraction_status": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "FULL",
+              "PARTIAL",
+              "STUB",
+              "NONE",
+              "ERROR",
+              "SKIPPED",
+              null
+            ]
+          },
+          "via_wayback": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

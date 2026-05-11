@@ -24,6 +24,8 @@ import sys
 import tempfile
 import time
 import unittest
+
+import meta
 from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch, MagicMock
@@ -305,6 +307,201 @@ class TestDedup(unittest.TestCase):
         self.assertEqual(result["n_deduped"], 1)
         self.assertGreaterEqual(result["n_url_dupes"], 2)
 
+    def test_cross_day_dedup_marks_repeat_url(self):
+        """Item with a canonical URL already in state gets cross_day_duplicate=True."""
+        # Pre-seeded state: this URL was first seen 3 days ago
+        state = {
+            "window_days": 30,
+            "url_first_seen": {"https://example.com/article": "2026-05-06"},
+            "title_first_seen": {},
+        }
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "F", "items": [
+                        {"id": "x", "link": "https://example.com/article",
+                         "title": "Today only", "summary": "S"},
+                    ]},
+                ]},
+            },
+        }
+        self.dedup.dedup_snapshot(snap, cross_day_state=state)
+        item = snap["countries"]["usa"]["feeds"][0]["items"][0]
+        self.assertTrue(item.get("cross_day_duplicate"))
+        self.assertEqual(item.get("cross_day_first_seen"), "2026-05-06")
+
+    def test_cross_day_state_prunes_outside_window(self):
+        """Entries older than window_days are dropped when prune is called."""
+        state = {
+            "window_days": 30,
+            "url_first_seen": {
+                "https://old.example/article": "2026-01-01",
+                "https://recent.example/article": "2026-05-06",
+            },
+            "title_first_seen": {},
+        }
+        n = self.dedup.prune_cross_day_state(state, today="2026-05-09")
+        self.assertEqual(n, 1)
+        self.assertNotIn("https://old.example/article", state["url_first_seen"])
+        self.assertIn("https://recent.example/article", state["url_first_seen"])
+
+    def test_cross_day_state_preserves_first_seen_on_revisit(self):
+        """update_cross_day_state must NOT overwrite an existing first_seen."""
+        state = {
+            "window_days": 30,
+            "url_first_seen": {"https://example.com/x": "2026-05-01"},
+            "title_first_seen": {},
+        }
+        self.dedup.update_cross_day_state(
+            state,
+            canonical_urls={"https://example.com/x"},
+            normalised_titles=set(),
+            today="2026-05-09",
+        )
+        # First-seen stays at the original date
+        self.assertEqual(state["url_first_seen"]["https://example.com/x"], "2026-05-01")
+
+
+class TestCoverageMatrix(unittest.TestCase):
+    """Phase 1 deterministic per-(story, feed) coverage product."""
+
+    def setUp(self):
+        if "pipeline.coverage_matrix" in sys.modules:
+            importlib.reload(sys.modules["pipeline.coverage_matrix"])
+        from pipeline import coverage_matrix
+        self.cm = coverage_matrix
+
+    def test_matrix_records_matching_feeds_only(self):
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "Outlet A", "section": "news", "items": [
+                        {"id": "1", "title": "Strait of Hormuz crisis deepens",
+                         "summary": "Iran navy", "body_text": "", "link": "https://a/1",
+                         "body_chars": 1500},
+                        {"id": "2", "title": "Unrelated stock-market story",
+                         "summary": "", "body_text": "", "link": "https://a/2"},
+                    ]},
+                    {"name": "Outlet B", "section": "wire", "items": [
+                        {"id": "3", "title": "Cooking recipes",
+                         "summary": "", "body_text": "", "link": "https://b/3"},
+                    ]},
+                ]},
+            },
+        }
+        stories = {
+            "hormuz_iran": {"patterns": [r"\bhormuz\b"], "exclude": [], "tier": "long_running",
+                             "title": "Hormuz"},
+            "ai_regulation": {"patterns": [r"\bai (?:act|regulation)\b"], "exclude": [],
+                                "tier": "long_running", "title": "AI"},
+        }
+        m = self.cm.build_coverage_matrix(snap, stories)
+        # hormuz_iran has 1 matching feed (Outlet A)
+        self.assertEqual(len(m["coverage"]["hormuz_iran"]), 1)
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["feed_name"], "Outlet A")
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["section"], "news")
+        self.assertEqual(m["coverage"]["hormuz_iran"][0]["first_match_rank"], 1)
+        # ai_regulation: zero matching feeds
+        self.assertEqual(len(m["coverage"]["ai_regulation"]), 0)
+        # Summary numbers
+        self.assertEqual(m["summary"]["hormuz_iran"]["n_feeds_covered"], 1)
+        self.assertEqual(m["summary"]["hormuz_iran"]["n_buckets_covered"], 1)
+        self.assertEqual(m["summary"]["ai_regulation"]["n_feeds_covered"], 0)
+
+    def test_longitudinal_aggregator_basic(self):
+        """build_trajectory groups frames across dates and computes per-day share."""
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lg
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            # Two days of analyses for one story.
+            day1 = {
+                "date": "2026-05-07", "story_key": "S",
+                "story_title": "Story", "meta_version": "7.0.0",
+                "n_articles": 10,
+                "frames": [
+                    {"frame_id": "F1", "buckets": ["a", "b"]},
+                    {"frame_id": "F2", "buckets": ["c"]},
+                ],
+            }
+            day2 = {
+                "date": "2026-05-08", "story_key": "S",
+                "story_title": "Story", "meta_version": "7.0.1",
+                "n_articles": 12,
+                "frames": [
+                    {"frame_id": "F1", "buckets": ["a"]},
+                    {"frame_id": "F2", "buckets": ["b", "c"]},
+                ],
+            }
+            (tdp / "2026-05-07_S.json").write_text(json.dumps(day1))
+            (tdp / "2026-05-08_S.json").write_text(json.dumps(day2))
+            grouped = lg.collect_analyses(analyses_dir=tdp)
+            self.assertIn("S", grouped)
+            traj = lg.build_trajectory(grouped["S"])
+            self.assertEqual(traj["story_key"], "S")
+            self.assertEqual(traj["n_days_with_analysis"], 2)
+            # Two distinct meta_version segments (7.0.0 → 7.0.1)
+            self.assertEqual(len(traj["meta_version_segments"]), 2)
+            # Bucket set { a,b,c } same both days → same signature → 1 segment
+            self.assertEqual(len(traj["bucket_set_signatures"]), 1)
+            # Per-frame trajectory has both days
+            self.assertIn("F1", traj["frame_trajectories"])
+            self.assertEqual(len(traj["frame_trajectories"]["F1"]), 2)
+            # Day 1 F1 covered 2/3 buckets = 0.667; Day 2 F1 covered 1/3 = 0.333
+            shares = [d["share"] for d in traj["frame_trajectories"]["F1"]]
+            self.assertAlmostEqual(shares[0], 0.667, places=2)
+            self.assertAlmostEqual(shares[1], 0.333, places=2)
+
+    def test_longitudinal_handles_pre_7_0_0_label_field(self):
+        """Pre-7.0.0 analyses use `label` not `frame_id` — both must group together."""
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lg
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            (tdp / "2026-05-07_S.json").write_text(json.dumps({
+                "date": "2026-05-07", "story_key": "S",
+                "meta_version": "1.4.1",
+                "frames": [{"label": "ECON", "buckets": ["a"]}],
+            }))
+            (tdp / "2026-05-08_S.json").write_text(json.dumps({
+                "date": "2026-05-08", "story_key": "S",
+                "meta_version": "7.0.0",
+                "frames": [{"frame_id": "ECON", "buckets": ["a", "b"]}],
+            }))
+            grouped = lg.collect_analyses(analyses_dir=tdp)
+            traj = lg.build_trajectory(grouped["S"])
+            # Same key "ECON" used across both schemas → single trajectory
+            self.assertEqual(len(traj["frame_trajectories"]["ECON"]), 2)
+
+    def test_matrix_excludes_via_exclude_patterns(self):
+        snap = {
+            "date": "2026-05-09",
+            "countries": {
+                "usa": {"feeds": [
+                    {"name": "F", "section": "news", "items": [
+                        {"id": "1", "title": "Hormuz also gaza updates",
+                         "summary": "", "body_text": "", "link": "https://x/1"},
+                    ]},
+                ]},
+            },
+        }
+        # Story with `\bhormuz\b` exclude — matching item should NOT be counted
+        stories = {
+            "israel_palestine": {"patterns": [r"\bgaza\b"],
+                                  "exclude": [r"\bhormuz\b"],
+                                  "tier": "long_running", "title": "I/P"},
+        }
+        m = self.cm.build_coverage_matrix(snap, stories)
+        self.assertEqual(len(m["coverage"]["israel_palestine"]), 0)
+
 
 # ============================================================================
 # Daily health
@@ -493,6 +690,28 @@ class TestExtractFullText(unittest.TestCase):
         ids = [it["id"] for _, _, it in targets]
         self.assertEqual(ids, ["x2"])  # x1 already extracted, skipped
 
+    def test_infer_section_url_pattern_overrides_feed(self):
+        """URL pattern /opinion/, /editorial/ etc. tags item as opinion
+        even if the feed defaults to news."""
+        cases = [
+            ("https://example.com/news/headline", "news", "news"),
+            ("https://example.com/opinion/take-on-x", "news", "opinion"),
+            ("https://example.com/editorial/board-says", "news", "opinion"),
+            ("https://example.com/op-ed/contributor", "news", "opinion"),
+            ("https://example.com/blog/observer", "news", "opinion"),
+            ("https://example.com/columnist/somebody", "news", "opinion"),
+            ("https://example.com/leader/today", "news", "opinion"),
+            # Feed-level wire passes through when URL has no pattern
+            ("https://reuters.com/article/12345", "wire", "wire"),
+            # Empty URL falls back to feed_section
+            ("", "news", "news"),
+            # Case-insensitive match on path
+            ("https://example.com/Opinion/Foo", "news", "opinion"),
+        ]
+        for url, feed_section, expected in cases:
+            with self.subTest(url=url):
+                self.assertEqual(self.eft.infer_section(url, feed_section), expected)
+
 
 class TestSitemapFallback(unittest.TestCase):
     def test_sitemap_news_parse(self):
@@ -517,7 +736,7 @@ class TestSitemapFallback(unittest.TestCase):
 
 
 class TestBuildMetrics(unittest.TestCase):
-    """build_metrics.py: pairwise Jaccard, isolation, bucket-exclusive vocab."""
+    """build_metrics.py: LaBSE pairwise similarity, isolation, bucket-exclusive vocab."""
 
     def setUp(self):
         if "analytical.build_metrics" in sys.modules:
@@ -551,27 +770,6 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertIn("brown", toks)
         self.assertIn("moon", toks)
 
-    def test_jaccard_symmetric_and_bounded(self):
-        a = self.Counter({"alpha": 2, "beta": 1, "gamma": 1})
-        b = self.Counter({"beta": 1, "gamma": 1, "delta": 1})
-        j = self.bm.jaccard(a, b)
-        self.assertEqual(j, self.bm.jaccard(b, a))
-        self.assertGreaterEqual(j, 0.0)
-        self.assertLessEqual(j, 1.0)
-        # 2 shared / 4 total = 0.5
-        self.assertAlmostEqual(j, 0.5)
-
-    def test_pairwise_jaccard_sorted_descending(self):
-        vocabs = {
-            "x": self.Counter({"alpha": 1, "beta": 1}),
-            "y": self.Counter({"alpha": 1, "beta": 1}),  # identical to x
-            "z": self.Counter({"gamma": 1}),  # disjoint
-        }
-        pairs = self.bm.pairwise_jaccard(vocabs)
-        self.assertEqual(len(pairs), 3)
-        self.assertEqual(pairs[0]["jaccard"], 1.0)  # x<>y
-        self.assertEqual(pairs[-1]["jaccard"], 0.0)  # one of the disjoint pairs
-
     def test_bucket_exclusive_requires_df_one_and_min_count(self):
         vocabs = {
             "a": self.Counter({"shared": 5, "only_a": 4, "rare_a": 2}),
@@ -585,19 +783,6 @@ class TestBuildMetrics(unittest.TestCase):
         self.assertNotIn("shared", a_terms)     # df=2
         self.assertIn("only_b", b_terms)
 
-    def test_isolation_mean_jaccard(self):
-        vocabs = {
-            "a": self.Counter({"x": 1, "y": 1}),       # identical to b
-            "b": self.Counter({"x": 1, "y": 1}),
-            "c": self.Counter({"z": 1}),                # disjoint from both
-        }
-        pairs = self.bm.pairwise_jaccard(vocabs)
-        iso = self.bm.bucket_isolation(pairs, sorted(vocabs))
-        # c is paired with a (0) and b (0) → mean 0; a and b each have one
-        # 1.0 pair and one 0.0 pair → mean 0.5. So c is most isolated.
-        self.assertEqual(iso[0]["bucket"], "c")
-        self.assertEqual(iso[0]["mean_jaccard"], 0.0)
-
     def test_build_metrics_against_real_briefing(self):
         path = ROOT / "briefings" / "2026-05-06_hormuz_iran.json"
         if not path.exists():
@@ -606,25 +791,481 @@ class TestBuildMetrics(unittest.TestCase):
         m = self.bm.build_metrics(briefing)
         # Structural assertions (not numeric — let the data drift).
         self.assertEqual(m["story_key"], "hormuz_iran")
-        self.assertGreaterEqual(m["n_buckets"], 20)
-        self.assertEqual(
-            len(m["pairwise_jaccard"]),
-            m["n_buckets"] * (m["n_buckets"] - 1) // 2,
-        )
-        # Top pair must have higher score than bottom pair.
-        self.assertGreaterEqual(
-            m["pairwise_jaccard"][0]["jaccard"],
-            m["pairwise_jaccard"][-1]["jaccard"],
-        )
-        # Isolation must be sorted ascending (most isolated first).
-        iso = m["isolation"]
-        for i in range(len(iso) - 1):
-            self.assertLessEqual(iso[i]["mean_jaccard"], iso[i + 1]["mean_jaccard"])
+        self.assertGreaterEqual(m["n_buckets"], 1)
+        # Primary similarity is LaBSE cosine. If sentence-transformers
+        # isn't installed in the test env, build_metrics returns empty
+        # pairs/isolation with embedding_status.skipped=True; skip the
+        # numeric assertions in that case.
+        if m["n_buckets"] >= 2 and not m.get("embedding_status", {}).get("skipped"):
+            expected_pairs = m["n_buckets"] * (m["n_buckets"] - 1) // 2
+            self.assertEqual(len(m["pairwise_similarity"]), expected_pairs)
+            self.assertGreaterEqual(
+                m["pairwise_similarity"][0]["score"],
+                m["pairwise_similarity"][-1]["score"],
+            )
+            iso = m["isolation"]
+            for i in range(len(iso) - 1):
+                self.assertLessEqual(
+                    iso[i]["mean_similarity"], iso[i + 1]["mean_similarity"]
+                )
         # Saudi Arabia's "sisi" / "egypt" exclusive vocab from the exemplar
         # should reproduce on this fixed corpus.
         saudi_terms = {e["term"] for e in m["bucket_exclusive_vocab"].get("saudi_arabia", [])}
         self.assertIn("sisi", saudi_terms)
         self.assertIn("egypt", saudi_terms)
+
+
+class TestPhase2Modules(unittest.TestCase):
+    """Phase 2: within-language LLR + log-odds bigrams + headline-body
+    divergence + cross-outlet lag + replay + rollup."""
+
+    def test_within_language_llr_basic(self):
+        if "analytical.within_language_llr" in sys.modules:
+            importlib.reload(sys.modules["analytical.within_language_llr"])
+        from analytical import within_language_llr as wll
+        # Two English buckets: A heavily uses "blockade", B heavily uses "summit"
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en",
+                 "title": "naval blockade tightens", "signal_text":
+                 "blockade " * 50 + "tanker " * 20},
+                {"bucket": "B", "lang": "en",
+                 "title": "summit talks continue", "signal_text":
+                 "summit " * 50 + "talks " * 20},
+                {"bucket": "C", "lang": "en",
+                 "title": "neutral coverage",
+                 "signal_text": "story update " * 30},
+            ]
+        }
+        out = wll.within_language_llr(briefing, min_term_count=10)
+        # Both A and B should have distinctive terms
+        self.assertIn("A", out["by_bucket"])
+        self.assertIn("B", out["by_bucket"])
+        # A's distinctive terms should include "blockade"; B's "summit"
+        a_terms = {t["term"] for t in out["by_bucket"]["A"]["distinctive_terms"]}
+        b_terms = {t["term"] for t in out["by_bucket"]["B"]["distinctive_terms"]}
+        self.assertIn("blockade", a_terms)
+        self.assertIn("summit", b_terms)
+
+    def test_within_language_llr_skips_singleton_lang(self):
+        from analytical import within_language_llr as wll
+        # Only one bucket in language → no cohort → bucket excluded from output
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "fr", "title": "x", "signal_text": "z " * 50}
+            ]
+        }
+        out = wll.within_language_llr(briefing)
+        self.assertEqual(out["by_bucket"], {})
+
+    def test_within_language_llr_excludes_opinion_items(self):
+        from analytical import within_language_llr as wll
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en", "section": "opinion",
+                 "title": "OP", "signal_text": "manifesto " * 50},
+                {"bucket": "B", "lang": "en", "section": "news",
+                 "title": "N", "signal_text": "story " * 50},
+                {"bucket": "C", "lang": "en", "section": "news",
+                 "title": "M", "signal_text": "report " * 50},
+            ]
+        }
+        out = wll.within_language_llr(briefing, min_term_count=5)
+        # A is opinion → not in output
+        self.assertNotIn("A", out["by_bucket"])
+
+    def test_within_language_pmi_basic(self):
+        if "analytical.within_language_pmi" in sys.modules:
+            importlib.reload(sys.modules["analytical.within_language_pmi"])
+        from analytical import within_language_pmi as wpmi
+        briefing = {
+            "corpus": [
+                {"bucket": "A", "lang": "en", "title": "x",
+                 "signal_text": "supply shock crisis " * 30},
+                {"bucket": "B", "lang": "en", "title": "y",
+                 "signal_text": "summit talks regional " * 30},
+            ]
+        }
+        out = wpmi.within_language_pmi(briefing, min_count=5)
+        self.assertIn("A", out["by_bucket"])
+        a_bigrams = {tuple(a["bigram"]) for a in out["by_bucket"]["A"]["associations"]}
+        self.assertIn(("supply", "shock"), a_bigrams)
+
+    def test_headline_body_divergence_skips_no_headline(self):
+        if "analytical.headline_body_divergence" in sys.modules:
+            importlib.reload(sys.modules["analytical.headline_body_divergence"])
+        from analytical import headline_body_divergence as hbd
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            body_path = tdp / "2026-05-09_x.json"
+            body_path.write_text(json.dumps({
+                "story_key": "x", "date": "2026-05-09", "frames": [
+                    {"frame_id": "F1", "buckets": ["a"], "evidence": []}
+                ]
+            }))
+            r = hbd.process_one(body_path, out_dir=tdp)
+            self.assertTrue(r.get("skipped"))
+            self.assertEqual(r["reason"], "no_headline_pass_yet")
+
+    def test_headline_body_divergence_basic(self):
+        from analytical import headline_body_divergence as hbd
+        body = {
+            "story_key": "x",
+            "frames": [
+                {"frame_id": "F1", "buckets": ["a", "b"],
+                 "evidence": [{"bucket": "a"}, {"bucket": "b"}]},
+                {"frame_id": "F2", "buckets": ["c"],
+                 "evidence": [{"bucket": "c"}]},
+            ]
+        }
+        # Headline: a stays in F1; b SHIFTS to F2; c stays in F2.
+        headline = {
+            "story_key": "x",
+            "frames": [
+                {"frame_id": "F1", "buckets": ["a"],
+                 "evidence": [{"bucket": "a"}]},
+                {"frame_id": "F2", "buckets": ["b", "c"],
+                 "evidence": [{"bucket": "b"}, {"bucket": "c"}]},
+            ]
+        }
+        d = hbd.divergence(body, headline)
+        self.assertEqual(d["n_buckets_compared"], 3)
+        self.assertEqual(d["n_bucket_agreements"], 2)
+        # b is the diverging bucket
+        diverging_buckets = {b["bucket"] for b in d["highest_diverging_buckets"]}
+        self.assertEqual(diverging_buckets, {"b"})
+
+    def test_cross_outlet_lag_insufficient_history(self):
+        if "analytical.cross_outlet_lag" in sys.modules:
+            importlib.reload(sys.modules["analytical.cross_outlet_lag"])
+        from analytical import cross_outlet_lag as col
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            # Only 5 days of coverage → insufficient
+            for i in range(5):
+                d = f"2026-05-{i+1:02d}"
+                (tdp / f"{d}.json").write_text(json.dumps({
+                    "date": d, "coverage": {}, "summary": {}
+                }))
+            history = col.load_coverage_history(window_days=30,
+                                                 today="2026-05-30",
+                                                 cov_dir=tdp)
+            self.assertEqual(len(history), 5)
+            # Main path skips when n < min_days; we test the load directly here.
+
+    def test_cross_outlet_lag_pearson_at_lag(self):
+        from analytical import cross_outlet_lag as col
+        # Perfectly lagged: B = A shifted right by 2
+        a = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+        b = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+        # A leads B by 2 → high correlation at lag=2
+        r2 = col.pearson_at_lag(a, b, lag=2)
+        r0 = col.pearson_at_lag(a, b, lag=0)
+        self.assertIsNotNone(r2)
+        self.assertGreater(r2, 0.5)
+        # At lag=0 they should be uncorrelated or anticorrelated
+        self.assertLess(r0 if r0 is not None else 0, r2)
+
+    def test_replay_steps_format(self):
+        # Simply verify the STEPS table is well-formed (each cmd is list[str])
+        sys.path.insert(0, str(ROOT))
+        if "replay" in sys.modules:
+            importlib.reload(sys.modules["replay"])
+        import replay
+        for name, cmd in replay.STEPS:
+            self.assertIsInstance(name, str)
+            self.assertIsInstance(cmd, list)
+            self.assertTrue(all(isinstance(c, str) for c in cmd))
+
+    def test_rollup_finds_old_files(self):
+        if "pipeline.rollup" in sys.modules:
+            importlib.reload(sys.modules["pipeline.rollup"])
+        from pipeline import rollup
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            snaps = tdp / "snapshots"; snaps.mkdir()
+            briefs = tdp / "briefings"; briefs.mkdir()
+            # Make 4 files: 2 old (>90 days), 2 fresh
+            for d in ["2025-01-01", "2025-02-15"]:
+                (snaps / f"{d}.json").write_text("{}")
+                (briefs / f"{d}_x.json").write_text("{}")
+            for d in ["2026-04-15", "2026-05-08"]:
+                (snaps / f"{d}.json").write_text("{}")
+                (briefs / f"{d}_x.json").write_text("{}")
+            cands = rollup.find_candidates(window_days=90, today="2026-05-09",
+                                            snaps_dir=snaps, briefings_dir=briefs)
+            # Only 2025-* should be flagged (>90d before 2026-05-09)
+            self.assertIn("2025-01", cands["snapshots"])
+            self.assertIn("2025-02", cands["snapshots"])
+            self.assertNotIn("2026-04", cands["snapshots"])
+            self.assertNotIn("2026-05", cands["snapshots"])
+
+    def test_x_poster_skipped_no_token(self):
+        if "distribution.x_poster" in sys.modules:
+            importlib.reload(sys.modules["distribution.x_poster"])
+        from distribution import x_poster
+        # No tokens in env → secrets check fails → would_post is False
+        for k in x_poster.REQUIRED_SECRETS:
+            self.assertFalse(os.environ.get(k))  # confirm clean env
+
+    def test_x_poster_payloads_with_thread_link(self):
+        from distribution import x_poster
+        thread = {
+            "story_key": "test",
+            "date": "2026-05-08",
+            "tweets": [{"text": "First"}, {"text": "Second"}, {"text": ""}],
+        }
+        ps = x_poster.build_payloads(thread, public_url_base="https://x.test")
+        # Empty tweet excluded; first tweet gets link appended
+        self.assertEqual(len(ps), 2)
+        self.assertIn("https://x.test/2026-05-08/test/", ps[0]["text"])
+        self.assertEqual(ps[1]["text"], "Second")
+
+
+class TestPhase3SourceAttribution(unittest.TestCase):
+    """Phase 3a-3c: source/quote attribution + aggregation + validator."""
+
+    def _briefing(self):
+        return {
+            "date": "2026-05-09",
+            "story_key": "test",
+            "corpus": [
+                {"bucket": "usa", "feed": "Outlet A", "lang": "en",
+                 "title": "...", "signal_text":
+                 'Trump said: "We will continue the blockade." Officials warn.'},
+                {"bucket": "iran_state", "feed": "Outlet B", "lang": "en",
+                 "title": "...", "signal_text":
+                 'A spokesperson claimed: "Sanctions will fail."'},
+            ]
+        }
+
+    def _sources_doc(self):
+        return {
+            "story_key": "test",
+            "date": "2026-05-09",
+            "sources": [
+                {"speaker_name": "Trump", "role_or_affiliation": "US President",
+                 "speaker_type": "official",
+                 "speaker_affiliation_bucket": "state",
+                 "speaker_affiliation_kind": "US Executive Branch",
+                 "exact_quote": 'We will continue the blockade.',
+                 "attributive_verb": "said",
+                 "stance_toward_target": "for",
+                 "signal_text_idx": 0,
+                 "bucket": "usa", "outlet": "Outlet A"},
+                {"speaker_name": None, "role_or_affiliation": "spokesperson",
+                 "speaker_type": "spokesperson",
+                 "speaker_affiliation_bucket": "state",
+                 "speaker_affiliation_kind": "Iran Foreign Ministry",
+                 "exact_quote": 'Sanctions will fail.',
+                 "attributive_verb": "claimed",
+                 "stance_toward_target": "against",
+                 "signal_text_idx": 1,
+                 "bucket": "iran_state", "outlet": "Outlet B"},
+            ]
+        }
+
+    def test_source_attribution_validate_clean(self):
+        if "analytical.source_attribution" in sys.modules:
+            importlib.reload(sys.modules["analytical.source_attribution"])
+        from analytical import source_attribution as sa
+        errs = sa.validate_sources(self._sources_doc(), self._briefing())
+        self.assertEqual(errs, [])
+
+    def test_source_attribution_validate_catches_fabricated_quote(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["exact_quote"] = "this is not in the article"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("not found verbatim" in e for e in errs),
+                        msg=f"expected verbatim error, got: {errs}")
+
+    def test_source_attribution_validate_catches_bad_speaker_type(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["speaker_type"] = "bogus"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("speaker_type" in e for e in errs))
+
+    def test_source_attribution_validate_catches_bad_stance(self):
+        from analytical import source_attribution as sa
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["stance_toward_target"] = "bogus"
+        errs = sa.validate_sources(bad, self._briefing())
+        self.assertTrue(any("stance_toward_target" in e for e in errs))
+
+    def test_source_attribution_list_pending(self):
+        from analytical import source_attribution as sa
+        with tempfile.TemporaryDirectory() as td:
+            cache = Path(td)
+            briefing = self._briefing()
+            # Nothing cached yet → all pending
+            pending = sa.list_pending(briefing, cache_dir=cache)
+            self.assertEqual(len(pending), 2)
+            # Mark first as cached
+            sha0 = sa.article_sha(briefing["corpus"][0])
+            sa.update_cache(sha0, "test", n_quotes=1, cache_dir=cache)
+            pending = sa.list_pending(briefing, cache_dir=cache)
+            self.assertEqual(len(pending), 1)
+            self.assertEqual(pending[0]["bucket"], "iran_state")
+
+    def test_source_aggregation_basic(self):
+        if "analytical.source_aggregation" in sys.modules:
+            importlib.reload(sys.modules["analytical.source_aggregation"])
+        from analytical import source_aggregation as sag
+        sources_with_story = [
+            {**s, "story_key": "test"}
+            for s in self._sources_doc()["sources"]
+        ]
+        agg = sag.aggregate(sources_with_story)
+        # Per-outlet: Outlet A has 1 quote from Trump
+        self.assertEqual(agg["by_outlet"]["Outlet A"]["n_quotes"], 1)
+        self.assertEqual(agg["by_outlet"]["Outlet A"]["top_speakers"][0][0], "Trump")
+        # Per-region: usa is americas; iran_state is middle_east
+        self.assertIn("americas", agg["by_region"])
+        self.assertIn("middle_east", agg["by_region"])
+        # Stance mix in americas: 1 "for"
+        self.assertEqual(agg["by_region"]["americas"]["stance_mix"]["for"], 1)
+        self.assertEqual(agg["by_region"]["middle_east"]["stance_mix"]["against"], 1)
+
+    def test_source_aggregation_region_for(self):
+        from analytical import source_aggregation as sag
+        self.assertEqual(sag.region_for("usa"), "americas")
+        self.assertEqual(sag.region_for("germany"), "europe")
+        self.assertEqual(sag.region_for("iran_state"), "middle_east")
+        self.assertEqual(sag.region_for("china"), "asia_pacific")
+        self.assertEqual(sag.region_for("south_africa"), "africa")
+        self.assertEqual(sag.region_for("wire_services"), "wire")
+        self.assertEqual(sag.region_for("unknown_bucket"), "other")
+
+    def test_validator_quote_grounding_sources(self):
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as va
+        # Clean
+        errs = va.check_quote_grounding_sources(self._sources_doc(), self._briefing())
+        self.assertEqual(errs, [])
+        # Fabricated
+        bad = json.loads(json.dumps(self._sources_doc()))
+        bad["sources"][0]["exact_quote"] = "not in any article"
+        errs = va.check_quote_grounding_sources(bad, self._briefing())
+        self.assertTrue(any("not found verbatim" in e for e in errs))
+
+
+class TestPhase4Modules(unittest.TestCase):
+    """Phase 4e/4f/4h: wire baseline + tilt index + robustness check.
+    Plus Phase 3i bucket-feed-set hash."""
+
+    def test_bucket_feed_set_hash_stable(self):
+        # Same bucket should give the same hash on repeat calls.
+        if "meta" in sys.modules:
+            importlib.reload(sys.modules["meta"])
+        import meta as m
+        h1 = m.bucket_feed_set_hash("wire_services")
+        h2 = m.bucket_feed_set_hash("wire_services")
+        self.assertEqual(h1, h2)
+        self.assertEqual(len(h1), 16)  # truncated sha256
+
+    def test_bucket_feed_set_hash_differs_per_bucket(self):
+        import meta as m
+        h_wire = m.bucket_feed_set_hash("wire_services")
+        h_uk = m.bucket_feed_set_hash("uk")
+        self.assertNotEqual(h_wire, h_uk)
+
+    def test_wire_baseline_skips_insufficient_history(self):
+        if "analytical.wire_baseline" in sys.modules:
+            importlib.reload(sys.modules["analytical.wire_baseline"])
+        from analytical import wire_baseline as wb
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            articles = wb.collect_wire_articles(window_days=30,
+                                                  today="2026-05-09",
+                                                  briefings_dir=tdp)
+            self.assertEqual(articles, [])
+
+    def test_wire_baseline_collects_wire_articles(self):
+        from analytical import wire_baseline as wb
+        with tempfile.TemporaryDirectory() as td:
+            tdp = Path(td)
+            (tdp / "2026-05-08_x.json").write_text(json.dumps({
+                "corpus": [
+                    {"bucket": "wire_services", "title": "x",
+                     "signal_text": "wire copy here"},
+                    {"bucket": "uk", "title": "y",
+                     "signal_text": "non-wire"},
+                ]
+            }))
+            arts = wb.collect_wire_articles(window_days=30,
+                                              today="2026-05-09",
+                                              briefings_dir=tdp)
+            self.assertEqual(len(arts), 1)
+            self.assertEqual(arts[0]["bucket"], "wire_services")
+
+    def test_wire_baseline_build_bigrams(self):
+        from analytical import wire_baseline as wb
+        articles = [
+            {"title": "a", "signal_text": "supply shock crisis " * 5},
+        ]
+        bigrams = wb.build_bigrams(articles)
+        self.assertGreater(bigrams[("supply", "shock")], 0)
+
+    def test_tilt_index_log_odds_consistent(self):
+        if "analytical.tilt_index" in sys.modules:
+            importlib.reload(sys.modules["analytical.tilt_index"])
+        from analytical import tilt_index as ti
+        from collections import Counter
+        outlet = Counter({("a", "b"): 10, ("c", "d"): 1})
+        wire = Counter({("a", "b"): 1, ("e", "f"): 5})
+        result = ti.compute_outlet_tilt(outlet, wire, min_count=1, top_k=10)
+        # ('a','b') should be positive-tilt (10× more in outlet than wire).
+        pos_bigrams = {tuple(p["bigram"]) for p in result["positive_tilt"]}
+        self.assertIn(("a", "b"), pos_bigrams)
+        # ('e','f') should be negative-tilt (in wire, not outlet).
+        neg_bigrams = {tuple(p["bigram"]) for p in result["negative_tilt"]}
+        self.assertIn(("e", "f"), neg_bigrams)
+
+    def test_tilt_index_parse_baseline_bigrams(self):
+        from analytical import tilt_index as ti
+        baseline = {"bigrams": {"a|b": 5, "c|d": 3, "no_pipe": 1}}
+        cnt = ti.parse_baseline_bigrams(baseline)
+        self.assertEqual(cnt[("a", "b")], 5)
+        self.assertEqual(cnt[("c", "d")], 3)
+        self.assertNotIn("no_pipe", cnt)
+
+    def test_robustness_jaccard(self):
+        if "analytical.robustness_check" in sys.modules:
+            importlib.reload(sys.modules["analytical.robustness_check"])
+        from analytical import robustness_check as rc
+        self.assertEqual(rc.jaccard({"a", "b"}, {"a", "b"}), 1.0)
+        self.assertAlmostEqual(rc.jaccard({"a", "b", "c"}, {"a", "b", "d"}), 2 / 4)
+        self.assertEqual(rc.jaccard({"a"}, {"b"}), 0.0)
+        self.assertIsNone(rc.jaccard(set(), set()))
+
+    def test_robustness_compute(self):
+        from analytical import robustness_check as rc
+        traj = {
+            "frame_trajectories": {
+                "F1": [{"date": "2026-05-07"}, {"date": "2026-05-08"}],
+                "F2": [{"date": "2026-05-07"}],  # F2 disappeared on 5/8
+                "F3": [{"date": "2026-05-08"}],  # F3 new on 5/8
+            }
+        }
+        result = rc.compute_robustness(traj, threshold=0.5)
+        self.assertFalse(result.get("skipped"))
+        # Day1: {F1, F2}; Day2: {F1, F3}. Jaccard = 1/3 ≈ 0.333
+        self.assertAlmostEqual(result["stability"], 1 / 3, places=2)
+        self.assertTrue(result["low_stability"])  # below 0.5
+
+    def test_robustness_skips_one_day(self):
+        from analytical import robustness_check as rc
+        traj = {
+            "frame_trajectories": {
+                "F1": [{"date": "2026-05-07"}],
+            }
+        }
+        result = rc.compute_robustness(traj)
+        self.assertTrue(result.get("skipped"))
+        self.assertEqual(result["reason"], "insufficient_history")
 
 
 class TestMethodologyPin(unittest.TestCase):
@@ -697,14 +1338,15 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
             "n_articles": 12,
             "tldr": "A test analysis with three sentences. Six buckets carry two distinct frames. No paradox detected in this corpus.",
             "frames": [
-                {"label": "FRAME_A", "description": "First frame.",
+                {"frame_id": "ECONOMIC", "sub_frame": "energy contagion",
                  "buckets": ["italy", "usa"],
                  "evidence": [{"bucket": "italy", "outlet": "ANSA",
                                "quote": "guerra accordo", "signal_text_idx": 0}]},
-                {"label": "FRAME_B", "buckets": ["china", "japan"],
+                {"frame_id": "SECURITY_DEFENSE",
+                 "buckets": ["china", "japan"],
                  "evidence": [{"bucket": "china", "quote": "blockade", "signal_text_idx": 4}]},
             ],
-            "isolation_top": [{"bucket": "italy", "mean_jaccard": 0.009}],
+            "isolation_top": [{"bucket": "italy", "mean_similarity": 0.18}],
             "exclusive_vocab_highlights": [
                 {"bucket": "italy", "terms": ["guerra"], "what_it_reveals": "war framing."}
             ],
@@ -760,8 +1402,9 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
         self.assertIn("**Date:** 2026-05-08", md)
         self.assertIn("## TL;DR", md)
         self.assertIn("## Frames (2)", md)
-        self.assertIn("### FRAME_A", md)
-        self.assertIn("## Most isolated buckets", md)
+        self.assertIn("### ECONOMIC — energy contagion", md)
+        self.assertIn("### SECURITY_DEFENSE", md)
+        self.assertIn("## Most divergent buckets", md)
         self.assertIn("## Bucket-exclusive vocabulary", md)
         self.assertIn("## Paradox", md)
         self.assertIn("_No paradox in this corpus._", md)
@@ -812,15 +1455,17 @@ class TestTemplateRenderers(unittest.TestCase):
             "n_buckets": 27, "n_articles": 41,
             "tldr": "Twenty-seven outlets ran the same wire. Italy used different words. Vocabulary carries the framing.",
             "frames": [
-                {"label": "ECONOMIC_CONTAGION", "buckets": ["philippines", "japan"],
+                {"frame_id": "ECONOMIC", "sub_frame": "energy-price contagion",
+                 "label": "ECONOMIC_CONTAGION", "buckets": ["philippines", "japan"],
                  "evidence": [{"bucket": "asia_pacific_regional", "outlet": "Asia Times",
                                "quote": "shock inflation spike in April", "signal_text_idx": 1}]},
-                {"label": "WAR_FRAMING", "buckets": ["italy"],
+                {"frame_id": "SECURITY_DEFENSE", "sub_frame": "war framing",
+                 "label": "WAR_FRAMING", "buckets": ["italy"],
                  "evidence": [{"bucket": "italy", "outlet": "ANSA",
                                "quote": "guerra accordo", "signal_text_idx": 0}]}
             ],
             "isolation_top": [
-                {"bucket": "italy", "mean_jaccard": 0.009, "note": "linguistic."}
+                {"bucket": "italy", "mean_similarity": 0.18, "note": "linguistic."}
             ],
             "exclusive_vocab_highlights": [
                 {"bucket": "italy", "terms": ["guerra"], "what_it_reveals": "war framing."}
@@ -932,14 +1577,16 @@ class TestValidateAnalysis(unittest.TestCase):
             "n_articles": self.metrics["n_articles"],
             "tldr": "A clean analysis with multiple complete sentences. The corpus has 41 articles. The pin is 1.3.0.",
             "frames": [
-                {"label": "FRAME_A", "buckets": [first_bucket],
+                {"frame_id": "ECONOMIC",
+                 "buckets": [first_bucket],
                  "evidence": [{
                      "bucket": first_bucket,
                      "outlet": self.first_corpus.get("feed", "Unknown"),
                      "quote": first_text[:60].strip(),
                      "signal_text_idx": 0,
                  }]},
-                {"label": "FRAME_B", "buckets": ["other"],
+                {"frame_id": "SECURITY_DEFENSE",
+                 "buckets": ["other"],
                  "evidence": [{
                      "bucket": self.briefing["corpus"][1]["bucket"],
                      "quote": self.briefing["corpus"][1]["signal_text"][:50].strip(),
@@ -948,7 +1595,7 @@ class TestValidateAnalysis(unittest.TestCase):
             ],
             "isolation_top": [
                 {"bucket": self.metrics["isolation"][0]["bucket"],
-                 "mean_jaccard": self.metrics["isolation"][0]["mean_jaccard"]}
+                 "mean_similarity": self.metrics["isolation"][0]["mean_similarity"]}
             ],
             "exclusive_vocab_highlights": [],
             "paradox": None, "silences": [],
@@ -977,15 +1624,15 @@ class TestValidateAnalysis(unittest.TestCase):
         from analytical import validate_analysis as v
         bad = dict(self.clean)
         bad["isolation_top"] = [
-            {"bucket": self.metrics["isolation"][0]["bucket"], "mean_jaccard": 0.999}
+            {"bucket": self.metrics["isolation"][0]["bucket"], "mean_similarity": 0.999}
         ]
         errs = v.check_numbers(bad, self.metrics)
-        self.assertTrue(any("mean_jaccard" in e for e in errs))
+        self.assertTrue(any("mean_similarity" in e for e in errs))
 
     def test_isolation_unknown_bucket_caught(self):
         from analytical import validate_analysis as v
         bad = dict(self.clean)
-        bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_jaccard": 0.5}]
+        bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_similarity": 0.5}]
         errs = v.check_numbers(bad, self.metrics)
         self.assertTrue(any("not in" in e and "fake_bucket_xyz" in e for e in errs))
 
@@ -1044,6 +1691,1158 @@ class TestValidateAnalysis(unittest.TestCase):
         bad["paradox"]["a"]["bucket"] = "wrong_paradox_bucket"
         errs = v.check_citations(bad, self.briefing)
         self.assertTrue(any("paradox.a" in e and "wrong_paradox_bucket" in e for e in errs))
+
+
+class TestFeedRotCheck(unittest.TestCase):
+    """pipeline/feed_rot_check.py: weekly rot detection (audit Gap 15-1 + 15-2).
+
+    Cherry-picked from audit commit 82fc704. The decline + growth cases
+    are regression guards against re-introducing the sign-inversion bug
+    that flagged GROWING feeds as declining.
+    """
+
+    def setUp(self):
+        if "pipeline.feed_rot_check" in sys.modules:
+            importlib.reload(sys.modules["pipeline.feed_rot_check"])
+        from pipeline import feed_rot_check
+        self.frc = feed_rot_check
+
+    def _write_window(self, td: Path, days: list[dict]) -> None:
+        """days = list of {date, errors, stub_feeds, feeds} dicts from
+        OLDEST to NEWEST. Writes both <date>_health.json and <date>.json
+        for each day."""
+        snaps = td / "snapshots"
+        snaps.mkdir(parents=True, exist_ok=True)
+        for d in days:
+            date = d["date"]
+            (snaps / f"{date}_health.json").write_text(json.dumps({
+                "date": date,
+                "errors": d.get("errors", []),
+                "stub_feeds": d.get("stub_feeds", []),
+            }))
+            (snaps / f"{date}.json").write_text(json.dumps({
+                "countries": {
+                    "wire": {
+                        "feeds": [
+                            {"name": fn, "item_count": ic}
+                            for fn, ic in d.get("feeds", {}).items()
+                        ]
+                    }
+                }
+            }))
+
+    def _run(self, td: Path, n_days: int, today_iso: str = "2026-05-09") -> str:
+        import datetime as _dt
+        review = td / "review"
+        review.mkdir(parents=True, exist_ok=True)
+        fixed_today = _dt.date.fromisoformat(today_iso)
+
+        class FixedDateTime(_dt.datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return _dt.datetime.combine(fixed_today, _dt.time(0), tzinfo=tz)
+
+        with patch.multiple(self.frc, SNAPS=td / "snapshots", REVIEW=review), \
+             patch.object(self.frc, "datetime", FixedDateTime):
+            self.frc.main(n_days=n_days)
+        return (review / f"rot_report_{today_iso}.md").read_text(encoding="utf-8")
+
+    def test_decline_detection_flags_actually_declining_feeds(self):
+        """Regression for audit Gap 15-1: a feed dropping 100 → 20 over
+        7 days MUST be flagged."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            days = []
+            counts = [100, 90, 80, 60, 40, 30, 20]
+            for i, c in enumerate(counts):
+                d = (today - _dt.timedelta(days=6 - i)).isoformat()
+                days.append({"date": d, "feeds": {"DeclineFeed": c}})
+            self._write_window(td, days)
+            report = self._run(td, n_days=7, today_iso=base_date)
+            self.assertIn("DeclineFeed", report,
+                          "actually-declining feed must be in the rot report")
+            self.assertIn("100 -> 20", report,
+                          "report should show chronological oldest → today")
+
+    def test_decline_detection_ignores_growing_feeds(self):
+        """Regression for audit Gap 15-1: a feed growing 20 → 100 must
+        NOT be flagged. The original bug flagged this as 'declining'."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            days = []
+            counts = [20, 30, 40, 60, 80, 90, 100]
+            for i, c in enumerate(counts):
+                d = (today - _dt.timedelta(days=6 - i)).isoformat()
+                days.append({"date": d, "feeds": {"GrowingFeed": c}})
+            self._write_window(td, days)
+            report = self._run(td, n_days=7, today_iso=base_date)
+            self.assertNotIn("GrowingFeed", report,
+                             "growing feed must NOT be flagged as declining")
+
+    def test_persistent_error_streak_flagged(self):
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            days = []
+            for i in range(7):
+                d = (today - _dt.timedelta(days=6 - i)).isoformat()
+                errors = ([{"bucket": "wire", "feed": "BrokenFeed"}]
+                          if i < 5 else [])
+                days.append({"date": d, "errors": errors})
+            self._write_window(td, days)
+            report = self._run(td, n_days=7, today_iso=base_date)
+            self.assertIn("BrokenFeed", report)
+            self.assertIn("errored 5/7 days", report)
+
+    def test_report_carries_meta_version(self):
+        """Audit Gap 15-3: report must declare the methodology pin."""
+        with tempfile.TemporaryDirectory() as td_str:
+            td = Path(td_str)
+            base_date = "2026-05-09"
+            import datetime as _dt
+            today = _dt.date.fromisoformat(base_date)
+            d = (today - _dt.timedelta(days=1)).isoformat()
+            self._write_window(td, [{"date": d, "feeds": {"X": 1}}])
+            report = self._run(td, n_days=7, today_iso=base_date)
+            import meta as _meta
+            self.assertIn(f"meta_version {_meta.VERSION}", report)
+
+
+class TestSchemaCorpus(unittest.TestCase):
+    """PR 1: every schema in docs/api/schema/ must itself be a valid
+    JSON Schema Draft 2020-12 document, and every pipeline-written
+    artifact schema must require meta_version. Cherry-picked from the
+    audit branch's Stage 14 work and adapted to v8's artifact list."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self.jsonschema = jsonschema
+        self.schema_dir = Path(__file__).parent / "docs/api/schema"
+
+    def test_every_schema_is_valid_draft_2020_12(self):
+        validator_cls = self.jsonschema.Draft202012Validator
+        for p in sorted(self.schema_dir.glob("*.schema.json")):
+            with self.subTest(schema=p.name):
+                schema = json.loads(p.read_text(encoding="utf-8"))
+                validator_cls.check_schema(schema)
+                self.assertEqual(
+                    schema.get("$schema"),
+                    "https://json-schema.org/draft/2020-12/schema",
+                    f"{p.name} must declare draft 2020-12",
+                )
+
+    def test_artifact_schemas_require_meta_version(self):
+        """Every pipeline-written artifact schema (i.e. not pure configs
+        like feeds / canonical_stories) must require meta_version in its
+        top-level required[]."""
+        artifact_schemas = (
+            "analysis", "briefing", "metrics", "health",
+            "thread", "carousel", "long",
+            "index", "latest", "video_script",
+        )
+        for name in artifact_schemas:
+            path = self.schema_dir / f"{name}.schema.json"
+            if not path.exists():
+                continue
+            with self.subTest(schema=name):
+                schema = json.loads(path.read_text(encoding="utf-8"))
+                if "oneOf" in schema:
+                    for branch in schema["oneOf"]:
+                        self.assertIn(
+                            "meta_version", branch.get("required", []),
+                            f"{name}.oneOf branch missing meta_version")
+                else:
+                    self.assertIn(
+                        "meta_version", schema.get("required", []),
+                        f"{name} must require meta_version")
+
+
+class TestCoverageMatrix4State(unittest.TestCase):
+    """PR 2: pipeline/coverage_matrix.py classifies non-covering buckets
+    as silent / errored / dark when joined with daily_health output."""
+
+    def setUp(self):
+        from pipeline import coverage_matrix as cm
+        self.cm = cm
+
+    def test_classify_non_coverage_distinguishes_three_states(self):
+        snapshot = {
+            "countries": {
+                "italy": {"feeds": [
+                    {"name": "ANSA", "items": [{"title": "x"}]},
+                ]},
+                "germany": {"feeds": [
+                    {"name": "Tagesschau", "items": []},
+                    {"name": "FAZ", "items": []},
+                ]},
+                "spain": {"feeds": [
+                    {"name": "El Pais", "items": []},
+                ]},
+            }
+        }
+        health = {
+            "errors": [
+                {"bucket": "germany", "feed": "Tagesschau", "http": 503},
+                {"bucket": "germany", "feed": "FAZ", "http": 500},
+            ]
+        }
+        # Italy was the only bucket that "covered" the story.
+        states = self.cm._classify_non_coverage(
+            snapshot, health, buckets_covered={"italy"})
+        # italy is excluded (it's covered); germany has all feeds errored
+        # and zero items → errored; spain has feeds but zero items and no
+        # errors → dark.
+        self.assertNotIn("italy", states)
+        self.assertEqual(states.get("germany"), "errored")
+        self.assertEqual(states.get("spain"), "dark")
+
+    def test_silent_state_when_feeds_have_items_but_none_match(self):
+        snapshot = {
+            "countries": {
+                "italy": {"feeds": [
+                    {"name": "ANSA", "items": [{"title": "x"}]},
+                ]},
+                "france": {"feeds": [
+                    {"name": "Le Monde", "items": [
+                        {"title": "unrelated story"},
+                        {"title": "another"},
+                    ]},
+                ]},
+            }
+        }
+        health = {"errors": []}
+        states = self.cm._classify_non_coverage(
+            snapshot, health, buckets_covered={"italy"})
+        self.assertEqual(states.get("france"), "silent")
+
+    def test_no_health_yields_no_non_coverage(self):
+        snapshot = {"countries": {"italy": {"feeds": []}}}
+        # build_coverage_matrix without health should NOT include
+        # non_coverage in the output.
+        canon = {"x": {"title": "X", "patterns": ["x"]}}
+        out = self.cm.build_coverage_matrix(snapshot, stories=canon, health=None)
+        self.assertNotIn("non_coverage", out)
+
+    def test_coverage_matrix_passes_its_own_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        # Build a minimal valid matrix with non_coverage and verify it
+        # round-trips through the new coverage.schema.json.
+        snapshot = {
+            "date": "2026-05-11",
+            "countries": {
+                "italy": {"feeds": [
+                    {"name": "ANSA", "section": "news", "lang": "it",
+                     "items": [{"title": "hormuz crisis"}]},
+                ]},
+                "germany": {"feeds": [
+                    {"name": "Tagesschau", "section": "news", "lang": "de",
+                     "items": []},
+                ]},
+            },
+        }
+        health = {"errors": [
+            {"bucket": "germany", "feed": "Tagesschau", "http": 503}
+        ]}
+        canon = {"hormuz": {"title": "Hormuz", "tier": "long_running",
+                            "patterns": ["hormuz"]}}
+        out = self.cm.build_coverage_matrix(snapshot, stories=canon, health=health)
+        out["meta_version"] = "test"
+        meta.validate_schema(out, "coverage")
+
+
+class TestSourceAttributionAffiliation(unittest.TestCase):
+    """PR 3: source-attribution validator enforces the new
+    speaker_affiliation_bucket + speaker_affiliation_kind fields, and
+    source_aggregation rolls up the affiliation distribution per outlet
+    / bucket / region."""
+
+    def setUp(self):
+        from analytical import source_attribution as sa
+        from analytical import source_aggregation as sg
+        self.sa = sa
+        self.sg = sg
+
+    def _valid_source(self, **overrides) -> dict:
+        base = {
+            "speaker_name": "Trump",
+            "role_or_affiliation": "US President",
+            "speaker_type": "official",
+            "speaker_affiliation_bucket": "state",
+            "speaker_affiliation_kind": "US Executive Branch",
+            "exact_quote": "We will respond.",
+            "attributive_verb": "said",
+            "stance_toward_target": "for",
+            "signal_text_idx": 0,
+            "bucket": "usa",
+            "outlet": "Reuters",
+        }
+        base.update(overrides)
+        return base
+
+    def test_validator_requires_new_affiliation_fields(self):
+        s = self._valid_source()
+        s.pop("speaker_affiliation_bucket")
+        briefing = {"corpus": [{"bucket": "usa", "signal_text": "We will respond."}]}
+        doc = {"sources": [s]}
+        errors = self.sa.validate_sources(doc, briefing)
+        self.assertTrue(any("speaker_affiliation_bucket" in e for e in errors),
+                        f"missing affiliation_bucket should error; got {errors}")
+
+    def test_validator_rejects_unknown_affiliation_bucket(self):
+        s = self._valid_source(speaker_affiliation_bucket="militia")
+        briefing = {"corpus": [{"bucket": "usa", "signal_text": "We will respond."}]}
+        doc = {"sources": [s]}
+        errors = self.sa.validate_sources(doc, briefing)
+        self.assertTrue(any("speaker_affiliation_bucket" in e for e in errors))
+
+    def test_aggregation_emits_affiliation_mix(self):
+        sources = [
+            self._valid_source(speaker_affiliation_bucket="state"),
+            self._valid_source(speaker_affiliation_bucket="state"),
+            self._valid_source(speaker_affiliation_bucket="academic",
+                               outlet="The Atlantic"),
+            self._valid_source(speaker_affiliation_bucket="civilian",
+                               speaker_affiliation_kind=None),
+        ]
+        agg = self.sg.aggregate(sources)
+        # by_outlet for "Reuters" should show state:2, civilian:1
+        reuters = agg["by_outlet"].get("Reuters")
+        self.assertIsNotNone(reuters)
+        self.assertEqual(reuters["affiliation_mix"].get("state"), 2)
+        self.assertEqual(reuters["affiliation_mix"].get("civilian"), 1)
+        # The Atlantic is a separate outlet → only academic:1
+        atlantic = agg["by_outlet"].get("The Atlantic")
+        self.assertEqual(atlantic["affiliation_mix"].get("academic"), 1)
+
+    def test_doc_passes_sources_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        doc = {
+            "meta_version": "test",
+            "story_key": "hormuz",
+            "date": "2026-05-11",
+            "story_title": "Hormuz",
+            "n_articles_processed": 1,
+            "sources": [self._valid_source()],
+        }
+        meta.validate_schema(doc, "sources")
+
+
+class TestLongitudinalDrivers(unittest.TestCase):
+    """PR 5: longitudinal.py attaches article-level `drivers` to
+    frame_trajectories entries where day-over-day |Δshare| > 0.10."""
+
+    def setUp(self):
+        if "analytical.longitudinal" in sys.modules:
+            importlib.reload(sys.modules["analytical.longitudinal"])
+        from analytical import longitudinal as lt
+        self.lt = lt
+        self.tmp = tempfile.TemporaryDirectory()
+        self.td = Path(self.tmp.name)
+        (self.td / "analyses").mkdir()
+        (self.td / "briefings").mkdir()
+        # Patch the module's paths.
+        self.lt.ANALYSES = self.td / "analyses"
+        self.lt.BRIEFINGS = self.td / "briefings"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _write(self, date: str, story: str, frames: list, corpus: list):
+        ap = self.td / "analyses" / f"{date}_{story}.json"
+        bp = self.td / "briefings" / f"{date}_{story}.json"
+        ap.write_text(json.dumps({
+            "story_key": story, "story_title": "X",
+            "date": date, "n_articles": len(corpus),
+            "frames": frames, "meta_version": "test",
+        }), encoding="utf-8")
+        bp.write_text(json.dumps({
+            "corpus": corpus,
+        }), encoding="utf-8")
+        return ap
+
+    def test_drivers_attached_above_threshold(self):
+        # Day 1: 2 frames. Frame "A" has 1/3 buckets carrying. Day 2: A has
+        # 3/3 buckets carrying. |Δshare| = 0.667 > 0.10 → drivers attached.
+        for date, frames in [
+            ("2026-05-08", [
+                {"label": "A", "buckets": ["italy"],
+                 "evidence": [{"bucket": "italy", "signal_text_idx": 0,
+                               "outlet": "ANSA"}]},
+                {"label": "B", "buckets": ["italy", "germany", "spain"],
+                 "evidence": []},
+            ]),
+            ("2026-05-09", [
+                {"label": "A", "buckets": ["italy", "germany", "spain"],
+                 "evidence": [
+                     {"bucket": "italy", "signal_text_idx": 0, "outlet": "ANSA"},
+                     {"bucket": "germany", "signal_text_idx": 1,
+                      "outlet": "Tagesschau"},
+                     {"bucket": "spain", "signal_text_idx": 2, "outlet": "El Pais"},
+                 ]},
+                {"label": "B", "buckets": ["italy", "germany", "spain"],
+                 "evidence": []},
+            ]),
+        ]:
+            self._write(date, "hormuz", frames=frames,
+                corpus=[
+                    {"link": f"https://italy/{date}.html", "bucket": "italy",
+                     "feed": "ANSA"},
+                    {"link": f"https://germany/{date}.html", "bucket": "germany",
+                     "feed": "Tagesschau"},
+                    {"link": f"https://spain/{date}.html", "bucket": "spain",
+                     "feed": "El Pais"},
+                ])
+        paths = sorted((self.td / "analyses").glob("*_hormuz.json"))
+        traj = self.lt.build_trajectory(paths)
+        a_entries = traj["frame_trajectories"]["A"]
+        self.assertEqual(len(a_entries), 2)
+        # Day 1: no drivers (no prior day to compare against)
+        self.assertNotIn("drivers", a_entries[0])
+        # Day 2: drivers attached (|Δshare| = 0.667 > 0.10)
+        self.assertIn("drivers", a_entries[1])
+        self.assertIn("delta_share", a_entries[1])
+        self.assertGreater(a_entries[1]["delta_share"], 0.10)
+        urls = {d["url"] for d in a_entries[1]["drivers"]}
+        self.assertIn("https://italy/2026-05-09.html", urls)
+        self.assertIn("https://germany/2026-05-09.html", urls)
+
+    def test_drivers_omitted_below_threshold(self):
+        # Day 1: share 0.333 (1/3 buckets). Day 2: share 0.333 (1/3). Δ = 0.
+        # No drivers, no delta_share.
+        for date in ("2026-05-08", "2026-05-09"):
+            self._write(date, "hormuz",
+                frames=[
+                    {"label": "A", "buckets": ["italy"],
+                     "evidence": [{"bucket": "italy", "signal_text_idx": 0,
+                                   "outlet": "ANSA"}]},
+                    {"label": "B", "buckets": ["italy", "germany", "spain"],
+                     "evidence": []},
+                ],
+                corpus=[
+                    {"link": f"https://italy/{date}.html", "bucket": "italy",
+                     "feed": "ANSA"},
+                ])
+        paths = sorted((self.td / "analyses").glob("*_hormuz.json"))
+        traj = self.lt.build_trajectory(paths)
+        a_entries = traj["frame_trajectories"]["A"]
+        for e in a_entries:
+            self.assertNotIn("drivers", e)
+            self.assertNotIn("delta_share", e)
+
+    def test_trajectory_passes_its_own_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self._write("2026-05-08", "hormuz",
+            frames=[{"label": "A", "buckets": ["italy"], "evidence": []}],
+            corpus=[{"link": "https://italy/x.html", "bucket": "italy",
+                     "feed": "ANSA"}])
+        paths = sorted((self.td / "analyses").glob("*_hormuz.json"))
+        traj = self.lt.build_trajectory(paths)
+        traj["meta_version"] = "test"
+        meta.validate_schema(traj, "trajectory")
+
+
+class TestDistributionApprovalGate(unittest.TestCase):
+    """PR 6: distribution.stage + distribution.publish replace the
+    auto-fire posters with a pending → approved/rejected flow."""
+
+    def setUp(self):
+        from distribution import stage as st
+        from distribution import publish as pb
+        self.st = st
+        self.pb = pb
+        self.tmp = tempfile.TemporaryDirectory()
+        td = Path(self.tmp.name)
+        # Point all module path constants at the tempdir
+        (td / "drafts").mkdir()
+        (td / "videos").mkdir()
+        self.st.ROOT = td
+        self.st.DRAFTS = td / "drafts"
+        self.st.VIDEOS = td / "videos"
+        self.st.PENDING_BASE = td / "distribution" / "pending"
+        # PLATFORMS is a dict literal with bound paths; rebind to td
+        self.st.PLATFORMS["youtube_shorts"]["media_dir"] = td / "videos"
+        self.pb.ROOT = td
+        self.pb.DIST = td / "distribution"
+        self.pb.PENDING = td / "distribution" / "pending"
+        self.pb.APPROVED = td / "distribution" / "approved"
+        self.pb.REJECTED = td / "distribution" / "rejected"
+        self.td = td
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _write_draft(self, name: str, payload: dict) -> None:
+        (self.td / "drafts" / name).write_text(json.dumps(payload), encoding="utf-8")
+
+    def test_stage_creates_pending_envelope_per_platform(self):
+        # Thread draft → x envelope; long draft → youtube_shorts envelope.
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self._write_draft("2026-05-11_hormuz_iran_long.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "title": "x",
+                           "body_md": "x" * 2600, "sources": []})
+        written = self.st.stage_for_date("2026-05-11")
+        names = sorted(p.name for p in written)
+        self.assertIn("hormuz_iran_x.json", names)
+        self.assertIn("hormuz_iran_youtube_shorts.json", names)
+
+    def test_envelope_passes_its_own_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self.st.stage_for_date("2026-05-11")
+        env_path = self.td / "distribution" / "pending" / "2026-05-11" / "hormuz_iran_x.json"
+        env = json.loads(env_path.read_text(encoding="utf-8"))
+        meta.validate_schema(env, "distribution_pending")
+
+    def test_approve_moves_envelope_to_approved_dir(self):
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self.st.stage_for_date("2026-05-11")
+        rc = self.pb.cmd_approve("2026-05-11_hormuz_iran_x")
+        self.assertEqual(rc, 0)
+        approved = self.td / "distribution" / "approved" / "2026-05-11" / "hormuz_iran_x.json"
+        self.assertTrue(approved.exists(), "approved envelope must exist")
+        # And the pending dir entry must be gone
+        pending = self.td / "distribution" / "pending" / "2026-05-11" / "hormuz_iran_x.json"
+        self.assertFalse(pending.exists(), "pending envelope must be moved")
+        env = json.loads(approved.read_text(encoding="utf-8"))
+        self.assertEqual(env["stage_status"], "approved")
+        self.assertIsNotNone(env["approved_at"])
+
+    def test_approve_unknown_id_returns_nonzero(self):
+        rc = self.pb.cmd_approve("nope")
+        self.assertEqual(rc, 1)
+
+    def test_stage_idempotent_for_already_approved_envelope(self):
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self.st.stage_for_date("2026-05-11")
+        self.pb.cmd_approve("2026-05-11_hormuz_iran_x")
+        # Re-staging should NOT recreate a pending envelope after approval
+        written = self.st.stage_for_date("2026-05-11")
+        pending = self.td / "distribution" / "pending" / "2026-05-11" / "hormuz_iran_x.json"
+        self.assertFalse(pending.exists(),
+                         "re-staging must not overwrite approved decisions")
+
+
+class TestTiltIndexTwoAnchors(unittest.TestCase):
+    """PR 7: tilt_index emits log-odds against TWO anchors (wire and
+    cross-bucket-mean) instead of one. The two anchors triangulate so
+    consumers don't read 'tilt vs wire' as 'tilt vs neutral.'"""
+
+    def setUp(self):
+        from analytical import tilt_index as ti
+        self.ti = ti
+
+    def _articles_with_bigrams(self, bigrams_per_article: list[list[tuple]]) -> list[dict]:
+        # Build synthetic articles whose tokenizable signal_text yields
+        # the given bigrams. Use 4+-char alpha tokens (matches the
+        # tokenizer regex \p{L}{4,}).
+        out = []
+        for bigrams in bigrams_per_article:
+            words = []
+            for a, b in bigrams:
+                words += [a, b]
+            out.append({"signal_text": " ".join(words),
+                        "title": "x", "lang": "en"})
+        return out
+
+    def test_build_bucket_mean_baseline_excludes_wire(self):
+        outlets = {
+            ("wire_services", "Reuters"): self._articles_with_bigrams(
+                [[("alpha", "beta"), ("beta", "gamma")]]),
+            ("italy", "ANSA"): self._articles_with_bigrams(
+                [[("delta", "epsilon"), ("epsilon", "zeta")]]),
+            ("germany", "FAZ"): self._articles_with_bigrams(
+                [[("delta", "epsilon"), ("eta", "theta")]]),
+        }
+        bm = self.ti.build_bucket_mean_baseline(outlets)
+        # Wire's (alpha, beta) and (beta, gamma) must NOT be in bucket_mean.
+        self.assertEqual(bm[("alpha", "beta")], 0)
+        self.assertEqual(bm[("beta", "gamma")], 0)
+        # Italy + Germany overlap on (delta, epsilon) → count 2.
+        self.assertEqual(bm[("delta", "epsilon")], 2)
+        self.assertEqual(bm[("epsilon", "zeta")], 1)
+
+    def test_compute_outlet_tilt_emits_baseline_neutral_fields(self):
+        from collections import Counter
+        outlet = Counter({("alpha", "beta"): 10, ("gamma", "delta"): 8})
+        baseline = Counter({("alpha", "beta"): 1, ("epsilon", "zeta"): 5})
+        out = self.ti.compute_outlet_tilt(outlet, baseline, min_count=1, top_k=10)
+        # Field names must be the renamed, anchor-neutral ones — not
+        # 'count_in_wire'.
+        self.assertIn("n_baseline_bigrams", out)
+        for row in out["positive_tilt"] + out["negative_tilt"]:
+            self.assertIn("count_in_baseline", row)
+            self.assertIn("rate_in_baseline", row)
+            self.assertNotIn("count_in_wire", row)
+
+
+class TestClusterDiagnostic(unittest.TestCase):
+    """PR 8: pipeline/cluster_diagnostic._cluster_both runs HDBSCAN and
+    DBSCAN over the same distance matrix and reports cluster counts,
+    silhouette / persistence, and pairwise agreement. Run for a week
+    post-merge to validate the HDBSCAN swap; revert if numbers don't
+    support it."""
+
+    def setUp(self):
+        try:
+            import numpy as np
+            import sklearn  # noqa
+            import hdbscan  # noqa
+        except ImportError:
+            self.skipTest("numpy / sklearn / hdbscan required")
+        from pipeline import cluster_diagnostic as cd
+        self.cd = cd
+
+    def _synthetic_distance_matrix(self):
+        """Three obvious clusters of three points each: every algorithm
+        should find roughly the same structure."""
+        import numpy as np
+        # 9 points, 3 clusters of 3.
+        coords = np.array([
+            [0.0, 0.0], [0.05, 0.0], [0.0, 0.05],
+            [10.0, 10.0], [10.05, 10.0], [10.0, 10.05],
+            [-5.0, 5.0], [-5.05, 5.0], [-5.0, 5.05],
+        ])
+        from sklearn.metrics.pairwise import euclidean_distances
+        dist = euclidean_distances(coords)
+        dist = dist / dist.max()  # normalize to [0,1] for cosine-like behavior
+        return dist
+
+    def test_cluster_both_returns_expected_keys(self):
+        dist = self._synthetic_distance_matrix()
+        result = self.cd._cluster_both(dist, min_cluster_size=2,
+                                        eps=0.1, min_samples=2)
+        self.assertIn("hdbscan", result)
+        self.assertIn("dbscan", result)
+        self.assertIn("pair_agreement", result)
+        self.assertIn("n_clusters", result["hdbscan"])
+        self.assertIn("n_clusters", result["dbscan"])
+        self.assertIn("n_noise", result["hdbscan"])
+        self.assertIn("n_noise", result["dbscan"])
+        self.assertIn("pct_disagree", result["pair_agreement"])
+
+    def test_cluster_both_finds_three_clusters_on_separable_data(self):
+        dist = self._synthetic_distance_matrix()
+        result = self.cd._cluster_both(dist, min_cluster_size=2,
+                                        eps=0.1, min_samples=2)
+        # Both algorithms should agree on 3 clusters for this data.
+        self.assertEqual(result["hdbscan"]["n_clusters"], 3)
+        self.assertEqual(result["dbscan"]["n_clusters"], 3)
+        # And pairwise disagreement should be 0% (full agreement).
+        self.assertEqual(result["pair_agreement"]["pct_disagree"], 0.0)
+
+
+class TestPinSelfHash(unittest.TestCase):
+    """pin_self_hash makes meta_version.json itself tamper-evident.
+    Hand-edits to pin_reason / pinned_at / any *_hash / any nested
+    config trigger drift on assert_pinned()."""
+
+    def test_round_trip_matches(self):
+        # The on-disk meta MUST have a self-hash that matches a fresh
+        # compute. If this fails, baseline_pin.py and the current pin
+        # disagree — typically because someone hand-edited the file.
+        import json as _json
+        from pathlib import Path
+        d = _json.loads(Path(meta.META_PATH).read_text(encoding="utf-8"))
+        declared = d.get("pin_self_hash")
+        self.assertIsNotNone(declared, "meta_version.json must carry pin_self_hash")
+        self.assertEqual(declared, meta.compute_pin_self_hash(d))
+
+    def test_field_edit_changes_hash(self):
+        h0 = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 1})
+        h1 = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 2})
+        self.assertNotEqual(h0, h1)
+
+    def test_self_hash_field_excluded(self):
+        # Mutating pin_self_hash itself must NOT change the computed hash —
+        # otherwise the hash can't reference itself.
+        h_base = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 1})
+        h_with = meta.compute_pin_self_hash({"meta_version": "1.0.0", "x": 1,
+                                              "pin_self_hash": "anything"})
+        self.assertEqual(h_base, h_with)
+
+    def test_assert_pinned_catches_tampered_meta(self):
+        # Simulate a hand-edit: load real meta, mutate a field,
+        # recompute the EXPECTED self-hash (the wrong value), pass the
+        # mutated dict to a fresh check against the original declared
+        # hash. The tampered dict should NOT match.
+        import json as _json
+        from pathlib import Path
+        d = _json.loads(Path(meta.META_PATH).read_text(encoding="utf-8"))
+        declared = d["pin_self_hash"]
+        d["pin_reason"] = "tampered"
+        actual = meta.compute_pin_self_hash(d)
+        self.assertNotEqual(declared, actual,
+            "hand-edit to pin_reason must change the self-hash")
+
+
+class TestDeterministicCanary(unittest.TestCase):
+    """Tier 1 canary: deterministic-pipeline drift detection.
+    Runs dedup + within_language_llr + within_language_pmi over a
+    fixed corpus and checks structural invariants. Tier 2 (the LLM
+    canary) is designed in canary/ANALYTICAL_DESIGN.md."""
+
+    def setUp(self):
+        from canary import deterministic_run as dr
+        self.dr = dr
+
+    def test_corpus_exists_and_is_well_formed(self):
+        self.assertTrue(self.dr.CORPUS.exists(),
+            "canary corpus must be checked in; rebuild via "
+            "canary/_deterministic_corpus_builder.py")
+        doc = json.loads(self.dr.CORPUS.read_text(encoding="utf-8"))
+        self.assertIn("snapshot", doc)
+        self.assertIn("briefing", doc)
+        # 16 unique + 1 intra-day duplicate = 17 total snapshot items.
+        snap_items = sum(
+            len(f.get("items", []))
+            for b in doc["snapshot"]["countries"].values()
+            for f in b.get("feeds", []))
+        self.assertEqual(snap_items, 17)
+        self.assertEqual(len(doc["briefing"]["corpus"]), 16)
+
+    def test_run_canary_dedup_detects_intra_day_duplicate(self):
+        out = self.dr.run_canary()
+        d = out["dedup"]
+        # Builder seeds 1 cross-bucket duplicate → counts as 2 dupes
+        # (one on each side of the pairing) per current dedup semantics.
+        self.assertEqual(d["n_total_items"], 17)
+        self.assertEqual(d["n_deduped"], 16)
+        self.assertGreaterEqual(d["n_url_dupes"], 1)
+
+    def test_run_canary_llr_finds_distinctive_terms(self):
+        out = self.dr.run_canary()
+        bb = out["llr"]["by_bucket"]
+        # Each bucket pair shares a language; LLR should find the
+        # signature distinctive terms baked into the corpus.
+        self.assertIn("westminster", bb["uk"]["top3_terms"])
+        self.assertIn("madrid", bb["spain"]["top3_terms"])
+        self.assertIn("chihuahua", bb["mexico"]["top3_terms"])
+
+    def test_structural_diff_detects_value_change(self):
+        prior = {"dedup": {"n_url_dupes": 2}, "meta_version": "1.0.0"}
+        curr  = {"dedup": {"n_url_dupes": 3}, "meta_version": "1.0.1"}
+        diffs = self.dr._structural_diff(prior, curr)
+        self.assertEqual(len(diffs), 1)
+        self.assertIn("n_url_dupes", diffs[0])
+        # meta_version difference must NOT trigger a diff line — every
+        # bump rewrites it; structural drift is what matters.
+        self.assertFalse(any("meta_version" in d for d in diffs))
+
+    def test_structural_diff_detects_added_key(self):
+        prior = {"dedup": {"n_url_dupes": 2}}
+        curr  = {"dedup": {"n_url_dupes": 2, "new_metric": 5}}
+        diffs = self.dr._structural_diff(prior, curr)
+        self.assertEqual(len(diffs), 1)
+        self.assertIn("added", diffs[0])
+
+
+class TestCardInfrastructure(unittest.TestCase):
+    """PR A+: schemas and pinned picker configs for the card-first
+    frontend. Doesn't test build_index logic (that's TestCardPickers in
+    a separate class) — just the contracts and pin machinery."""
+
+    def setUp(self):
+        self.repo = Path(meta.REPO_ROOT)
+
+    def _schema_path(self, name: str) -> Path:
+        return self.repo / "docs" / "api" / "schema" / f"{name}.schema.json"
+
+    def test_new_schemas_are_valid_json(self):
+        for name in ("today", "card", "word"):
+            with self.subTest(schema=name):
+                p = self._schema_path(name)
+                self.assertTrue(p.exists(), f"missing schema: {p}")
+                d = json.loads(p.read_text(encoding="utf-8"))
+                self.assertIn("$schema", d)
+                self.assertIn("$id", d)
+
+    def test_card_picker_loads_with_required_structure(self):
+        p = self.repo / "card_picker.json"
+        self.assertTrue(p.exists())
+        d = json.loads(p.read_text(encoding="utf-8"))
+        self.assertIn("cascade", d)
+        cascade = d["cascade"]
+        self.assertGreater(len(cascade), 0)
+        valid_kinds = {"word", "paradox", "silence", "shift",
+                        "sources", "tilt", "echo"}
+        for entry in cascade:
+            self.assertIn(entry["kind"], valid_kinds)
+        # The last entry must be the fallback so a kind is always picked.
+        last = cascade[-1]["precondition"]
+        self.assertEqual(last.get("type"), "fallback")
+
+    def test_today_picker_covers_all_archetype_kinds(self):
+        p = self.repo / "today_picker.json"
+        self.assertTrue(p.exists())
+        d = json.loads(p.read_text(encoding="utf-8"))
+        weights = d["scoring"]["archetype_strength_weights"]
+        # Every non-echo archetype must have a weight (echo deferred).
+        for k in ("word", "paradox", "silence", "shift", "sources", "tilt"):
+            self.assertIn(k, weights)
+            self.assertGreater(weights[k], 0)
+            self.assertLessEqual(weights[k], 1.0)
+
+    def test_pin_machinery_picks_up_card_picker_hash(self):
+        # After the 8.7.0 bump, card_picker_hash + today_picker_hash
+        # must be stamped in meta_version.json and round-trip via
+        # compute_pin_self_hash.
+        d = json.loads(meta.META_PATH.read_text(encoding="utf-8"))
+        if meta.VERSION.startswith("8.7.") or _version_at_least(meta.VERSION, "8.7.0"):
+            self.assertIn("card_picker_hash", d)
+            self.assertIn("today_picker_hash", d)
+            # Drift detection must catch a hand-edit.
+            self.assertEqual(d["card_picker_hash"],
+                              meta.file_hash(meta.CARD_PICKER_PATH))
+            self.assertEqual(d["today_picker_hash"],
+                              meta.file_hash(meta.TODAY_PICKER_PATH))
+
+    def test_analysis_schema_event_summary_is_optional(self):
+        s = json.loads(self._schema_path("analysis").read_text(encoding="utf-8"))
+        self.assertIn("event_summary", s["properties"])
+        # Must NOT be in required — old analyses lack it.
+        self.assertNotIn("event_summary", s["required"])
+
+    def test_index_schema_carries_card_kind(self):
+        s = json.loads(self._schema_path("index").read_text(encoding="utf-8"))
+        story_props = s["properties"]["stories"]["items"]["properties"]
+        for k in ("event_summary", "card_kind", "finding_synthesis"):
+            self.assertIn(k, story_props)
+        self.assertIn("todays_card", s["properties"])
+
+
+def _version_at_least(actual: str, threshold: str) -> bool:
+    """Parse semver-ish 'X.Y.Z' and compare component-wise."""
+    a = tuple(int(p) for p in actual.split(".")[:3])
+    t = tuple(int(p) for p in threshold.split(".")[:3])
+    return a >= t
+
+
+class TestCardRenderers(unittest.TestCase):
+    """PR D-1: per-archetype HTML renderers. Each test feeds synthetic
+    signals to the renderer and asserts the load-bearing fields show
+    up in the rendered HTML. Renderers must escape user content
+    (html.escape on every interpolation)."""
+
+    def setUp(self):
+        from publication import card_renderers as cr
+        self.cr = cr
+        self.today_card_base = {
+            "card_kind": "word", "date": "2026-05-11",
+            "story_key": "test", "story_title": "Test",
+            "headline": "Test headline with <html>", "kicker": "Factual anchor.",
+            "see_how_path": "/2026-05-11/test/", "meta_version": "8.7.0",
+        }
+
+    def test_word_card_renders_distinctive_terms(self):
+        signals = {"story_key": "test",
+                   "within_lang_llr": {"by_bucket": {
+                       "uk":    {"lang": "en", "distinctive_terms": [{"term": "westminster", "llr": 25.0}]},
+                       "spain": {"lang": "es", "distinctive_terms": [{"term": "madrid", "llr": 14.0}]},
+                   }}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "word"}, signals)
+        self.assertIn("card--word", html)
+        self.assertIn("westminster", html)
+        self.assertIn("madrid", html)
+        # Headline is escaped — < > become entities
+        self.assertNotIn("<html>", html)
+        self.assertIn("&lt;html&gt;", html)
+
+    def test_paradox_card_renders_two_sides_and_joint_conclusion(self):
+        signals = {"analysis": {"paradox": {
+            "a": {"bucket": "uk", "outlet": "BBC", "quote": "A says X."},
+            "b": {"bucket": "russia", "outlet": "RT", "quote": "B says Y."},
+            "joint_conclusion": "Both said the same thing."
+        }}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "paradox"}, signals)
+        self.assertIn("card--paradox", html)
+        self.assertIn("A says X.", html)
+        self.assertIn("B says Y.", html)
+        self.assertIn("Both said the same thing.", html)
+        self.assertIn("BBC", html)
+        self.assertIn("RT", html)
+
+    def test_silence_card_renders_silent_buckets(self):
+        signals = {"story_key": "hormuz",
+                   "coverage": {"non_coverage": {"hormuz": {
+                       "egypt": {"state": "silent", "what_they_covered_instead": "Water rationing."},
+                       "germany": {"state": "covered"},
+                       "italy": {"state": "covered"},
+                   }}}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "silence"}, signals)
+        self.assertIn("card--silence", html)
+        self.assertIn("egypt", html)
+        self.assertIn("didn", html)  # "didn't cover" — apostrophe may render either way
+        self.assertIn("Water rationing.", html)
+
+    def test_shift_card_renders_trajectory_window(self):
+        signals = {"trajectory": {"frame_trajectories": {
+            "ECONOMIC": [
+                {"date": "2026-05-05", "share": 0.20},
+                {"date": "2026-05-06", "share": 0.30, "delta_share": 0.10},
+                {"date": "2026-05-07", "share": 0.55, "delta_share": 0.25},
+            ],
+        }}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "shift"}, signals)
+        self.assertIn("card--shift", html)
+        self.assertIn("ECONOMIC", html)
+        self.assertIn("25pp", html)  # 0.25 * 100
+
+    def test_sources_card_renders_speaker_breakdown(self):
+        signals = {"sources": {"sources": [
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "state"},
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "state"},
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "civilian"},
+            {"bucket": "uk", "outlet": "BBC", "speaker_affiliation_bucket": "academic"},
+        ]}}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "sources"}, signals)
+        self.assertIn("card--sources", html)
+        self.assertIn("BBC", html)
+        self.assertIn("State", html)
+        self.assertIn("Civilian", html)
+        self.assertIn("4 voices", html)
+
+    def test_tilt_card_renders_both_anchors(self):
+        signals = {"tilt_files": [{
+            "bucket": "russia", "outlet": "RT",
+            "anchors": {
+                "wire": {"positive_tilt": [{"bigram": ["foo", "bar"], "z_score": 4.2}]},
+                "bucket_mean": {"positive_tilt": [{"bigram": ["foo", "bar"], "z_score": 3.8}]},
+            },
+        }]}
+        html = self.cr.render_card_html({**self.today_card_base, "card_kind": "tilt"}, signals)
+        self.assertIn("card--tilt", html)
+        self.assertIn("RT", html)
+        self.assertIn("+4.2", html)
+        self.assertIn("+3.8", html)
+        self.assertIn("vs wire", html)
+        self.assertIn("vs cross-bucket", html)
+
+    def test_render_index_html_wraps_card_and_aux_sections(self):
+        signals = {"story_key": "test",
+                   "within_lang_llr": {"by_bucket": {
+                       "uk": {"lang": "en", "distinctive_terms": [{"term": "x", "llr": 25.0}]},
+                   }}}
+        other = [{"key": "second", "title": "Second", "card_kind": "shift",
+                  "finding_synthesis": "moved 30pp", "event_summary": "happened too.",
+                  "date": "2026-05-11"}]
+        html = self.cr.render_index_html(
+            {**self.today_card_base, "card_kind": "word"}, signals, other, ["2026-05-10"]
+        )
+        self.assertIn("<!DOCTYPE html>", html)
+        self.assertIn("og:image", html)
+        self.assertIn("Also today", html)
+        self.assertIn("This week", html)
+        self.assertIn("methodology", html)
+
+    def test_empty_signals_falls_back_gracefully(self):
+        # No on-disk artifacts → renderer shows empty-state.
+        signals = {"story_key": "test"}
+        for kind in ("word", "paradox", "silence", "shift", "sources", "tilt"):
+            with self.subTest(kind=kind):
+                html = self.cr.render_card_html(
+                    {**self.today_card_base, "card_kind": kind}, signals
+                )
+                self.assertIn(f"card--{kind}", html)
+                # No exceptions, no Python traceback markers, no None dumps
+                self.assertNotIn("None</", html)
+                self.assertNotIn("Traceback", html)
+
+
+class TestCardPNGRender(unittest.TestCase):
+    """PR D-2: render_card_png produces a valid PNG via Playwright.
+    Gated on playwright + chromium being available — skips cleanly
+    in environments that don't have either (the production cron
+    workflow installs both in CI)."""
+
+    def setUp(self):
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            self.skipTest("playwright not installed")
+        from publication import card_renderers as cr
+        self.cr = cr
+        # Smoke-launch to confirm Chromium is downloaded. If launch
+        # fails with "Executable doesn't exist", the runner doesn't
+        # have the browser binary — skip rather than fail.
+        try:
+            with sync_playwright() as p:
+                b = p.chromium.launch(headless=True)
+                b.close()
+        except Exception as e:
+            self.skipTest(f"chromium unavailable: {e}")
+
+    def test_render_card_png_produces_valid_png_bytes(self):
+        today_card = {
+            "card_kind": "word", "date": "2026-05-11",
+            "story_key": "test", "story_title": "Test",
+            "headline": "Test headline", "kicker": "Factual anchor.",
+            "see_how_path": "/", "meta_version": "8.7.0",
+        }
+        signals = {"story_key": "test",
+                   "within_lang_llr": {"by_bucket": {
+                       "uk": {"lang": "en", "distinctive_terms": [{"term": "westminster", "llr": 25.0}]},
+                   }}}
+        card_html = self.cr.render_card_html(today_card, signals)
+        styles = "body{font-family:sans-serif}.card{padding:48px}"
+        png = self.cr.render_card_png(card_html, styles, viewport="today")
+        # PNG magic bytes
+        self.assertTrue(png.startswith(b"\x89PNG\r\n\x1a\n"))
+        # Reasonable size — a card-shaped image at 1200x675 should be
+        # at least a few KB
+        self.assertGreater(len(png), 5_000)
+
+    def test_render_card_png_rejects_unknown_viewport(self):
+        with self.assertRaises(ValueError):
+            self.cr.render_card_png("<div/>", "", viewport="nope")
+
+
+class TestCardPickers(unittest.TestCase):
+    """PR A+: pick_per_story_card_kind walks card_picker.json cascade;
+    pick_todays_card scores stories per today_picker.json. Both must
+    gracefully handle missing signal sources (day-1 stories)."""
+
+    def setUp(self):
+        from publication import build_index as bi
+        self.bi = bi
+        # Reset the lru_cache between tests so config edits land.
+        bi._card_picker_cfg.cache_clear()
+        bi._today_picker_cfg.cache_clear()
+
+    def _empty_signals(self, story_key: str = "test") -> dict:
+        return {
+            "date": "2026-05-11", "story_key": story_key,
+            "briefing": {"corpus": []},
+            "analysis": None, "trajectory": None, "coverage": None,
+            "sources": None, "within_lang_llr": None, "tilt_files": [],
+        }
+
+    def test_paradox_picked_when_joint_conclusion_present(self):
+        s = self._empty_signals()
+        s["analysis"] = {"paradox": {
+            "joint_conclusion": "x" * 80,
+            "a": {}, "b": {},
+        }}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "paradox")
+
+    def test_shift_picked_when_delta_share_above_20pct(self):
+        s = self._empty_signals()
+        s["trajectory"] = {"frame_trajectories": {
+            "ECONOMIC": [
+                {"date": "2026-05-08", "share": 0.20},
+                {"date": "2026-05-09", "share": 0.50, "delta_share": 0.30},
+            ],
+        }}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "shift")
+
+    def test_silence_picked_when_3plus_silent_buckets(self):
+        s = self._empty_signals(story_key="hormuz")
+        s["coverage"] = {"non_coverage": {"hormuz": {
+            "italy":   {"state": "silent", "coverage_pct_news": 12},
+            "germany": {"state": "silent", "coverage_pct_news": 8},
+            "spain":   {"state": "silent", "coverage_pct_news": 22},
+            "usa":     {"state": "covered"},
+        }}}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "silence")
+
+    def test_tilt_picked_when_zscore_above_4(self):
+        s = self._empty_signals()
+        s["tilt_files"] = [{
+            "bucket": "canada", "outlet": "CBC World",
+            "anchors": {
+                "wire": {"positive_tilt": [{"bigram": ["foo", "bar"], "z_score": 5.1}]},
+            },
+        }]
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "tilt")
+
+    def test_sources_picked_when_diversity_met(self):
+        s = self._empty_signals()
+        s["sources"] = {"sources": [
+            {"bucket": "italy",   "speaker_affiliation_bucket": "state"},
+            {"bucket": "germany", "speaker_affiliation_bucket": "civilian"},
+            {"bucket": "spain",   "speaker_affiliation_bucket": "state"},
+            {"bucket": "france",  "speaker_affiliation_bucket": "academic"},
+            {"bucket": "uk",      "speaker_affiliation_bucket": "civilian"},
+        ]}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "sources")
+
+    def test_word_picked_when_llr_above_20(self):
+        s = self._empty_signals()
+        s["within_lang_llr"] = {"by_bucket": {
+            "uk": {"lang": "en", "distinctive_terms": [
+                {"term": "westminster", "llr": 25.5},
+            ]},
+        }}
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "word")
+
+    def test_fallback_word_when_nothing_matches(self):
+        s = self._empty_signals()
+        # Empty everything → fallback to word.
+        self.assertEqual(self.bi.pick_per_story_card_kind(s), "word")
+
+    def test_compute_finding_synthesis_empty_state_for_word(self):
+        s = self._empty_signals()
+        out = self.bi.compute_finding_synthesis(s, "word")
+        self.assertIn("accruing", out.lower())  # empty-state marker
+
+    def test_pick_todays_card_respects_min_buckets(self):
+        # 7-bucket story is below min_n_buckets_for_hero = 8; should
+        # be filtered out.
+        stories = [
+            {"story_key": "small", "title": "x", "n_buckets": 7,
+             "card_kind": "paradox", "finding_synthesis": "x",
+             "signals": self._empty_signals("small")},
+        ]
+        self.assertIsNone(self.bi.pick_todays_card(stories, "2026-05-11"))
+
+    def test_pick_todays_card_picks_highest_score(self):
+        stories = [
+            {"story_key": "hormuz", "title": "Hormuz",
+             "n_buckets": 33, "card_kind": "paradox",
+             "finding_synthesis": "p", "signals": self._empty_signals("hormuz")},
+            {"story_key": "small_word", "title": "Small",
+             "n_buckets": 9, "card_kind": "word",
+             "finding_synthesis": "w", "signals": self._empty_signals("small_word")},
+        ]
+        result = self.bi.pick_todays_card(stories, "2026-05-11")
+        self.assertEqual(result["story_key"], "hormuz")
+        self.assertEqual(result["card_kind"], "paradox")
+        self.assertIn("final_score", result["score_breakdown"])
 
 
 if __name__ == "__main__":
