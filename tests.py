@@ -2161,5 +2161,102 @@ class TestLongitudinalDrivers(unittest.TestCase):
         meta.validate_schema(traj, "trajectory")
 
 
+class TestDistributionApprovalGate(unittest.TestCase):
+    """PR 6: distribution.stage + distribution.publish replace the
+    auto-fire posters with a pending → approved/rejected flow."""
+
+    def setUp(self):
+        from distribution import stage as st
+        from distribution import publish as pb
+        self.st = st
+        self.pb = pb
+        self.tmp = tempfile.TemporaryDirectory()
+        td = Path(self.tmp.name)
+        # Point all module path constants at the tempdir
+        (td / "drafts").mkdir()
+        (td / "videos").mkdir()
+        self.st.ROOT = td
+        self.st.DRAFTS = td / "drafts"
+        self.st.VIDEOS = td / "videos"
+        self.st.PENDING_BASE = td / "distribution" / "pending"
+        # PLATFORMS is a dict literal with bound paths; rebind to td
+        self.st.PLATFORMS["youtube_shorts"]["media_dir"] = td / "videos"
+        self.pb.ROOT = td
+        self.pb.DIST = td / "distribution"
+        self.pb.PENDING = td / "distribution" / "pending"
+        self.pb.APPROVED = td / "distribution" / "approved"
+        self.pb.REJECTED = td / "distribution" / "rejected"
+        self.td = td
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _write_draft(self, name: str, payload: dict) -> None:
+        (self.td / "drafts" / name).write_text(json.dumps(payload), encoding="utf-8")
+
+    def test_stage_creates_pending_envelope_per_platform(self):
+        # Thread draft → x envelope; long draft → youtube_shorts envelope.
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self._write_draft("2026-05-11_hormuz_iran_long.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "title": "x",
+                           "body_md": "x" * 2600, "sources": []})
+        written = self.st.stage_for_date("2026-05-11")
+        names = sorted(p.name for p in written)
+        self.assertIn("hormuz_iran_x.json", names)
+        self.assertIn("hormuz_iran_youtube_shorts.json", names)
+
+    def test_envelope_passes_its_own_schema(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self.st.stage_for_date("2026-05-11")
+        env_path = self.td / "distribution" / "pending" / "2026-05-11" / "hormuz_iran_x.json"
+        env = json.loads(env_path.read_text(encoding="utf-8"))
+        meta.validate_schema(env, "distribution_pending")
+
+    def test_approve_moves_envelope_to_approved_dir(self):
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self.st.stage_for_date("2026-05-11")
+        rc = self.pb.cmd_approve("2026-05-11_hormuz_iran_x")
+        self.assertEqual(rc, 0)
+        approved = self.td / "distribution" / "approved" / "2026-05-11" / "hormuz_iran_x.json"
+        self.assertTrue(approved.exists(), "approved envelope must exist")
+        # And the pending dir entry must be gone
+        pending = self.td / "distribution" / "pending" / "2026-05-11" / "hormuz_iran_x.json"
+        self.assertFalse(pending.exists(), "pending envelope must be moved")
+        env = json.loads(approved.read_text(encoding="utf-8"))
+        self.assertEqual(env["stage_status"], "approved")
+        self.assertIsNotNone(env["approved_at"])
+
+    def test_approve_unknown_id_returns_nonzero(self):
+        rc = self.pb.cmd_approve("nope")
+        self.assertEqual(rc, 1)
+
+    def test_stage_idempotent_for_already_approved_envelope(self):
+        self._write_draft("2026-05-11_hormuz_iran_thread.json",
+                          {"meta_version": meta.VERSION, "story_key": "hormuz_iran",
+                           "date": "2026-05-11", "hook": "x", "tweets": [],
+                           "title": "x"})
+        self.st.stage_for_date("2026-05-11")
+        self.pb.cmd_approve("2026-05-11_hormuz_iran_x")
+        # Re-staging should NOT recreate a pending envelope after approval
+        written = self.st.stage_for_date("2026-05-11")
+        pending = self.td / "distribution" / "pending" / "2026-05-11" / "hormuz_iran_x.json"
+        self.assertFalse(pending.exists(),
+                         "re-staging must not overwrite approved decisions")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

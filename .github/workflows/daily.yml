@@ -518,22 +518,23 @@ jobs:
       - name: Install runtime deps
         run: pip install -r requirements.txt
 
-      - name: Install distribution-channel deps (best effort)
+      # PR 6: distribution approval-gate. Cron no longer auto-fires the
+      # X poster or YouTube Shorts uploader. Instead, today's drafts are
+      # staged to distribution/pending/<date>/ as approval envelopes.
+      # A separate workflow (or a human running
+      # `python -m distribution.publish --approve <id>`) moves an
+      # envelope to distribution/approved/, where the actual posting
+      # picks it up. Rationale in distribution/stage.py docstring +
+      # docs/MERGE_PLAN.md PR 6.
+      - name: Stage drafts to distribution/pending/
+        run: python -m distribution.stage
+
+      - name: Commit pending envelopes
         run: |
-          pip install requests-oauthlib >/dev/null 2>&1 || \
-            echo "(requests_oauthlib not installable; X live posting disabled)"
-
-      - name: Post threads to X (Phase 2; secret-gated, exits 0 if no token)
-        env:
-          X_CONSUMER_KEY:        ${{ secrets.X_CONSUMER_KEY }}
-          X_CONSUMER_SECRET:     ${{ secrets.X_CONSUMER_SECRET }}
-          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-        run: python -m distribution.x_poster
-
-      - name: Upload videos to YouTube Shorts (Phase 2; secret-gated)
-        env:
-          YT_CLIENT_ID:     ${{ secrets.YT_CLIENT_ID }}
-          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-        run: python -m distribution.youtube_shorts
+          git add distribution/pending/ || true
+          if ! git diff --cached --quiet; then
+            git -c user.name="epistemic-lens-bot" \
+                -c user.email="bot@epistemic-lens" \
+              commit -m "distribution: stage $(date -u +%Y-%m-%d) drafts to pending/"
+            git push || echo "(push failed; pending envelopes still on disk)"
+          fi
