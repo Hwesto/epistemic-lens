@@ -160,7 +160,7 @@ them so they don't get re-litigated:
 | 1 | `schemas_hash` retrofit + 11 new schemas + `meta.check_drift` extension + `TestSchemaCorpus` + `meta_version` backfill on unstamped artifacts | minor | zero analytical change |
 | 2 | 4-state coverage matrix (extend v8's binary `coverage_matrix.py` by joining with daily health to derive silence / dark / errored) | minor | adds derived metric |
 | 3 | Source attribution enum enrichment: add `speaker_affiliation_bucket`, `speaker_affiliation_kind` to the prompt + schema | minor | small prompt change |
-| 4 | Analytical canary harness (50-article fixed corpus, Sonnet, all 4 passes, stamped per pin bump, CI gate) | minor | adds new artifact type |
+| 4 | Analytical canary — **design doc only** (`canary/ANALYTICAL_DESIGN.md`). Implementation deferred: ~$2.20 per pin bump on Sonnet × ~50 articles × 4 passes. v8's existing `canary/run.py` model-drift canary continues to cover Anthropic snapshot drift; PR 1's `prompts_hash` + `schemas_hash` cover prompt/schema edits at the file level. The analytical canary closes the gap of *hash-clean but behavior-different* edits and is ready to implement when API budget allows. | docs | docs-only |
 | 5 | Article-level provenance in `longitudinal.py` (drivers with 10pp threshold) | patch | extends existing artifact |
 | 6 | Distribution approval-gate (`distribution/pending/` + `publish --approve` CLI) | none | editorial-policy change |
 | 7 | Tilt-index second anchor (`bucket_mean` alongside `wire`) | minor | honest-naming improvement |
