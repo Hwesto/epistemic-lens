@@ -220,8 +220,8 @@ def main() -> int:
     for p in targets:
         try:
             briefing = json.loads(p.read_text(encoding="utf-8"))
-        except Exception as e:
-            print(f"  skip {p.name}: {e}", file=sys.stderr)
+        except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+            print(f"FAIL: {p}: {e}", file=sys.stderr)
             continue
         result = within_language_llr(briefing, top_k=args.top_k)
         result = meta.stamp({

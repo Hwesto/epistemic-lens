@@ -101,7 +101,8 @@ def load_sources(date: str, sources_dir: Path = SOURCES) -> list[dict]:
             continue
         try:
             doc = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+            print(f"FAIL: {p}: {e}", file=sys.stderr)
             continue
         sk = doc.get("story_key")
         for s in (doc.get("sources") or []):

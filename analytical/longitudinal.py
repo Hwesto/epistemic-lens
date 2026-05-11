@@ -120,7 +120,8 @@ def _load_briefing_for(analysis_path: Path) -> dict | None:
         return None
     try:
         return json.loads(bp.read_text(encoding="utf-8"))
-    except Exception:
+    except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+        print(f"FAIL: {bp}: {e}", file=sys.stderr)
         return None
 
 
@@ -148,7 +149,8 @@ def build_trajectory(paths: list[Path]) -> dict:
     for p in paths:
         try:
             a = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+            print(f"FAIL: {p}: {e}", file=sys.stderr)
             continue
         d = a.get("date") or ANALYSIS_RE.match(p.name).group(1)
         story_title = story_title or a.get("story_title")

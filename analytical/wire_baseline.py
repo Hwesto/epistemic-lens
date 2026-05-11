@@ -68,7 +68,8 @@ def collect_wire_articles(window_days: int = 90,
             continue
         try:
             briefing = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+            print(f"FAIL: {p}: {e}", file=sys.stderr)
             continue
         for art in briefing.get("corpus") or []:
             if art.get("bucket") == "wire_services":

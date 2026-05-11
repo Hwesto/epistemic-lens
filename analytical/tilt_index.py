@@ -54,7 +54,8 @@ def load_wire_baseline(path: Path = BASELINE / "wire_bigrams.json") -> dict | No
         return None
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
+    except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+        print(f"FAIL: {path}: {e}", file=sys.stderr)
         return None
 
 
@@ -78,7 +79,8 @@ def collect_outlet_articles(window_days: int = 30,
             continue
         try:
             briefing = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+            print(f"FAIL: {p}: {e}", file=sys.stderr)
             continue
         for art in briefing.get("corpus") or []:
             bucket = art.get("bucket")

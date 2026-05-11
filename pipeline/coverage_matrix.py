@@ -81,7 +81,7 @@ def _parse_iso(s: str | None) -> datetime | None:
     try:
         s2 = s.replace("Z", "+00:00")
         return datetime.fromisoformat(s2)
-    except Exception:
+    except (TypeError, ValueError):
         return None
 
 

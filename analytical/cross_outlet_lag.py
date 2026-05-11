@@ -74,7 +74,8 @@ def load_coverage_history(window_days: int = 30,
         if p.exists():
             try:
                 out[d] = json.loads(p.read_text(encoding="utf-8"))
-            except Exception:
+            except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+                print(f"FAIL: {p}: {e}", file=sys.stderr)
                 continue
     return out
 

@@ -140,7 +140,8 @@ def main() -> int:
     for p in targets:
         try:
             traj = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
+        except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
+            print(f"FAIL: {p}: {e}", file=sys.stderr)
             continue
         rob = compute_robustness(traj, threshold=args.threshold)
         out = meta.stamp({
