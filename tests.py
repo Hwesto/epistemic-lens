@@ -1810,6 +1810,57 @@ class TestFeedRotCheck(unittest.TestCase):
             self.assertIn(f"meta_version {_meta.VERSION}", report)
 
 
+class TestSchemaCorpus(unittest.TestCase):
+    """PR 1: every schema in docs/api/schema/ must itself be a valid
+    JSON Schema Draft 2020-12 document, and every pipeline-written
+    artifact schema must require meta_version. Cherry-picked from the
+    audit branch's Stage 14 work and adapted to v8's artifact list."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self.jsonschema = jsonschema
+        self.schema_dir = Path(__file__).parent / "docs/api/schema"
+
+    def test_every_schema_is_valid_draft_2020_12(self):
+        validator_cls = self.jsonschema.Draft202012Validator
+        for p in sorted(self.schema_dir.glob("*.schema.json")):
+            with self.subTest(schema=p.name):
+                schema = json.loads(p.read_text(encoding="utf-8"))
+                validator_cls.check_schema(schema)
+                self.assertEqual(
+                    schema.get("$schema"),
+                    "https://json-schema.org/draft/2020-12/schema",
+                    f"{p.name} must declare draft 2020-12",
+                )
+
+    def test_artifact_schemas_require_meta_version(self):
+        """Every pipeline-written artifact schema (i.e. not pure configs
+        like feeds / canonical_stories) must require meta_version in its
+        top-level required[]."""
+        artifact_schemas = (
+            "analysis", "briefing", "metrics", "health",
+            "thread", "carousel", "long",
+            "index", "latest", "video_script",
+        )
+        for name in artifact_schemas:
+            path = self.schema_dir / f"{name}.schema.json"
+            if not path.exists():
+                continue
+            with self.subTest(schema=name):
+                schema = json.loads(path.read_text(encoding="utf-8"))
+                if "oneOf" in schema:
+                    for branch in schema["oneOf"]:
+                        self.assertIn(
+                            "meta_version", branch.get("required", []),
+                            f"{name}.oneOf branch missing meta_version")
+                else:
+                    self.assertIn(
+                        "meta_version", schema.get("required", []),
+                        f"{name} must require meta_version")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/feeds.schema.json",
+  "title": "Epistemic Lens — feeds.json",
+  "description": "Authoritative feed roster. Pinned by meta_version.json -> feeds.hash. Adding a feed = minor bump; removing a feed or renaming a bucket = major bump (invalidates longitudinal coverage comparisons).",
+  "type": "object",
+  "required": ["meta", "countries"],
+  "additionalProperties": true,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["version"],
+      "additionalProperties": true,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "feeds.json's own internal version (separate from meta_version)."
+        }
+      }
+    },
+    "countries": {
+      "type": "object",
+      "minProperties": 1,
+      "description": "Bucket key -> bucket definition. Keys are stable identifiers used by every downstream stage; renames are major bumps.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["label", "feeds"],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human-readable bucket name."
+          },
+          "feeds": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["name", "url"],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Outlet name. Must be unique within the bucket — pull_all keys results by (bucket, name)."
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "RSS / Atom feed URL."
+                },
+                "lang": {
+                  "type": "string",
+                  "description": "ISO 639-1 language code; used for Accept-Language header."
+                },
+                "lean": {
+                  "type": "string",
+                  "description": "Editorial leaning hint (free-text)."
+                },
+                "status": {
+                  "type": "string",
+                  "description": "Author-declared status (OK, STUB, RETRY, etc.)."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

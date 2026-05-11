@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/index.schema.json",
+  "title": "Per-date story index (api/<date>/index.json)",
+  "description": "The frontend's primary contract: one index per published date listing every story with its artifact links and headline facts. Written by publication/build_index.py.",
+  "type": "object",
+  "required": ["meta_version", "date", "generated_at", "n_stories", "stories"],
+  "additionalProperties": false,
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin (added by meta.stamp())."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "n_stories": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "stories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "title", "has", "artifacts"],
+        "additionalProperties": false,
+        "properties": {
+          "key": { "type": "string" },
+          "title": { "type": "string" },
+          "n_buckets": { "type": ["integer", "null"] },
+          "n_articles": { "type": ["integer", "null"] },
+          "has": {
+            "type": "object",
+            "description": "Boolean presence flags per artifact kind. analysis_json is the JSON canonical form; analysis is the rendered markdown.",
+            "additionalProperties": false,
+            "properties": {
+              "briefing":      { "type": "boolean" },
+              "metrics":       { "type": "boolean" },
+              "analysis":      { "type": "boolean" },
+              "analysis_json": { "type": "boolean" },
+              "thread":        { "type": "boolean" },
+              "carousel":      { "type": "boolean" },
+              "long":          { "type": "boolean" }
+            }
+          },
+          "artifacts": {
+            "type": "object",
+            "description": "Root-anchored URLs to each artifact. Only present keys: briefing, plus whichever others were validated successfully.",
+            "additionalProperties": { "type": "string" }
+          },
+          "top_isolation_bucket": { "type": "string" },
+          "paradox": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

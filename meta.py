@@ -40,6 +40,7 @@ BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
 BUCKET_WEIGHTS_PATH = ROOT / "bucket_weights.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
+SCHEMAS_DIR = ROOT / "docs" / "api" / "schema"
 
 # Public alias used by scripts that have moved into subdirectories
 # (pipeline/, analytical/, publication/, video/). Their own
@@ -269,6 +270,12 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         if declared != actual:
             drift["claude.prompts"] = (declared, actual)
 
+    declared = META.get("schemas_hash")
+    if declared and SCHEMAS_DIR.exists():
+        actual = dir_hash(SCHEMAS_DIR, "*.json")
+        if declared != actual:
+            drift["schemas"] = (declared, actual)
+
     if drift and strict:
         lines = ["Methodology drift detected (meta_version=" + VERSION + "):"]
         for k, (dec, act) in drift.items():
@@ -286,6 +293,33 @@ def stamp(artifact: dict) -> dict:
     """Embed `meta_version` at the top of an artifact dict, in-place."""
     artifact["meta_version"] = VERSION
     return artifact
+
+
+def load_schema(name: str) -> dict:
+    """Load `docs/api/schema/<name>.schema.json` as a parsed dict."""
+    return json.loads((SCHEMAS_DIR / f"{name}.schema.json").read_text(encoding="utf-8"))
+
+
+def validate_schema(data: dict, schema_name: str) -> None:
+    """Validate `data` against `<schema_name>.schema.json`.
+
+    Raises ValueError on schema mismatch, RuntimeError if jsonschema is
+    missing (hard dependency for the renderer + observability paths).
+    """
+    try:
+        import jsonschema
+    except ImportError as e:
+        raise RuntimeError(
+            "jsonschema is required for schema validation but is not "
+            "installed. Run: pip install jsonschema"
+        ) from e
+    try:
+        jsonschema.validate(instance=data, schema=load_schema(schema_name))
+    except jsonschema.ValidationError as e:
+        path = "/".join(str(p) for p in e.absolute_path) or "<root>"
+        raise ValueError(
+            f"{schema_name} failed schema: {e.message} (at {path})"
+        ) from e
 
 
 def fingerprint() -> dict:

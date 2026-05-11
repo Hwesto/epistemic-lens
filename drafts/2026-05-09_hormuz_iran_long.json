@@ -5,18 +5,68 @@
   "subtitle": "Canada's CBC and South Africa's News24 independently led with the same US intelligence leak — the highest pairwise convergence in today's corpus, uniting press systems from opposite geopolitical flanks.",
   "body_md": "The highest pairwise editorial convergence in today's 62-article, 35-bucket corpus is not between allied Western outlets or between Global South voices. It is between Canada and South Africa — a Jaccard similarity of 0.468, the highest in the dataset — meaning these two press systems, from opposite sides of the geopolitical divide, shared more vocabulary with each other than any other pair. Both chose to lead with the same finding: a CIA assessment indicating Iran could withstand the US naval blockade for approximately four more months before facing severe economic pressure. [CBC World](https://www.cbc.ca/news/world/us-iran-war-hormuz-cia-blockade-9.7192522?cmp=rss) ran it directly: \"CIA analysis suggests Iran could withstand blockade for 4 more months.\" [News24 World](https://www.news24.com/world/cia-report-claims-iran-can-outlast-us-port-blockade-for-4-more-months-20260509-0432) cited the same assessment, noting Iran \"would not suffer severe economic pressure from a US blockade of Iranian ports for about another four months.\" A Western-allied press and a non-aligned press independently agreed that the most important fact in Friday's news cycle was Washington's own intelligence service undermining Washington's stated leverage.\n\nThe operational baseline was a ceasefire under stress. US forces and Iranian assets exchanged fire for the second time this week; both sides described the other as the initiator. Iran's Foreign Minister, as cited by [BBC World](https://www.bbc.com/news/articles/c99lpn9ze8ro?at_medium=RSS&at_campaign=rss), accused the US of opting for a \"reckless military adventure\" every time a \"diplomatic solution is on the table.\" [IRNA](https://en.irna.ir/news/86148893/US-attack-on-Iran-tankers-clear-violation-of-ceasefire-int-l) called the tanker strikes a \"clear violation of ceasefire, int'l law.\" Trump told reporters the ceasefire was still in effect. [Standard Kenya World](https://www.standardmedia.co.ke/world/article/2001547296/us-and-iran-trade-fire-threatening-fragile-truce) carried both positions in a single dispatch. The ceasefire is simultaneously asserted and violated.\n\nFrom there, the story diverges sharply by geography. [Asia Times](https://asiatimes.com/2026/05/nuclear-holocaust-threat-just-another-day-in-trump-world/) characterised Trump's negotiating posture in terms absent from every Western, Gulf, and Iranian outlet: \"US President Donald Trump issued what seemed to be yet another threat to commit an act of mass destruction against the country through nuclear warfare.\" The same outlet introduced a geofinancial frame that no other bucket, including Chinese state media, followed: [Asia Times](https://asiatimes.com/2026/05/iran-weaponizes-petroyuan-in-war-reparations-push/) described Iran as weaponising \"the petroyuan in war reparations push\" — positioning the Hormuz standoff as a vehicle for currency-war outcomes beyond the military confrontation.\n\nNordic press filtered the same crisis through consumer disruption. [The Local Sweden](https://www.thelocal.se/20260505/sas-cancels-1200-flights-in-may-due-to-fuel-shortages) reported that SAS was \"cancelling nearly 1,200 flights in May as it braces for soaring jet fuel prices as a result of the closure of the Straits of Hormuz.\" The terms unique to Nordic coverage — airline, flight, summer, departure — appear in no security or diplomacy bucket. A crisis framed in Washington as a test of coercive leverage is framed in Stockholm as a threat to holiday travel.\n\nPakistan offered a different kind of specificity. [Geo News](https://www.geo.tv/latest/663566-its-pretty-scary-seafarers-traumatised-by-hormuz-tensions) was the only outlet in 62 articles to cover maritime welfare charities' response to trapped crews: \"Isolated and traumatised by drones and missiles, seafarers in the Gulf face grave mental suffering after more than two months stuck on board in the Middle East war, maritime charities warn.\" Pakistan is a major seafarer labour-export nation — a structural fact that shapes its editorial priorities in ways no other bucket reflects.\n\nThe silences are notable. China — the largest single buyer of Iranian crude and the country facing the most direct secondary-sanctions pressure — produced only boilerplate maritime notices through CGTN. Iranian state media (IRNA) issued legal condemnations but engaged with neither the substance of the US peace proposal nor Tehran's own terms for a deal. Iran's opposition press ran coverage of Secretary of State Rubio's Vatican visit rather than any domestic Iranian political response.\n\nThe joint conclusion Canada and South Africa independently reached — that the CIA's own four-month endurance estimate undercuts the blockade's leverage — is now public, regardless of how Washington frames its messaging. A tanker count cited by [War on the Rocks](https://warontherocks.com/could-russia-follow-the-hormuz-playbook-in-the-baltic-and-black-seas/) places 56 vessels in the strait on the eve of US-Israeli strikes, falling to 7 two days later. What happens when the CIA's window runs out — and whether the peace talks Tehran has not yet answered will have produced an agreement before then — is a question the corpus, as of Friday, could not answer.",
   "sources": [
-    {"bucket": "canada", "url": "https://www.cbc.ca/news/world/us-iran-war-hormuz-cia-blockade-9.7192522?cmp=rss", "outlet": "CBC World"},
-    {"bucket": "south_africa", "url": "https://www.news24.com/world/cia-report-claims-iran-can-outlast-us-port-blockade-for-4-more-months-20260509-0432", "outlet": "News24 World"},
-    {"bucket": "uk", "url": "https://www.bbc.com/news/articles/c99lpn9ze8ro?at_medium=RSS&at_campaign=rss", "outlet": "BBC World"},
-    {"bucket": "iran_state", "url": "https://en.irna.ir/news/86148893/US-attack-on-Iran-tankers-clear-violation-of-ceasefire-int-l", "outlet": "IRNA"},
-    {"bucket": "kenya", "url": "https://www.standardmedia.co.ke/world/article/2001547296/us-and-iran-trade-fire-threatening-fragile-truce", "outlet": "Standard Kenya World"},
-    {"bucket": "asia_pacific_regional", "url": "https://asiatimes.com/2026/05/nuclear-holocaust-threat-just-another-day-in-trump-world/", "outlet": "Asia Times"},
-    {"bucket": "asia_pacific_regional", "url": "https://asiatimes.com/2026/05/iran-weaponizes-petroyuan-in-war-reparations-push/", "outlet": "Asia Times"},
-    {"bucket": "nordic", "url": "https://www.thelocal.se/20260505/sas-cancels-1200-flights-in-may-due-to-fuel-shortages", "outlet": "The Local Sweden"},
-    {"bucket": "pakistan", "url": "https://www.geo.tv/latest/663566-its-pretty-scary-seafarers-traumatised-by-hormuz-tensions", "outlet": "Geo News"},
-    {"bucket": "usa", "url": "https://warontherocks.com/could-russia-follow-the-hormuz-playbook-in-the-baltic-and-black-seas/", "outlet": "War on the Rocks"}
+    {
+      "bucket": "canada",
+      "url": "https://www.cbc.ca/news/world/us-iran-war-hormuz-cia-blockade-9.7192522?cmp=rss",
+      "outlet": "CBC World"
+    },
+    {
+      "bucket": "south_africa",
+      "url": "https://www.news24.com/world/cia-report-claims-iran-can-outlast-us-port-blockade-for-4-more-months-20260509-0432",
+      "outlet": "News24 World"
+    },
+    {
+      "bucket": "uk",
+      "url": "https://www.bbc.com/news/articles/c99lpn9ze8ro?at_medium=RSS&at_campaign=rss",
+      "outlet": "BBC World"
+    },
+    {
+      "bucket": "iran_state",
+      "url": "https://en.irna.ir/news/86148893/US-attack-on-Iran-tankers-clear-violation-of-ceasefire-int-l",
+      "outlet": "IRNA"
+    },
+    {
+      "bucket": "kenya",
+      "url": "https://www.standardmedia.co.ke/world/article/2001547296/us-and-iran-trade-fire-threatening-fragile-truce",
+      "outlet": "Standard Kenya World"
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "url": "https://asiatimes.com/2026/05/nuclear-holocaust-threat-just-another-day-in-trump-world/",
+      "outlet": "Asia Times"
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "url": "https://asiatimes.com/2026/05/iran-weaponizes-petroyuan-in-war-reparations-push/",
+      "outlet": "Asia Times"
+    },
+    {
+      "bucket": "nordic",
+      "url": "https://www.thelocal.se/20260505/sas-cancels-1200-flights-in-may-due-to-fuel-shortages",
+      "outlet": "The Local Sweden"
+    },
+    {
+      "bucket": "pakistan",
+      "url": "https://www.geo.tv/latest/663566-its-pretty-scary-seafarers-traumatised-by-hormuz-tensions",
+      "outlet": "Geo News"
+    },
+    {
+      "bucket": "usa",
+      "url": "https://warontherocks.com/could-russia-follow-the-hormuz-playbook-in-the-baltic-and-black-seas/",
+      "outlet": "War on the Rocks"
+    }
   ],
-  "tags": ["hormuz", "iran", "us-iran", "cia", "geopolitics", "media-framing", "blockade", "ceasefire"],
+  "tags": [
+    "hormuz",
+    "iran",
+    "us-iran",
+    "cia",
+    "geopolitics",
+    "media-framing",
+    "blockade",
+    "ceasefire"
+  ],
   "generated_at": "2026-05-09T10:00:00Z",
-  "model": "claude-sonnet-4-6"
+  "model": "claude-sonnet-4-6",
+  "meta_version": "8.1.0"
 }
