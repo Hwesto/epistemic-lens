@@ -2411,5 +2411,66 @@ class TestPinSelfHash(unittest.TestCase):
             "hand-edit to pin_reason must change the self-hash")
 
 
+class TestDeterministicCanary(unittest.TestCase):
+    """Tier 1 canary: deterministic-pipeline drift detection.
+    Runs dedup + within_language_llr + within_language_pmi over a
+    fixed corpus and checks structural invariants. Tier 2 (the LLM
+    canary) is designed in canary/ANALYTICAL_DESIGN.md."""
+
+    def setUp(self):
+        from canary import deterministic_run as dr
+        self.dr = dr
+
+    def test_corpus_exists_and_is_well_formed(self):
+        self.assertTrue(self.dr.CORPUS.exists(),
+            "canary corpus must be checked in; rebuild via "
+            "canary/_deterministic_corpus_builder.py")
+        doc = json.loads(self.dr.CORPUS.read_text(encoding="utf-8"))
+        self.assertIn("snapshot", doc)
+        self.assertIn("briefing", doc)
+        # 16 unique + 1 intra-day duplicate = 17 total snapshot items.
+        snap_items = sum(
+            len(f.get("items", []))
+            for b in doc["snapshot"]["countries"].values()
+            for f in b.get("feeds", []))
+        self.assertEqual(snap_items, 17)
+        self.assertEqual(len(doc["briefing"]["corpus"]), 16)
+
+    def test_run_canary_dedup_detects_intra_day_duplicate(self):
+        out = self.dr.run_canary()
+        d = out["dedup"]
+        # Builder seeds 1 cross-bucket duplicate → counts as 2 dupes
+        # (one on each side of the pairing) per current dedup semantics.
+        self.assertEqual(d["n_total_items"], 17)
+        self.assertEqual(d["n_deduped"], 16)
+        self.assertGreaterEqual(d["n_url_dupes"], 1)
+
+    def test_run_canary_llr_finds_distinctive_terms(self):
+        out = self.dr.run_canary()
+        bb = out["llr"]["by_bucket"]
+        # Each bucket pair shares a language; LLR should find the
+        # signature distinctive terms baked into the corpus.
+        self.assertIn("westminster", bb["uk"]["top3_terms"])
+        self.assertIn("madrid", bb["spain"]["top3_terms"])
+        self.assertIn("chihuahua", bb["mexico"]["top3_terms"])
+
+    def test_structural_diff_detects_value_change(self):
+        prior = {"dedup": {"n_url_dupes": 2}, "meta_version": "1.0.0"}
+        curr  = {"dedup": {"n_url_dupes": 3}, "meta_version": "1.0.1"}
+        diffs = self.dr._structural_diff(prior, curr)
+        self.assertEqual(len(diffs), 1)
+        self.assertIn("n_url_dupes", diffs[0])
+        # meta_version difference must NOT trigger a diff line — every
+        # bump rewrites it; structural drift is what matters.
+        self.assertFalse(any("meta_version" in d for d in diffs))
+
+    def test_structural_diff_detects_added_key(self):
+        prior = {"dedup": {"n_url_dupes": 2}}
+        curr  = {"dedup": {"n_url_dupes": 2, "new_metric": 5}}
+        diffs = self.dr._structural_diff(prior, curr)
+        self.assertEqual(len(diffs), 1)
+        self.assertIn("added", diffs[0])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

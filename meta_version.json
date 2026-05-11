@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "8.5.2",
-  "pinned_at": "2026-05-11T13:52:17Z",
-  "pin_reason": "pin_self_hash backport. meta_version.json itself is now tamper-evident: hand-edits to pin_reason / pinned_at / any field that should only flow through baseline_pin.py trigger drift on assert_pinned(). Closes the load-bearing gap deferred in PR 1.",
+  "meta_version": "8.6.0",
+  "pinned_at": "2026-05-11T13:59:03Z",
+  "pin_reason": "Deterministic canary Tier 1. canary/deterministic_run.py executes dedup + within_language_llr + within_language_pmi over a fixed 16-article corpus (canary/deterministic_corpus.json across 4 buckets / 2 languages with 1 seeded intra-day duplicate). Stamps output to canary/deterministic_baseline/<meta_version>.json and diffs structurally against the prior baseline. Catches code-drift bugs in deterministic analytical paths that the model-drift canary (canary/run.py) cannot. Closes the cheap half of the canary-design gap from PR 4 — the expensive Tier 2 LLM canary remains design-only at canary/ANALYTICAL_DESIGN.md. Also adds the May 2026 audit-integration drift-segment collapse note to METHODOLOGY.md so trajectory consumers don't read 8.0.0→8.6.0 as eight independent breaks.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -80,5 +80,5 @@
     "model_alias": "claude-haiku-4-5",
     "prompts_hash": "sha256:342681a209b984e27a2ecdf1e16c061c9888753b730973f6e1679d439488531b"
   },
-  "pin_self_hash": "sha256:d18db8f24d7620f4ab88f0ee9933e1ebc0550d353b02fd38c8346cf39c489c1d"
+  "pin_self_hash": "sha256:9a1a7566d07b52e4916c7b2d9174044ff139861f3db30f4e16325cd3caae9d14"
 }
