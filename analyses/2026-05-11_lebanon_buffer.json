@@ -1,127 +1,52 @@
 {
-  "meta_version": "2.0.1",
+  "meta_version": "8.7.1",
   "date": "2026-05-11",
   "story_key": "lebanon_buffer",
-  "story_title": "Israeli buffer zone in southern Lebanon",
-  "n_buckets": 12,
-  "n_articles": 18,
-  "tldr": "The most striking finding is what the Israeli press corpus prioritizes: the EU West Bank settler sanctions vote and a named reservist's obituary dominate Israeli outlets, while the Lebanon front is treated as background noise. Turkey's Anadolu Agency provides the only cumulative casualty tally — 2,846 killed and 1.6 million displaced since March 2 — which exposes the ceasefire as a legal fiction. The emergence of fiber-optic FPV drones that bypass Israeli jamming systems is covered in technical depth only by Indian defense press, confirmed by the Jerusalem Post's account of the specific soldier killed by one. Pope Leo XIV's video call to ten southern Lebanon priests is the only item in the corpus framing Lebanon through pastoral solidarity rather than military or political terms.",
+  "story_title": "Lebanon border security and buffer zone",
+  "n_buckets": 11,
+  "n_articles": 17,
+  "event_summary": "Discussions over a buffer zone along Lebanons border raised regional security and sovereignty concerns.",
+  "tldr": "Regional outlets emphasize sovereignty while international media focus on security arrangements.",
   "frames": [
     {
-      "label": "BUFFER_ZONE_TACTICAL_EXPANSION",
-      "description": "Egyptian press (Mada Masr) provides the sole tactical analysis: Israel is expanding strikes north of the Litani specifically to relieve pressure on its own buffer-zone troops under Hezbollah drone attack.",
+      "frame_id": "SECURITY_DEFENSE",
       "buckets": [
+        "canada",
         "egypt"
       ],
       "evidence": [
         {
-          "bucket": "egypt",
-          "outlet": "Mada Masr",
-          "quote": "Israel has stepped up strikes on villages north of the Litani River since the end of last week, after its troops operating in areas south of the river came under repeated fire from Hezbollah, according to a resident of the area and a former military official. The escalation has focused on the south Nabatieh countryside, with Israel targeting the twin villages of Zawtar, in particular, with heavy, simultaneous airstrikes",
-          "signal_text_idx": 1
+          "bucket": "canada",
+          "quote": "Israeli strikes kill 5 in southern Lebanon as Hezbollah rockets hit open areas in Israel\n\nIsraeli ai",
+          "signal_text_idx": 0
         }
       ]
     },
     {
-      "label": "FIBER_OPTIC_DRONE_ASYMMETRY",
-      "description": "Indian defense press frames fiber-optic FPV drones as Israel's unsolvable tactical problem; Singaporean press counters with Israeli industry's Iron Dome effectiveness claims — two technology frames that talk past each other.",
+      "frame_id": "EXTERNAL_REGULATION",
       "buckets": [
-        "india",
-        "vietnam_thai_my"
+        "canada",
+        "india"
       ],
       "evidence": [
         {
-          "bucket": "india",
-          "outlet": "Times of India",
-          "quote": "Hezbollah's deployment of fibre-optic FPV drones along Israel's northern border presents a significant defence challenge. These small, low-flying drones bypass jamming systems, making them difficult to detect and intercept. Israel is racing to develop countermeasures against this evolving threat, which has already resulted in casualties and damage to military assets.",
-          "signal_text_idx": 2
-        },
-        {
-          "bucket": "vietnam_thai_my",
-          "outlet": "Straits Times",
-          "quote": "Iron Dome intercepted most of them with success rates that (are) not 100% but close to 100%. It's around 98%, even 99%, so it's not perfect, but almost",
-          "signal_text_idx": 17
+          "bucket": "canada",
+          "quote": "Israeli strikes kill 5 in southern Lebanon as Hezbollah rockets hit open areas in Israel\n\nIsraeli ai",
+          "signal_text_idx": 0
         }
       ]
     },
     {
-      "label": "CIVILIAN_PROTECTION_BREAKDOWN",
-      "description": "Western opinion press and pan-Arab outlets converge on a pattern-of-targeting frame: journalists, healthcare workers, and civilians are being systematically struck, not incidentally.",
+      "frame_id": "FAIRNESS",
       "buckets": [
-        "opinion_magazines",
-        "pan_arab"
+        "canada",
+        "egypt"
       ],
       "evidence": [
         {
-          "bucket": "opinion_magazines",
-          "outlet": "The Conversation",
-          "quote": "In late April, Amal Khalil, a 43-year-old Lebanese journalist, was killed in a double-tap Israeli strike in southern Lebanon. When rescue teams tried to reach her and another injured journalist, they reportedly also came under fire.",
-          "signal_text_idx": 6
-        },
-        {
-          "bucket": "pan_arab",
-          "outlet": "Middle East Eye",
-          "quote": "Dr Tahir Mohammed said he has seen “absolutely no” evidence supporting Israeli claims that Hezbollah has used ambulances in Lebanon to transport weapons",
-          "signal_text_idx": 9
-        }
-      ]
-    },
-    {
-      "label": "ISRAELI_PRESS_PIVOT",
-      "description": "Both Israeli corpus outlets devote primary coverage to West Bank settler diplomacy and a named soldier's obituary — Lebanon operations appear as incidental context, not the story's center.",
-      "buckets": [
-        "israel"
-      ],
-      "evidence": [
-        {
-          "bucket": "israel",
-          "outlet": "Times of Israel",
-          "quote": "European Union countries will be likely able to reach an agreement on Monday on sanctions against extremist settlers in the West Bank",
-          "signal_text_idx": 4
-        },
-        {
-          "bucket": "israel",
-          "outlet": "Jerusalem Post",
-          "quote": "First Sergeant (res.) Alexander Glovanyov, 47, from Petah Tikva, was killed on Sunday after a Hezbollah drone hit the tank carrier he was driving near the Israel-Lebanon border, the IDF announced on Monday morning.",
-          "signal_text_idx": 5
-        }
-      ]
-    },
-    {
-      "label": "PASTORAL_PRESENCE_FRAME",
-      "description": "Religious press is the only corpus segment covering Lebanon through humanitarian solidarity rather than military or diplomatic terms — the Pope's video call is the sole item humanizing the clerical population under bombardment.",
-      "buckets": [
-        "religious_press"
-      ],
-      "evidence": [
-        {
-          "bucket": "religious_press",
-          "outlet": "Vatican News",
-          "quote": "Pope Leo XIV video-calls priests in southern Lebanon\n\nDuring his audience with the Apostolic Nuncio to Lebanon, Archbishop Paolo Borgia, Pope Leo video-calls about ten priests from the southern regions of Lebanon and encourages them and assures them of his prayers.",
-          "signal_text_idx": 12
-        }
-      ]
-    },
-    {
-      "label": "CEASEFIRE_AS_FICTION",
-      "description": "Turkish and pan-Arab press quantify cumulative casualties and continue referring to an April ceasefire that Israeli strikes and Hezbollah drone attacks render nominal.",
-      "buckets": [
-        "turkey",
-        "pan_african",
-        "pan_arab"
-      ],
-      "evidence": [
-        {
-          "bucket": "turkey",
-          "outlet": "Anadolu Agency English",
-          "quote": "Since March 2, Israeli attacks in Lebanon have killed 2,846 people, injured 8,693 and displaced more than 1.6 million, about one-fifth of the population, according to the latest official figures.",
-          "signal_text_idx": 13
-        },
-        {
-          "bucket": "pan_african",
-          "outlet": "AfricaNews",
-          "quote": "Three Israeli drone strikes on vehicles just south of Beirut on Saturday killed four people while a series of airstrikes on southern Lebanon killed at least 13, including a man and his 12-year-old daughter, state media and the Health Ministry said",
-          "signal_text_idx": 8
+          "bucket": "canada",
+          "quote": "Israeli strikes kill 5 in southern Lebanon as Hezbollah rockets hit open areas in Israel\n\nIsraeli ai",
+          "signal_text_idx": 0
         }
       ]
     }
@@ -129,155 +54,14 @@
   "isolation_top": [
     {
       "bucket": "israel",
-      "mean_jaccard": 0.043,
-      "note": "Israeli press ran settler-sanctions and soldier-obituary pieces; the settler/West Bank vocabulary has no analogue in any other Lebanon-buffer corpus entry."
-    },
-    {
-      "bucket": "vietnam_thai_my",
-      "mean_jaccard": 0.046,
-      "note": "Straits Times ran a Rafael/Iron Dome PR piece; the weapons-effectiveness framing is editorially isolated from the humanitarian and tactical angles in other buckets."
-    },
-    {
-      "bucket": "ukraine",
-      "mean_jaccard": 0.055,
-      "note": "Kyiv Post ran a broad Middle East digest that subsumes Lebanon in Iran/Bahrain/World Cup context — editorially isolated by topic aggregation."
-    },
-    {
-      "bucket": "opinion_magazines",
-      "mean_jaccard": 0.056,
-      "note": "The Conversation ran long-form war-crimes and IHL-erosion analysis; the international-law vocabulary (performative adherence, humanitarian law) does not appear elsewhere."
-    },
-    {
-      "bucket": "egypt",
-      "mean_jaccard": 0.061,
-      "note": "Mada Masr's tactical military analysis (Litani north, axes, Zawtar) is editorially distinct from casualty-counting coverage elsewhere in the corpus."
-    },
-    {
-      "bucket": "uk",
-      "mean_jaccard": 0.069,
-      "note": "The Guardian's live-blog entry conflates Hormuz and Lebanon in a single update; thematic blending with Iran story drives isolation from the Lebanon-only coverage cluster."
-    },
-    {
-      "bucket": "religious_press",
-      "mean_jaccard": 0.082,
-      "note": "Vatican News uniquely covers papal pastoral outreach; 'pope', 'priest', and 'video' appear nowhere else in the corpus."
-    },
-    {
-      "bucket": "pan_african",
-      "mean_jaccard": 0.089,
-      "note": "AfricaNews ran two short casualty-count items; low token count drives high isolation despite covering similar events to pan_arab."
+      "mean_similarity": 0.58
     }
   ],
-  "exclusive_vocab_highlights": [
-    {
-      "bucket": "israel",
-      "terms": [
-        "settler",
-        "glovanyov",
-        "alexander",
-        "sanction",
-        "west",
-        "bank"
-      ],
-      "what_it_reveals": "Israeli press is the only bucket covering West Bank settler diplomacy and the named soldier — settler politics dominate the Israeli editorial agenda even as Lebanese casualties mount."
-    },
-    {
-      "bucket": "opinion_magazines",
-      "terms": [
-        "journalist",
-        "humanitarian",
-        "hind",
-        "international"
-      ],
-      "what_it_reveals": "The Conversation explicitly parallels the killing of Lebanese journalist Amal Khalil with the 2024 killing of Hind Rajab in Gaza — the 'Hind' token is unique to this bucket and signals a deliberate accountability framing."
-    },
-    {
-      "bucket": "egypt",
-      "terms": [
-        "villag",
-        "north",
-        "litani",
-        "ease",
-        "pressure"
-      ],
-      "what_it_reveals": "Mada Masr's coverage is uniquely tactical: 'north of Litani' and 'ease pressure' reveal a military-logic frame absent from all other buckets, which focus on casualties and legal norms."
-    },
-    {
-      "bucket": "religious_press",
-      "terms": [
-        "pope",
-        "video",
-        "priest"
-      ],
-      "what_it_reveals": "The Vatican's pastoral vocabulary ('pope', 'priest', 'video-call') has no analogue elsewhere; religious press treats Lebanon as a human community under duress, not a conflict zone."
-    }
-  ],
+  "exclusive_vocab_highlights": [],
   "paradox": null,
-  "silences": [
-    {
-      "bucket": "iran_state",
-      "what_they_covered_instead": "Entirely absorbed by Hormuz ceasefire negotiations — significant given Iran's direct role as Hezbollah's patron and strategic backer."
-    },
-    {
-      "bucket": "russia",
-      "what_they_covered_instead": "RT covered Hormuz/Iran war and hantavirus; Lebanon buffer zone generated no signal despite Russia's historical interest in Syrian-Lebanese dynamics."
-    },
-    {
-      "bucket": "usa",
-      "what_they_covered_instead": "US press focused entirely on Hormuz impasse and hantavirus repatriation; Lebanon as an active Israeli ground operation generated no US corpus signal today."
-    }
-  ],
-  "single_outlet_findings": [
-    {
-      "outlet": "Mada Masr",
-      "bucket": "egypt",
-      "finding": "Only outlet providing tactical analysis: Israel's north-of-Litani strikes are a specific operational response to repeated Hezbollah fire on buffer-zone troops, not independent escalation.",
-      "signal_text_idx": 1
-    },
-    {
-      "outlet": "The Conversation",
-      "bucket": "opinion_magazines",
-      "finding": "Documents a 'double-tap' strike pattern against Lebanese journalist Amal Khalil, paralleled explicitly with the Hind Rajab killing in Gaza — building an accountability record across two theatres.",
-      "signal_text_idx": 6
-    },
-    {
-      "outlet": "Times of Israel",
-      "bucket": "israel",
-      "finding": "Leads with the EU settler sanctions vote, not Lebanon — revealing where Israeli editors locate the week's diplomatic high stakes while the Lebanon front remains militarily active.",
-      "signal_text_idx": 4
-    },
-    {
-      "outlet": "Jerusalem Post",
-      "bucket": "israel",
-      "finding": "Names Alexander Glovanyov, 47, as the fourth IDF soldier killed during the ceasefire period — a fiber-optic drone killed him because the IDF failed to detect it; no advance warning was issued.",
-      "signal_text_idx": 5
-    },
-    {
-      "outlet": "Vatican News",
-      "bucket": "religious_press",
-      "finding": "Pope Leo XIV video-calls ten priests in southern Lebanon during active Israeli bombardment — the only corpus item framing Lebanon through pastoral solidarity rather than military or political terms.",
-      "signal_text_idx": 12
-    },
-    {
-      "outlet": "Straits Times",
-      "bucket": "vietnam_thai_my",
-      "finding": "Rafael chairman claims Iron Dome intercepted rockets at 98-99% success rate across 40,000 total Hezbollah/Hamas launches — industry PR inserted into a news context.",
-      "signal_text_idx": 17
-    },
-    {
-      "outlet": "Daily Sabah",
-      "bucket": "turkey",
-      "finding": "Reports the first Israeli strike on Beirut since the truce — a Radwan force Hezbollah commander killed — as a ceasefire-breaking event that other outlets fold into routine casualty counts.",
-      "signal_text_idx": 14
-    },
-    {
-      "outlet": "Kyiv Post",
-      "bucket": "ukraine",
-      "finding": "Contextualizes Lebanon inside a broad Middle East digest that includes US Navy disabling Iranian tankers and Bahrain arresting 41 IRGC-linked individuals — the only corpus entry treating Lebanon as one thread in a unified regional escalation.",
-      "signal_text_idx": 16
-    }
-  ],
-  "bottom_line": "The southern Lebanon buffer zone is grinding through a ceasefire that exists on paper only: four IDF soldiers killed by fiber-optic drones since April 17, 2,846 Lebanese killed since March 2, and Israel expanding strikes north of the Litani to relieve its own troops under sustained drone pressure. The Israeli press, meanwhile, has pivoted to West Bank settler diplomacy — a framing inversion that the rest of the world's corpus does not share.",
-  "generated_at": "2026-05-11T10:59:27Z",
-  "model": "claude-sonnet-4-6"
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Global coverage of lebanon_buffer varies by regional interest and security posture.",
+  "generated_at": "2026-05-11T17:01:50Z",
+  "model": "claude-haiku-4-5-20251001"
 }
