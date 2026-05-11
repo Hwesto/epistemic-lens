@@ -202,6 +202,12 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         if declared != actual:
             drift["claude.prompts"] = (declared, actual)
 
+    declared = META.get("schemas_hash")
+    if declared and SCHEMAS_DIR.exists():
+        actual = dir_hash(SCHEMAS_DIR, "*.json")
+        if declared != actual:
+            drift["schemas"] = (declared, actual)
+
     # Self-hash: catches edits to any pinned value inside meta_version.json
     # that didn't go through baseline_pin.py --bump. The four hashes above
     # only check the external pinned files; this one closes the gap for

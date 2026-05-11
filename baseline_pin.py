@@ -65,6 +65,8 @@ def recompute_hashes(meta: dict) -> dict:
         meta["canonical_stories_hash"] = M.file_hash(M.CANONICAL_STORIES_PATH)
     if M.PROMPTS_DIR.exists():
         meta["claude"]["prompts_hash"] = M.dir_hash(M.PROMPTS_DIR)
+    if M.SCHEMAS_DIR.exists():
+        meta["schemas_hash"] = M.dir_hash(M.SCHEMAS_DIR, "*.json")
 
     # Refresh feed counts so the human-readable summary stays accurate.
     feeds_doc = json.loads(M.FEEDS_PATH.read_text(encoding="utf-8"))
@@ -83,7 +85,7 @@ _CANONICAL_ORDER = (
     "feeds", "tokenizer", "embedding", "clustering", "metrics",
     "extraction", "ingest", "signal_text", "briefing",
     "canonical_stories_hash", "claude", "health", "feed_rot",
-    "pin_self_hash",
+    "schemas_hash", "pin_self_hash",
 )
 
 

@@ -262,6 +262,10 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         "n_stories": len(story_entries),
         "stories": story_entries,
     })
+    # Schema-validate before write. Stage 14: api/<date>/index.json is
+    # the frontend's primary contract; a silent shape drift here breaks
+    # web/app.js.
+    validate_against_schema(index, "index")
     (out_dir / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"
     )
@@ -303,13 +307,15 @@ def main() -> int:
     if not found:
         # Empty-day fallback: keep api/latest.json present (pointing at nothing)
         # so downstream consumers don't 404 mid-day.
+        latest_empty = meta.stamp({
+            "date": None,
+            "n_stories": 0,
+            "note": "no source artifacts found for this build",
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+        })
+        validate_against_schema(latest_empty, "latest")
         (API / "latest.json").write_text(
-            json.dumps(meta.stamp({
-                "date": None,
-                "n_stories": 0,
-                "note": "no source artifacts found for this build",
-                "generated_at": datetime.now(timezone.utc).isoformat(),
-            }), indent=2),
+            json.dumps(latest_empty, indent=2),
             encoding="utf-8",
         )
         print("No source artifacts found.", file=sys.stderr)
@@ -340,16 +346,15 @@ def main() -> int:
         all_built = sorted(p.parent.name for p in API.glob("*/index.json"))
         latest = all_built[-1] if all_built else latest_built
         latest_idx = json.load(open(API / latest / "index.json", encoding="utf-8"))
+        latest_doc = meta.stamp({
+            "date": latest,
+            "url": f"/{latest}/index.json",
+            "n_stories": latest_idx["n_stories"],
+            "generated_at": latest_idx["generated_at"],
+        })
+        validate_against_schema(latest_doc, "latest")
         (API / "latest.json").write_text(
-            json.dumps(
-                meta.stamp({
-                    "date": latest,
-                    "url": f"/{latest}/index.json",
-                    "n_stories": latest_idx["n_stories"],
-                    "generated_at": latest_idx["generated_at"],
-                }),
-                indent=2,
-            ),
+            json.dumps(latest_doc, indent=2),
             encoding="utf-8",
         )
 

@@ -1719,6 +1719,56 @@ class TestLongLinkAuditCorpus(unittest.TestCase):
         self.assertFalse(any("ansa.it" in e for e in errs))
 
 
+class TestSchemaCorpus(unittest.TestCase):
+    """Stage 14: every schema in docs/api/schema/ must itself be a valid
+    JSON Schema Draft 2020-12 document. Catches typos at PR time instead
+    of at runtime when a validator hits a malformed schema."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("jsonschema not installed")
+        self.jsonschema = jsonschema
+        self.schema_dir = Path(__file__).parent / "docs/api/schema"
+
+    def test_every_schema_is_valid_draft_2020_12(self):
+        validator_cls = self.jsonschema.Draft202012Validator
+        for p in sorted(self.schema_dir.glob("*.schema.json")):
+            with self.subTest(schema=p.name):
+                with open(p, encoding="utf-8") as f:
+                    schema = json.load(f)
+                # check_schema raises SchemaError on a malformed schema.
+                validator_cls.check_schema(schema)
+                self.assertEqual(
+                    schema.get("$schema"),
+                    "https://json-schema.org/draft/2020-12/schema",
+                    f"{p.name} must declare draft 2020-12",
+                )
+
+    def test_artifact_schemas_require_meta_version(self):
+        """Stage 14 Gap 14-2: every pipeline-written artifact schema (i.e.
+        not configs) must require meta_version in its top-level required[]."""
+        artifact_schemas = (
+            "analysis", "briefing", "metrics", "health",
+            "thread", "carousel", "long",
+            "index", "latest",
+        )
+        for name in artifact_schemas:
+            with self.subTest(schema=name):
+                with open(self.schema_dir / f"{name}.schema.json",
+                          encoding="utf-8") as f:
+                    schema = json.load(f)
+                # `latest` uses oneOf — both branches must require meta_version.
+                if "oneOf" in schema:
+                    for branch in schema["oneOf"]:
+                        self.assertIn("meta_version", branch.get("required", []),
+                                      f"{name}.oneOf branch missing meta_version")
+                else:
+                    self.assertIn("meta_version", schema.get("required", []),
+                                  f"{name} must require meta_version")
+
+
 class TestLongSchemaTightening(unittest.TestCase):
     """long.schema.json: body_md.minLength tightened from 200 to 2500
     (Gap 11-3) to enforce the prompt's 600-word floor."""
@@ -1733,6 +1783,7 @@ class TestLongSchemaTightening(unittest.TestCase):
                   encoding="utf-8") as f:
             self.schema = json.load(f)
         self.base = {
+            "meta_version": "2.6.0",
             "story_key": "k", "date": "2026-05-08", "title": "T",
             "body_md": "Lorem ipsum dolor sit amet, " * 100,  # ~2700 chars
             "sources": [{"bucket": "x", "url": "https://x.example/a"}],

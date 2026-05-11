@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/latest.schema.json",
+  "title": "Latest published date pointer (api/latest.json)",
+  "description": "The frontend's entry point. Two shapes via oneOf: happy-path (a real date with stories) and empty-day fallback (date: null, n_stories: 0) so consumers never 404 mid-day.",
+  "oneOf": [
+    {
+      "type": "object",
+      "title": "Happy path",
+      "required": ["meta_version", "date", "url", "n_stories", "generated_at"],
+      "additionalProperties": false,
+      "properties": {
+        "meta_version": { "type": "string" },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "url": {
+          "type": "string",
+          "description": "Root-anchored path to the date's index.json. Example: /2026-05-09/index.json",
+          "pattern": "^/\\d{4}-\\d{2}-\\d{2}/index\\.json$"
+        },
+        "n_stories": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "title": "Empty-day fallback",
+      "required": ["meta_version", "date", "n_stories", "note", "generated_at"],
+      "additionalProperties": false,
+      "properties": {
+        "meta_version": { "type": "string" },
+        "date": { "type": "null" },
+        "n_stories": { "type": "integer", "const": 0 },
+        "note": { "type": "string" },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  ]
+}
