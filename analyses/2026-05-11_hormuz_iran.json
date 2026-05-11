@@ -1,0 +1,326 @@
+{
+  "meta_version": "2.0.1",
+  "date": "2026-05-11",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 35,
+  "n_articles": 61,
+  "tldr": "The most striking finding is a cross-ideological convergence: Iranian state media (IRNA, citing Al Jazeera) and the US foreign-policy establishment's flagship journal (Foreign Affairs) independently conclude that the US-Israel campaign has failed and Washington will be the war's ultimate strategic loser. Saudi Arabia's quiet denial of US airspace rights — which torpedoed Trump's naval-convoy announcement — surfaces only in Brazilian press (Folha de São Paulo) and is largely absent from Anglophone coverage. The Philippines corpus entry, from a country that was the first to declare a national energy emergency in March, covers only domestic diesel price rollbacks with zero diplomatic commentary. The Trump-Xi Beijing summit (May 13-15) has emerged as the singular diplomatic variable that both Western strategic press and regional outlets are watching.",
+  "frames": [
+    {
+      "label": "STRUCTURAL_IMPASSE",
+      "description": "Both sides claim the other is being unreasonable: Trump calls Iran's response 'totally unacceptable'; Iran's foreign ministry calls it 'reasonable and generous' — framing that dominates Anglophone wire coverage.",
+      "buckets": [
+        "canada",
+        "kenya",
+        "uk",
+        "pakistan",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Trump calls ceasefire counter-proposal from Iran 'totally unacceptable'\nTehran reportedly wants shipping, nuclear guarantees along with ending hostilities\nIran sent its response to the latest U.S. ceasefire proposal via Pakistani mediators and wants",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "The Islamic Republic has proven that it is a responsible power in the region,” Baghaei said during his weekly briefing. “We are not bullies; we stand against bullies.”",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "label": "ENERGY_MARKET_CONTAGION",
+      "description": "Hormuz closure is now cascading into airline cancellations, fuel rationing, and national emergency declarations far beyond the Gulf — coverage concentrated in Nordic, opinion, and regional African press.",
+      "buckets": [
+        "nordic",
+        "opinion_magazines",
+        "nigeria",
+        "egypt"
+      ],
+      "evidence": [
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Scandinavia's SAS airline is cancelling nearly 1,200 flights in May as it braces for soaring jet fuel prices as a result of the closure of the Straits of Hormuz.",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "On March 24, the Philippines became the first state in the world to declare a national energy emergency. Zambia has suspended fuel levies for three months, costing its already debt-laden government $100 million. Slovenia is rationing fuel. Other governments have taken similar measures. Some have negotiated directly with Tehran for safe passage of their tankers.",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "label": "VIETNAM_PRECEDENT_WARNING",
+      "description": "Asia-Pacific strategic press uniquely invokes the 1973 Paris Peace Accords and Kissinger's 'peace with honor' as a cautionary template against a quick, narrow Hormuz deal.",
+      "buckets": [
+        "asia_pacific_regional"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Henry Kissinger might have predicted this. The Paris Peace Accords of 1973 called for American withdrawal and a ceasefire, but did nothing to protect South Vietnam. “Peace with honor” would fall apart in under two years. Kissinger eventually conceded that deal-making was usually temporary, unless military and political realities changed.\nTrump’s upcoming meeting with Chinese leader Xi Jinping in Beijing on May 14–15 further raises the stakes. Hormuz will almost certainly be a central topic. China is Iran’s largest oil customer and holds real cards in Tehran, but it has so far avoided heavy pressure.\nKissinger, the old master of triangular diplomacy, would treat the summit as an opportunity to pursue linkage.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "label": "CHINA_AS_KINGMAKER",
+      "description": "The Trump-Xi Beijing summit (May 13-15) is positioned across Western strategic and Asian press as the pivotal leverage point, with China holding Iran's key card.",
+      "buckets": [
+        "asia_pacific_regional",
+        "israel",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "upcoming meeting with Chinese leader Xi Jinping in Beijing on May 14–15 further raises the stakes. Hormuz will almost certainly be a central topic. China is Iran’s largest oil customer and holds real cards in Tehran, but it has so far avoided heavy pressure.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Trump heads to Beijing reportedly seeking Xi Jinping's help to end Iran war\n\nAs Trump and Xi Jinping prepare for a high-stakes summit dominated by trade, the U.S. president is also expected to press China to help end the Iran war and reopen the Strait of Hormuz",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "label": "ENVIRONMENTAL_CATASTROPHE_RISK",
+      "description": "US press (Fox News, UN warnings) tracks a second oil slick near Kharg Island as a slow-emerging environmental crisis that international outlets are largely ignoring.",
+      "buckets": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "second suspected oil slick has been detected near Iran’s Kharg Island export hub, according to maritime intelligence firm Windward AI",
+          "signal_text_idx": 55
+        }
+      ]
+    },
+    {
+      "label": "MARITIME_CHOKEPOINT_GENERALIZATION",
+      "description": "German press extrapolates the Hormuz crisis into a broader warning about the weaponization of maritime chokepoints globally — Taiwan Strait, Malacca named.",
+      "buckets": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "The crisis around the Strait of Hormuz focused attention on other maritime chokepoints. Experts warn that waterways like the Taiwan Strait or the Strait of Malacca are increasingly being used as geopolitical leverage.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "label": "PIRACY_PROLIFERATION_SPILLOVER",
+      "description": "RT Africa uniquely reports Houthi transfer of GPS targeting technology and weapons to Somali pirate networks as a documented side effect of the Iran-Israel war.",
+      "buckets": [
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "In the past months, numerous reports have emerged that Somali pirate groups have acquired modern weapons and technology from the Houthis.",
+          "signal_text_idx": 45
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_jaccard": 0.016,
+      "note": "Italian-language; La Repubblica and Il Giornale covered oil-company profits and Iranian nuclear demands in Italian idiom — linguistic isolation."
+    },
+    {
+      "bucket": "brazil",
+      "mean_jaccard": 0.017,
+      "note": "Portuguese-language; Folha de São Paulo broke the Saudi airspace-denial story in Brazilian idiom — the scoop is invisible to Anglophone aggregators."
+    },
+    {
+      "bucket": "japan",
+      "mean_jaccard": 0.018,
+      "note": "Nikkei Asia ran a single LNG-tanker transit piece; narrowly technical framing, linguistically adjacent to English but editorially isolated."
+    },
+    {
+      "bucket": "nordic",
+      "mean_jaccard": 0.026,
+      "note": "The Local Sweden's SAS-cancellations piece is editorially isolated — the only corpus entry treating Hormuz closure through its direct consumer-aviation impact."
+    },
+    {
+      "bucket": "spain",
+      "mean_jaccard": 0.034,
+      "note": "El País English ran a tanker-storage piece; Spanish-language framing and oil-market angle drove isolation."
+    },
+    {
+      "bucket": "germany",
+      "mean_jaccard": 0.037,
+      "note": "Spiegel and DW ran strategic-analysis pieces (convoy difficulty, chokepoint generalization) that sit apart from the wire-news diplomatic cluster."
+    },
+    {
+      "bucket": "china",
+      "mean_jaccard": 0.041,
+      "note": "CGTN's language-picker page returned encoding noise; the substantive UKMTO item is editorially distinct. China's editorial angle (maritime restrictions, Wang Yi) is separate from Western diplomatic framing."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_jaccard": 0.047,
+      "note": "RT Africa ran two long-form pieces (piracy proliferation, Nigeria's refinery curse) that are structurally isolated from the breaking-news diplomatic corpus."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "asia_pacific_regional",
+      "terms": [
+        "kissinger"
+      ],
+      "what_it_reveals": "Only bucket to invoke a Cold War diplomatic precedent; the Kissinger/Vietnam frame treats the Hormuz crisis as a structural trap rather than a solvable negotiation."
+    },
+    {
+      "bucket": "usa",
+      "terms": [
+        "slick",
+        "spill",
+        "suspected",
+        "detected"
+      ],
+      "what_it_reveals": "Fox News is the sole corpus source tracking the oil-spill environmental disaster angle — absent from all other buckets including pan-Arab and environmental press."
+    },
+    {
+      "bucket": "ukraine",
+      "terms": [
+        "caspian",
+        "blind",
+        "russia"
+      ],
+      "what_it_reveals": "Kyiv Post is the only outlet covering the Caspian Sea as a Russia-Iran sanctions-evasion corridor — a strategic blind spot in the rest of the corpus."
+    },
+    {
+      "bucket": "philippines",
+      "terms": [
+        "liter",
+        "diesel",
+        "kerosene"
+      ],
+      "what_it_reveals": "The first country to declare a national energy emergency (March 24) now covers Hormuz only through domestic fuel-price rollback tables — geopolitical commentary has completely disappeared from Philippine coverage."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "terms": [
+        "houthi",
+        "somalia",
+        "nigeria",
+        "somali"
+      ],
+      "what_it_reveals": "RT Africa uniquely maps the war's domino effect into African vectors (piracy, Nigeria's refinery crisis) — the only corpus source treating Hormuz as an African story."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "iran_state",
+      "outlet": "IRNA English",
+      "quote": "there is absolutely no military path to victory. The only option, and the one the US appears to be taking, is retreat, while Iran maintains control over the Strait of Hormuz.",
+      "signal_text_idx": 15
+    },
+    "b": {
+      "bucket": "opinion_magazines",
+      "outlet": "Foreign Affairs",
+      "quote": "Beijing, then, may emerge from the war in Iran as its winner—and Washington as its ultimate loser.",
+      "signal_text_idx": 28
+    },
+    "joint_conclusion": "Iranian state propaganda and the flagship journal of the US foreign-policy establishment independently reach the same conclusion: two months of American military pressure has failed to achieve its objectives, and the US will be the war's strategic loser."
+  },
+  "silences": [
+    {
+      "bucket": "south_korea",
+      "what_they_covered_instead": "Yonhap ran two items: domestic fuel price caps and a request for North Korean women's football team visit — Hormuz diplomacy entirely absent despite South Korea's heavy LNG dependence."
+    },
+    {
+      "bucket": "philippines",
+      "what_they_covered_instead": "Rappler covered domestic diesel/gasoline price rollback effective May 12 — no geopolitical or diplomatic commentary despite the Philippines being the world's first declared energy-emergency state."
+    },
+    {
+      "bucket": "australia_nz",
+      "what_they_covered_instead": "Entirely absorbed by the hantavirus cruise ship story and domestic quarantine logistics."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Folha de São Paulo",
+      "bucket": "brazil",
+      "finding": "Reports that Saudi Arabia denied airspace rights to the US after Trump announced naval escort convoys through Hormuz, frustrating the plan — a consequential diplomatic fact not prominently covered in Anglophone press.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Sole outlet invoking Kissinger and the 1973 Paris Peace Accords as a cautionary precedent against a narrow Hormuz bilateral deal that leaves structural Iranian leverage intact.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "The Local Sweden",
+      "bucket": "nordic",
+      "finding": "SAS cancels 1,200 flights in May due to Hormuz-linked jet fuel shortages — the only corpus entry tracking consumer-aviation impact of the crisis.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Reports a second oil slick near Iran's Kharg Island and quotes UN official warning of potential desalination plant shutdown — the only corpus source on the environmental disaster risk.",
+      "signal_text_idx": 55
+    },
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "Detailed account of Houthis supplying GPS targeting devices and weapons to Somali pirates, with UN report citations — the only outlet mapping the war's African security spillover.",
+      "signal_text_idx": 45
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "Covers the Caspian Sea as an emerging Russia-Iran military logistics corridor bypassing naval blockades — a vector invisible in all other buckets.",
+      "signal_text_idx": 53
+    },
+    {
+      "outlet": "Foreign Affairs",
+      "bucket": "opinion_magazines",
+      "finding": "Argues that energy dependence equals political paralysis, and that China — dominant in renewable supply chains — will be the war's ultimate beneficiary as US fossil-fuel investment proves unattractive to dependent states.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "El País English",
+      "bucket": "spain",
+      "finding": "Reports Gulf countries loading crude onto tankers anchored at sea as onshore storage reaches capacity — documenting a secondary market distortion that other coverage ignores.",
+      "signal_text_idx": 44
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "Macron states France 'never envisaged' sending warships into Hormuz and stresses coordination with Iran — distancing Paris from the US/UK naval posture.",
+      "signal_text_idx": 58
+    },
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "Extended analysis of Nigeria's Dangote Refinery importing crude from the US and other African countries despite Nigeria sitting on oil reserves — Hormuz closure exposing structural African energy policy failure.",
+      "signal_text_idx": 46
+    }
+  ],
+  "bottom_line": "Two months in, the Iran war has produced a geopolitical paradox: Iranian state media and Foreign Affairs agree the US is losing, while Brazilian press holds the most consequential unreported fact — Saudi Arabia's airspace refusal that killed Trump's convoy announcement. The Trump-Xi Beijing summit (May 13-15) is the next choke point; if China declines to apply leverage on Tehran, the impasse becomes structural.",
+  "generated_at": "2026-05-11T10:59:27Z",
+  "model": "claude-sonnet-4-6"
+}
