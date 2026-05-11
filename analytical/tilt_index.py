@@ -116,33 +116,56 @@ def outlet_bigrams(articles: list[dict]) -> Counter:
     return cnt
 
 
+def build_bucket_mean_baseline(outlets: dict[tuple[str, str], list[dict]]
+                                 ) -> Counter:
+    """PR 7: aggregate cross-bucket bigram counts as the second anchor
+    for the tilt index. This is the *average* of every non-wire outlet
+    in the window — what "the cross-bucket consensus" actually looks
+    like, in contrast to `wire` (which is the Reuters/AFP/AP framing).
+    Reporting tilt against both anchors triangulates: single-anchor
+    "tilt vs wire" privileges wire as a hidden truth-baseline; bucket
+    mean offers no such privilege but is itself average-of-included-
+    outlets and has its own selection bias. Two columns honestly
+    surface this rather than pretending either is The Neutral.
+    """
+    out: Counter = Counter()
+    for (bucket, _outlet), arts in outlets.items():
+        if bucket == "wire_services":
+            continue
+        out.update(outlet_bigrams(arts))
+    return out
+
+
 def compute_outlet_tilt(outlet_cnt: Counter,
-                          wire_cnt: Counter,
+                          baseline_cnt: Counter,
                           min_count: int = 2,
                           top_k: int = 15) -> dict:
-    """Per-outlet tilt: top positive (over-represented vs wire) +
-    top negative (under-represented vs wire) bigrams by Z-score."""
+    """Per-outlet tilt: top positive (over-represented vs the baseline) +
+    top negative (under-represented vs the baseline) bigrams by Z-score.
+    `baseline_cnt` is either the wire-services anchor or the
+    cross-bucket-mean anchor — both are valid, neither is uniquely
+    neutral."""
     total_o = sum(outlet_cnt.values()) or 1
-    total_w = sum(wire_cnt.values()) or 1
-    # Scan over the union: outlet-bigrams (positive tilt candidates) AND
-    # wire-bigrams the outlet doesn't use (negative tilt candidates).
-    candidates = set(outlet_cnt) | set(wire_cnt)
+    total_b = sum(baseline_cnt.values()) or 1
+    # Scan the union: outlet-bigrams (positive candidates) AND baseline
+    # bigrams the outlet doesn't use (negative candidates).
+    candidates = set(outlet_cnt) | set(baseline_cnt)
     positive: list[dict] = []
     negative: list[dict] = []
     for bg in candidates:
         a = int(outlet_cnt.get(bg, 0))
-        w = int(wire_cnt.get(bg, 0))
-        if max(a, w) < min_count:
+        b = int(baseline_cnt.get(bg, 0))
+        if max(a, b) < min_count:
             continue
-        log_odds, _, z = log_odds_with_prior(a, w, total_o, total_w)
+        log_odds, _, z = log_odds_with_prior(a, b, total_o, total_b)
         rate_o = a / total_o
-        rate_w = w / total_w if total_w else 0
+        rate_b = b / total_b if total_b else 0
         entry = {
             "bigram": list(bg),
             "count_in_outlet": a,
-            "count_in_wire": w,
+            "count_in_baseline": b,
             "rate_in_outlet": round(rate_o, 6),
-            "rate_in_wire": round(rate_w, 6),
+            "rate_in_baseline": round(rate_b, 6),
             "log_odds": round(log_odds, 3),
             "z_score": round(z, 2),
         }
@@ -151,10 +174,10 @@ def compute_outlet_tilt(outlet_cnt: Counter,
         elif z <= -1.96:
             negative.append(entry)
     positive.sort(key=lambda r: -r["z_score"])
-    negative.sort(key=lambda r: r["z_score"])  # most negative first
+    negative.sort(key=lambda r: r["z_score"])
     return {
         "n_outlet_bigrams": int(total_o),
-        "n_wire_bigrams": int(total_w),
+        "n_baseline_bigrams": int(total_b),
         "n_outlet_distinct": len(outlet_cnt),
         "positive_tilt": positive[:top_k],
         "negative_tilt": negative[:top_k],
@@ -185,6 +208,11 @@ def main() -> int:
 
     outlets = collect_outlet_articles(window_days=args.window_days,
                                         today=args.today)
+    # PR 7: second anchor for triangulation. Compute the cross-bucket-mean
+    # baseline once per run and pass it alongside `wire` to each per-outlet
+    # tilt computation. Output documents both anchors so consumers don't
+    # have to treat `wire` as a hidden truth-baseline.
+    bucket_mean_cnt = build_bucket_mean_baseline(outlets)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     n_written = 0
@@ -194,8 +222,8 @@ def main() -> int:
         if len(arts) < args.min_outlet_articles:
             continue
         outlet_cnt = outlet_bigrams(arts)
-        tilt = compute_outlet_tilt(outlet_cnt, wire_cnt,
-                                     top_k=args.top_k)
+        tilt_wire = compute_outlet_tilt(outlet_cnt, wire_cnt, top_k=args.top_k)
+        tilt_mean = compute_outlet_tilt(outlet_cnt, bucket_mean_cnt, top_k=args.top_k)
         out = meta.stamp({
             "bucket": bucket,
             "outlet": outlet,
@@ -203,7 +231,19 @@ def main() -> int:
             "n_articles_in_window": len(arts),
             "wire_baseline_pin": baseline.get("meta_version", "?"),
             "wire_baseline_n_articles": baseline.get("n_articles", 0),
-            **tilt,
+            "n_outlet_distinct": tilt_wire["n_outlet_distinct"],
+            "anchors": {
+                "wire": {
+                    "n_baseline_bigrams": tilt_wire["n_baseline_bigrams"],
+                    "positive_tilt": tilt_wire["positive_tilt"],
+                    "negative_tilt": tilt_wire["negative_tilt"],
+                },
+                "bucket_mean": {
+                    "n_baseline_bigrams": tilt_mean["n_baseline_bigrams"],
+                    "positive_tilt": tilt_mean["positive_tilt"],
+                    "negative_tilt": tilt_mean["negative_tilt"],
+                },
+            },
         })
         # Filename: <bucket>__<outlet>.json with outlet sanitised.
         outlet_safe = (outlet.replace("/", "_").replace(" ", "_")

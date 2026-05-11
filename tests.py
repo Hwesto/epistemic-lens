@@ -2258,5 +2258,58 @@ class TestDistributionApprovalGate(unittest.TestCase):
                          "re-staging must not overwrite approved decisions")
 
 
+class TestTiltIndexTwoAnchors(unittest.TestCase):
+    """PR 7: tilt_index emits log-odds against TWO anchors (wire and
+    cross-bucket-mean) instead of one. The two anchors triangulate so
+    consumers don't read 'tilt vs wire' as 'tilt vs neutral.'"""
+
+    def setUp(self):
+        from analytical import tilt_index as ti
+        self.ti = ti
+
+    def _articles_with_bigrams(self, bigrams_per_article: list[list[tuple]]) -> list[dict]:
+        # Build synthetic articles whose tokenizable signal_text yields
+        # the given bigrams. Use 4+-char alpha tokens (matches the
+        # tokenizer regex \p{L}{4,}).
+        out = []
+        for bigrams in bigrams_per_article:
+            words = []
+            for a, b in bigrams:
+                words += [a, b]
+            out.append({"signal_text": " ".join(words),
+                        "title": "x", "lang": "en"})
+        return out
+
+    def test_build_bucket_mean_baseline_excludes_wire(self):
+        outlets = {
+            ("wire_services", "Reuters"): self._articles_with_bigrams(
+                [[("alpha", "beta"), ("beta", "gamma")]]),
+            ("italy", "ANSA"): self._articles_with_bigrams(
+                [[("delta", "epsilon"), ("epsilon", "zeta")]]),
+            ("germany", "FAZ"): self._articles_with_bigrams(
+                [[("delta", "epsilon"), ("eta", "theta")]]),
+        }
+        bm = self.ti.build_bucket_mean_baseline(outlets)
+        # Wire's (alpha, beta) and (beta, gamma) must NOT be in bucket_mean.
+        self.assertEqual(bm[("alpha", "beta")], 0)
+        self.assertEqual(bm[("beta", "gamma")], 0)
+        # Italy + Germany overlap on (delta, epsilon) → count 2.
+        self.assertEqual(bm[("delta", "epsilon")], 2)
+        self.assertEqual(bm[("epsilon", "zeta")], 1)
+
+    def test_compute_outlet_tilt_emits_baseline_neutral_fields(self):
+        from collections import Counter
+        outlet = Counter({("alpha", "beta"): 10, ("gamma", "delta"): 8})
+        baseline = Counter({("alpha", "beta"): 1, ("epsilon", "zeta"): 5})
+        out = self.ti.compute_outlet_tilt(outlet, baseline, min_count=1, top_k=10)
+        # Field names must be the renamed, anchor-neutral ones — not
+        # 'count_in_wire'.
+        self.assertIn("n_baseline_bigrams", out)
+        for row in out["positive_tilt"] + out["negative_tilt"]:
+            self.assertIn("count_in_baseline", row)
+            self.assertIn("rate_in_baseline", row)
+            self.assertNotIn("count_in_wire", row)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
