@@ -85,8 +85,16 @@ def render_card_html(card_data: dict, template_path: Path) -> str:
 def render_card_png(card_html: str, out_path: Path, width=1200, height=675) -> Path:
     """Playwright screenshot at fixed 1200x675 → social-share PNG."""
 
-def write_index_html(card_html: str, archive: list) -> None:
-    """Compose the home page shell + inline today's card HTML + the archive strip."""
+def write_index_html(card_html: str, today_strip: list, archive: list) -> None:
+    """Compose the home page: card + 'Also today' strip + archive + footer."""
+
+def render_today_strip(stories_today: list, picked_key: str) -> str:
+    """Render the 4-tile 'Also today' strip below the daily card.
+    Inputs: today's stories minus the one picked for the daily card.
+    Each entry needs: key (for URL), card_kind (the archetype the picker
+    WOULD have used for THIS story), event_summary, finding_synthesis.
+    Returns empty string if there are no other stories — production
+    omits the entire section in that case."""
 ```
 
 ### Required new schemas (Stage 14 discipline)
@@ -94,7 +102,23 @@ def write_index_html(card_html: str, archive: list) -> None:
 Wire these into `schemas_hash`:
 
 - `today.schema.json` — the daily-card-pick artifact (`api/today.json`)
-- `card.schema.json` — the card-payload shape (one of 5 archetype variants via `oneOf` on `kind`)
+- `card.schema.json` — the card-payload shape (one of 7 archetype variants via `oneOf` on `kind`)
+
+### Required new fields on existing `analysis.schema.json`
+
+- `event_summary` — optional string. One short neutral-voice paraphrase of what happened (~12-20 words). Used by:
+  - the card's kicker line (between headline and content)
+  - the "Also today" strip's primary headline for each other story
+
+  If absent on legacy artifacts, build_index falls back to the first sentence of `analysis.tldr`. New stories should populate `event_summary` explicitly — the prompt should ask for it as a separate field from `tldr` so the editorial tone of tldr can be distinct from the neutral-voice event paraphrase.
+
+### Required new fields on `index.schema.json` per-story entries
+
+Currently `api/<date>/index.json.stories[]` carries `{key, title, n_buckets, n_articles, has, artifacts, top_isolation_bucket, paradox}`. Add:
+
+- `event_summary` — copied from the story's `analysis.event_summary`
+- `card_kind` — which archetype the picker WOULD have chosen for THIS story (`"word" | "paradox" | "silence" | "shift" | "sources" | "tilt" | "echo"`). Computed via the same `pick_todays_card()` logic applied per-story not per-day. Needed for the "Also today" strip's badge.
+- `finding_synthesis` — optional short string (~10-15 words) — the framing punchline, used as secondary text in the "Also today" tile. Could be derived from the archetype's content (e.g. for a Word card story: "Six words across six countries" — auto-generated, doesn't need a new LLM call).
 
 ### Required new artifacts written by build_index
 

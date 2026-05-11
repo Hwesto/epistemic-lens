@@ -78,6 +78,58 @@ main {
   border-top: 1px solid var(--rule);
   background: var(--bg-soft);
 }
+
+/* "Also today" strip — sits between the daily card and the archive.
+   Surfaces the OTHER stories the cron analyzed today that didn't win
+   the daily-card slot. Subordinate to the card; reads as "here's what
+   else happened." Empty-state friendly: build_index.py omits the
+   section entirely when there are no other stories. */
+.today-strip {
+  max-width: var(--card-max-width);
+  margin: 0 auto 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.today-strip h2 {
+  font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-muted); margin: 0 0 16px; font-weight: 600;
+}
+.today-strip ol {
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(8px, 1.4vw, 14px);
+}
+.today-strip a {
+  display: block;
+  padding: clamp(14px, 1.8vw, 18px);
+  background: var(--bg); border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  text-decoration: none; color: var(--ink);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.today-strip a:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink-faded);
+}
+.today-strip .today-kind {
+  display: block;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 10px;
+}
+.today-strip .today-headline {
+  margin: 0 0 8px;
+  font-family: var(--font-serif); font-style: italic;
+  font-size: clamp(15px, 1.7vw, 17px);
+  line-height: 1.3; color: var(--ink);
+}
+.today-strip .today-finding {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(12px, 1.3vw, 13px);
+  line-height: 1.4; color: var(--ink-muted);
+}
+
 .archive-strip { max-width: var(--card-max-width); margin: 0 auto; }
 .archive-strip h2 {
   font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
