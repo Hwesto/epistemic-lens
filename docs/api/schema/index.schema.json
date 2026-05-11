@@ -54,8 +54,35 @@
             "additionalProperties": { "type": "string" }
           },
           "top_isolation_bucket": { "type": "string" },
-          "paradox": { "type": "boolean" }
+          "paradox": { "type": "boolean" },
+          "event_summary": {
+            "type": "string",
+            "description": "Factual 1-2 sentence summary mirrored from analysis.event_summary; falls back to tldr for archived analyses. Added meta-v8.7.0."
+          },
+          "card_kind": {
+            "type": "string",
+            "enum": ["word", "paradox", "silence", "shift", "sources", "tilt", "echo"],
+            "description": "Archetype assigned by publication/build_index.pick_per_story_card_kind() per card_picker.json cascade. Added meta-v8.7.0."
+          },
+          "finding_synthesis": {
+            "type": "string",
+            "description": "The archetype-specific headline-finding sentence the renderer uses verbatim. Produced by compute_finding_synthesis(). Added meta-v8.7.0."
+          }
         }
+      }
+    },
+    "todays_card": {
+      "type": "object",
+      "description": "The daily hero card selected by pick_todays_card() per today_picker.json. Stamped on the per-date index so the frontend can read both index + today.json without extra fetches. Added meta-v8.7.0.",
+      "required": ["story_key", "card_kind"],
+      "additionalProperties": true,
+      "properties": {
+        "story_key":         { "type": "string" },
+        "card_kind":         { "type": "string" },
+        "headline":          { "type": "string" },
+        "kicker":            { "type": "string" },
+        "finding_synthesis": { "type": "string" },
+        "score_breakdown":   { "type": "object" }
       }
     }
   }

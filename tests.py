@@ -2472,5 +2472,86 @@ class TestDeterministicCanary(unittest.TestCase):
         self.assertIn("added", diffs[0])
 
 
+class TestCardInfrastructure(unittest.TestCase):
+    """PR A+: schemas and pinned picker configs for the card-first
+    frontend. Doesn't test build_index logic (that's TestCardPickers in
+    a separate class) — just the contracts and pin machinery."""
+
+    def setUp(self):
+        self.repo = Path(meta.REPO_ROOT)
+
+    def _schema_path(self, name: str) -> Path:
+        return self.repo / "docs" / "api" / "schema" / f"{name}.schema.json"
+
+    def test_new_schemas_are_valid_json(self):
+        for name in ("today", "card", "word"):
+            with self.subTest(schema=name):
+                p = self._schema_path(name)
+                self.assertTrue(p.exists(), f"missing schema: {p}")
+                d = json.loads(p.read_text(encoding="utf-8"))
+                self.assertIn("$schema", d)
+                self.assertIn("$id", d)
+
+    def test_card_picker_loads_with_required_structure(self):
+        p = self.repo / "card_picker.json"
+        self.assertTrue(p.exists())
+        d = json.loads(p.read_text(encoding="utf-8"))
+        self.assertIn("cascade", d)
+        cascade = d["cascade"]
+        self.assertGreater(len(cascade), 0)
+        valid_kinds = {"word", "paradox", "silence", "shift",
+                        "sources", "tilt", "echo"}
+        for entry in cascade:
+            self.assertIn(entry["kind"], valid_kinds)
+        # The last entry must be the fallback so a kind is always picked.
+        last = cascade[-1]["precondition"]
+        self.assertEqual(last.get("type"), "fallback")
+
+    def test_today_picker_covers_all_archetype_kinds(self):
+        p = self.repo / "today_picker.json"
+        self.assertTrue(p.exists())
+        d = json.loads(p.read_text(encoding="utf-8"))
+        weights = d["scoring"]["archetype_strength_weights"]
+        # Every non-echo archetype must have a weight (echo deferred).
+        for k in ("word", "paradox", "silence", "shift", "sources", "tilt"):
+            self.assertIn(k, weights)
+            self.assertGreater(weights[k], 0)
+            self.assertLessEqual(weights[k], 1.0)
+
+    def test_pin_machinery_picks_up_card_picker_hash(self):
+        # After the 8.7.0 bump, card_picker_hash + today_picker_hash
+        # must be stamped in meta_version.json and round-trip via
+        # compute_pin_self_hash.
+        d = json.loads(meta.META_PATH.read_text(encoding="utf-8"))
+        if meta.VERSION.startswith("8.7.") or _version_at_least(meta.VERSION, "8.7.0"):
+            self.assertIn("card_picker_hash", d)
+            self.assertIn("today_picker_hash", d)
+            # Drift detection must catch a hand-edit.
+            self.assertEqual(d["card_picker_hash"],
+                              meta.file_hash(meta.CARD_PICKER_PATH))
+            self.assertEqual(d["today_picker_hash"],
+                              meta.file_hash(meta.TODAY_PICKER_PATH))
+
+    def test_analysis_schema_event_summary_is_optional(self):
+        s = json.loads(self._schema_path("analysis").read_text(encoding="utf-8"))
+        self.assertIn("event_summary", s["properties"])
+        # Must NOT be in required — old analyses lack it.
+        self.assertNotIn("event_summary", s["required"])
+
+    def test_index_schema_carries_card_kind(self):
+        s = json.loads(self._schema_path("index").read_text(encoding="utf-8"))
+        story_props = s["properties"]["stories"]["items"]["properties"]
+        for k in ("event_summary", "card_kind", "finding_synthesis"):
+            self.assertIn(k, story_props)
+        self.assertIn("todays_card", s["properties"])
+
+
+def _version_at_least(actual: str, threshold: str) -> bool:
+    """Parse semver-ish 'X.Y.Z' and compare component-wise."""
+    a = tuple(int(p) for p in actual.split(".")[:3])
+    t = tuple(int(p) for p in threshold.split(".")[:3])
+    return a >= t
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

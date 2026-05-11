@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/card.schema.json",
+  "title": "Card archetype payload (shared defs)",
+  "description": "Shared $defs for the per-archetype card payload structure. Referenced by today.schema.json and (optionally) per-story entries in index.schema.json. Each archetype carries the same envelope (eyebrow / headline / kicker / content / byline) but the `content` shape differs by `kind`. The renderer in web/app.js dispatches on `kind`.",
+  "$defs": {
+    "card_kind": {
+      "type": "string",
+      "enum": ["word", "paradox", "silence", "shift", "sources", "tilt", "echo"]
+    },
+    "envelope": {
+      "type": "object",
+      "required": ["kind", "eyebrow", "headline", "kicker", "byline"],
+      "additionalProperties": false,
+      "properties": {
+        "kind":     {"$ref": "#/$defs/card_kind"},
+        "eyebrow":  {"type": "string", "description": "Short label above the headline (e.g. 'PARADOX' or 'WHAT MOVED')."},
+        "headline": {"type": "string", "description": "The framing finding (1 sentence, archetype-specific)."},
+        "kicker":   {"type": "string", "description": "Factual event anchor (1-2 sentences, no framing language). Mirrors analysis.event_summary."},
+        "content":  {"description": "Archetype-specific payload. Shape varies by kind; renderer dispatches."},
+        "byline": {
+          "type": "object",
+          "required": ["story_key", "date"],
+          "properties": {
+            "story_key":      {"type": "string"},
+            "story_title":    {"type": "string"},
+            "date":           {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+            "see_how_path":   {"type": "string", "description": "Relative URL to the full analysis."},
+            "source_buckets": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "$ref": "#/$defs/envelope"
+}

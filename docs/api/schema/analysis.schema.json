@@ -33,6 +33,12 @@
       "minLength": 60,
       "description": "3-6 sentences. Lead with the most surprising finding in the corpus."
     },
+    "event_summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 300,
+      "description": "1-2 sentences. WHAT HAPPENED, factual only. No framing language, no editorial voice, no cross-outlet comparison. The story anchor for readers not already across the event. Optional for archived analyses (renderer falls back to tldr); required on go-forward per .claude/prompts/daily_analysis.md as of meta-v8.7.0."
+    },
     "frames": {
       "type": "array",
       "minItems": 2,

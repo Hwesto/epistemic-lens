@@ -38,6 +38,8 @@ CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
 FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
 BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
 BUCKET_WEIGHTS_PATH = ROOT / "bucket_weights.json"
+CARD_PICKER_PATH = ROOT / "card_picker.json"
+TODAY_PICKER_PATH = ROOT / "today_picker.json"
 FEEDS_PATH = ROOT / "feeds.json"
 PROMPTS_DIR = ROOT / ".claude" / "prompts"
 SCHEMAS_DIR = ROOT / "docs" / "api" / "schema"
@@ -282,6 +284,18 @@ def assert_pinned(strict: bool = True) -> dict[str, tuple[str, str]]:
         actual = file_hash(BUCKET_WEIGHTS_PATH)
         if declared != actual:
             drift["bucket_weights"] = (declared, actual)
+
+    declared = META.get("card_picker_hash")
+    if declared and CARD_PICKER_PATH.exists():
+        actual = file_hash(CARD_PICKER_PATH)
+        if declared != actual:
+            drift["card_picker"] = (declared, actual)
+
+    declared = META.get("today_picker_hash")
+    if declared and TODAY_PICKER_PATH.exists():
+        actual = file_hash(TODAY_PICKER_PATH)
+        if declared != actual:
+            drift["today_picker"] = (declared, actual)
 
     declared = CLAUDE.get("prompts_hash")
     if declared and PROMPTS_DIR.exists():

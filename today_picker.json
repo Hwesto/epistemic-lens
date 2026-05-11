@@ -1,0 +1,25 @@
+{
+  "_doc": "Daily hero picker. Scores each story by magnitude * archetype_strength * diversity_bonus and picks max. Tunable in follow-on bumps. The picker reads each story's already-assigned card_kind (from card_picker.json) and the n_buckets from the per-story index entry, plus a 5-day lookback of which archetypes / story_keys headlined recently.",
+  "version": "1.0.0",
+  "scoring": {
+    "min_n_buckets_for_hero": 8,
+    "magnitude": {
+      "weight": 0.30,
+      "normalize": "n_buckets_over_54"
+    },
+    "archetype_strength_weights": {
+      "paradox": 1.00,
+      "shift":   0.85,
+      "silence": 0.75,
+      "tilt":    0.65,
+      "sources": 0.55,
+      "word":    0.40
+    },
+    "diversity_bonus": {
+      "lookback_days": 5,
+      "penalty_for_same_archetype": 0.30,
+      "penalty_for_same_story_key": 0.50
+    }
+  },
+  "tie_break": "story_key_alphabetical_ascending"
+}

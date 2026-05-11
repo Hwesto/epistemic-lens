@@ -60,11 +60,19 @@ For each story you analyse:
    e. List silences: buckets that plausibly should cover this and didn't (or covered
       something else). Cross-reference today's snapshot if needed.
    f. Pick up to 10 single-outlet findings worth surfacing.
-   g. Assemble the JSON conforming to the schema.
-   h. Validate the file with the project's full validator (schema +
+   g. Write a 1-2 sentence factual `event_summary` describing what
+      concretely happened — places, people, decisions, dates. This
+      is the anchor for readers not already across the story. NO
+      framing language ("frames as", "casts as", "narrative"), NO
+      editorial voice, NO cross-outlet comparison. If you reach
+      for the word "frames", delete it and try again. Then write
+      `tldr` (3–6 sentences) which extends into the framing
+      observation.
+   h. Assemble the JSON conforming to the schema.
+   i. Validate the file with the project's full validator (schema +
       citation grounding + number reconciliation):
       `python -m analytical.validate_analysis analyses/<DATE>_<story>.json`
-   i. If it reports any errors, fix them in your JSON and re-run the
+   j. If it reports any errors, fix them in your JSON and re-run the
       validator until it prints `OK`. The same validator runs in the
       workflow post-commit; if you skip this step and any error is
       caught downstream, the workflow fails and your work has to be
@@ -114,6 +122,7 @@ For each story you analyse:
   "story_title": "...",
   "n_buckets": 27,
   "n_articles": 41,
+  "event_summary": "What concretely happened. 1-2 sentences. Factual only — no framing language, no editorial voice, no cross-outlet comparison.",
   "tldr": "Lead with the most surprising finding (3-6 sentences).",
   "frames": [
     {
