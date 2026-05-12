@@ -939,6 +939,101 @@ def _wrap_html_document(*, title: str, og_title: str, og_description: str,
 # Plan 4: 4-card home page with cubes
 # ===========================================================================
 
+# --- Cube-front helpers: leakage filters + translation ---------------------
+
+def _bucket_lang_map(signals: dict) -> dict[str, str]:
+    """Map bucket -> dominant ISO-639-1 language code from the briefing corpus."""
+    briefing = signals.get("briefing") or {}
+    counts: dict[str, dict[str, int]] = {}
+    for c in briefing.get("corpus") or []:
+        b = c.get("bucket")
+        lg = (c.get("lang") or "").lower().split("-")[0]
+        if not b or not lg:
+            continue
+        counts.setdefault(b, {})
+        counts[b][lg] = counts[b].get(lg, 0) + 1
+    return {b: max(d.items(), key=lambda kv: kv[1])[0] for b, d in counts.items()}
+
+
+_BUCKET_PARTS_SKIP = {"other", "regional", "intl", "state", "tv", "opposition",
+                      "wire", "services", "central"}
+
+# Irregular demonyms / capitals — terms that don't share a 4-char prefix with
+# the bucket name but obviously refer to it. Keep this list short; only add
+# entries that we've actually observed leaking through.
+_BUCKET_LEAKAGE_EXTRAS: dict[str, set[str]] = {
+    "philippines":  {"filipino", "manila"},
+    "japan":        {"tokyo"},
+    "china":        {"beijing", "chinese"},
+    "south_korea":  {"seoul", "korean"},
+    "australia_nz": {"sydney", "wellington", "kiwi"},
+    "germany":      {"berlin"},
+    "france":       {"paris"},
+    "italy":        {"rome", "italian"},
+    "spain":        {"madrid", "spanish"},
+    "uk":           {"london", "british", "england"},
+    "usa":          {"washington", "american"},
+    "russia":       {"moscow", "russian"},
+    "iran_state":      {"tehran", "iranian"},
+    "iran_opposition": {"tehran", "iranian"},
+    "egypt":        {"cairo", "egyptian"},
+    "turkey":       {"ankara", "istanbul", "turkish"},
+    "israel":       {"jerusalem", "israeli"},
+    "india":        {"delhi", "mumbai", "indian"},
+    "pakistan":     {"islamabad", "karachi", "pakistani"},
+    "brazil":       {"brasilia", "rio", "brazilian"},
+    "south_africa": {"johannesburg", "pretoria"},
+    "saudi":        {"riyadh", "saudi"},
+}
+
+
+def _is_bucket_name_leak(term: str, bucket: str) -> bool:
+    """True if `term` is a variant of the bucket name (e.g. 'filipino' in
+    'philippines' bucket, 'african' in 'africa_other', 'iranian' in 'iran_state')."""
+    if not term or not bucket:
+        return False
+    t = (term or "").lower().strip("'\"’")
+    # Irregular-demonym lookup first.
+    if t in _BUCKET_LEAKAGE_EXTRAS.get((bucket or "").lower(), set()):
+        return True
+    for part in (bucket or "").lower().split("_"):
+        if len(part) < 4 or part in _BUCKET_PARTS_SKIP:
+            continue
+        # First 4 chars overlap either way → call it a leak
+        if t.startswith(part[:4]) or part.startswith(t[:4]):
+            return True
+    return False
+
+
+def _is_story_keyword_leak(term: str, story_key: str, story_title: str) -> bool:
+    """True if `term` is a variant of a word in the story_key or story_title."""
+    if not term:
+        return False
+    t = (term or "").lower().strip("'\"’")
+    keywords: set[str] = set()
+    for src in (story_key or "", story_title or ""):
+        for tok in re.findall(r"[A-Za-z]{4,}", src.lower()):
+            keywords.add(tok)
+    for kw in keywords:
+        if t == kw or t.startswith(kw[:4]) or kw.startswith(t[:4]):
+            return True
+    return False
+
+
+def _translation_html(text: str, src_lang: str) -> str:
+    """Return `<span class="cube-translation">…</span>` for non-EN text, else ""."""
+    if not src_lang or src_lang.lower().startswith("en"):
+        return ""
+    try:
+        from publication import translate as _translate_mod
+        en = _translate_mod.translate(text, src_lang)
+    except Exception:
+        en = ""
+    if not en:
+        return ""
+    return f'<span class="cube-translation">{_e(en)}</span>'
+
+
 def _cube_shell(kind: str, label: str, thing_html: str, caption: str,
                  open_html: str, group: str) -> str:
     """Wrap a cube as a <details name=...> with the three-layer typographic
@@ -978,93 +1073,138 @@ def _short_quote_word(quote: str) -> str:
 
 
 def _cube_tension(today_card: dict, signals: dict, group: str) -> str:
-    """TENSION — paradox quotes when present; most-divergent pair fallback."""
+    """TENSION — paradox quotes when present; shared-frame consensus fallback."""
     analysis = signals.get("analysis") or {}
     p = analysis.get("paradox")
     if p and (p.get("joint_conclusion") or "") and len(p["joint_conclusion"]) >= 60:
         a_word = _short_quote_word(p["a"].get("quote", ""))
         b_word = _short_quote_word(p["b"].get("quote", ""))
+        a_bucket = p["a"].get("bucket", "?")
+        b_bucket = p["b"].get("bucket", "?")
         joint = (p.get("joint_conclusion") or "").strip()
-        # Take first sentence of joint for the teaser
         joint_teaser = joint.split(". ")[0]
         if len(joint_teaser) > 100:
             joint_teaser = joint_teaser[:97] + "…"
+
+        # Per-quote translation if either bucket isn't English
+        lang_map = _bucket_lang_map(signals)
+        a_tr = _translation_html(a_word, lang_map.get(a_bucket, "en"))
+        b_tr = _translation_html(b_word, lang_map.get(b_bucket, "en"))
+
         thing = (
-            f'<span class="cube-quote">“{_e(a_word)}”</span>'
+            f'<span class="cube-quote">“{_e(a_word)}”{a_tr}</span>'
             f' <span class="symbol">↔</span> '
-            f'<span class="cube-quote">“{_e(b_word)}”</span>'
+            f'<span class="cube-quote">“{_e(b_word)}”{b_tr}</span>'
             f'<p class="cube-joint">{_e(joint_teaser)}</p>'
         )
-        caption = f"{_e(p['a'].get('bucket', '?'))} vs {_e(p['b'].get('bucket', '?'))} · paradox"
-        # Open state: reuse _render_paradox body
+        caption = f"{_e(a_bucket)} vs {_e(b_bucket)} · paradox"
         from publication.card_renderers import _render_paradox
         tc = dict(today_card, card_kind="paradox")
         open_html = _render_paradox(tc, signals)
     else:
-        # Fall back to most-divergent pair from metrics
-        metrics = _signals_metrics(signals)
-        ps = sorted((metrics.get("pairwise_similarity") or []),
-                     key=lambda r: float(r.get("score") or 0))
-        if ps:
-            r = ps[0]
+        # No opposing-blocs signal — report the dominant shared frame instead.
+        frames = sorted((analysis.get("frames") or []),
+                         key=lambda f: -len(f.get("buckets") or []))
+        if frames:
+            top = frames[0]
+            fid = top.get("frame_id", "?")
+            sub = top.get("sub_frame", "")
+            n_buckets_top = len(top.get("buckets") or [])
+            n_total = sum(len(f.get("buckets") or []) for f in frames)
             thing = (
-                f'<span class="cube-bucket">{_e(r.get("a"))}</span>'
-                f' <span class="symbol">⟷</span> '
-                f'<span class="cube-bucket">{_e(r.get("b"))}</span>'
-                f'<p class="cube-bignum">{float(r.get("score") or 0):.2f}</p>'
+                '<p class="cube-tension-empty">no opposing blocs today</p>'
+                f'<p class="cube-tension-shared">'
+                f'<span class="frame-id">{_e(fid)}</span>'
+                f' <span class="frame-sub">{_e(sub)}</span>'
+                f'</p>'
             )
-            caption = "most-divergent pair · LaBSE cosine"
-            open_html = _render_pair_list(metrics, n=5, reverse=False)
+            caption = f"{n_buckets_top} of {n_total} buckets share top frame"
         else:
             thing = '<p class="cube-empty">no tension signal today</p>'
             caption = "framing variance accruing"
-            open_html = '<p>No paradox; metrics data not yet computed.</p>'
+        # Open: when no paradox, show the frames matrix (richer than pair list).
+        open_html = render_frames_matrix(analysis) if frames else \
+                    '<p>No paradox; frame analysis not yet computed.</p>'
     return _cube_shell("tension", "TENSION", thing, caption, open_html, group)
 
 
 def _cube_words(today_card: dict, signals: dict, group: str) -> str:
-    """WORDS — top 3 distinctive bigrams (PMI) or terms (LLR) with ≠."""
+    """WORDS — flag + distinctive bigram per top-3 buckets, with translation
+    underneath when the bucket isn't English. Filters bucket-name leakage
+    (`philippines→filipino`, `africa_other→africa`) and story-keyword leakage
+    (drops 'hormuz' for the hormuz_iran story)."""
+    story_key = (signals.get("story_key") or today_card.get("story_key") or "")
+    story_title = today_card.get("story_title") or signals.get("story_title") or ""
+    lang_map = _bucket_lang_map(signals)
+
+    def _phrase_clean(phrase: str, bucket: str) -> bool:
+        tokens = re.findall(r"[A-Za-z]+", phrase)
+        if not tokens:
+            return False
+        # Story-keyword leaks are strict: drop if ANY token is a story-title or
+        # story-key word ('hormuz', 'iran' for hormuz_iran). Those phrases just
+        # echo the story name and don't communicate framing.
+        if any(_is_story_keyword_leak(t, story_key, story_title) for t in tokens):
+            return False
+        # Bucket-name leaks are tolerated when at least one other token survives
+        # (e.g. 'south african' for south_africa: both tokens are leaks → drop;
+        # 'korean frontier' for south_korea: 1 of 2 leaks → keep 'frontier').
+        bucket_leaks = sum(1 for t in tokens if _is_bucket_name_leak(t, bucket))
+        return bucket_leaks < len(tokens)
+
+    # Prefer PMI bigrams (richer framing context than single LLR terms).
     pmi = (signals.get("within_lang_pmi") or {}).get("by_bucket") or {}
     rows: list[tuple[str, str, float]] = []  # (bucket, phrase, score)
     for bucket, data in pmi.items():
-        assocs = data.get("associations") or []
-        if assocs:
-            top = assocs[0]
-            bg = top.get("bigram") or []
-            phrase = " ".join(bg) if isinstance(bg, list) and len(bg) == 2 else ""
-            if phrase:
-                rows.append((bucket, phrase, float(top.get("z_score", 0))))
-    # If too few bigrams, fall back to LLR single terms.
+        for assoc in (data.get("associations") or []):
+            bg = assoc.get("bigram") or []
+            if not (isinstance(bg, list) and len(bg) == 2):
+                continue
+            phrase = " ".join(bg)
+            if not _phrase_clean(phrase, bucket):
+                continue
+            rows.append((bucket, phrase, float(assoc.get("z_score", 0))))
+            break  # one bigram per bucket
+
+    # Fall back to LLR single terms only if PMI yielded too few.
     if len(rows) < 3:
         llr = (signals.get("within_lang_llr") or {}).get("by_bucket") or {}
+        seen = {r[0] for r in rows}
         for bucket, data in llr.items():
-            terms = data.get("distinctive_terms") or []
-            if terms:
-                top = terms[0]
-                rows.append((bucket, top.get("term", ""), float(top.get("llr", 0))))
+            if bucket in seen:
+                continue
+            for term_entry in (data.get("distinctive_terms") or []):
+                term = (term_entry.get("term") or "").strip()
+                if not term:
+                    continue
+                if _is_bucket_name_leak(term, bucket):
+                    continue
+                if _is_story_keyword_leak(term, story_key, story_title):
+                    continue
+                rows.append((bucket, term, float(term_entry.get("llr", 0))))
+                break
+
     rows.sort(key=lambda r: -r[2])
     rows = rows[:3]
+
     if not rows:
-        thing = '<p class="cube-empty">vocabulary signal accruing</p>'
-        caption = "within-language LLR/PMI"
-        open_html = '<p>No distinctive terms yet — corpus too sparse.</p>'
+        thing = '<p class="cube-empty">distinctive vocabulary accruing</p>'
+        caption = "PMI/LLR within-language"
+        open_html = '<p>No distinctive terms yet — corpus too sparse, or all signal was bucket-name or story-keyword leakage.</p>'
     else:
-        # Two patterns: 1-line if all words are short, else stacked
-        all_short = all(len(r[1]) <= 18 for r in rows)
-        if all_short and len(rows) == 3:
-            thing = (
-                f'<span class="cube-word">{_e(rows[0][1])}</span>'
-                f' <span class="symbol">≠</span> '
-                f'<span class="cube-word">{_e(rows[1][1])}</span>'
-                f' <span class="symbol">≠</span> '
-                f'<span class="cube-word">{_e(rows[2][1])}</span>'
+        items = []
+        for bucket, phrase, _score in rows:
+            flag = _flag(bucket)
+            tr = _translation_html(phrase, lang_map.get(bucket, "en"))
+            items.append(
+                f'<li class="words-row">'
+                f'<span class="flag">{flag}</span>'
+                f'<span class="bucket-name">{_e(bucket)}</span>'
+                f'<span class="words-phrase">“{_e(phrase)}”{tr}</span>'
+                f'</li>'
             )
-        else:
-            parts = (f'<span class="cube-word">{_e(w)}</span>' for _, w, _ in rows)
-            thing = ' <span class="symbol">≠</span><br>'.join(parts)
-        scores = " / ".join(f"{int(round(r[2]))}" for r in rows)
-        caption = f"{len(rows)} buckets · z/LLR {scores}"
-        # Open state: full _render_word for top 6 buckets
+        thing = f'<ul class="words-list">{"".join(items)}</ul>'
+        caption = f"{len(rows)} buckets · distinctive PMI/LLR"
         from publication.card_renderers import _render_word
         tc = dict(today_card, card_kind="word")
         open_html = _render_word(tc, signals)
@@ -1072,13 +1212,12 @@ def _cube_words(today_card: dict, signals: dict, group: str) -> str:
 
 
 def _cube_silence(today_card: dict, signals: dict, group: str) -> str:
-    """SILENCE — bucket constellation ●○ + what-they-covered-instead caption."""
+    """SILENCE — named silent buckets + what they ran instead. When 0 silent,
+    a clean ‘all carried’ line. Replaces the unreadable 25-dot constellation."""
     story_key = signals.get("story_key")
     coverage = signals.get("coverage") or {}
-    # Build state-per-bucket map for THIS story.
     cov_data = coverage.get("coverage") or {}
     story_cov = cov_data.get(story_key) or []
-    # Aggregate per-bucket: covered if any feed had n_matching>0; silent if all zero
     per_bucket: dict[str, str] = {}
     for r in story_cov:
         b = r.get("bucket")
@@ -1090,35 +1229,52 @@ def _cube_silence(today_card: dict, signals: dict, group: str) -> str:
             per_bucket[b] = "covered"
         elif prev != "covered":
             per_bucket[b] = "silent"
-    buckets_sorted = sorted(per_bucket.keys())
-    constellation = "".join("●" if per_bucket[b] == "covered" else "○" for b in buckets_sorted)
     n_total = len(per_bucket)
     n_silent = sum(1 for v in per_bucket.values() if v == "silent")
-    # Editorial annotation from analysis.silences (when present)
+
     analysis = signals.get("analysis") or {}
     sil_list = analysis.get("silences") or []
-    annotation = ""
-    if sil_list:
-        top = sil_list[0]
-        sb = top.get("bucket", "?")
-        instead = (top.get("what_they_covered_instead") or "").strip()
-        if instead:
-            # First clause only, ≤80 chars
-            first = instead.split(";")[0].split(". ")[0]
-            if len(first) > 80:
-                first = first[:77] + "…"
-            annotation = f"{sb} ran {first}"
-    if not annotation and n_silent > 0:
-        annotation = f"{n_silent} silent bucket{'s' if n_silent != 1 else ''}"
-    if n_silent == 0:
-        annotation = "convergent coverage"
 
-    thing = f'<p class="constellation">{constellation or "—"}</p>'
-    caption = (
-        f"{n_total - n_silent} of {n_total} carried · {annotation}"
-        if n_silent > 0
-        else f"{n_total} of {n_total} carried · {annotation}"
-    )
+    if sil_list:
+        # Show up to 2 silent buckets with the analyst's "instead" text.
+        rows = []
+        for entry in sil_list[:2]:
+            sb = entry.get("bucket") or "?"
+            instead = (entry.get("what_they_covered_instead") or "").strip()
+            first = instead.split(";")[0].split(". ")[0] if instead else ""
+            if len(first) > 70:
+                first = first[:67] + "…"
+            instead_part = f' ran {_e(first)}' if first else ''
+            rows.append(
+                f'<li class="silence-row">'
+                f'<span class="flag">{_flag(sb)}</span>'
+                f'<span class="bucket-name">{_e(sb)}</span>'
+                f'<span class="silence-instead">{instead_part}</span>'
+                f'</li>'
+            )
+        thing = f'<ul class="silence-list">{"".join(rows)}</ul>'
+        more = n_silent - len(sil_list[:2])
+        suffix = f" · +{more} more silent" if more > 0 else ""
+        caption = f"{n_total - n_silent} of {n_total} carried{suffix}"
+    elif n_silent > 0:
+        # Silent buckets exist but analyst didn't flag any — list bucket names.
+        silent_names = sorted([b for b, s in per_bucket.items() if s == "silent"])[:3]
+        rows = "".join(
+            f'<li class="silence-row">'
+            f'<span class="flag">{_flag(b)}</span>'
+            f'<span class="bucket-name">{_e(b)}</span>'
+            f'</li>' for b in silent_names
+        )
+        thing = f'<ul class="silence-list">{rows}</ul>'
+        caption = f"{n_total - n_silent} of {n_total} carried · {n_silent} silent"
+    else:
+        thing = (
+            f'<p class="silence-all-covered">all {n_total} buckets carried</p>'
+            if n_total > 0
+            else '<p class="cube-empty">coverage data accruing</p>'
+        )
+        caption = "convergent coverage · no off-narrative bucket"
+
     from publication.card_renderers import _render_silence
     tc = dict(today_card, card_kind="silence")
     open_html = _render_silence(tc, signals)
@@ -1176,7 +1332,7 @@ def _cube_voices(today_card: dict, signals: dict, group: str) -> str:
 
 
 def _cube_frames(today_card: dict, signals: dict, group: str) -> str:
-    """FRAMES — top 3 frame_id : sub_frame by bucket count."""
+    """FRAMES — top 3 frame_id : sub_frame by bucket count, clean layout."""
     analysis = signals.get("analysis") or {}
     frames = analysis.get("frames") or []
     if not frames:
@@ -1184,18 +1340,17 @@ def _cube_frames(today_card: dict, signals: dict, group: str) -> str:
         caption = "no frames detected"
         open_html = '<p>No frames present.</p>'
     else:
-        # Sort by bucket count descending
         ranked = sorted(frames, key=lambda f: -len(f.get("buckets") or []))[:3]
         rows: list[str] = []
         for f in ranked:
             fid = f.get("frame_id", "?")
             sub = f.get("sub_frame", "")
-            # Truncate frame_id display for tight layout
-            fid_short = fid[:13]
+            n_b = len(f.get("buckets") or [])
             rows.append(
                 f'<div class="frames-row">'
-                f'<span class="frame-id">{_e(fid_short)}</span>'
+                f'<span class="frame-id">{_e(fid)}</span>'
                 f'<span class="frame-sub">{_e(sub or "—")}</span>'
+                f'<span class="frame-count">{n_b}</span>'
                 f'</div>'
             )
         thing = "".join(rows)
@@ -1206,39 +1361,96 @@ def _cube_frames(today_card: dict, signals: dict, group: str) -> str:
     return _cube_shell("frames", "FRAMES", thing, caption, open_html, group)
 
 
-def _cube_contrast(today_card: dict, signals: dict, group: str) -> str:
-    """CONTRAST — most-similar pair (≈) AND most-divergent pair (⟷) bookended."""
+def _cube_outlier(today_card: dict, signals: dict, group: str) -> str:
+    """OUTLIER — single most-isolated bucket (lowest mean LaBSE similarity)
+    + their top distinctive vocabulary. Replaces the opaque CONTRAST cube."""
     metrics = _signals_metrics(signals)
-    ps_sorted = sorted((metrics.get("pairwise_similarity") or []),
-                        key=lambda r: float(r.get("score") or 0))
-    if len(ps_sorted) < 2:
-        thing = '<p class="cube-empty">pairwise data accruing</p>'
-        caption = "metrics not yet computed"
-        open_html = '<p>No pairwise similarity data.</p>'
+    isolation = metrics.get("isolation") or []
+    if not isolation:
+        thing = '<p class="cube-empty">isolation data accruing</p>'
+        caption = "LaBSE metrics not yet computed"
+        open_html = '<p>No isolation data.</p>'
+        return _cube_shell("outlier", "OUTLIER", thing, caption, open_html, group)
+
+    iso_sorted = sorted(isolation, key=lambda r: float(r.get("mean_similarity") or 1.0))
+    most_isolated = iso_sorted[0]
+    bucket = most_isolated.get("bucket") or "?"
+    score = float(most_isolated.get("mean_similarity") or 0)
+
+    # Pull this bucket's top 3 distinctive terms.
+    story_key = signals.get("story_key") or today_card.get("story_key") or ""
+    story_title = today_card.get("story_title") or signals.get("story_title") or ""
+    llr = ((signals.get("within_lang_llr") or {}).get("by_bucket") or {}).get(bucket) or {}
+    clean_terms: list[str] = []
+    for t in (llr.get("distinctive_terms") or []):
+        term = (t.get("term") or "").strip()
+        if not term:
+            continue
+        if _is_bucket_name_leak(term, bucket):
+            continue
+        if _is_story_keyword_leak(term, story_key, story_title):
+            continue
+        clean_terms.append(term)
+        if len(clean_terms) >= 3:
+            break
+
+    # If LLR was sparse (common for small buckets), fall back to PMI bigrams.
+    if len(clean_terms) < 3:
+        pmi_b = ((signals.get("within_lang_pmi") or {}).get("by_bucket") or {}).get(bucket) or {}
+        for a in (pmi_b.get("associations") or []):
+            bg = a.get("bigram") or []
+            if not (isinstance(bg, list) and len(bg) == 2):
+                continue
+            phrase = " ".join(bg)
+            # Apply same filter as WORDS: drop story-keyword leaks strict
+            if any(_is_story_keyword_leak(tok, story_key, story_title) for tok in bg):
+                continue
+            if all(_is_bucket_name_leak(tok, bucket) for tok in bg):
+                continue
+            if phrase in clean_terms:
+                continue
+            clean_terms.append(phrase)
+            if len(clean_terms) >= 3:
+                break
+
+    lang_map = _bucket_lang_map(signals)
+    flag = _flag(bucket)
+    if clean_terms:
+        # Translate the term list as one phrase (cheaper, more idiomatic).
+        joined = ", ".join(clean_terms)
+        tr = _translation_html(joined, lang_map.get(bucket, "en"))
+        terms_html = (
+            ' · '.join(f'<span class="outlier-term">{_e(t)}</span>' for t in clean_terms)
+            + (f'<p class="outlier-translation-line">{tr}</p>' if tr else '')
+        )
     else:
-        low, high = ps_sorted[0], ps_sorted[-1]
-        thing = (
-            f'<div class="contrast-row">'
-            f'<span class="cube-bucket">{_e(high.get("a"))}</span>'
-            f' <span class="symbol">≈</span> '
-            f'<span class="cube-bucket">{_e(high.get("b"))}</span>'
-            f'<span class="contrast-score">{float(high.get("score") or 0):.2f}</span>'
-            f'</div>'
-            f'<div class="contrast-row">'
-            f'<span class="cube-bucket">{_e(low.get("a"))}</span>'
-            f' <span class="symbol">⟷</span> '
-            f'<span class="cube-bucket">{_e(low.get("b"))}</span>'
-            f'<span class="contrast-score">{float(low.get("score") or 0):.2f}</span>'
-            f'</div>'
-        )
-        caption = "LaBSE bucket-mean cosine"
-        open_html = (
-            '<h3>Most similar (top 5)</h3>'
-            + _render_pair_list(metrics, n=5, reverse=True)
-            + '<h3>Most divergent (bottom 5)</h3>'
-            + _render_pair_list(metrics, n=5, reverse=False)
-        )
-    return _cube_shell("contrast", "CONTRAST", thing, caption, open_html, group)
+        terms_html = '<span class="outlier-empty">no distinctive terms after leakage filter</span>'
+
+    thing = (
+        f'<p class="outlier-bucket"><span class="flag">{flag}</span>'
+        f'<span class="bucket-name">{_e(bucket)}</span></p>'
+        f'<p class="outlier-terms">{terms_html}</p>'
+    )
+    next_most_isolated = iso_sorted[1].get("bucket") if len(iso_sorted) > 1 else None
+    rest = f" · next: {_e(next_most_isolated)}" if next_most_isolated else ""
+    caption = f"furthest from consensus · mean_sim {score:.2f}{rest}"
+
+    # Open: isolation table top→bottom for context.
+    iso_rows = "".join(
+        f'<li><span class="bucket-name">{_flag(r.get("bucket"))} {_e(r.get("bucket"))}</span>'
+        f'<span class="pair-score">{float(r.get("mean_similarity") or 0):.3f}</span></li>'
+        for r in iso_sorted[:10]
+    )
+    open_html = (
+        '<h3>Most isolated (top 10)</h3>'
+        f'<ol class="pair-list">{iso_rows}</ol>'
+    )
+    return _cube_shell("outlier", "OUTLIER", thing, caption, open_html, group)
+
+
+# Back-compat alias: the previous cube name was CONTRAST. Keep the symbol so
+# any external callers (tests, etc.) still resolve.
+_cube_contrast = _cube_outlier
 
 
 # ---------------------------------------------------------------------------
@@ -1336,16 +1548,34 @@ def _render_headlines_strip(briefing: dict, analysis: dict) -> str:
             break
     if not picks:
         return ""
-    items = "".join(
-        f'<li>'
-        f'<span class="flag">{_flag(p.get("bucket"))}</span>'
-        f'<a class="title" href="{_e(p.get("link") or "#")}" rel="noopener">'
-        f'{_e((p.get("title") or "")[:120])}'
-        f'</a>'
-        f'<span class="feed">{_e(p.get("feed") or "")}</span>'
-        f'</li>'
-        for p in picks
-    )
+
+    def _row(p: dict) -> str:
+        title = (p.get("title") or "")[:120]
+        lang = (p.get("lang") or "").lower().split("-")[0]
+        # English-translation line beneath non-EN titles, when available.
+        tr_html = ""
+        if title and lang and not lang.startswith("en"):
+            try:
+                from publication import translate as _translate_mod
+                en = _translate_mod.translate(title, lang)
+            except Exception:
+                en = ""
+            if en:
+                tr_html = f'<span class="headline-translation">{_e(en)}</span>'
+        return (
+            f'<li>'
+            f'<span class="flag">{_flag(p.get("bucket"))}</span>'
+            f'<span class="title-wrap">'
+            f'<a class="title" href="{_e(p.get("link") or "#")}" rel="noopener">'
+            f'{_e(title)}'
+            f'</a>'
+            f'{tr_html}'
+            f'</span>'
+            f'<span class="feed">{_e(p.get("feed") or "")}</span>'
+            f'</li>'
+        )
+
+    items = "".join(_row(p) for p in picks)
     return (
         '<section class="card-headlines">'
         '<p class="card-headlines-label">HEADLINES</p>'
@@ -1415,7 +1645,7 @@ def _render_story_card(date: str, story_entry: dict, signals: dict,
         + _cube_silence(today_card, signals, group)
         + _cube_voices(today_card, signals, group)
         + _cube_frames(today_card, signals, group)
-        + _cube_contrast(today_card, signals, group)
+        + _cube_outlier(today_card, signals, group)
         + '</section>'
     )
 

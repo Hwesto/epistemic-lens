@@ -11,4 +11,5 @@ soundfile>=0.13.0      # WAV writing for kokoro
 piper-tts>=1.2.0       # alternative local TTS (lighter, lower quality)
 elevenlabs>=2.0.0      # cloud TTS — free tier 10K chars/mo (residential IPs only)
 playwright>=1.55.0     # PR D-2: server-side PNG rendering for og:image / social share. Headless chromium installed separately via `python -m playwright install chromium` in CI.
+deep-translator>=1.11.0 # build-time translation of non-EN bigrams + headlines + paradox quotes on the home page. MyMemory backend (free, no API key). Disk-cached at archive/translations.json so we re-query only on cache miss.
 # feedparser no longer required (v0.4 uses xml.etree directly)

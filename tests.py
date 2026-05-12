@@ -2683,18 +2683,23 @@ class TestHomeRenderer(unittest.TestCase):
         self.assertIn("reasonable and generous", html)
         self.assertIn("↔", html)
 
-    def test_cube_tension_falls_back_to_divergent_pair(self):
-        signals = self._signals(metrics={
-            "pairwise_similarity": [
-                {"a": "japan", "b": "taiwan_hk", "score": 0.21},
-                {"a": "italy", "b": "spain", "score": 0.78},
+    def test_cube_tension_falls_back_to_shared_frame_when_no_paradox(self):
+        """No paradox + frames present → "no opposing blocs" + top frame report."""
+        signals = self._signals(analysis={
+            "frames": [
+                {"frame_id": "ECONOMIC", "sub_frame": "oil shipping",
+                 "buckets": ["uk", "usa", "germany", "japan"]},
+                {"frame_id": "SECURITY_DEFENSE", "sub_frame": "ceasefire fragility",
+                 "buckets": ["israel", "iran_state"]},
             ],
+            # No paradox key present
         })
         html = self.pr._cube_tension({"date": "2026-05-11"}, signals, "g1")
-        self.assertIn("japan", html)
-        self.assertIn("taiwan_hk", html)
-        self.assertIn("⟷", html)
-        self.assertIn("0.21", html)
+        self.assertIn("no opposing blocs", html)
+        self.assertIn("ECONOMIC", html)
+        self.assertIn("oil shipping", html)
+        # Caption reports bucket counts: 4 of 6 buckets share top frame
+        self.assertIn("4 of 6 buckets", html)
 
     @staticmethod
     def _summary(html: str) -> str:
@@ -2723,12 +2728,15 @@ class TestHomeRenderer(unittest.TestCase):
         )
         html = self.pr._cube_words({"date": "2026-05-11"}, signals, "g2")
         summary = self._summary(html)
-        # Bigrams should appear in the CLOSED summary
+        # Bigrams should appear in the CLOSED summary, with bucket names
         self.assertIn("regime change", summary)
         self.assertIn("cessate fuoco", summary)
-        self.assertIn("≠", summary)
+        self.assertIn("russia", summary)
+        self.assertIn("italy", summary)
         # Should NOT have fallen back to single term in the closed summary
         self.assertNotIn("westminster", summary)
+        # Should have at least 3 bucket-flag rows
+        self.assertEqual(summary.count('class="words-row"'), 3)
 
     def test_cube_words_falls_back_to_llr_when_pmi_sparse(self):
         signals = self._signals(
@@ -2743,7 +2751,7 @@ class TestHomeRenderer(unittest.TestCase):
         self.assertIn("westminster", html)
         self.assertIn("guerra", html)
 
-    def test_cube_silence_constellation_marks_covered_and_silent(self):
+    def test_cube_silence_names_silent_buckets_with_what_they_ran_instead(self):
         signals = self._signals(
             story_key="hormuz_iran",
             coverage={"coverage": {"hormuz_iran": [
@@ -2762,11 +2770,26 @@ class TestHomeRenderer(unittest.TestCase):
         )
         html = self.pr._cube_silence({"date": "2026-05-11"}, signals, "g3")
         self.assertIn("SILENCE", html)
-        # 2 covered, 2 silent → constellation contains both ● and ○
-        self.assertIn("●", html)
-        self.assertIn("○", html)
+        # Named buckets + their "ran X instead" annotation — no constellation
         self.assertIn("egypt", html)
         self.assertIn("Sisi water rationing", html)
+        # Constellation is gone
+        self.assertNotIn('class="constellation"', html)
+        # 2 covered of 4 buckets, +1 more silent (germany has no analyst flag)
+        self.assertIn("2 of 4 carried", html)
+
+    def test_cube_silence_all_covered_shows_clean_message(self):
+        signals = self._signals(
+            story_key="iran_nuclear",
+            coverage={"coverage": {"iran_nuclear": [
+                {"bucket": "uk", "n_matching": 3},
+                {"bucket": "usa", "n_matching": 2},
+            ]}},
+            analysis={"frames": [], "silences": []},
+        )
+        html = self.pr._cube_silence({"date": "2026-05-11"}, signals, "g3")
+        self.assertIn("all 2 buckets carried", html)
+        self.assertIn("convergent coverage", html)
 
     def test_cube_voices_uses_vocab_reveals_first(self):
         signals = self._signals(analysis={
@@ -2826,27 +2849,57 @@ class TestHomeRenderer(unittest.TestCase):
             ],
         })
         html = self.pr._cube_frames({"date": "2026-05-11"}, signals, "g5")
-        self.assertIn("SECURITY_DEFE", html)  # truncated
+        # Full frame_id rendered (truncate hack dropped)
+        self.assertIn("SECURITY_DEFENSE", html)
         self.assertIn("military blockade", html)
         self.assertIn("ECONOMIC", html)
         self.assertIn("energy supply", html)
 
-    def test_cube_contrast_shows_both_extremes(self):
+    def test_cube_outlier_picks_most_isolated_bucket(self):
         signals = self._signals(metrics={
-            "pairwise_similarity": [
-                {"a": "turkey", "b": "uk", "score": 0.87},
-                {"a": "italy", "b": "spain", "score": 0.55},
-                {"a": "japan", "b": "taiwan_hk", "score": 0.21},
+            "isolation": [
+                {"bucket": "italy", "mean_similarity": 0.29},
+                {"bucket": "nordic", "mean_similarity": 0.42},
+                {"bucket": "uk", "mean_similarity": 0.71},
             ],
-        })
-        html = self.pr._cube_contrast({"date": "2026-05-11"}, signals, "g6")
-        self.assertIn("turkey", html)
-        self.assertIn("uk", html)
-        self.assertIn("≈", html)
-        self.assertIn("0.87", html)
-        self.assertIn("japan", html)
-        self.assertIn("⟷", html)
-        self.assertIn("0.21", html)
+        }, within_lang_llr={"by_bucket": {
+            "italy": {"distinctive_terms": [
+                {"term": "cessate", "llr": 35.0},
+                {"term": "fuoco", "llr": 28.0},
+                {"term": "trattativa", "llr": 22.0},
+            ]},
+        }})
+        html = self.pr._cube_outlier({"date": "2026-05-11", "story_key": "x",
+                                       "story_title": "Hormuz"}, signals, "g6")
+        self.assertIn("OUTLIER", html)
+        # Most-isolated bucket is italy (0.29)
+        self.assertIn("italy", html)
+        # Its top distinctive terms are present
+        self.assertIn("cessate", html)
+        self.assertIn("fuoco", html)
+        # mean_similarity 0.29 surfaced in caption
+        self.assertIn("0.29", html)
+        # Caption mentions the next-most-isolated bucket
+        self.assertIn("nordic", html)
+
+    def test_cube_outlier_filters_bucket_name_leakage(self):
+        """A bucket whose top LLR term is its own name (philippines→filipino)
+        should not show that term."""
+        signals = self._signals(metrics={
+            "isolation": [{"bucket": "philippines", "mean_similarity": 0.30}],
+        }, within_lang_llr={"by_bucket": {
+            "philippines": {"distinctive_terms": [
+                {"term": "filipino", "llr": 40.0},       # leakage — drop
+                {"term": "netherland", "llr": 16.0},     # keep
+                {"term": "patient", "llr": 12.0},        # keep
+            ]},
+        }})
+        html = self.pr._cube_outlier(
+            {"date": "2026-05-11", "story_key": "hantavirus_cruise",
+             "story_title": "Hantavirus on cruise ship"}, signals, "g6")
+        self.assertNotIn(">filipino<", html)  # leakage filtered from closed state
+        self.assertIn("netherland", html)
+        self.assertIn("patient", html)
 
     def test_headlines_strip_picks_one_per_frame(self):
         briefing = {"corpus": [

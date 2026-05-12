@@ -1853,6 +1853,194 @@ main {
 .card-footer-actions a:hover { text-decoration: underline; }
 
 /* ---------------------------------------------------------------------- */
+/* Cube-redesign content styles (WORDS list, SILENCE list, OUTLIER, etc.) */
+/* Translation lines underneath any non-English phrase on the home page.  */
+/* ---------------------------------------------------------------------- */
+
+/* Translation lines (inline span placed under a parent phrase) */
+.cube-translation,
+.headline-translation,
+.outlier-translation-line {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faded);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+  font-style: normal;
+  font-weight: normal;
+}
+.headline-translation {
+  font-size: 11px;
+  margin-top: 1px;
+  line-height: 1.3;
+}
+.outlier-translation-line {
+  margin-top: 6px;
+}
+
+/* WORDS cube — flag + bucket name + quoted phrase rows */
+.cube--words .cube-thing { text-align: left; width: 100%; }
+.words-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.words-row {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  column-gap: 8px;
+  row-gap: 1px;
+  align-items: baseline;
+  font-family: var(--font-serif);
+}
+.words-row .flag { font-size: 14px; line-height: 1; }
+.words-row .bucket-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faded);
+  text-transform: lowercase;
+  grid-column: 2;
+}
+.words-row .words-phrase {
+  grid-column: 2;
+  font-style: italic;
+  font-size: clamp(13px, 1.4vw, 15px);
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* SILENCE cube — named buckets, no constellation */
+.cube--silence .cube-thing { text-align: left; width: 100%; }
+.silence-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.silence-row {
+  display: grid;
+  grid-template-columns: 22px auto 1fr;
+  gap: 8px;
+  align-items: baseline;
+  font-family: var(--font-serif);
+  font-size: clamp(13px, 1.4vw, 15px);
+}
+.silence-row .flag { font-size: 14px; line-height: 1; }
+.silence-row .bucket-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+}
+.silence-row .silence-instead {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 13px;
+}
+.silence-all-covered {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(13px, 1.5vw, 15px);
+  color: var(--ink-muted);
+  margin: 0;
+  text-align: center;
+}
+
+/* TENSION cube — empty / shared-frame fallback */
+.cube-tension-empty {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faded);
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 0 0 8px;
+}
+.cube-tension-shared {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin: 0;
+}
+.cube-tension-shared .frame-id {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.cube-tension-shared .frame-sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ink-muted);
+  display: block;
+  margin-top: 3px;
+}
+
+/* OUTLIER cube — single isolated bucket + their distinctive terms */
+.cube--outlier .cube-thing { text-align: center; width: 100%; }
+.outlier-bucket {
+  margin: 0 0 8px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  justify-content: center;
+}
+.outlier-bucket .flag { font-size: 18px; line-height: 1; }
+.outlier-bucket .bucket-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--ink);
+}
+.outlier-terms {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.outlier-term {
+  color: var(--accent);
+}
+.outlier-empty {
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 11px;
+}
+
+/* FRAMES cube — adjusted: now has 3 columns (id, sub, count) */
+.cube--frames .frames-row {
+  grid-template-columns: minmax(80px, auto) 1fr auto;
+}
+.frame-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faded);
+  letter-spacing: 0.04em;
+}
+
+/* HEADLINES strip — title + translation stacked, feed on right */
+.card-headlines li {
+  align-items: start;
+}
+.card-headlines .title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.card-headlines .title-wrap .title { display: inline; }
+
+/* ---------------------------------------------------------------------- */
 /* Accountability pages (corrections.html, methodology-challenge.html)    */
 /* Legacy class layout pre-dating the card-first redesign. Cherry-picked  */
 /* with old tokens remapped to the new design system:                     */
