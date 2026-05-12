@@ -253,6 +253,13 @@ def main() -> int:
         print("No analyses to render threads from.")
         return 0
 
+    # Phase 2 `_headline.json` files have a different shape and aren't meant
+    # to be rendered as social threads. Skip them.
+    targets = [t for t in targets if not t.stem.endswith("_headline")]
+    if not targets:
+        print("No primary analysis JSON files to render threads from.")
+        return 0
+
     for t in targets:
         if t.suffix != ".json":
             continue
