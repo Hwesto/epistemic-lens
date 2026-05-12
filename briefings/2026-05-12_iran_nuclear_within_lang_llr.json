@@ -1,0 +1,96 @@
+{
+  "date": "2026-05-12",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "by_bucket": {
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 482,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 490,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 77,
+      "n_tokens_in_cohort": 437,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 85,
+      "n_tokens_in_cohort": 429,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 36,
+      "n_tokens_in_cohort": 478,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 42,
+      "n_tokens_in_cohort": 472,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 73,
+      "n_tokens_in_cohort": 441,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 489,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 46,
+      "n_tokens_in_cohort": 468,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 74,
+      "n_tokens_in_cohort": 440,
+      "distinctive_terms": [
+        {
+          "term": "deal",
+          "count_in_bucket": 5,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.06757,
+          "rate_in_cohort": 0.00455,
+          "llr": 11.887,
+          "log_ratio": 2.699,
+          "p_value": 0.000565
+        }
+      ]
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.2"
+}

@@ -1,0 +1,678 @@
+{
+  "date": "2026-05-12",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 14,
+  "n_articles": 20,
+  "buckets": [
+    "egypt",
+    "india",
+    "israel",
+    "opinion_magazines",
+    "pan_african",
+    "pan_arab",
+    "qatar",
+    "religious_press",
+    "russia",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "egypt": 68,
+    "india": 343,
+    "israel": 380,
+    "opinion_magazines": 25,
+    "pan_african": 34,
+    "pan_arab": 115,
+    "qatar": 26,
+    "religious_press": 69,
+    "russia": 181,
+    "taiwan_hk": 58,
+    "turkey": 226,
+    "uk": 58,
+    "vietnam_thai_my": 229,
+    "wire_services": 69
+  },
+  "pairwise_similarity": [
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.976
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.851
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.844
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.842
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.835
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.829
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.8
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.788
+    },
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.766
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.762
+    },
+    {
+      "a": "pan_african",
+      "b": "pan_arab",
+      "score": 0.761
+    },
+    {
+      "a": "egypt",
+      "b": "israel",
+      "score": 0.753
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.75
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "score": 0.745
+    },
+    {
+      "a": "egypt",
+      "b": "pan_arab",
+      "score": 0.743
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.728
+    },
+    {
+      "a": "egypt",
+      "b": "turkey",
+      "score": 0.711
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.703
+    },
+    {
+      "a": "pan_arab",
+      "b": "religious_press",
+      "score": 0.694
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.687
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.686
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.677
+    },
+    {
+      "a": "egypt",
+      "b": "religious_press",
+      "score": 0.663
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.657
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "score": 0.655
+    },
+    {
+      "a": "israel",
+      "b": "pan_african",
+      "score": 0.654
+    },
+    {
+      "a": "religious_press",
+      "b": "turkey",
+      "score": 0.652
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.65
+    },
+    {
+      "a": "egypt",
+      "b": "vietnam_thai_my",
+      "score": 0.649
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.64
+    },
+    {
+      "a": "pan_arab",
+      "b": "taiwan_hk",
+      "score": 0.631
+    },
+    {
+      "a": "pan_african",
+      "b": "religious_press",
+      "score": 0.629
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "score": 0.628
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.628
+    },
+    {
+      "a": "pan_arab",
+      "b": "uk",
+      "score": 0.627
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia",
+      "score": 0.626
+    },
+    {
+      "a": "israel",
+      "b": "uk",
+      "score": 0.625
+    },
+    {
+      "a": "egypt",
+      "b": "taiwan_hk",
+      "score": 0.624
+    },
+    {
+      "a": "egypt",
+      "b": "wire_services",
+      "score": 0.616
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.615
+    },
+    {
+      "a": "israel",
+      "b": "taiwan_hk",
+      "score": 0.615
+    },
+    {
+      "a": "religious_press",
+      "b": "wire_services",
+      "score": 0.615
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.614
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.61
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.608
+    },
+    {
+      "a": "pan_arab",
+      "b": "qatar",
+      "score": 0.608
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.603
+    },
+    {
+      "a": "egypt",
+      "b": "india",
+      "score": 0.594
+    },
+    {
+      "a": "egypt",
+      "b": "qatar",
+      "score": 0.591
+    },
+    {
+      "a": "egypt",
+      "b": "russia",
+      "score": 0.589
+    },
+    {
+      "a": "egypt",
+      "b": "uk",
+      "score": 0.589
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.586
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.582
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.574
+    },
+    {
+      "a": "pan_african",
+      "b": "taiwan_hk",
+      "score": 0.573
+    },
+    {
+      "a": "religious_press",
+      "b": "taiwan_hk",
+      "score": 0.572
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.57
+    },
+    {
+      "a": "egypt",
+      "b": "pan_african",
+      "score": 0.568
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.566
+    },
+    {
+      "a": "qatar",
+      "b": "religious_press",
+      "score": 0.566
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.562
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.557
+    },
+    {
+      "a": "israel",
+      "b": "religious_press",
+      "score": 0.554
+    },
+    {
+      "a": "religious_press",
+      "b": "uk",
+      "score": 0.55
+    },
+    {
+      "a": "religious_press",
+      "b": "vietnam_thai_my",
+      "score": 0.534
+    },
+    {
+      "a": "egypt",
+      "b": "opinion_magazines",
+      "score": 0.528
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "qatar",
+      "score": 0.519
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.517
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.51
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.505
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.505
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.504
+    },
+    {
+      "a": "india",
+      "b": "religious_press",
+      "score": 0.481
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_arab",
+      "score": 0.481
+    },
+    {
+      "a": "israel",
+      "b": "opinion_magazines",
+      "score": 0.477
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.47
+    },
+    {
+      "a": "israel",
+      "b": "qatar",
+      "score": 0.463
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.448
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.443
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.439
+    },
+    {
+      "a": "religious_press",
+      "b": "russia",
+      "score": 0.435
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "religious_press",
+      "score": 0.434
+    },
+    {
+      "a": "qatar",
+      "b": "taiwan_hk",
+      "score": 0.431
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.425
+    },
+    {
+      "a": "pan_african",
+      "b": "qatar",
+      "score": 0.424
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.42
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.42
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.419
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.408
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_african",
+      "score": 0.371
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.343
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.469
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.487
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.568
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.585
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.591
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.592
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.611
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.615
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.624
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.63
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.632
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.65
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.674
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.699
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE"
+  },
+  "bucket_exclusive_vocab": {
+    "egypt": [
+      {
+        "term": "north",
+        "count": 4
+      },
+      {
+        "term": "ease",
+        "count": 3
+      },
+      {
+        "term": "pressure",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "trump",
+        "count": 8
+      },
+      {
+        "term": "base",
+        "count": 3
+      },
+      {
+        "term": "president",
+        "count": 3
+      },
+      {
+        "term": "aircraft",
+        "count": 3
+      }
+    ],
+    "israel": [
+      {
+        "term": "golani",
+        "count": 6
+      },
+      {
+        "term": "brigade",
+        "count": 6
+      },
+      {
+        "term": "plant",
+        "count": 3
+      },
+      {
+        "term": "crossed",
+        "count": 3
+      },
+      {
+        "term": "kilometer",
+        "count": 3
+      },
+      {
+        "term": "expected",
+        "count": 3
+      },
+      {
+        "term": "tunnel",
+        "count": 3
+      },
+      {
+        "term": "advanced",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "pan_african": [],
+    "pan_arab": [
+      {
+        "term": "order",
+        "count": 5
+      },
+      {
+        "term": "issu",
+        "count": 3
+      }
+    ],
+    "qatar": [
+      {
+        "term": "again",
+        "count": 3
+      }
+    ],
+    "religious_press": [
+      {
+        "term": "pope",
+        "count": 3
+      },
+      {
+        "term": "priest",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "taiwan_hk": [],
+    "turkey": [
+      {
+        "term": "paramedic",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "vietnam_thai_my": [],
+    "wire_services": [
+      {
+        "term": "negotiation",
+        "count": 3
+      },
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-12T09:53:50+00:00",
+  "meta_version": "8.7.2"
+}
