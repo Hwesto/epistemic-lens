@@ -1,0 +1,264 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-12",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "event_summary": "US-Israeli strikes hit at least six Iranian nuclear sites; Iran's supreme leader declared enrichment 'non-negotiable'; a sixth round of US-Iran talks was being arranged even as Trump rejected Tehran's latest peace proposal as unacceptable.",
+  "tldr": "Iran opposition press (isolation 0.518, lowest in the corpus) diverged most sharply by running physical-damage assessment — satellite imagery of six nuclear sites struck and new fortifications at Natanz — while all other buckets focused on the diplomatic impasse. Germany stood apart by asking what becomes of Iran's 440 kg enriched-uranium stockpile, a question no other bucket raised. US coverage (Fox News) foregrounded Israeli demands — zero enrichment, underground site dismantling, Hamas/Hezbollah severance — as the non-negotiable deal baseline. India's exclusive terms ('china', 'trade') were the only signal connecting the nuclear dossier to the simultaneous Trump-Xi summit track.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear-site strikes",
+      "buckets": [
+        "iran_opposition",
+        "ukraine",
+        "pan_arab",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "At least six Iranian nuclear sites were attacked in recent US and Israeli strikes, with most confirmed or suspected targets tied to work needed to build a nuclear weapon, a new satellite-imagery analysis by the Institute for Science and International Security shows.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "The Institute for Science and International Security said newly available satellite imagery appeared to show possible new defensive measures at Iran’s underground Pickaxe Mountain (Mount Kolang Gaz La) complex near the Natanz nuclear site.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "US President Donald Trump said the ceasefire with Iran remains fragile and could collapse, criticizing Tehran’s latest proposal as unacceptable. He insisted any agreement must prevent Iran from obtaining nuclear weapons and accused the country of reversing earlier commitments. Ne",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "enrichment sovereignty",
+      "buckets": [
+        "iran_state",
+        "russia",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Safeguards in place to protect Iran’s nuclear assets, atomic chief tells MPs\n\nTehran, IRNA – The head of the Atomic Energy Organization of Iran (AEOI) has reiterated that the country’s uranium enrichment is “non-negotiable” and all necessary measures have been implemented to safe",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Ali Khamenei added that the US and other countries are not interested in Iran's progress and have put forward conditions presupposing a complete halt of uranium enrichment on Iranian territory",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Iran warns of 90% uranium enrichment in case of renewed US-Israeli attack\n\n'We will review it in parliament,' says spokesman for Iranian parliament's Foreign Policy and National Security Committee",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "ceasefire and summit linkage",
+      "buckets": [
+        "india",
+        "pan_arab",
+        "russia",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "U.S. President Donald Trump and Chinese President Xi Jinping will discuss critical issues like Iran, Taiwan, AI, and nuclear weapons during Trump’s two-day visit to China, marking their first in-person talks in over six months. They aim to stabilize strained ties amid previous tr",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Iran to discuss enrichment as US ceasefire hangs in balance\n\nThe ceasefire between the US and Iran is hanging by a thread after Trump labelled Iran's new proposal 'garbage'",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "According to the report, a sixth round of talks on the Iranian nuclear program between the US president’s Special Envoy Steve Witkoff and Iran’s top diplomat, Abbas Araghchi, could be held this weekend in a Middle Eastern country",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "zero-enrichment demands",
+      "buckets": [
+        "usa",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Experts warn any new Iran deal must ban plutonium reprocessing and expose covert pathways to nuclear weapons, citing risks tied to Bushehr and Arak nuclear facilities.",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Israel wants Iran to stop enrichment, dismantle underground nuclear sites, restrict missiles and cut ties to Hamas and Hezbollah, experts say.",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "What will happen to Iran's nuclear material?\n\nIran is believed to have over 440 kilograms of enriched uranium, which could be turned into weapons-grade nuclear material. Despite Trump's pledge to get the \"nuclear dust,\" Tehran has kept it out of US reach.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "multilateral negotiation",
+      "buckets": [
+        "china",
+        "russia",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk; move reflects Teheran's willingness to seek intl support: Chinese expert",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Iran agreed to discuss its nuclear programme within 30 days as part of a 14-point response to a US proposal to end the war.",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.518,
+      "note": "Physical strike-damage focus (satellite imagery, Natanz fortifications) diverges sharply from the diplomatic-process mainstream."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.551,
+      "note": "Uniquely focused on the fate of Iran's 440 kg enriched-uranium stockpile rather than ceasefire or negotiation posture. Exclusive term 'material' is substantive, not a language artefact."
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.557,
+      "note": "Conditional escalation threat (90% enrichment if attacked) diverges from the main ceasefire-talks narrative."
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.562,
+      "note": "Sovereignty/safeguards rhetoric ('non-negotiable', 'assets protected') is the domestic-reassurance register distinct from every other bucket."
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.563,
+      "note": "Covers Trump's scepticism and ceasefire fragility but through a Ukrainian war-lens framing rather than the nuclear-program-specific angle of most buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "iran_opposition",
+      "terms": [
+        "think",
+        "tank",
+        "strik",
+        "natanz",
+        "complex"
+      ],
+      "what_it_reveals": "Think-tank satellite-imagery methodology; physical damage and Natanz fortifications — military damage-assessment frame absent from all other buckets."
+    },
+    {
+      "bucket": "iran_state",
+      "terms": [
+        "safeguard",
+        "asset",
+        "atomic"
+      ],
+      "what_it_reveals": "Sovereignty and protection register: AEOI briefing MPs that enrichment facilities are safeguarded — defensive legitimacy framing."
+    },
+    {
+      "bucket": "usa",
+      "terms": [
+        "plutonium",
+        "pathway",
+        "israel"
+      ],
+      "what_it_reveals": "Technical proliferation concern (plutonium reprocessing) and Israeli red-lines drive US coverage; no other bucket raises the plutonium pathway."
+    },
+    {
+      "bucket": "india",
+      "terms": [
+        "china",
+        "trade"
+      ],
+      "what_it_reveals": "India uniquely linked Iran's nuclear dossier to the Trump-Xi trade summit — the only bucket to treat nuclear talks as a sub-item of the broader geopolitical calendar."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "uk",
+      "what_they_covered_instead": "UK is absent from this corpus despite being part of the E3 (alongside France and Germany) historically central to Iran nuclear diplomacy; likely covered Hormuz and hantavirus stories instead."
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France — a P5+1 party — has no articles in this corpus; French coverage appears only in wire_services on the hantavirus story."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "Only outlet to run satellite-imagery analysis confirming six nuclear sites struck, with new fortifications at the Natanz Pickaxe Mountain tunnel complex.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "Only outlet to specifically ask what will happen to Iran's 440+ kg enriched-uranium stockpile under any prospective deal — a question none of the other nine buckets raised.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Detailed breakdown of Israeli non-negotiables: zero enrichment, dismantlement of underground sites, missile restrictions, and Hamas/Hezbollah severing — not foregrounded by any other bucket.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "IRNA English",
+      "bucket": "iran_state",
+      "finding": "AEOI chief's parliamentary briefing declaring enrichment 'non-negotiable' and all facilities 'safeguarded' — official sovereignty claim absent from every other bucket.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "bucket": "india",
+      "finding": "Only outlet to explicitly frame Iran's nuclear talks as one item in a broader Trump-Xi summit agenda spanning trade, Taiwan, and AI.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "The iran_nuclear corpus splits into three non-overlapping lenses — physical damage (iran_opposition), diplomatic process (russia, pan_arab, turkey), and deal requirements (usa/Fox News) — with no single bucket synthesising all three. Germany's singular focus on the 440 kg uranium-material question marks the gap between a ceasefire and the comprehensive agreement that remains out of reach.",
+  "generated_at": "2026-05-12T14:55:00Z",
+  "model": "claude-sonnet-4-6"
+}

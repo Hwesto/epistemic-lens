@@ -1,0 +1,265 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-12",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 14,
+  "n_articles": 20,
+  "event_summary": "Israel continued strikes in southern Lebanon through 12 May 2026, with the Golani Brigade advancing to the Litani River and killing ~15 Hezbollah fighters; two Israeli soldiers were sentenced to military prison for desecrating a Virgin Mary statue in the Christian village of Debel.",
+  "tldr": "The editorial surprise is the Virgin Mary desecration: it produced the highest pairwise similarity in the corpus (Taiwan/HK SCMP ↔ UK Guardian at 0.976; Russia RT ↔ UK at 0.851), crossing Cold War blocs as shared Christian-heritage moral outrage displaced geopolitical divergence. Opinion_magazines was the most isolated bucket (0.469), running The Conversation’s argument that Netanyahu cannot replicate the ‘Gaza playbook’ in Lebanon. Vietnam/Thai/MY was the only outlet to explicitly link the evolving FPV fiber-optic drone war to stalled Iran peace negotiations. Religious press focused on Pope Leo XIV video-calling priests in the south — pastoral presence invisible in every other bucket.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Litani advance and drone war",
+      "buckets": [
+        "israel",
+        "egypt",
+        "vietnam_thai_my",
+        "pan_arab",
+        "turkey",
+        "india",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "The IDF's Golani Brigade announced on Tuesday that it recently advanced all the way to the Litani River, around 10 kilometers from the Israeli border, including using robots for portions of the operations.\nGenerally, the Golani Brigade's area of operations is in southern Lebanon parallel to the Israeli northern areas of Metula and Kiryat Shmona.\nAccording to the IDF, the goal was to remove various mortar firing cells and certain tactical tunnels Hezbollah was using to maneuver within portions of southern Lebanon.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "While Washington and Tehran argue over a deal to end the attacks on shipping that are shaking the world economy, Iran's most powerful ally Hezbollah and Israel are stepping up a drone war in Lebanon - on camera - that is complicating the path to peace.\nIn recent weeks, Hezbollah has used cheap, easy-to-assemble First Person View kamikaze drones to transform the war it has been fighting since it began firing on Israel on March 2, days after the U.S.-Israeli forces began their attacks on Iran.\nControlled with fiber-optic cables, the FPV drones",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Mada Masr",
+          "quote": "Israel has stepped up strikes on villages north of the Litani River since the end of last week, after its troops operating in areas south of the river came under repeated fire from Hezbollah, according to a resident of the area and a former military official. The escalation has focused on the south Nabatieh countryside, with Israel targeting the twin villages of Zawtar, in particular, with heavy, simultaneous airstrikes",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "desecration and pastoral care",
+      "buckets": [
+        "russia",
+        "taiwan_hk",
+        "uk",
+        "turkey",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israeli soldiers jailed for desecrating Virgin Mary statue\nTwo Israeli soldiers were sentenced to several weeks in military prison for desecrating a statue of the Virgin Mary in southern Lebanon, the Israel Defense Forces (IDF) has said.\nLast week, a photo surfaced showing a serv",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Two Israeli soldiers will spend weeks in military prison for the desecration of a Christian object after one stuck a cigarette in the mouth of a statue of the Virgin Mary in southern Lebanon and the other photographed it.The photo of the soldier, a cigarette dangling from his own mouth, went viral and sparked widespread outrage. It was the latest act by Israeli forces in southern Lebanon",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Pope Leo XIV video-calls priests in southern Lebanon\n\nDuring his audience with the Apostolic Nuncio to Lebanon, Archbishop Paolo Borgia, Pope Leo video-calls about ten priests from the southern regions of Lebanon and encourages them and assures them of his prayers. Read all",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian casualties and displacement",
+      "buckets": [
+        "qatar",
+        "pan_arab",
+        "pan_african",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Lebanese in south refuse to flee again despite escalating Israeli strikes\n\nObaida Hitto reports from southern Lebanon, where residents say they will not leave again despite intensifying strikes.",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israeli air strike kills six in southern Lebanon\n\nIsraeli air strike kills six in southern Lebanon An Israeli air strike on an inhabited house in the town of Kafr Dunin in southern Lebanon killed six people and wounded seven others overnight, according to the country’s National N",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israel murders 2 paramedics day after killing 25 across Lebanon\n\nIsraeli strikes in violation of a cease-fire killed at least three people, including two paramedics, in southern Lebanon on Sunday. Lebanon's Health Ministry confirmed that t...",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Hezbollah weapons off-table",
+      "buckets": [
+        "opinion_magazines",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Netanyahu has pledged to ‘finish the job’ against Hezbollah. It’s a promise he can’t deliver on\n\nThe Israeli prime minister is using the ‘Gaza playbook’ to decimate southern Lebanon, but it won’t eliminate the threat from the militant group.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Hezbollah chief Naim Qassem on Tuesday said his group's weapons were not part of upcoming negotiations between Lebanon and Israel, and vowed his fighters would turn the battlefield into \"hell\" for Israeli forces as they \"defend Lebanon and its people\".",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.469,
+      "note": "'Finish the job' analytical piece diverges completely from event-reporting mainstream; no exclusive vocab terms (thin but distinctive)."
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.487,
+      "note": "Civilian-voice reporting ('refuse to flee') stands apart from the military-operations focus of most other buckets."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.568,
+      "note": "Pope/church pastoral focus; 'pope' and 'priest' are exclusive terms, confirming this bucket addressed an entirely different register."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.585,
+      "note": "Thin signal (one article on drone/airstrike casualties); limited coverage reduces semantic anchoring."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.591,
+      "note": "AFP liveblog and Reuters headline share diplomatic/negotiation angle distinct from strike-reporting mainstream."
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.592,
+      "note": "Virgin Mary desecration as the leading story; isolation reflects RT's choice to foreground moral-conduct over operational updates."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "israel",
+      "terms": [
+        "golani",
+        "brigade",
+        "tunnel",
+        "kilometer",
+        "crossed",
+        "advanced"
+      ],
+      "what_it_reveals": "Military precision and territorial-control framing: Golani Brigade operations, tactical tunnels, distance from border — only the Israeli press used unit-level operational vocabulary."
+    },
+    {
+      "bucket": "religious_press",
+      "terms": [
+        "pope",
+        "priest"
+      ],
+      "what_it_reveals": "Vatican pastoral presence — Pope Leo XIV's video calls to southern priests — is entirely invisible in every other bucket; confirms religious_press covered a wholly distinct dimension of the story."
+    },
+    {
+      "bucket": "india",
+      "terms": [
+        "trump",
+        "base",
+        "president",
+        "aircraft"
+      ],
+      "what_it_reveals": "India framed Lebanon as a sub-story of the US-Iran war (Trump, base, aircraft) rather than as a distinct Lebanon-Israel conflict."
+    },
+    {
+      "bucket": "turkey",
+      "terms": [
+        "paramedic"
+      ],
+      "what_it_reveals": "Turkey was the only bucket to specifically report the killing of paramedics — a medical-worker-targeting angle absent elsewhere."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "russia",
+      "outlet": "RT",
+      "quote": "Israeli soldiers jailed for desecrating Virgin Mary statue\nTwo Israeli soldiers were sentenced to several weeks in military prison for desecrating a statue of the Virgin Mary in southern Lebanon, the Israel Defense Forces (IDF) has said.\nLast week, a photo surfaced showing a serv",
+      "signal_text_idx": 12
+    },
+    "b": {
+      "bucket": "taiwan_hk",
+      "outlet": "South China Morning Post",
+      "quote": "Israeli soldiers jailed for desecration of Virgin Mary statue in Lebanon\n\nTwo Israeli soldiers will spend weeks in military prison for desecration of a Christian object after one stuck a cigarette in the mouth of a statue of the Virgin Mary in southern Lebanon and the other photographed it. The photo of the soldier, a cigarette dangling from his own mouth, went viral and sparked widespread outrage. It was the latest act by Israeli forces to be denounced as anti-Christian in southern Lebanon, where Israel launched a ground invasion earlier this year to target the...",
+      "signal_text_idx": 13
+    },
+    "joint_conclusion": "Russian state media (RT) and Hong Kong's South China Morning Post ran near-identical coverage of the Virgin Mary desecration (pairwise similarity 0.835), both treating Israeli military conduct as a shared Christian-heritage moral offence rather than as a geopolitical talking point."
+  },
+  "silences": [
+    {
+      "bucket": "usa",
+      "what_they_covered_instead": "US coverage of Lebanon is absent from this corpus; US press appears to have subordinated Lebanon buffer-zone reporting to Hormuz ceasefire and Iran nuclear stories on the same day."
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France commands UNIFIL forces in southern Lebanon and has a deep historic stake in Lebanese sovereignty, but no dedicated French bucket exists; French Lebanon coverage appears only in hantavirus wire_services."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Jerusalem Post",
+      "bucket": "israel",
+      "finding": "Only outlet to specify that the Golani Brigade used robots for portions of its Litani River advance, and to give a three-day casualty count (15 Hezbollah fighters killed).",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Pope Leo XIV's video call with approximately ten southern Lebanon priests during his audience with Archbishop Borgia — pastoral-conflict angle absent from every other bucket.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only outlet to explicitly link the evolving FPV fiber-optic drone war in Lebanon to the stalled Iran peace negotiations, framing them as the same interconnected crisis.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Mada Masr",
+      "bucket": "egypt",
+      "finding": "Uniquely frames Israeli strikes north of the Litani as 'easing pressure on troops occupying crucial axis' — occupation language and resident/military-official sourcing absent elsewhere.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "The Conversation",
+      "bucket": "opinion_magazines",
+      "finding": "Netanyahu's 'finish the job' pledge described as the 'Gaza playbook' applied to Lebanon, argued to be structurally undeliverable — the only counter-narrative analytical piece in the corpus.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "bucket": "wire_services",
+      "finding": "Hezbollah chief Qassem's declaration that weapons are not part of negotiations and his 'hell' vow — the key negotiation-boundary signal that defines the current diplomatic ceiling.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "Across 14 press ecosystems the Lebanon buffer story split between a military-operations mainstream and three outlier registers: Abrahamic moral outrage (Virgin Mary desecration, crossing Russia–Taiwan/HK–UK lines), pastoral care (Vatican), and drone-war-as-peace-obstacle analytics (Straits Times). The impossibility of Hezbollah disarmament, surfaced only by AFP and The Conversation, is the structural fact the corpus mostly avoids naming.",
+  "generated_at": "2026-05-12T14:55:00Z",
+  "model": "claude-sonnet-4-6"
+}

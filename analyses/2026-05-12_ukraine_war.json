@@ -1,0 +1,378 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-12",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "n_buckets": 23,
+  "n_articles": 39,
+  "event_summary": "A US-brokered three-day ceasefire expired 12 May 2026, with Russia launching 200+ drones against Ukraine overnight; separately, Ukraine's anti-corruption agencies named ex-presidential chief of staff Andriy Yermak as a suspect in a $10.5 million money-laundering investigation.",
+  "tldr": "The most isolated bucket is Japan (0.370) with a single Nikkei headline on North Korea earning $13 billion from the war — the same day NK News detailed DPRK medals awarded in Pyongyang and a Donbas arms-smuggling network procuring 'award weapons' for Kim Jong Un. South Africa's exclusive vocabulary (fuel, litre, paraffin, household, diesel, illuminating) reveals it translated the war entirely into a domestic fuel-price crisis rather than a geopolitical narrative. Hungary's outlet was the sole bucket running a pro-Orbán, anti-Zelenskyy source (a Tucker Carlson interview with Zelenskyy's former press secretary alleging corruption and drug use). Ukraine's own press and Southeast Asian press (Straits Times/CNA) produced the most semantically similar coverage (pairwise 0.804), converging on AI-integration and Palantir as the defining war-technology story of the day.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ceasefire collapse and drone war",
+      "buckets": [
+        "kenya",
+        "vietnam_thai_my",
+        "qatar",
+        "south_africa",
+        "nigeria",
+        "ukraine",
+        "uk",
+        "wire_services",
+        "canada",
+        "turkey",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Russia resumed strikes on Ukraine as a three-day truce expired on Tuesday, attacking the capital with drones and killing one person in the eastern region of Dnipropetrovsk, Ukrainian authorities said.\nThe Russian military meanwhile said it had shot down 27 Ukrainian drones after the ceasefire expired.\nUS President Donald Trump had announced the truce on Friday, hours before Russia's World War II victory celebrations, saying he hoped it would mark \"the beginning of the end\" of the four-year-old conflict.",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Russia and Ukraine have resumed air attacks after a United States-brokered three-day truce expired, with President Volodymyr Zelenskyy saying more than 200 drones were used to attack Ukraine overnight.",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "In 2026, North Atlantic Treaty Organization war games are modelled on the war in Ukraine, a conflict that is increasingly dominated by air, ground and sea drones – to the extent that Ukraine claimed last month to have liberated a Russian-held position using only unmanned systems, which, if confirmed, would be a world first.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "peace talks and internal dissent",
+      "buckets": [
+        "nordic",
+        "opinion_magazines",
+        "uk",
+        "germany",
+        "hungary_central",
+        "italy",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Pausing, turning, and pointing like hounds catching a new scent, Europe's leaders are picking up a blood trail from the Kremlin. Vladimir Putin’s forces were once the hunters – now they are bleeding and Ukraine has the whiff victory in its nose.\nIn the latest sign that Ukraine’s ",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Hungary Today",
+          "quote": "Former Aid Accuses Zelenskyy of Reckless Provocation Towards Viktor Orbán in Bombshell Interview\n\nUkrainian President Volodymyr Zelenskyy’s former press secretary spoke out about how she perceived the enormous contradiction between Ukraine’s national interest and his former boss’",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Berlin sceptical as Putin floats ex-German chancellor as Ukraine mediator\n\nAfter Putin said that the war in Ukraine is 'heading toward an end', he added that he'd like a long-gone German ex-chancellor to mediate the peace talks.",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "corruption and sanctions",
+      "buckets": [
+        "wire_services",
+        "iran_opposition",
+        "turkey",
+        "germany",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Ukraine officials name Zelenskyy’s ex-chief of staff as a suspect in money-laundering probe\nUkraine officials name Zelenskyy’s ex-chief of staff as a suspect in money-laundering probe\nKYIV, Ukraine (AP) — Two national agencies fighting corruption in Ukraine have named Ukrainian P",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "The British government on Monday sanctioned 85 individuals and entities accused of meddling in Armenia’s upcoming elections and orchestrating the forced deportation and indoctrination of Ukrainian children.\nThe new measures target 49 employees of the Social Design Agency (SDA), a",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Police bust Donbas-tied arms dealers peddling guns for Kim Jong Un: Kyiv\n\nUkraine claimed to have busted an arms smuggling network used by a Donbas warlord to procure “award” weapons for high-profile individuals, including DPRK leader Kim Jong Un, actor Steven Seagal and Russian ",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "DPRK war earnings and recruitment crisis",
+      "buckets": [
+        "japan",
+        "korea_north",
+        "russia",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "North Korea reaps huge economic boost from Ukraine war",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "North Korea has earned an estimated $13 billion over the past three years by providing military assistance to Russia for its war against Ukraine, Nikkei Asia reported Monday, citing South Korean intelligence.\nThe figure, if confirmed, would represent a major economic windfall for Pyongyang, which does not release statistical data.",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "The War in Ukraine: As Russian Losses Mount, Signing Bonuses for Recruits Are Skyrocketing\n\nIt is becoming increasingly difficult for Russian officials to meet the recruitment quotas set by Moscow. In response, bonuses are rising and standards are plummeting, as DER SPIEGEL has learned.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "AI and drone warfare",
+      "buckets": [
+        "ukraine",
+        "vietnam_thai_my",
+        "israel",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Ukraine integrating AI into warfare together with American company Palantir – video\nUkraine is implementing AI solutions in warfare together with American company Palantir Technologies.\nSource: Mykhailo Fedorov, Minister of Defence of Ukraine, following a meeting with Palantir Te",
+          "signal_text_idx": 31
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Zelenskiy meets Palantir CEO as Ukraine expands use of AI in war\nMay 12 : Ukrainian President Volodymyr Zelenskiy said on Tuesday he had met the CEO of Palantir Technologies, Alex Karp, as Kyiv doubles down on the use of artificial intelligence to gain an edge in the war with Russia.",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Two Israeli companies have developed a technology that can locate the position and, in some cases, even identify the users of Starlink, Elon Musk's satellite internet service, a Haaretz investigation found.\nLoading...\nFive million connected users on one million terminals: Demonst",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian grief and fuel shock",
+      "buckets": [
+        "religious_press",
+        "south_africa",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Ukrainian mother: 'My son was taken away by war. Now I am everyone's 'mother''\n\nLyubov lost her son Oleksandr on February 28, 2024, a 29-year-old Ukrainian soldier who died at the front. She could not find peace—until she met other women in the same situation through the project ",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Mail & Guardian",
+          "quote": "South Africa’s response to fuel price shocks should be better targeted. A more equitable approach would shield vulnerable households first — not subsidise the biggest fuel consumers.\nAccording to Fatih Birol, executive director of the International Energy Agency, the world is fac",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Starving on the front lines: Food supply in crisis as Ukraine fights Russia\n\nPhotos of emaciated Ukrainians reveal conditions suffered by Ukraine, as meagre rations also afflict Russian soldiers.",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.37,
+      "note": "Single Nikkei Asia headline on DPRK's $13B economic boost — extreme sparsity; Japan published the original economic study that the Moscow Times then cited."
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.412,
+      "note": "Starlink location-technology investigation diverges sharply from the war-and-ceasefire mainstream; exclusive terms starlink, satellite, musk, internet confirm a distinct intelligence-technology frame."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.413,
+      "note": "Ukrainian mother grief story and pastoral framing; exclusive term 'mother' (count=5) confirms Vatican's singular emotional register distinct from military/political corpus."
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.416,
+      "note": "Single ANSA English sentence ('EU will decide its negotiator for Ukraine peace talks, not Russia') — minimal coverage, extreme sparsity effect."
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.502,
+      "note": "Berlin's sceptical reaction to Putin's Schröder mediator proposal — a specific European-diplomat angle not covered elsewhere."
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.512,
+      "note": "Pantsir air-defense supply-chain investigation and Palantir AI integration; exclusive term 'pantsir' confirms Ukraine press covered war-industry intelligence distinct from ceasefire-focused mainstream."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.513,
+      "note": "AP focused entirely on Yermak corruption probe rather than ceasefire collapse; wire services diverged from the kinetic mainstream on this date."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.517,
+      "note": "NATO Latvia war-game with drone lessons from Ukraine — exclusive terms latvia, game, alliance, baltzer confirm a distinct NATO-doctrine angle."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "south_africa",
+      "terms": [
+        "fuel",
+        "litre",
+        "paraffin",
+        "household",
+        "diesel",
+        "illuminating",
+        "petrol"
+      ],
+      "what_it_reveals": "South Africa translated the Ukraine war entirely into a domestic fuel-price crisis — paraffin and illuminating kerosene are household cooking/heating fuels for lower-income South Africans; no other bucket connected the war to domestic energy poverty at this level of granularity."
+    },
+    {
+      "bucket": "hungary_central",
+      "terms": [
+        "reckles",
+        "provocation",
+        "viktor",
+        "orbán",
+        "bombshell"
+      ],
+      "what_it_reveals": "Budapest's Orbán-framed narrative: Zelenskyy accused of 'reckless provocation' toward a neighboring EU leader — the only bucket to run an anti-Kyiv Ukrainian internal source (Tucker Carlson interview with former press secretary)."
+    },
+    {
+      "bucket": "israel",
+      "terms": [
+        "starlink",
+        "satellite",
+        "musk",
+        "internet"
+      ],
+      "what_it_reveals": "Israeli surveillance tech investigation: two Israeli companies developed Starlink user-location capabilities — a battlefield intelligence story that connects Ukrainian naval success to Israeli commercial technology."
+    },
+    {
+      "bucket": "canada",
+      "terms": [
+        "latvia",
+        "game",
+        "alliance",
+        "baltzer"
+      ],
+      "what_it_reveals": "First-person NATO wargame in Latvia (Sgt. Baltzer's perspective) — Canada uniquely covered how Ukraine's drone lessons are being institutionalised in NATO doctrine before any general engagement."
+    },
+    {
+      "bucket": "korea_north",
+      "terms": [
+        "donba",
+        "award",
+        "arms",
+        "jong"
+      ],
+      "what_it_reveals": "DPRK soldiers awarded medals in Pyongyang for Kursk fighting; arms smuggling for Kim Jong Un — Korea North tracked the North Korean-Russia alliance through both ceremonial and criminal dimensions."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "russia",
+      "outlet": "Moscow Times",
+      "quote": "The British government on Monday sanctioned 85 individuals and entities accused of meddling in Armenia’s upcoming elections and orchestrating the forced deportation and indoctrination of Ukrainian children.\nThe new measures target 49 employees of the Social Design Agency (SDA), a",
+      "signal_text_idx": 24
+    },
+    "b": {
+      "bucket": "uk",
+      "outlet": "The Guardian World",
+      "quote": "Teen bedroom art installation shines spotlight on Ukraine’s stolen children\n\nSince the start of the current conflict, more than 20,500 Ukrainian children have been taken by RussiaIt looks like a typical teenager’s bedroom: football shirts on the wall, crumpled clothes on the floo",
+      "signal_text_idx": 30
+    },
+    "joint_conclusion": "Russia's independent (Latvia-based exile) Moscow Times and the UK Guardian both foregrounded the mass deportation of Ukrainian children as a live atrocity in the same news cycle — one framing it through British sanctions, the other through an EU art installation — producing a rare alignment between liberal Russian-language media and Western mainstream press on the same human rights narrative."
+  },
+  "silences": [
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "No dedicated French bucket. France is an active EU party in Ukraine peace discussions and one of Ukraine's major military backers, but French coverage is absent from this corpus."
+    },
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China has no articles in this corpus despite its deep involvement in Russia-Ukraine diplomacy; the China bucket appears in Hormuz coverage instead on this date."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Globe and Mail",
+      "bucket": "canada",
+      "finding": "Immersive account of NATO wargames in Latvia with Sgt. Cody Baltzer — shows how Ukraine's drone doctrine is being actively institutionalised across NATO before any great-power engagement.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Two Israeli companies developed technology to locate and identify Starlink satellite terminal users — directly relevant to Ukraine's battlefield communications and Russian targeting of Ukrainian forces.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Hungary Today",
+      "bucket": "hungary_central",
+      "finding": "Zelenskyy's former press secretary, in a Tucker Carlson interview, alleged corruption, drug use, and 'reckless provocation' of Orbán — the only bucket running an anti-Kyiv Ukrainian internal source.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Mail & Guardian",
+      "bucket": "south_africa",
+      "finding": "South Africa's fuel-price policy response framed around paraffin and illuminating kerosene for vulnerable households — the only bucket to translate the war into domestic energy poverty rather than geopolitics.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Detailed history of Russia's crowd-sourced volunteer defense industry from February 2022, including Cheboksary factory supply chains — supply-chain intelligence context absent from all other buckets.",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "Ukrainian police bust Donbas arms-smuggling network procuring 'award weapons' for Kim Jong Un and actor Steven Seagal — a DPRK-patronage angle absent from every other bucket.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Ukrainian mother Lyubov, who lost her son at the front, meets the Pope and joins 'The Mothers of Padre Pio's House' — pastoral grief coverage invisible in every other bucket.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "bucket": "iran_opposition",
+      "finding": "Detailed coverage of the $11 million Yermak money-laundering investigation, naming NABU and SAPO as the investigating agencies — deeper context than any other bucket provided.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "The Ukraine war corpus today split between kinetic reality (ceasefire collapse, 200 drones) and a rich periphery of stories that most press ecosystems missed: South Africa's fuel-poverty angle, Hungary's anti-Zelenskyy source, Israel's Starlink surveillance investigation, and DPRK arms-smuggling for Kim Jong Un. The Moscow Times / UK Guardian paradox on stolen children is the week's sharpest cross-bloc convergence on a human rights fact.",
+  "generated_at": "2026-05-12T14:55:00Z",
+  "model": "claude-sonnet-4-6"
+}
