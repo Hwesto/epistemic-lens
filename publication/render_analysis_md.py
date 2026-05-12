@@ -362,6 +362,14 @@ def main() -> int:
             print(f"No JSON analyses found for {date}.")
             return 0
 
+    # Phase 2 `<story>_headline.json` files are a separate-shape artifact
+    # consumed by `analytical.headline_body_divergence`. They lack the fields
+    # this renderer expects (story_title, event_summary). Skip them silently.
+    targets = [t for t in targets if not t.stem.endswith("_headline")]
+    if not targets:
+        print("No primary analysis JSON files to render (only _headline.json present).")
+        return 0
+
     for t in targets:
         if not t.exists():
             print(f"  skip: {t} not found", file=sys.stderr)
