@@ -57,4 +57,17 @@
       const next = $('a[rel="next"]'); if (next) next.click();
     }
   });
+
+  // Plan 4: one-at-a-time <details> within a named group (cube cards).
+  // Native HTML name= attribute handles this in Chrome 120+ / Safari 17+ /
+  // Firefox 121+. This shim covers older browsers + ensures consistency.
+  document.querySelectorAll('details[name]').forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      const group = d.getAttribute('name');
+      document.querySelectorAll('details[name="' + group + '"]').forEach(other => {
+        if (other !== d && other.open) other.open = false;
+      });
+    });
+  });
 })();

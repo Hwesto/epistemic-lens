@@ -933,3 +933,749 @@ def _wrap_html_document(*, title: str, og_title: str, og_description: str,
 </body>
 </html>
 '''
+
+
+# ===========================================================================
+# Plan 4: 4-card home page with cubes
+# ===========================================================================
+
+def _cube_shell(kind: str, label: str, thing_html: str, caption: str,
+                 open_html: str, group: str) -> str:
+    """Wrap a cube as a <details name=...> with the three-layer typographic
+    structure inside <summary> (closed state) + the open-state body."""
+    return (
+        f'<details class="cube cube--{_e(kind)}" name="{_e(group)}">'
+        f'<summary>'
+        f'<p class="cube-label">{_e(label)}</p>'
+        f'<span class="cube-rule"></span>'
+        f'<div class="cube-thing">{thing_html}</div>'
+        f'<span class="cube-rule"></span>'
+        f'<p class="cube-caption">{_e(caption)}</p>'
+        f'</summary>'
+        f'<div class="cube-open">{open_html}</div>'
+        f'</details>'
+    )
+
+
+def _short_quote_word(quote: str) -> str:
+    """Pluck the SHORTEST salient single-quoted word/phrase from an
+    evidence quote. Falls back to the longest content word."""
+    if not quote:
+        return ""
+    # Try ‘…’ or '…' or "…" single-quote contents inside the quote
+    m = re.search(r"[‘']([^’'\"]{3,40})[’']", quote)
+    if m:
+        return m.group(1).strip()
+    # Then "…" double-quote contents
+    m = re.search(r'["“]([^"”]{3,40})["”]', quote)
+    if m:
+        return m.group(1).strip()
+    # Fallback: take the longest content word ≥6 chars
+    words = [w.strip('.,;:!?"\'()[]') for w in quote.split() if len(w) >= 6]
+    if not words:
+        return quote[:24]
+    return max(words, key=len)
+
+
+def _cube_tension(today_card: dict, signals: dict, group: str) -> str:
+    """TENSION — paradox quotes when present; most-divergent pair fallback."""
+    analysis = signals.get("analysis") or {}
+    p = analysis.get("paradox")
+    if p and (p.get("joint_conclusion") or "") and len(p["joint_conclusion"]) >= 60:
+        a_word = _short_quote_word(p["a"].get("quote", ""))
+        b_word = _short_quote_word(p["b"].get("quote", ""))
+        joint = (p.get("joint_conclusion") or "").strip()
+        # Take first sentence of joint for the teaser
+        joint_teaser = joint.split(". ")[0]
+        if len(joint_teaser) > 100:
+            joint_teaser = joint_teaser[:97] + "…"
+        thing = (
+            f'<span class="cube-quote">“{_e(a_word)}”</span>'
+            f' <span class="symbol">↔</span> '
+            f'<span class="cube-quote">“{_e(b_word)}”</span>'
+            f'<p class="cube-joint">{_e(joint_teaser)}</p>'
+        )
+        caption = f"{_e(p['a'].get('bucket', '?'))} vs {_e(p['b'].get('bucket', '?'))} · paradox"
+        # Open state: reuse _render_paradox body
+        from publication.card_renderers import _render_paradox
+        tc = dict(today_card, card_kind="paradox")
+        open_html = _render_paradox(tc, signals)
+    else:
+        # Fall back to most-divergent pair from metrics
+        metrics = _signals_metrics(signals)
+        ps = sorted((metrics.get("pairwise_similarity") or []),
+                     key=lambda r: float(r.get("score") or 0))
+        if ps:
+            r = ps[0]
+            thing = (
+                f'<span class="cube-bucket">{_e(r.get("a"))}</span>'
+                f' <span class="symbol">⟷</span> '
+                f'<span class="cube-bucket">{_e(r.get("b"))}</span>'
+                f'<p class="cube-bignum">{float(r.get("score") or 0):.2f}</p>'
+            )
+            caption = "most-divergent pair · LaBSE cosine"
+            open_html = _render_pair_list(metrics, n=5, reverse=False)
+        else:
+            thing = '<p class="cube-empty">no tension signal today</p>'
+            caption = "framing variance accruing"
+            open_html = '<p>No paradox; metrics data not yet computed.</p>'
+    return _cube_shell("tension", "TENSION", thing, caption, open_html, group)
+
+
+def _cube_words(today_card: dict, signals: dict, group: str) -> str:
+    """WORDS — top 3 distinctive bigrams (PMI) or terms (LLR) with ≠."""
+    pmi = (signals.get("within_lang_pmi") or {}).get("by_bucket") or {}
+    rows: list[tuple[str, str, float]] = []  # (bucket, phrase, score)
+    for bucket, data in pmi.items():
+        assocs = data.get("associations") or []
+        if assocs:
+            top = assocs[0]
+            bg = top.get("bigram") or []
+            phrase = " ".join(bg) if isinstance(bg, list) and len(bg) == 2 else ""
+            if phrase:
+                rows.append((bucket, phrase, float(top.get("z_score", 0))))
+    # If too few bigrams, fall back to LLR single terms.
+    if len(rows) < 3:
+        llr = (signals.get("within_lang_llr") or {}).get("by_bucket") or {}
+        for bucket, data in llr.items():
+            terms = data.get("distinctive_terms") or []
+            if terms:
+                top = terms[0]
+                rows.append((bucket, top.get("term", ""), float(top.get("llr", 0))))
+    rows.sort(key=lambda r: -r[2])
+    rows = rows[:3]
+    if not rows:
+        thing = '<p class="cube-empty">vocabulary signal accruing</p>'
+        caption = "within-language LLR/PMI"
+        open_html = '<p>No distinctive terms yet — corpus too sparse.</p>'
+    else:
+        # Two patterns: 1-line if all words are short, else stacked
+        all_short = all(len(r[1]) <= 18 for r in rows)
+        if all_short and len(rows) == 3:
+            thing = (
+                f'<span class="cube-word">{_e(rows[0][1])}</span>'
+                f' <span class="symbol">≠</span> '
+                f'<span class="cube-word">{_e(rows[1][1])}</span>'
+                f' <span class="symbol">≠</span> '
+                f'<span class="cube-word">{_e(rows[2][1])}</span>'
+            )
+        else:
+            parts = (f'<span class="cube-word">{_e(w)}</span>' for _, w, _ in rows)
+            thing = ' <span class="symbol">≠</span><br>'.join(parts)
+        scores = " / ".join(f"{int(round(r[2]))}" for r in rows)
+        caption = f"{len(rows)} buckets · z/LLR {scores}"
+        # Open state: full _render_word for top 6 buckets
+        from publication.card_renderers import _render_word
+        tc = dict(today_card, card_kind="word")
+        open_html = _render_word(tc, signals)
+    return _cube_shell("words", "WORDS", thing, caption, open_html, group)
+
+
+def _cube_silence(today_card: dict, signals: dict, group: str) -> str:
+    """SILENCE — bucket constellation ●○ + what-they-covered-instead caption."""
+    story_key = signals.get("story_key")
+    coverage = signals.get("coverage") or {}
+    # Build state-per-bucket map for THIS story.
+    cov_data = coverage.get("coverage") or {}
+    story_cov = cov_data.get(story_key) or []
+    # Aggregate per-bucket: covered if any feed had n_matching>0; silent if all zero
+    per_bucket: dict[str, str] = {}
+    for r in story_cov:
+        b = r.get("bucket")
+        if not b:
+            continue
+        n = int(r.get("n_matching") or 0)
+        prev = per_bucket.get(b)
+        if n > 0:
+            per_bucket[b] = "covered"
+        elif prev != "covered":
+            per_bucket[b] = "silent"
+    buckets_sorted = sorted(per_bucket.keys())
+    constellation = "".join("●" if per_bucket[b] == "covered" else "○" for b in buckets_sorted)
+    n_total = len(per_bucket)
+    n_silent = sum(1 for v in per_bucket.values() if v == "silent")
+    # Editorial annotation from analysis.silences (when present)
+    analysis = signals.get("analysis") or {}
+    sil_list = analysis.get("silences") or []
+    annotation = ""
+    if sil_list:
+        top = sil_list[0]
+        sb = top.get("bucket", "?")
+        instead = (top.get("what_they_covered_instead") or "").strip()
+        if instead:
+            # First clause only, ≤80 chars
+            first = instead.split(";")[0].split(". ")[0]
+            if len(first) > 80:
+                first = first[:77] + "…"
+            annotation = f"{sb} ran {first}"
+    if not annotation and n_silent > 0:
+        annotation = f"{n_silent} silent bucket{'s' if n_silent != 1 else ''}"
+    if n_silent == 0:
+        annotation = "convergent coverage"
+
+    thing = f'<p class="constellation">{constellation or "—"}</p>'
+    caption = (
+        f"{n_total - n_silent} of {n_total} carried · {annotation}"
+        if n_silent > 0
+        else f"{n_total} of {n_total} carried · {annotation}"
+    )
+    from publication.card_renderers import _render_silence
+    tc = dict(today_card, card_kind="silence")
+    open_html = _render_silence(tc, signals)
+    return _cube_shell("silence", "SILENCE", thing, caption, open_html, group)
+
+
+def _cube_voices(today_card: dict, signals: dict, group: str) -> str:
+    """VOICES — analyst editorial: vocab.what_it_reveals or single_outlet_finding."""
+    analysis = signals.get("analysis") or {}
+    # Primary: exclusive_vocab_highlights[0].what_it_reveals
+    ev = analysis.get("exclusive_vocab_highlights") or []
+    if ev and (ev[0].get("what_it_reveals") or ""):
+        reveal = (ev[0].get("what_it_reveals") or "").strip()
+        # Cap at ~140 chars for cube; clamp at sentence boundary
+        if len(reveal) > 140:
+            cut = reveal[:140].rsplit(".", 1)[0]
+            reveal = (cut + ".") if cut else reveal[:137] + "…"
+        bucket = ev[0].get("bucket", "?")
+        n_terms = len(ev[0].get("terms") or [])
+        thing = f'<blockquote class="cube-blockquote">{_e(reveal)}</blockquote>'
+        caption = f"{bucket} · {n_terms} distinctive terms"
+        source = "vocab"
+    else:
+        # Fallback: single_outlet_findings[0]
+        sof = analysis.get("single_outlet_findings") or []
+        if sof and (sof[0].get("finding") or ""):
+            finding = (sof[0].get("finding") or "").strip()
+            if len(finding) > 140:
+                cut = finding[:140].rsplit(".", 1)[0]
+                finding = (cut + ".") if cut else finding[:137] + "…"
+            outlet = sof[0].get("outlet", "?")
+            bucket = sof[0].get("bucket", "?")
+            thing = f'<blockquote class="cube-blockquote">{_e(finding)}</blockquote>'
+            caption = f"{outlet} · {bucket} · analyst pick"
+            source = "outlet finding"
+        else:
+            # Final fallback: bottom_line first sentence
+            bl = (analysis.get("bottom_line") or "").strip()
+            if bl:
+                first = bl.split(". ")[0]
+                if len(first) > 140:
+                    first = first[:137] + "…"
+                thing = f'<blockquote class="cube-blockquote">{_e(first)}.</blockquote>'
+                n_buckets = analysis.get("n_buckets", 0)
+                caption = f"bottom line · {n_buckets}-bucket synthesis"
+                source = "bottom line"
+            else:
+                thing = '<p class="cube-empty">analyst commentary accruing</p>'
+                caption = "no editorial findings"
+                source = "—"
+
+    # Open state: full vocab + findings list
+    open_html = _render_voices_open(analysis)
+    return _cube_shell("voices", "VOICES", thing, caption, open_html, group)
+
+
+def _cube_frames(today_card: dict, signals: dict, group: str) -> str:
+    """FRAMES — top 3 frame_id : sub_frame by bucket count."""
+    analysis = signals.get("analysis") or {}
+    frames = analysis.get("frames") or []
+    if not frames:
+        thing = '<p class="cube-empty">frame analysis accruing</p>'
+        caption = "no frames detected"
+        open_html = '<p>No frames present.</p>'
+    else:
+        # Sort by bucket count descending
+        ranked = sorted(frames, key=lambda f: -len(f.get("buckets") or []))[:3]
+        rows: list[str] = []
+        for f in ranked:
+            fid = f.get("frame_id", "?")
+            sub = f.get("sub_frame", "")
+            # Truncate frame_id display for tight layout
+            fid_short = fid[:13]
+            rows.append(
+                f'<div class="frames-row">'
+                f'<span class="frame-id">{_e(fid_short)}</span>'
+                f'<span class="frame-sub">{_e(sub or "—")}</span>'
+                f'</div>'
+            )
+        thing = "".join(rows)
+        total = len(frames)
+        n_buckets_carrying = sum(len(f.get("buckets") or []) for f in ranked)
+        caption = f"{len(ranked)} of {total} frames · {n_buckets_carrying} buckets"
+        open_html = render_frames_matrix(analysis)
+    return _cube_shell("frames", "FRAMES", thing, caption, open_html, group)
+
+
+def _cube_contrast(today_card: dict, signals: dict, group: str) -> str:
+    """CONTRAST — most-similar pair (≈) AND most-divergent pair (⟷) bookended."""
+    metrics = _signals_metrics(signals)
+    ps_sorted = sorted((metrics.get("pairwise_similarity") or []),
+                        key=lambda r: float(r.get("score") or 0))
+    if len(ps_sorted) < 2:
+        thing = '<p class="cube-empty">pairwise data accruing</p>'
+        caption = "metrics not yet computed"
+        open_html = '<p>No pairwise similarity data.</p>'
+    else:
+        low, high = ps_sorted[0], ps_sorted[-1]
+        thing = (
+            f'<div class="contrast-row">'
+            f'<span class="cube-bucket">{_e(high.get("a"))}</span>'
+            f' <span class="symbol">≈</span> '
+            f'<span class="cube-bucket">{_e(high.get("b"))}</span>'
+            f'<span class="contrast-score">{float(high.get("score") or 0):.2f}</span>'
+            f'</div>'
+            f'<div class="contrast-row">'
+            f'<span class="cube-bucket">{_e(low.get("a"))}</span>'
+            f' <span class="symbol">⟷</span> '
+            f'<span class="cube-bucket">{_e(low.get("b"))}</span>'
+            f'<span class="contrast-score">{float(low.get("score") or 0):.2f}</span>'
+            f'</div>'
+        )
+        caption = "LaBSE bucket-mean cosine"
+        open_html = (
+            '<h3>Most similar (top 5)</h3>'
+            + _render_pair_list(metrics, n=5, reverse=True)
+            + '<h3>Most divergent (bottom 5)</h3>'
+            + _render_pair_list(metrics, n=5, reverse=False)
+        )
+    return _cube_shell("contrast", "CONTRAST", thing, caption, open_html, group)
+
+
+# ---------------------------------------------------------------------------
+# Helpers for cube content
+# ---------------------------------------------------------------------------
+
+def _signals_metrics(signals: dict) -> dict:
+    """Pull metrics dict from signals; load from disk on demand."""
+    m = signals.get("metrics")
+    if isinstance(m, dict):
+        return m
+    date = signals.get("date") or ""
+    story_key = signals.get("story_key") or ""
+    p = meta.REPO_ROOT / "briefings" / f"{date}_{story_key}_metrics.json"
+    if p.exists():
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return {}
+    return {}
+
+
+def _render_pair_list(metrics: dict, *, n: int, reverse: bool) -> str:
+    """List of N pairwise similarity rows. reverse=True → most similar first."""
+    ps = sorted((metrics.get("pairwise_similarity") or []),
+                 key=lambda r: float(r.get("score") or 0),
+                 reverse=reverse)[:n]
+    rows = "".join(
+        f'<li>'
+        f'<span class="pair-a">{_e(r.get("a"))}</span>'
+        f' <span class="pair-sep">{"≈" if reverse else "⟷"}</span> '
+        f'<span class="pair-b">{_e(r.get("b"))}</span>'
+        f'<span class="pair-score">{float(r.get("score") or 0):.3f}</span>'
+        f'</li>'
+        for r in ps
+    )
+    return f'<ol class="pair-list">{rows}</ol>'
+
+
+def _render_voices_open(analysis: dict) -> str:
+    """Open-state of VOICES cube: every vocab.what_it_reveals + every single_outlet_finding."""
+    parts: list[str] = []
+    ev = analysis.get("exclusive_vocab_highlights") or []
+    if ev:
+        parts.append('<h3>Distinctive vocabulary</h3>')
+        for h in ev:
+            terms = ", ".join(_e(t) for t in (h.get("terms") or []))
+            parts.append(
+                f'<div class="voice-block">'
+                f'<p class="voice-block-head">{_e(h.get("bucket"))} · <em>{terms}</em></p>'
+                f'<p class="voice-block-body">{_e(h.get("what_it_reveals") or "")}</p>'
+                f'</div>'
+            )
+    sof = analysis.get("single_outlet_findings") or []
+    if sof:
+        parts.append('<h3>Single-outlet findings</h3>')
+        for s in sof:
+            parts.append(
+                f'<div class="voice-block">'
+                f'<p class="voice-block-head">{_e(s.get("outlet"))} · {_e(s.get("bucket"))}</p>'
+                f'<p class="voice-block-body">{_e(s.get("finding") or "")}</p>'
+                f'</div>'
+            )
+    if not parts:
+        return '<p>No editorial commentary on this story today.</p>'
+    return "".join(parts)
+
+
+# ---------------------------------------------------------------------------
+# Headlines strip
+# ---------------------------------------------------------------------------
+
+def _render_headlines_strip(briefing: dict, analysis: dict) -> str:
+    """Pick 4 contrasting article titles from the corpus — one per frame
+    (top 4 frames by bucket count). Skip duplicate buckets."""
+    corpus = briefing.get("corpus") or []
+    if not corpus or not analysis.get("frames"):
+        return ""
+    frames = sorted(analysis["frames"], key=lambda f: -len(f.get("buckets") or []))
+    seen_buckets: set[str] = set()
+    picks: list[dict] = []
+    for f in frames:
+        for ev in f.get("evidence") or []:
+            idx = ev.get("signal_text_idx")
+            if not isinstance(idx, int) or idx < 0 or idx >= len(corpus):
+                continue
+            item = corpus[idx]
+            bucket = item.get("bucket")
+            if bucket in seen_buckets:
+                continue
+            seen_buckets.add(bucket)
+            picks.append(item)
+            break  # only one per frame
+        if len(picks) >= 4:
+            break
+    if not picks:
+        return ""
+    items = "".join(
+        f'<li>'
+        f'<span class="flag">{_flag(p.get("bucket"))}</span>'
+        f'<a class="title" href="{_e(p.get("link") or "#")}" rel="noopener">'
+        f'{_e((p.get("title") or "")[:120])}'
+        f'</a>'
+        f'<span class="feed">{_e(p.get("feed") or "")}</span>'
+        f'</li>'
+        for p in picks
+    )
+    return (
+        '<section class="card-headlines">'
+        '<p class="card-headlines-label">HEADLINES</p>'
+        f'<ol>{items}</ol>'
+        '</section>'
+    )
+
+
+# ---------------------------------------------------------------------------
+# Story card composer
+# ---------------------------------------------------------------------------
+
+def _render_story_card(date: str, story_entry: dict, signals: dict,
+                        briefing: dict) -> str:
+    """One story card: header + headlines strip + 6 cubes + footer."""
+    analysis = signals.get("analysis") or {}
+    story_key = story_entry["key"]
+    story_title = story_entry.get("title") or story_key
+    event_summary = (
+        story_entry.get("event_summary")
+        or analysis.get("event_summary")
+        or analysis.get("tldr")
+        or ""
+    )
+    n_buckets = story_entry.get("n_buckets") or analysis.get("n_buckets") or 0
+    n_articles = story_entry.get("n_articles") or analysis.get("n_articles") or 0
+    n_frames = len(analysis.get("frames") or [])
+    sources = (signals.get("sources") or {}).get("sources") or []
+    n_sources = len(sources)
+
+    header = (
+        '<header class="story-card-header">'
+        f'<p class="card-eyebrow">'
+        f'<span>{_e(story_key.upper().replace("_", " · "))}</span>'
+        f'<time datetime="{_e(date)}">{_e(_human_date(date))}</time>'
+        f'</p>'
+        f'<h2 class="card-headline">{_e(story_title)}</h2>'
+        f'<p class="card-kicker">{_e(event_summary)}</p>'
+        f'<p class="card-meta">'
+        f'{n_buckets} buckets · {n_articles} articles · '
+        f'{n_frames} frames · {n_sources} sources'
+        f'</p>'
+        '</header>'
+    )
+
+    headlines = _render_headlines_strip(briefing, analysis)
+
+    # today_card carries common fields the inner _render_<kind> functions
+    # need for their internal logic (story_key for non_coverage lookup etc).
+    today_card = {
+        "card_kind": "",
+        "date": date,
+        "story_key": story_key,
+        "story_title": story_title,
+        "headline": story_title,
+        "kicker": event_summary,
+        "finding_synthesis": "",
+        "meta_version": meta.VERSION,
+        "see_how_path": f"{SITE_BASE}/{date}/{story_key}/",
+    }
+    group = f"cubes-{story_key}"
+
+    cubes = (
+        '<section class="card-cubes">'
+        + _cube_tension(today_card, signals, group)
+        + _cube_words(today_card, signals, group)
+        + _cube_silence(today_card, signals, group)
+        + _cube_voices(today_card, signals, group)
+        + _cube_frames(today_card, signals, group)
+        + _cube_contrast(today_card, signals, group)
+        + '</section>'
+    )
+
+    footer = (
+        '<footer class="card-footer-actions">'
+        f'<a href="{SITE_BASE}/{date}/{story_key}/">permalink ↗</a>'
+        f'<a href="{SITE_BASE}/{date}/{story_key}/#story-{story_key}-essay">read essay ↓</a>'
+        '</footer>'
+    )
+
+    return (
+        f'<article class="story-card" id="story-{_e(story_key)}">'
+        f'{header}{headlines}{cubes}{footer}'
+        '</article>'
+    )
+
+
+# ---------------------------------------------------------------------------
+# Today card (4th card) — meta cubes
+# ---------------------------------------------------------------------------
+
+def _render_today_card(date: str, all_story_entries: list[dict],
+                        picked_keys: list[str]) -> str:
+    """The 4th card. Same shape as story cards but cubes carry meta-signals
+    drawn from coverage/, trajectory/, briefings/, and the daily index."""
+    group = "cubes-today"
+    n_stories = len(all_story_entries)
+    # Active buckets today: union from coverage/<date>.json
+    coverage_path = meta.REPO_ROOT / "coverage" / f"{date}.json"
+    n_buckets_active = 0
+    n_buckets_total = 0
+    active_constellation = ""
+    if coverage_path.exists():
+        try:
+            cov = json.loads(coverage_path.read_text(encoding="utf-8"))
+            feeds = cov.get("feeds") or []
+            all_buckets = sorted({f.get("bucket") for f in feeds if f.get("bucket")})
+            n_buckets_total = len(all_buckets)
+            # Bucket is "active" if ANY story had ≥1 article from it
+            active: set[str] = set()
+            for sk, recs in (cov.get("coverage") or {}).items():
+                for r in recs:
+                    if int(r.get("n_matching") or 0) > 0:
+                        b = r.get("bucket")
+                        if b:
+                            active.add(b)
+            n_buckets_active = len(active)
+            active_constellation = "".join(
+                "●" if b in active else "○" for b in all_buckets
+            )
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    # Articles total: sum n_articles across stories
+    n_articles = sum(s.get("n_articles") or 0 for s in all_story_entries)
+
+    # Languages distribution: walk today's briefings
+    from collections import Counter
+    lang_counts: Counter[str] = Counter()
+    for s in all_story_entries:
+        bpath = meta.REPO_ROOT / "briefings" / f"{date}_{s['key']}.json"
+        if bpath.exists():
+            try:
+                b = json.loads(bpath.read_text(encoding="utf-8"))
+                for c in b.get("corpus") or []:
+                    lg = (c.get("lang") or "??").lower()
+                    lang_counts[lg] += 1
+            except (OSError, json.JSONDecodeError):
+                pass
+
+    # Biggest framing-share move today: walk trajectories for picked stories
+    biggest_move = (None, 0.0, None, None)  # (story, abs, signed, frame)
+    for s in all_story_entries:
+        tpath = meta.REPO_ROOT / "trajectory" / f"{s['key']}.json"
+        if not tpath.exists():
+            continue
+        try:
+            t = json.loads(tpath.read_text(encoding="utf-8"))
+            for fid, entries in (t.get("frame_trajectories") or {}).items():
+                for e in entries:
+                    d = e.get("delta_share")
+                    if d is None:
+                        continue
+                    if abs(d) > biggest_move[1]:
+                        biggest_move = (s["key"], abs(d), d, fid)
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    # ---- TODAY cube ----
+    today_thing = (
+        f'<p class="cube-bignum-stacked">{n_stories} stories</p>'
+        f'<p class="cube-bignum-sub">{n_buckets_active} buckets active · {n_articles} articles</p>'
+    )
+    today_cube = _cube_shell(
+        "today", "TODAY", today_thing,
+        f"{_human_date(date)} · pin v{meta.VERSION}",
+        f'<p>{n_stories} stories analyzed; {n_buckets_active} of {n_buckets_total} buckets carried at least one. {n_articles} articles ingested.</p>',
+        group,
+    )
+
+    # ---- SPREAD cube ----
+    spread_thing = f'<p class="constellation small">{active_constellation or "—"}</p>'
+    spread_cube = _cube_shell(
+        "spread", "SPREAD", spread_thing,
+        f"{n_buckets_active} of {n_buckets_total} buckets covered ≥1 story",
+        f'<p>Bucket activity across all {n_stories} stories today. Hollow circles = bucket dark or no feeds matched on any story.</p>',
+        group,
+    )
+
+    # ---- LEADS cube ----
+    leads_rows: list[str] = []
+    for s in all_story_entries[:4]:
+        kind = s.get("card_kind", "—").upper()
+        synth = (s.get("finding_synthesis") or s.get("event_summary") or "")[:32]
+        marker = "★ " if s["key"] in picked_keys else "  "
+        leads_rows.append(
+            f'<div class="leads-row">'
+            f'<span class="leads-marker">{marker}</span>'
+            f'<span class="leads-kind">{_e(kind):<8}</span>'
+            f'<span class="leads-key">{_e(s["key"])}</span>'
+            f'</div>'
+        )
+    leads_thing = "".join(leads_rows) or '<p class="cube-empty">no leads</p>'
+    leads_cube = _cube_shell(
+        "leads", "LEADS", leads_thing,
+        f"{len(picked_keys)} picked · {n_stories - len(picked_keys)} other stories",
+        '<p>★ marks stories that earned their own card on this home page; remaining stories live on the per-date manifest.</p>',
+        group,
+    )
+
+    # ---- LANGUAGES cube ----
+    if lang_counts:
+        top_langs = lang_counts.most_common(5)
+        total_lang = sum(lang_counts.values())
+        rows: list[str] = []
+        for lg, n in top_langs:
+            pct = (n * 100 // total_lang) if total_lang else 0
+            bar = "█" * max(1, pct // 8) + "░" * (12 - max(1, pct // 8))
+            rows.append(
+                f'<div class="lang-row">'
+                f'<span class="lang-code">{_e(lg.upper()):<3}</span>'
+                f'<span class="lang-bar">{bar}</span>'
+                f'<span class="lang-count">{n}</span>'
+                f'</div>'
+            )
+        lang_thing = "".join(rows)
+        caption = f"{len(lang_counts)} languages · {total_lang} articles"
+    else:
+        lang_thing = '<p class="cube-empty">language data accruing</p>'
+        caption = "no briefings loaded"
+    lang_cube = _cube_shell(
+        "languages", "LANGUAGES", lang_thing, caption,
+        f'<p>Distribution of article-source languages across today\'s briefings.</p>',
+        group,
+    )
+
+    # ---- MOVES cube ----
+    if biggest_move[0]:
+        story, _, signed, fid = biggest_move
+        direction = "↑" if signed > 0 else "↓"
+        moves_thing = (
+            f'<p class="cube-bignum">{direction} {abs(signed) * 100:.0f}pp</p>'
+            f'<p class="cube-bignum-sub">{_e(fid)} frame</p>'
+        )
+        caption_moves = f"{_e(story)} · biggest framing shift"
+    else:
+        moves_thing = '<p class="cube-empty">trajectory data accruing</p>'
+        caption_moves = "no multi-day data yet"
+    moves_cube = _cube_shell(
+        "moves", "MOVES", moves_thing, caption_moves,
+        '<p>The largest day-over-day frame-share movement across today\'s stories. Driver URLs available on the per-story page.</p>',
+        group,
+    )
+
+    # ---- LINKS cube ----
+    links_thing = (
+        '<ul class="links-list">'
+        f'<li><a href="{SITE_BASE}/{date}/coverage.html">coverage matrix →</a></li>'
+        f'<li><a href="{SITE_BASE}/archive/">archive →</a></li>'
+        f'<li><a href="{SITE_BASE}/methodology/">methodology →</a></li>'
+        '</ul>'
+    )
+    links_cube = _cube_shell(
+        "links", "LINKS", links_thing,
+        "deeper · per-story · per-outlet",
+        '<p>Navigate to the depth views: today\'s coverage matrix, the publication archive, or the methodology page (pin + codebook + prompt).</p>',
+        group,
+    )
+
+    header = (
+        '<header class="story-card-header today-card-header">'
+        '<p class="card-eyebrow">'
+        '<span>TODAY · STATE OF THE LENS</span>'
+        f'<time datetime="{_e(date)}">{_e(_human_date(date))}</time>'
+        '</p>'
+        '<h2 class="card-headline">The same story, today</h2>'
+        f'<p class="card-kicker">{n_stories} stories · {n_buckets_active} buckets active · pin v{_e(meta.VERSION)}</p>'
+        '</header>'
+    )
+
+    cubes = (
+        '<section class="card-cubes">'
+        + today_cube + spread_cube + leads_cube
+        + lang_cube + moves_cube + links_cube
+        + '</section>'
+    )
+
+    return f'<article class="today-card">{header}{cubes}</article>'
+
+
+# ---------------------------------------------------------------------------
+# Top-level home page composer
+# ---------------------------------------------------------------------------
+
+def render_home_page(date: str, picked_stories: list[dict],
+                      all_story_entries: list[dict],
+                      signals_by_key: dict, briefings_by_key: dict) -> str:
+    """Compose the 4-card home page.
+
+    Args:
+        date: the date being rendered (YYYY-MM-DD).
+        picked_stories: top-N story entries (typically 3) that get their own card.
+        all_story_entries: every story entry on api/<date>/index.json (for the
+            "Today" card's LEADS cube).
+        signals_by_key: {story_key: collect_story_signals(date, key, briefing)}
+        briefings_by_key: {story_key: briefing dict from briefings/<date>_<key>.json}
+    """
+    story_cards = "".join(
+        _render_story_card(date, entry, signals_by_key.get(entry["key"], {}),
+                            briefings_by_key.get(entry["key"], {}))
+        for entry in picked_stories
+    )
+    picked_keys = [s["key"] for s in picked_stories]
+    today_card = _render_today_card(date, all_story_entries, picked_keys)
+    grid = (
+        '<div class="home-card-grid">'
+        + story_cards + today_card
+        + '</div>'
+    )
+    # Hero title above grid
+    hero = (
+        '<header class="home-hero">'
+        '<p class="home-eyebrow">THE SAME STORY</p>'
+        '<h1 class="home-title">How the world told the same news today.</h1>'
+        f'<p class="home-meta">{_e(_human_date(date))} · pin v{_e(meta.VERSION)}</p>'
+        '</header>'
+    )
+    body = hero + grid
+    # OG description from top picked story's event_summary
+    og_desc = ""
+    if picked_stories:
+        a = signals_by_key.get(picked_stories[0]["key"], {}).get("analysis") or {}
+        og_desc = (a.get("event_summary") or a.get("tldr") or "")[:200]
+
+    return _wrap_html_document(
+        title=f"The Same Story · {_human_date(date)}",
+        og_title=f"How the world told the same news today · {_human_date(date)}",
+        og_description=og_desc,
+        body_class="home-page-body",
+        main_class="home-page",
+        main_content=body,
+    )
+
