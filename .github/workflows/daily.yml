@@ -154,7 +154,9 @@ jobs:
     # `if: always()` ensures this evaluates regardless of the ingest job state.
     if: ${{ always() && inputs.skip_analyze != true && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 60min covers 3 sequential Sonnet calls (daily_analysis, headline_analysis,
+    # source_attribution) — Haiku fit in 30min but Sonnet's slower per-token.
+    timeout-minutes: 60
     permissions:
       contents: write
       id-token: write   # required by claude-code-action@v1 OIDC auth
