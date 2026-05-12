@@ -177,6 +177,9 @@ def collect_story_signals(date: str, key: str, briefing: dict) -> dict:
     out["coverage"] = _safe_load(COVERAGE / f"{date}.json")
     out["sources"] = _safe_load(SOURCES / f"{date}_{key}.json")
     out["within_lang_llr"] = _safe_load(BRIEFINGS / f"{date}_{key}_within_lang_llr.json")
+    out["within_lang_pmi"] = _safe_load(BRIEFINGS / f"{date}_{key}_within_lang_pmi.json")
+    # Pre-load metrics so cube renderers (OUTLIER, isolation) don't re-read disk.
+    out["metrics"] = _safe_load(BRIEFINGS / f"{date}_{key}_metrics.json")
 
     # Tilt is per-(bucket, outlet). Collect all tilt files for buckets
     # present in this story's briefing corpus.
