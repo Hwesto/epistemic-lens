@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "8.7.2",
-  "pinned_at": "2026-05-11T18:14:01Z",
-  "pin_reason": "Hotfix 8.7.1 -> 8.7.2: (a) workflow — wire analytical/stamp_long_drafts.py between the long-form LLM step and the schema validation step. PR 1's stamp script existed but wasn't invoked from daily.yml; today's long drafts shipped without meta_version and the validator trip-wired. (b) prompt — draft_long.md skeleton now lists meta_version as the first field with the 'read from meta_version.json' instruction (same pattern as daily_analysis.md). Stamp step is the belt-and-suspenders safety net.",
+  "meta_version": "8.7.3",
+  "pinned_at": "2026-05-12T14:42:22Z",
+  "pin_reason": "Sonnet swap for all 4 production LLM calls (daily_analysis, headline_analysis, source_attribution, draft_long). v8.0.0 test-pass to Haiku terminated after 2026-05-12 cron analyze failed with 117 citation validation errors (wrong buckets, paraphrased quotes). All 4 prompts require verbatim citation grounding from corpus[i].signal_text + signal_text_idx; only daily_analysis has a validator. Sonnet maintains this discipline reliably. Cost: ~+$170/year. Canary auto-tracks meta.CLAUDE['model']; no canary baseline update needed.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -78,9 +78,9 @@
   "schemas_hash": "sha256:b3cac3b6377069f6479fb2aff2ddc1024afcacab7c5c565db06c3c070755dc2a",
   "claude": {
     "_doc": "Dated snapshot ID (claude-<model>-<version>-YYYYMMDD) pins model weights as far as the API permits — the alias may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`. v8.0.0 swap from sonnet to haiku is a deliberate test-pass swap on the simplification branch — see pin_reason.",
-    "model": "claude-haiku-4-5-20251001",
-    "model_alias": "claude-haiku-4-5",
+    "model": "claude-sonnet-4-6",
+    "model_alias": "claude-sonnet-4-6",
     "prompts_hash": "sha256:9e086dcf0c5c23bcb955b051a57f19ad5efd42c8e2a185b2736fec09b46db766"
   },
-  "pin_self_hash": "sha256:a2499f2b09c3779246c35710070fe0a79703b1bb5be3666e351e08672668a8a4"
+  "pin_self_hash": "sha256:fd77a79fb57e4e126c77d784d050af9ef213346910338a0e550746a5b0ebd600"
 }
