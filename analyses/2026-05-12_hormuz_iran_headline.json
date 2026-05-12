@@ -1,0 +1,167 @@
+{
+  "story_key": "hormuz_iran",
+  "date": "2026-05-12",
+  "n_buckets": 32,
+  "n_articles": 54,
+  "tldr": "Headlines split between the fragility of the US-Iran ceasefire as a security event and the cascading economic damage from a closed Strait of Hormuz, with a secondary thread on the diplomatic politics of reopening.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ceasefire fragility and military posture",
+      "buckets": [
+        "canada", "china", "egypt", "iran_opposition", "iran_state",
+        "israel", "kenya", "nigeria", "pakistan", "pan_arab",
+        "russia", "south_africa", "uk", "ukraine"
+      ],
+      "evidence": [
+        {
+          "signal_text_idx": 45,
+          "bucket": "uk",
+          "feed": "BBC",
+          "quote": "Trump says Iran ceasefire is on 'massive life support'"
+        },
+        {
+          "signal_text_idx": 33,
+          "bucket": "russia",
+          "feed": "RT",
+          "quote": "Trump considering resuming airstrikes as talks with Iran st"
+        },
+        {
+          "signal_text_idx": 20,
+          "bucket": "kenya",
+          "feed": "Standard",
+          "quote": "Iran warns of ceasefire violation as US plans to escort Hor"
+        },
+        {
+          "signal_text_idx": 9,
+          "bucket": "egypt",
+          "feed": "Daily News Egypt",
+          "quote": "Trump rejects Iran's demands as Tehran insists on Hormuz ro"
+        },
+        {
+          "signal_text_idx": 19,
+          "bucket": "italy",
+          "feed": "ANSA Italian",
+          "quote": "Trump, sto valutando di riavviare 'Project Freedom'"
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "oil prices and supply disruption",
+      "buckets": [
+        "africa_other", "brazil", "india", "nordic", "pakistan",
+        "pan_arab", "religious_press", "russia", "south_africa",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "signal_text_idx": 53,
+          "bucket": "wire_services",
+          "feed": "AFP",
+          "quote": "100 million barrels lost every week Strait of Hormuz is shu"
+        },
+        {
+          "signal_text_idx": 22,
+          "bucket": "nordic",
+          "feed": "The Local Sweden",
+          "quote": "SAS cancels 1,200 flights in May due to fuel shortages"
+        },
+        {
+          "signal_text_idx": 36,
+          "bucket": "south_africa",
+          "feed": "Daily Maverick",
+          "quote": "PRICE SQUEEZE: SA farmers turn to new strategies as war see"
+        },
+        {
+          "signal_text_idx": 29,
+          "bucket": "pan_arab",
+          "feed": "Middle East Eye",
+          "quote": "Oil prices rise as US-Iran tensions cloud diplomatic outlook"
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "ceasefire talks and Trump-Xi summit",
+      "buckets": ["canada", "india", "iran_state", "israel", "nigeria", "pan_arab", "taiwan_hk"],
+      "evidence": [
+        {
+          "signal_text_idx": 6,
+          "bucket": "canada",
+          "feed": "Globe and Mail",
+          "quote": "Iran war adds tension to Trump-Xi summit in Beijing"
+        },
+        {
+          "signal_text_idx": 17,
+          "bucket": "israel",
+          "feed": "Haaretz",
+          "quote": "Iran says cease-fire proposal 'generous and responsible' aft"
+        },
+        {
+          "signal_text_idx": 21,
+          "bucket": "nigeria",
+          "feed": "The Punch",
+          "quote": "US must accept proposal or face failure, says Iran chief neg"
+        },
+        {
+          "signal_text_idx": 15,
+          "bucket": "iran_state",
+          "feed": "IRNA",
+          "quote": "US cannot win war with Iran, says Al Jazeera"
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "European and US naval escort proposals",
+      "buckets": ["opinion_magazines", "pan_arab", "usa", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "signal_text_idx": 24,
+          "bucket": "opinion_magazines",
+          "feed": "The Atlantic",
+          "quote": "Send the Frigates"
+        },
+        {
+          "signal_text_idx": 49,
+          "bucket": "usa",
+          "feed": "Breitbart",
+          "quote": "Dem Sen. Murphy: We Should End Blockade and War, 'Hope' Oth"
+        },
+        {
+          "signal_text_idx": 50,
+          "bucket": "vietnam_thai_my",
+          "feed": "Malay Mail",
+          "quote": "Macron: France 'never envisaged' sending warships into Hormu"
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    { "bucket": "italy", "score": 0.293 },
+    { "bucket": "nordic", "score": 0.392 },
+    { "bucket": "south_korea", "score": 0.505 },
+    { "bucket": "china", "score": 0.508 },
+    { "bucket": "africa_other", "score": 0.528 },
+    { "bucket": "vietnam_thai_my", "score": 0.544 },
+    { "bucket": "germany", "score": 0.55 },
+    { "bucket": "pan_african", "score": 0.552 }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "silent_bucket": "south_korea",
+      "note": "One of two Yonhap/KBS headlines is entirely domestic (special counsel sentencing of ex-President Yoon); the other covers Hormuz ship debris. Only the debris headline is on-topic; the Yoon headline contains zero Hormuz framing."
+    },
+    {
+      "silent_bucket": "taiwan_hk",
+      "note": "Both SCMP headlines cover the Wall Street 'Taco'/'Nacho' nickname story for Trump's China visit — economic-commentary framing, not Hormuz coverage."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer reads the Hormuz crisis through two lenses simultaneously: a military standoff with a fragile ceasefire, and a commodity-supply shock draining oil reserves. The diplomatic and policy angles are real but secondary.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

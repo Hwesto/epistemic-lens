@@ -1,0 +1,163 @@
+{
+  "story_key": "ukraine_war",
+  "date": "2026-05-12",
+  "n_buckets": 23,
+  "n_articles": 39,
+  "tldr": "Headlines are dominated by the collapse of the brief ceasefire and resumed drone exchanges, with a secondary corruption/sanctions thread and a smaller political cluster on stalled peace diplomacy.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ceasefire collapse, drones, and front-line war",
+      "buckets": [
+        "canada", "iran_opposition", "israel", "kenya", "korea_north",
+        "nigeria", "qatar", "south_africa", "turkey", "ukraine",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "signal_text_idx": 12,
+          "bucket": "kenya",
+          "feed": "Standard Kenya",
+          "quote": "Russia, Ukraine resume strikes as truce expires, one dead:"
+        },
+        {
+          "signal_text_idx": 20,
+          "bucket": "qatar",
+          "feed": "Al Jazeera",
+          "quote": "Zelenskyy says Russia fired over 200 drones at Ukraine as t"
+        },
+        {
+          "signal_text_idx": 35,
+          "bucket": "vietnam_thai_my",
+          "feed": "Straits Times",
+          "quote": "Russia, Ukraine end US-brokered truce with fresh attacks"
+        },
+        {
+          "signal_text_idx": 9,
+          "bucket": "israel",
+          "feed": "Haaretz",
+          "quote": "Revealed: Israeli tech exposes users of Musk's Starlink sat"
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "corruption probe and sanctions",
+      "buckets": ["germany", "iran_opposition", "korea_north", "russia", "turkey", "wire_services"],
+      "evidence": [
+        {
+          "signal_text_idx": 37,
+          "bucket": "wire_services",
+          "feed": "AP",
+          "quote": "Ukraine officials name Zelenskyy's ex-chief of staff as a s"
+        },
+        {
+          "signal_text_idx": 2,
+          "bucket": "germany",
+          "feed": "Deutsche Welle",
+          "quote": "Ukraine: EU sanctions Russians over 'systematic unlawful de"
+        },
+        {
+          "signal_text_idx": 27,
+          "bucket": "turkey",
+          "feed": "Daily Sabah",
+          "quote": "Ex-Zelenskyy aide tied to multimillion-dollar laundering pr"
+        },
+        {
+          "signal_text_idx": 24,
+          "bucket": "russia",
+          "feed": "Moscow Times",
+          "quote": "U.K. Sanctions Russian 'Disinformation' Outfit Over Plot to"
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "peace diplomacy and internal dissent",
+      "buckets": ["hungary_central", "india", "italy", "nordic", "uk"],
+      "evidence": [
+        {
+          "signal_text_idx": 6,
+          "bucket": "india",
+          "feed": "Republic World",
+          "quote": "'Coming To An End': Putin Expresses Cautious Optimism On U"
+        },
+        {
+          "signal_text_idx": 4,
+          "bucket": "hungary_central",
+          "feed": "Hungary Today",
+          "quote": "Former Aid Accuses Zelenskyy of Reckless Provocation Toward"
+        },
+        {
+          "signal_text_idx": 17,
+          "bucket": "nordic",
+          "feed": "The Local Germany",
+          "quote": "Berlin sceptical as Putin floats ex-German chancellor as Uk"
+        },
+        {
+          "signal_text_idx": 29,
+          "bucket": "uk",
+          "feed": "The Independent",
+          "quote": "Putin let his desperation show with unexpected claim his wa"
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "DPRK war earnings and Russian recruit bonuses",
+      "buckets": ["germany", "japan", "russia", "south_africa"],
+      "evidence": [
+        {
+          "signal_text_idx": 11,
+          "bucket": "japan",
+          "feed": "Nikkei Asia",
+          "quote": "North Korea reaps huge economic boost from Ukraine war"
+        },
+        {
+          "signal_text_idx": 23,
+          "bucket": "russia",
+          "feed": "Moscow Times",
+          "quote": "North Korea Has Reaped $13Bln From Military Aid to Russia,"
+        },
+        {
+          "signal_text_idx": 3,
+          "bucket": "germany",
+          "feed": "Spiegel",
+          "quote": "As Russian Losses Mount, Signing Bonuses for Recruits Are S"
+        },
+        {
+          "signal_text_idx": 25,
+          "bucket": "south_africa",
+          "feed": "Mail & Guardian",
+          "quote": "SA's fuel tax cuts fall short on protecting vulnerable hous"
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    { "bucket": "japan", "score": 0.37 },
+    { "bucket": "israel", "score": 0.412 },
+    { "bucket": "religious_press", "score": 0.413 },
+    { "bucket": "italy", "score": 0.416 },
+    { "bucket": "nordic", "score": 0.502 },
+    { "bucket": "ukraine", "score": 0.512 },
+    { "bucket": "wire_services", "score": 0.513 },
+    { "bucket": "canada", "score": 0.517 }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "silent_bucket": "opinion_magazines",
+      "note": "One of two headlines ('Could influencers crash future EU summits?') is entirely off-topic; the on-topic Conversation headline covers Victory Day and Russia's position. No distinctive framing angle emerges at headline level."
+    },
+    {
+      "silent_bucket": "usa",
+      "note": "War on the Rocks headline ('Sensationalism Doesn't Serve Society') is a media-criticism piece with no Ukraine framing; the second headline covers Russia's crowd-sourced defense industry, which is on-topic but niche."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer reads the truce expiry as the dominant event. The corruption/sanctions thread is the headline-level signature of accountability coverage that body text distributes across more outlets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

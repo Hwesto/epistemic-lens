@@ -1,0 +1,154 @@
+{
+  "story_key": "hantavirus_cruise",
+  "date": "2026-05-12",
+  "n_buckets": 33,
+  "n_articles": 54,
+  "tldr": "Headlines frame the MV Hondius outbreak almost entirely as a public-health event — tests, quarantine, and evacuation logistics — with a secondary thread dismissing COVID comparisons.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "outbreak, quarantine, and testing",
+      "buckets": [
+        "argentina_chile", "australia_nz", "canada", "germany", "india",
+        "indonesia", "iran_state", "italy", "kenya", "mexico",
+        "netherlands_belgium", "nigeria", "nordic", "pakistan",
+        "pan_african", "philippines", "qatar", "russia",
+        "russia_native", "south_africa", "spain", "state_tv_intl",
+        "taiwan_hk", "turkey", "uk", "ukraine", "wire_services"
+      ],
+      "evidence": [
+        {
+          "signal_text_idx": 13,
+          "bucket": "iran_state",
+          "feed": "Tehran Times",
+          "quote": "No evidence of Hantavirus in Iran: health ministry"
+        },
+        {
+          "signal_text_idx": 22,
+          "bucket": "nigeria",
+          "feed": "Vanguard",
+          "quote": "WHO chief says 'work not over' after hantavirus evacuation"
+        },
+        {
+          "signal_text_idx": 50,
+          "bucket": "vietnam_thai_my",
+          "feed": "Straits Times",
+          "quote": "Planes with hantavirus cruise passengers land in the Nether"
+        },
+        {
+          "signal_text_idx": 9,
+          "bucket": "india",
+          "feed": "Republic World",
+          "quote": "Hantavirus Scare: 12 Hospital Staff Quarantined After Safety"
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "COVID comparison dismissed",
+      "buckets": ["germany", "opinion_magazines", "russia", "uk", "usa"],
+      "evidence": [
+        {
+          "signal_text_idx": 31,
+          "bucket": "russia",
+          "feed": "RT",
+          "quote": "WHO chief dismisses 'another Covid' fears over hantavirus"
+        },
+        {
+          "signal_text_idx": 46,
+          "bucket": "uk",
+          "feed": "The Independent",
+          "quote": "'This is not Covid': CDC boss reassures concerned public ove"
+        },
+        {
+          "signal_text_idx": 48,
+          "bucket": "usa",
+          "feed": "Axios World",
+          "quote": "Why the hantavirus outbreak is different from the COVID-19"
+        },
+        {
+          "signal_text_idx": 7,
+          "bucket": "germany",
+          "feed": "Deutsche Welle Deutsch",
+          "quote": "Warum das Hantavirus nicht mit Corona vergleichbar ist"
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "evacuation and repatriation operations",
+      "buckets": ["australia_nz", "canada", "kenya", "pan_african", "russia", "turkey"],
+      "evidence": [
+        {
+          "signal_text_idx": 2,
+          "bucket": "australia_nz",
+          "feed": "Guardian Australia",
+          "quote": "'Difficult' mission to repatriate Australian hantavirus crui"
+        },
+        {
+          "signal_text_idx": 6,
+          "bucket": "canada",
+          "feed": "Globe and Mail",
+          "quote": "How evacuation of hantavirus-stricken cruise ship MV Hondi"
+        },
+        {
+          "signal_text_idx": 43,
+          "bucket": "turkey",
+          "feed": "Daily Sabah",
+          "quote": "Canary Islands oversee complex evac of hantavirus-hit cruis"
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "crew and passenger hardship",
+      "buckets": ["argentina_chile", "philippines", "spain"],
+      "evidence": [
+        {
+          "signal_text_idx": 29,
+          "bucket": "philippines",
+          "feed": "Philstar",
+          "quote": "17 more Filipinos from hantavirus-hit ship quarantined in N"
+        },
+        {
+          "signal_text_idx": 38,
+          "bucket": "spain",
+          "feed": "El Pais",
+          "quote": "Los últimos del 'Hondius': los tripulantes filipinos se prep"
+        },
+        {
+          "signal_text_idx": 0,
+          "bucket": "argentina_chile",
+          "feed": "Buenos Aires Herald",
+          "quote": "Hantavirus outbreak renews painful memories for Patagonian"
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    { "bucket": "brazil", "score": 0.429 },
+    { "bucket": "south_korea", "score": 0.456 },
+    { "bucket": "nordic", "score": 0.529 },
+    { "bucket": "iran_state", "score": 0.559 },
+    { "bucket": "nigeria", "score": 0.561 },
+    { "bucket": "netherlands_belgium", "score": 0.586 },
+    { "bucket": "spain", "score": 0.601 },
+    { "bucket": "philippines", "score": 0.611 }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "silent_bucket": "brazil",
+      "note": "Sole headline ('Mundo não precisa de mais egoísmo', diz premier da Espanha) frames Spain's acceptance of the ship as an act of political solidarity — not disease reporting. The outbreak itself is background."
+    },
+    {
+      "silent_bucket": "south_korea",
+      "note": "Sole headline celebrates Korea's historical contribution to hantavirus research; framed as scientific heritage, not outbreak response."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline consensus is a managed public-health emergency, not a pandemic-scale threat. Outlets that diverge — Brazil on solidarity politics, South Korea on research heritage — are talking past the crisis entirely.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

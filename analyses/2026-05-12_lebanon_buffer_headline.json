@@ -1,0 +1,133 @@
+{
+  "story_key": "lebanon_buffer",
+  "date": "2026-05-12",
+  "n_buckets": 14,
+  "n_articles": 20,
+  "tldr": "Headlines cluster around three registers: the military advance beyond the Litani and ongoing drone strikes; a morality frame triggered by a single story about soldiers desecrating a Virgin Mary statue; and civilian casualty/displacement reporting.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Litani advance, drone war, and airstrikes",
+      "buckets": [
+        "egypt", "india", "israel", "pan_african", "pan_arab",
+        "religious_press", "vietnam_thai_my", "wire_services"
+      ],
+      "evidence": [
+        {
+          "signal_text_idx": 0,
+          "bucket": "egypt",
+          "feed": "Mada Masr",
+          "quote": "Israel attacks villages north of Litani to ease pressure on"
+        },
+        {
+          "signal_text_idx": 4,
+          "bucket": "israel",
+          "feed": "Jerusalem Post",
+          "quote": "IDF uses robots to advance beyond Lebanon's Litani River, F"
+        },
+        {
+          "signal_text_idx": 17,
+          "bucket": "vietnam_thai_my",
+          "feed": "Straits Times",
+          "quote": "Evolving drone war in southern Lebanon clouds Iran peace pr"
+        },
+        {
+          "signal_text_idx": 7,
+          "bucket": "pan_arab",
+          "feed": "Middle East Eye",
+          "quote": "Israel issues new evacuation orders for four south Lebanon"
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Virgin Mary statue desecration",
+      "buckets": ["russia", "taiwan_hk", "turkey", "uk", "religious_press"],
+      "evidence": [
+        {
+          "signal_text_idx": 12,
+          "bucket": "russia",
+          "feed": "RT",
+          "quote": "Israeli soldiers jailed for desecrating Virgin Mary statue"
+        },
+        {
+          "signal_text_idx": 13,
+          "bucket": "taiwan_hk",
+          "feed": "SCMP",
+          "quote": "Israeli soldiers jailed for desecration of Virgin Mary stat"
+        },
+        {
+          "signal_text_idx": 16,
+          "bucket": "uk",
+          "feed": "The Guardian",
+          "quote": "Israeli troops jailed for desecration of Virgin Mary statue"
+        },
+        {
+          "signal_text_idx": 11,
+          "bucket": "religious_press",
+          "feed": "Vatican News",
+          "quote": "Pope Leo XIV video-calls priests in southern Lebanon"
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian casualties and displacement",
+      "buckets": ["pan_arab", "qatar", "turkey"],
+      "evidence": [
+        {
+          "signal_text_idx": 9,
+          "bucket": "qatar",
+          "feed": "Al Jazeera",
+          "quote": "Lebanese in south refuse to flee again despite escalating I"
+        },
+        {
+          "signal_text_idx": 8,
+          "bucket": "pan_arab",
+          "feed": "Middle East Eye",
+          "quote": "Israeli air strike kills six in southern Lebanon"
+        },
+        {
+          "signal_text_idx": 15,
+          "bucket": "turkey",
+          "feed": "Daily Sabah",
+          "quote": "Israel murders 2 paramedics day after killing 25 across Leb"
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Hezbollah arms off negotiating table",
+      "buckets": ["opinion_magazines", "wire_services"],
+      "evidence": [
+        {
+          "signal_text_idx": 5,
+          "bucket": "opinion_magazines",
+          "feed": "The Conversation",
+          "quote": "Netanyahu has pledged to 'finish the job' against Hezbollah"
+        },
+        {
+          "signal_text_idx": 18,
+          "bucket": "wire_services",
+          "feed": "AFP",
+          "quote": "Hezbollah's weapons not part of Lebanon-Israel negotiations"
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    { "bucket": "opinion_magazines", "score": 0.469 },
+    { "bucket": "qatar", "score": 0.487 },
+    { "bucket": "religious_press", "score": 0.568 },
+    { "bucket": "pan_african", "score": 0.585 },
+    { "bucket": "wire_services", "score": 0.591 },
+    { "bucket": "russia", "score": 0.592 }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The morality frame (Virgin Mary desecration) is a striking headline cluster: five geographically diverse outlets covered the same single story, suggesting it punched above its tactical weight in editor selection.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

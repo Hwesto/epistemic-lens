@@ -1,0 +1,117 @@
+{
+  "story_key": "iran_nuclear",
+  "date": "2026-05-12",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "tldr": "Headlines divide cleanly: Western and opposition outlets lead with security threats (strikes, enrichment escalation), while Russian, Chinese, and Iranian outlets frame uranium enrichment as a sovereign political right.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear-site strikes and escalation threat",
+      "buckets": ["iran_opposition", "turkey", "ukraine"],
+      "evidence": [
+        {
+          "signal_text_idx": 4,
+          "bucket": "iran_opposition",
+          "feed": "Iran International EN",
+          "quote": "US and Israeli strikes hit Iran sites tied to nuclear weapo"
+        },
+        {
+          "signal_text_idx": 11,
+          "bucket": "turkey",
+          "feed": "Anadolu Agency English",
+          "quote": "Iran warns of 90% uranium enrichment in case of renewed US"
+        },
+        {
+          "signal_text_idx": 12,
+          "bucket": "ukraine",
+          "feed": "Kyiv Post",
+          "quote": "Trump Casts Doubt on Iran Ceasefire, Criticizes Proposal"
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "ceasefire talks and diplomatic summit linkage",
+      "buckets": ["china", "india", "pan_arab", "russia"],
+      "evidence": [
+        {
+          "signal_text_idx": 3,
+          "bucket": "india",
+          "feed": "Republic World (alt)",
+          "quote": "'Ceasefire on Life Support': Trump Calls Iran's Latest Prop"
+        },
+        {
+          "signal_text_idx": 8,
+          "bucket": "pan_arab",
+          "feed": "The New Arab",
+          "quote": "Iran to discuss enrichment as US ceasefire hangs in balance"
+        },
+        {
+          "signal_text_idx": 9,
+          "bucket": "russia",
+          "feed": "TASS English",
+          "quote": "Tehran could weigh nuclear deal with US with Iran-based enr"
+        },
+        {
+          "signal_text_idx": 0,
+          "bucket": "china",
+          "feed": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk"
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "zero-enrichment and deal conditions",
+      "buckets": ["germany", "usa"],
+      "evidence": [
+        {
+          "signal_text_idx": 14,
+          "bucket": "usa",
+          "feed": "Fox News World",
+          "quote": "What Israel wants from an Iran peace deal: No enrichment, m"
+        },
+        {
+          "signal_text_idx": 1,
+          "bucket": "germany",
+          "feed": "Deutsche Welle English",
+          "quote": "What will happen to Iran's nuclear material?"
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "enrichment as sovereign right",
+      "buckets": ["iran_state", "russia"],
+      "evidence": [
+        {
+          "signal_text_idx": 6,
+          "bucket": "iran_state",
+          "feed": "IRNA English",
+          "quote": "Safeguards in place to protect Iran's nuclear assets, atomi"
+        },
+        {
+          "signal_text_idx": 10,
+          "bucket": "russia",
+          "feed": "TASS English",
+          "quote": "Iran's uranium enrichment secures independence, peaceful at"
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    { "bucket": "iran_opposition", "score": 0.518 },
+    { "bucket": "germany", "score": 0.551 },
+    { "bucket": "turkey", "score": 0.557 },
+    { "bucket": "iran_state", "score": 0.562 },
+    { "bucket": "ukraine", "score": 0.563 }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline framing maps almost perfectly onto geopolitical alignment: security and non-proliferation from the West and opposition; sovereignty and diplomacy from Russia, China, and Tehran. No bucket straddles the divide.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}
