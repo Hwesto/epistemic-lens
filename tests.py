@@ -2628,6 +2628,349 @@ class TestSiteBasePrefix(unittest.TestCase):
             card_renderers.SITE_BASE = site_config.SITE_BASE
 
 
+class TestHomeRenderer(unittest.TestCase):
+    """Plan 4: 4-card home page composer.
+
+    Tests cube extraction, fallback chains, headlines-strip picker, and
+    the full home-page assembly. Structural assertions only — we don't
+    test exact HTML strings (too brittle to formatting changes); we
+    check that the right data ended up in the right cube class."""
+
+    def setUp(self):
+        from publication import page_renderers as pr
+        from publication import card_renderers as cr
+        from publication import site_config as sc
+        self._site_base_orig = sc.SITE_BASE
+        sc.SITE_BASE = ""
+        pr.SITE_BASE = ""
+        cr.SITE_BASE = ""
+        self.pr = pr
+
+    def tearDown(self):
+        from publication import page_renderers as pr
+        from publication import card_renderers as cr
+        from publication import site_config as sc
+        sc.SITE_BASE = self._site_base_orig
+        pr.SITE_BASE = self._site_base_orig
+        cr.SITE_BASE = self._site_base_orig
+
+    def _signals(self, **overrides) -> dict:
+        s = {
+            "date": "2026-05-11", "story_key": "test",
+            "briefing": {"corpus": []},
+            "analysis": {"frames": [], "bottom_line": "Test bottom line."},
+            "trajectory": None, "coverage": None, "metrics": {},
+            "sources": None, "within_lang_llr": None, "within_lang_pmi": None,
+            "tilt_files": [],
+        }
+        s.update(overrides)
+        return s
+
+    def test_cube_tension_uses_paradox_quotes_when_present(self):
+        signals = self._signals(analysis={
+            "paradox": {
+                "a": {"bucket": "uk", "outlet": "BBC",
+                       "quote": "Trump calls counter-proposal 'totally unacceptable'"},
+                "b": {"bucket": "russia", "outlet": "RT",
+                       "quote": "Iran calls proposal 'reasonable and generous'"},
+                "joint_conclusion": "Both sides claim reasonableness while rejecting each other’s proposals."
+            },
+            "frames": [],
+        })
+        html = self.pr._cube_tension({"date": "2026-05-11"}, signals, "g1")
+        self.assertIn("TENSION", html)
+        self.assertIn("totally unacceptable", html)
+        self.assertIn("reasonable and generous", html)
+        self.assertIn("↔", html)
+
+    def test_cube_tension_falls_back_to_divergent_pair(self):
+        signals = self._signals(metrics={
+            "pairwise_similarity": [
+                {"a": "japan", "b": "taiwan_hk", "score": 0.21},
+                {"a": "italy", "b": "spain", "score": 0.78},
+            ],
+        })
+        html = self.pr._cube_tension({"date": "2026-05-11"}, signals, "g1")
+        self.assertIn("japan", html)
+        self.assertIn("taiwan_hk", html)
+        self.assertIn("⟷", html)
+        self.assertIn("0.21", html)
+
+    @staticmethod
+    def _summary(html: str) -> str:
+        """Extract just the <summary>...</summary> portion (closed state)
+        for assertions that should NOT match content in the open-state body."""
+        import re
+        m = re.search(r"<summary>(.*?)</summary>", html, re.S)
+        return m.group(1) if m else ""
+
+    def test_cube_words_prefers_bigrams_over_terms(self):
+        signals = self._signals(
+            within_lang_pmi={"by_bucket": {
+                "russia": {"associations": [
+                    {"bigram": ["regime", "change"], "z_score": 4.2}
+                ]},
+                "italy": {"associations": [
+                    {"bigram": ["cessate", "fuoco"], "z_score": 3.5}
+                ]},
+                "uk": {"associations": [
+                    {"bigram": ["counter", "proposal"], "z_score": 3.0}
+                ]},
+            }},
+            within_lang_llr={"by_bucket": {
+                "uk": {"distinctive_terms": [{"term": "westminster", "llr": 25.0}]}
+            }},
+        )
+        html = self.pr._cube_words({"date": "2026-05-11"}, signals, "g2")
+        summary = self._summary(html)
+        # Bigrams should appear in the CLOSED summary
+        self.assertIn("regime change", summary)
+        self.assertIn("cessate fuoco", summary)
+        self.assertIn("≠", summary)
+        # Should NOT have fallen back to single term in the closed summary
+        self.assertNotIn("westminster", summary)
+
+    def test_cube_words_falls_back_to_llr_when_pmi_sparse(self):
+        signals = self._signals(
+            within_lang_pmi={"by_bucket": {}},
+            within_lang_llr={"by_bucket": {
+                "uk": {"distinctive_terms": [{"term": "westminster", "llr": 25.0}]},
+                "italy": {"distinctive_terms": [{"term": "guerra", "llr": 22.0}]},
+                "spain": {"distinctive_terms": [{"term": "tropas", "llr": 19.0}]},
+            }},
+        )
+        html = self.pr._cube_words({"date": "2026-05-11"}, signals, "g2")
+        self.assertIn("westminster", html)
+        self.assertIn("guerra", html)
+
+    def test_cube_silence_constellation_marks_covered_and_silent(self):
+        signals = self._signals(
+            story_key="hormuz_iran",
+            coverage={"coverage": {"hormuz_iran": [
+                {"bucket": "italy", "n_matching": 3},
+                {"bucket": "germany", "n_matching": 0},
+                {"bucket": "spain", "n_matching": 2},
+                {"bucket": "egypt", "n_matching": 0},
+            ]}},
+            analysis={
+                "frames": [],
+                "silences": [{
+                    "bucket": "egypt",
+                    "what_they_covered_instead": "Sisi water rationing emergency",
+                }],
+            },
+        )
+        html = self.pr._cube_silence({"date": "2026-05-11"}, signals, "g3")
+        self.assertIn("SILENCE", html)
+        # 2 covered, 2 silent → constellation contains both ● and ○
+        self.assertIn("●", html)
+        self.assertIn("○", html)
+        self.assertIn("egypt", html)
+        self.assertIn("Sisi water rationing", html)
+
+    def test_cube_voices_uses_vocab_reveals_first(self):
+        signals = self._signals(analysis={
+            "frames": [],
+            "exclusive_vocab_highlights": [{
+                "bucket": "italy",
+                "terms": ["guerra", "accordo", "armi"],
+                "what_it_reveals": "Italian press emphasizes ceasefire and arms framing.",
+            }],
+            "single_outlet_findings": [{
+                "outlet": "BBC", "bucket": "uk",
+                "finding": "BBC quotes officials predominantly."
+            }],
+        })
+        html = self.pr._cube_voices({"date": "2026-05-11"}, signals, "g4")
+        summary = self._summary(html)
+        self.assertIn("Italian press emphasizes", summary)
+        # Closed summary should NOT mention the BBC fallback finding
+        self.assertNotIn("BBC quotes officials", summary)
+        self.assertIn("italy", summary)
+        self.assertIn("3 distinctive terms", summary)
+
+    def test_cube_voices_falls_back_to_single_outlet_findings(self):
+        signals = self._signals(analysis={
+            "frames": [],
+            "exclusive_vocab_highlights": [],
+            "single_outlet_findings": [{
+                "outlet": "BBC", "bucket": "uk",
+                "finding": "Trump's rejection uses absolutist language."
+            }],
+        })
+        html = self.pr._cube_voices({"date": "2026-05-11"}, signals, "g4")
+        self.assertIn("absolutist language", html)
+        self.assertIn("BBC", html)
+
+    def test_cube_voices_final_fallback_to_bottom_line(self):
+        signals = self._signals(analysis={
+            "frames": [],
+            "exclusive_vocab_highlights": [],
+            "single_outlet_findings": [],
+            "bottom_line": "Global coverage fragments by region.",
+            "n_buckets": 23,
+        })
+        html = self.pr._cube_voices({"date": "2026-05-11"}, signals, "g4")
+        self.assertIn("Global coverage fragments", html)
+        self.assertIn("bottom line", html)
+
+    def test_cube_frames_shows_frame_id_and_sub_frame(self):
+        signals = self._signals(analysis={
+            "frames": [
+                {"frame_id": "SECURITY_DEFENSE",
+                 "sub_frame": "military blockade threat",
+                 "buckets": ["uk", "usa", "germany"]},
+                {"frame_id": "ECONOMIC",
+                 "sub_frame": "energy supply crisis",
+                 "buckets": ["japan", "philippines"]},
+            ],
+        })
+        html = self.pr._cube_frames({"date": "2026-05-11"}, signals, "g5")
+        self.assertIn("SECURITY_DEFE", html)  # truncated
+        self.assertIn("military blockade", html)
+        self.assertIn("ECONOMIC", html)
+        self.assertIn("energy supply", html)
+
+    def test_cube_contrast_shows_both_extremes(self):
+        signals = self._signals(metrics={
+            "pairwise_similarity": [
+                {"a": "turkey", "b": "uk", "score": 0.87},
+                {"a": "italy", "b": "spain", "score": 0.55},
+                {"a": "japan", "b": "taiwan_hk", "score": 0.21},
+            ],
+        })
+        html = self.pr._cube_contrast({"date": "2026-05-11"}, signals, "g6")
+        self.assertIn("turkey", html)
+        self.assertIn("uk", html)
+        self.assertIn("≈", html)
+        self.assertIn("0.87", html)
+        self.assertIn("japan", html)
+        self.assertIn("⟷", html)
+        self.assertIn("0.21", html)
+
+    def test_headlines_strip_picks_one_per_frame(self):
+        briefing = {"corpus": [
+            {"bucket": "uk", "feed": "BBC", "title": "Trump unacceptable", "link": "/x"},
+            {"bucket": "russia", "feed": "RT", "title": "Iran reasonable", "link": "/y"},
+            {"bucket": "uk", "feed": "BBC2", "title": "Duplicate UK headline", "link": "/z"},
+        ]}
+        analysis = {"frames": [
+            {"frame_id": "SECURITY", "buckets": ["uk"],
+             "evidence": [{"signal_text_idx": 0, "bucket": "uk", "quote": "x"}]},
+            {"frame_id": "ECONOMIC", "buckets": ["russia"],
+             "evidence": [{"signal_text_idx": 1, "bucket": "russia", "quote": "y"}]},
+            # Frame 3 would duplicate UK — should be skipped
+            {"frame_id": "POLITICAL", "buckets": ["uk"],
+             "evidence": [{"signal_text_idx": 2, "bucket": "uk", "quote": "z"}]},
+        ]}
+        html = self.pr._render_headlines_strip(briefing, analysis)
+        self.assertIn("Trump unacceptable", html)
+        self.assertIn("Iran reasonable", html)
+        # Duplicate UK should be skipped
+        self.assertNotIn("Duplicate UK headline", html)
+        self.assertIn("HEADLINES", html)
+
+    def test_render_home_page_composes_all_four_cards(self):
+        # Three picked stories + Today card
+        picked = [
+            {"key": "hormuz_iran", "title": "Hormuz crisis", "n_buckets": 34,
+             "n_articles": 61, "card_kind": "paradox",
+             "event_summary": "Iran blocked strait.", "finding_synthesis": "p"},
+            {"key": "ukraine_war", "title": "Ukraine war", "n_buckets": 23,
+             "n_articles": 38, "card_kind": "word",
+             "event_summary": "Ukraine continues.", "finding_synthesis": "w"},
+            {"key": "lebanon_buffer", "title": "Lebanon buffer", "n_buckets": 15,
+             "n_articles": 20, "card_kind": "silence",
+             "event_summary": "Ceasefire tested.", "finding_synthesis": "s"},
+        ]
+        all_entries = picked + [
+            {"key": "iran_nuclear", "title": "Iran nuclear", "n_buckets": 8,
+             "n_articles": 12, "card_kind": "word",
+             "event_summary": "Talks ongoing.", "finding_synthesis": "n"},
+        ]
+        signals_by_key = {
+            p["key"]: self._signals(story_key=p["key"]) for p in picked
+        }
+        briefings_by_key = {p["key"]: {"corpus": []} for p in picked}
+        html = self.pr.render_home_page(
+            "2026-05-11", picked, all_entries, signals_by_key, briefings_by_key,
+        )
+        # 3 story cards
+        self.assertEqual(html.count('<article class="story-card"'), 3)
+        # 1 today card
+        self.assertEqual(html.count('<article class="today-card"'), 1)
+        # All three picked titles surface
+        self.assertIn("Hormuz crisis", html)
+        self.assertIn("Ukraine war", html)
+        self.assertIn("Lebanon buffer", html)
+        # Today card surfaces meta cubes
+        self.assertIn("TODAY", html)
+        self.assertIn("SPREAD", html)
+        self.assertIn("LEADS", html)
+        self.assertIn("LANGUAGES", html)
+        # Home hero
+        self.assertIn("How the world told the same news today", html)
+        # Doctype + grid
+        self.assertIn("<!DOCTYPE html>", html)
+        self.assertIn("home-card-grid", html)
+        self.assertIn("home-page-body", html)
+
+    def test_cube_shell_emits_exclusive_details_group_name(self):
+        html = self.pr._cube_shell("test", "LABEL", "<p>thing</p>", "cap",
+                                     "<p>open</p>", "my-group")
+        # Native exclusive-accordion attribute
+        self.assertIn('name="my-group"', html)
+        self.assertIn('<details class="cube cube--test"', html)
+        self.assertIn('LABEL', html)
+        self.assertIn('cap', html)
+        self.assertIn('thing', html)
+        self.assertIn('cube-open', html)
+
+    def test_short_quote_word_plucks_single_quoted_content(self):
+        out = self.pr._short_quote_word("Trump says 'totally unacceptable' today")
+        self.assertEqual(out, "totally unacceptable")
+
+    def test_short_quote_word_fallback_to_longest_word(self):
+        out = self.pr._short_quote_word("conflict escalation reported widely")
+        self.assertIn(out.lower(), {"conflict", "escalation", "reported", "widely"})
+
+
+class TestTopNPicker(unittest.TestCase):
+    """Plan 4: pick_top_n_stories returns top-N by score (instead of top-1)."""
+
+    def test_returns_n_stories_with_score_breakdown(self):
+        from publication import build_index as bi
+        stories = [
+            {"story_key": "a", "title": "A", "n_buckets": 30,
+             "card_kind": "paradox", "finding_synthesis": "p"},
+            {"story_key": "b", "title": "B", "n_buckets": 20,
+             "card_kind": "word", "finding_synthesis": "w"},
+            {"story_key": "c", "title": "C", "n_buckets": 15,
+             "card_kind": "silence", "finding_synthesis": "s"},
+            {"story_key": "d", "title": "D", "n_buckets": 8,
+             "card_kind": "word", "finding_synthesis": "w2"},
+        ]
+        out = bi.pick_top_n_stories(stories, "2026-05-11", n=3)
+        self.assertEqual(len(out), 3)
+        # Highest score first — paradox + most-buckets should top.
+        self.assertEqual(out[0]["story_key"], "a")
+        # Each picked story carries a score_breakdown
+        for entry in out:
+            self.assertIn("score_breakdown", entry)
+            self.assertIn("final_score", entry["score_breakdown"])
+
+    def test_filters_below_min_buckets(self):
+        from publication import build_index as bi
+        # Today picker config has min_n_buckets_for_hero=8;
+        # pick_top_n_stories lowers this to 3.
+        stories = [
+            {"story_key": "tiny", "title": "T", "n_buckets": 2,
+             "card_kind": "word", "finding_synthesis": ""},
+        ]
+        out = bi.pick_top_n_stories(stories, "2026-05-11", n=3)
+        self.assertEqual(len(out), 0)
+
+
 class TestPageRenderers(unittest.TestCase):
     """Plan 2: page-level composers in publication/page_renderers.py.
     Tests cover each renderer with synthetic data — structural checks

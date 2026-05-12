@@ -417,6 +417,63 @@ def _recent_hero_history(today: str, lookback_days: int) -> list[dict]:
     return history
 
 
+def pick_top_n_stories(stories: list[dict], today: str, n: int = 3) -> list[dict]:
+    """Plan 4: pick the top N stories for the 4-card home page.
+
+    Same scoring logic as pick_todays_card but returns the TOP N
+    (not just the single highest). Used by render_home_page to fill
+    the 3 story-card slots; the 4th slot is the "Today" meta card.
+
+    Returns: list of (up to N) story dicts, each augmented with
+    `score_breakdown`. Sorted by score descending.
+    """
+    cfg = _today_picker_cfg()
+    scoring = cfg.get("scoring") or {}
+    min_buckets = int(scoring.get("min_n_buckets_for_hero", 0))
+    mag = scoring.get("magnitude") or {}
+    mag_weight = float(mag.get("weight", 0.30))
+    strength_weights = scoring.get("archetype_strength_weights") or {}
+    div = scoring.get("diversity_bonus") or {}
+    penalty_same_kind = float(div.get("penalty_for_same_archetype", 0.0))
+    penalty_same_key = float(div.get("penalty_for_same_story_key", 0.0))
+    history = _recent_hero_history(today, int(div.get("lookback_days", 5)))
+    recent_kinds = {h.get("card_kind") for h in history}
+    recent_keys = {h.get("story_key") for h in history}
+
+    eligible: list[tuple[float, dict, dict]] = []
+    for s in stories:
+        # Lower the min-bucket bar to 3 (was 8 for SINGLE hero). With 4 cards
+        # we want to fill the slots even on thin news days.
+        if (s.get("n_buckets") or 0) < max(3, min_buckets - 5):
+            continue
+        kind = s.get("card_kind") or "word"
+        strength = float(strength_weights.get(kind, 0.0))
+        n_b = float(s.get("n_buckets") or 0)
+        magnitude = (n_b / 54.0) * mag_weight
+        diversity = 1.0
+        if kind in recent_kinds:
+            diversity -= penalty_same_kind
+        if s.get("story_key") in recent_keys:
+            diversity -= penalty_same_key
+        diversity = max(diversity, 0.0)
+        score = (magnitude + strength) * diversity
+        breakdown = {
+            "magnitude": round(magnitude, 3),
+            "archetype_strength": round(strength, 3),
+            "diversity_bonus": round(diversity, 3),
+            "final_score": round(score, 3),
+        }
+        eligible.append((score, s, breakdown))
+
+    eligible.sort(key=lambda r: (-r[0], r[1].get("story_key", "")))
+    out: list[dict] = []
+    for score, story, breakdown in eligible[:n]:
+        s_out = dict(story)
+        s_out["score_breakdown"] = breakdown
+        out.append(s_out)
+    return out
+
+
 def pick_todays_card(stories: list[dict], today: str) -> dict | None:
     """Score every story per today_picker.json and pick the max.
 
@@ -648,39 +705,47 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
             encoding="utf-8",
         )
 
-        # PR D-1: render the full home page server-side. Pulls the
-        # picked story's signals fresh from disk (the in-memory
-        # _signals were stripped above) + every other story's display
-        # fields + a 5-day archive list, and writes api/index.html.
-        # Replaces the design-preview placeholder content from the
-        # cherry-pick.
-        from publication.card_renderers import render_index_html
-        picked_briefing = json.loads(
-            (BRIEFINGS / f"{date}_{todays_card['story_key']}.json")
-            .read_text(encoding="utf-8")
+        # Plan 4: 4-card home page. Top 3 stories each get their own
+        # card with 6 cubes; the 4th card is "Today" (meta cubes).
+        from publication.page_renderers import render_home_page
+        top_picks = pick_top_n_stories(
+            [{"story_key": e["key"], "title": e["title"],
+              "n_buckets": e.get("n_buckets"),
+              "card_kind": e.get("card_kind"),
+              "finding_synthesis": e.get("finding_synthesis", "")}
+             for e in story_entries],
+            date, n=3,
         )
-        picked_signals = collect_story_signals(
-            date, todays_card["story_key"], picked_briefing
+        # Match picked entries back to full story_entries so we have title,
+        # event_summary, finding_synthesis, etc. (entry dict was already
+        # stamped earlier in this function).
+        entry_by_key = {e["key"]: e for e in story_entries}
+        picked_entries = [entry_by_key.get(p["story_key"]) for p in top_picks]
+        picked_entries = [p for p in picked_entries if p]
+        # Fresh-load signals + briefing for each picked story.
+        signals_by_key: dict = {}
+        briefings_by_key: dict = {}
+        for e in picked_entries:
+            try:
+                b = json.loads(
+                    (BRIEFINGS / f"{date}_{e['key']}.json").read_text(encoding="utf-8")
+                )
+            except (OSError, json.JSONDecodeError):
+                continue
+            briefings_by_key[e["key"]] = b
+            signals_by_key[e["key"]] = collect_story_signals(date, e["key"], b)
+        home_html = render_home_page(
+            date, picked_entries, story_entries, signals_by_key, briefings_by_key,
         )
-        other_stories = [
-            {**e, "date": date}
-            for e in story_entries
-            if e["key"] != todays_card["story_key"]
-        ]
-        archive_dates = _recent_dates(date, lookback_days=5)
-        index_html = render_index_html(
-            today_payload, picked_signals, other_stories, archive_dates
-        )
-        (API / "index.html").write_text(index_html, encoding="utf-8")
+        (API / "index.html").write_text(home_html, encoding="utf-8")
 
-        # PR D-2: render PNGs for og:image / social share. Two
-        # viewports: 1200x675 native (the og:image the page declares)
-        # and 1200x630 twitter (Twitter card spec). Wrapped in
-        # try/except so a missing playwright install or chromium
-        # download skips PNG generation rather than failing publish —
-        # the HTML home page still works.
+        # PNG render: keep producing today.png + today-twitter.png for
+        # social-share targets. PNG is the SINGLE picked story (top of top_picks)
+        # rendered as a card via the existing card_renderers path. Same
+        # try/except shape as before — a missing playwright skips PNG.
         try:
             from publication.card_renderers import render_card_html, render_card_png
+            picked_signals = signals_by_key.get(todays_card["story_key"], {})
             card_html = render_card_html(today_payload, picked_signals)
             styles_text = (WEB_SRC / "styles.css").read_text(encoding="utf-8")
             for viewport, name in (("today", "today.png"),
