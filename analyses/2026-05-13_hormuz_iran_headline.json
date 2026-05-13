@@ -1,0 +1,134 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "hormuz_iran",
+  "story_title": "Iran–US war and Strait of Hormuz blockade",
+  "pass": "headline",
+  "n_buckets": 34,
+  "n_articles": 58,
+  "tldr": "Headlines split three ways: most buckets lead with the military blockade threat (SECURITY_DEFENSE); energy and commodity reporters foreground the supply shock (ECONOMIC); and Anglophone and opinion outlets frame the crisis through Trump's China leverage deficit (POLITICAL). Ukraine alone runs a tangential fossil-fuel revenue headline and appears as a silence.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Hormuz blockade and military standoff",
+      "buckets": ["australia_nz", "china", "iran_state", "israel", "kenya", "pan_african", "qatar", "south_korea", "taiwan_hk", "turkey", "uk", "germany", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "to join efforts to reopen strait of Hormuz",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Blockade of Strait of Hormuz not in common interests",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA",
+          "quote": "Iran, Oman hold talks on Strait of Hormuz shipping safety",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Iran retains access to majority of missile launch sites",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy price shock and supply disruption",
+      "buckets": ["india", "italy", "netherlands_belgium", "pakistan", "religious_press", "russia", "south_africa", "spain", "vietnam_thai_my", "wire_services", "iraq"],
+      "evidence": [
+        {
+          "bucket": "netherlands_belgium",
+          "outlet": "NL Times",
+          "quote": "oil, kerosine shortages if Iran war continues",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "shock offerta senza precedenti con blocco Hormuz",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Soaring inflation and plummeting economy test Iran",
+          "signal_text_idx": 57
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24",
+          "quote": "oil spikes as Hormuz remains closed",
+          "signal_text_idx": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Xi summit and US leverage deficit",
+      "buckets": ["asia_pacific_regional", "brazil", "canada", "iran_opposition", "opinion_magazines", "pan_arab", "usa"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "Iran war reduces U.S. leverage",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "China urges Pakistan to intensify Iran-US mediation",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "America Has Lost Its Leverage Over China",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Iran War Casts Shadow Over Trump's High-Stakes China Trip",
+          "signal_text_idx": 52
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.398
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.432
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.47
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.472
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.506
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["ukraine"],
+  "single_outlet_findings": [],
+  "bottom_line": "The Hormuz crisis headline layer separates cleanly by beat: security correspondents lead with the blockade, commodity desks lead with energy prices, and political reporters lead with Trump's weakened position entering the Xi summit. Ukraine's only headline is a tangential fossil-fuel revenue story, making it a topical silence.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

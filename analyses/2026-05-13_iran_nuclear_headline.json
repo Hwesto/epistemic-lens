@@ -1,0 +1,122 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear programme and US-Iran negotiations",
+  "pass": "headline",
+  "n_buckets": 11,
+  "n_articles": 16,
+  "tldr": "Headlines divide along three axes: most buckets foreground Trump's 'nuclear above economic pain' maximalism (POLITICAL); opposition and US outlets advertise physical strike damage and proliferation risk (SECURITY_DEFENSE); and opinion and religious outlets ask whether JCPOA or a ceasefire would have been better (EXTERNAL_REGULATION).",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump maximalism: nuclear programme above economic pain",
+      "buckets": ["canada", "china", "india", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "nuclear program more important than Americans' economic pain",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "stopping Iran's nuclear programme outweighs economic pain",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "'I don't think about Americans' financial situation'",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strike damage and nuclear site hardening",
+      "buckets": ["iran_opposition", "usa"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International",
+          "quote": "strikes hit Iran sites tied to nuclear weapon work",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International",
+          "quote": "new fortifications at tunnel complex near Natanz",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News",
+          "quote": "any Iran deal must close plutonium pathway to nuclear bombs",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "JCPOA retrospective and ceasefire terms",
+      "buckets": ["opinion_magazines", "russia", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Would We Be Better Off Today With the JCPOA?",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS",
+          "quote": "future Iran-US deal to be radically different from JCPOA",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Religion News Service",
+          "quote": "Iran responds to US ceasefire proposal but Trump rejects it",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.391
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.46
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.56
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.561
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.566
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer makes Trump's explicit trade-off ('nuclear above economic pain') the dominant advertised frame; opposition and US outlets foreground physical site damage and proliferation risk; while opinion and religious outlets uniquely ask whether the JCPOA — or a ceasefire — would have been better.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

@@ -1,0 +1,135 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli strikes and Hezbollah conflict in Lebanon",
+  "pass": "headline",
+  "n_buckets": 16,
+  "n_articles": 21,
+  "tldr": "The dominant headline frame is kinetic SECURITY_DEFENSE: Israeli strikes and Hezbollah vows of retaliation. Religious press and Turkey uniquely foreground attacks on Christian sites (MORALITY), while German and US outlets lead with displacement and civilian experience (QUALITY_OF_LIFE). Indian and opinion outlets foreground Hezbollah disarmament politics.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "IDF strikes and Hezbollah retaliation cycle",
+      "buckets": ["egypt", "iran_state", "israel", "pan_african", "pan_arab", "russia", "spain", "taiwan_hk", "turkey", "uk", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA",
+          "quote": "Hezbollah chief vows 'hell' for Israel",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "15 killed in Israeli strikes in Lebanon",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "SCMP",
+          "quote": "380 reported killed since April 17 ceasefire",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Mada Masr",
+          "quote": "Israel attacks villages north of Litani",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Hezbollah disarmament talks and Netanyahu's bind",
+      "buckets": ["india", "opinion_magazines", "israel"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu",
+          "quote": "weapons not part of negotiations with Israel",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Netanyahu has pledged to 'finish the job'",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Trump might feel forced to resume war",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "religious sites under attack",
+      "buckets": ["religious_press", "turkey"],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Churches under attack in southern Lebanon",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "desecrating Virgin Mary statue in Lebanon",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "displacement and civilian community survival",
+      "buckets": ["germany", "usa"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle",
+          "quote": "Sport helping displaced Lebanese living in stadium",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News",
+          "quote": "Inside the Christian border town that survived by defying",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.402
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.448
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.47
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.472
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.482
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Lebanon headline framing splits on audience: most buckets advertise the kinetic strike-and-retaliation cycle; religious press and Turkey uniquely foreground the destruction of Christian sites, a MORALITY frame absent from all other buckets; German and US outlets lead with human displacement over military action.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

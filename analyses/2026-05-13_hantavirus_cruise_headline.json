@@ -1,0 +1,123 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "pass": "headline",
+  "n_buckets": 25,
+  "n_articles": 45,
+  "tldr": "Headlines across 23 of 25 buckets advertise the hantavirus cruise outbreak as a quarantine-and-containment crisis; the most charged framing is Russia and India invoking COVID-19 comparisons that WHO explicitly rebutted, while French wire services uniquely advertise mask stockpile adequacy.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "outbreak containment and quarantine",
+      "buckets": ["argentina_chile", "australia_nz", "canada", "colombia_ven_peru", "germany", "india", "indonesia", "iran_state", "italy", "kenya", "korea_north", "pan_african", "russia", "russia_native", "south_africa", "spain", "state_tv_intl", "taiwan_hk", "turkey", "uk", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Ushuaia tries to shrug off hantavirus suspicions",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Indonesia alerts quarantine offices over hantavirus threat",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "French hantavirus patient is critically ill",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24",
+          "quote": "12 Dutch hospital staff in quarantine",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "another-Covid fear comparison",
+      "buckets": ["russia", "india"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "WHO chief dismisses 'another Covid' fears",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Hantavirus Differ from COVID-19",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "French mask stockpiles reassurance",
+      "buckets": ["wire_services"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Le Figaro",
+          "quote": "le stock de masques est suffisant pour «minimum 3 mois»",
+          "signal_text_idx": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "quarantine protocol scrutiny",
+      "buckets": ["uk", "australia_nz"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "ordered to quarantine in hospital for a month",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "to be quarantined for three weeks",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.569
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.597
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.61
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.613
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.615
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["nordic"],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage is almost universally HEALTH_SAFETY, but the headline layer also advertises a stark divergence: Russia and India invoke the 'another-Covid' comparison that WHO explicitly rebutted, while French wire services reassure publics that mask stockpiles are adequate for three months.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

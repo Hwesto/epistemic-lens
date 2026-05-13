@@ -1,0 +1,153 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "ukraine_war",
+  "story_title": "Ukraine-Russia war: drone escalation, corruption probes, and peace signals",
+  "pass": "headline",
+  "n_buckets": 20,
+  "n_articles": 34,
+  "tldr": "Ukraine war headlines fracture into three distinct advertised stories: frontline drone escalation (SECURITY_DEFENSE) dominates real-time coverage; corruption and sanctions headlines (CRIME_PUNISHMENT) compete for space in Western outlets; and peace-talk positioning (POLITICAL) runs as a third track in European and Turkish coverage. Religious press uniquely foregrounds civilian grief.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "drone escalation and frontline strikes",
+      "buckets": ["iran_opposition", "israel", "kenya", "poland_balt", "russia", "uk", "ukraine", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "incoming Russian drone attacks during daylight",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Russian Regions Move Schools Online Amid Drone Attack Fears",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "massive daytime attack with over 200 drones across Ukraine",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Belarus's Lukashenko: 'We Are All Preparing for War'",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "corruption probe and sanctions against Russia",
+      "buckets": ["canada", "germany", "iran_opposition", "korea_north", "opinion_magazines", "qatar"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "named as suspect in major money-laundering probe",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera",
+          "quote": "ex-chief of staff appears in court in money-laundering case",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Donbas-tied arms dealers peddling guns for Kim Jong Un",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "EU Takes Aim at Russia's Abductions of Ukrainian Children",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "ceasefire signals and peace-talk positioning",
+      "buckets": ["india", "italy", "nordic", "turkey"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu",
+          "quote": "Putin's assertion that Ukraine war is nearly over",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Putin floats ex-German chancellor as Ukraine mediator",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "no clear roadmap to end Ukraine war despite Putin's words",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "EU will decide its negotiator for Ukraine peace talks",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian grief and cultural destruction",
+      "buckets": ["religious_press", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "'My son was taken away by war. Now I am everyone's mother'",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Le Monde",
+          "quote": "1 800 monuments du patrimoine culturel ukrainien endommagés",
+          "signal_text_idx": 32
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.383
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.386
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.393
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.413
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.471
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Ukraine headline framing is unusually fragmented: security outlets lead with the drone escalation, Western liberal outlets lead with corruption probes and sanctions, and European and Turkish political desks lead with peace-signal positioning — all on the same day, advertising three different stories about the same conflict.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
