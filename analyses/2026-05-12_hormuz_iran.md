@@ -246,6 +246,12 @@ Qatar’s Al Jazeera TV network wrote in an analysis that two months after the s
 - **`south_korea`** — Both articles covered the domestic Yoon Suk-yeol trial and K-pop content respectively — zero Hormuz coverage despite South Korea being one of Asia's largest crude importers through the Strait.
 - **`china`** — China's two corpus entries consist of a garbled CGTN language-selector page and a brief UKMTO maritime-restriction notice — minimal substantive analysis despite China purchasing the largest share of Iranian oil routed through Hormuz.
 
+## Coverage caveats
+
+Buckets below carried zero items today because every feed in them failed (403, timeout, or empty response). Their absence from this analysis is structural, not editorial — they did not choose not to cover the story, they could not be reached.
+
+- **`saudi_arabia`** — bucket carried 0 items today (rolling 7-day avg 6.7). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial.
+
 ## Single-outlet findings
 
 1. **Times of India** (`india`): Introduced the 'NACHO' (Not A Chance Hormuz Opens) market acronym replacing 'TACO' — signals that investors have abandoned hopes for a quick diplomatic resolution. (corpus[12])

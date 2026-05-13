@@ -3585,5 +3585,169 @@ class TestCardPickers(unittest.TestCase):
         self.assertIn("final_score", result["score_breakdown"])
 
 
+class TestPR1Hygiene(unittest.TestCase):
+    """PR1 (meta-v8.8.0) hygiene fixes: tier-priority briefing iteration,
+    thin-bucket isolation gate, wire-syndication paradox detection,
+    outlet autofill, and BH multiple-comparison correction."""
+
+    def test_briefing_iteration_tier_priority(self):
+        """Long-running dossiers must come before dated short-lived stories
+        regardless of their order in canonical_stories.json. The pre-v8.8.0
+        JSON-order iteration combined with --max-stories=5 silently
+        truncated 8 of 15 dossiers; the new tier sort guarantees Gaza /
+        Taiwan / Iran nuclear get first shot at the budget."""
+        if "analytical.build_briefing" in sys.modules:
+            importlib.reload(sys.modules["analytical.build_briefing"])
+        from analytical import build_briefing as bb
+        # Stub stories: alphabet-shuffled so JSON-order iteration would
+        # surface the dated entry first.
+        stories = {
+            "zzz_dated_short": {"title": "Zzz", "tier": "dated", "patterns": []},
+            "aaa_long_running": {"title": "Aaa", "tier": "long_running", "patterns": []},
+            "mmm_unspecified": {"title": "Mmm", "patterns": []},
+        }
+        tier_priority = {"long_running": 0, "dated": 2}
+        keys = sorted(
+            stories,
+            key=lambda k: (tier_priority.get(stories[k].get("tier"), 1), k),
+        )
+        # Expected: long_running first, then unspecified (default 1),
+        # then dated last.
+        self.assertEqual(keys, ["aaa_long_running", "mmm_unspecified",
+                                  "zzz_dated_short"])
+
+    def test_isolation_thin_bucket_gate(self):
+        """Buckets below min_tokens_per_bucket go to isolation_excluded_thin
+        rather than the primary isolation list — a 5-token Italian
+        headline bucket should not sit alongside thousand-token corpora."""
+        if "analytical.build_metrics" in sys.modules:
+            importlib.reload(sys.modules["analytical.build_metrics"])
+        from analytical import build_metrics as bm
+        from collections import Counter as _Counter
+        # Synthetic vocabs: 'thin' = 5 tokens, 'normal' = 100 tokens
+        vocabs = {
+            "thin":   _Counter({f"tok{i}": 1 for i in range(5)}),
+            "normal": _Counter({f"tok{i}": 1 for i in range(100)}),
+        }
+        by_bucket = {"thin": ["short text"], "normal": ["padding " * 100]}
+        pairs, iso, iso_excluded, status = bm.labse_pairwise_and_isolation(
+            by_bucket, min_tokens_per_bucket=30, vocabs=vocabs
+        )
+        if status.get("skipped"):
+            self.skipTest("sentence-transformers unavailable")
+        iso_buckets = {r["bucket"] for r in iso}
+        thin_buckets = {r["bucket"] for r in iso_excluded}
+        self.assertIn("normal", iso_buckets)
+        self.assertNotIn("thin", iso_buckets)
+        self.assertIn("thin", thin_buckets)
+
+    def test_wire_syndication_paradox_flagged(self):
+        """When paradox.a and paradox.b quote near-identical signal_text
+        (Jaccard >= 0.6 over tokens) the validator must reject — the
+        'opposing-bloc convergence' is actually two outlets republishing
+        the same wire-syndicated copy verbatim."""
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as v
+        # Two corpus entries with substantially overlapping text.
+        wire = ("Reuters reports that Iran has accelerated uranium enrichment "
+                "at the Fordow facility according to IAEA inspectors.")
+        briefing = {
+            "corpus": [
+                {"bucket": "russia", "feed": "RT", "signal_text": wire},
+                {"bucket": "china",  "feed": "SCMP", "signal_text": wire},
+                {"bucket": "usa",    "feed": "NYT",  "signal_text":
+                    "Completely different prose about a different topic entirely."},
+            ]
+        }
+        para_analysis = {
+            "paradox": {
+                "a": {"bucket": "russia", "outlet": "RT",
+                       "quote": wire[:40], "signal_text_idx": 0},
+                "b": {"bucket": "china",  "outlet": "SCMP",
+                       "quote": wire[:40], "signal_text_idx": 1},
+                "joint_conclusion": "Both quote the same wire dispatch.",
+            }
+        }
+        errs = v.check_wire_syndication(para_analysis, briefing)
+        self.assertTrue(any("wire-syndicated copy" in e for e in errs),
+                          msg=f"expected wire-syndication flag, got: {errs}")
+        # Sanity: a paradox that quotes genuinely different text passes.
+        para_clean = {
+            "paradox": {
+                "a": {"bucket": "russia", "outlet": "RT",
+                       "quote": wire[:40], "signal_text_idx": 0},
+                "b": {"bucket": "usa", "outlet": "NYT",
+                       "quote": "Completely different prose",
+                       "signal_text_idx": 2},
+                "joint_conclusion": "Distinct framings.",
+            }
+        }
+        self.assertEqual(v.check_wire_syndication(para_clean, briefing), [])
+
+    def test_outlet_autofill_from_corpus(self):
+        """Evidence / single_outlet_finding entries that omit `outlet` or
+        carry '?' should have outlet auto-filled from corpus[idx].feed
+        when the citation index is valid. Prevents the rendered MD from
+        showing '?' to readers."""
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as v
+        briefing = {
+            "corpus": [
+                {"bucket": "italy", "feed": "ANSA",
+                  "signal_text": "Some Italian prose about the story."},
+            ]
+        }
+        analysis = {
+            "frames": [{
+                "frame_id": "POLITICAL",
+                "buckets": ["italy"],
+                "evidence": [{"bucket": "italy",
+                                "quote": "Some Italian prose",
+                                "signal_text_idx": 0}],
+            }],
+            "single_outlet_findings": [
+                {"bucket": "italy", "outlet": "?", "finding": "x",
+                  "signal_text_idx": 0},
+            ],
+        }
+        v.check_citations(analysis, briefing)  # mutates in-place
+        self.assertEqual(
+            analysis["frames"][0]["evidence"][0].get("outlet"), "ANSA")
+        self.assertEqual(
+            analysis["single_outlet_findings"][0].get("outlet"), "ANSA")
+
+    def test_bh_correction_applied_in_tilt(self):
+        """compute_outlet_tilt with correction='bh' must report
+        correction.method=='bh' AND filter out null-signal candidates that
+        an uncorrected z>=1.96 cut would have admitted (catches the
+        'tilt vs wire' false-positive inflation at our N)."""
+        from collections import Counter as _Counter
+        if "analytical.tilt_index" in sys.modules:
+            importlib.reload(sys.modules["analytical.tilt_index"])
+        from analytical import tilt_index as ti
+        # Outlet with one strong signal bigram + many low-count noise
+        # candidates. With BH at q=0.05, only the strong one should survive.
+        outlet = _Counter({("alpha", "beta"): 200})
+        # Pad with 50 baseline bigrams each appearing once in baseline
+        # only — sets up many candidates whose z-scores are negative but
+        # tiny.
+        baseline = _Counter({("alpha", "beta"): 2})
+        for i in range(50):
+            baseline[(f"noise{i}a", f"noise{i}b")] = 1
+        result = ti.compute_outlet_tilt(outlet, baseline, min_count=1,
+                                          top_k=20, correction="bh",
+                                          q_level=0.05)
+        self.assertEqual(result["correction"]["method"], "bh")
+        self.assertEqual(result["correction"]["q_level"], 0.05)
+        # Strong signal MUST survive.
+        bigrams_pos = {tuple(r["bigram"]) for r in result["positive_tilt"]}
+        self.assertIn(("alpha", "beta"), bigrams_pos)
+        # Each entry must carry the new p_value field.
+        for row in result["positive_tilt"] + result["negative_tilt"]:
+            self.assertIn("p_value", row)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

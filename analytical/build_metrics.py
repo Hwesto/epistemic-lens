@@ -90,16 +90,30 @@ def bucket_original_texts(corpus: list[dict]) -> dict[str, list[str]]:
 # ---------------------------------------------------------------------------
 def labse_pairwise_and_isolation(
     by_bucket: dict[str, list[str]],
-) -> tuple[list[dict], list[dict], dict]:
-    """Returns (pairs, isolation, status). status carries reason if skipped."""
+    min_tokens_per_bucket: int | None = None,
+    vocabs: dict[str, Counter] | None = None,
+) -> tuple[list[dict], list[dict], list[dict], dict]:
+    """Returns (pairs, isolation, isolation_excluded_thin, status).
+
+    Buckets with fewer than `min_tokens_per_bucket` tokens (default from
+    `meta.METRICS["isolation_min_tokens"]`, falling back to 30) are moved
+    into `isolation_excluded_thin` rather than `isolation`. The pairwise
+    matrix still includes them so similarity remains directionally available,
+    but consumers ranking "most isolated buckets" no longer surface a
+    10-token Italian headline alongside multi-thousand-token corpora.
+    `vocabs` carries the per-bucket token counts; passed in to avoid a
+    redundant tokenization pass.
+    """
+    if min_tokens_per_bucket is None:
+        min_tokens_per_bucket = int(meta.METRICS.get("isolation_min_tokens", 30))
     if len(by_bucket) < 2:
-        return [], [], {"skipped": True, "reason": "fewer than 2 buckets"}
+        return [], [], [], {"skipped": True, "reason": "fewer than 2 buckets"}
 
     try:
         from sentence_transformers import SentenceTransformer  # type: ignore
         import numpy as np  # type: ignore
     except ImportError:
-        return [], [], {"skipped": True, "reason": "sentence-transformers/numpy unavailable"}
+        return [], [], [], {"skipped": True, "reason": "sentence-transformers/numpy unavailable"}
 
     model_id = (
         meta.METRICS.get("primary_similarity_model")
@@ -108,7 +122,7 @@ def labse_pairwise_and_isolation(
     try:
         model = SentenceTransformer(model_id)
     except Exception as e:  # pragma: no cover - exercised by integration test
-        return [], [], {"skipped": True, "reason": f"model load failed: {e}"[:200]}
+        return [], [], [], {"skipped": True, "reason": f"model load failed: {e}"[:200]}
 
     buckets = sorted(by_bucket)
     bucket_vecs: list = []
@@ -116,7 +130,7 @@ def labse_pairwise_and_isolation(
         try:
             vecs = model.encode(by_bucket[b], batch_size=8, show_progress_bar=False)
         except Exception as e:  # pragma: no cover
-            return [], [], {"skipped": True, "reason": f"encode failed: {e}"[:200]}
+            return [], [], [], {"skipped": True, "reason": f"encode failed: {e}"[:200]}
         if hasattr(vecs, "mean"):
             mean = vecs.mean(axis=0)
         else:
@@ -137,18 +151,36 @@ def labse_pairwise_and_isolation(
             )
     pairs.sort(key=lambda r: -r["score"])
 
+    # Per-bucket token counts decide whether a bucket carries enough body
+    # text for its mean_similarity to be editorially meaningful. A bucket
+    # with 10 tokens (e.g. an Italian headline-only single-feed bucket)
+    # produces a real number but it's not the kind of "isolation" a reader
+    # should rank against thousand-token corpora.
+    token_counts = {b: int(sum((vocabs or {}).get(b, Counter()).values()))
+                    for b in buckets}
+
     isolation: list[dict] = []
+    isolation_excluded_thin: list[dict] = []
     for i, b in enumerate(buckets):
         others = [sim[i, j] for j in range(len(buckets)) if j != i]
-        if len(others) > 0:
-            isolation.append(
-                {
-                    "bucket": b,
-                    "mean_similarity": round(float(sum(others) / len(others)), 3),
-                }
-            )
+        if not others:
+            continue
+        entry = {
+            "bucket": b,
+            "mean_similarity": round(float(sum(others) / len(others)), 3),
+            "n_tokens": token_counts.get(b, 0),
+        }
+        if token_counts.get(b, 0) < min_tokens_per_bucket:
+            isolation_excluded_thin.append(entry)
+        else:
+            isolation.append(entry)
     isolation.sort(key=lambda r: r["mean_similarity"])
-    return pairs, isolation, {"skipped": False, "model": model_id}
+    isolation_excluded_thin.sort(key=lambda r: r["mean_similarity"])
+    return pairs, isolation, isolation_excluded_thin, {
+        "skipped": False,
+        "model": model_id,
+        "isolation_min_tokens": min_tokens_per_bucket,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -333,7 +365,9 @@ def build_metrics(briefing: dict) -> dict:
     by_bucket_orig = bucket_original_texts(corpus)
     buckets = sorted(vocabs)
 
-    pairs, isolation, labse_status = labse_pairwise_and_isolation(by_bucket_orig)
+    pairs, isolation, isolation_excluded_thin, labse_status = (
+        labse_pairwise_and_isolation(by_bucket_orig, vocabs=vocabs)
+    )
 
     excluded = sorted(
         b for b in {a.get("bucket", "") for a in corpus}
@@ -351,6 +385,7 @@ def build_metrics(briefing: dict) -> dict:
         "bucket_token_counts": bucket_sizes(vocabs),
         "pairwise_similarity": pairs,
         "isolation": isolation,
+        "isolation_excluded_thin": isolation_excluded_thin,
         "embedding_status": labse_status,
         "bucket_exclusive_vocab": bucket_exclusive_vocab(vocabs),
         "method": (
@@ -403,6 +438,32 @@ def briefings_for_date(date: str, dir_: Path = BRIEFINGS) -> list[Path]:
     )
 
 
+def augment_metrics_with_analysis(metrics_path: Path,
+                                    analysis_path: Path) -> dict | None:
+    """Read existing metrics JSON; compute weighted_frame_distribution from
+    the analysis JSON; write the merged block back. Returns the augmented
+    dict (or None when either input is missing).
+
+    Intended to run AFTER the analyze step has written the analysis JSON —
+    the metrics builder runs upstream of analysis (no frames yet), so
+    weighted_frame_distribution is necessarily a post-analyze augmentation.
+    Idempotent: re-running produces the same merged file.
+    """
+    if not (metrics_path.exists() and analysis_path.exists()):
+        return None
+    metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+    analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
+    wfd = weighted_frame_distribution(analysis)
+    if not wfd.get("frames"):
+        return metrics
+    metrics["weighted_frame_distribution"] = wfd
+    metrics_path.write_text(
+        json.dumps(meta.stamp(metrics), indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    return metrics
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(
@@ -417,6 +478,15 @@ def main():
         help="Date in YYYY-MM-DD. Default: today UTC.",
     )
     ap.add_argument("--out-dir", type=Path, default=BRIEFINGS)
+    ap.add_argument(
+        "--augment-from-analysis",
+        action="store_true",
+        help="Post-analyze mode: re-read existing _metrics.json plus the "
+             "matching analyses/<date>_<story>.json and merge in the "
+             "weighted_frame_distribution block. weighted_frame_distribution "
+             "requires the analysis output (frame buckets) which doesn't "
+             "exist yet at the upstream metrics-build time. Idempotent.",
+    )
     args = ap.parse_args()
 
     targets: list[Path]
@@ -428,6 +498,24 @@ def main():
         if not targets:
             print(f"No briefings found for {date}")
             return
+
+    if args.augment_from_analysis:
+        analyses_dir = ROOT / "analyses"
+        n_augmented = 0
+        for briefing_path in targets:
+            metrics_path = metrics_path_for(briefing_path)
+            analysis_path = analyses_dir / briefing_path.name
+            result = augment_metrics_with_analysis(metrics_path, analysis_path)
+            if result is None:
+                continue
+            wfd = result.get("weighted_frame_distribution") or {}
+            n_frames = len((wfd.get("frames") or {}))
+            if n_frames:
+                n_augmented += 1
+                print(f"  + {metrics_path.name:<48} "
+                      f"weighted_frame_distribution: {n_frames} frames")
+        print(f"\n{n_augmented} metrics file(s) augmented with weighted_frame_distribution.")
+        return
 
     for t in targets:
         process_one(t)

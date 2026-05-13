@@ -24,6 +24,7 @@ from pathlib import Path
 
 from meta import REPO_ROOT as ROOT
 from analytical.build_metrics import weighted_frame_distribution
+from analytical.coverage_warnings import coverage_warnings_for
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 
@@ -306,6 +307,30 @@ def render(a: dict) -> str:
         out.append("")
         for s in a["silences"]:
             out.append(f"- **`{s['bucket']}`** — {s['what_they_covered_instead']}")
+        out.append("")
+
+    # Coverage caveats — structural silence (buckets that had zero items
+    # today because every feed in them failed). The analyze pass is
+    # instructed to NOT include these in silences[] (those are editorial
+    # choices). Renders below the silences section so readers see both.
+    # Sourced first from the analysis JSON's own `coverage_caveats`
+    # field (the prompt copies them verbatim from the briefing) and
+    # falls back to re-reading the health snapshot when the analysis
+    # was generated pre-meta-v8.8.0 and lacks the field.
+    caveats = a.get("coverage_caveats") or coverage_warnings_for(a.get("date", ""))
+    if caveats:
+        out.append("## Coverage caveats")
+        out.append("")
+        out.append(
+            "Buckets below carried zero items today because every feed "
+            "in them failed (403, timeout, or empty response). Their "
+            "absence from this analysis is structural, not editorial — "
+            "they did not choose not to cover the story, they could not "
+            "be reached."
+        )
+        out.append("")
+        for c in caveats:
+            out.append(f"- **`{c['bucket']}`** — {c.get('reason', 'feed failure')}")
         out.append("")
 
     # Single-outlet findings

@@ -254,6 +254,12 @@ Since the start of the current conflict, more than 20,500 Ukrainian children hav
 - **`france`** — No dedicated French bucket. France is an active EU party in Ukraine peace discussions and one of Ukraine's major military backers, but French coverage is absent from this corpus.
 - **`china`** — China has no articles in this corpus despite its deep involvement in Russia-Ukraine diplomacy; the China bucket appears in Hormuz coverage instead on this date.
 
+## Coverage caveats
+
+Buckets below carried zero items today because every feed in them failed (403, timeout, or empty response). Their absence from this analysis is structural, not editorial — they did not choose not to cover the story, they could not be reached.
+
+- **`saudi_arabia`** — bucket carried 0 items today (rolling 7-day avg 6.7). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial.
+
 ## Single-outlet findings
 
 1. **Globe and Mail** (`canada`): Immersive account of NATO wargames in Latvia with Sgt. Cody Baltzer — shows how Ukraine's drone doctrine is being actively institutionalised across NATO before any great-power engagement. (corpus[0])

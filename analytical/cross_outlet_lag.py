@@ -32,6 +32,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import meta
+from analytical.mc_correction import bh_filter, bonferroni_filter, pearson_r_to_p
 
 ROOT = meta.REPO_ROOT
 COVERAGE_DIR = ROOT / "coverage"
@@ -122,15 +123,27 @@ def pearson_at_lag(a: list[int], b: list[int], lag: int) -> float | None:
 def compute_ccf(a_series: dict[str, int], b_series: dict[str, int],
                  dates: list[str], max_lag: int = 7) -> dict:
     """Compute CCF over lags -max_lag..max_lag. Returns per-lag correlations
-    and the peak lag (most positive correlation)."""
+    and the peak lag (most positive correlation).
+
+    Each lag also carries a two-sided Pearson p-value (t-distribution
+    approximation, df = n-2). Family-wise correction across the (pair,
+    story, lag) hypothesis space is applied in `apply_correction()` at
+    the top of main(), not here — this function emits raw correlations
+    + uncorrected p-values, the orchestrator decides BH vs Bonferroni.
+    """
     a_vec = [a_series.get(d, 0) for d in dates]
     b_vec = [b_series.get(d, 0) for d in dates]
     # Skip degenerate series
     if sum(a_vec) == 0 or sum(b_vec) == 0:
         return {"skipped": True, "reason": "zero_variance"}
     correlations: dict[int, float | None] = {}
+    p_values: dict[int, float | None] = {}
     for lag in range(-max_lag, max_lag + 1):
-        correlations[lag] = pearson_at_lag(a_vec, b_vec, lag)
+        r = pearson_at_lag(a_vec, b_vec, lag)
+        correlations[lag] = r
+        # Effective n is the paired-sample count at that lag.
+        n_paired = max(0, len(a_vec) - abs(lag))
+        p_values[lag] = pearson_r_to_p(r, n_paired) if r is not None else None
     valid = {k: v for k, v in correlations.items() if v is not None}
     if not valid:
         return {"skipped": True, "reason": "all_lags_undefined"}
@@ -142,9 +155,57 @@ def compute_ccf(a_series: dict[str, int], b_series: dict[str, int],
         "n_b_covered": sum(b_vec),
         "correlations": {str(k): (round(v, 3) if v is not None else None)
                          for k, v in correlations.items()},
+        "p_values": {str(k): (round(v, 6) if v is not None else None)
+                       for k, v in p_values.items()},
         "peak_lag": peak_lag,
         "peak_correlation": round(peak_corr, 3),
+        "peak_p_value": (round(p_values[peak_lag], 6)
+                           if p_values.get(peak_lag) is not None else None),
     }
+
+
+def apply_correction_to_pairs(pair_records: list[dict],
+                                correction: str = "bh",
+                                q_level: float = 0.05) -> dict:
+    """Apply BH/Bonferroni across every (pair, story, lag) hypothesis.
+
+    Mutates pair_records in place: each lag entry's `p_values[str(lag)]`
+    is checked against the family-wide threshold, and a parallel
+    `significant_lags[str(lag)]` boolean dict is stamped per story.
+    Each story also gets `peak_significant: bool`.
+
+    Returns a summary dict for top-level stamping.
+    """
+    flat_ps: list[float] = []
+    locator: list[tuple[int, str, str]] = []
+    for pi, rec in enumerate(pair_records):
+        for story_key, story in rec.get("by_story", {}).items():
+            for lag, p in (story.get("p_values") or {}).items():
+                if p is None:
+                    continue
+                flat_ps.append(p)
+                locator.append((pi, story_key, lag))
+    if correction == "bh":
+        survives, info = bh_filter(flat_ps, q=q_level)
+    elif correction == "bonferroni":
+        survives, info = bonferroni_filter(flat_ps, alpha=q_level)
+    else:  # "none"
+        survives = [True] * len(flat_ps)
+        info = {"correction": "none", "n_comparisons": len(flat_ps),
+                "n_significant": len(flat_ps), "effective_p_critical": None}
+    for ok, (pi, story_key, lag) in zip(survives, locator):
+        story = pair_records[pi]["by_story"][story_key]
+        story.setdefault("significant_lags", {})[lag] = bool(ok)
+    # Stamp peak_significant on each (pair, story).
+    for rec in pair_records:
+        for story in rec.get("by_story", {}).values():
+            peak_lag = story.get("peak_lag")
+            if peak_lag is None:
+                story["peak_significant"] = False
+                continue
+            sig_map = story.get("significant_lags") or {}
+            story["peak_significant"] = bool(sig_map.get(str(peak_lag), False))
+    return info
 
 
 def main() -> int:
@@ -160,6 +221,20 @@ def main() -> int:
     ap.add_argument("--pairs", default=None,
                     help="Comma-separated label substrings to filter pairs.")
     ap.add_argument("--out-dir", default=str(LAG_DIR))
+    ap.add_argument(
+        "--correction",
+        choices=("bh", "bonferroni", "none"),
+        default="bh",
+        help="Multiple-comparison correction across the (pair, story, "
+             "lag) hypothesis family. Default 'bh' (Benjamini-Hochberg "
+             "FDR). At our N (pairs × stories × lags ≈ low thousands), "
+             "Bonferroni's effective alpha is so small that almost no "
+             "lag survives, making the dashboard meaningless.",
+    )
+    ap.add_argument(
+        "--q-level", type=float, default=0.05,
+        help="FDR level for BH (or alpha for Bonferroni). Default 0.05.",
+    )
     args = ap.parse_args()
 
     history = load_coverage_history(window_days=args.window_days,
@@ -179,11 +254,11 @@ def main() -> int:
 
     pair_filter = (args.pairs.split(",") if args.pairs else None)
 
-    n_written = 0
+    # Phase 1: build per-pair records without correction.
+    pair_records: list[dict] = []
     for label, a_bucket, b_bucket, comment in CURATED_PAIRS:
         if pair_filter and not any(f in label for f in pair_filter):
             continue
-        # Per-story CCF aggregated
         per_story: dict[str, dict] = {}
         for story_key in (set(series.get(a_bucket, {}).keys())
                           & set(series.get(b_bucket, {}).keys())):
@@ -192,7 +267,7 @@ def main() -> int:
             r = compute_ccf(a_s, b_s, dates_sorted, max_lag=args.max_lag)
             if not r.get("skipped"):
                 per_story[story_key] = r
-        out = meta.stamp({
+        pair_records.append({
             "pair_label": label,
             "bucket_a": a_bucket,
             "bucket_b": b_bucket,
@@ -203,13 +278,38 @@ def main() -> int:
             "n_stories_in_common": len(per_story),
             "by_story": per_story,
         })
-        out_path = out_dir / f"{a_bucket}__{b_bucket}.json"
+
+    # Phase 2: apply BH (or Bonferroni) across the whole (pair, story,
+    # lag) hypothesis family. Mutates pair_records to stamp
+    # significant_lags + peak_significant.
+    correction_info = apply_correction_to_pairs(
+        pair_records, correction=args.correction, q_level=args.q_level
+    )
+
+    n_written = 0
+    for rec in pair_records:
+        out = meta.stamp({
+            **rec,
+            "correction": {
+                "method": args.correction,
+                "q_level": args.q_level,
+                **correction_info,
+            },
+        })
+        out_path = out_dir / f"{rec['bucket_a']}__{rec['bucket_b']}.json"
         out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n",
                             encoding="utf-8")
         n_written += 1
-        print(f"  ✓ {label:35s} stories_in_common={len(per_story)}")
+        peak_sig_count = sum(
+            1 for s in rec["by_story"].values() if s.get("peak_significant")
+        )
+        print(f"  ✓ {rec['pair_label']:35s} "
+              f"stories={len(rec['by_story'])} peak_sig={peak_sig_count}")
 
     print(f"\nwrote {n_written} CCF artefacts to {out_dir}")
+    print(f"correction={args.correction} q={args.q_level} "
+          f"n_hypotheses={correction_info.get('n_comparisons', 0)} "
+          f"n_significant={correction_info.get('n_significant', 0)}")
     return 0
 
 

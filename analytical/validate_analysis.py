@@ -32,6 +32,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import meta
 from meta import REPO_ROOT as ROOT
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
@@ -80,6 +81,54 @@ def check_schema(analysis: dict) -> list[str]:
     return errors
 
 
+def _outlet_of(corpus_entry: dict | None) -> str | None:
+    """Return the outlet (`feed`) name for a corpus entry, or None."""
+    if not corpus_entry:
+        return None
+    feed = corpus_entry.get("feed")
+    return feed if (feed and feed != "?") else None
+
+
+WIRE_SYNDICATION_JACCARD = 0.6
+
+
+def check_wire_syndication(analysis: dict, briefing: dict) -> list[str]:
+    """Flag paradoxes where both quotes are wire-syndicated copy.
+
+    If `paradox.a.signal_text` and `paradox.b.signal_text` share Jaccard ≥
+    `WIRE_SYNDICATION_JACCARD` over the pinned tokeniser's tokens, the
+    "opposing-bloc convergence" the paradox claims is actually two outlets
+    publishing the same Reuters / AFP / AP wire copy verbatim. That's not
+    a paradox — that's syndication. Caught the Virgin Mary RT↔SCMP case on
+    May 12.
+    """
+    p = analysis.get("paradox") or {}
+    corpus = briefing.get("corpus") or []
+    if not p or "a" not in p or "b" not in p:
+        return []
+    idx_a = p.get("a", {}).get("signal_text_idx")
+    idx_b = p.get("b", {}).get("signal_text_idx")
+    if not (isinstance(idx_a, int) and isinstance(idx_b, int)):
+        return []
+    if not (0 <= idx_a < len(corpus) and 0 <= idx_b < len(corpus)):
+        return []
+    text_a = corpus[idx_a].get("signal_text") or ""
+    text_b = corpus[idx_b].get("signal_text") or ""
+    tokens_a = set(meta.tokenize(text_a))
+    tokens_b = set(meta.tokenize(text_b))
+    if not tokens_a or not tokens_b:
+        return []
+    overlap = len(tokens_a & tokens_b) / max(1, len(tokens_a | tokens_b))
+    if overlap < WIRE_SYNDICATION_JACCARD:
+        return []
+    return [
+        f"paradox: wire-syndicated copy (jaccard={overlap:.2f} >= "
+        f"{WIRE_SYNDICATION_JACCARD:.2f}). The opposing-bloc 'convergence' "
+        f"is two outlets republishing the same wire dispatch verbatim, "
+        f"not a genuine paradox."
+    ]
+
+
 def _collect_signal_text_idxs(analysis: dict) -> list[tuple[str, int]]:
     """Yield (where, idx) pairs for every signal_text_idx in the analysis."""
     out: list[tuple[str, int]] = []
@@ -99,7 +148,14 @@ def _collect_signal_text_idxs(analysis: dict) -> list[tuple[str, int]]:
 
 
 def check_citations(analysis: dict, briefing: dict) -> list[str]:
-    """Verify every signal_text_idx resolves AND quote substring matches."""
+    """Verify every signal_text_idx resolves AND quote substring matches.
+
+    Side effect: when an `outlet` field is missing or '?' on an evidence /
+    single_outlet_finding entry whose `signal_text_idx` points at a real
+    corpus row, this fills it from `corpus[idx].feed` in-place. Catches the
+    pre-meta-v7.4 pattern where the agent left outlet blank and downstream
+    consumers rendered '?' to readers.
+    """
     errors: list[str] = []
     corpus = briefing.get("corpus", [])
     n = len(corpus)
@@ -119,6 +175,10 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
                 )
                 continue
             entry = corpus[idx]
+            if not (ev.get("outlet") and ev["outlet"] != "?"):
+                auto = _outlet_of(entry)
+                if auto:
+                    ev["outlet"] = auto
             if ev.get("bucket") and entry.get("bucket") != ev["bucket"]:
                 errors.append(
                     f"citation: frames[{fi}].evidence[{ei}] claims bucket "
@@ -148,6 +208,10 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
                 )
                 continue
             entry = corpus[idx]
+            if not (s.get("outlet") and s["outlet"] != "?"):
+                auto = _outlet_of(entry)
+                if auto:
+                    s["outlet"] = auto
             if s.get("bucket") and entry.get("bucket") != s["bucket"]:
                 errors.append(
                     f"citation: paradox.{side} claims bucket "
@@ -173,6 +237,10 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
             )
             continue
         entry = corpus[idx]
+        if not (s.get("outlet") and s["outlet"] != "?"):
+            auto = _outlet_of(entry)
+            if auto:
+                s["outlet"] = auto
         if s.get("bucket") and entry.get("bucket") != s["bucket"]:
             errors.append(
                 f"citation: single_outlet_findings[{si}] claims bucket "
@@ -298,6 +366,7 @@ def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
     errs: list[str] = []
     errs.extend(check_codebook(analysis))
     errs.extend(check_citations(analysis, briefing))
+    errs.extend(check_wire_syndication(analysis, briefing))
     errs.extend(check_numbers(analysis, metrics))
     return (1 if errs else 0), errs
 
