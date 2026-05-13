@@ -32,3 +32,8 @@ video_template/public/voices/kokoro-*.onnx
 
 # Per-render voiceover WAVs — regen on demand
 video_template/public/voiceovers/
+
+# Calibration embedding cache (PR2 Phase A) — npy files regenerated
+# on demand by calibration/benchmark_models.py. The eval set, silver
+# labels, and report are committed; the model encodings are not.
+calibration/_embedding_cache/

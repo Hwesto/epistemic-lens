@@ -1,0 +1,95 @@
+{
+  "_doc": "Embedding anchors per canonical story. Each anchor is a 1-2 sentence English description of one angle of the story; encoding these and taking the mean gives a story centroid against which articles are scored (cosine), with softmax-argmax across the 15 story set assigning each article to its strongest story (PR2 Phase B). Drafted by Opus during PR2 Phase A calibration; per-language anchors will be added in Phase A.2 if cross-lingual cosine drift exceeds 0.10. NOT yet wired into canonical_stories.json — that swap is Phase B, gated on Phase A's benchmark verdict.",
+  "anchors": {
+    "hormuz_iran": [
+      "The Strait of Hormuz is a chokepoint for global oil shipping between Iran and the Arabian Peninsula; tensions over a possible US-Iran deal raise concerns about tanker traffic and energy prices.",
+      "Iran has signalled willingness to negotiate a new nuclear and sanctions deal with the United States, with discussions covering the strait, sanctions relief, and regional security.",
+      "Tehran's military exercises near the strait, including episodes labeled Project Freedom and Epic Fury, have prompted responses from Washington and Gulf states.",
+      "A US-Iran one-page memo or framework reportedly under discussion would address the strait, oil export levels, and prisoner exchanges."
+    ],
+    "turner_cnn": [
+      "Ted Turner, the founder of CNN, has died; his career building the first 24-hour cable news network reshaped broadcast journalism.",
+      "Obituaries for the CNN founder cover his media empire, philanthropy via the UN Foundation, and his ranching and environmental conservation work.",
+      "Coverage of Turner's death revisits his founding of TBS and CNN, his marriage to Jane Fonda, and his rivalry with rival media moguls.",
+      "Reactions from CNN staff and competitors mark the passing of a defining figure in 20th-century American television news."
+    ],
+    "lebanon_buffer": [
+      "Israel maintains a military buffer zone in southern Lebanon and conducts strikes on Hezbollah positions south of the Litani River.",
+      "Hezbollah and the IDF exchange fire along the Lebanese-Israeli border; ceasefire violations and Israeli incursions continue despite the November 2024 truce.",
+      "Lebanese officials and UNIFIL have condemned Israeli operations in southern Lebanon as violations of sovereignty and the cessation-of-hostilities agreement.",
+      "Civilians in southern Lebanese villages remain displaced as Israeli forces hold buffer-zone positions and target what they describe as Hezbollah infrastructure."
+    ],
+    "hantavirus_cruise": [
+      "A hantavirus outbreak aboard the cruise ship MV Hondius has sickened passengers and crew; the vessel has been quarantined while health authorities investigate.",
+      "Health officials are tracing the source of a virus outbreak on a cruise ship, with passengers placed under medical observation and disembarkation procedures coordinated.",
+      "The MV Hondius hantavirus cluster is the largest cruise-ship rodent-borne illness incident in recent years; CDC and port health officials are involved.",
+      "Cruise-industry analysts examine whether existing sanitation and pest-control protocols failed aboard the MV Hondius after passengers reported respiratory symptoms."
+    ],
+    "vietnam_china_visit": [
+      "Vietnamese Communist Party leader To Lam is visiting Beijing for talks with Xi Jinping on trade, the South China Sea, and bilateral party-to-party relations.",
+      "To Lam's visit to China marks his first major trip to Beijing since assuming the general secretary role; the agenda spans economic cooperation and political alignment.",
+      "Hanoi-Beijing summit-level talks during the To Lam visit address rail connectivity, supply chains, and South China Sea maritime issues.",
+      "Vietnamese-Chinese bilateral statements following To Lam's Beijing trip emphasise comradely socialist relations and rebut Western criticism of regional behaviour."
+    ],
+    "iran_nuclear": [
+      "Iran's nuclear program, including uranium enrichment at Fordow and Natanz, is under IAEA inspection and the subject of new diplomatic talks.",
+      "IAEA inspectors report on the level of uranium enrichment at Iranian facilities; the JCPOA framework remains a reference point for negotiations.",
+      "Iran's nuclear archive, centrifuge capacity, and breakout timelines feature in Western intelligence assessments and policy debate.",
+      "Iranian officials defend the country's right to civilian nuclear technology while Western powers raise concerns about weapons-grade enrichment."
+    ],
+    "ukraine_war": [
+      "Russia and Ukraine continue heavy fighting along the eastern front; Russian drone and missile strikes hit Ukrainian energy infrastructure while Ukrainian forces target Russian positions in Kursk and Donbas.",
+      "President Zelensky has called for continued Western military aid and sanctions on Moscow; NATO partners debate the pace of weapon deliveries.",
+      "The Kremlin's military objectives in Ukraine, including pressure on Pokrovsk and the eastern Donetsk axis, are met by Ukrainian counter-strikes deep into Russian territory.",
+      "Drone warfare, civilian casualties, and infrastructure damage on both sides of the front line shape daily war coverage."
+    ],
+    "china_taiwan": [
+      "Chinese military activity around the Taiwan Strait, including PLA Navy and Air Force incursions, raises tensions with Taipei and Washington.",
+      "Taiwan's president Lai Ching-te faces Beijing's pressure campaign over sovereignty claims; Taiwanese defense ministry reports daily PLA crossings of the median line.",
+      "US policy on the one-China framework, Taiwan arms sales, and unofficial diplomatic exchanges remains a flashpoint in US-China relations.",
+      "Chinese state media frames Taiwan as an internal affair while Taiwanese politicians warn of Chinese coercion and economic decoupling pressure."
+    ],
+    "climate_policy": [
+      "International climate negotiations at the latest COP summit address emissions targets, climate finance, and a possible new fossil-fuel transition framework.",
+      "Governments debate net-zero pledges, carbon-market design, and Paris Agreement implementation; developing-country negotiators push for loss-and-damage funding.",
+      "Climate-policy disputes between major emitters cover carbon taxes, emissions trading, and adaptation finance for vulnerable states.",
+      "Annual climate-summit communiqués, draft texts on phase-down language, and disputes over fossil-fuel subsidies dominate the negotiations."
+    ],
+    "ai_regulation": [
+      "The EU AI Act and parallel US legislative efforts shape how artificial intelligence is regulated, including provisions on transparency, foundation models, and high-risk use cases.",
+      "Governments and regulators debate AI safety policy, deepfake election laws, and oversight of large AI labs amid concerns about misuse and concentration.",
+      "OpenAI, Anthropic, and other AI companies face lawsuits, FTC investigations, and content-moderation policy fights over training data and model behaviour.",
+      "AI-governance proposals span national-security export controls, watermarking requirements for generated media, and mandatory model evaluations."
+    ],
+    "israel_palestine": [
+      "Israeli military operations in Gaza and the West Bank continue alongside ceasefire negotiations and humanitarian-aid disputes; Hamas, the IDF, and the Palestinian Authority remain principal actors.",
+      "Civilian casualties, hostage-release talks, and the question of post-war Gaza governance dominate the coverage of the Israel-Palestine conflict.",
+      "Prime Minister Netanyahu's coalition debates the trajectory of military operations in Gaza and West Bank settlement policy.",
+      "International mediators including Qatar, Egypt, and the US continue ceasefire shuttle diplomacy between Israel and Hamas."
+    ],
+    "india_pakistan": [
+      "Tensions between India and Pakistan along the Line of Control in Kashmir continue, with diplomatic exchanges between New Delhi and Islamabad and disputes over cross-border militancy.",
+      "Indian and Pakistani officials trade accusations over Kashmir, water-sharing disputes, and cross-border infiltration; bilateral summits remain rare.",
+      "Kashmir remains the central territorial dispute between India and Pakistan; both armies maintain heavy deployments along the LoC.",
+      "Diplomatic correspondence between Delhi and Islamabad addresses visa policies, trade restrictions, and trans-border religious-pilgrimage protocols."
+    ],
+    "us_election_cycle": [
+      "The 2028 US presidential election cycle is taking shape, with potential Republican and Democratic primary candidates positioning ahead of Iowa and New Hampshire.",
+      "Speculation around 2028 candidates including Trump-aligned successors, Harris-aligned Democrats, Newsom, DeSantis, and Vance dominates US political reporting.",
+      "Primary debate calendars, fundraising filings, and PAC formations frame early-cycle 2028 election coverage.",
+      "Polling on a hypothetical 2028 race, voter-registration trends, and state-level redistricting shape early electoral coverage."
+    ],
+    "eu_expansion": [
+      "European Union accession negotiations with Ukraine, Moldova, Albania, Montenegro, Serbia, Kosovo, Bosnia, North Macedonia, and Georgia continue with mixed progress at the level of the European Commission.",
+      "Brussels' enlargement strategy, candidate-country chapter openings, and Western Balkans summit diplomacy shape EU expansion coverage.",
+      "Accession criteria including rule-of-law reforms and judicial reforms in candidate states feature in European Commission assessments.",
+      "EU member-state debates on the speed of enlargement and the absorption capacity of the union frame the political timetable for accession."
+    ],
+    "africa_political_transitions": [
+      "Africa's recent wave of military coups in Niger, Mali, Burkina Faso, Gabon, Guinea, and Sudan continues to reshape regional politics; ECOWAS sanctions and African Union mediation remain factors.",
+      "African Union and ECOWAS responses to coups in the Sahel, including sanctions, mediation, and suspended-membership decisions, frame regional diplomacy.",
+      "Elections, transitions, and protests in Kenya, Ethiopia, Senegal, Nigeria, and South Africa carry continent-wide political implications.",
+      "Junta governments in West African states negotiate withdrawal from ECOWAS and pivot foreign policy toward Russia and away from former French ties."
+    ]
+  }
+}
