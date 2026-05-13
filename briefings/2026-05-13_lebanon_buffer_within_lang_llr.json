@@ -1,0 +1,160 @@
+{
+  "date": "2026-05-13",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "by_bucket": {
+    "egypt": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 893,
+      "distinctive_terms": [
+        {
+          "term": "villag",
+          "count_in_bucket": 5,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.07353,
+          "rate_in_cohort": 0.00112,
+          "llr": 21.565,
+          "log_ratio": 4.185,
+          "p_value": 3e-06
+        }
+      ]
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 930,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 930,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 64,
+      "n_tokens_in_cohort": 897,
+      "distinctive_terms": [
+        {
+          "term": "hell",
+          "count_in_bucket": 6,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.09375,
+          "rate_in_cohort": 0.00111,
+          "llr": 27.436,
+          "log_ratio": 4.432,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 93,
+      "n_tokens_in_cohort": 868,
+      "distinctive_terms": []
+    },
+    "opinion_magazines": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 936,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 34,
+      "n_tokens_in_cohort": 927,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 111,
+      "n_tokens_in_cohort": 850,
+      "distinctive_terms": [
+        {
+          "term": "israeli",
+          "count_in_bucket": 12,
+          "count_in_cohort": 21,
+          "rate_in_bucket": 0.10811,
+          "rate_in_cohort": 0.02471,
+          "llr": 14.419,
+          "log_ratio": 1.476,
+          "p_value": 0.000146
+        }
+      ]
+    },
+    "religious_press": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 938,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 38,
+      "n_tokens_in_cohort": 923,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 38,
+      "n_tokens_in_cohort": 923,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 56,
+      "n_tokens_in_cohort": 905,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 59,
+      "n_tokens_in_cohort": 902,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 940,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 214,
+      "n_tokens_in_cohort": 747,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 16,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 906,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}
