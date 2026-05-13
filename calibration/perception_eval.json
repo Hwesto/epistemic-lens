@@ -1,0 +1,219 @@
+{
+  "generated_at": "2026-05-13T15:40:24Z",
+  "eval_set_n": 343,
+  "models_benchmarked": [
+    "LaBSE",
+    "e5-large",
+    "bge-m3"
+  ],
+  "winner": "bge-m3",
+  "gate_status": "FAIL (no model meets gate; closest selected)",
+  "model_summaries": {
+    "LaBSE": {
+      "best_floor": "0.40",
+      "best_macro_f1": 0.58,
+      "gate": {
+        "passes": false,
+        "reasons": [
+          "macro_f1 0.580 < 0.8",
+          "per-lang F1 below gate: en=0.64, fa=0.50, ar=0.57"
+        ]
+      },
+      "cross_lingual_drift_max": 0.1968
+    },
+    "e5-large": {
+      "best_floor": "0.40",
+      "best_macro_f1": 0.764,
+      "gate": {
+        "passes": false,
+        "reasons": [
+          "macro_f1 0.764 < 0.8",
+          "per-lang F1 below gate: fa=0.53"
+        ]
+      },
+      "cross_lingual_drift_max": 0.086
+    },
+    "bge-m3": {
+      "best_floor": "0.45",
+      "best_macro_f1": 0.784,
+      "gate": {
+        "passes": false,
+        "reasons": [
+          "macro_f1 0.784 < 0.8",
+          "per-lang F1 below gate: fa=0.63"
+        ]
+      },
+      "cross_lingual_drift_max": 0.1429
+    }
+  },
+  "winning_model": {
+    "name": "bge-m3",
+    "model_id": "BAAI/bge-m3",
+    "assignment_floor_default": 0.45,
+    "macro_f1": 0.784,
+    "per_story_threshold": {
+      "hormuz_iran": {
+        "assignment_floor": 0.45,
+        "precision": 0.842,
+        "recall": 1.0,
+        "f1": 0.914
+      },
+      "turner_cnn": {
+        "assignment_floor": 0.45,
+        "precision": 0.875,
+        "recall": 1.0,
+        "f1": 0.933
+      },
+      "lebanon_buffer": {
+        "assignment_floor": 0.45,
+        "precision": 1.0,
+        "recall": 0.857,
+        "f1": 0.923
+      },
+      "hantavirus_cruise": {
+        "assignment_floor": 0.45,
+        "precision": 0.882,
+        "recall": 1.0,
+        "f1": 0.938
+      },
+      "vietnam_china_visit": {
+        "assignment_floor": 0.45,
+        "precision": 0.111,
+        "recall": 1.0,
+        "f1": 0.2
+      },
+      "iran_nuclear": {
+        "assignment_floor": 0.45,
+        "precision": 0.846,
+        "recall": 0.579,
+        "f1": 0.688
+      },
+      "ukraine_war": {
+        "assignment_floor": 0.45,
+        "precision": 0.909,
+        "recall": 0.833,
+        "f1": 0.87
+      },
+      "china_taiwan": {
+        "assignment_floor": 0.45,
+        "precision": 1.0,
+        "recall": 0.667,
+        "f1": 0.8
+      },
+      "climate_policy": {
+        "assignment_floor": 0.45,
+        "precision": 0.778,
+        "recall": 1.0,
+        "f1": 0.875
+      },
+      "ai_regulation": {
+        "assignment_floor": 0.45,
+        "precision": 0.692,
+        "recall": 1.0,
+        "f1": 0.818
+      },
+      "israel_palestine": {
+        "assignment_floor": 0.45,
+        "precision": 1.0,
+        "recall": 0.824,
+        "f1": 0.903
+      },
+      "india_pakistan": {
+        "assignment_floor": 0.45,
+        "precision": 0.571,
+        "recall": 0.571,
+        "f1": 0.571
+      },
+      "us_election_cycle": {
+        "assignment_floor": 0.45,
+        "precision": 0.667,
+        "recall": 0.889,
+        "f1": 0.762
+      },
+      "eu_expansion": {
+        "assignment_floor": 0.45,
+        "precision": 0.7,
+        "recall": 0.636,
+        "f1": 0.667
+      },
+      "africa_political_transitions": {
+        "assignment_floor": 0.45,
+        "precision": 1.0,
+        "recall": 0.818,
+        "f1": 0.9
+      }
+    },
+    "cross_lingual_drift": {
+      "hormuz_iran": {
+        "n_latin": 14,
+        "n_non_latin": 2,
+        "mean_latin": 0.65,
+        "mean_non_latin": 0.5071,
+        "drift": 0.1429
+      },
+      "turner_cnn": {
+        "n_latin": 6,
+        "n_non_latin": 1,
+        "mean_latin": 0.7231,
+        "mean_non_latin": 0.6704,
+        "drift": 0.0527
+      },
+      "lebanon_buffer": {
+        "n_latin": 13,
+        "n_non_latin": 8,
+        "mean_latin": 0.6528,
+        "mean_non_latin": 0.5807,
+        "drift": 0.0721
+      },
+      "hantavirus_cruise": {
+        "n_latin": 8,
+        "n_non_latin": 7,
+        "mean_latin": 0.6449,
+        "mean_non_latin": 0.6255,
+        "drift": 0.0194
+      },
+      "iran_nuclear": {
+        "n_latin": 15,
+        "n_non_latin": 4,
+        "mean_latin": 0.6286,
+        "mean_non_latin": 0.5343,
+        "drift": 0.0943
+      },
+      "ukraine_war": {
+        "n_latin": 15,
+        "n_non_latin": 9,
+        "mean_latin": 0.6042,
+        "mean_non_latin": 0.4907,
+        "drift": 0.1135
+      },
+      "china_taiwan": {
+        "n_latin": 11,
+        "n_non_latin": 4,
+        "mean_latin": 0.6017,
+        "mean_non_latin": 0.5326,
+        "drift": 0.0691
+      },
+      "ai_regulation": {
+        "n_latin": 8,
+        "n_non_latin": 1,
+        "mean_latin": 0.6212,
+        "mean_non_latin": 0.4793,
+        "drift": 0.1419
+      },
+      "israel_palestine": {
+        "n_latin": 10,
+        "n_non_latin": 7,
+        "mean_latin": 0.5791,
+        "mean_non_latin": 0.5374,
+        "drift": 0.0417
+      },
+      "africa_political_transitions": {
+        "n_latin": 9,
+        "n_non_latin": 2,
+        "mean_latin": 0.5438,
+        "mean_non_latin": 0.4521,
+        "drift": 0.0917
+      }
+    }
+  }
+}
