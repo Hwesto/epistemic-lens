@@ -1,8 +1,18 @@
 # Epistemic Lens
 
-**Daily, automated, source-transparent cross-country news framing analysis.**
+**Daily framing comparison across RSS-discoverable mainstream international press.**
 
-> Pull RSS from **235 outlets across 54 country/region buckets** (16+ languages, 6 continents) → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (LaBSE cosine, divergence, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
+> Pull RSS from **235 outlets across 54 country/region buckets** → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (LaBSE cosine, divergence, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
+
+**Scope and caveats.** This is RSS-discoverable mainstream press, not "what
+the populace sees." Social platforms, video, podcasts, newsletters, and
+local-TV broadcasts — which carry the majority of news consumption in
+most countries — are out of scope. Outlet selection is biased toward
+English-medium availability and persistent feeds; outlets behind paywalls
+or anti-scraping defences (e.g. Cloudflare 403s) drop out silently.
+Non-Latin-script articles currently underflow the canonical-story matcher
+(meta-v8.8.0 PR1 caveat; PR2 addresses with embedding-based matching).
+Per-day live coverage stats land in `snapshots/<date>_health.json`.
 
 **Live front door:** [hwesto.github.io/epistemic-lens](https://hwesto.github.io/epistemic-lens/)
 

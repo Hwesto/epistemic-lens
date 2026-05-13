@@ -23,6 +23,7 @@ from datetime import datetime
 from pathlib import Path
 
 import meta
+from analytical.coverage_warnings import coverage_warnings_for
 from pipeline.extract_full_text import signal_text
 
 ROOT = meta.REPO_ROOT
@@ -117,6 +118,10 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
     # canonical_stories pin so longitudinal aggregator can detect drift
     # in either dimension across days.
     bucket_feed_set_hashes = meta.bucket_feed_set_hashes(list(by_bucket.keys()))
+    # Coverage caveats: buckets that had ZERO items today because every
+    # feed in them failed. The analyze prompt is instructed to treat
+    # these as structural silence (not editorial choice).
+    caveats = coverage_warnings_for(snap.get("date") or "")
     return meta.stamp({
         "date": snap.get("date"),
         "story_key": story_key,
@@ -127,6 +132,7 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
         "corpus": corpus,
         "bucket_feed_set_hashes": bucket_feed_set_hashes,
         "canonical_stories_hash": meta.META.get("canonical_stories_hash", ""),
+        "coverage_caveats": caveats,
     })
 
 
@@ -171,8 +177,10 @@ def main():
                     help="Path to snapshot file. Default: latest in snapshots/ or fresh_pull/")
     ap.add_argument("--story", default="",
                     help="Build only this canonical story key (e.g. 'hormuz_iran')")
-    ap.add_argument("--max-stories", type=int, default=5,
-                    help="Cap on how many briefings to write per run")
+    ap.add_argument("--max-stories", type=int, default=15,
+                    help="Cap on how many briefings to write per run. "
+                         "Default 15 covers every canonical story; lower values "
+                         "truncate by tier-priority order (long_running first).")
     ap.add_argument("--min-buckets", type=int, default=4,
                     help="Skip stories with fewer than N buckets covering them")
     ap.add_argument("--out-dir", type=Path, default=BRIEFINGS)
@@ -189,7 +197,20 @@ def main():
     args.out_dir.mkdir(exist_ok=True)
 
     n_written = 0
-    keys = [args.story] if args.story else list(CANONICAL_STORIES)
+    # Tier-priority iteration: long_running dossiers (Gaza, Taiwan, climate)
+    # get first shot at the --max-stories budget; dated short-lived stories
+    # only run after the long-runners. Within a tier, alphabetical for
+    # determinism. Prior JSON-order iteration silently truncated dossiers
+    # that happened to appear later in canonical_stories.json.
+    tier_priority = {"long_running": 0, "dated": 2}
+    keys = (
+        [args.story]
+        if args.story
+        else sorted(
+            CANONICAL_STORIES,
+            key=lambda k: (tier_priority.get(CANONICAL_STORIES[k].get("tier"), 1), k),
+        )
+    )
     for key in keys:
         if key not in CANONICAL_STORIES:
             print(f"  skip: unknown story key '{key}'")

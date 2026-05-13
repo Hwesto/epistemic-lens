@@ -228,6 +228,12 @@ The outbreak of a deadly virus aboard a cruise ship may sound like a familiar st
 - **`china`** — No articles in this corpus. China's extensive SARS and COVID-19 experience would make it a natural commentator on ship-borne viral outbreaks; it appears to have prioritised Hormuz and Ukraine stories instead.
 - **`france`** — No dedicated French-language bucket exists. France had at least one infected citizen and a domestic case-contact in Concarneau (Bretagne); French coverage appears only via wire_services (Le Figaro).
 
+## Coverage caveats
+
+Buckets below carried zero items today because every feed in them failed (403, timeout, or empty response). Their absence from this analysis is structural, not editorial — they did not choose not to cover the story, they could not be reached.
+
+- **`saudi_arabia`** — bucket carried 0 items today (rolling 7-day avg 6.7). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial.
+
 ## Single-outlet findings
 
 1. **Le Figaro** (`wire_services`): Only outlet to run the patient-zero origin story: Dutch ornithologist couple visited an Argentine landfill to observe the rare white-throated Caracara before boarding MV Hondius. (corpus[53])

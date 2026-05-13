@@ -18,6 +18,17 @@
     "wire_baseline_pin": {"type": ["string", "null"]},
     "wire_baseline_n_articles": {"type": "integer"},
     "n_outlet_distinct": {"type": "integer"},
+    "correction": {
+      "type": "object",
+      "description": "Multiple-comparison correction metadata. As of meta-v8.8.0 default is Benjamini-Hochberg FDR at q=0.05; pre-v8.8.0 was an uncorrected z>=1.96 cut (effectively Bonferroni with n=1, but called nothing). Reports n_comparisons + n_significant per anchor so consumers can see how many bigrams survived.",
+      "additionalProperties": true,
+      "properties": {
+        "method": {"type": "string", "enum": ["bh", "bonferroni", "none"]},
+        "q_level": {"type": "number"},
+        "wire": {"type": "object", "additionalProperties": true},
+        "bucket_mean": {"type": "object", "additionalProperties": true}
+      }
+    },
     "anchors": {
       "type": "object",
       "required": ["wire", "bucket_mean"],
@@ -60,7 +71,8 @@
         "rate_in_outlet": {"type": "number"},
         "rate_in_baseline": {"type": "number"},
         "log_odds": {"type": "number"},
-        "z_score": {"type": "number"}
+        "z_score": {"type": "number"},
+        "p_value": {"type": "number"}
       }
     }
   }

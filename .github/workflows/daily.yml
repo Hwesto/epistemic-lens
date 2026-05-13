@@ -78,7 +78,11 @@ jobs:
         run: python -m pipeline.daily_health
 
       - name: Build per-story briefings
-        run: python -m analytical.build_briefing
+        # --max-stories 15 (covers every canonical dossier) was the
+        # implicit default until meta-v8.8.0 set it explicitly. The prior
+        # default of 5 + JSON-order iteration silently truncated 8 of
+        # the 15 canonical stories.
+        run: python -m analytical.build_briefing --max-stories 15
 
       - name: Compute briefing metrics (LaBSE cosine + bucket-exclusive vocab)
         run: python -m analytical.build_metrics
@@ -270,6 +274,15 @@ jobs:
         # bucket mismatches, or numbers that don't match metrics.json.
         # Defense in depth — the agent also runs schema validation
         # before its own commit per the prompt.
+
+      - name: Augment metrics with weighted_frame_distribution
+        # weighted_frame_distribution reads the analysis frames (which
+        # don't exist at build_metrics time — they're written by the
+        # analyze step above) and folds them back into the matching
+        # _metrics.json. Idempotent. Renderer / consumers see the
+        # population-weighted view as a first-class metrics field
+        # rather than recomputing on every render. Added meta-v8.8.0.
+        run: python -m analytical.build_metrics --augment-from-analysis
 
       - name: Headline-body divergence (Phase 2) — sensationalism index
         run: python -m analytical.headline_body_divergence

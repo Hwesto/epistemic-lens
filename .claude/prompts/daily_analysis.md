@@ -59,6 +59,18 @@ For each story you analyse:
       Quote both verbatim with their `signal_text_idx`. If no genuine paradox, set `"paradox": null`.
    e. List silences: buckets that plausibly should cover this and didn't (or covered
       something else). Cross-reference today's snapshot if needed.
+
+      **Distinguish structural silence from editorial silence.** The
+      briefing's top-level `coverage_caveats[]` lists buckets that had
+      zero items today because every feed in them failed (403,
+      timeout, empty response). Do **NOT** include those buckets in
+      `silences[]` — their absence is structural, not editorial; a
+      reader who treats it as "Lebanon stayed quiet" mistakes feed
+      health for press behaviour. Instead, copy `briefing.coverage_caveats`
+      verbatim into your output's top-level `coverage_caveats[]` array
+      (same shape: one object per bucket with `bucket`, `alert_type`,
+      `avg7`, `reason`). `silences[]` is reserved for buckets that DID
+      carry items today but chose a different angle.
    f. Pick up to 10 single-outlet findings worth surfacing.
    g. Write a 1-2 sentence factual `event_summary` describing what
       concretely happened — places, people, decisions, dates. This
@@ -147,6 +159,10 @@ For each story you analyse:
   "paradox": null,
   "silences": [
     {"bucket": "egypt", "what_they_covered_instead": "Sisi's domestic emergency."}
+  ],
+  "coverage_caveats": [
+    {"bucket": "lebanon", "alert_type": "structural_silence", "avg7": 3.4,
+     "reason": "bucket carried 0 items today (7-day avg 3.4); feeds 403'd."}
   ],
   "single_outlet_findings": [
     {"outlet": "RT", "bucket": "russia",
