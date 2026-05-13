@@ -1,0 +1,157 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 16,
+  "n_articles": 21,
+  "event_summary": "Israeli forces continued strikes across southern Lebanon on May 12-13, 2026, killing at least 13 people including two paramedics, with 380 deaths reported since an April 17 ceasefire; Hezbollah chief Qassem vowed to fight on and rejected disarmament talks ahead of Washington negotiations.",
+  "tldr": "The most striking finding is a paradox: Vatican News (religious_press) and Turkish press (Daily Sabah) — buckets occupying opposite ends of the conflict's political spectrum — arrive at the same story angle, documenting Israeli harm to Christian religious sites in southern Lebanon. Religious_press is the most isolated bucket (0.402), consistent with its unique angle on Eastern Church communities. Pan_arab and Taiwan/HK dominate the SECURITY_DEFENSE frame with a casualty-count lead, while Israeli press (Haaretz) frames the story through the lens of Netanyahu's strategic position and Trump's constraints on Israel. The CULTURAL frame appears only in US and religious_press, surfacing the predominantly Christian town of Rmeish as a counterpoint to wider destruction.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Israeli strikes, ceasefire violations",
+      "buckets": ["pan_arab", "israel", "russia", "pan_african", "uk", "wire_services", "taiwan_hk", "egypt"],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Two paramedics and soldier among 15 killed in Israeli strikes in Lebanon\n\nTwo paramedics and soldier among 15 killed in Israeli strikes in Lebanon Fifteen people, including two paramedics and a Lebanese soldier, were killed and 13 others wounded on Tuesday in 59 Israeli attacks across Lebanon",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Israel strikes Lebanon as 380 reported killed since April 17 ceasefire\n\nIsrael hammered south Lebanon with strikes on Tuesday ahead of talks between the two countries in Washington, as Beirut reported 380 people killed in Israeli attacks since an April 17 ceasefire took effect.",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Mada Masr",
+          "quote": "Israel attacks villages north of Litani to ease pressure on troops occupying crucial axis\n\nIsrael has stepped up strikes on villages north of the Litani River since the end of last week, after its troops operating in areas south of the river came under repeated fire from Hezbollah",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "civilian deaths, religious site attacks",
+      "buckets": ["turkey", "religious_press", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israel murders 2 paramedics day after killing 25 across Lebanon\n\nIsraeli strikes in violation of a cease-fire killed at least three people, including two paramedics, in southern Lebanon on Sunday.",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Churches under attack in southern Lebanon",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu strategy, disarmament",
+      "buckets": ["israel", "opinion_magazines", "usa", "india"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "With his Iran deterrence squandered, Trump might feel forced to resume war\n\nTrump's tired cycle of threats and compromise offers convinced Iran it holds the upper hand • In Lebanon, IDF soldiers remain exposed to Hezbollah drones as the U.S. restrains Israel",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "The Israeli prime minister is using the",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Hezbollah chief says his Iran-backed group's weapons not part of negotiations with Israel",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Christian identity in Lebanon",
+      "buckets": ["usa", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "The church bells still ring in Rmeish on the Lebanon-Israel border.\nWhile much of southern Lebanon has suffered destruction during the war between Israel and the terror group Hezbollah, the predominantly Christian border town close to Israel remained largely untouched.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Churches under attack in southern Lebanon",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "ceasefire violations, April 17 truce",
+      "buckets": ["pan_arab", "taiwan_hk", "wire_services", "russia"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Israel strikes cars on Lebanese highway south of Beirut\n\nIsraeli strikes targeted two cars on Wednesday on a major highway linking Beirut to southern Lebanon, state media reported, a day after 13 people were killed in attacks on towns in the south.",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.402,
+      "note": "Only bucket covering Eastern Church communities as the primary story angle rather than military or political framing."
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.448,
+      "note": "Exclusive vocab 'vows' (Hezbollah chief's vow to fight on) suggests a framing that foregrounds resistance rhetoric absent from most Western buckets."
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.47
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.472,
+      "note": "The Conversation piece argues the 'Gaza playbook' is strategically counterproductive — an analytical register absent from news-reporting buckets."
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.482,
+      "note": "Exclusive vocab 'negotiation' reflects The Hindu's focus on Hezbollah's rejection of disarmament talks — a diplomatic angle underweighted in other coverage."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "religious_press",
+      "outlet": "Vatican News",
+      "quote": "Churches under attack in southern Lebanon",
+      "signal_text_idx": 11
+    },
+    "b": {
+      "bucket": "turkey",
+      "outlet": "Daily Sabah",
+      "quote": "Israeli soldiers jailed for desecrating Virgin Mary statue in Lebanon\n\nTwo Israeli soldiers were sentenced to weeks in military prison after one desecrated a statue of the Virgin Mary in southern Lebanon by placing a cigarette in its mouth",
+      "signal_text_idx": 16
+    },
+    "joint_conclusion": "Vatican News (humanitarian-religious) and Turkish press (Muslim-majority, anti-Israel) arrive at the same story angle — harm to Christian religious sites in southern Lebanon — despite occupying opposite ends of the conflict's political spectrum."
+  },
+  "bottom_line": "The corpus is dominated by a SECURITY_DEFENSE frame anchored in casualty counts and ceasefire-violation tallies, but two buckets at ideological extremes — religious_press and Turkish press — converge on the same anomalous angle: the targeting of Christian heritage in southern Lebanon. Israeli press (Haaretz) stands alone in framing the story through Netanyahu's strategic bind rather than the human toll. The CULTURAL frame is uniquely a US-and-religious-press phenomenon, surfacing the intact Christian town of Rmeish as a counternarrative to the destruction visible elsewhere.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

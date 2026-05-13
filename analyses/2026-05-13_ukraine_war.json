@@ -1,0 +1,195 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "n_buckets": 20,
+  "n_articles": 34,
+  "event_summary": "On May 12-13, 2026, Ukrainian prosecutors named Yermak — Zelensky's former chief of staff — as a suspect in a money-laundering scheme; a three-day ceasefire expired and Russia resumed strikes on Kyiv, while Trump said peace was 'very close' and Putin test-fired the Sarmat ICBM.",
+  "tldr": "The most striking finding is that religious_press (Vatican News) is the most isolated bucket (0.383), exclusively covering a Ukrainian war mother's grief narrative — a frame absent from every other bucket. A paradox emerges: Moscow Times (russia) and The Conversation (opinion_magazines) — aligned with neither Kyiv nor Moscow — independently conclude that Ukraine's deep-strike campaign is successfully destabilising Russian civilian life far behind the front lines. The Yermak corruption story is the single biggest frame driver in the CRIME_PUNISHMENT bucket, cutting across Germany, Iran opposition, Turkey, and Qatar in a way that fragments what is otherwise a pro-Ukraine coalition. Israel bucket is the second-most isolated (0.386), with exclusive vocabulary including 'starlink' and 'satellite' — suggesting coverage of Ukrainian battlefield connectivity that is uniquely salient in Israeli press.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Yermak probe, deportations",
+      "buckets": ["canada", "germany", "india", "iran_opposition", "turkey", "uk", "qatar", "korea_north"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Ukrainian prosecutors are seeking the detention of President Volodymyr Zelenskyy's former chief of staff Andriy Yermak pending further investigation in a graft case that has rocked Kyiv as the country battles against a full-scale Russian invasion, now in its fifth year.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Ukraine: EU sanctions Russians over 'systematic unlawful deportation' of children\n\nThe EU is sanctioning 16 individuals and seven entities over alleged child abductions. The UK also issued fresh sanctions",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Police bust Donbas-tied arms dealers peddling guns for Kim Jong Un: Kyiv",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "drone strikes, ceasefire expiry",
+      "buckets": ["uk", "russia", "ukraine", "vietnam_thai_my", "kenya", "wire_services", "poland_balt"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Ukraine-Russia war latest: Trump claims peace deal",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Several Russian regions switched schools to remote learning this week as authorities warned of possible Ukrainian drone attacks, in a sign of the war's growing disruption to civilian life far from the front lines.",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "President Alexander Lukashenko has announced a rotational mobilization of selected military units",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "peace prospects, Kremlin split",
+      "buckets": ["india", "italy", "nordic", "turkey", "uk"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Kremlin repeats Putin's assertion that Ukraine war is nearly over after Zelenskyy casts doubt\n\nDespite Kyiv accusing Russia of having no intention of ending the conflict, President Vladimir Putin claims the war in Ukraine was nearing its end",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Kremlin says no clear roadmap to end Ukraine war despite Putin",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "EU will decide its negotiator for Ukraine peace talks, not Russia - Tajani\n\nFirst we have to see Russia really wants peace says foreign minister",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "NATO cohesion, EU sanctions",
+      "buckets": ["germany", "poland_balt", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "poland_balt",
+          "outlet": "ERR News (Estonia)",
+          "quote": "Peeter Kaldre: To die for Bornholm\nRussia is sorely tempted right now to test NATO and there is little comfort in assuming that as long as Russia remains tied down in Ukraine, it lacks the resources to challenge NATO directly.",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Around 20,500 minors have been kidnapped since war broke out in February 2022.",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "US energy dominance strategy",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Interior Secretary and Chairman of the National Energy Dominance Council Doug Burgum said Monday that American natural gas could move through Europe",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "child abductions, war grief",
+      "buckets": ["germany", "opinion_magazines", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Ukrainian mother: 'My son was taken away by war. Now I am everyone's 'mother''\n\nLyubov lost her son Oleksandr on February 28, 2024, a 29-year-old Ukrainian soldier who died at the front.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Around 20,500 minors have been kidnapped since war broke out in February 2022.",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Russian civilian drone disruption",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Several Russian regions switched schools to remote learning this week as authorities warned of possible Ukrainian drone attacks, in a sign of the war's growing disruption to civilian life far from the front lines.",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.383,
+      "note": "Vatican News runs a first-person grief narrative (exclusive vocab: 'mother') — no other bucket treats war grief as the primary frame."
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.386,
+      "note": "Exclusive vocab 'starlink' and 'satellite' suggest coverage of Ukrainian battlefield connectivity; this angle is uniquely salient in Israeli press given Israel's own drone/satellite doctrine debates."
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.393,
+      "note": "Zero exclusive vocabulary; thematic isolation, possibly reflecting Al Jazeera coverage that frames the war through Global South non-alignment lens."
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.413,
+      "note": "ANSA coverage emphasises EU negotiator sovereignty (Tajani: 'EU will decide its negotiator, not Russia') — a procedural angle absent from other European buckets."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.471
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "russia",
+      "outlet": "Moscow Times",
+      "quote": "Several Russian regions switched schools to remote learning this week as authorities warned of possible Ukrainian drone attacks, in a sign of the war's growing disruption to civilian life far from the front lines.",
+      "signal_text_idx": 20
+    },
+    "b": {
+      "bucket": "opinion_magazines",
+      "outlet": "The Conversation",
+      "quote": "Putin is under growing pressure at home as Ukraine continues to strike far inside Russia and more critics are voicing discontent with the war.",
+      "signal_text_idx": 14
+    },
+    "joint_conclusion": "Russia-based independent press (Moscow Times) and Western analytical press (The Conversation) both conclude Ukraine's deep-strike campaign is effectively destabilising Russian civilian life far behind the front lines, despite approaching the story from entirely different editorial starting points."
+  },
+  "bottom_line": "The Yermak corruption story fractures the otherwise stable pro-Ukraine framing coalition, with Germany, Iran opposition, Turkey, and Qatar all leading on it while UK and Ukrainian press bury or ignore it. The paradox — Moscow Times and The Conversation independently reporting that Ukraine's deep strikes are winning the disruption battle on Russian soil — is the sharpest cross-bloc convergence in today's corpus. Religious_press stands entirely alone in humanising the war through grief rather than strategy or crime.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

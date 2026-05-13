@@ -1,0 +1,155 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 11,
+  "n_articles": 16,
+  "event_summary": "Trump departed for Beijing on May 13, 2026 declaring that stopping Iran's nuclear program outweighed Americans' economic pain; a US think tank identified six Iranian nuclear sites damaged in recent strikes, with possible new fortifications observed near Natanz.",
+  "tldr": "The most striking finding is that opinion_magazines (Foreign Policy) sits as the most isolated bucket (0.391), publishing a JCPOA counterfactual while the rest of the corpus fixates on Trump's current posture. Iran opposition press is the second-most-isolated (0.460) and is the only bucket with exclusive vocabulary mapping to physical nuclear infrastructure — 'natanz', 'complex', 'strik', 'tank' — while US press (Fox News) emphasises the plutonium pathway closure that Israel demands. China and Russia occupy the lowest frame diversity: both focus exclusively on diplomatic positioning around the deal's architecture, with no domestic-economic framing. Trump's explicit statement that 'I don't think about Americans' financial situation' creates a rare consensus across pan_arab, Canada, Vietnam/Thailand/Malaysia, and wire_services that frames this story as ECONOMIC despite it being nominally a SECURITY_DEFENSE and POLITICAL story.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear site damage, Natanz",
+      "buckets": ["iran_opposition", "usa", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "US and Israeli strikes hit Iran sites tied to nuclear weapon work, think tank says\n\nAt least six Iranian nuclear sites were attacked in recent US and Israeli strikes, with most confirmed or suspected targets tied to work needed to build a nuclear weapon",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Possible new fortifications seen at tunnel complex near Natanz, think tank says",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "What Israel wants from an Iran peace deal: No enrichment, missile limits and strict enforcement\n\nIsrael wants Iran to stop enrichment, dismantle underground nuclear sites, restrict missiles and cut ties to Hamas and Hezbollah, experts say.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump priorities, Trump-Xi context",
+      "buckets": ["canada", "india", "pan_arab", "china", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Critics argue Trump administration should balance geopolitical objectives with economic impact on U.S.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "US President Trump And China's Xi Set For Talks Spanning Iran, Nuclear, Trade And AI From May 13-15",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "This is an entry from: Live: China urges Pakistan to intensify mediation ahead of Trump visit",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "deal architecture, JCPOA retrospective",
+      "buckets": ["usa", "russia", "opinion_magazines", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Experts warn Trump administration any Iran deal must close plutonium pathway to nuclear bombs\n\nExperts warn any new Iran deal must ban plutonium reprocessing and expose covert pathways to nuclear weapons",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Possible future Iran-US deal to be radically different from JCPOA — expert\n\nOleg Akulinichev believes that the US could agree to unfreeze Iran's foreign assets in exchange for a temporary halt to Tehran's uranium enrichment",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Would We Be Better Off Today With the JCPOA?",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "geopolitical goal vs financial pain",
+      "buckets": ["canada", "vietnam_thai_my", "pan_arab", "wire_services", "india"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Critics argue Trump administration should balance geopolitical objectives with economic impact on U.S.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Rising energy costs linked to the Iran conflict have pushed up gasoline prices and contributed to inflation.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China-Iran diplomacy, Russia-Bushehr",
+      "buckets": ["china", "russia"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk; move reflects Teheran's willingness to seek intl support: Chinese expert",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "The Bushehr nuclear power plant is operating normally amid reported violations of the US-Iran ceasefire, the Rosatom CEO has said",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.391,
+      "note": "Only bucket running a JCPOA counterfactual (Foreign Policy); isolated by analytical distance from the rest of the corpus which focuses on current events."
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.46,
+      "note": "Exclusive vocab — 'natanz', 'complex', 'strik', 'tank', 'work', 'near' — maps to physical nuclear infrastructure; only bucket with satellite-imagery sourcing."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.56
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.561,
+      "note": "Exclusive vocab includes 'plutonium' and 'pathway' — Fox News framing around weapons-design specifics distinct from other US-aligned buckets."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.566,
+      "note": "Religion News Service framing focuses on the rejected ceasefire proposal angle; exclusive vocab 'proposal' reflects a different story hook than the nuclear-infrastructure or economic angles."
+    }
+  ],
+  "paradox": null,
+  "bottom_line": "Iran opposition press and US outlets converge on a SECURITY_DEFENSE frame centred on military infrastructure, while pan_arab, Canadian, and Vietnamese press reframe the same story as ECONOMIC by leading with Trump's dismissal of Americans' financial pain. China and Russia occupy a narrow EXTERNAL_REGULATION lane that the rest of the corpus largely ignores. The most analytically isolated bucket — opinion_magazines — is the only one asking whether the JCPOA counterfactual vindicates or condemns the current trajectory.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

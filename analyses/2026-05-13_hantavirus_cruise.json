@@ -1,0 +1,143 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 25,
+  "n_articles": 45,
+  "event_summary": "A cluster of hantavirus infections linked to the Dutch cruise ship MV Hondius — which departed Ushuaia, Argentina — resulted in three deaths and at least 11 confirmed cases; all remaining passengers were evacuated to Tenerife and repatriated under quarantine protocols.",
+  "tldr": "The most surprising finding is a second-order frame split beneath the surface consensus: while all 25 buckets frame this as HEALTH_SAFETY, Atlantic and US outlets interrogate whether close-contact tracing doctrine is fit for purpose, while French-language wire services pivot to strategic mask stockpiles and Nordic coverage uniquely highlights ELISA diagnostic serology — a clinical detail absent from every other bucket. Russian state media and Indian outlets activate the 'another Covid' fear frame that WHO head Tedros explicitly tried to defuse. The most isolated bucket is nordic (0.569), whose exclusive vocabulary includes the term 'elisa', signalling clinical-depth reporting not found elsewhere. Wire_services isolation (0.615) is partly a language artefact: France Info's French-language content dominates that bucket's exclusive vocab.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "outbreak containment",
+      "buckets": ["argentina_chile", "australia_nz", "canada", "colombia_ven_peru", "germany", "india", "indonesia", "iran_state", "italy", "kenya", "korea_north", "nordic", "opinion_magazines", "pan_african", "russia", "russia_native", "south_africa", "spain", "state_tv_intl", "taiwan_hk", "turkey", "uk", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "French hantavirus patient is critically ill as outbreak grows to 11\nPARIS — A French woman infected in the deadly hantavirus outbreak on a cruise ship is critically ill and being treated with an artificial lung, a doctor at the Paris hospital caring for the sickened passenger said Tuesday.",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "quarantine offices will monitor and guard against the disease to prevent it from entering Indonesia",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "The health ministry said Wednesday\nthat the tests done so far on people under observation in Italy\nfor Hantavirus have been negative.",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "9News",
+          "quote": "Australians being repatriated from a cruise ship struck by the deadly hantavirus outbreak remain stuck in the Netherlands as the federal government battles logistical issues to get them home.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "quarantine protocol debate",
+      "buckets": ["opinion_magazines", "usa", "uk", "australia_nz", "wire_services", "canada"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "The Close, Prolonged Contact Myth\nKnowing how a virus spreads is essential to public health, but people keep getting it wrong.",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "pandemic preparedness stocks",
+      "buckets": ["wire_services", "germany", "nordic", "australia_nz"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "France Info",
+          "quote": "le stock stratégique de masques de l'Etat est suffisant pour \"minimum trois mois\" en cas d'épidémie, affirme le gouvernement",
+          "signal_text_idx": 44
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "WHO coordination",
+      "buckets": ["wire_services", "kenya", "canada", "usa", "spain"],
+      "evidence": [
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "French authorities have moved to strengthen health surveillance and tracing measures following concerns over the spread of hantavirus infections linked to an international cruise ship outbreak that has already claimed three lives.",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "No sign of larger outbreak of hantavirus says WHO chief\n\nThe head of the World Health Organization (WHO) said on Tuesday there was no sign of a broader hantavirus outbreak, though further cases could emerge",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "another-Covid fear",
+      "buckets": ["russia", "india", "opinion_magazines", "usa"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "The arrival of the hantavirus-stricken MV Hondius liner off Tenerife poses little risk to locals, WHO head Tedros Adhanom Ghebreyesus says",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Cruise Ship Outbreaks Spark Global Concern: How Norovirus and Hantavirus Differ from COVID-19 - Symptoms and Risks Explained",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.569,
+      "note": "Exclusive vocab includes 'elisa' (diagnostic serology test) and 'finland' — genuine clinical-depth signal, not a language artefact."
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.597,
+      "note": "Very sparse exclusive vocab ('iran', 'known'); framing likely centres on travel advisories for Iranian nationals rather than public-health doctrine."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.61
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.613
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.615,
+      "note": "High-frequency exclusive terms (masqu, santé, mois, ministre, épidémie) are French-language artefacts from France Info — not thematic signals."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "nordic",
+      "terms": ["elisa", "finland", "percent", "channel", "cable"],
+      "what_it_reveals": "Nordic coverage includes clinical ELISA serology detail absent from all other buckets, suggesting specialist health-desk reporting rather than general-assignment wire pickup."
+    }
+  ],
+  "paradox": null,
+  "bottom_line": "Every outlet frames this as HEALTH_SAFETY, but beneath that consensus a second split opens: analytical Western press (The Atlantic) questions whether standard close-contact tracing applies to a rodent-borne zoonosis, while government-aligned wire services race to reassure publics that strategic stockpiles are adequate. The 'another-Covid' framing explicitly invoked by Russian and Indian outlets — and publicly rebutted by WHO — is the subtext driving unusually broad coverage for an outbreak of eleven cases.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

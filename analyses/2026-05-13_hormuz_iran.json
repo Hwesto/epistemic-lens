@@ -1,0 +1,211 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-13",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 34,
+  "n_articles": 58,
+  "event_summary": "As Trump departed for Beijing on May 13, 2026, the Strait of Hormuz remained effectively closed; Trump rejected Iran's latest counter-proposal as 'totally unacceptable,' and the IEA reported global oil stocks falling 117 million barrels in April alone.",
+  "tldr": "The most striking finding is the extreme isolation of Spain (0.398) and Qatar (0.432) — two buckets with zero exclusive vocabulary, suggesting their isolation is thematic rather than linguistic. The ECONOMIC frame dominates the broadest coalition (10+ buckets), but beneath it a POLITICAL sub-story about the Trump-Xi summit's inverted leverage dynamics runs through Canadian, South African, and opinion-magazine coverage in ways absent from Asian or Middle Eastern press. Iran opposition press focuses almost exclusively on domestic repression — executions and an internet shutdown now in its 75th day — while the rest of the corpus barely notices. The QUALITY_OF_LIFE frame appears only in Russian state media and state_tv_intl, where Indonesian fishermen stranded by diesel costs humanise what other buckets treat as an aggregate supply shock.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "oil supply shock",
+      "buckets": ["australia_nz", "canada", "netherlands_belgium", "vietnam_thai_my", "wire_services", "spain", "ukraine", "russia", "india", "south_africa", "iraq", "pan_african"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Nations drawing down oil stocks at record pace: IEA\nPARIS: Countries are tapping into oil inventories and strategic reserves at a \"record pace\" due to the \"unprecedented\" supply disruptions caused by the Middle East war, the International Energy Agency said on Wednesday (May 13).",
+          "signal_text_idx": 54
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Americans paid more for their groceries last month, but high gasoline prices resulting from the Iran war were only one of the reasons why.",
+          "signal_text_idx": 56
+        },
+        {
+          "bucket": "india",
+          "outlet": "OpIndia",
+          "quote": "The intensification of conflict between the United States, Israel and Iran caused fuel prices to spike, underscoring the vulnerability of the energy sector to geopolitical shocks.",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "netherlands_belgium",
+          "outlet": "NL Times",
+          "quote": "Europe will face oil, kerosine shortages if Iran war continues: Rabobank\n\nIf the blockade of the Strait of Hormuz lasts much longer, European countries will risk running into oil and kerosene shortages before the end of this year",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Xi leverage inversion",
+      "buckets": ["canada", "opinion_magazines", "pan_arab", "usa", "south_africa", "asia_pacific_regional"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "Trump faces emboldened Xi in China as Iran war reduces U.S. leverage",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "US President Donald Trump believes financial struggles are less important than the war with Iran.\n- Rising energy costs linked to the Iran conflict have pushed up gasoline prices.\n- Trump left the US for a trip to China.",
+          "signal_text_idx": 38
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "The past year of U.S.-Chinese relations has been extraordinary and head-spinning.",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Hormuz naval coalition",
+      "buckets": ["australia_nz", "south_korea", "israel", "japan", "uk", "usa"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "Australia will send a hi-tech military plane to join an international mission to reopen the strait of Hormuz, but the Labor government has not ruled out sending more assets to the Middle East.",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "The United States believes Iran has regained access to a majority of its missile sites, according to a New York Times report on Tuesday.\nThe NYT cited senior US officials, who warned that Iran's active missile sites include 30 along the Strait of Hormuz, posing a threat to US naval ships in the area.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "On May 4, 2026, a South Korean vessel came under fire in the Strait of Hormuz, leading President Donald Trump to urge the government in Seoul to join the U.",
+          "signal_text_idx": 53
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China leverage, Pakistan mediation",
+      "buckets": ["china", "pan_arab", "qatar", "turkey", "iran_state", "iran_opposition", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "China urges Pakistan to intensify Iran-US mediation efforts\n\nChina urges Pakistan to intensify Iran-US mediation efforts Chinese foreign minister Wang Yi urged Pakistan to intensify mediation efforts between the United States and Iran to help reopen the Strait of Hormuz",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Iran has set five trust-building conditions for the United States to enter a second round of negotiations to end the war",
+          "signal_text_idx": 47
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Qatar LNG cargo vessel arrives at port in Pakistan\n- By Reuters -\n- May 13, 2026\nISLAMABAD: The first LNG cargo within two months from Qatar has reached Pakistan and it has been berthed at port",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "domestic repression, executions",
+      "buckets": ["iran_opposition", "germany"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Iran executes man over accusations of spying for Israel\nIran executed Ehsan Afrashteh on Wednesday on accusations of espionage and intelligence cooperation with Israel",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Iran Names Internet Chief As Shutdown Reaches 75 Days",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Iran: Surge of political prisoners amid US-Israel war\n\nAmid the US-Israel war with Iran, as the world breathlessly watches the Strait of Hormuz, Tehran is quietly increasing pressure on political prisoners.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "oil stock drawdowns, LNG re-routing",
+      "buckets": ["vietnam_thai_my", "netherlands_belgium", "pakistan", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Nations drawing down oil stocks at record pace: IEA\nPARIS: Countries are tapping into oil inventories and strategic reserves at a \"record pace\" due to the \"unprecedented\" supply disruptions caused by the Middle East war",
+          "signal_text_idx": 54
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Qatar LNG cargo vessel arrives at port in Pakistan\n- By Reuters -\n- May 13, 2026\nISLAMABAD: The first LNG cargo within two months from Qatar has reached Pakistan and it has been berthed at port, sources said on Wednesday.",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "fishermen, energy burden on periphery",
+      "buckets": ["russia", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Strait of Hormuz crisis cripples Indonesian fishing industry – RT (VIDEO)\n\nIndonesian fishermen say soaring diesel costs linked to the US-Israeli war on Iran have left fleets stranded and crews without income",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT",
+          "quote": "Beyond Hormuz: This oil giant is plagued by a curse",
+          "signal_text_idx": 44
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.398,
+      "note": "Zero exclusive vocabulary; thematic isolation rather than linguistic. Spanish coverage likely emphasises the European energy-shortage angle distinct from Anglophone and Arab framings."
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.432,
+      "note": "Zero exclusive vocabulary; Qatar's unique position as both LNG supplier and diplomatic intermediary may produce a framing mix not shared by any other single bucket."
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.47,
+      "note": "Exclusive vocab 'fossil' — Ukrainian coverage likely connects the Hormuz disruption to European fossil-fuel dependency and Russia's energy leverage, a frame absent elsewhere."
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.472
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.506,
+      "note": "RT-dominated; QUALITY_OF_LIFE frame (Indonesian fishermen, Nigerian oil curse) is unique to this bucket — a 'Global South victim' narrative not found in Western or Arab press."
+    }
+  ],
+  "paradox": null,
+  "bottom_line": "The ECONOMIC frame achieves the broadest cross-regional consensus in this corpus, but two counter-narratives run in parallel without touching: Iran opposition press documents 75 days of internet shutdown and fresh executions while the rest of the world watches the Strait, and Russian state media humanises the crisis through Indonesian fishing communities while every other bucket treats it as an aggregate supply number. The most consequential framing divergence is on Trump-Xi leverage: Canadian and opinion-magazine press frames Trump as the weaker party entering Beijing, while Asian and Middle Eastern press report the summit without assigning relative leverage.",
+  "generated_at": "2026-05-13T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
