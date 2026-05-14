@@ -1,0 +1,253 @@
+{
+  "story_key": "ukraine_war",
+  "date": "2026-05-14",
+  "n_buckets": 24,
+  "n_articles": 43,
+  "tldr": "Headlines divide sharply between two dominant threads: a record-breaking Russian drone-and-missile barrage on Kyiv, and the arrest of Zelenskyy's former chief of staff on money-laundering charges; peace prospects are absent from the headline layer, economic strain is just beginning to register, and EU sanctions framing provides the only external-pressure counter-narrative.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Record drone-missile barrage on Kyiv",
+      "buckets": [
+        "hungary_central",
+        "india",
+        "kenya",
+        "pan_african",
+        "south_africa",
+        "taiwan_hk",
+        "uk",
+        "ukraine",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Russia unleashes 1,500 attack drones on Ukraine, shattering prospects for peace",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Russia Unleashes Heaviest Wartime Drone Assault On Ukraine, Hits Kyiv",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Russia hits Kyiv with drones and ballistic missiles, killing 1",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Putin launches deadly assault with over 700 drones and missiles",
+          "signal_text_idx": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Yermak money-laundering arrest",
+      "buckets": [
+        "canada",
+        "iran_opposition",
+        "italy",
+        "opinion_magazines",
+        "south_africa",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Kyiv Court Orders Former Zelenskyy Adviser Yermak Jailed On $3 Million Bail",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Repubblica",
+          "quote": "Yermak arrestato per corruzione a Kiev",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Zelensky's former chief of staff named as suspect in major money-laundering probe",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Ex-Zelenskyy aide tied to multimillion-dollar laundering probe",
+          "signal_text_idx": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "No peace roadmap; Russian domestic politics",
+      "buckets": [
+        "hungary_central",
+        "nordic",
+        "russia",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Kremlin says no clear roadmap to end Ukraine war despite Putin's words",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Putin Replaces Belgorod and Bryansk Governors",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Hungary Today",
+          "quote": "Foreign Minister Summons Russian Ambassador Over Brutal Transcarpathia Drone Assault",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Stubb discusses frontline situation with Zelensky, heads to Vilnius",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Sanctions and shadow fleet",
+      "buckets": [
+        "balkans",
+        "germany",
+        "poland_balt"
+      ],
+      "evidence": [
+        {
+          "bucket": "poland_balt",
+          "outlet": "ERR News (Estonia)",
+          "quote": "Diplomat: EU sanctions against Russia are working",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "EU sanctions Russians over 'systematic unlawful deportation' of children",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Russian 'Shadow Fleet' Suspicions Linger in Dropped Albania Smuggling Case",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "War economy strain",
+      "buckets": [
+        "germany",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Ukraine's Business Recovery Index Turns Negative for First Time Since 2023",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "As Russian Losses Mount, Signing Bonuses for Recruits Are Skyrocketing",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.4,
+      "note": "Article is about US economic resilience to the Iran war — off-topic corpus artefact from multi-story pipeline overlap, not Ukraine coverage"
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.42,
+      "note": "Vatican News leads with a Ukrainian mother's grief narrative — personal-loss register semantically distant from military-strike and corruption corpus"
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.473,
+      "note": "Shadow fleet / Albania smuggling case headline is shipping-logistics framing — adjacent to sanctions story but semantically distant from kinetic-war corpus"
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.51,
+      "note": "Moscow Times and Meduza file entirely on Belgorod/Bryansk governor replacements — domestic political story that sidesteps international missile-barrage coverage"
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.516,
+      "note": "Combines NATO sanctions defense with an essay on 'dying for Bornholm' — strategic-analysis register distinct from kinetic-war corpus"
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.534,
+      "note": "Finnish NATO tech accelerator and Stubb-Zelensky meeting headlines — capacity-building and diplomatic framing distinct from barrage-and-corruption corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China is the most important diplomatic actor whose position on a Ukraine settlement matters; it is entirely absent from this corpus"
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France provides major military support to Ukraine and shapes European alliance policy; its perspective is absent despite the barrage and ongoing talks"
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's ongoing drone supply to Russia is a defining feature of the war's military balance; it appears only in the iran_opposition bucket and not through any state-media framing"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "bucket": "taiwan_hk",
+      "finding": "Only outlet to include the specific drone count (1,500) and explicitly link the barrage to 'shattering prospects for peace' — connects military escalation to diplomatic consequences in a single headline",
+      "signal_text_idx": 30
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Only outlet leading with a first-person grief narrative from a Ukrainian mother — the sole headline treating the human-loss dimension as the primary angle",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "Only outlet tracking how a drone strike near the DPRK embassy affects Kim Jong Un's potential Moscow visit — a diplomatic-signal angle absent from all other headlines",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "Only outlet running a headline on the Ukrainian Business Recovery Index turning negative — the only headline-layer signal that the war economy is beginning to contract",
+      "signal_text_idx": 36
+    }
+  ],
+  "bottom_line": "Ukraine war headlines bifurcate between record aerial bombardment and a major corruption arrest in Kyiv, leaving peace diplomacy, economic recovery, and the Iran-drone supply chain entirely below the headline horizon.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

@@ -1,0 +1,197 @@
+{
+  "story_key": "lebanon_buffer",
+  "date": "2026-05-14",
+  "n_buckets": 12,
+  "n_articles": 15,
+  "tldr": "Headlines are overwhelmingly dominated by Israeli military strikes continuing despite a notional ceasefire — fresh air attacks, civilian casualties, and drone strikes — with Washington ceasefire talks treated as a thin diplomatic veneer; morality-register headlines about religious-site desecration and a displacement story round out a corpus that shows little daylight between ongoing war and nominal peace.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Israeli strikes despite ceasefire",
+      "buckets": [
+        "egypt",
+        "iran_state",
+        "israel",
+        "pan_arab",
+        "russia",
+        "turkey",
+        "uk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Israel launches fresh strikes on Lebanon despite ceasefire",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israel steps up 'brutal bombardment' in southern Lebanon",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israel strikes cars on Lebanese highway, killing 8, including 2 children",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Lebanon says two paramedics among 13 killed in Israeli strikes",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Ceasefire talks in Washington",
+      "buckets": [
+        "pan_arab",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Lebanon, Israel begin talks on 'disputed issues' in Washington",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Lebanon, Israel meet in the US for new ceasefire talks",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Religious sites and civilian harm",
+      "buckets": [
+        "religious_press",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Churches under attack in southern Lebanon",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israeli soldiers jailed for desecrating Virgin Mary statue in Lebanon",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Hezbollah legitimacy and resistance",
+      "buckets": [
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Hezbollah support endures in south Lebanon as ceasefire fails",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "the Christian border town in Lebanon that says it survived by defying Hezbollah",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Displaced civilians' daily life",
+      "buckets": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Sport helping displaced Lebanese living in stadium to cope",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.431,
+      "note": "Vatican News leads with 'Churches under attack' — exclusively religious-sites framing with no military or diplomatic vocabulary shared with the corpus"
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.463,
+      "note": "IRNA headline foregrounds Hezbollah chief's 'resistance' and 'not surrender' language — resistance-ideology register distinct from factual-strike corpus"
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.522,
+      "note": "Fox News headlines the Christian border town's defiance of Hezbollah — civilian-agency and sectarian framing absent from other titles"
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.53,
+      "note": "Deutsche Welle leads with sport-as-coping in a displaced-persons stadium — quality-of-life register semantically isolated from air-strike corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France leads the UNIFIL peacekeeping force in southern Lebanon and would have the most direct operational view of the buffer zone; absent from corpus"
+    },
+    {
+      "bucket": "italy",
+      "what_they_covered_instead": "Italy has one of the largest UNIFIL contingents in southern Lebanon; its perspective on buffer-zone enforcement is unrepresented"
+    },
+    {
+      "bucket": "lebanon_state",
+      "what_they_covered_instead": "Lebanese government officials are mentioned in headlines through pan_arab and south_africa, but no Lebanon-sourced outlet appears in corpus — the occupied party's direct voice is absent"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Only outlet leading with an attack on Christian churches specifically — the only headline that treats religious-site destruction as the primary news angle",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Daily Sabah",
+      "bucket": "turkey",
+      "finding": "Only outlet leading with a criminal-accountability headline about soldiers jailed for desecrating a Virgin Mary statue — frames Israeli conduct through CRIME_PUNISHMENT lens absent elsewhere",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only outlet framing a Lebanese civilian community as anti-Hezbollah actors who survived by resistance — inverts the dominant victimhood framing of other titles",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Mada Masr",
+      "bucket": "egypt",
+      "finding": "Only outlet specifying Israeli attacks north of the Litani River to relieve pressure on troops at a 'crucial axis' — operational-geography framing absent from all other headlines",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "Headline coverage of Lebanon's buffer zone reads as an ongoing war barely dressed in ceasefire language — strikes on civilians, paramedics, and churches dominate, while Washington talks appear as a secondary diplomatic ritual rather than an active conflict-resolution mechanism.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

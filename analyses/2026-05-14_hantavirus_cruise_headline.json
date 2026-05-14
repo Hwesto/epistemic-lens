@@ -1,0 +1,235 @@
+{
+  "story_key": "hantavirus_cruise",
+  "date": "2026-05-14",
+  "n_buckets": 26,
+  "n_articles": 46,
+  "tldr": "Headlines collectively assert a contained but growing global health emergency — three dead, eleven confirmed cases — with quarantine mandates rolling out across Europe and Asia-Pacific; a parallel sub-plot about misinformation, vaccine-funding gaps, and political blame is also visible from titles alone.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Outbreak spread and case count",
+      "buckets": [
+        "argentina_chile",
+        "australia_nz",
+        "canada",
+        "india",
+        "iran_state",
+        "italy",
+        "kenya",
+        "netherlands_belgium",
+        "nordic",
+        "opinion_magazines",
+        "pakistan",
+        "russia",
+        "south_africa",
+        "taiwan_hk",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Hantavirus cruise outbreak grows to 11",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "More cases of hantavirus coming – WHO chief",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Three dead, but no new infections",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "No sign of larger outbreak of hantavirus says WHO chief",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Quarantine and border controls",
+      "buckets": [
+        "indonesia",
+        "kenya",
+        "korea_north",
+        "mexico",
+        "netherlands_belgium",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "netherlands_belgium",
+          "outlet": "NL Times",
+          "quote": "ECDC urges quarantine for passengers on KLM flight",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Indonesia alerts quarantine offices over hantavirus threat",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Vietnam, Cambodia strengthen airport screening",
+          "signal_text_idx": 43
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "France tightens health surveillance on deadly Hantavirus cases",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Vaccine funding gaps",
+      "buckets": [
+        "argentina_chile",
+        "india",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Scientists ran out of funds while developing a vaccine",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Health body investigating hantavirus hit by fresh Milei budget cuts",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "Korean frontier in discovery, prevention of hantavirus returns to spotlight",
+          "signal_text_idx": 30
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Panic, conspiracy, misinformation",
+      "buckets": [
+        "germany",
+        "italy",
+        "usa",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "Amid Hantavirus Panic, the Ivermectin Super Fans Are Back",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "Complotti e allarmismo, il circo dell'Hantavirus",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Verschwörungsmythen zum Hantavirus im Umlauf",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "France Info",
+          "quote": "face à l'hantavirus, entre anxiété et critique des médias",
+          "signal_text_idx": 45
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.438,
+      "note": "Single bare headline ('Hantavirus cruise outbreak grows to 11') — pure count update with no context, semantically thin"
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.471,
+      "note": "Headline foregrounds Korean historical role in hantavirus discovery — retrospective scientific-legacy angle absent from other outlets"
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.479,
+      "note": "New Yorker leads with a first-person scientist narrative; second headline (high-school debate) is entirely off-topic and inflates distance"
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.498,
+      "note": "SMH headline buries hantavirus in an omnibus 'Australia LIVE' roundup alongside unrelated domestic politics — content artefact, not editorial isolation"
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.527,
+      "note": "Headline advertises a precautionary alert with no documented cases — epidemiological-prevention framing distinct from outbreak coverage"
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "The French health minister's announcements (all contacts tested negative) appear only via wire_services and are cited by multiple other outlets, but no dedicated france bucket is in the corpus"
+    },
+    {
+      "bucket": "brazil",
+      "what_they_covered_instead": "Brazil is the largest South American country adjacent to the Andes hantavirus geographic range but filed nothing in this corpus"
+    },
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "Large Arabic-language health-alert readership absent despite the story reaching global scale; Arabic coverage not captured in monitoring"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only outlet to name 'Patient Zero' by role and location in its headline — personalises outbreak origin in a way absent from all other titles",
+      "signal_text_idx": 40
+    },
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "Only outlet whose headline explicitly names the ivermectin misinformation wave — flags a disinformation sub-story invisible in all other buckets",
+      "signal_text_idx": 41
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "Only outlet advertising North Korea's internal public-health warning to citizens — the sole window into DPRK domestic framing of the outbreak",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Buenos Aires Herald",
+      "bucket": "argentina_chile",
+      "finding": "Only outlet linking the outbreak response directly to domestic austerity (Milei budget cuts) in its headline — political economy angle absent elsewhere",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "Headline coverage frames the MV Hondius outbreak as a manageable public-health alert with containment underway, but misinformation resurgence and vaccine-funding failures signal anxieties that the health-safety frame alone cannot hold.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

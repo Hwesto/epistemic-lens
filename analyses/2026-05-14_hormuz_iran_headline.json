@@ -1,0 +1,252 @@
+{
+  "story_key": "hormuz_iran",
+  "date": "2026-05-14",
+  "n_buckets": 30,
+  "n_articles": 51,
+  "tldr": "Headlines frame Hormuz simultaneously as an active military-economic chokepoint and a collapsing diplomatic negotiation: ship seizures and submarine deployments dominate the security register while Trump-Xi alignment on keeping the strait open provides the sole visible area of agreement, and ceasefire collapse is the political throughline.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Maritime seizures and military threat",
+      "buckets": [
+        "china",
+        "germany",
+        "india",
+        "iraq",
+        "israel",
+        "pakistan",
+        "pan_african",
+        "south_africa",
+        "south_korea",
+        "state_tv_intl",
+        "turkey",
+        "uk",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Ship is reported seized off the coast of the UAE",
+          "signal_text_idx": 49
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Iran regime has 'gun to our head' over Strait of Hormuz",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Iran says its small subs deployed to Strait of Hormuz",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "Iran Must Only Succeed Once to Trigger a Catastrophe",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-China-Iran diplomacy",
+      "buckets": [
+        "asia_pacific_regional",
+        "canada",
+        "china",
+        "egypt",
+        "iran_opposition",
+        "pan_arab",
+        "poland_balt",
+        "south_korea",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Trump, Xi agree on need for Hormuz to stay open",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Blockade of Strait of Hormuz not in common interests",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "It's In China's Interest To Pressure Iran To Open Strait Of Hormuz",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Daily News Egypt",
+          "quote": "Iran sets tough conditions for US talks amid mounting fears",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Oil shocks and trade cost",
+      "buckets": [
+        "asia_pacific_regional",
+        "pan_african",
+        "qatar",
+        "religious_press",
+        "state_tv_intl",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Hormuz disruption persists, trade costs rise",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Hormuz blockade and the fracturing of Asia's growth narrative",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "'Inevitable' jet fuel shortages will drive up air fares this summer",
+          "signal_text_idx": 42
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Why Iran war is driving up ink prices",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Ceasefire collapse and deal politics",
+      "buckets": [
+        "brazil",
+        "canada",
+        "iran_opposition",
+        "religious_press",
+        "russia",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump says Iran ceasefire 'on life support' as deal hopes fade",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Iran dares Trump to reject its 'take it or leave it' deal",
+          "signal_text_idx": 48
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Trump faces split among retired US commanders",
+          "signal_text_idx": 46
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Iran analysts pessimistic on US talks despite China's role",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.359,
+      "note": "Headline covers a single crude tanker completing a rare successful Hormuz transit — logistics frame semantically distant from the geopolitical/ceasefire corpus"
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.365,
+      "note": "Estonia's potential Hormuz mission participation — capacity-planning framing at the margins of the story, narrow bureaucratic angle"
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.398,
+      "note": "Single headline on Australia joining the maritime security mission — adjacent-actor angle, not core Hormuz-Iran diplomacy"
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.49,
+      "note": "RT Africa files frame Iran war through piracy and Nigerian oil, peripheral angles disconnected from the strait-closure and ceasefire corpus"
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.5,
+      "note": "Atlantic photo essay on global human cost and Danish-play analogy — long-form analytical registers that land far from news-wire framing"
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.505,
+      "note": "CGTN headlines are notably restrained and procedural (Wang Yi statement, UKMTO access restrictions) — factual-diplomatic register distinct from alarm-heavy corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's official media position on Hormuz — sovereign rights framing, ceasefire conditions — is entirely absent; Iran appears only through opposition media and adversarial Western framing"
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France led the European maritime mission to Hormuz but filed nothing in this corpus; European security-alliance dimension unrepresented except through Poland/Baltic"
+    },
+    {
+      "bucket": "gulf_states",
+      "what_they_covered_instead": "UAE, Saudi Arabia and Bahrain — the states most directly exposed to Hormuz closure and the ship seizure near UAE waters — are absent despite being the primary economic victims"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Japan Times",
+      "bucket": "japan",
+      "finding": "Only outlet leading with a successful Hormuz crossing as a news event — frames rare transit itself as the story, inverting the blockade narrative",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "Only outlet leading with a downstream consumer-price curiosity (Japanese ink shortage) — the most lateral economic-impact angle in the entire corpus",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Spiegel International",
+      "bucket": "germany",
+      "finding": "Only headline quoting a military expert making an explicit asymmetric-risk case ('Iran must only succeed once') — frames the strait as inherently vulnerable rather than contested",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Atlantic",
+      "bucket": "opinion_magazines",
+      "finding": "Only outlet framing the Iran war primarily through photographic documentation of global human cost — humanitarian register absent from all hard-news titles",
+      "signal_text_idx": 20
+    }
+  ],
+  "bottom_line": "Headline coverage of Hormuz/Iran is dominated by military-threat and ceasefire-collapse framing, with economic contagion headlines a distant second and US-China summit alignment as the sole diplomatic signal in a corpus otherwise saturated with failure.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}

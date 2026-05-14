@@ -1,0 +1,197 @@
+{
+  "story_key": "iran_nuclear",
+  "date": "2026-05-14",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines almost universally frame Iran's nuclear program as an active weapons-proximity threat, with US strikes on nuclear sites and 'frighteningly close' language dominating; Trump-Xi summit alignment against a nuclear Iran provides the one visible diplomatic anchor, while deal collapse is the political throughline.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Nuclear weapons proximity threat",
+      "buckets": [
+        "iran_opposition",
+        "israel",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Iran 'frighteningly close' to developing nuclear weapons",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "US and Israeli strikes hit Iran sites tied to nuclear weapon work",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Possible new fortifications near Natanz, think tank says",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "any Iran deal must close plutonium pathway to nuclear bombs",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-China summit nuclear alignment",
+      "buckets": [
+        "china",
+        "south_korea",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "U.S., China agreed Iran can never have nuclear weapon",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "China, US agree that Iran can never have nuclear weapon",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Deal collapse and coercion",
+      "buckets": [
+        "canada",
+        "india",
+        "ukraine",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Trump Calls Iran's Latest Proposal 'Piece Of Garbage'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Stopping Iran's nuclear program more important than Americans' economic pain",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Trump faces split among retired US commanders",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Bigger Geopolitical Take Outs from Iran War",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "JCPOA counterfactual, deal terms",
+      "buckets": [
+        "canada",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Would We Be Better Off Today With the JCPOA?",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "How a post-Cold War uranium program proved even old foes can work together",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.393,
+      "note": "Foreign Policy's JCPOA counterfactual headline is structurally a question, not a news assertion — analytical register semantically distant from breaking-news corpus"
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.485,
+      "note": "Unique satellite-imagery and Natanz fortification angle; specificity of 'tunnel complex' and 'tank' vocabulary absent from other titles"
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.529,
+      "note": "Live-blog headline format ('Xi-Trump summit live') structurally different from article titles; real-time update register inflates semantic distance"
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.53,
+      "note": "Unique 'frighteningly close' proximity framing via US Energy Secretary — emotional-intensity register distinct from procedural diplomatic corpus"
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.536,
+      "note": "Kyiv Post headline is a geopolitical meta-analysis of the Iran war broadly, not nuclear-specific — off-angle for this sub-corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "russia",
+      "what_they_covered_instead": "Russia is a JCPOA co-signatory with ongoing influence over Iran's nuclear calculus; its perspective is entirely absent from this sub-corpus"
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's own framing of its nuclear program — sovereignty, civilian use, negotiating conditions — is absent; Iran appears only through opposition and adversarial Western outlets"
+    },
+    {
+      "bucket": "iraq",
+      "what_they_covered_instead": "Iraq is Iran's immediate neighbor most exposed to regional nuclear risk and hosts US forces; its perspective on the nuclear story is absent"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Foreign Policy",
+      "bucket": "opinion_magazines",
+      "finding": "Only outlet posing a counterfactual policy question in its headline — frames the entire story as a failure-of-diplomacy post-mortem rather than a breaking-news threat",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "Only outlets leading with specific satellite-imagery evidence of new fortifications at Natanz — operational-intelligence framing absent from all other titles",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Globe and Mail",
+      "bucket": "canada",
+      "finding": "Only outlet running a historical framing headline ('post-Cold War uranium program proved old foes can work together') — counter-narrative to the threat-dominant corpus",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "Iran nuclear headlines are almost entirely a threat-proximity story filtered through US and Israeli framing, with Trump-Xi summit alignment as a thin diplomatic counterweight and the JCPOA counterfactual confined to a single opinion outlet.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "8.7.3"
+}
