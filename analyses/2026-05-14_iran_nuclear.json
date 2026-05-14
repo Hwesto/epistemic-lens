@@ -1,0 +1,172 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-14",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-14T06:00:00Z",
+  "event_summary": "US and Israeli strikes have hit at least six Iranian nuclear sites, Iran is observed building new fortifications at the Natanz tunnel complex, and the Trump-Xi summit on May 14 produced a joint declaration that Iran can never have a nuclear weapon.",
+  "tldr": "Opinion_magazines is the most isolated bucket (0.393), running a long-form JCPOA counterfactual while every other bucket filed breaking news—the analytical-versus-news divergence explains the semantic distance. Iran_opposition's exclusive vocabulary ('site', 'tank', 'complex', 'possible') uniquely documents satellite imagery showing new defensive fortifications near Natanz, a finding absent from every other bucket. The US-China summit's joint statement that Iran can never have a nuclear weapon is the dominant frame unifier across six of ten buckets. No paradox was identified: all buckets converge on the nuclear program as an existential threat, diverging only on whether diplomacy or military force is the correct response. Absent from the corpus are Russia (key NPT actor), Iran_state (Tehran's official framing), and pan_Arab buckets—three actors central to any eventual settlement are entirely unrepresented.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear sites, strikes, fortifications",
+      "buckets": [
+        "iran_opposition",
+        "israel",
+        "usa",
+        "canada",
+        "india",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "quote": "US and Israeli strikes hit Iran sites tied to nuclear weapon work, think tank says",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "quote": "Possible new fortifications seen at tunnel complex near Natanz, think tank says",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "israel",
+          "quote": "Iran ‘frighteningly close’ to developing nuclear weapons, US energy secretary says - report",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-China joint declaration",
+      "buckets": [
+        "south_korea",
+        "taiwan_hk",
+        "china",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "quote": "U.S., China agreed Iran can never have nuclear weapon: White House official",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "china",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk; move reflects Teheran's willingness to seek intl support",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "deal terms, plutonium pathway",
+      "buckets": [
+        "usa",
+        "opinion_magazines",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "quote": "Experts warn any new Iran deal must ban plutonium reprocessing and expose covert pathways to nuclear weapons",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "opinion_magazines",
+          "quote": "The Iran war spotlights one of Washington’s most contentious counterfactuals.",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "quote": "Stopping Iran’s nuclear program more important than Americans’ economic pain, Trump says",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.393,
+      "note": "Long-form JCPOA counterfactual analysis—analytical register isolated from news-cycle corpus"
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.485,
+      "note": "Unique satellite-imagery and Natanz fortification reporting not covered elsewhere"
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.529,
+      "note": "Live-blog format with real-time summit updates; structurally different from article corpus"
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.53,
+      "note": "Framing via US Energy Secretary's 'frighteningly close' language; proximity threat lens"
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.536,
+      "note": "Geopolitical meta-analysis of Iran war outcomes; not nuclear-specific"
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "iran_opposition",
+      "terms": [
+        "site",
+        "tank",
+        "complex",
+        "possible",
+        "israeli"
+      ],
+      "what_it_reveals": "Exclusive satellite-imagery vocabulary documenting Natanz tunnel fortifications and strike targets—reporting absent from all other buckets"
+    },
+    {
+      "bucket": "usa",
+      "terms": [
+        "warn",
+        "retired",
+        "commander",
+        "plutonium",
+        "force"
+      ],
+      "what_it_reveals": "Military-expert framing: retired commanders and experts warning on plutonium pathway risks—a specialist register not appearing elsewhere"
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "russia",
+      "what_they_covered_instead": "Russia is a key NPT party and co-signatory of the original JCPOA but filed nothing on this story in the corpus"
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Tehran's official framing of the nuclear program—denied, peaceful, sovereign—is entirely absent, leaving corpus structurally one-sided"
+    },
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "Gulf states with direct security stakes in any Iran nuclear deal are unrepresented in this sub-corpus"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Institute for Science and International Security (via iran_opposition)",
+      "bucket": "iran_opposition",
+      "finding": "Only bucket to report new satellite imagery showing possible defensive fortifications at Natanz tunnel complex—an intelligence-layer finding not in any other bucket",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "opinion_magazines",
+      "bucket": "opinion_magazines",
+      "finding": "Only bucket running a JCPOA counterfactual ('Would We Be Better Off Today?')—analytical frame entirely absent from news-cycle buckets",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "Six nuclear sites struck, new fortifications observed at Natanz, and a US-China joint declaration that Iran can never have a nuclear weapon—the corpus captures a story moving simultaneously in the military, intelligence, and diplomatic dimensions. The silence of Iran_state, Russia, and pan_Arab buckets means the corpus is structurally one-sided: three of the actors with the most at stake in any Iran nuclear settlement are entirely absent."
+}

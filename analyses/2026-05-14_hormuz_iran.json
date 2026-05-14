@@ -1,0 +1,290 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-14",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 30,
+  "n_articles": 51,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-14T06:00:00Z",
+  "event_summary": "Trump and Xi met in Beijing on May 14 and agreed Hormuz must stay open and Iran can never have a nuclear weapon; simultaneously a ship was seized near the UAE port of Fujairah and redirected toward Iranian waters, while ceasefire talks with Tehran remained on 'massive life support.'",
+  "tldr": "The most striking finding is a geopolitical paradox: CGTN World (china, corpus[5]) and Iran International (iran_opposition, corpus[12])—buckets representing Chinese state media and anti-Tehran Iranian exile press respectively—converge on the same conclusion: US efforts to recruit China against Iran will fail, though they frame this divergently. Japan is the most isolated bucket (0.359) with a single article about a crude tanker transit, illustrating how logistics rather than geopolitics dominated Japanese press on this story. Brazil (corpus[2]) alone uses the Portuguese phrase 'respira por aparelhos' (on life support) for the ceasefire, capturing Trump's blunt metaphor in a register absent from all English-language buckets. Qatar press (corpus[28]) filed on Japanese snack packaging going black-and-white due to ink supply disruptions—the most concretely mundane economic-contagion story in the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Hormuz blockade, ship seizure",
+      "buckets": [
+        "iran_opposition",
+        "usa",
+        "uk",
+        "israel",
+        "ukraine",
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "quote": "President Donald Trump said the ceasefire with Iran is on \"massive life support,\" as retired U.S. commanders and national security experts are increasingly split whether Washington should resume military operations against Tehran",
+          "signal_text_idx": 46
+        },
+        {
+          "bucket": "iran_opposition",
+          "quote": "The British Maritime Trade Operations Center (UKMTO) announced on May 14 that \"unauthorized personnel\" had taken control of a ship at anchor following an incident in the northeast of the United Arab Emirates (UAE) and that the ship was heading toward Iranian territorial waters.",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "ukraine",
+          "quote": "Classified US intelligence assessments reportedly show Iran has restored operational access to most of its missile infrastructure, including 30 of 33 missile sites along the Strait of Hormuz.",
+          "signal_text_idx": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy contagion, supply chains",
+      "buckets": [
+        "qatar",
+        "uk",
+        "pan_african",
+        "asia_pacific_regional"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "quote": "Tokyo-based Calbee says it would temporarily use only black and white colours on 14 of its products due to a lack of supplies needed for printing ink.",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "uk",
+          "quote": "Impact of disruption from Iran war may be felt into 2027 even if strait of Hormuz reopens, says aviation body boss",
+          "signal_text_idx": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Trump-Xi summit, Hormuz agreement",
+      "buckets": [
+        "pan_arab",
+        "south_korea",
+        "canada",
+        "russia",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "quote": "Trump, Xi agree on need for Hormuz to stay open, White House says",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "south_korea",
+          "quote": "U.S., China agree Iran can never have nuke, Strait of Hormuz must remain open: White House",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "canada",
+          "quote": "U.S. President Donald Trump says the fragile ceasefire with Iran is hanging by a thread, after rejecting Tehran’s latest proposal to end the war.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "deal conditions, Iran demands",
+      "buckets": [
+        "egypt",
+        "germany",
+        "russia",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "quote": "Iran hardened its negotiating position with the United States on Wednesday, demanding five conditions it described as the “minimum guarantees for trust” before entering any new round of talks",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "quote": "A new operation name could allow the Trump administration to distinguish renewed strikes from Operation Epic Fury",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "China-Iran entente, Trump frustration",
+      "buckets": [
+        "china",
+        "iran_opposition",
+        "italy",
+        "spain"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "quote": "blocking the Strait of Hormuz would not serve the common interests of the international community",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_opposition",
+          "quote": "Iranian ambassador to China Abdolreza Rahmani-Fazli wrote Monday on X that relations between Tehran and Beijing “are stronger than any US effort aimed at changing China’s position toward Iran through pressure.”",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "maritime mission assets",
+      "buckets": [
+        "poland_balt",
+        "pakistan",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "poland_balt",
+          "quote": "Defense Minister Hanno Pevkur (Reform) expects the EDF to present possible options by the end of the week for how Estonia could contribute to the mission protecting t",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "pakistan",
+          "quote": "Australia joins Strait of Hormuz maritime security mission",
+          "signal_text_idx": 22
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.359,
+      "note": "Single logistical article about a crude tanker completing a rare Hormuz transit—logistics frame isolated from geopolitical corpus"
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.365,
+      "note": "Estonia's potential Hormuz mission participation—very narrow capacity-resources angle"
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.398,
+      "note": "Single brief article on Australia joining Hormuz maritime mission—adjacent-actor focus"
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.49,
+      "note": "RT Africa files on piracy/Nigeria oil—peripheral framing disconnected from Hormuz ceasefire corpus"
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.5,
+      "note": "Atlantic photo essay on global human cost + Danish-play analogy—long-form analytical registers distinct from news corpus"
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.505,
+      "note": "CGTN encodes encoding artefacts (language-selector boilerplate) that inflate semantic distance from corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "india",
+      "terms": [
+        "minab"
+      ],
+      "what_it_reveals": "Minab168 inscription on Iran FM's plane—reference to 168 schoolchildren killed; India's BRICS context made this diplomatically salient detail exclusively covered"
+    },
+    {
+      "bucket": "iran_opposition",
+      "terms": [
+        "rubio"
+      ],
+      "what_it_reveals": "Secretary of State Rubio's hawkish pressure on China over Iran—angle emphasized by exile Iranian press tracking US policy"
+    },
+    {
+      "bucket": "brazil",
+      "terms": [
+        "cessar",
+        "fogo",
+        "respira",
+        "aparelho"
+      ],
+      "what_it_reveals": "Portuguese: ceasefire ('cessar-fogo') 'on life support' ('respira por aparelhos')—Trump's own metaphor captured in Brazilian Portuguese, absent from English corpus"
+    },
+    {
+      "bucket": "qatar",
+      "terms": [
+        "calbee",
+        "black",
+        "packaging"
+      ],
+      "what_it_reveals": "Japanese snack packaging switching to black-and-white due to ink supply disruptions—most micro-scale economic contagion story in the corpus"
+    },
+    {
+      "bucket": "poland_balt",
+      "terms": [
+        "estonia"
+      ],
+      "what_it_reveals": "Estonia's deliberation on Hormuz mission contribution—a NATO-flank perspective on Middle East engagement unique to Baltic press"
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "china",
+      "outlet": "CGTN",
+      "quote": "blocking the Strait of Hormuz would not serve the common interests of the international community",
+      "signal_text_idx": 5
+    },
+    "b": {
+      "bucket": "iran_opposition",
+      "outlet": "Iran International EN",
+      "quote": "Iranian ambassador to China Abdolreza Rahmani-Fazli wrote Monday on X that relations between Tehran and Beijing “are stronger than any US effort aimed at changing China’s position toward Iran through pressure.”",
+      "signal_text_idx": 12
+    },
+    "joint_conclusion": "Pro-Beijing Chinese state media and anti-Tehran Iranian exile press converge on the same conclusion—US efforts to recruit China into pressuring Iran on Hormuz will not succeed—though framed divergently: CGTN as principled multilateralism, Iran International as Beijing-Tehran entente beyond Washington's reach."
+  },
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's official position on Hormuz—sovereign right to restrict passage, ceasefire terms—is entirely absent from this corpus"
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France led the European maritime mission to Hormuz but filed nothing; European security-alliance dimension unrepresented"
+    },
+    {
+      "bucket": "gulf_states",
+      "what_they_covered_instead": "GCC states most directly exposed to Hormuz closure—UAE, Saudi Arabia, Bahrain—are absent despite the ship seizure near UAE waters"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "CGTN",
+      "bucket": "china",
+      "finding": "Wang Yi's statement frames Hormuz closure as against 'common interests of the international community'—China's principled multilateralism formulation, absent from all other buckets",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "Ambassador tweet reports Beijing-Tehran relations 'stronger than any US effort at pressure'—Iran's read on China-US-Iran triangulation, unique to this bucket",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Yonhap",
+      "bucket": "south_korea",
+      "finding": "Filed five lead updates on the Trump-Xi summit communiqué—most granular real-time summit coverage in the corpus",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "Calbee story (via qatar)",
+      "bucket": "qatar",
+      "finding": "Japanese snacks going black-and-white due to ink supply disruption from Hormuz—only corpus entry capturing a consumer-goods supply chain impact",
+      "signal_text_idx": 28
+    }
+  ],
+  "bottom_line": "The Trump-Xi summit produced an agreed statement that Hormuz must remain open and Iran can never have a nuclear weapon, but CGTN and Iran International simultaneously reported that China-Iran ties are 'stronger than any US effort at pressure'—a paradox that captures Washington's core dilemma: the two powers it most needs to align are already signaling alignment with each other. The seizure of a ship near Fujairah on the same day as the summit underscored the gap between diplomatic communiqués and facts on the water."
+}

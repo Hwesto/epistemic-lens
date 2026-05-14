@@ -1,0 +1,177 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-14",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 12,
+  "n_articles": 15,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-14T06:00:00Z",
+  "event_summary": "Lebanon and Israel began two days of direct talks in Washington on May 14 focused on disputed issues including Hezbollah disarmament, while Israeli strikes killed at least 12 people in Lebanon the same week and an explosive drone seriously injured two Israeli civilians at Rosh Hanikra.",
+  "tldr": "Religious_press is the most isolated bucket (0.431), filing exclusively on attacks on Christian communities in southern Lebanon—a moral-minority frame absent from all state, wire, and political buckets. Turkey bucket contains two thematically unrelated articles (Virgin Mary statue desecration and Israeli strikes on cars at a highway), explaining its high exclusive vocabulary ('virgin', 'mary', 'statue', 'cars', 'highway') as a multi-topic bucket rather than editorial angle. South_africa is the only bucket to note that over 400 people have been killed during the ceasefire—a figure absent from every other corpus entry. The Washington talks anchor framing in most buckets, but Iran_state focuses entirely on Hezbollah resistance while USA focuses on a Christian border town defying Hezbollah—the widest divergence in the corpus. No paradox was identified.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes, Hezbollah, drone attack",
+      "buckets": ["israel", "iran_state", "russia", "wire_services", "uk", "pan_arab", "egypt"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "quote": "The conflict between Israel and Hezbollah is continuing despite talks currently taking place between Lebanon and Israel.",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "iran_state",
+          "quote": "Hezbollah Secretary-General Sheikh Naim Qassem reiterates the firmness of the Lebanese resistance movement against the Israeli aggression",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "israel",
+          "quote": "an explosive drone struck Rosh Hanikra on Thursday",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "civilian deaths, religious sites",
+      "buckets": ["religious_press", "turkey", "russia"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "quote": "Two Israeli soldiers were sentenced to weeks in military prison after one desecrated a statue of the Virgin Mary in southern Lebanon by placing a cigarette in its mouth",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "religious_press",
+          "quote": "attacks on Christian communities in southern Lebanon",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "quote": "At least 87 people have reportedly been killed in Lebanon since Friday as Israel intensified strikes despite a US-backed ceasefire",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Washington talks, disarmament conditions",
+      "buckets": ["pan_arab", "south_africa", "uk", "usa"],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "quote": "Lebanon and Israel will begin two days of direct talks in Washington, DC, on Thursday, focused on disputed issues",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "quote": "Hezbollah support endures in south Lebanon as ceasefire fails to stop war with Israel",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "400+ killed during ceasefire",
+      "buckets": ["south_africa", "wire_services", "russia"],
+      "evidence": [
+        {
+          "bucket": "south_africa",
+          "quote": "Israeli strikes have killed more than 400 people during the truce.",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "wire_services",
+          "quote": "Israel launches fresh strikes on Lebanon despite ceasifre and ongoing talks",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.431,
+      "note": "Exclusively covers attacks on Christian communities—a moral-minority frame absent from all other buckets"
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.463,
+      "note": "Hezbollah resistance narrative; 'resistance' and 'surrender' as exclusive terms signal unique framing register"
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.522,
+      "note": "Files on a Christian border town that 'survived by defying Hezbollah'—a local character profile unlike any other entry"
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.53,
+      "note": "Exclusive vocab 'sport','stadium' reflects unique angle: displaced Lebanese living in Beirut stadiums"
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.549,
+      "note": "Only bucket reporting 400+ killed during the ceasefire—a figure absent elsewhere in the corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "iran_state",
+      "terms": ["resistance", "surrender"],
+      "what_it_reveals": "Resistance-frame vocabulary uniquely marks Iranian state media's coverage; no other bucket uses this register"
+    },
+    {
+      "bucket": "turkey",
+      "terms": ["virgin", "mary", "statue", "cars", "highway"],
+      "what_it_reveals": "Multi-topic bucket artefact: two unrelated articles (soldier desecration of statue; strikes on cars at highway) produce unrelated exclusive terms"
+    },
+    {
+      "bucket": "germany",
+      "terms": ["sport", "stadium"],
+      "what_it_reveals": "Unique angle: sport programs helping displaced Lebanese living in Beirut stadiums—humanitarian detail absent from all other buckets"
+    },
+    {
+      "bucket": "egypt",
+      "terms": ["litani", "north", "troop"],
+      "what_it_reveals": "Focuses on troop positions north of the Litani River—the buffer zone geography that other buckets treat only in passing"
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France is UNIFIL's largest contributor and the closest European power to Lebanese affairs; its absence leaves the peacekeeping governance dimension unrepresented"
+    },
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China holds a UN Security Council seat and has proposed ceasefire resolutions on Lebanon; its absence removes the multilateral dimension from the corpus"
+    },
+    {
+      "bucket": "iran_opposition",
+      "what_they_covered_instead": "Present in four other stories today but filed nothing on Lebanon—possibly explaining why Hezbollah's Iran-supply chain is absent from the corpus"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Characterizes Israeli operations as 'brutal bombardment'—uniquely inflammatory language not mirrored in any other bucket's corpus entry",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "south_africa",
+      "bucket": "south_africa",
+      "finding": "Only entry to cite the cumulative toll of 400+ killed during the ceasefire period—a number present in no other bucket",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "usa",
+      "bucket": "usa",
+      "finding": "Profiles Rmeish, a Christian Lebanese border town that confronted Hezbollah and blocked them from using the village—a local resistance-within-resistance narrative unique to the corpus",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Lebanon and Israel opened direct Washington talks while Israeli strikes continued killing Lebanese civilians and a drone hit Israeli territory—the corpus captures a story where diplomacy and military escalation run in parallel, not sequence. The most important silences are France (UNIFIL contributor) and China (UN Security Council), whose absence leaves the international governance dimension of the ceasefire essentially unrepresented."
+}

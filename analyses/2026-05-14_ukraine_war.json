@@ -1,0 +1,274 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-14",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "n_buckets": 24,
+  "n_articles": 43,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-14T06:00:00Z",
+  "event_summary": "Russia launched its largest two-day aerial attack of the war—over 1,500 drones and 56 missiles—while Ukraine's anti-corruption court ordered the arrest of Andriy Yermak, Zelensky's former chief of staff, on money-laundering charges with bail set at $3 million.",
+  "tldr": "Russia's largest aerial offensive of the war—over 1,500 drones and 56 missiles—is the anchor frame across nearly all 24 buckets, but the Yermak money-laundering arrest appears in ten buckets and drives the CRIME_PUNISHMENT frame. Iraq is the most isolated bucket (0.400) with an article about US economic resilience to Iran war shocks—semantically disconnected from Ukraine war content, a clear pipeline artefact. Iran_opposition uniquely reports that Yermak consulted a fortune-teller for government appointments—a detail in no other bucket. Russia bucket is fourth-most isolated (0.510), filing entirely on the Belgorod and Bryansk governor replacements rather than the missile barrage—an inward-looking domestic narrative that avoids the international coverage angle entirely. No paradox was identified.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "drone barrage, Kyiv strikes, air defense",
+      "buckets": [
+        "taiwan_hk",
+        "wire_services",
+        "uk",
+        "india",
+        "pan_african",
+        "south_africa",
+        "kenya",
+        "nordic",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "quote": "Russia unleashes 1,500 attack drones on Ukraine, shattering prospects for peace",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "wire_services",
+          "quote": "Russia hits Kyiv with drones and ballistic missiles, killing 1 and injuring 31",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "ukraine",
+          "quote": "Ukraine has escalated its campaign against Russian air defense systems, using expanding drone production and more advanced strike technologies",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Yermak arrest, fortune teller",
+      "buckets": [
+        "canada",
+        "opinion_magazines",
+        "iran_opposition",
+        "italy",
+        "turkey",
+        "vietnam_thai_my",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "quote": "Andriy Yermak is suspected in an alleged 460-million-hryvnia scheme",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "opinion_magazines",
+          "quote": "Andriy Yermak once mingled with world leaders; now he’s languishing in a Kyiv cell over money-laundering charges.",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "iran_opposition",
+          "quote": "Andriy Yermak, who is a suspect in a major corruption scandal, consulted a fortune-teller when deciding on top government appointments",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "post-Orbán Hungary, Latvia PM",
+      "buckets": [
+        "hungary_central",
+        "russia",
+        "vietnam_thai_my",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "hungary_central",
+          "quote": "After six years, governance under a state of danger has come to an end in Hungary.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "quote": "President Vladimir Putin replaced the governors of the Bryansk and Belgorod regions on Wednesday, installing a military general and a former official in occupied Ukraine",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "quote": "Latvian Prime Minister Silina resigns over handling of Ukraine drone incidents",
+          "signal_text_idx": 40
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU sanctions, shadow fleet",
+      "buckets": [
+        "germany",
+        "balkans",
+        "poland_balt",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "quote": "The EU is sanctioning 16 individuals and seven entities over alleged child abductions.",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "balkans",
+          "quote": "an oil tanker sailing under the name Grace Felix arrived in the Bay of Durres carrying 21,000 tonnes of gasoil",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "poland_balt",
+          "quote": "European External Action Service Deputy Secretary General Matti Maasikas defended the EU's sanctions policy on Tuesday",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Ukraine recovery index negative",
+      "buckets": [
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "quote": "Ukraine’s Business Recovery Index turned negative for the first time since March 2023, dropping to -0.11 in April as order portfolios collapsed to their shortest in months and medium-term uncertainty climbed",
+          "signal_text_idx": 36
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.4,
+      "note": "Article is about US economic resilience to Iran war shocks—off-topic; corpus artefact from multi-story pipeline overlap"
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.42,
+      "note": "Vatican News covers only a Ukrainian war mother's grief narrative—personal-loss register semantically distant from military/political corpus"
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.473,
+      "note": "Shadow fleet tanker investigation (Grace Felix, Durres)—shipping logistics frame isolated from war-news corpus"
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.51,
+      "note": "Files entirely on Belgorod/Bryansk governor replacements—domestic political story that avoids international missile-barrage coverage"
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.516,
+      "note": "Combines NATO sanctions defense with Bornholm/NATO-testing essay—strategic analysis register"
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.534,
+      "note": "NATO tech accelerator launch at B9 summit and Stubb press conference—capacity-building angle distinct from kinetic-war corpus"
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "russia",
+      "terms": [
+        "gladkov",
+        "belgorod",
+        "governor",
+        "shuvaev",
+        "bryansk"
+      ],
+      "what_it_reveals": "Gladkov's resignation and replacements in Belgorod and Bryansk—Russia bucket covers frontline governor reshuffles rather than the barrage, signaling inward domestic framing"
+    },
+    {
+      "bucket": "iran_opposition",
+      "terms": [
+        "anikyevich",
+        "veronika",
+        "consulted",
+        "teller",
+        "appointment"
+      ],
+      "what_it_reveals": "Veronika Anikyevich fortune-teller detail in the Yermak corruption story—a colorful governance-failure angle unique to this bucket"
+    },
+    {
+      "bucket": "ukraine",
+      "terms": [
+        "enterpris",
+        "index",
+        "compan",
+        "march"
+      ],
+      "what_it_reveals": "Ukraine's Business Recovery Index turning negative—economic-data story entirely absent from every other bucket"
+    },
+    {
+      "bucket": "balkans",
+      "terms": [
+        "tanker",
+        "albanian",
+        "albania",
+        "grace",
+        "felix"
+      ],
+      "what_it_reveals": "Grace Felix shadow-fleet tanker investigation in Albania—sanctions evasion reporting unique to Balkans press"
+    },
+    {
+      "bucket": "nordic",
+      "terms": [
+        "finnish",
+        "stubb",
+        "diana",
+        "startup",
+        "accelerator"
+      ],
+      "what_it_reveals": "NATO DIANA tech accelerator launch at B9 summit—defense-technology capacity angle exclusive to Nordic coverage"
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China is a key diplomatic actor whose position on a Ukraine settlement matters but is entirely absent from this corpus"
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France provides significant military support to Ukraine and is a major European actor on the war; its absence leaves European military-supply framing unrepresented"
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's arms-supply relationship with Russia (drones) would be a natural angle but is absent from the corpus"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "religious_press",
+      "bucket": "religious_press",
+      "finding": "Vatican News covers only a Ukrainian war mother's grief narrative (Lyubov, whose son Oleksandr died February 2024)—zero military analysis; the most humanized register in the corpus",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "Iraq news (via iraq)",
+      "bucket": "iraq",
+      "finding": "Article is entirely about US economic resilience to Iran war shocks—a misrouted corpus entry with no Ukraine war content; most isolated entry (0.400)",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Iran opposition press",
+      "bucket": "iran_opposition",
+      "finding": "Only outlet to report that Yermak consulted a fortune-teller named Veronika Anikyevich when deciding government appointments—detail absent from all other coverage",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Nordic press",
+      "bucket": "nordic",
+      "finding": "Only bucket to cover the NATO DIANA tech accelerator launched at the B9 summit—defense-technology capacity story that reframes the war as a driver of European innovation",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "Russia's largest aerial offensive of the war ran parallel to the arrest of Zelensky's most powerful former aide—two stories that frame Ukraine's predicament from opposite directions: military pressure from without and corruption pressure from within. China, France, and Iran_state are all absent from the corpus, leaving three actors with direct influence on any eventual peace settlement entirely unrepresented."
+}

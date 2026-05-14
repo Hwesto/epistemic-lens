@@ -1,0 +1,264 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-14",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 26,
+  "n_articles": 46,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-14T06:00:00Z",
+  "event_summary": "The MV Hondius cruise ship has been linked to 11 hantavirus cases and 3 deaths; all passengers have been evacuated, with repatriation flights to Australia, quarantine protocols in the Netherlands, and contact tracing underway across Europe.",
+  "tldr": "The most isolated bucket—taiwan_hk (0.438)—filed a single bare headline with no substantive text, revealing how marginally the story registered in Taiwanese and Hong Kong press. Australia_nz (0.498) is semantically distant for structural rather than editorial reasons: Angus Taylor's budget reply speech dominated the bucket text, drowning out the three hantavirus repatriation articles. Argentina_chile alone frames the story through CAPACITY_RESOURCES, reporting that President Milei's austerity program cut funding to the ANLIS-Malbrán Institute—the very agency tasked with investigating domestic hantavirus exposure. In the USA, Breitbart identified 'Patient Zero' as a Dutch ornithologist at a landfill, while The Intercept simultaneously documented a resurgence of ivermectin misinformation—rare same-day intra-bucket divergence. No paradox was identified.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Andes virus, outbreak containment",
+      "buckets": [
+        "argentina_chile",
+        "canada",
+        "iran_state",
+        "indonesia",
+        "kenya",
+        "mexico",
+        "netherlands_belgium",
+        "nordic",
+        "pakistan",
+        "russia",
+        "south_africa",
+        "spain",
+        "turkey",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "quote": "Eight people infected in the hantavirus outbreak aboard the MV Hondius cruise ship have tested positive for the Andes virus, the only strain transmitted between humans, the World Health Organization says.",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_state",
+          "quote": "This virus is not new and has been known in the world for years. Furthermore, no case of a new type of Hantavirus has been reported in Iran so far, and there is no reason for concern,",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "canada",
+          "quote": "Incubation can last about six weeks, and crew, passengers and people in contact with them have been quarantined",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "vaccine funding failure, austerity cuts",
+      "buckets": [
+        "argentina_chile",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "quote": "President Javier Milei’s government has reduced funding for several state agencies and departments, including the ANLIS-Malbrán Institute, the epidemiological body tasked with investigating whether hantavirus is present in Argentina.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "quote": "A Hantavirus outbreak linked to the MV Hondius cruise ship has tragically claimed three lives this year, with 11 cases reported. While infections are rare, this outbreak highlights the urgent need for a vaccine, with research stalled by funding issues.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "repatriation, quarantine protocols",
+      "buckets": [
+        "australia_nz",
+        "netherlands_belgium",
+        "wire_services",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "netherlands_belgium",
+          "quote": "Some of the passengers who were on the same flights as a Dutch woman with hantavirus must go into quarantine, Gianfranco Spiteri of the European health service ECDC said during a press conference on Wednesday.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "australia_nz",
+          "quote": "Four Australian citizens who were aboard the MV Hondius, the cruise ship at the centre of the hantavirus outbreak, will soon be home after the government secured a suitable aircraft and crew for the journey.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "media panic, misinformation",
+      "buckets": [
+        "usa",
+        "italy",
+        "germany",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "quote": "Those who cheered ivermectin as a Covid-19 treatment are now making unsubstantiated claims about its use against hantavirus.",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "italy",
+          "quote": "Pericolo per le persone pari a zero. Copertura mediatica al massimo.",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "usa",
+          "quote": "“Patient Zero” for the hantavirus outbreak aboard the cruise ship MV Hondius has been identified as 70-year old Dutch ornithologist Leo Schilperoord, a passenger who made the fateful decision to go birdwatching at a landfill near the resort town of Ushuaia in Tierra del Fuego, Argentina.",
+          "signal_text_idx": 40
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "cross-border protocols, WHO criticism",
+      "buckets": [
+        "russia",
+        "netherlands_belgium",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "quote": "The US decision not to quarantine passengers of the hantavirus-hit ship could be dangerous, the WHO chief has said",
+          "signal_text_idx": 26
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.438,
+      "note": "Single bare headline ('Hantavirus cruise outbreak grows to 11') with no substantive body text—minimal signal"
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.471,
+      "note": "Unique angle: Korean scientific history in hantavirus discovery—retrospective frame absent from other buckets"
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.479,
+      "note": "First-person scientist narrative (New Yorker)—personal register semantically distinct from wire-service corpus"
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.498,
+      "note": "Language artefact: Angus Taylor budget reply speech dominated bucket text, swamping the three repatriation articles—content artefact not editorial"
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.527,
+      "note": "Preventive alert only; no documented cases in Mexico—epidemiological precaution frame differs from outbreak coverage"
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.544,
+      "note": "Conspiracy-myth debunking and COVID comparison framing ('Warum das Hantavirus nicht mit Corona vergleichbar ist')—analytical register"
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "australia_nz",
+      "terms": [
+        "taylor",
+        "angu",
+        "reply",
+        "speech",
+        "vision"
+      ],
+      "what_it_reveals": "Language artefact: Angus Taylor's budget reply speech text dominated the bucket, making isolation score reflect parliamentary procedure rather than hantavirus coverage"
+    },
+    {
+      "bucket": "usa",
+      "terms": [
+        "landfill",
+        "ivermectin",
+        "bird",
+        "watcher",
+        "panic"
+      ],
+      "what_it_reveals": "Two editorially distinct USA angles: patient-zero investigation (Breitbart) and misinformation debunking (The Intercept)—intra-bucket divergence"
+    },
+    {
+      "bucket": "wire_services",
+      "terms": [
+        "françai",
+        "dans",
+        "ministre",
+        "pour",
+        "testé"
+      ],
+      "what_it_reveals": "Language artefact: French-language wire copy from franceinfo dominated this bucket's exclusive vocabulary"
+    },
+    {
+      "bucket": "argentina_chile",
+      "terms": [
+        "malbrán",
+        "anli",
+        "milei",
+        "institute"
+      ],
+      "what_it_reveals": "ANLIS-Malbrán Institute funding cuts under Milei—a capacity-resources story unique to this bucket's geographic proximity"
+    },
+    {
+      "bucket": "germany",
+      "terms": [
+        "warum",
+        "corona"
+      ],
+      "what_it_reveals": "German-language ('warum' = why) and COVID-comparison framing—Tagesschau's conspiracy-myth debunking register"
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "brazil",
+      "what_they_covered_instead": "Absent despite Brazil being a neighboring country in the Andes virus geographic range; no Brazilian coverage of regional exposure risk"
+    },
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "Absent from this sub-corpus despite large pan-Arab wire readership—story did not register in Arabic-language monitoring"
+    },
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "No Chinese-language coverage in corpus despite Chinese tourists being among global cruise passengers"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart (via usa)",
+      "bucket": "usa",
+      "finding": "Only outlet to name and profile 'Patient Zero' as a specific individual—Dutch ornithologist Leo Schilperoord at a Ushuaia landfill—an investigative personalization absent from all other coverage",
+      "signal_text_idx": 40
+    },
+    {
+      "outlet": "The Intercept (via usa)",
+      "bucket": "usa",
+      "finding": "Only outlet documenting ivermectin misinformation resurgence during the outbreak—a disinformation-tracking angle not in any other bucket",
+      "signal_text_idx": 41
+    },
+    {
+      "outlet": "New Yorker (via opinion_magazines)",
+      "bucket": "opinion_magazines",
+      "finding": "First-person scientist narrative—the only corpus entry written from the perspective of someone who was aboard the MV Hondius during the outbreak",
+      "signal_text_idx": 24
+    },
+    {
+      "outlet": "RT (via russia)",
+      "bucket": "russia",
+      "finding": "Only entry explicitly criticizing the US decision not to quarantine passengers as potentially dangerous—framing WHO criticism of US policy as the lead angle",
+      "signal_text_idx": 26
+    }
+  ],
+  "bottom_line": "Across 26 buckets the hantavirus outbreak on MV Hondius produced starkly divergent coverage: Australian press was dominated by repatriation logistics; European buckets split between calm public-health messaging and conspiracy-myth debunking; and the USA filed both a patient-zero investigation and an ivermectin misinformation exposé simultaneously. The most consequential story missing from the corpus is Argentina's ANLIS-Malbrán funding cuts—a capacity story covered only by argentina_chile and absent from all international buckets despite its direct relevance to outbreak investigation."
+}
