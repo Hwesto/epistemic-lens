@@ -1,0 +1,161 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israel–Lebanon buffer zone and ongoing strikes",
+  "pass": "headline",
+  "n_buckets": 10,
+  "n_articles": 14,
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-05-15T10:32:14Z",
+  "tldr": "Headlines divide across five frames: Israeli military strikes and civilian casualties (dominant, 5 buckets), ceasefire and withdrawal negotiations, attacks on medics as moral violation, Hezbollah resistance framing, and a lived-experience human-interest angle. Iran_state is the most isolated bucket (0.485), framing the story entirely through Hezbollah resistance and Iranian support rather than Israeli operations.",
+  "event_summary": "Israel has continued airstrikes in southern Lebanon, killing at least 22 people according to Lebanon's health ministry; negotiations over an IDF withdrawal contingent on Hezbollah disarmament are ongoing; MSF has documented an alarming pattern of attacks on medical personnel.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "russia",
+        "turkey",
+        "uk",
+        "pan_arab",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC",
+          "quote": "Israeli strikes in southern Lebanon kill 22 people, health ministry says",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israel strikes cars on Lebanese highway, killing 8, including 2 children",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "pan_arab",
+        "wire_services",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Lebanon seeks truce extension as Israeli strikes continue",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "France 24",
+          "quote": "In Lebanon, the idea of peace with Israel continues to deeply divide",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "buckets": [
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC",
+          "quote": "Israeli attacks on medics in southern Lebanon part of 'alarming pattern,' says MSF",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "buckets": [
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA",
+          "quote": "Hezbollah chief hails Iran support for resistance, vows not to surrender to Israel",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "buckets": [
+        "germany",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle",
+          "quote": "Sport helping displaced Lebanese living in stadium to cope",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR",
+          "quote": "Inside the Christian border town in Lebanon that says it survived by defying Hezbollah",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.485,
+      "note": "IRNA headline frames the story through Hezbollah resistance and Iranian solidarity — the only bucket in which the dominant voice is the non-state armed actor rather than Israeli military action or Lebanese civilian casualties."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.53,
+      "note": "US headline (Christian border town that 'survived by defying Hezbollah') foregrounds sectarian community resilience — a cultural-identity and lived-experience frame entirely absent from the conflict-and-diplomacy coverage dominant elsewhere."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.532,
+      "note": "France 24 foregrounds Lebanese societal division over peace with Israel — a domestic public-opinion framing rather than the military-operations or humanitarian frames dominant in other buckets."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.554,
+      "note": "DW leads with displaced Lebanese using sport to cope in stadium shelters — a humanitarian resilience angle that diverges from the military-casualty or negotiation framing all other outlets prioritize."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.575,
+      "note": "CBC uniquely foregrounds the pattern of attacks on medical personnel (MSF attribution) — a morality/IHL frame absent from the five SECURITY_DEFENSE buckets that cover the same strikes through a casualty-count lens."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "CBC",
+      "bucket": "canada",
+      "finding": "Only outlet in the corpus to headline attacks on medics explicitly as an 'alarming pattern' documented by MSF — a humanitarian law and morality frame absent from all other buckets covering the same strikes.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "IRNA",
+      "bucket": "iran_state",
+      "finding": "The only headline that foregrounds the non-state actor perspective — Hezbollah's vow not to surrender and Iran's support — diverging from all other outlets which frame the story through Israeli military action or Lebanese civilian impact.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "France 24",
+      "bucket": "wire_services",
+      "finding": "Frames the story through internal Lebanese societal fracture over the prospect of peace with Israel — the only headline in the corpus that centers Lebanese public opinion rather than Israeli operations or Hezbollah resistance.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The small corpus (14 articles, 10 buckets) produces five distinct headline frames with no single dominant cluster: SECURITY_DEFENSE (strikes and casualties) covers the most buckets but barely half. The most analytically significant divergences are IRNA's resistance-solidarity framing and Canada's medical-personnel morality frame — both treat the same Israeli military operations through entirely different ethical lenses. Germany and the USA produce the only human-interest and cultural-identity angles, diverging from the conflict register that unifies the remaining eight outlets."
+}

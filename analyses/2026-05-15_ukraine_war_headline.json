@@ -1,0 +1,170 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "ukraine_war",
+  "story_title": "Russia–Ukraine war (May 2026)",
+  "pass": "headline",
+  "n_buckets": 26,
+  "n_articles": 41,
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-05-15T10:32:14Z",
+  "tldr": "Headlines fracture across four frames: record drone and missile attacks (SECURITY_DEFENSE, dominant), war crimes and accountability (CRIME_PUNISHMENT), ceasefire and prisoner-exchange diplomacy (POLITICAL), and European strategic repositioning (EXTERNAL_REGULATION). Nordic is the most isolated cluster (0.341), covering Stubb's shuttle diplomacy rather than the Kyiv drone barrage; Hungary_central (0.390) is the only bucket whose headline has no Ukraine content at all.",
+  "event_summary": "Russia launched its heaviest wartime drone assault on Ukraine, killing at least 24 in Kyiv; Ukraine retaliated with strikes on the Ryazan oil refinery. A prisoner swap exchanged 205 combatants per side. The EU sanctioned Russian officials over the systematic deportation of Ukrainian children. A Ukrainian presidential adviser said a special tribunal on Russia could launch as early as 2027.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "canada",
+        "uk",
+        "usa",
+        "wire_services",
+        "pan_african",
+        "iran_opposition",
+        "india",
+        "kenya",
+        "russia",
+        "vietnam_thai_my",
+        "italy",
+        "ukraine",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Russia launches heaviest wartime drone assault on Ukraine",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL",
+          "quote": "Death Toll In Kyiv Rises To 24 As Ukraine Hits Major Russian Refinery",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "buckets": [
+        "germany",
+        "poland_balt",
+        "south_africa",
+        "ukraine",
+        "balkans"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "DW",
+          "quote": "Ukraine: EU sanctions Russians over 'systematic unlawful deportation'",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda",
+          "quote": "expects special tribunal on Russia to launch as early as 2027",
+          "signal_text_idx": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "nigeria",
+        "turkey",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Russia, Ukraine swap 205 prisoners of war each",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Kremlin says no clear roadmap to end Ukraine war despite Putin's words",
+          "signal_text_idx": 30
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "buckets": [
+        "opinion_magazines",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "How Europe Found Its Nerve",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News",
+          "quote": "Putin granted sweeping new powers to deploy troops abroad amid Ukraine War",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.341,
+      "note": "Yle Finland leads with Stubb's shuttle diplomacy (frontline situation, Vilnius talks) — a European diplomatic-management frame distinct from the drone-barrage and accountability framings dominant in all other buckets."
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.39,
+      "note": "Hungary's headline covers a domestic political story (president and Péter Magyar) with no Ukraine content — the only bucket in the corpus whose headline does not reference the war, explaining its extreme isolation from the corpus centroid."
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.396,
+      "note": "The Punch leads with the prisoner swap as the headline event — a humanitarian-diplomacy frame that diverges from the military-assault framing dominant across the 13 SECURITY_DEFENSE buckets."
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.404,
+      "note": "Italian outlet foregrounds the Ryazan refinery counterstrike and its implications for energy infrastructure — a subset of the SECURITY_DEFENSE frame but with a civilian-infrastructure emphasis absent from most other outlets."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.416,
+      "note": "Religious press leads with a Ukrainian mother's grief narrative ('My son was taken away by war') — a pure human-cost frame that contrasts with the operational military language dominant across the corpus."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "hungary_central",
+      "note": "Hungary's headline concerns domestic politics (Péter Magyar / presidential photos) with no Ukraine content — a structural silence that reflects Hungary's political divergence from NATO-aligned Ukraine coverage."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Foreign Affairs",
+      "bucket": "opinion_magazines",
+      "finding": "The only headline in the corpus to frame the war through European macro-strategic repositioning ('How Europe Found Its Nerve') — an EXTERNAL_REGULATION register entirely absent from the 40 other articles which focus on battlefield events or legal accountability.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Moscow Times",
+      "bucket": "russia",
+      "finding": "The only outlet to headline Ukrainian offensive success against Russia from a Russian perspective ('Ukrainian Drones Kill 4 and Set Ryazan Oil Refinery Ablaze') — an inversion of the victim/aggressor framing dominant in Western outlets covering the same event.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "Notes from Poland",
+      "bucket": "poland_balt",
+      "finding": "The only headline to foreground Polish complicity in US deportation practices as a Ukraine-war adjacency story — a legal accountability frame that folds a domestic Polish human rights critique into the Ukraine corpus.",
+      "signal_text_idx": 23
+    }
+  ],
+  "bottom_line": "Ukraine war headline coverage is dominated by the Kyiv drone barrage (13 of 26 buckets in SECURITY_DEFENSE) but fractures meaningfully into accountability (CRIME_PUNISHMENT) and diplomacy (POLITICAL) tracks. The extreme outlier is Hungary_central, the only bucket whose headline contains no Ukraine content whatsoever — its isolation (0.390) is a structural signal of political divergence, not a coverage gap. Nordic's shuttle-diplomacy focus and Foreign Affairs' 'How Europe Found Its Nerve' macro-frame are the two most analytically significant headline divergences, both pointing toward a European-agency narrative absent from the operational drone-strike coverage that dominates the rest of the corpus."
+}

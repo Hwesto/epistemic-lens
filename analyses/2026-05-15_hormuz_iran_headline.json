@@ -1,0 +1,176 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz crisis / Iran war",
+  "pass": "headline",
+  "n_buckets": 30,
+  "n_articles": 53,
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-05-15T10:32:14Z",
+  "tldr": "Headlines divide across four frames: Trump-Xi political outcomes (dominant globally), economic fuel-shock coverage (Nigeria, UK, India, Japan), military and naval operations, and multilateral diplomacy and mediation. Japan is the most isolated bucket (0.360), uniquely framing Hormuz through a clean-energy structural immunity lens that no other bucket adopts.",
+  "event_summary": "Iran has restricted or closed the Strait of Hormuz, triggering fuel price shocks, shipping disruptions, and international naval deployments. Trump visited Beijing, where he and Xi Jinping jointly agreed Iran cannot have nuclear weapons; US and Iranian parties are in intermittent negotiations.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "canada",
+        "south_africa",
+        "pan_arab",
+        "taiwan_hk",
+        "pakistan",
+        "wire_services",
+        "qatar",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC",
+          "quote": "Trump leaves Beijing with few wins, but warm words for Xi",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera",
+          "quote": "How Xi-Trump summit failed to yield Iran war breakthrough",
+          "signal_text_idx": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "buckets": [
+        "nigeria",
+        "india",
+        "uk",
+        "iraq",
+        "pan_african",
+        "religious_press",
+        "opinion_magazines",
+        "japan"
+      ],
+      "evidence": [
+        {
+          "bucket": "nigeria",
+          "outlet": "Vanguard",
+          "quote": "India hikes fuel prices as Middle East war strains supplies",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Clean energy seen as 'structurally immune' to Hormuz-style shock",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "usa",
+        "israel",
+        "south_korea",
+        "germany",
+        "iran_state",
+        "turkey",
+        "state_tv_intl",
+        "china",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "CENTCOM Chief: Iran's Forces 'Severely Degraded,' Terror Proxies 'Cut Off'",
+          "signal_text_idx": 47
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap",
+          "quote": "(LEAD) Navy deploys 4,400-ton destroyer to Cheonghae unit",
+          "signal_text_idx": 37
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "buckets": [
+        "asia_pacific_regional",
+        "iran_opposition",
+        "russia",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Getting to yes on reopening Hormuz",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Can Pakistan deliver a US-Iran deal",
+          "signal_text_idx": 35
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.36,
+      "note": "Japan Times headline frames the Hormuz crisis through a clean-energy structural immunity lens ('structurally immune to Hormuz-style shock') — an angle entirely absent from all other 29 buckets, which focus on disruption rather than resilience."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.441,
+      "note": "Pan-African outlets focus on downstream commodity price effects on African markets — a regional economic angle distinct from the military and diplomatic frames dominant elsewhere."
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.462,
+      "note": "Vanguard headline leads with Indian fuel price hikes as the primary regional consequence — a commodity-chain frame that diverges from the NATO/naval focus of Western and East Asian outlets."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.473,
+      "note": "State-aligned international broadcasters frame Iranian military degradation in anti-Western adversarial terms, diverging from the negotiations-and-diplomacy framing dominant in wire services and most Western outlets."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.501,
+      "note": "CGTN leads with maritime access restrictions on Iranian ports — a logistics-and-neutral-shipping framing that contrasts with the US/coalition military-operations framing dominant elsewhere."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "iran_opposition",
+      "note": "RFE/RL headline focuses on diplomatic conditions from a former IRGC commander — treats the crisis as a negotiation story rather than a military-escalation story, despite covering the same theatre as SECURITY_DEFENSE buckets."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Japan Times",
+      "bucket": "japan",
+      "finding": "The only outlet in the corpus to headline the Hormuz crisis as a structural clean-energy story ('immune to Hormuz-style shock') — a counter-intuitive resilience frame absent from all 52 other articles.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Al Jazeera",
+      "bucket": "qatar",
+      "finding": "Uniquely frames the Trump-Xi summit as a failure ('failed to yield Iran war breakthrough') — the only headline explicitly casting the summit outcome as negative, while most outlets treat it neutrally or positively.",
+      "signal_text_idx": 31
+    },
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Solution-framing headline ('Getting to yes on reopening Hormuz') stands out as the most constructive/diplomatic register in a corpus otherwise dominated by conflict and disruption language.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "Hormuz headline coverage fractures cleanly by geography: Western and East Asian outlets split between POLITICAL (Trump-Xi summit) and SECURITY_DEFENSE (CENTCOM degradation, naval deployments); commodity-exposed outlets in West Africa, South Asia, and Iraq lead with ECONOMIC fuel-shock; Russia and Iran-adjacent outlets favor EXTERNAL_REGULATION diplomacy framing. Japan's clean-energy immunity angle is the sharpest outlier — the only headline in the corpus that treats Hormuz as structurally irrelevant to part of the global economy."
+}

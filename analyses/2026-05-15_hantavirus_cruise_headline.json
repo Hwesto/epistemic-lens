@@ -1,0 +1,171 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "pass": "headline",
+  "n_buckets": 25,
+  "n_articles": 39,
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-05-15T10:32:14Z",
+  "tldr": "Headline framing splits into four tracks: outbreak containment and quarantine (dominant, 16 buckets), government border-screening policies (4 buckets), COVID-era panic and misinformation recycling (2 buckets), and quarantine as lived experience (2 buckets). Indonesia is the most isolated at 0.350, covering the story solely through local airport supervision; The Intercept uniquely frames it as a COVID-misinformation revival story.",
+  "event_summary": "Eight passengers from the MV Hondius cruise ship tested positive for Andes hantavirus; three have died and six arrived in Australia for quarantine. The WHO confirmed the outbreak.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "buckets": [
+        "argentina_chile",
+        "australia_nz",
+        "canada",
+        "netherlands_belgium",
+        "pakistan",
+        "kenya",
+        "russia",
+        "state_tv_intl",
+        "uk",
+        "wire_services",
+        "iran_state",
+        "nigeria",
+        "spain",
+        "italy",
+        "korea_north",
+        "colombia_ven_peru"
+      ],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "World Health Organization confirms eight cases of Andes hantavirus",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Rare virus outbreak kills travelers on Atlantic cruise ship",
+          "signal_text_idx": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "buckets": [
+        "indonesia",
+        "vietnam_thai_my",
+        "south_korea",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Banten tightens supervision at Soetta Airport to prevent hantavirus",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Vietnam, Cambodia strengthen airport screening for hantavirus",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "buckets": [
+        "usa",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "Amid Hantavirus Panic, the Ivermectin Super Fans Are Back",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "germany",
+          "outlet": "DW Deutsch",
+          "quote": "Warum das Hantavirus nicht mit Corona vergleichbar ist",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "buckets": [
+        "opinion_magazines",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "A Scientist's Close Call with Hantavirus Aboard the M.V. Hondius",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "Temperatura medida duas vezes ao dia e pedidos de Starbucks",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "indonesia",
+      "mean_similarity": 0.35,
+      "note": "Covers story entirely through local airport border-security lens — Banten province and Soekarno-Hatta Airport supervision — diverging from the outbreak/quarantine framing dominant across all other buckets."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.443,
+      "note": "DW headline explicitly compares hantavirus to COVID and invokes epidemic classification terminology — both a language artefact and a distinctive conceptual angle not present elsewhere."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.452,
+      "note": "The Intercept headline frames the outbreak as COVID-misinformation recycling (ivermectin super fans), diverging entirely from the medical/quarantine coverage dominant elsewhere."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.472,
+      "note": "New Yorker runs a first-person scientist-aboard headline — diverges from third-person outbreak coverage dominant across the corpus."
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.473,
+      "note": "O Globo's quarantine-diarist headline (temperature checks and Starbucks orders) is entirely personal-narrative in a corpus dominated by epidemiological coverage."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "nordic",
+      "note": "Nordic headlines treat hantavirus as a sidebar item within generic health roundups — no bucket-defining frame emerges from the headline alone."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "The only US outlet in the corpus; its headline frames the outbreak as a COVID-misinformation recurrence story (ivermectin super fans), making no reference to quarantine logistics or case counts that dominate all other buckets.",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "O Globo",
+      "bucket": "brazil",
+      "finding": "Quarantine-diarist headline (temperature checks twice daily, Starbucks orders) — the only first-person experiential frame in a corpus otherwise dominated by epidemiological third-person reporting.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "Scientist-aboard framing ('A Scientist's Close Call') signals eyewitness personal narrative — unique in the corpus and contributes to opinion_magazines being the fourth most isolated bucket.",
+      "signal_text_idx": 24
+    }
+  ],
+  "bottom_line": "Headline framing is dominated by the HEALTH_SAFETY outbreak-and-quarantine track (16 of 25 buckets). The two most distinctive headline signals are Indonesia's pure border-security framing (no outbreak content) and The Intercept's COVID-misinformation-recycling frame. Germany and the USA jointly constitute the PUBLIC_OPINION cluster through the COVID comparison lens — Germany from a debunking angle, the USA from a misinformation-critique angle."
+}

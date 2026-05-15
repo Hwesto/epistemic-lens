@@ -1,0 +1,144 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "pass": "headline",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "model": "claude-haiku-4-5",
+  "generated_at": "2026-05-15T10:32:14Z",
+  "tldr": "Headlines converge overwhelmingly on the POLITICAL frame around the Trump-Xi joint stance; three subsidiary frames cover military strikes (SECURITY_DEFENSE), enrichment sovereignty (LEGALITY), and China-Iran diplomatic coordination (EXTERNAL_REGULATION). Egypt is the most isolated bucket (0.272) by a wide margin, its headline uniquely framing nuclear possession as a geopolitical shrug rather than a crisis.",
+  "event_summary": "US and Israeli strikes targeted at least six Iranian nuclear sites; ongoing US-Iran negotiations have stalled over uranium enrichment demands; Trump and Xi Jinping jointly agreed Iran cannot have nuclear weapons after their Beijing summit.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "philippines",
+        "wire_services",
+        "japan",
+        "israel",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "philippines",
+          "outlet": "Rappler",
+          "quote": "Trump says he and China's Xi agree Iran cannot have nuclear weapons",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Trump says he is losing patience with Iran after talks with China's Xi",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "US and Israeli strikes hit Iran sites tied to nuclear weapon work",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "buckets": [
+        "russia",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Iran's uranium enrichment secures independence, peaceful atom — supreme leader",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "How a post-Cold War uranium program proved even old foes can work together",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "buckets": [
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.272,
+      "note": "Egypt Independent headline ('Iran has a nuclear weapon – so what?') adopts a normative-shrug framing absent from every other bucket — treats nuclear possession as a settled fact requiring realpolitik acceptance rather than a crisis to be resolved."
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.452,
+      "note": "Iran International leads with the strike damage (satellite imagery, nuclear weapon work sites) — a military-consequence frame that diverges sharply from the negotiation and diplomatic-agreement framing dominant across all other buckets."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.542,
+      "note": "Globe and Mail's historical analogy headline (post-Cold War uranium repurposing as a model for the Iran impasse) is the only solution-via-precedent frame in the corpus — no other outlet invokes historical diplomatic models."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.55,
+      "note": "Global Times frames the story through the China-Iran pre-talks diplomatic coordination — a process story about Chinese mediation rather than the Trump-Xi outcome that all other non-Russia buckets foreground."
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.557,
+      "note": "Hindustan Times foregrounds Trump's dismissal of the uranium stockpile hunt as 'more for PR than anything else' — a meta-commentary frame on US sincerity that no other outlet leads with."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "egypt",
+      "note": "Egypt Independent's headline ('Iran has a nuclear weapon – so what?') does not fit any standard Boydstun frame cleanly at the headline level — the normative-shrug register is closest to PUBLIC_OPINION but is editorial in a way that resists classification; treated as an outlier silence rather than forced into a frame."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Egypt Independent",
+      "bucket": "egypt",
+      "finding": "Only outlet in the corpus to headline Iran's nuclear possession as a fait accompli requiring realpolitik acceptance ('so what?') — the most isolated bucket at 0.272 with a frame entirely absent from the remaining nine buckets.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Two TASS headlines frame enrichment as Iranian sovereignty and peaceful independence — the only outlet that directly reproduces Khamenei's framing rather than treating enrichment as a threat to be contained.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Globe and Mail",
+      "bucket": "canada",
+      "finding": "Historical-precedent headline (post-Cold War uranium repurposing) frames the Iran impasse as solvable via past US-Russia cooperation — the only constructive-analogy headline in the 13-article corpus.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "At the headline level, nine of ten buckets frame the Iran nuclear story through Trump's political posturing (losing patience, Xi agreement, annihilation threat) or its legal/sovereignty dimensions (enrichment rights, consortium proposals). The sole outlier is Egypt, whose 'so what?' headline constitutes the starkest divergence in the corpus — a fatalist normalization frame with no parallel elsewhere. Canada's historical-analogy approach is the second most distinctive but remains within a constructive-diplomacy register."
+}
