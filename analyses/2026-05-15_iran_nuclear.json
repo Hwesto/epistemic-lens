@@ -1,0 +1,205 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-15T10:11:18Z",
+  "tldr": "Iran nuclear talks are stalled as Trump, meeting with Xi in Beijing, issues an ultimatum (deal or annihilation) while Khamenei frames enrichment as sovereign independence; at least six nuclear sites were hit in recent US–Israeli strikes.",
+  "event_summary": "US and Israeli strikes have hit at least six Iranian nuclear sites. Trump, meeting Xi in Beijing, said both leaders agreed Iran cannot have nuclear weapons.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "iran_opposition",
+        "israel",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "At least six Iranian nuclear sites were attacked in recent US and Israeli strikes, with most confirmed or suspected targets tied to work needed to build a nuclear weapon",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Iran can make deal or 'get annihilated'",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "israel",
+        "russia",
+        "china",
+        "canada",
+        "philippines",
+        "japan",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "After talks with Chinese President Xi Jinping, Trump asserted that the two leaders agreed that Iran should not have nuclear weapons.",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "a sixth round of talks on the Iranian nuclear program between the US president’s Special Envoy Steve Witkoff and Iran’s top diplomat, Abbas Araghchi, could be held this weekend in a Middle Eastern country",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "buckets": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Ali Khamenei added that the US and other countries are not interested in Iran's progress and have put forward conditions presupposing a complete halt of uranium enrichment on Iranian territory",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "buckets": [
+        "canada",
+        "wire_services",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Stopping Iran’s nuclear program more important than Americans’ economic pain",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Oil gains after Trump says Xi agrees Iran cannot have nuclear weapons",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "buckets": [
+        "canada",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "The 1990s-era program to repurpose uranium from nuclear warheads could provide a solution to the impasse over Iran’s nuclear stockpile",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Tehran could weigh nuclear deal with US with Iran-based enrichment consortium",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.272,
+      "note": "Egypt Independent article (idx 3) is a first-person narrative from a Prague security conference discussing Iran's nuclear status as an academic thought-experiment — entirely off the live-war news track."
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.452,
+      "note": "Focused on physical strike damage to nuclear sites via satellite imagery analysis — diverges from the diplomatic/deal-making coverage dominant in other buckets."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.542
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.55
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.557
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "egypt",
+      "terms": [
+        "gssf",
+        "muller",
+        "auditorium",
+        "looked",
+        "three",
+        "full",
+        "daniel"
+      ],
+      "what_it_reveals": "All terms derive from the Prague conference narrative (Klaus Auditorium, attendees Muller and Daniel, GSSF acronym) — story-specific vocabulary from an academic event, not from the nuclear standoff itself; explains extreme isolation score."
+    },
+    {
+      "bucket": "russia",
+      "terms": [
+        "enrichment"
+      ],
+      "what_it_reveals": "The only bucket to use 'enrichment' as exclusive vocabulary, anchoring its coverage on Iran's legal right to enrich rather than the military or diplomatic dimensions that dominate elsewhere."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "russia",
+      "outlet": "TASS English",
+      "quote": "Iran’s uranium enrichment secures independence, peaceful atom — supreme leader",
+      "signal_text_idx": 10
+    },
+    "b": {
+      "bucket": "israel",
+      "outlet": "Jerusalem Post",
+      "quote": "Iran can make deal or 'get annihilated'",
+      "signal_text_idx": 6
+    },
+    "joint_conclusion": "Both TASS (relaying Khamenei) and the Jerusalem Post (relaying Trump) cast enrichment as the central stake in the same standoff — where Tehran frames it as sovereign independence, Washington frames it as a casus belli, leaving the same program simultaneously a symbol of peace and a trigger for annihilation."
+  },
+  "silences": [
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "No pan-Arab bucket article appeared for this story; the dominant regional perspective on an Iran nuclear deal is absent from the corpus."
+    },
+    {
+      "bucket": "turkey",
+      "what_they_covered_instead": "No Turkish-press article on Iran nuclear despite Turkey's role as a potential regional mediator and its proximity to the Iran negotiations track."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Egypt Independent",
+      "bucket": "egypt",
+      "finding": "A first-person conference essay from the Klaus Auditorium in Prague treats Iran's nuclear status as an academic puzzle; the author attends a conference and ponders a theoretical 'so what' scenario rather than reporting on the live standoff. Isolated entirely from the news corpus.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "The only outlet to report Khamenei's sovereignty framing ('enrichment secures independence') as its lead, and uniquely uses 'enrichment' as exclusive vocabulary — a framing absent from all other buckets including those sympathetic to Iran.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The Iran nuclear crisis is bifurcated: militarily, strikes have degraded key sites, yet enrichment continues as a sovereignty symbol Khamenei has staked his legacy on; diplomatically, Trump's Beijing ultimatum extracted Xi's nominal endorsement but Iran is demanding pre-conditions Washington has flatly rejected. Egypt's extreme isolation (0.272) traces to a Prague conference essay that treats the nuclear question as an academic puzzle, not a live war."
+}

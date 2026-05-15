@@ -1,0 +1,207 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 25,
+  "n_articles": 39,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-15T10:11:18Z",
+  "tldr": "The Andes hantavirus outbreak on MV Hondius (8 confirmed cases, 3 dead, 11 total) is generating three distinct framings globally: outbreak containment and quarantine, border security and airport screening, and COVID-era misinformation recycling (ivermectin). Indonesia is the most isolated bucket (0.350), covering the story entirely through local airport supervision.",
+  "event_summary": "Eight passengers from the MV Hondius cruise ship tested positive for Andes hantavirus; three have died and six passengers arrived in Australia for a three-week quarantine. The WHO confirmed the outbreak.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "buckets": [
+        "argentina_chile",
+        "australia_nz",
+        "canada",
+        "netherlands_belgium",
+        "pakistan",
+        "kenya",
+        "spain",
+        "nigeria",
+        "wire_services",
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Eight people infected in hantavirus outbreak aboard MV Hondius cruise ship have tested positive for Andes virus; 'No indication' strain of hantavirus has mutated, says EU agency.",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Six passengers from a cruise ship hit by a hantavirus outbreak arrived Friday in Australia for a quarantine expected to last at least three weeks.",
+          "signal_text_idx": 38
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "indonesia",
+        "vietnam_thai_my",
+        "iran_state",
+        "korea_north",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Banten tightens supervision at Soetta Airport to prevent hantavirus",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Vietnam and Cambodia have taken preventive measures against hantavirus disease over a recent cruise ship outbreak, including health monitoring of passengers entering international airports.",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "buckets": [
+        "usa",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "Those who cheered ivermectin as a Covid-19 treatment are now making unsubstantiated claims about its use against hantavirus.",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "many people needlessly fretting about a return to lockdowns, social distancing and masks.",
+          "signal_text_idx": 36
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "buckets": [
+        "opinion_magazines",
+        "brazil",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "He was somewhere in the South Atlantic when a friend texted him about an outbreak on a cruise: “Please tell me you’re not on this ship.”",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Welcome to hantavirus quarantine: Six people including a Brit arrive at remote Australian facility where they will be kept in isolation for at least three weeks",
+          "signal_text_idx": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "buckets": [
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "France Info",
+          "quote": "\"En cas de pandémie, nous ne sommes pas prêts\" : en Argentine, la recherche sur l'hantavirus tente d'avancer malgré les coupes budgétaires",
+          "signal_text_idx": 37
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "indonesia",
+      "mean_similarity": 0.35,
+      "note": "Covers story entirely through local airport border-security lens — Banten province and Soekarno-Hatta Airport supervision — diverging from the outbreak/quarantine framing dominant across all other buckets."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.443,
+      "note": "German-language DW articles frame story through epidemic-classification terminology (Endemie/Epidemie/Pandemie) and explicitly compare to COVID — both a language artefact and a distinctive conceptual angle."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.452,
+      "note": "The Intercept frames the story through COVID-era misinformation recycling (ivermectin super fans), diverging entirely from the medical/quarantine coverage dominant elsewhere."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.472,
+      "note": "New Yorker runs a first-person narrative by a scientist who was aboard the Hondius — diverges from third-person outbreak coverage."
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.473,
+      "note": "O Globo covers the story through a quarantine diarist (Jake Rosmarin) and his Starbucks orders in Nebraska — Portuguese-language artefact plus entirely personal narrative angle."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "usa",
+      "terms": [
+        "ivermectin",
+        "panic",
+        "super",
+        "fans"
+      ],
+      "what_it_reveals": "The Intercept uniquely frames the outbreak as a COVID-misinformation revival event — vocabulary that signals a media-criticism story, not an outbreak story."
+    },
+    {
+      "bucket": "indonesia",
+      "terms": [
+        "banten",
+        "soetta"
+      ],
+      "what_it_reveals": "Banten is the province, Soetta is the Soekarno-Hatta Airport abbreviation — purely local geographic identifiers that confirm indonesia is covering its own border response, not the global outbreak."
+    },
+    {
+      "bucket": "wire_services",
+      "terms": [
+        "recherche",
+        "nous",
+        "argentine",
+        "sont",
+        "somm",
+        "pandémie"
+      ],
+      "what_it_reveals": "French-language artefact from France Info on Argentine research funding cuts under Javier Milei — editorially significant because it links the outbreak to a scientific capacity story absent from all other buckets."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "The only US outlet in the corpus frames the outbreak as a COVID-misinformation recurrence story (ivermectin super fans), making no mention of the quarantine logistics or case counts that dominate all other buckets.",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "France Info",
+      "bucket": "wire_services",
+      "finding": "The only outlet to connect the outbreak to Argentina's gutted scientific research capacity under Milei's antivax government — a structural story about epidemic preparedness that the rest of the corpus ignores.",
+      "signal_text_idx": 37
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "A first-person narrative by a scientist aboard the MV Hondius — the only first-person account in the corpus, covering the outbreak from inside the ship.",
+      "signal_text_idx": 24
+    }
+  ],
+  "bottom_line": "The Hondius outbreak generated three globally distinct framings: (1) epidemiological/quarantine tracking (dominant), (2) border-security containment (Indonesia, Vietnam, North Korea), and (3) COVID-era misinformation recycling (USA, India). Indonesia's extreme isolation (0.350) traces to covering its local airport rather than the outbreak. Wire_services includes both an AP English quarantine report and a French-language capacity piece on Argentine research funding — the latter connecting outbreak readiness to Milei’s antivax funding cuts, an angle invisible to the rest of the corpus."
+}

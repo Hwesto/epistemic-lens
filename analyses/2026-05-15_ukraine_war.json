@@ -1,0 +1,216 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "n_buckets": 26,
+  "n_articles": 41,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-15T10:11:18Z",
+  "tldr": "Russia launched its heaviest wartime drone and missile barrage, killing 24 in Kyiv; Ukraine struck back with 55 confirmed hits on 23 Russian targets, including a Ryazan refinery fire. Coverage divides sharply across operational strike reporting, European security doctrine, accountability/sanctions, and Hungarian domestic politics.",
+  "event_summary": "Russia launched its largest two-day aerial attack of the war, killing 24 people including three children in Kyiv. Ukraine's drone forces struck 23 Russian military targets; a refinery in Ryazan caught fire.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "usa",
+        "ukraine",
+        "canada",
+        "uk",
+        "wire_services",
+        "iran_opposition",
+        "russia",
+        "pan_african",
+        "turkey",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Ukrainian President Volodymyr Zelenskyy said Friday that a Russian missile attack on a Kyiv apartment building the previous day killed 24 people, including three children.",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Ukraine’s Unmanned Systems Forces (USF) said they carried out a series of coordinated overnight strikes on Russian military facilities and occupied territories, hitting aircraft, air defense systems, logistics hubs and naval assets.",
+          "signal_text_idx": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "buckets": [
+        "germany",
+        "poland_balt",
+        "iran_opposition",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "The EU is sanctioning 16 individuals and seven entities over alleged child abductions.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "Notes from Poland",
+          "quote": "Two leading NGOs, Amnesty International and Human Rights First, have urged Poland to stop helping the US deport people to Ukraine through Polish airports and territory.",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "russia",
+        "turkey",
+        "ukraine",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "President Vladimir Putin replaced the governors of the Bryansk and Belgorod regions on Wednesday, installing a military general and a former official from occupied Ukraine to lead the two border regions heavily affected by the four-year war.",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Ukrainian President's Office expects special tribunal on Russia to launch as early as 2027",
+          "signal_text_idx": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "buckets": [
+        "religious_press",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Lyubov lost her son Oleksandr on February 28, 2024, a 29-year-old Ukrainian soldier who died at the front.",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "buckets": [
+        "opinion_magazines",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "When Donald Trump returned to the White House in January 2025, European countries at first chose appeasement as their preferred U.S. strategy.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "The Nordic countries may join the Bucharest Nine group of former Soviet or Warsaw Pact countries to form a Nato eastern flank bloc",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.341,
+      "note": "Covers story through Baltic/Nordic security lens — Finnish drone scare, Nordic-Bucharest Nine merger, Stubb-Zelensky calls — rather than Ukrainian civilian casualties or the strike reporting dominant elsewhere."
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.39,
+      "note": "Hungary Today article is almost entirely about Hungarian domestic politics — Péter Magyar's deliberate snubbing of President Sulyok in group photos — with the Ukraine war mentioned only as a tangential reference to a Transcarpathia drone incident."
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.396,
+      "note": "The Punch covers only a 205-prisoner-of-war swap — a single exchange news item that diverges from the casualty/strike coverage dominating the corpus."
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.404,
+      "note": "ANSA Italian reports Zelensky's tweet about Russian drones hitting a UN vehicle near Kherson — Italian language artefact plus a niche UN-vehicle angle."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.416,
+      "note": "Vatican News covers a Ukrainian mother's grief — personal human testimony rather than military or diplomatic reporting."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "hungary_central",
+      "terms": [
+        "magyar",
+        "photo",
+        "péter",
+        "sulyok",
+        "tamá",
+        "member"
+      ],
+      "what_it_reveals": "All terms from Hungarian domestic politics (Péter Magyar, Tamás Sulyok) — confirms this bucket's corpus entry is about Hungarian political theatre, not the Ukraine war; explains extreme isolation (0.390)."
+    },
+    {
+      "bucket": "russia",
+      "terms": [
+        "belgorod",
+        "gladkov",
+        "bryansk",
+        "general",
+        "parmyonov"
+      ],
+      "what_it_reveals": "Moscow Times covers border-region governor reshuffle (Gladkov/Belgorod, Bryansk), framing the war's domestic political fallout inside Russia rather than battlefield operations."
+    },
+    {
+      "bucket": "ukraine",
+      "terms": [
+        "tribunal",
+        "helicopter",
+        "mudra",
+        "naval",
+        "crimea"
+      ],
+      "what_it_reveals": "Kyiv Post and Ukrainska Pravda uniquely foreground offensive operations (naval/crimea targets) and the special tribunal — accountability and counter-strike framing absent from most other buckets."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "india",
+      "what_they_covered_instead": "India covered North Korea's sanctions protest against the UK over Ukrainian children's camps — a North Korea angle that treated the Ukraine war as background to a DPRK-UK dispute."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hungary Today",
+      "bucket": "hungary_central",
+      "finding": "The only article in the corpus dominated by Hungarian domestic politics (Péter Magyar vs. President Sulyok photo exclusion) rather than the Ukraine war itself; the war appears only as a brief Transcarpathia drone reference, explaining hungary_central's extreme isolation (0.390).",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Foreign Affairs",
+      "bucket": "opinion_magazines",
+      "finding": "The only outlet explicitly framing the story as a European strategic-autonomy turning point ('How Europe Found Its Nerve') rather than a military conflict update — a doctrine analysis absent from all other buckets.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Notes from Poland",
+      "bucket": "poland_balt",
+      "finding": "Uniquely reports US Immigration and Customs Enforcement deportations of people to Ukraine via Polish airports — a human rights and international law angle (Amnesty International, Human Rights First) absent from all other buckets.",
+      "signal_text_idx": 23
+    }
+  ],
+  "bottom_line": "Ukraine war coverage splits into four tracks: operational/casualty (dominant: usa, uk, canada, wire_services), accountability/war crimes (germany, poland_balt, iran_opposition), diplomatic/governance (russia, turkey, ukraine), and European security doctrine (opinion_magazines, nordic). Hungary_central's extreme isolation (0.390) is entirely explained by Hungarian domestic politics (Péter Magyar/Sulyok photo drama), not the war. Nordic's isolation (0.341) reflects Baltic security framing rather than Ukrainian civilian casualties."
+}

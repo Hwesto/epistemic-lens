@@ -1,0 +1,259 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 30,
+  "n_articles": 53,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-15T10:11:18Z",
+  "tldr": "Trump's Beijing summit with Xi yielded only nominal convergence on Hormuz reopening — Turkey reports Xi offered help while Qatar's Al Jazeera says Xi didn't budge. CENTCOM declared Operation Epic Fury achieved every objective; Iran says the strait is open under Iranian naval authority. Japan is most isolated (0.360) for framing the war as a clean-energy transition catalyst.",
+  "event_summary": "Trump and Xi Jinping met in Beijing for a two-day summit focused partly on Iran and the Strait of Hormuz. CENTCOM's Admiral Cooper told the Senate that Operation Epic Fury had achieved all military objectives. Iran said the strait remained open to ships cooperating with Iranian naval forces.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": [
+        "usa",
+        "south_korea",
+        "turkey",
+        "state_tv_intl",
+        "iran_opposition",
+        "israel",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Cooper described an Iranian regime whose military-industrial base, proxy network, naval forces, and command structure had all been severely battered during the nearly six-week kinetic phase of the conflict.",
+          "signal_text_idx": 47
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "The debris from airborne objects that struck an HMM-operated vessel in the Strait of Hormuz last week arrived in South Korea on Friday to undergo analysis",
+          "signal_text_idx": 38
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "buckets": [
+        "uk",
+        "iraq",
+        "nigeria",
+        "pakistan",
+        "india",
+        "japan",
+        "pan_african",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Impact of disruption from Iran war may be felt into 2027 even if strait of Hormuz reopens",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Iraq has exported its first shipment of sulfur at prices approaching $800 per ton",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "buckets": [
+        "turkey",
+        "qatar",
+        "canada",
+        "vietnam_thai_my",
+        "pan_arab",
+        "south_africa",
+        "taiwan_hk",
+        "brazil",
+        "pakistan",
+        "asia_pacific_regional"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "U.S. President Donald Trump said Thursday that Chinese President Xi Jinping offered Beijing’s assistance in keeping the Strait of Hormuz open",
+          "signal_text_idx": 43
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "US officials have nudged China to do more on the blocked Hormuz strait. President Xi doesn't appear to have budged.",
+          "signal_text_idx": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "buckets": [
+        "iran_state",
+        "egypt",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Foreign Minister Abbas Araghchi says that the Strait of Hormuz remains open to all commercial vessels provided they cooperate with Iranian naval forces, while blaming the United States for imposing an illegal blockade",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Daily News Egypt",
+          "quote": "Iran hardened its negotiating position with the United States on Wednesday, demanding five conditions",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "buckets": [
+        "china",
+        "iran_opposition",
+        "pan_arab",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "blocking the Strait of Hormuz would not serve the common interests of the international community",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "US President Donald Trump said that he had agreed in talks with Chinese President Xi Jinping that Iran cannot be allowed to have a nuclear weapon and must re-open the Strait of Hormuz",
+          "signal_text_idx": 30
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.36,
+      "note": "Japan Times frames the Iran war as an accelerant for the clean-energy transition ('structurally immune to Hormuz-style shock') rather than covering the military or diplomatic standoff."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.441,
+      "note": "AfricaNews focuses on Iran's internal economic strain — mass job losses, business closures from the monthslong internet cut — diverging from the summit/negotiations framing dominant elsewhere."
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.462,
+      "note": "Vanguard Nigeria covers India's fuel price hike as primary angle; also has an RT Africa piece on Nigeria's own oil routing — both diverge from the Hormuz summit coverage."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.473,
+      "note": "RT Africa runs two divergent stories: Hormuz disruption enabling piracy in the Red Sea, and Nigeria's structural oil export problem — neither engages the Trump-Xi summit framing."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.501,
+      "note": "CGTN covers story through Wang Yi's principled position on Gulf security (UAE visit context) and UKMTO maritime restrictions — diverges from the Trump-Xi summit reporting dominant in other buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "usa",
+      "terms": [
+        "cooper",
+        "centcom",
+        "degraded",
+        "epic",
+        "fury",
+        "campaign"
+      ],
+      "what_it_reveals": "Breitbart and Defense News uniquely cover the CENTCOM hearing testimony — Operation Epic Fury, 90% of Iran's defense industrial base destroyed. This military-victory vocabulary is absent from all other buckets."
+    },
+    {
+      "bucket": "south_korea",
+      "terms": [
+        "cheonghae",
+        "seoul",
+        "debri",
+        "object",
+        "airborne",
+        "deployment"
+      ],
+      "what_it_reveals": "Yonhap covers two Korea-specific stories: the HMM ship struck in Hormuz (debris returned for analysis) and the Cheonghae anti-piracy unit deploying a destroyer — story-specific operational vocabulary."
+    },
+    {
+      "bucket": "iraq",
+      "terms": [
+        "sulfur",
+        "shipment",
+        "baghdad",
+        "iraqi",
+        "revenue"
+      ],
+      "what_it_reveals": "Iraqi News frames the Hormuz crisis as an economic opportunity — Iraq's first sulfur export at record prices — a diversification-of-revenue angle absent from all other buckets."
+    },
+    {
+      "bucket": "italy",
+      "terms": [
+        "degli",
+        "paesi",
+        "loro",
+        "uniti",
+        "secondo",
+        "teheran"
+      ],
+      "what_it_reveals": "Italian language artefact from La Repubblica — degli/paesi uniti = United States in Italian; teheran = Tehran. Confirms this is Italian-language coverage, not story-specific vocabulary."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "china",
+      "outlet": "CGTN World",
+      "quote": "blocking the Strait of Hormuz would not serve the common interests of the international community",
+      "signal_text_idx": 6
+    },
+    "b": {
+      "bucket": "iran_opposition",
+      "outlet": "Iran International EN",
+      "quote": "relations between Tehran and Beijing “are stronger than any US effort aimed at changing China’s position toward Iran through pressure.”",
+      "signal_text_idx": 13
+    },
+    "joint_conclusion": "Both China's top diplomat (CGTN: Hormuz closure harms the common interests of the international community) and Iran's Beijing ambassador (Iran International: Tehran-Beijing ties are stronger than any US pressure) claim Beijing as their own geopolitical anchor — China endorsing Hormuz reopening while Iran insists Chinese solidarity holds — leaving the summit's actual outcome on Iran deliberately ambiguous."
+  },
+  "silences": [
+    {
+      "bucket": "russia",
+      "what_they_covered_instead": "RT ran a piece on Draghi warning Europe is 'alone' and a piece on Pakistan as US-Iran mediator — framing the Hormuz story through a European vulnerability and Great Power competition lens rather than the summit itself."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Most detailed CENTCOM hearing coverage in the corpus — Operation Epic Fury achieved every military objective, 90% of Iran's defense industrial base destroyed, proxy networks completely cut off from Tehran. Victory-declaration framing absent from all other outlets.",
+      "signal_text_idx": 47
+    },
+    {
+      "outlet": "Iraqi News",
+      "bucket": "iraq",
+      "finding": "Only outlet to frame the Hormuz crisis as an economic windfall for Baghdad — Iraq's first sulfur shipment at near-record prices, driven by geopolitical supply disruptions. Revenue-diversification narrative entirely absent from the broader corpus.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Japan Times",
+      "bucket": "japan",
+      "finding": "The only outlet to frame the Iran war as a structural catalyst for clean energy adoption ('structurally immune to Hormuz-style shock'), treating the geopolitical crisis as an energy transition inflection point rather than an operational or diplomatic problem.",
+      "signal_text_idx": 22
+    }
+  ],
+  "bottom_line": "The Hormuz/Iran story produces the widest multi-axis split in today's corpus: usa covers CENTCOM's victory narrative, iran_state claims sovereign maritime authority, and the summit track is contradicted between buckets (Turkey: Xi offered help; Qatar: Xi didn't budge). Japan's extreme isolation (0.360) reflects a clean-energy-transition frame entirely orthogonal to the conflict. The central paradox — both China and Iran's ambassador simultaneously claiming Beijing as their own strategic anchor — was the summit's defining unresolved question."
+}

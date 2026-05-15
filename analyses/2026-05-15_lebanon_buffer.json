@@ -1,0 +1,169 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-15",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 10,
+  "n_articles": 14,
+  "model": "claude-sonnet-4-6",
+  "generated_at": "2026-05-15T10:11:18Z",
+  "tldr": "Israel-Lebanon Washington talks enter a third round as Israeli strikes continue killing civilians; Hezbollah vows not to surrender while a CIA-brokered disarmament plan is reported. Lebanon has seen 380 dead and over 1,100 wounded since the ceasefire began.",
+  "event_summary": "A third round of US-facilitated Israel-Lebanon talks opened in Washington, with Lebanon seeking a full ceasefire and Israeli withdrawal. Israeli strikes continued, killing a soldier and eight civilians on a highway. Hezbollah rejected disarmament.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "buckets": ["israel", "turkey", "uk", "russia"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Staff Sgt. Negev Dagan, 20, from southern Israel, was killed Thursday by a mortar shell in the Litani River area of southern Lebanon during cross-border fighting with Hezbollah",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "At least eight people, including two children, were killed Wednesday when Israeli strikes targeted cars on a highway south of Beirut",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "buckets": ["israel", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "The report added that the CIA prepared a plan to disarm the Iran-backed terror group.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Lebanon and Israel entered a third round of talks in Washington on Friday amid continued Israeli strikes on southern and eastern Lebanon, fresh forced evacuation orders, and the killing of an Israeli soldier during clashes with Hezbollah.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "buckets": ["iran_state", "canada"],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Hezbollah Secretary-General Sheikh Naim Qassem reiterates the firmness of the Lebanese resistance movement against the Israeli aggression, saying it will neither surrender to the occupying regime nor allow it to realize its objectives in the Arab country.",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "a Tuesday drone strike that killed two paramedics and injured another in southern Lebanon is part of an \"alarming pattern\" of Israeli attacks targeting first responders.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "buckets": ["turkey", "germany", "uk"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israeli strikes kill 380 in Lebanon since cease-fire began",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "More than a million people have been forced to flee their homes in southern Lebanon due to fighting between Israeli forces and Hezbollah.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "buckets": ["wire_services", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "In Lebanon, the very idea of peace with Israel continues to deeply divide opinion.",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Despite continuing Israeli attacks and occupation, many people in the south still believe the armed group is the only force capable of defending them.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.485,
+      "note": "Frames story exclusively as resistance vs. occupation (exclusive vocab: 'resistance', 'surrender'), diverging from the ceasefire/diplomacy framing dominant across other buckets."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.53,
+      "note": "Fox News covers Rmeish, a Christian border town that defied Hezbollah — a minority-community angle entirely absent from other coverage."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.532,
+      "note": "AFP/France 24 focuses on Lebanon's internal opinion divide over peace with Israel rather than the operational/military track dominant elsewhere."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.554,
+      "note": "Deutsche Welle covers displaced Lebanese in Beirut stadiums using sport as a coping mechanism — a human-interest angle that diverges from the ceasefire and casualty coverage."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.575
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "iran_state",
+      "terms": ["resistance", "surrender"],
+      "what_it_reveals": "Frames the story as a struggle for national resistance against occupation rather than a ceasefire negotiation — vocabulary absent from all other buckets, including turkey and russia which also cover Israeli strikes."
+    },
+    {
+      "bucket": "usa",
+      "terms": ["christian"],
+      "what_it_reveals": "Fox News uniquely frames the story through Lebanon's Christian minority, highlighting a community that resisted Hezbollah — a sectarian angle absent from all other coverage."
+    },
+    {
+      "bucket": "israel",
+      "terms": ["mortar", "explosive", "terror"],
+      "what_it_reveals": "Haaretz labels Hezbollah's drone network as 'terror infrastructure' and leads on Israeli soldier casualties from mortar fire — framing consistent with military self-defense narrative."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "iran_opposition",
+      "what_they_covered_instead": "No Iran-opposition bucket article appeared; given iran_state covered this story, the absence of an opposing Iranian diaspora perspective on Hezbollah's role is notable."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "The only outlet to cover Rmeish — a Christian Lebanese town that residents say survived by defying Hezbollah — framing the conflict as a story of community agency against the armed group rather than an Israeli-Hezbollah military confrontation.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "Covers displaced Lebanese sheltering in Beirut stadiums and using sport to cope — a human-interest feature that explains germany's relative isolation (0.554) from the diplomatic and military coverage that dominates the corpus.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The Lebanon buffer story divides sharply between a resistance-vs-occupation frame (iran_state) and a ceasefire-negotiation frame (pan_arab, wire_services, israel), with the Washington talks providing a nominal convergence point. Germany and usa are most isolated because they covered tangential angles — stadium sport and a Christian village, respectively — rather than the operational or diplomatic tracks."
+}
