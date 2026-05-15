@@ -1,0 +1,397 @@
+{
+  "date": "2026-05-15",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "buckets": [
+    "canada",
+    "china",
+    "egypt",
+    "india",
+    "iran_opposition",
+    "israel",
+    "japan",
+    "philippines",
+    "russia",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "canada": 55,
+    "china": 32,
+    "egypt": 214,
+    "india": 25,
+    "iran_opposition": 43,
+    "israel": 26,
+    "japan": 30,
+    "philippines": 27,
+    "russia": 73,
+    "wire_services": 45
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "philippines",
+      "score": 0.805
+    },
+    {
+      "a": "israel",
+      "b": "japan",
+      "score": 0.794
+    },
+    {
+      "a": "philippines",
+      "b": "wire_services",
+      "score": 0.774
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "score": 0.764
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.698
+    },
+    {
+      "a": "japan",
+      "b": "philippines",
+      "score": 0.691
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.68
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.678
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.675
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.651
+    },
+    {
+      "a": "china",
+      "b": "wire_services",
+      "score": 0.649
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.641
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.639
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.627
+    },
+    {
+      "a": "canada",
+      "b": "japan",
+      "score": 0.626
+    },
+    {
+      "a": "japan",
+      "b": "russia",
+      "score": 0.623
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.611
+    },
+    {
+      "a": "india",
+      "b": "philippines",
+      "score": 0.599
+    },
+    {
+      "a": "china",
+      "b": "japan",
+      "score": 0.594
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.592
+    },
+    {
+      "a": "china",
+      "b": "israel",
+      "score": 0.589
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "score": 0.582
+    },
+    {
+      "a": "philippines",
+      "b": "russia",
+      "score": 0.581
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.578
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.568
+    },
+    {
+      "a": "china",
+      "b": "philippines",
+      "score": 0.555
+    },
+    {
+      "a": "canada",
+      "b": "israel",
+      "score": 0.553
+    },
+    {
+      "a": "canada",
+      "b": "philippines",
+      "score": 0.549
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.523
+    },
+    {
+      "a": "iran_opposition",
+      "b": "wire_services",
+      "score": 0.509
+    },
+    {
+      "a": "china",
+      "b": "iran_opposition",
+      "score": 0.505
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.493
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.456
+    },
+    {
+      "a": "iran_opposition",
+      "b": "philippines",
+      "score": 0.414
+    },
+    {
+      "a": "iran_opposition",
+      "b": "japan",
+      "score": 0.399
+    },
+    {
+      "a": "iran_opposition",
+      "b": "israel",
+      "score": 0.391
+    },
+    {
+      "a": "egypt",
+      "b": "philippines",
+      "score": 0.319
+    },
+    {
+      "a": "china",
+      "b": "egypt",
+      "score": 0.318
+    },
+    {
+      "a": "egypt",
+      "b": "iran_opposition",
+      "score": 0.309
+    },
+    {
+      "a": "egypt",
+      "b": "russia",
+      "score": 0.302
+    },
+    {
+      "a": "canada",
+      "b": "egypt",
+      "score": 0.273
+    },
+    {
+      "a": "egypt",
+      "b": "israel",
+      "score": 0.255
+    },
+    {
+      "a": "egypt",
+      "b": "wire_services",
+      "score": 0.251
+    },
+    {
+      "a": "egypt",
+      "b": "japan",
+      "score": 0.227
+    },
+    {
+      "a": "egypt",
+      "b": "india",
+      "score": 0.195
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.272
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.452
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.542
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.55
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.557
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.586
+    },
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.587
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.592
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.601
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.616
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE"
+  },
+  "bucket_exclusive_vocab": {
+    "canada": [
+      {
+        "term": "economic",
+        "count": 3
+      }
+    ],
+    "china": [],
+    "egypt": [
+      {
+        "term": "gssf",
+        "count": 6
+      },
+      {
+        "term": "muller",
+        "count": 4
+      },
+      {
+        "term": "auditorium",
+        "count": 3
+      },
+      {
+        "term": "looked",
+        "count": 3
+      },
+      {
+        "term": "three",
+        "count": 3
+      },
+      {
+        "term": "full",
+        "count": 3
+      },
+      {
+        "term": "daniel",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "iran_opposition": [
+      {
+        "term": "israeli",
+        "count": 3
+      },
+      {
+        "term": "strik",
+        "count": 3
+      },
+      {
+        "term": "site",
+        "count": 3
+      },
+      {
+        "term": "tied",
+        "count": 3
+      }
+    ],
+    "israel": [],
+    "japan": [],
+    "philippines": [],
+    "russia": [
+      {
+        "term": "enrichment",
+        "count": 5
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 6
+      },
+      {
+        "term": "gain",
+        "count": 3
+      },
+      {
+        "term": "agre",
+        "count": 3
+      },
+      {
+        "term": "keep",
+        "count": 3
+      },
+      {
+        "term": "arms",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-15T10:03:41+00:00",
+  "meta_version": "8.7.3"
+}

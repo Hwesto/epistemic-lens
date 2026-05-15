@@ -1,0 +1,118 @@
+{
+  "date": "2026-05-15",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "by_bucket": {
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 856,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 858,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 41,
+      "n_tokens_in_cohort": 848,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 301,
+      "n_tokens_in_cohort": 588,
+      "distinctive_terms": [
+        {
+          "term": "thursday",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01661,
+          "rate_in_cohort": 0.0,
+          "llr": 10.885,
+          "log_ratio": null,
+          "p_value": 0.000969
+        }
+      ]
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 274,
+      "n_tokens_in_cohort": 615,
+      "distinctive_terms": [
+        {
+          "term": "order",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0219,
+          "rate_in_cohort": 0.0,
+          "llr": 14.215,
+          "log_ratio": null,
+          "p_value": 0.000163
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 865,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 829,
+      "distinctive_terms": [
+        {
+          "term": "strik",
+          "count_in_bucket": 6,
+          "count_in_cohort": 9,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.01086,
+          "llr": 13.881,
+          "log_ratio": 2.22,
+          "p_value": 0.000195
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 838,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 863,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 48,
+      "n_tokens_in_cohort": 841,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}
