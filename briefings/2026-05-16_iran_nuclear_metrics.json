@@ -1,0 +1,266 @@
+{
+  "date": "2026-05-16",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 8,
+  "n_articles": 9,
+  "buckets": [
+    "canada",
+    "china",
+    "israel",
+    "pan_arab",
+    "qatar",
+    "russia",
+    "uk",
+    "ukraine"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "canada": 27,
+    "china": 32,
+    "israel": 30,
+    "pan_arab": 26,
+    "qatar": 215,
+    "russia": 73,
+    "uk": 22,
+    "ukraine": 25
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "ukraine",
+      "score": 0.78
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.687
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.651
+    },
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.643
+    },
+    {
+      "a": "pan_arab",
+      "b": "qatar",
+      "score": 0.622
+    },
+    {
+      "a": "israel",
+      "b": "qatar",
+      "score": 0.617
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia",
+      "score": 0.605
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "score": 0.598
+    },
+    {
+      "a": "china",
+      "b": "pan_arab",
+      "score": 0.597
+    },
+    {
+      "a": "qatar",
+      "b": "ukraine",
+      "score": 0.591
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.585
+    },
+    {
+      "a": "china",
+      "b": "qatar",
+      "score": 0.561
+    },
+    {
+      "a": "pan_arab",
+      "b": "ukraine",
+      "score": 0.544
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.54
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.533
+    },
+    {
+      "a": "pan_arab",
+      "b": "uk",
+      "score": 0.528
+    },
+    {
+      "a": "israel",
+      "b": "uk",
+      "score": 0.518
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.513
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.505
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.498
+    },
+    {
+      "a": "china",
+      "b": "ukraine",
+      "score": 0.494
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.491
+    },
+    {
+      "a": "china",
+      "b": "israel",
+      "score": 0.474
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.465
+    },
+    {
+      "a": "canada",
+      "b": "israel",
+      "score": 0.462
+    },
+    {
+      "a": "canada",
+      "b": "qatar",
+      "score": 0.431
+    },
+    {
+      "a": "canada",
+      "b": "pan_arab",
+      "score": 0.345
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.326
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.44
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.485
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.533
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.555
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.572
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.577
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.585
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.596
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE"
+  },
+  "bucket_exclusive_vocab": {
+    "canada": [],
+    "china": [
+      {
+        "term": "chinese",
+        "count": 4
+      }
+    ],
+    "israel": [],
+    "pan_arab": [
+      {
+        "term": "weapon",
+        "count": 3
+      }
+    ],
+    "qatar": [
+      {
+        "term": "hormuz",
+        "count": 4
+      },
+      {
+        "term": "signal",
+        "count": 3
+      },
+      {
+        "term": "extended",
+        "count": 3
+      },
+      {
+        "term": "ceasefire",
+        "count": 3
+      },
+      {
+        "term": "including",
+        "count": 3
+      },
+      {
+        "term": "open",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "enrichment",
+        "count": 5
+      }
+    ],
+    "uk": [],
+    "ukraine": [
+      {
+        "term": "moratorium",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-16T09:01:44+00:00",
+  "meta_version": "8.7.3"
+}

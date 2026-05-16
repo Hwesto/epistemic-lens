@@ -1,0 +1,117 @@
+{
+  "date": "2026-05-16",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "by_bucket": {
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 917,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 61,
+      "n_tokens_in_cohort": 889,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 921,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 88,
+      "n_tokens_in_cohort": 862,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 921,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 106,
+      "n_tokens_in_cohort": 844,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 215,
+      "n_tokens_in_cohort": 735,
+      "distinctive_terms": [
+        {
+          "term": "china",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02326,
+          "rate_in_cohort": 0.0,
+          "llr": 14.949,
+          "log_ratio": null,
+          "p_value": 0.00011
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 151,
+      "n_tokens_in_cohort": 799,
+      "distinctive_terms": []
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 95,
+      "n_tokens_in_cohort": 855,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 900,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 924,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 928,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 45,
+      "n_tokens_in_cohort": 905,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}

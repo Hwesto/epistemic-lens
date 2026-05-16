@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-16",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "by_bucket": {
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 423,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 418,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 420,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 424,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 215,
+      "n_tokens_in_cohort": 235,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 73,
+      "n_tokens_in_cohort": 377,
+      "distinctive_terms": [
+        {
+          "term": "enrichment",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.06849,
+          "rate_in_cohort": 0.0,
+          "llr": 18.483,
+          "log_ratio": null,
+          "p_value": 1.7e-05
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 428,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 425,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}
