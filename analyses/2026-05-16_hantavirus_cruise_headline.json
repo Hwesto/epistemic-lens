@@ -1,0 +1,161 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "analysis_pass": "headline",
+  "n_buckets": 25,
+  "n_articles": 41,
+  "event_summary": "An Andes hantavirus outbreak aboard the Dutch-flagged cruise ship MV Hondius killed three passengers and infected at least ten people; the ship docked at Tenerife in mid-May 2026 for evacuation, with passengers quarantined across Europe, Australia, and Asia.",
+  "tldr": "Headlines cluster tightly around quarantine logistics and case-count updates, with HEALTH_SAFETY dominating across 13 buckets. Argentina and Iran state media stand out with defensive national-innocence framings identical in structure but opposed in geopolitics. UK and US headlines break toward accountability, naming Trump's appointment and CDC notification failures — a POLITICAL rupture absent from every other bucket. Germany's headline asks whether hantavirus is comparable to Covid, anchoring PUBLIC_OPINION concern rather than case-count journalism.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "quarantine and case tracking",
+      "buckets": ["australia_nz", "canada", "kenya", "korea_north", "netherlands_belgium", "qatar", "russia", "russia_native", "south_africa", "south_korea", "spain", "taiwan_hk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "WHO confirms 10 global hantavirus cases",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "hantavirus-affected cruise to be quarantined",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Kenya Broadcasting Corporation",
+          "quote": "France tightens health surveillance on deadly Hantavirus",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "source-nation reputation",
+      "buckets": ["argentina_chile", "iran_state"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "'Almost zero' chance Dutch man got hantavirus in Ushuaia",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "No evidence of Hantavirus in Iran: health ministry",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "COVID-era pandemic fears",
+      "buckets": ["germany", "turkey", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "hantavirus outbreak revives COVID-era fears worldwide",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Warum das Hantavirus nicht mit Corona vergleichbar ist",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taiwan News",
+          "quote": "Dangerous days lie ahead after the outbreak of hantavirus",
+          "signal_text_idx": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US governance failures",
+      "buckets": ["uk", "usa"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Doctor leading Trump's hantavirus response",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "CDC Didn't Tell New York About Resident",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "cruise ship liability",
+      "buckets": ["india"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "NDTV",
+          "quote": "Could Cruise Ship Passengers Sue Over Hantavirus Outbreak?",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.489,
+      "note": "Headline describes a first-person scientist narrative — form diverges from news-report titles across the corpus."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.497,
+      "note": "German-language explainer headline asking whether hantavirus compares to Covid; language and genre isolate it."
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.503,
+      "note": "Korea Herald headline emphasised South Korea's historical role in hantavirus discovery — national-pride angle absent elsewhere."
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.525,
+      "note": "Brief roundup headline naming quarantined nationals; low content limits semantic alignment with fuller corpus."
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.534,
+      "note": "Single short RT headline quoting WHO chief; minimal title tokens reduce cosine match."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "opinion_magazines",
+      "what_they_covered_instead": "First-person narrative headline from a scientist aboard the ship — genre departure from all other buckets."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "what_they_covered_instead": "Headline covered an unrelated Ebola item rather than the hantavirus outbreak."
+    },
+    {
+      "bucket": "nordic",
+      "what_they_covered_instead": "Generic roundup headline noting quarantined nationals with no frame beyond logistics."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline framing is dominated by WHO-anchored case-count and quarantine logistics across 13 buckets, but the US and UK buckets break toward political accountability — the only regional press whose titles name governance actors rather than case numbers. China's complete headline absence from a global respiratory-pathogen story is the most significant silence.",
+  "generated_at": "2026-05-16T09:30:00Z",
+  "model": "claude-sonnet-4-6"
+}

@@ -1,0 +1,102 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear talks and moratorium proposal",
+  "analysis_pass": "headline",
+  "n_buckets": 8,
+  "n_articles": 9,
+  "event_summary": "US and Iran signaled progress toward a nuclear deal featuring a 20-year moratorium on enrichment, with China acting as diplomatic intermediary; Trump publicly set a timeframe while Iranian officials framed enrichment as a sovereignty achievement.",
+  "tldr": "With only 9 headlines across 8 buckets, the corpus is thin but cleanly bifurcated: Western-aligned outlets (Israel, Ukraine, Canada) frame the story around the moratorium's terms and Trump's timeline, while China, Pan-Arab, and Qatar headline the diplomatic coordination between Washington, Beijing, and Tehran. Russia's headline is the outlier, framing Iranian enrichment as a sovereignty victory rather than a concession — the only title that treats the program as an achievement rather than a problem to solve. The UK bucket's sole headline covers an unrelated Trump gaffe, signalling editorial deprioritisation of the nuclear track.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "moratorium terms under negotiation",
+      "buckets": ["israel", "ukraine", "russia", "canada"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Iran suspending its nuclear program for 20 years",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Independent",
+          "quote": "Trump sets timeframe for moratorium on Iran's nuclear program",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Iran's uranium enrichment secures independence",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-China-Iran diplomatic alignment",
+      "buckets": ["china", "pan_arab", "qatar"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Al-Monitor",
+          "quote": "Trump, China's Xi 'agree Iran cannot have nuclear weapons'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Trump, Tehran signal talks as Lebanon truce extended",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.44,
+      "note": "Headline angle on domestic Canadian reaction to the moratorium diverges from the diplomatic-process centre of the corpus."
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.485,
+      "note": "UK headline covers Trump gaffe unrelated to nuclear talks — complete topic departure from the rest of the corpus."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.533,
+      "note": "Chinese-intermediary framing (diplomat meetings) sits orthogonal to Western moratorium-terms coverage."
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.555,
+      "note": "Joint Trump-Xi headline bundles nuclear and Hormuz tracks, diverging from nuclear-only framing elsewhere."
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.572,
+      "note": "Trump-timeline headline is semantically close to the Israel moratorium headline but adds urgency language absent elsewhere."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "uk",
+      "what_they_covered_instead": "Sole UK headline covered an unrelated Trump gaffe — nuclear track entirely absent from UK headline framing today."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "A thin 9-headline corpus splits cleanly between moratorium-terms framing (Israel/Ukraine/Canada) and diplomatic-alignment framing (China/Pan-Arab/Qatar), with Russia's sovereignty-achievement headline as the sole counter-narrative. The UK's editorial choice to skip the nuclear headline entirely is the most notable absence.",
+  "generated_at": "2026-05-16T09:30:00Z",
+  "model": "claude-sonnet-4-6"
+}

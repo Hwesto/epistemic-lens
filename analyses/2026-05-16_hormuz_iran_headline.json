@@ -1,0 +1,160 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz closure and Iran crisis",
+  "analysis_pass": "headline",
+  "n_buckets": 27,
+  "n_articles": 46,
+  "event_summary": "Iran closed or threatened closure of the Strait of Hormuz amid US-Israel military pressure, triggering global energy-supply anxiety, diplomatic interventions by China and Turkey, and emergency rerouting of LNG tankers.",
+  "tldr": "Headlines divide into four clear registers: military-escalation alarm (US/UK/Israel/India leading), energy-rerouting pragmatism (Japan/Hungary/Brazil/Egypt), Trump-Xi summit diplomacy (Canada/South Korea/Vietnam), and Iranian counter-framing (China/Iran state/Turkey). The Polish-Baltic bucket stands furthest from the corpus centre with a catastrophe-framing headline that uses threat-multiplication language absent elsewhere. Japan's headline is the corpus outlier on the economic register — the only title naming a specific cargo type and route.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "military escalation and convoy risk",
+      "buckets": ["germany", "india", "israel", "poland_balt", "russia", "south_korea", "uk"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Der Spiegel",
+          "quote": "Iran Must Only Succeed Once to Trigger a Catastrophe",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Times of Israel",
+          "quote": "US-Israel attacks on Iran could resume as early as next week",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV",
+          "quote": "Trump Preps Big Iran Strikes With Epic Fury 2.0",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy supply and infrastructure workaround",
+      "buckets": ["brazil", "egypt", "hungary_central", "japan", "pan_african", "uk"],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Japan set to receive first LNG via Hormuz",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Daily News Hungary",
+          "quote": "Air Travel Continues Normally despite Fuel Price Surge",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "The Africa Report",
+          "quote": "Egyptian farmers struggling to survive as Iran war",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Xi summit diplomacy",
+      "buckets": ["canada", "brazil", "south_africa", "south_korea", "taiwan_hk", "vietnam_thai_my", "pan_arab", "india"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump and Xi exchange praise at meeting",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald",
+          "quote": "Trump Seeks Chinese Leverage to End Iran War",
+          "signal_text_idx": 31
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Bangkok Post",
+          "quote": "Trump says Xi agrees Iran must open strait",
+          "signal_text_idx": 43
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran's diplomatic counter-framing",
+      "buckets": ["china", "iran_state", "iran_opposition", "turkey", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Iran says Hormuz fallout responsibility lies with",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP",
+          "quote": "China's U.N. ambassador criticizes US Hormuz resolution",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Blockade of Strait of Hormuz not in common interests",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.371,
+      "note": "Catastrophe-framing headline uses threat-multiplication language ('Must Only Succeed Once') absent from all other buckets."
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.393,
+      "note": "Only headline naming a specific cargo type and route (LNG via Hormuz); purely logistical framing diverges from geopolitical corpus centre."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.44,
+      "note": "French-language France Info titles in corpus create language-distance artefacts alongside substantive UN-process framing."
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.46,
+      "note": "Domestic-continuity headline ('Air Travel Continues Normally') inverts the crisis frame dominant across the corpus."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.474,
+      "note": "Food-security angle (Egyptian farmers) is the only agricultural-impact headline in the corpus; diverges from military-diplomatic centre."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "opinion_magazines",
+      "what_they_covered_instead": "Headline focused on Trump domestic political gaffes rather than Hormuz — no geopolitical frame in the title."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "what_they_covered_instead": "Headlines covered unrelated international items; no Hormuz-specific framing surfaced in titles."
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "what_they_covered_instead": "Southeast Asia regional outlet led with counter-drone efforts — no Hormuz or Iran headline present."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline frames split across four registers — military alarm, energy rerouting, Trump-Xi diplomacy, and Iranian counter-framing — with the Polish-Baltic bucket furthest from the corpus centre via uniquely catastrophist language. The economic register is under-represented in titles relative to the body-text corpus, suggesting outlets led with geopolitics and buried supply-chain impacts below the fold.",
+  "generated_at": "2026-05-16T09:30:00Z",
+  "model": "claude-sonnet-4-6"
+}

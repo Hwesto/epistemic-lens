@@ -1,0 +1,181 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "ukraine_war",
+  "story_title": "Ukraine-Russia war: bombardment, tribunal, and diplomacy",
+  "analysis_pass": "headline",
+  "n_buckets": 25,
+  "n_articles": 42,
+  "event_summary": "Russia launched its heaviest wartime drone assault on Kyiv; 36 nations approved creation of a special international tribunal to prosecute Russian leadership; Ukraine and Russia exchanged 205 prisoners each; corruption probes touched Zelenskyy's office; and diplomacy advanced toward a new round of talks.",
+  "tldr": "Five distinct headline frames compete across 25 buckets, with SECURITY_DEFENSE (bombardment/counterstrikes) dominating by volume — 13 buckets led with the drone assault or Ukrainian strikes. The tribunal story generated a tight LEGALITY cluster among European outlets. CRIME_PUNISHMENT covers a separate track: Ukraine corruption headlines from Iran opposition, South Africa, and wire services that imply institutional critique of Kyiv. The POLITICAL frame captures the Putin-China visit and Hungary post-Orbán speculation. The Nordic bucket is the most isolated — its headline covered Finland/Sweden roundup items semantically distant from the Kyiv-strike dominant frame. The Asia-Pacific regional bucket's counter-drone headline mentions no Ukraine-specific context, the clearest editorial avoidance in the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Russian bombardment and Ukrainian counterstrikes",
+      "buckets": ["canada", "india", "iran_opposition", "japan", "kenya", "mexico", "pan_african", "pan_arab", "poland_balt", "religious_press", "uk", "ukraine", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "NDTV",
+          "quote": "Russia Unleashes Heaviest Wartime Drone Assault On Ukraine",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Zelenskyy vows retribution after Russian strike on Kyiv",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Bangkok Post",
+          "quote": "Russia considering plan to attack NATO country from Belarus",
+          "signal_text_idx": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "international tribunal for Russia",
+      "buckets": ["germany", "russia", "taiwan_hk", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP",
+          "quote": "36 countries approve creation of special Ukraine tribunal",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Dozens of European countries sign up to special tribunal",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taiwan News",
+          "quote": "36 nations approve tribunal creation to prosecute Russia",
+          "signal_text_idx": 30
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Ukraine corruption and arms networks",
+      "buckets": ["balkans", "iran_opposition", "korea_north", "south_africa", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International",
+          "quote": "Anti-Graft Prosecutor Seeks Detention Of Zelenskyy",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters",
+          "quote": "What's at stake in the Andriy Yermak corruption probe",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Police bust Donbas-tied arms dealers",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "diplomacy and post-war politics",
+      "buckets": ["germany", "india", "nordic", "opinion_magazines", "russia", "usa", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu",
+          "quote": "After Trump trip, Putin to visit China on May 19",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Russia, Ukraine to agree on date of new round of talks",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Foreign Policy",
+          "quote": "What a Post-Orbán Hungary Means for Hungarians and Europe",
+          "signal_text_idx": 37
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "POW exchange and civilian grief",
+      "buckets": ["pan_african", "religious_press", "south_africa", "turkey"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "The Africa Report",
+          "quote": "Ukraine and Russia swap 205 prisoners each",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Russia and Ukraine swap 205 prisoners of war each",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Catholic News Agency",
+          "quote": "Ukrainian mother: 'My son was taken away by war'",
+          "signal_text_idx": 24
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.377,
+      "note": "Roundup headline naming Finnish/Swedish nationals; generic phrasing limits semantic alignment with the Kyiv-strike dominant frame."
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.415,
+      "note": "Counter-drone headline mentions no Ukraine-specific context — the clearest editorial avoidance in the corpus."
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.481,
+      "note": "Arms-dealer bust headline is geo-specific (Donbas-tied) but uses crime-framing orthogonal to the bombardment dominant frame."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.496,
+      "note": "First-person grief headline from Catholic News Agency diverges from military-metrics language across the rest of the corpus."
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.509,
+      "note": "Japan Times headline focused on alliance commitments rather than Kyiv strike specifics; geopolitical-distance framing."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "asia_pacific_regional",
+      "what_they_covered_instead": "Southeast Asia's counter-drone headline contained no Ukraine-specific frame — regional lens displaced the war story entirely."
+    },
+    {
+      "bucket": "ukraine",
+      "what_they_covered_instead": "One Ukraine-bucket headline covered reconstruction financing ('What Am I Missing?') — the rebuilding frame was absent from all other buckets and shows inward policy focus alongside the bombardment coverage."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "SECURITY_DEFENSE dominated headline selection across 13 of 25 buckets, driven by Russia's record drone assault. The tribunal story produced a tight European LEGALITY cluster. The corruption-probe CRIME_PUNISHMENT headlines — concentrated in Iran opposition, South Africa, and wire services — represent the most geopolitically pointed counter-narrative against Kyiv in today's corpus.",
+  "generated_at": "2026-05-16T09:30:00Z",
+  "model": "claude-sonnet-4-6"
+}

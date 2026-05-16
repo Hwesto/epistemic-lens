@@ -1,0 +1,138 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "lebanon_buffer",
+  "story_title": "Lebanon-Israel buffer zone and ceasefire extension",
+  "analysis_pass": "headline",
+  "n_buckets": 15,
+  "n_articles": 18,
+  "event_summary": "Israel and Lebanon agreed to a 45-day ceasefire extension brokered by the US, while Israeli forces continued strikes and ordered civilian evacuations from nine border towns; Hezbollah-linked commanders faced prosecution in the US.",
+  "tldr": "Headlines split between the diplomatic-extension frame (10 buckets confirming the 45-day deal) and a security-violence undercurrent (strike headlines from Israel, Pan-Arab, and Vietnam/Thai/My). The Italy bucket is the most isolated — its sole headline mocks propaganda leaflets dropped by Israel, a satirical angle absent everywhere else. The USA bucket's headline goes granular on Christian-community civilian experience, the only quality-of-life title in the corpus. Germany's displacement-through-sport headline is the second quality-of-life outlier. The Pan-Arab bucket covers both the ceasefire extension and strike orders, reflecting the dual reality of simultaneous diplomatic and military action.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "45-day ceasefire extension",
+      "buckets": ["canada", "germany", "india", "mexico", "pan_african", "qatar", "russia", "south_africa", "taiwan_hk", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters",
+          "quote": "Israel, Lebanon extending ceasefire, US says",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Israel and Lebanon buy more time with 45-day extension",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taiwan News",
+          "quote": "Lebanon and Israel extend ceasefire despite new strikes",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ongoing strikes and forced displacement",
+      "buckets": ["india", "israel", "pan_arab", "vietnam_thai_my", "canada"],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Al-Monitor",
+          "quote": "Israeli military orders residents to flee nine Lebanese towns",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Bangkok Post",
+          "quote": "Israel says over 220 Hezbollah fighters killed in past week",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Times of Israel",
+          "quote": "Israel, US readying for renewed strikes on Iran",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian experience under occupation",
+      "buckets": ["germany", "usa"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Sport helping displaced Lebanese living in stadium to cope",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR",
+          "quote": "Inside the Christian border town in Lebanon",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "militia prosecution",
+      "buckets": ["israel"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Times of Israel",
+          "quote": "Iraqi militia commander charged in US for plotting attacks",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.366,
+      "note": "Satirical headline mocking Israeli propaganda leaflets dropped over Lebanon — a sardonic genre entirely absent from all other buckets."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.462,
+      "note": "Granular civilian community headline ('Inside the Christian border town') diverges from the diplomatic-extension centre of the corpus."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.503,
+      "note": "Headline combines ceasefire extension with escalation hedge ('despite new strikes') — dual framing sits between the two dominant clusters."
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.544,
+      "note": "Multiple Israel headlines cover the Iran strike track rather than the Lebanon-specific ceasefire, pulling the bucket away from the corpus centre."
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.564,
+      "note": "Kill-count headline ('220 Hezbollah fighters killed') uses military-metrics framing absent from the diplomatic majority."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "italy",
+      "what_they_covered_instead": "Italian-language headline mocked Israeli propaganda leaflets — satirical angle that provided no factual ceasefire coverage."
+    },
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "One Pan-Arab headline was a generic morning-update label ('Morning update') carrying no frameable content."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "Ten of fifteen buckets confirmed the 45-day ceasefire extension in headline form, making POLICY_PRESCRIPTION the dominant frame by margin. Italy's satirical propaganda-mockery headline is the most isolated item in the corpus and the only example of ironic framing across all five stories today.",
+  "generated_at": "2026-05-16T09:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
