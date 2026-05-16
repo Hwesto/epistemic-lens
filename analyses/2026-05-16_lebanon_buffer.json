@@ -1,0 +1,223 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 15,
+  "n_articles": 18,
+  "event_summary": "Israel and Lebanon agreed to extend their ceasefire by 45 days following US-mediated talks in Washington on 16 May 2026, even as Israeli strikes killed at least 12 people including three paramedics in southern Lebanon that day.",
+  "tldr": "The ceasefire extension was treated as a diplomatic milestone by wire services and central regional outlets, but the corpus reveals a structural tension: Israel issued evacuation orders for nine Lebanese towns within hours of the truce being signed, a juxtaposition that both Russia's RT and the Times of Israel reported without contradiction. Italy was the most isolated bucket at 0.366, publishing only an ANSA headline about Lebanese outrage over an Israeli military leaflet advertising 'rafting on the Litani' — a river Israel has cleared of civilians for its security zone — a story that reached no other regional press. Mexico's La Jornada is the only outlet to centre Hezbollah's perspective directly, reporting that the movement characterised Lebanon-Israel talks as 'free concessions to Israel.' Germany's DW pivoted to humanitarian quality-of-life coverage — more than a million displaced Lebanese sheltering in Beirut stadiums — a frame absent from all other buckets. Fox News ran the corpus's only bottom-up community narrative: a Christian border town in southern Lebanon that claimed to have survived by confronting Hezbollah.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ceasefire-while-striking",
+      "buckets": ["russia", "wire_services", "india", "qatar", "south_africa", "taiwan_hk", "vietnam_thai_my", "israel"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "The announcement came as an Israeli airstrike on Lebanon killed at least six people, including three paramedics, and wounded 22 others, according to local officials.",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Israel and Lebanon agreed to extend a ceasefire and hold expanded talks on a political settlement, the US announced days before the April 17 ceasefire was set to expire. The announcement came even as Israel carried out new strikes in southern Lebanon that it insists are not subject to the truce.",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "A truce in the war between Israel and Iran-backed Hezbollah has been in place since April 17, but it has not stopped the fighting, with hundreds killed in strikes since then",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "attacks on medical workers",
+      "buckets": ["canada", "russia"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "International organization Doctors Without Borders says a Tuesday drone strike that killed two paramedics and injured another in southern Lebanon is part of an \"alarming pattern\" of Israeli attacks targeting first responders.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "mass displacement",
+      "buckets": ["germany", "pan_african"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "More than a million people have been forced to flee their homes in southern Lebanon due to fighting between Israeli forces and Hezbollah. As many shelter in Beirut stadiums, sport is sometimes a welcome distraction.",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Lebanese deeply divided over chances of peace talks with Israel",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "ceasefire terms and sovereignty",
+      "buckets": ["mexico", "pan_arab", "qatar", "taiwan_hk", "south_africa"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Beirut y Tel Aviv sostuvieron en Washington su tercera ronda de negociaciones para tratar de poner fin al conflicto armado",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "The Israeli military issued new forced displacement orders for residents of nine towns and villages in southern Lebanon, only hours after Beirut and Israel agreed to extend their ceasefire for another 45 days.",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Israel and Lebanon have agreed to a 45-day extension of a ceasefire that US President Donald Trump declared on 16 April,",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US mediation and Hezbollah exclusion",
+      "buckets": ["qatar", "pan_arab", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Israel has been pounding Lebanon and invaded its south in response to fire from Hezbollah, the Iranian-backed Shia movement that is not part of the ceasefire diplomacy.",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Lebanon has welcomed an agreement with Israel to extend a fragile ceasefire by 45 days beyond",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.366,
+      "note": "ANSA headline about Lebanese outrage over an Israeli 'rafting on the Litani' leaflet — a satirical-outrage angle covering no factual events that appear in other buckets."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.462,
+      "note": "Fox News community narrative about a Christian border town defying Hezbollah — bottom-up internal Lebanese framing absent from all other buckets."
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.503,
+      "note": "CBC focused entirely on MSF's 'alarming pattern' framing of attacks on medical workers — a rights-organisation framing that diverges from the diplomatic and military coverage elsewhere."
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.544,
+      "note": "Times of Israel led with an IRGC proxy prosecution in the US and potential resumed Iran strikes rather than the Lebanon ceasefire itself, pulling its signal away from the buffer-zone topic."
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.564,
+      "note": "Straits Times brief on Hezbollah casualty figures — minimal context limits embedding alignment."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "canada",
+      "terms": ["alarming", "pattern"],
+      "what_it_reveals": "MSF's precise legal-register language ('alarming pattern') signals an accusation of systematic targeting rather than incidental harm — a framing adopted by no other bucket."
+    },
+    {
+      "bucket": "germany",
+      "terms": ["sport", "stadium"],
+      "what_it_reveals": "DW's exclusive use of stadium and sport vocabulary reflects its turn to humanitarian quality-of-life coverage of displaced populations in Beirut — the only bucket to frame the story primarily through the lens of civilian life rather than military operations."
+    },
+    {
+      "bucket": "israel",
+      "terms": ["iraqi", "militia", "commander", "charged", "plotting", "jewish"],
+      "what_it_reveals": "Times of Israel pivoted from the Lebanon ceasefire to the IRGC proxy prosecution in the US, extending the Israel-Lebanon story into the transnational terror-finance frame."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "russia",
+      "outlet": "RT",
+      "quote": "The announcement came as an Israeli airstrike on Lebanon killed at least six people, including three paramedics, and wounded 22 others, according to local officials.",
+      "signal_text_idx": 12
+    },
+    "b": {
+      "bucket": "israel",
+      "outlet": "Times of Israel",
+      "quote": "6 reported killed in Israeli strike on civil defense center in southern Lebanon",
+      "signal_text_idx": 5
+    },
+    "joint_conclusion": "Pro-Russian RT and the Israeli press both reported that Israeli strikes killed six people — including paramedics — on the same day a 45-day ceasefire extension was announced, converging on the operational fact that the truce is nominal rather than real."
+  },
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran's state media (present in hormuz_iran today) did not appear in this lebanon_buffer corpus despite Tehran naming a halt to Lebanese hostilities as a precondition for its own ceasefire with the US."
+    },
+    {
+      "bucket": "turkey",
+      "what_they_covered_instead": "Turkey, which monitors Israeli operations in Lebanon closely, was absent here; Daily Sabah's corpus slot today was filled by Hormuz and Ukraine coverage instead."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "ANSA Italian (Mondo)",
+      "bucket": "italy",
+      "finding": "Lebanese outrage erupted over an Israeli military leaflet advertising 'rafting on the Litani' river — a river Israel has been clearing of civilians for its security zone — treating the displacement of Lebanese as a tourism opportunity. No other outlet in the corpus covered this.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Residents of Rmeish, a Christian town in southern Lebanon, claim they blocked Hezbollah from using their village area and thereby survived Israeli operations — a community-resistance narrative absent from all other regional coverage.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "finding": "MSF characterised Israeli drone strikes on paramedics as an 'alarming pattern' of deliberate targeting rather than incidental harm — the only outlet to apply this legal-register framing.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Middle East Eye",
+      "bucket": "pan_arab",
+      "finding": "Israel issued evacuation orders for nine Lebanese towns within hours of the 45-day ceasefire extension being signed — a sequencing that no other outlet highlighted as pointedly.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "La Jornada",
+      "bucket": "mexico",
+      "finding": "Hezbollah publicly described the Lebanon-Israel Washington talks as 'concesiones gratuitas a Israel' (free concessions to Israel) — the only outlet in the corpus to centre Hezbollah's own characterisation of the diplomacy it is excluded from.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "Iran's foreign minister linked Lebanon and Hormuz explicitly: Iran is allowing more ships through Hormuz because 'many countries have accepted the new legal protocols,' signalling that the Lebanon ceasefire and the Hormuz blockade are linked in Tehran's negotiating calculus.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The ceasefire extension is textually real but operationally nominal: both RT and the Times of Israel document continued Israeli strikes on the day of its announcement, and Israel's immediate issuance of evacuation orders for nine Lebanese towns signals that the buffer-zone consolidation is proceeding under the ceasefire's cover. Italy's rafting-leaflet outrage and Fox News's Christian-town story are the corpus's sharpest reminders that the buffer zone is being negotiated over living communities.",
+  "generated_at": "2026-05-16T09:04:07Z",
+  "model": "claude-sonnet-4-6"
+}

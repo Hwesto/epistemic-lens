@@ -1,0 +1,238 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 25,
+  "n_articles": 41,
+  "event_summary": "An Andes hantavirus outbreak aboard the Dutch-flagged cruise ship MV Hondius killed three passengers and infected at least ten people; the ship docked at Tenerife in mid-May 2026 for evacuation, with passengers quarantined across Europe, Australia, and Asia.",
+  "tldr": "The corpus converges on a WHO-anchored reassurance frame, yet two ruptures stand out: the US press uniquely exposed domestic governance failures — the CDC failed to alert New York health officials about a Manhattan resident who traveled freely after exposure, and Trump's designated hantavirus response lead is a penile specialist who spread Covid conspiracies. Vietnam/Thailand/Malaysia was the only regional bucket to surface a 2023 peer-reviewed study showing hantavirus may persist in human semen for up to six years, raising sexual-transmission concerns that no health authority has addressed publicly. Germany pivoted almost entirely to pandemic-taxonomy explainers ('Endemie, Epidemie, Pandemie'), treating the outbreak as a teachable moment rather than a news event. Argentina and Iran state media adopted structurally identical defensive postures — both prominently cited WHO data to distance themselves from any link to the outbreak — despite standing in opposite geopolitical corners.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "epidemic containment",
+      "buckets": ["argentina_chile", "australia_nz", "canada", "iran_state", "kenya", "korea_north", "netherlands_belgium", "nordic", "qatar", "south_africa", "spain", "state_tv_intl", "taiwan_hk", "turkey", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "five Australians and one New Zealander will be subject to quarantine at the Bullsbrook Centre for National Resilience north-east of Perth, next to RAAF Base Pearce, which is where the passengers' repatriation flight will land in Australia.",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "World Health Organization has reiterated that the risk of hantavirus spreading is 'low'.",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "The deputy health minister has said no case of Hantavirus has been reported in Iran so far, and the risk of its epidemic is very low.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "COVID-19 fear parallels",
+      "buckets": ["germany", "turkey", "russia"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Der aktuelle Ausbruch des Andes-Hantavirus wirft Fragen auf, die seit der Corona-Pandemie vielen vertraut sind.",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Health officials around the world are racing to calm public fears after a hantavirus outbreak aboard a luxury cruise ship in the Atlantic revived painful memories of the COVID-19 p...",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "More cases of hantavirus coming – WHO chief",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US response failures",
+      "buckets": ["uk", "usa"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "The physician, who has scant experience in public health, has compared the Biden administration to Nazi Germany, a report says",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "The CDC informed health officials in various states of other Americans potentially exposed to the virus, but failed to alert New York health officials about the Manhattan woman.",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "source-nation reputation",
+      "buckets": ["argentina_chile", "mexico", "spain"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Tierra del Fuego epidemiology director Juan Petrina says that the likelihood that the Dutch man linked to the hantavirus outbreak on the MV Hondius cruise ship contracted the disease in the port city of Ushuaia is",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "El director general de la Organización Mundial de la Salud (OMS), Tedros Adhanom Ghebreyesus, agradeció ayer a la población de Tenerife por haber demostrado",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Efforts to control hantavirus outbreak reach global scale while cases in Spain and France fuel uncertainty",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "evacuation and military logistics",
+      "buckets": ["australia_nz", "uk", "south_africa"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "A specialist team helped supply critical medical support to Tristan da Cunha in the South Atlantic.",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "A plane carrying six passengers caught up in the hantavirus outbreak on the MV Hondius cruise ship landed at a military airbase in western Australia, where they will immediately enter a strict three-week quarantine.",
+          "signal_text_idx": 25
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.489,
+      "note": "New Yorker personal narrative from a scientist on the ship — first-person form diverges from the news-report format of the rest of the corpus."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.497,
+      "note": "DW published pandemic-terminology explainers in German rather than event coverage; isolation is partly a language artefact."
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.503,
+      "note": "Korea Herald emphasised South Korea's historical pioneer role in hantavirus discovery — a national-pride angle entirely absent from other buckets."
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.525,
+      "note": "Brief roundup mentions of quarantined nationals in Finland and Sweden; low-content items limit semantic alignment."
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.534,
+      "note": "Single short RT item quoting WHO chief; minimal signal_text reduces cosine match with the fuller corpus."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "vietnam_thai_my",
+      "terms": ["semen", "linger", "transmitted", "study"],
+      "what_it_reveals": "Only bucket to cover the peer-reviewed finding that hantavirus may persist in semen for six years; the sexual-transmission angle was absent from all other regional press."
+    },
+    {
+      "bucket": "usa",
+      "terms": ["manhattan", "conspiracy", "york"],
+      "what_it_reveals": "US press uniquely covered both the CDC's failure to notify New York authorities and antisemitic social-media conspiracy theories linking the word 'hanta' to Hebrew slang."
+    },
+    {
+      "bucket": "wire_services",
+      "terms": ["rongeur", "dans", "pour", "population"],
+      "what_it_reveals": "Language artefacts from French-language France Info articles; substantively signal the unique climate-change/rodent-population framing of the outbreak's ecological origins."
+    },
+    {
+      "bucket": "argentina_chile",
+      "terms": ["tierra", "fuego", "ushuaia", "zero"],
+      "what_it_reveals": "Argentina's defensive geographic framing: the repeated insistence that the Dutch couple could not have contracted the virus in Ushuaia anchors Argentine coverage."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China is absent from this corpus despite COVID-19 making the country hyper-attentive to new respiratory pathogens — no Chinese outlet appeared, suggesting deliberate official minimisation of a story with pandemic-panic optics."
+    },
+    {
+      "bucket": "iran_opposition",
+      "what_they_covered_instead": "While Tehran's state health ministry issued a detailed defensive briefing (present in iran_state), opposition-aligned outlets (Radio Farda / Iran International) did not cover the outbreak, focusing exclusively on the US-Iran war."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "CDC failed to notify New York health officials about a Manhattan woman — a 75-year-old former pharmaceutical executive — who left the Hondius at Saint Helena in late April and continued a multi-continental journey while potentially exposed.",
+      "signal_text_idx": 35
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "A 2023 Swiss study found Andes hantavirus in a patient's semen 71 months after initial infection; no other outlet in the corpus reported this sexual-transmission research.",
+      "signal_text_idx": 37
+    },
+    {
+      "outlet": "Mother Jones",
+      "bucket": "usa",
+      "finding": "Antisemitic conspiracy theories claiming 'hanta' is Hebrew for 'scam' were spreading on social media platforms without moderation intervention.",
+      "signal_text_idx": 36
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "The physician appointed to lead Trump's hantavirus response has scant public-health experience and previously compared the Biden administration to Nazi Germany.",
+      "signal_text_idx": 33
+    },
+    {
+      "outlet": "France Info",
+      "bucket": "wire_services",
+      "finding": "Argentine scientists linked El Niño-driven intense rainfall to rodent population booms in the Pampas, framing the outbreak as a climate-change consequence rather than a cruise-ship anomaly.",
+      "signal_text_idx": 39
+    },
+    {
+      "outlet": "Buenos Aires Herald",
+      "bucket": "argentina_chile",
+      "finding": "Tierra del Fuego's epidemiology director declared 'almost zero' probability the Dutch couple contracted the virus in Ushuaia, casting Argentina as victim of geographic association rather than source country.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Tehran Times",
+      "bucket": "iran_state",
+      "finding": "Iran's deputy health minister issued a full public briefing citing WHO data and neighbourhood-country surveillance to establish zero Iranian cases — a defensive posture structurally identical to Argentina's despite opposite geopolitical alignment.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Korea Herald",
+      "bucket": "south_korea",
+      "finding": "The Hantaan strain was first identified and named by Korean researchers in the 1970s; no other bucket in the corpus made this national-history claim.",
+      "signal_text_idx": 26
+    }
+  ],
+  "bottom_line": "A WHO-anchored reassurance consensus held across 25 buckets, but two US-exclusive stories — CDC's notification failure and Trump's unqualified health appointee — expose domestic governance gaps that no other regional press touched. China's complete absence from a global respiratory-pathogen story is the most significant silence in this corpus.",
+  "generated_at": "2026-05-16T09:04:07Z",
+  "model": "claude-sonnet-4-6"
+}

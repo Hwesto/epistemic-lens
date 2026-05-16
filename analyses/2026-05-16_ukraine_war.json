@@ -1,0 +1,274 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "n_buckets": 25,
+  "n_articles": 42,
+  "event_summary": "Russia launched its heaviest wartime barrage on Ukraine on 14-15 May 2026, killing at least 24 people in Kyiv; 36 nations approved a special tribunal to prosecute Russia for the crime of aggression, and Ukraine and Russia exchanged 205 prisoners each.",
+  "tldr": "The corpus balances three simultaneous story threads that most outlets are covering in isolation: the escalating bombardment of Kyiv, the international legal accountability architecture being built around Russia, and the diplomatic preparations for a post-war world — including a reconstruction conference (Kyiv Post) and Russian-Ukrainian peace memorandums being exchanged (TASS). The Nordic bucket is the most isolated at 0.377, covering only Finland-Sweden deliberations about joining a NATO eastern-flank sub-group, a story that appeared nowhere else in the corpus. Poland-Baltic uniquely covered a violent attack on Ukrainian teenagers in Warsaw, framing it as an outcome of right-wing anti-Ukrainian rhetoric and Russian disinformation — a domestic European story about the war's social spillover that no other bucket picked up. Korea North's NK News is the only outlet to link the Ukraine war to Kim Jong Un, covering both a Donbas arms-smuggling network procuring 'award' weapons for the DPRK and a Ukrainian drone strike near the North Korean embassy in Moscow that has dimmed prospects of a Kim visit.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mass bombardment of Kyiv",
+      "buckets": ["canada", "india", "japan", "uk", "kenya", "pan_arab", "mexico", "ukraine", "pan_african"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Ukrainian President Volodymyr Zelenskyy promised retribution against Russia on Friday after laying red roses at the rubble of a Kyiv apartment building where a Russian missile strike killed 24 people, including three children.",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Russia Unleashes Heaviest Wartime Drone Assault On Ukraine, Hits Kyiv",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "A massive Russian bombardment of Kyiv this week has revealed a stark dichotomy in Ukraine's air defense architecture.",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Rusia lanzó la madrugada del jueves 675 drones y 56 misiles, teniendo como principal objetivo Kiev, la capital de Ucrania",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "crime of aggression tribunal",
+      "buckets": ["germany", "taiwan_hk", "wire_services", "russia"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "At talks in Moldova, more than 30 countries have said they will join a future special tribunal for Ukraine prosecuting Russia over its invasion. How the body will force Russians to stand trial is not clear.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Thirty-four European states plus Australia, Costa Rica and the EU said on Friday they would join a future special tribunal for Ukraine to prosecute Russia over its invasion of the country.",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "The time for Russia to be held to account for its aggression is fast approaching,",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "governance and EU realignment",
+      "buckets": ["germany", "south_africa", "iran_opposition", "wire_services", "usa"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Evika Silina says she is resigning her post, following the defense minister's resignation and the coalition government's collapse amid controversy over Ukrainian drones aimed at Russia that landed in the Baltic country.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Yermak is accused of laundering 460 million hryvnia (more than $10 million) in dirty money through an elite real estate project outside of Kyiv – and of having used a secret phone to consult an astrologer on key government appointments.",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "After 16 years of rule by Viktor Orbán, opposition leader Péter Magyar has emerged as the winner by a landslide.",
+          "signal_text_idx": 37
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Putin-Xi summit and stalled talks",
+      "buckets": ["india", "vietnam_thai_my", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Russian President Vladimir Putin will travel to China on May 19 for a two-day visit, hot on the heels of U.S. President Donald Trump's trip to Beijing",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Negotiations to end the fighting in Ukraine, brokered by the US, have appeared stalled since the beginning of the US-Israeli war with Iran which broke out on February 28.",
+          "signal_text_idx": 38
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "European leaders convinced themselves that flattery and restraint were the best response.",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "civilian and humanitarian suffering",
+      "buckets": ["religious_press", "poland_balt"],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Nuncio to Ukraine: Heavy attacks suggest no intention to end war",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "Notes from Poland",
+          "quote": "Artem was sprayed with pepper spray and beaten, resulting in a fractured skull. He says that the assailants tried to throw one of his friends off the bridge and shouted,",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "sanctions evasion and arms trafficking",
+      "buckets": ["balkans", "korea_north", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Prosecutors dropped a probe into the alleged smuggling of Russian oil through an Albanian port in 2023, but behind the vessel in question lies a network of individuals and companies linked by Ukrainian intelligence agents to an alleged",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Ukraine claimed to have busted an arms smuggling network used by a Donbas warlord to procure",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.377,
+      "note": "Yle Finland covered potential Nordic expansion into the NATO Bucharest Nine eastern-flank group — a sub-regional security architecture story with minimal overlap with the bombardment and tribunal coverage dominant elsewhere."
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.415,
+      "note": "The Diplomat/Asia Times focused on Southeast Asian counter-drone technology adoption using Ukraine as a case study — a military-technology diffusion angle absent from all other buckets."
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.481,
+      "note": "Balkan Insight's investigative story on a dropped Albanian shadow-fleet prosecution diverges sharply from the battlefront and diplomacy coverage in the rest of the corpus."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.496,
+      "note": "Vatican News published humanising first-person narratives (a grieving Ukrainian mother, the Apostolic Nuncio's condemnation) rather than news; form and register diverge from the rest of the corpus."
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.509,
+      "note": "Japan Times focused on the technical asymmetry in Ukraine's air defences — drones interceptable, cruise missiles not — a military-analytical frame absent elsewhere."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "asia_pacific_regional",
+      "terms": ["counter", "southeast", "singapore", "sensor", "thailand"],
+      "what_it_reveals": "Southeast Asian militaries are rapidly adopting counter-drone technology, using the Ukraine war as a live laboratory — a technology-diffusion frame that only The Diplomat/Asia Times surfaced in this corpus."
+    },
+    {
+      "bucket": "balkans",
+      "terms": ["shadow", "fleet", "dropped"],
+      "what_it_reveals": "Balkan Insight's 'dropped' (prosecution discontinued) vocabulary signals a watchdog concern that sanctions enforcement is failing even in nominally allied states — a systemic accountability gap story."
+    },
+    {
+      "bucket": "korea_north",
+      "terms": ["jong", "donba", "dprk", "embassy"],
+      "what_it_reveals": "NK News uniquely connected the Ukraine war to North Korean arms supply chains and Kim Jong Un's potential Moscow visit, an angle that appears nowhere else in the corpus."
+    },
+    {
+      "bucket": "ukraine",
+      "terms": ["kharkiv", "recovery", "accession", "reconstruction"],
+      "what_it_reveals": "Ukrainian outlets (Kyiv Post, Ukrinform) simultaneously covered tactical drone strikes in Kharkiv and EU accession/reconstruction planning — a dual temporal horizon (present survival and post-war future) that no other bucket combined."
+    },
+    {
+      "bucket": "religious_press",
+      "terms": ["mother", "nuncio"],
+      "what_it_reveals": "Vatican News's vocabulary reflects pastoral humanisation — the war as experienced by a grieving mother and a diplomat-priest — a register that creates maximum isolation from the strategic and legal coverage around it."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China is absent from the ukraine_war corpus today despite Putin's announced trip to Beijing on May 19 being a significant story in every other regional bucket (india, vietnam_thai_my, south_africa); CGTN's coverage was captured under the hormuz_iran story instead."
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iran has an explicit stake in Ukraine peace talks (Tehran has been named as a supplier of drones to Russia) but was absent from this corpus, with its signal consumed by the hormuz_iran and hantavirus_cruise stories today."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Notes from Poland",
+      "bucket": "poland_balt",
+      "finding": "Polish teenagers beat three Ukrainian teenagers on a Warsaw bridge, fracturing one victim's skull and shouting 'Fuck off back to Ukraine'; Warsaw's liberal mayor blamed right-wing anti-Ukrainian rhetoric and Russian disinformation for 'encouraging thugs' — a social spillover of the war absent from all other buckets.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "A Ukrainian drone strike near the North Korean embassy in Moscow has likely ended prospects for a Kim Jong Un visit to Russia — a geopolitical ripple effect connecting Ukraine's long-range strike campaign to DPRK-Russia relations.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Balkan Insight",
+      "bucket": "balkans",
+      "finding": "Albanian prosecutors dropped a 2023 probe into Russian shadow-fleet oil smuggling through Durrës port, even as Ukrainian intelligence links the vessel's owners to the broader sanctions-evasion network financing the war.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Foreign Affairs",
+      "bucket": "opinion_magazines",
+      "finding": "Foreign Affairs argues Europe shifted from appeasement to strategic assertiveness in 2026, driven paradoxically by Trump's own excesses — framing the Ukraine war as the catalyst for a durable transformation of European security posture.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "bucket": "iran_opposition",
+      "finding": "Senior US State Department officials warned that Russia will likely reposition forces toward NATO's eastern flank once the Ukraine war ends, raising concerns that a peace deal could paradoxically increase the Baltic states' security exposure.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Russia and Ukraine exchanged memorandums with their respective peace proposals at the Istanbul second round, with a third round expected between June 20–30 — a procedural peace track running simultaneously with the heaviest Russian bombardment of the war.",
+      "signal_text_idx": 27
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "At a Chatham House reconstruction conference, the Polish URC host noted the US may not participate in Ukraine recovery planning; the author argues Ukraine failed to learn from the Iran war that drone warfare has changed the nature of modern combat.",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "bucket": "wire_services",
+      "finding": "Zelenskyy's former chief of staff Yermak was detained on allegations of laundering over $10 million through elite real estate and using a secret phone to consult an astrologer on government appointments — a corruption case the AFP frames as a major test of Ukraine's independent anti-corruption institutions.",
+      "signal_text_idx": 40
+    }
+  ],
+  "bottom_line": "Russia's heaviest wartime bombardment of Kyiv and a 36-nation special tribunal commitment ran on the same day, producing a corpus that spans present military catastrophe and future legal accountability simultaneously. Poland-Baltic's Warsaw-attack story and NK News's DPRK-embassy strike are the corpus's sharpest reminders that the Ukraine war's effects are now visibly spilling into host societies across Europe and into Russian-DPRK diplomatic choreography.",
+  "generated_at": "2026-05-16T09:04:07Z",
+  "model": "claude-sonnet-4-6"
+}

@@ -1,0 +1,282 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-16",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 27,
+  "n_articles": 46,
+  "event_summary": "After Trump's Beijing summit with Xi Jinping, Trump claimed China agreed Iran must reopen the Strait of Hormuz; Iran rejected a US proposal as a demand for surrender, and the IEA projected the blockade could remove 12.8 million barrels per day from global markets.",
+  "tldr": "The Trump-Xi summit produced a striking divergence of messaging: Beijing's Ministry of Foreign Affairs called the closure a conflict 'which should never have happened, has no reason to continue,' while declining to confirm any of Trump's claimed commitments on Hormuz — a gap that Taiwan and Hong Kong press highlighted by noting 'details scarce.' Iran state media (IRNA) and Iran opposition media (RFE/RL) arrived at the same conclusion from opposite directions: both treat negotiations as going nowhere, one because the US launched an illegal war, the other because Iran is deploying the Kremlin playbook of endless tactical delay. Brazil's Folha de São Paulo surfaced an escalation vector that no other bucket covered: IRGC-affiliated agencies are floating a plan to levy transit fees on the seven major submarine internet cables that pass through Hormuz, potentially weaponising global financial and internet infrastructure. Poland-Baltic was the most isolated bucket at 0.371, covering only Estonia's narrow parliamentary deliberation over its contribution to the Hormuz protection mission.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "chokepoint war and naval mission",
+      "buckets": ["israel", "germany", "poland_balt", "russia", "usa", "south_korea", "italy"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "The United States and Israel are preparing for joint attacks on Iran to resume as soon as next week, according to a New York Times report on Friday, citing two Middle East officials.",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "\"Iran Must Only Succeed Once to Trigger a Catastrophe\"",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "ERR News (Estonia)",
+          "quote": "Defense Minister Hanno Pevkur (Reform) expects the EDF to present possible options by the end of the week for how Estonia could contribute to the mission protecting the Strait of Hormuz.",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy-supply shock",
+      "buckets": ["egypt", "hungary_central", "pan_african", "uk", "brazil", "iran_opposition", "japan"],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "outlet": "Daily News Egypt",
+          "quote": "closure of the Strait of Hormuz could remove up to 12.8 million barrels per day from global markets,",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Hungary Today",
+          "quote": "European airlines, airports, and tour operators remain optimistic about kerosene supplies, even as the industry is experiencing one of the most severe crises of the past decades.",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Since the start of the US-Israel war against Iran four months ago, disruptions to shipping through the Strait of Hormuz have hit energy and fertilizer supplies across the globe. In Egypt, farmers are barely getting by.",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Chinese exports to the Persian Gulf region plunged by 57 percent within a single month.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-China-Iran diplomatic triangle",
+      "buckets": ["china", "iran_state", "wire_services", "canada", "pan_arab", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "China's top diplomat Wang Yi on Monday said that blocking the Strait of Hormuz would not serve the common interests of the international community, stressing that a comprehensive and lasting ceasefire through political and diplomatic means is the fundamental way forward to resolve regional tensions.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "The current situation in the Strait of Hormuz and its global economic repercussions are",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "China's U.N. ambassador criticizes US Hormuz resolution Reuters",
+          "signal_text_idx": 45
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "summit optics and domestic politics",
+      "buckets": ["opinion_magazines", "canada", "taiwan_hk", "india", "south_africa", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "Trump has conducted the war as though he is both uninterested in and unaware of the economic effects that it is having.",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "hours after the summit ended yesterday, details on exact agreements remained scarce.",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "President Trump further stated Chinese President Xi Jinping does not want to see a \"fight for independence\" in Taiwan because that would be a very strong confrontation.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "bypass infrastructure",
+      "buckets": ["uk", "pan_arab", "japan", "italy"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "The United Arab Emirates has announced it will complete a new oil pipeline bypassing the strait of Hormuz by next year to secure its future crude exports against the threat of disruption.",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "The UAE is to fast-track construction of a new oil pipeline bypassing the Strait of Hormuz, after the regional war crippled exports through the waterway.",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "Japan set to receive first LNG via Hormuz since de facto closure",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.371,
+      "note": "Narrowly focused on Estonia's internal deliberation over Hormuz mission contribution — minimal semantic overlap with the summit and energy-crisis coverage dominant elsewhere."
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.393,
+      "note": "Title-only signal from Nikkei Asia about first LNG shipment via Hormuz; near-zero signal_text limits cosine embedding."
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.44,
+      "note": "Single Reuters headline about China's UN ambassador; brief item diverges from the full-text diplomatic and economic analysis in other buckets."
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.46,
+      "note": "Central European aviation/kerosene focus — downstream consumer perspective rather than geopolitical or military framing."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.474,
+      "note": "Egyptian farmers story frames Hormuz as an agrarian cost-of-living crisis for the Global South, diverging from the diplomatic and military focus of most other buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "brazil",
+      "terms": ["para", "cabo", "taxa"],
+      "what_it_reveals": "Encoding artefacts from Portuguese text (Folha de São Paulo); substantively reflect a unique angle — Iran's IRGC-affiliated agencies proposing to levy fees on submarine internet cables through Hormuz, a digital-infrastructure escalation vector no other bucket covered."
+    },
+    {
+      "bucket": "italy",
+      "terms": ["stretto", "israele", "papa", "giorni"],
+      "what_it_reveals": "Italian-language artefacts; 'stretto' (strait) and 'papa' (Pope) reflect Italy's dual angle: deploying two minesweepers to the Gulf and covering Iranian President Pezeshkian's letter to the Pope."
+    },
+    {
+      "bucket": "egypt",
+      "terms": ["somali", "detour", "piracy", "rise"],
+      "what_it_reveals": "Only bucket to cover the surge in Somali piracy driven by ships rerouting around Africa to avoid Hormuz — a cascading maritime-security consequence ignored elsewhere."
+    },
+    {
+      "bucket": "iran_opposition",
+      "terms": ["kataib", "soleimani", "arrested", "percent"],
+      "what_it_reveals": "Iran International combined economic data (57% collapse in Chinese Gulf exports) with the Kataib Hezbollah prosecution angle — connecting Iran's proxy network to the diplomatic stalemate."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "iran_state",
+      "outlet": "IRNA English",
+      "quote": "The current situation in the Strait of Hormuz and its global economic repercussions are",
+      "signal_text_idx": 15
+    },
+    "b": {
+      "bucket": "iran_opposition",
+      "outlet": "RFE/RL (was Radio Farda)",
+      "quote": "\"The Iranians know what they can get away with. They know how to drag the discussions out, make it look like Trump is achieving something, when in reality, he'll achieve nothing,\" says Coffey.",
+      "signal_text_idx": 14
+    },
+    "joint_conclusion": "Tehran's regime press and its opposition in exile both conclude that US-Iran negotiations will produce no deal — the regime because the US launched an illegitimate war, the opposition because Iran is deploying deliberate Kremlin-style delay tactics."
+  },
+  "silences": [
+    {
+      "bucket": "nordic",
+      "what_they_covered_instead": "Nordic countries have significant maritime and energy-security interests but are absent from the hormuz_iran corpus; they appeared in ukraine_war and hantavirus_cruise instead."
+    },
+    {
+      "bucket": "religious_press",
+      "what_they_covered_instead": "Iranian President Pezeshkian's letter to Pope Leo XIV (covered by Italy's La Repubblica) received no coverage from Vatican News or other religious-press feeds present in the ukraine_war corpus."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Folha de São Paulo",
+      "bucket": "brazil",
+      "finding": "IRGC-affiliated Tasnim and Fars agencies proposed Iran levy annual fees on the seven submarine internet cables passing through Hormuz, describing it as a path to a 'strategic hub for legitimate wealth creation' — a digital-infrastructure escalation that no other outlet in the corpus covered.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "Chinese exports to Persian Gulf countries collapsed 57% in a single month after the blockade began, falling from $13.2 billion to $5.7 billion — the clearest quantification in the corpus of China's economic stake in reopening Hormuz.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Egypt Independent",
+      "bucket": "egypt",
+      "finding": "Somali pirates are profiting from the war as commercial shipping reroutes around Africa into their operational range — a second-order maritime-security consequence covered only by Egypt-based press.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Oman is caught in geopolitical crossfire after Iran claimed it was coordinating with Muscat on Hormuz management, including ship-nationality checks and fees — Oman stayed silent on the claim.",
+      "signal_text_idx": 39
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Asia is almost entirely absent from the Hormuz military coalition despite the blockade being described as 'fundamentally an Asian problem' — a structural paradox crystallised when a South Korean vessel was struck on May 4.",
+      "signal_text_idx": 41
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Russia could replicate the Hormuz 'price-shut' playbook in the Baltic and Black Seas using drone strikes rather than physical blockade — a precedent-setting risk assessment not raised by any other outlet.",
+      "signal_text_idx": 42
+    },
+    {
+      "outlet": "The Atlantic",
+      "bucket": "opinion_magazines",
+      "finding": "Trump told a reporter he does not think about Americans' financial situation 'even a little bit' when asked about urgency for an Iran deal — The Atlantic treats this as a political liability for GOP midterm candidates.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Hungary Today",
+      "bucket": "hungary_central",
+      "finding": "European kerosene prices have doubled; Ryanair, Wizz Air and Lufthansa claim supply is secure through mid-July while industry analysts warn of serious shortages if the conflict drags beyond summer.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "Debris from the weapon that struck the South Korean-operated HMM Namu in the Strait of Hormuz last week has been flown to Seoul for laboratory analysis — a forensic investigation underway that could determine who attacked the vessel.",
+      "signal_text_idx": 32
+    },
+    {
+      "outlet": "Il Giornale",
+      "bucket": "italy",
+      "finding": "Italy deployed two minesweepers toward the Gulf, requiring nearly a month of navigation to reach position — a concrete Italian operational commitment not mentioned by any other regional press.",
+      "signal_text_idx": 20
+    }
+  ],
+  "bottom_line": "The Trump-Xi summit produced a messaging vacuum: Trump claimed extensive Chinese commitments on Hormuz that Beijing neither confirmed nor denied, leaving the gap between summit theatre and actionable diplomacy as the dominant unresolved question across 27 buckets. The Brazil-only story of Iran's proposed submarine-cable fees and the Egypt-only piracy surge represent real escalation vectors that the mainstream diplomatic coverage has not registered.",
+  "generated_at": "2026-05-16T09:04:07Z",
+  "model": "claude-sonnet-4-6"
+}
