@@ -1,0 +1,102 @@
+{
+  "date": "2026-05-17",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 4,
+  "n_articles": 4,
+  "buckets": [
+    "china",
+    "israel",
+    "pan_arab",
+    "ukraine"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "china": 32,
+    "israel": 30,
+    "pan_arab": 26,
+    "ukraine": 54
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.643
+    },
+    {
+      "a": "china",
+      "b": "pan_arab",
+      "score": 0.597
+    },
+    {
+      "a": "china",
+      "b": "ukraine",
+      "score": 0.523
+    },
+    {
+      "a": "israel",
+      "b": "ukraine",
+      "score": 0.519
+    },
+    {
+      "a": "pan_arab",
+      "b": "ukraine",
+      "score": 0.475
+    },
+    {
+      "a": "china",
+      "b": "israel",
+      "score": 0.474
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.506
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.531
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.545
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.572
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE"
+  },
+  "bucket_exclusive_vocab": {
+    "china": [
+      {
+        "term": "chinese",
+        "count": 4
+      }
+    ],
+    "israel": [],
+    "pan_arab": [
+      {
+        "term": "weapon",
+        "count": 3
+      }
+    ],
+    "ukraine": [
+      {
+        "term": "escalation",
+        "count": 3
+      },
+      {
+        "term": "plan",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-17T09:19:31+00:00",
+  "meta_version": "8.7.3"
+}

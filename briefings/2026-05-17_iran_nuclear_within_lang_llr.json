@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-17",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "by_bucket": {
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 110,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 112,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 116,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 54,
+      "n_tokens_in_cohort": 88,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}

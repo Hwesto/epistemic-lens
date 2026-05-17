@@ -1,0 +1,136 @@
+{
+  "date": "2026-05-17",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "by_bucket": {
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 31,
+      "n_bigrams_in_cohort": 107,
+      "associations": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 29,
+      "n_bigrams_in_cohort": 109,
+      "associations": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 25,
+      "n_bigrams_in_cohort": 113,
+      "associations": [
+        {
+          "bigram": [
+            "nuclear",
+            "weapon"
+          ],
+          "count_in_bucket": 3,
+          "count_in_cohort": 0,
+          "log_odds": 3.582,
+          "z_score": 2.37,
+          "lift": null,
+          "rate_in_bucket": 0.12,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "trump",
+            "china"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.201,
+          "z_score": 2.07,
+          "lift": null,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "china",
+            "agree"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.201,
+          "z_score": 2.07,
+          "lift": null,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "agree",
+            "iran"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.201,
+          "z_score": 2.07,
+          "lift": null,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "iran",
+            "cannot"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.201,
+          "z_score": 2.07,
+          "lift": null,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "cannot",
+            "nuclear"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.201,
+          "z_score": 2.07,
+          "lift": null,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "weapon",
+            "trump"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.201,
+          "z_score": 2.07,
+          "lift": null,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.0
+        }
+      ]
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 53,
+      "n_bigrams_in_cohort": 85,
+      "associations": []
+    }
+  },
+  "n_languages": 1,
+  "method": "log_odds_with_jeffreys_prior",
+  "params": {
+    "min_count": 2,
+    "z_threshold": 1.96,
+    "top_k": 25,
+    "smoothing_alpha": 0.5
+  },
+  "meta_version": "8.7.3"
+}

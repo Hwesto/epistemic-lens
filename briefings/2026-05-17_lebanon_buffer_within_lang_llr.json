@@ -1,0 +1,179 @@
+{
+  "date": "2026-05-17",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "by_bucket": {
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 1164,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 34,
+      "n_tokens_in_cohort": 1161,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 103,
+      "n_tokens_in_cohort": 1092,
+      "distinctive_terms": [
+        {
+          "term": "troop",
+          "count_in_bucket": 5,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.04854,
+          "rate_in_cohort": 0.00092,
+          "llr": 19.503,
+          "log_ratio": 3.97,
+          "p_value": 1e-05
+        }
+      ]
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 58,
+      "n_tokens_in_cohort": 1137,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 1166,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 107,
+      "n_tokens_in_cohort": 1088,
+      "distinctive_terms": []
+    },
+    "religious_press": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 209,
+      "n_tokens_in_cohort": 986,
+      "distinctive_terms": [
+        {
+          "term": "cros",
+          "count_in_bucket": 12,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.05742,
+          "rate_in_cohort": 0.0,
+          "llr": 42.427,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "barbed",
+          "count_in_bucket": 8,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03828,
+          "rate_in_cohort": 0.0,
+          "llr": 28.154,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "peace",
+          "count_in_bucket": 10,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.04785,
+          "rate_in_cohort": 0.00304,
+          "llr": 22.333,
+          "log_ratio": 2.755,
+          "p_value": 2e-06
+        },
+        {
+          "term": "symbol",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02871,
+          "rate_in_cohort": 0.0,
+          "llr": 21.067,
+          "log_ratio": null,
+          "p_value": 4e-06
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 1173,
+      "distinctive_terms": []
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 95,
+      "n_tokens_in_cohort": 1100,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 174,
+      "n_tokens_in_cohort": 1021,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 280,
+      "n_tokens_in_cohort": 915,
+      "distinctive_terms": [
+        {
+          "term": "video",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01786,
+          "rate_in_cohort": 0.0,
+          "llr": 14.58,
+          "log_ratio": null,
+          "p_value": 0.000134
+        },
+        {
+          "term": "dron",
+          "count_in_bucket": 9,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.03214,
+          "rate_in_cohort": 0.00437,
+          "llr": 12.376,
+          "log_ratio": 1.995,
+          "p_value": 0.000435
+        }
+      ]
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 1169,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 1168,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}
