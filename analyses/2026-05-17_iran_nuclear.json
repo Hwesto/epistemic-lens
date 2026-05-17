@@ -1,0 +1,157 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "n_buckets": 4,
+  "n_articles": 4,
+  "event_summary": "U.S. President Trump said he would accept Iran suspending its nuclear program for twenty years; American military planners simultaneously prepared escalation options including strikes on Iranian nuclear infrastructure and a special forces operation in Isfahan.",
+  "tldr": "With only 4 buckets and 4 articles this story sits at the minimum qualifying threshold; treat findings as directional rather than robust. The deepest divergence is between the Chinese bucket (which foregrounds China-Iran diplomatic coordination as a brokering role) and the Ukraine bucket (which foregrounds the US military escalation plan targeting Iran's nuclear assets). Israel and pan_arab converge on the Trump offer of a 20-year suspension deal but frame it differently: Haaretz treats Trump's claim that 80% of Iran's firepower is destroyed with credibility, while The New Arab emphasizes the Trump-Xi agreement that Iran 'cannot have nuclear weapons.' Ukraine's exclusive vocab (escalation, plan) captures a military-coercive lens absent from the other three buckets.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear threat and military planning",
+      "buckets": [
+        "israel",
+        "ukraine",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Trump says he would accept Iran suspending its nuclear program for 20 years\n\nTrump claimed Iran said it lacks the technology and equipment to remove its nuclear infrastructure. He also disputed reports on Iran's missile capacity, saying 80 percent of Tehran's firepower has been destroyed",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Despite an active ceasefire, US military planners have prepared an “escalation plan” to resume Operation Epic Fury as early as next week if diplomatic efforts collapse. Defense Secretary Pete Hegseth confirmed the readiness of these options, which range from a full withdrawal of 50,000 troops to heavy airstrikes on Iranian infrastructure, a special",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Xi nuclear coordination",
+      "buckets": [
+        "china",
+        "pan_arab",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk; move reflects Teheran's willingness to seek intl support: Chinese expert",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Trump, China's Xi 'agree Iran cannot have nuclear weapons'\n\nTrump has reiterated that Iran could not be allowed to possess nuclear weapons, as Israel threatened more attacks in southern Lebanon.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "20-year suspension deal",
+      "buckets": [
+        "israel",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Trump says he would accept Iran suspending its nuclear program for 20 years",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Trump has reiterated that Iran could not be allowed to possess nuclear weapons, as Israel threatened more attacks in southern Lebanon.",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.506,
+      "note": "Kyiv Post focused exclusively on the US military escalation plan targeting Iranian nuclear and oil assets — a coercive-pressure angle not present in the diplomatic focus of china, pan_arab, or israel."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.531,
+      "note": "Global Times covered China-Iran diplomatic coordination pre-nuclear talks; exclusive term 'chinese' is a language artefact but the brokering-role frame is genuinely distinct."
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.545,
+      "note": "Haaretz reported Trump's 80%-firepower-destroyed claim and 20-year suspension offer — the most specific negotiation-parameter details in the corpus."
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.572,
+      "note": "The New Arab framed the story through Trump-Xi joint position ('Iran cannot have nuclear weapons'), the most diplomatically convergent angle in the corpus."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "ukraine",
+      "terms": [
+        "escalation",
+        "plan"
+      ],
+      "what_it_reveals": "Military-coercive lens: Kyiv Post's attention to the US escalation plan (airstrikes, special forces, Kharg Island capture) as the operative backstop to negotiations."
+    },
+    {
+      "bucket": "pan_arab",
+      "terms": [
+        "weapon"
+      ],
+      "what_it_reveals": "Weapons-possession framing: The New Arab led with the Trump-Xi agreement that Iran cannot have nuclear weapons, centering the prohibition rather than the deal mechanics."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iranian state media (IRNA) was active today but appeared in the hormuz_iran corpus, not iran_nuclear — Tehran's official voice on nuclear negotiations is absent from this corpus."
+    },
+    {
+      "bucket": "iran_opposition",
+      "what_they_covered_instead": "Iran International and RFE/RL Radio Farda also absent from the iran_nuclear corpus today, limiting the diaspora-opposition perspective on nuclear talks."
+    },
+    {
+      "bucket": "usa",
+      "what_they_covered_instead": "No US outlet appeared in the iran_nuclear corpus; US coverage of the nuclear angle surfaced only through the hormuz_iran story (War on the Rocks, Fox News)."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Trump claimed Iran lacks the technology to remove its nuclear infrastructure and that 80% of Tehran's firepower has been destroyed — specific military-damage claims not corroborated elsewhere in the corpus.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "US escalation plan includes a special forces raid on Isfahan to seize nuclear materials and capture of Kharg Island — framing nuclear negotiations as backstopped by imminent coercive military options.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Global Times",
+      "bucket": "china",
+      "finding": "China-Iran diplomatic meeting before nuclear talks framed as evidence of Tehran seeking international support and China's active brokering role — a framing absent from Western and Arab coverage.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "With only 4 articles this analysis has low statistical weight, but the directional split is clear: China sees itself as a diplomatic broker, Israel reports specific negotiation parameters, pan_arab foregrounds the Trump-Xi non-proliferation consensus, and Ukraine reads the nuclear talks through the lens of military escalation options being held in reserve. Iran's own voice is absent from the corpus today.",
+  "generated_at": "2026-05-17T09:55:00Z",
+  "model": "claude-sonnet-4-6"
+}

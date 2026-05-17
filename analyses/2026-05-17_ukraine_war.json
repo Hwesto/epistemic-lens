@@ -1,0 +1,336 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "n_buckets": 24,
+  "n_articles": 40,
+  "event_summary": "Ukraine launched its largest aerial assault on Russia in over a year on May 16-17, firing over 500 drones that killed four people near Moscow; Russia had struck a Kyiv apartment block days earlier killing 24 and killed 52 civilians total in the preceding week.",
+  "tldr": "The defining editorial surprise is that Russia-aligned Moscow Times and Ukraine-aligned Kyiv Post both confirm that prisoner exchanges are actively proceeding — Russia returned 528 bodies and Ukraine is preparing the next stages of a 1,000-for-1,000 swap — even as both sides simultaneously launch historically large aerial barrages. The pan_african bucket (mean_similarity 0.421, most isolated) covered only the prisoner exchange framed as a UAE-mediated diplomatic success, missing the simultaneous escalation entirely. Asia Pacific Regional and balkans (second and third most isolated) covered counter-drone technology diffusion in Southeast Asia and Russia's shadow fleet smuggling ring in Albania — tangential to the drone exchange but indicative of how the war's technological and economic ripples now reach those regions. North Korea's presence in the conflict — Ukraine busted a Donbas arms network procuring weapons for Kim Jong Un, and a Ukrainian drone near the DPRK Moscow embassy — appears only in the korea_north bucket and is otherwise absent from the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mass drone exchange and escalation",
+      "buckets": [
+        "brazil",
+        "canada",
+        "india",
+        "iran_opposition",
+        "japan",
+        "kenya",
+        "nordic",
+        "russia",
+        "turkey",
+        "uk",
+        "ukraine",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Ukrainian President Volodymyr Zelensky has detailed the devastating toll of an intensified, week-long Russian air campaign, confirming that the Kremlin has unleashed more than 4,500 missiles, strike drones, and guided bombs against civilian populations within a seven-day window.",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Three people have been reported dead as Russia's Moscow region faced the largest Ukrainian assault in over a year on May 17. Another person reportedly died in the Belgorod region bordering Ukraine, with the Russian Defense Ministry reporting 556 drones had been downed over the country overnight and this morning in at least a dozen regions.",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Zelenskyy vows retribution after Russian strike on Kyiv housing block kills 24\n\nUkrainian President Volodymyr Zelenskyy promised retribution against Russia on Friday after laying red roses at the rubble of a Kyiv apartment building where a Russian missile strike killed 24 people, including three children.",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Finnish F/A-18 Hornet fighter jets were seen and heard flying over the regions of Southeastern Finland and Pirkanmaa on Sunday morning.\nYle has received confirmation from the Finnish Defence Forces (FDF) that the country has intensified surveillance of the area.",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "tribunal and drone incidents",
+      "buckets": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Ukraine: Dozens of European countries sign up to special tribunal plan to prosecute Russia\n\nAt talks in Moldova, more than 30 countries have said they will join a future special tribunal for Ukraine prosecuting Russia over its invasion. How the body will force Russians to stand trial is not clear.",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Latvia: Prime Minister Evika Silina resigns over handling of drone incidents after coalition ally's withdrawal\n\nEvika Silina says she is resigning her post, following the defense minister's resignation and the coalition government's collapse amid controversy over Ukrainian drones aimed at Russia that landed in the Baltic country.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "prisoner exchange and anti-corruption",
+      "buckets": [
+        "pan_african",
+        "russia",
+        "turkey",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ukraine and Russia swap 205 prisoners each in the first stage of a planned 1,000-for-1,000 exchange, mediated by the United Arab Emirates.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Ukrainian Anti-Graft Prosecutor Seeks Detention Of Zelenskyy's Ex-Chief Of Staff\n\nUkraine's anti-corruption prosecutor will seek the detention of President Volodymyr Zelenskyy's former chief of staff Andriy Yermak pending further investigation in a graft case that has rocked Kyiv as the country batt",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "post-Orbán / Moldova",
+      "buckets": [
+        "opinion_magazines",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Moldova leader pushes back on Putin offering passports to Transnistria residents\n\nMoldova, an EU candidate country, faces destabilizing efforts by Moscow as Russia seeks to get more troops for the Ukraine war.",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Russia doesn’t have much to celebrate on Victory Day, as Ukraine brings the war home to Putin\n\nPutin is under growing pressure at home as Ukraine cont",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "drone warfare technology diffusion",
+      "buckets": [
+        "asia_pacific_regional",
+        "vietnam_thai_my",
+        "korea_north"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "Lessons from the wars in Russia-Ukraine and the Middle East have led Southeast Asian countries to rapidly accelerate efforts to invest in and adopt counter-drone systems.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Ukraine explores AI‑driven drone swarms to offset Russia’s manpower edge\n\nLVIV (Ukraine), May 16 — H",
+          "signal_text_idx": 37
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "DPRK arms smuggling network",
+      "buckets": [
+        "korea_north"
+      ],
+      "evidence": [
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Ukraine claimed to have busted an arms smuggling network used by a Donbas warlord to procure “award” weapons for high-profile individuals, including DPRK leader Kim Jong Un, actor Steven Seagal and Ru",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.421,
+      "note": "AfricaNews covered only the 205 prisoner swap framed as UAE diplomatic success, missing the simultaneous drone escalation — a peace-process-only editorial filter that diverges sharply from the conflict-escalation focus of all other buckets."
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.43,
+      "note": "The Diplomat covered Southeast Asian counter-drone investments (Malaysia's Ghost interceptor, Singapore recruit drone training, Cambodia-Thailand fiber-optic drones) — the war read through a technology-diffusion lens, not a conflict lens."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.442,
+      "note": "Vatican News published the Apostolic Nuncio's statement that heavy attacks 'suggest no intention to end war' — a moral condemnation framing that is semantically distant from the operational reporting dominant in other buckets."
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.473,
+      "note": "Balkan Insight covered the Albanian shadow-fleet smuggling case — Russian oil circumventing sanctions through an Albanian port — a financial-crime angle with only indirect connection to the day's drone exchanges."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.502,
+      "note": "The Conversation and Politico Europe published Victory Day pressure-on-Putin analysis and Moldova/Transnistria destabilization commentary — longer-arc political analysis diverging from the event-driven reporting of most buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "ukraine",
+      "terms": [
+        "missil",
+        "campaign",
+        "structural",
+        "ballistic",
+        "medical"
+      ],
+      "what_it_reveals": "Kyiv Post's technical escalation language (ballistic missiles, structural ruins, medical stabilization) reflects a systematic-destruction narrative — not just casualties but deliberate infrastructure targeting."
+    },
+    {
+      "bucket": "korea_north",
+      "terms": [
+        "jong",
+        "dprk",
+        "visit",
+        "arms",
+        "embassy"
+      ],
+      "what_it_reveals": "NK News uniquely covers North Korean military involvement — the Kim Jong Un arms network and the DPRK embassy drone strike — an angle entirely absent from all other 23 buckets."
+    },
+    {
+      "bucket": "usa",
+      "terms": [
+        "orbán",
+        "hungary"
+      ],
+      "what_it_reveals": "War on the Rocks published an analysis of post-Orbán Hungary — completely off the Ukraine drone story. US bucket diverged from the main event into Central European political analysis."
+    },
+    {
+      "bucket": "uk",
+      "terms": [
+        "hezbollah",
+        "israel"
+      ],
+      "what_it_reveals": "BBC World's Lebanon/Hezbollah FPV drone article appears in the ukraine_war corpus via feed overlap, revealing cross-topic spillover; the terms are not relevant to the Ukraine drone exchange."
+    },
+    {
+      "bucket": "wire_services",
+      "terms": [
+        "dans",
+        "nuit",
+        "mort",
+        "région",
+        "heur",
+        "abattu",
+        "ukrainien",
+        "russie"
+      ],
+      "what_it_reveals": "France Info's French-language wire report dominates the wire_services exclusive vocab — language artefact from a single French outlet, not a genuine editorial signal."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "russia",
+      "outlet": "Moscow Times",
+      "quote": "Kyiv said on Saturday that Russia had returned 528 bodies to Ukraine, identified as Ukrainian soldiers killed in action, in one of the few areas of cooperation between the warring neighbors.",
+      "signal_text_idx": 25
+    },
+    "b": {
+      "bucket": "ukraine",
+      "outlet": "Kyiv Post",
+      "quote": "Ukraine has initiated the complex administrative and diplomatic groundwork required to execute the remaining phases of a high-stakes, large-scale prisoner exchange, aiming to repatriate a total of 1,000 detained citizens from Russian captivity.",
+      "signal_text_idx": 33
+    },
+    "joint_conclusion": "Russia-aligned and Ukraine-aligned press both confirm that prisoner exchanges and body repatriations proceed as a functioning bilateral channel even as both sides simultaneously launch historically large aerial barrages — maximum violence coexisting with minimum cooperation."
+  },
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China absent from the ukraine_war corpus today; CGTN and Global Times were active in the hormuz_iran and iran_nuclear stories."
+    },
+    {
+      "bucket": "iran_state",
+      "what_they_covered_instead": "Iranian state media absent from the ukraine_war corpus despite Russia being a close Iranian ally."
+    },
+    {
+      "bucket": "usa",
+      "what_they_covered_instead": "War on the Rocks covered Hungary's post-Orbán transition and Russia's crowd-sourced defense industry — neither directly engaging with the day's 500-drone exchange that dominated most other buckets."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "Ukraine busted a Donbas-tied arms smuggling network procuring 'award' weapons for Kim Jong Un and Russian officials — North Korean military embeddedness in the war, absent from all other 23 buckets.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "A Ukrainian drone struck near the DPRK embassy in Russia, likely dimming prospects of a Kim Jong Un visit to Moscow that had been anticipated around Russia's Victory Day parade.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Apostolic Nuncio Archbishop Kulbokas said 'heavy attacks suggest no intention to end war' and condemned attacks on humanitarian workers 'deliberately targeted so that the population does not receive aid.'",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "Yle Finland English",
+      "bucket": "nordic",
+      "finding": "Finnish F/A-18s scrambled over southeast Finland on Sunday morning as Latvia confirmed a drone incursion into its airspace from the same night's Russian-Ukrainian exchange — NATO eastern flank directly affected.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "More than 30 countries signed up for a Russia special tribunal at talks in Moldova — the most concrete multilateral accountability development reported in the corpus today.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "bucket": "iran_opposition",
+      "finding": "Ukrainian anti-graft prosecutor seeking detention of Zelenskyy's ex-chief of staff Yermak for money laundering — corruption charges against a top presidential aide covered by diaspora press but missing from most Western buckets.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Diplomat",
+      "bucket": "asia_pacific_regional",
+      "finding": "Southeast Asian militaries are rapidly adopting counter-drone systems citing Russia-Ukraine and Middle East lessons; Malaysia, Singapore, Thailand and Cambodia all cited with specific new programs.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Balkan Insight",
+      "bucket": "balkans",
+      "finding": "Prosecutors dropped an Albanian shadow-fleet smuggling probe, leaving active a network linked by Ukrainian intelligence to Russian oil circumventing Western sanctions.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "Ukraine is exploring AI-driven drone swarms — hundreds of autonomous robots coordinating in unison — to offset Russia's manpower advantage.",
+      "signal_text_idx": 37
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "US bucket covered Hungary's post-Orbán political transition and Russia's crowd-sourced defense industry rather than the day's mass drone exchange — the only major bucket to largely miss the main story.",
+      "signal_text_idx": 35
+    }
+  ],
+  "bottom_line": "The mutual 500-drone barrages produced high semantic coherence across most buckets, but the paradox of simultaneous escalation and prisoner cooperation — confirmed by both Russian and Ukrainian press — is the day's sharpest framing tension. North Korea's military embeddedness in the Russia-Ukraine war, documented only by NK News, remains a structural blind spot across 23 of 24 buckets.",
+  "generated_at": "2026-05-17T10:05:00Z",
+  "model": "claude-sonnet-4-6"
+}

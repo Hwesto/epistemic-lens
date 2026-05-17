@@ -1,0 +1,277 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 13,
+  "n_articles": 17,
+  "event_summary": "Israel and Lebanon agreed to a 45-day extension of a ceasefire on May 16, 2026, but Israel carried out more than 30 airstrikes across southern Lebanon within hours, killing at least six people including three paramedics; Hezbollah continued FPV drone attacks on Israeli forces and positions.",
+  "tldr": "The corpus's most striking structural feature is the religious_press bucket's extreme isolation (mean_similarity 0.321) — Vatican News covered the World Youth Day 2027 'Cross of Peace' made from Korean DMZ barbed wire rather than the Lebanon conflict at all, producing exclusive vocab (barbed, symbol, archdiocese, reconciliation, seoul, korean) that is entirely off-topic. The UK bucket's BBC Verify devoted detailed forensic analysis to Hezbollah FPV drone videos, concluding the IDF has 'so far been unable to develop any effective countermeasures' — the sharpest military-capability finding in the corpus. Turkey/Anadolu quoted an Israeli security source admitting that full occupation of southern Lebanon would still not destroy Hezbollah's arsenal and that 'a political breakthrough is needed' — a rare acknowledgment of military limits from within the Israeli security establishment. Iran state media and the Guardian, positioned on opposite sides of the conflict, independently converge on the same finding: Israeli strikes continued despite the ceasefire extension.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes and drone escalation",
+      "buckets": [
+        "iran_state",
+        "israel",
+        "pakistan",
+        "pan_arab",
+        "russia",
+        "south_africa",
+        "turkey",
+        "uk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israeli strikes intensify across southern Lebanon despite ceasefire More than 30 Israeli attacks were reported across southern Lebanon, including air strikes near the coastal city of Tyre and artillery shelling in several border towns.",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Hezbollah has increased its use of small first-person view (FPV) drones to attack Israel, including systems controlled by fibre-optic cables to evade sophisticated defences.\nBBC Verify has geolocated 35 videos shared by the Lebanese armed group since 26 March which show strikes on Israeli soldiers, armoured vehicles and air defence systems in southern Lebanon and northern Israel.",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Israeli strikes killed 18 people and wounded 124 people in Lebanon in the past day, the country's Health Ministry said Saturday.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "ceasefire extension and talks",
+      "buckets": [
+        "pan_african",
+        "russia",
+        "south_africa",
+        "turkey",
+        "uk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Israel and Lebanon have agreed to a 45-day extension of a ceasefire that US President Donald Trump declared on 16 April, the US State Department said on Friday. “The April 16 cessation of hostilities ",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Military action alone is insufficient; therefore, a political breakthrough is needed, alongside maintaining long-term military deterrence, in an attempt to change the reality on the ground",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Strikes on Harouf medical centre kill six, including paramedics; at least five villages targeted",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "military limits and drone asymmetry",
+      "buckets": [
+        "turkey",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "\"Even if we occupy all of southern Lebanon, as some suggest, these measures will not be able to destroy…Hezbollah's arsenal,\" Israel's public broadcaster KAN quoted the source as saying.",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Experts told BBC Verify the Israel Defense Forces (IDF) has \"so far been unable to develop any effective countermeasures\", as the small drones can easily bypass detection systems.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "peace symbolism",
+      "buckets": [
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "A 'Cross of Peace' is being created from discarded barbed wire coming from the DMZ Demilitarized Zone, the buffer zone along the border dividing North and South Korea.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "displacement and civilian life",
+      "buckets": [
+        "germany",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "More than a million people have been forced to flee their homes in southern Lebanon due to fighting between Israeli forces and Hezbollah. As many shelter in Beirut stadiums, sport is sometimes a welcome distraction.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Inside the Christian border town in Lebanon that says it survived by defying Hezbollah",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.321,
+      "note": "Vatican News covered WYD 2027's 'Cross of Peace' made from Korean DMZ barbed wire — not the Lebanon conflict. Exclusive vocab (barbed, cros, symbol, archdiocese, seoul, korean, reconciliation) confirms complete topic divergence; this is a feed-spillover artifact, not an analytical divergence."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.479,
+      "note": "Fox News profiled a Christian village that 'survived by defying Hezbollah' — a minority-community framing that diverges from every other bucket's focus on military strikes and ceasefire mechanics. Exclusive term 'christian' confirms this distinct angle."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.505,
+      "note": "AfricaNews focused on Lebanese public division over peace-talk prospects rather than specific military events, producing a political-sentiment frame distinct from the operational focus of other buckets."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.517,
+      "note": "DW covered displaced Lebanese sheltering in Beirut stadiums and using sport to cope — a humanitarian/quality-of-life angle distinct from the military-operational reporting dominant elsewhere. Exclusive vocab sport, stadium confirms this."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "religious_press",
+      "terms": [
+        "cros",
+        "barbed",
+        "symbol",
+        "young",
+        "seoul",
+        "korea",
+        "archdiocese",
+        "reconciliation",
+        "archbishop"
+      ],
+      "what_it_reveals": "Vatican News covered WYD 2027 Korean DMZ barbed-wire cross — entirely off the Lebanon story. All exclusive terms are language artefacts of a different topic, not story-specific vocabulary."
+    },
+    {
+      "bucket": "uk",
+      "terms": [
+        "video",
+        "show",
+        "verify",
+        "shared",
+        "vehicl",
+        "hama",
+        "gaza"
+      ],
+      "what_it_reveals": "BBC Verify's forensic drone-video methodology (geolocating, verifying shared footage) and incidental Gaza coverage distinguish UK from other buckets' straightforward event reporting."
+    },
+    {
+      "bucket": "turkey",
+      "terms": [
+        "weapon",
+        "political",
+        "breakthrough",
+        "measur",
+        "captain"
+      ],
+      "what_it_reveals": "Anadolu foregrounded the Israeli security establishment's admission that military means are insufficient (political breakthrough needed) and reported the death of an Israeli army captain — a mixed source profile unique in the corpus."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "iran_state",
+      "outlet": "IRNA English",
+      "quote": "Southern Lebanon came under a fresh wave of heavy Israeli air and artillery strikes on Saturday, targeting multiple towns and areas.",
+      "signal_text_idx": 1
+    },
+    "b": {
+      "bucket": "uk",
+      "outlet": "The Guardian World",
+      "quote": "Israel carried out airstrikes in southern Lebanon, killing at least six people, including three paramedics working at a health centre, just hours after its envoys had agreed with the Lebanese government to extend a ceasefire.",
+      "signal_text_idx": 14
+    },
+    "joint_conclusion": "Iran state media and the Guardian — positioned on opposite sides of the Israel-Iran conflict — independently document the same ceasefire violation without framing divergence, converging on the conclusion that the truce extension was cosmetic."
+  },
+  "silences": [
+    {
+      "bucket": "religious_press",
+      "what_they_covered_instead": "Vatican News covered WYD 2027 Korean peace cross rather than the Lebanon conflict; the Vatican Nuncio's Ukraine statement appeared in the ukraine_war corpus instead."
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "French press was absent from the lebanon_buffer corpus today; French-language coverage reached only the hantavirus story via wire_services."
+    },
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China absent from the lebanon_buffer corpus; Chinese outlets focused on the Hormuz/Iran story."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "BBC Verify geolocated 35 Hezbollah FPV drone attack videos since March 26; experts say the IDF has 'so far been unable to develop any effective countermeasures' against the fibre-optic-cable-guided systems.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "bucket": "turkey",
+      "finding": "Quoted an Israeli security source acknowledging that even full occupation of southern Lebanon could not destroy Hezbollah's arsenal and that a 'political breakthrough is needed' — a rare on-record Israeli military-limits admission.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Covered WYD 2027 'Cross of Peace' made from Korean DMZ barbed wire in Seoul rather than the Lebanon conflict — the only bucket to publish a completely off-topic article for this story.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Profiled a Christian village in southern Lebanon that 'survived by defying Hezbollah' — a minority-community framing absent from every other bucket.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Israeli strikes killed three paramedics at a health centre just hours after ceasefire extension was agreed — the most specific humanitarian-law violation detail in the corpus.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Dawn",
+      "bucket": "pakistan",
+      "finding": "Lebanese civilians explicitly 'dismiss ceasefire as meaningless' as evacuation warnings trigger a new wave of displacement despite the extended truce.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "DW covered sport as a coping mechanism for displaced Lebanese in Beirut stadiums — the only bucket to focus on civilian quality-of-life rather than the military or diplomatic dimension.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "The ceasefire extension and immediate Israeli strikes produced cross-bloc consensus on the basic facts — Iran state and the Guardian report identically on violations — but diverge on emphasis: Western technical press (BBC Verify) documents Hezbollah's drone escalation as an unsolved tactical problem, while Turkey surfaces Israeli security sources admitting the military campaign has no radical solution. The religious_press bucket's complete topic divergence (Korean WYD cross rather than Lebanon) is the most significant data-quality flag in today's corpus.",
+  "generated_at": "2026-05-17T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

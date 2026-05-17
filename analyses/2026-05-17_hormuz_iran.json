@@ -1,0 +1,379 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 28,
+  "n_articles": 49,
+  "event_summary": "On day 79 of the US-Israel war on Iran, Iranian officials announced a fee mechanism for Strait of Hormuz transit; U.S. President Trump returned from a China summit without securing Chinese commitments to reopen the waterway.",
+  "tldr": "The sharpest finding is a paradox of self-interest: the outlet War on the Rocks (usa) identifies the Hormuz crisis as 'fundamentally an Asian problem' with Asian navies almost entirely absent from US-led operations — and this is confirmed by Japan's singular isolation (mean_similarity 0.39), where Nikkei Asia reports Japan receiving its first LNG shipment via Hormuz since the de facto closure while refusing to join the US coalition. Iran opposition press and Iran state press reach the same bottom line through opposite rhetorical doors: the blockade is Iran's most potent bargaining tool. Brazil alone in the corpus reported that an Iranian semi-state agency is floating fees on the undersea internet cables passing through Hormuz — an escalation beyond oil that no other bucket picked up. Italy provided the richest narrative integration, including Iran's letter to Pope Leo XIV and India's first fuel-price increase in four years.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy-price contagion",
+      "buckets": [
+        "asia_pacific_regional",
+        "hungary_central",
+        "india",
+        "italy",
+        "japan",
+        "pan_african",
+        "opinion_magazines",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "The global energy crisis caused by President Donald Trump’s war with Iran is set to worsen in the coming months, as The Wall Street Journal reported on Friday that the world is “burning through its oi",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Hungary Today",
+          "quote": "Europe’s kerosene reserves have fallen to historic lows due to the blockade of the Strait of Hormuz and fuel prices have doubled, ",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Since the start of the US-Israel war against Iran four months ago, disruptions to shipping through the Strait of Hormuz have hit energy and fertilizer supplies across the globe. In Egypt, farmers are barely getting by.",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Iranian tariffs in the Strait of Hormuz may change how oil is traded and priced, with implications for currencies, alliances and global economic power.",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strait as military chokepoint",
+      "buckets": [
+        "germany",
+        "india",
+        "iran_opposition",
+        "pan_arab",
+        "qatar",
+        "south_korea",
+        "ukraine",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "\"Iran Must Only Succeed Once to Trigger a Catastrophe\"\n\nHow can Iran's blockade of the Strait of Hormuz be broken? Retired General S. Clinton Hinote has addressed precisely that question as the former Air Force chief strategist. His conclusion? Difficult.",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "On May 4, 2026, a South Korean vessel came under fire in the Strait of Hormuz, leading President Donald Trump to urge the government in Seoul to join the U.S.-led operation to secure the waterway. The South Korean government politely replied it would",
+          "signal_text_idx": 44
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Despite an active ceasefire, US military planners have prepared an “escalation plan” to resume Operation Epic Fury as early as next week if diplomatic efforts collapse. Defense Secretary Pete Hegseth confirmed the readiness of these options, which range from a full withdrawal of 50,000 troops to heavy airstrikes on Ira",
+          "signal_text_idx": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Xi summit / UN resolution",
+      "buckets": [
+        "canada",
+        "china",
+        "israel",
+        "opinion_magazines",
+        "pakistan",
+        "south_africa",
+        "taiwan_hk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "Iran has shown little interest in loosening its hold on the waterway",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "The U.S. president's visit has made him realize that Beijing doesn't have an interest in breaking its alliance with Tehran, which is cutting deals and loosening its blockade of the Strait of Hormuz",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "China's U.N. ambassador criticizes US Hormuz resolution - Reuters",
+          "signal_text_idx": 48
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "toll regime and bypass infrastructure",
+      "buckets": [
+        "brazil",
+        "iran_state",
+        "italy",
+        "qatar",
+        "turkey",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Iran is preparing to introduce a new mechanism to regulate shipping through the Strait of Hormuz, including designated routes and service fees, that will be announced soon, the head of the Iranian parliament's national security committee Ebrahim Azizi said on Saturday.",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Oman caught between US and Iran after Tehran’s claims of joint strait of Hormuz plan\n\nMuscat silent about plans – opposed by US – to charge fee and demand details on nati",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "UAE to complete second oil pipeline bypassing strait of Hormuz by 2027\n\nState oil company fast-tracks previously undisclosed project, which is expected to double export capacity",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "A agência de notícias Tasnim, um órgão semi-estatal do Irã com conexões com a Guarda Revolucionária, sugeriu em artigo publicado nesta semana que o país passe a cobrar taxa pelos cabos submarinos de fibra ótica que passam pelo estreito de Hormuz e conectam a internet de partes do mundo.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "war-initiator responsibility",
+      "buckets": [
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "The current situation in the Strait of Hormuz and its global economic repercussions are “solely” the responsibility of those who launched war against Iran and their regional partners, says Iran’s Amba",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Iran’s mission to the United Nations says the United States is manufacturing a false image of “broad international support” for a draft resolution on the Strait of Hormuz, warning co-sponsors of the r",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "missing navies / Asian absence",
+      "buckets": [
+        "usa",
+        "japan",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "The closure of the Strait of Hormuz, the worst maritime crisis in decades, is fundamentally an Asian problem, yet Asia is almost entirely absent from the",
+          "signal_text_idx": 44
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "Japan set to receive first LNG via Hormuz since de facto closure",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "HMM Namu Weapon Debris Arrives in Seoul for Lab Analysis",
+          "signal_text_idx": 31
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.39,
+      "note": "Single Nikkei Asia item reporting Japan receiving its first LNG shipment via Hormuz since de facto closure — a Japan-specific energy milestone with no parallel in other buckets."
+    },
+    {
+      "bucket": "syria",
+      "mean_similarity": 0.464,
+      "note": "Syria bucket covered UN Under-Secretary-General's remarks on Syria's humanitarian progress, not the Hormuz story — off-topic feed spillover."
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.482,
+      "note": "Hungary Today focused on EU domestic consequences: historic kerosene lows and airline route disruptions — exclusive vocab kerosene, supply, summer reflects an inward energy-consumer framing not prominent elsewhere."
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.483,
+      "note": "News24 covered Trump's trade-deal claims with Xi; relatively thin engagement with Hormuz-specific angles."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.495,
+      "note": "AfricaNews covered Egyptian farmers struggling with fertilizer costs — an agricultural-consequence angle that anchors the story in African food security rather than shipping or geopolitics."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.506,
+      "note": "CGTN items include a language-selector rendering artefact (Chinese/Arabic/French option list) and UKMTO maritime access notice — the isolation partly reflects data quality, not editorial divergence."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "italy",
+      "terms": [
+        "iraniano",
+        "accordo",
+        "stati",
+        "uniti",
+        "interesse",
+        "governo",
+        "indiano"
+      ],
+      "what_it_reveals": "Italian press provided the corpus's richest narrative integration: Iran's letter to Pope Leo XIV, the new Hormuz toll regime, India's first fuel-price increase in four years, and Trump's 'have a very bad time' warning — all in one corpus entry."
+    },
+    {
+      "bucket": "hungary_central",
+      "terms": [
+        "kerosene",
+        "supply",
+        "summer"
+      ],
+      "what_it_reveals": "EU domestic energy-crisis framing: European kerosene at historic lows, airline summer schedules disrupted — the most consumer-facing framing of Hormuz consequences in the corpus."
+    },
+    {
+      "bucket": "brazil",
+      "terms": [
+        "taxa",
+        "cabo",
+        "internet",
+        "agência"
+      ],
+      "what_it_reveals": "Folha de São Paulo alone noted the Iranian semi-state agency proposal to charge fees on undersea internet cables passing through Hormuz — an escalation vector beyond oil invisible in all other buckets."
+    },
+    {
+      "bucket": "south_korea",
+      "terms": [
+        "namu",
+        "investigation",
+        "debri",
+        "analysi"
+      ],
+      "what_it_reveals": "KBS World focused on the South Korean-operated HMM Namu attack and forensic debris analysis in Seoul — a uniquely Korean national-security angle on Hormuz that other buckets treated only in passing."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "iran_opposition",
+      "outlet": "Iran International EN",
+      "quote": "The Iran war has entered a more ambiguous phase, with the regime battered but not broken, the US struggling to define victory, and the Strait of Hormuz emerging as Iran’s most potent bargaining tool, two Middle East expe",
+      "signal_text_idx": 14
+    },
+    "b": {
+      "bucket": "iran_state",
+      "outlet": "IRNA English",
+      "quote": "The current situation in the Strait of Hormuz and its global economic repercussions are “solely” the responsibility of those who launched war against Iran and their regional partners, says Iran’s Amba",
+      "signal_text_idx": 15
+    },
+    "joint_conclusion": "Iran's diaspora opposition press and the Iranian state's official UN voice reach the same implicit conclusion through opposite rhetorical doors: the Strait of Hormuz blockade gives Tehran meaningful leverage, differing only in whether they frame that leverage as Iran's strategic asset or as the aggressors' problem."
+  },
+  "silences": [
+    {
+      "bucket": "syria",
+      "what_they_covered_instead": "Syria bucket covered UN humanitarian progress in Syria, not Hormuz — off-topic feed for this story."
+    },
+    {
+      "bucket": "taiwan_hk",
+      "what_they_covered_instead": "South China Morning Post covered a Singapore deepfake Zoom scam; Hong Kong Free Press covered Trump-Xi trade deals without the Hormuz-specific angle."
+    },
+    {
+      "bucket": "russia",
+      "what_they_covered_instead": "Russia bucket was absent from the hormuz_iran corpus today; RT Africa appeared in state_tv_intl with piracy and Nigeria oil angles."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Folha de São Paulo",
+      "bucket": "brazil",
+      "finding": "Alone in the corpus reporting that Iran's semi-state Tasnim agency (linked to the Revolutionary Guards) proposed charging fees for undersea internet cables passing through Hormuz — a potential escalation beyond oil.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "\"The Missing Navies\": South Korea's vessel was attacked in Hormuz yet Seoul declined to join US operations; the piece calls the crisis 'fundamentally an Asian problem' with Asia almost entirely absent from US coalition.",
+      "signal_text_idx": 44
+    },
+    {
+      "outlet": "Nikkei Asia",
+      "bucket": "japan",
+      "finding": "Japan set to receive its first LNG shipment via Hormuz since the de facto closure began — a concrete energy-supply milestone signaling Iran's selective transit permissions.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "The Conversation",
+      "bucket": "opinion_magazines",
+      "finding": "Iran demanding Hormuz tolls paid in Chinese yuan, raising the question of whether the crisis is accelerating the decline of the US petrodollar.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Hungary Today",
+      "bucket": "hungary_central",
+      "finding": "Europe's kerosene reserves have fallen to historic lows and fuel prices doubled, with airlines restructuring summer routes — the most consumer-facing domestic consequence framing in the corpus.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "IRNA English",
+      "bucket": "iran_state",
+      "finding": "Iran's UN mission accused the US of manufacturing a false image of broad international support for a Hormuz draft resolution — a credibility-challenge argument not prominent in Western coverage.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Oman caught in geopolitical crossfire after Iran claimed it was coordinating with Muscat on Hormuz toll plans; the US opposes the toll scheme.",
+      "signal_text_idx": 39
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "US escalation plan includes a special forces raid on Isfahan to seize nuclear materials and capture of Kharg Island — the most operationally specific military option in the corpus.",
+      "signal_text_idx": 42
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "Weapon debris from the South Korean-operated HMM Namu attack in Hormuz arrived in Seoul for forensic lab analysis — a Korea-specific investigation angle absent from other buckets.",
+      "signal_text_idx": 31
+    },
+    {
+      "outlet": "AfricaNews",
+      "bucket": "pan_african",
+      "finding": "Egyptian farmers are 'barely getting by' due to Hormuz-driven energy and fertilizer supply disruptions — the clearest agricultural-economy framing of the crisis in the corpus.",
+      "signal_text_idx": 24
+    }
+  ],
+  "bottom_line": "The Hormuz corpus splits cleanly along interest lines: energy-consuming nations (Japan, Hungary, India, Egypt) focus on the material cost of the blockade, while geopolitical actors (US, Iran, China) frame it as a leverage and legitimacy contest. The paradox that the crisis is an Asian problem but Asian navies are absent from the US coalition — articulated by War on the Rocks and confirmed by Japan's extreme isolation — is the corpus's sharpest structural finding.",
+  "generated_at": "2026-05-17T09:50:00Z",
+  "model": "claude-sonnet-4-6"
+}

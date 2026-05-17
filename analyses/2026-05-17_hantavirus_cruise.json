@@ -1,0 +1,325 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "n_buckets": 25,
+  "n_articles": 41,
+  "event_summary": "Three people died and at least eight tested positive for Andes hantavirus in an outbreak aboard the Dutch cruise ship MV Hondius in the South Atlantic; by May 17, 2026, passengers were being repatriated to Australia, Canada, Taiwan, and the Netherlands for quarantine.",
+  "tldr": "The sharpest cross-country divergence is the US bucket's unique institutional-failure angle — The Intercept reports that the CDC did not warn New York City health officials about a Manhattan resident who left the ship freely, while all other 24 buckets focused on case counts and quarantine logistics. North Korea's unusual public health warning to its citizens placed the authoritarian state alongside Western health agencies in issuing pandemic-adjacent precautions. Germany and Spain pivoted swiftly to pandemic-preparedness and climate-change frames rather than case tracking. South Korea's near-isolation (mean_similarity 0.471) reflects a national-pride story — the Korean role in hantavirus discovery — invisible to every other bucket. Iran state media and Western/South American press converge on the same reassurance message: the virus has not mutated and general population risk is low.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "outbreak containment",
+      "buckets": [
+        "argentina_chile",
+        "australia_nz",
+        "canada",
+        "india",
+        "iran_state",
+        "kenya",
+        "mexico",
+        "netherlands_belgium",
+        "nordic",
+        "russia",
+        "south_africa",
+        "taiwan_hk",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "The health minister, Mark Butler, said five Australians and one New Zealander will be subject to quarantine at the Bullsbrook Centre for National Resilience north-east of Perth, next to RAAF Base Pearce, which is where the passengers' repatriation flight will land in Australia.",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "B.C. couple in hospital isolation after testing positive for hantavirus\nBoth will remain in isolation in hospital while a third person who was isolating has been transferred to hospital for assessment",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "The deputy health minister has said no case of Hantavirus has been reported in Iran so far, and the risk of its epidemic is very low.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "quarantine protocol gaps",
+      "buckets": [
+        "usa",
+        "australia_nz",
+        "vietnam_thai_my",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "A Manhattan resident who was on the cruise ship at the center of the hantavirus outbreak traveled freely after leaving the ship, and the U.S. Centers for Disease Control and Prevention did not warn public health authorities in New York of her potential exposure to the deadly virus, according to New York City and state officials.",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Vietnam and Cambodia have taken preventive measures against hantavirus disease over a recent cruise ship outbreak, including health monitoring of passengers entering international airports.",
+          "signal_text_idx": 38
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "French authorities have moved to strengthen health surveillance and tracing measures following concerns over the spread of hantavirus infections linked to an international cruise ship.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "COVID panic comparison",
+      "buckets": [
+        "turkey",
+        "germany",
+        "balkans"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Cruise ship hantavirus outbreak revives COVID-era fears worldwide",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Warum das Hantavirus nicht mit Corona vergleichbar ist\n\nZwischen 2018 und 2019 breitete sich das Andes‑Hantavirus in Argentinien von Mensch zu Mensch aus: 34 Infektionen, 11 Todesfälle. Die Analyse des Ausbruchs zeigt, warum sich auch die aktuelle Situation eindämmen lässt.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "state-level containment responses",
+      "buckets": [
+        "korea_north",
+        "nordic",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "North Korea on Monday warned citizens of the dangers of the hantavirus after the fatal outbreak aboard the Dutch-flagged cruise ship in the South Atlantic prompted similar notices from international health organizations.",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Finland classifies Andes virus as public health risk\n\nThe Andes virus is a type of hantavirus spread by rodents in South America.",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "En internet circulan decenas de contenidos falsos que vinculan la vacuna contra el Covid-19 del laboratorio Pfizer con el hantavirus, asegurando que ese medicamento nos \"vuelve personas vulnerables ante la infección\", pero esto es falso.",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Korean scientific heritage",
+      "buckets": [
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "Korean frontier in discovery, prevention of hantavirus returns to spotlight - The Korea Herald",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "zoonotic spillover risk",
+      "buckets": [
+        "spain"
+      ],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "El brote de hantavirus solo es una advertencia: hay muchas enfermedades emergentes con capacidad de rendir a los humanos. No todos tienen potencial pandémico, pero preocupa especialmente la gripe a",
+          "signal_text_idx": 27
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.456,
+      "note": "Single Kommersant article (Russian) about the Russian embassy receiving no requests from a Russian worker aboard MV Hondius; exclusive vocab (посольство, нидерландах, обращений, россиянина) is a language artefact — isolation reflects both language and a highly specific diplomatic angle."
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.471,
+      "note": "Korea Herald focused on Korean scientists' historical role in hantavirus discovery — a national-pride frame absent from all other buckets."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.474,
+      "note": "DW pivoted to pandemic-concept explainers (Endemie/Epidemie/Pandemie) and direct COVID comparison; exclusive vocab warum, corona, pandemie are partly language artefacts but also reflect a genuine editorial choice to contextualize rather than report case counts."
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.495,
+      "note": "El Pais took a climate-change and globalization lens on zoonotic spillover risk, treating the outbreak as a warning signal rather than a case-count story."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.52,
+      "note": "New Yorker's first-person narrative (scientist's close call aboard MV Hondius) diverges structurally from the news-summary format of all other buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "usa",
+      "terms": [
+        "ebola",
+        "york",
+        "woman",
+        "manhattan"
+      ],
+      "what_it_reveals": "Fox News co-covered the Ebola outbreak in DRC alongside hantavirus; The Intercept's Manhattan-woman CDC-gap investigation — both uniquely US angles."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "terms": [
+        "vacuna",
+        "contra",
+        "vulnerabl",
+        "ante"
+      ],
+      "what_it_reveals": "France 24 Spanish was the only outlet actively debunking misinformation linking COVID-19 vaccine to hantavirus vulnerability — a disinfo-rebuttal angle invisible in all other buckets."
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "terms": [
+        "vietnam",
+        "cambodia",
+        "airport"
+      ],
+      "what_it_reveals": "Southeast Asian border-control-first response: airport health screening in Vietnam and Cambodia, a regional containment angle not reported outside Southeast Asia."
+    },
+    {
+      "bucket": "iran_state",
+      "terms": [
+        "iran",
+        "human",
+        "known",
+        "syndrome",
+        "respiratory",
+        "occur"
+      ],
+      "what_it_reveals": "Biodefense reassurance framing — Tehran Times led with the absence of cases in Iran and the virus being 'not new,' signaling domestic audience management."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "bucket": "iran_state",
+      "outlet": "Tehran Times",
+      "quote": "The deputy health minister has said no case of Hantavirus has been reported in Iran so far, and the risk of its epidemic is very low.",
+      "signal_text_idx": 11
+    },
+    "b": {
+      "bucket": "argentina_chile",
+      "outlet": "Buenos Aires Herald",
+      "quote": "Eight people infected in hantavirus outbreak aboard MV Hondius cruise ship have tested positive for Andes virus; 'No indication' strain of hantavirus has mutated, says EU agency.",
+      "signal_text_idx": 1
+    },
+    "joint_conclusion": "Iran state media and Western/South American press converge on an identical reassurance message — no mutation, low general-population risk — despite inhabiting opposing information ecosystems on almost every other story this week."
+  },
+  "silences": [
+    {
+      "bucket": "china",
+      "what_they_covered_instead": "China was absent from the hantavirus corpus; coverage resources appear to have gone to the Strait of Hormuz story."
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "French-language perspective reached the corpus only through wire_services (AFP/BFM) rather than a dedicated French-bucket outlet."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "CDC did not warn New York City health officials about a Manhattan resident who left MV Hondius freely while potentially exposed; the woman later appeared to be in quarantine in Taiwan.",
+      "signal_text_idx": 36
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "North Korea issued a public health warning to its citizens about the hantavirus — an unusual acknowledgment of an overseas outbreak by a state that tightly controls epidemic information.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Korea Herald (via Google News)",
+      "bucket": "south_korea",
+      "finding": "South Korean press used the outbreak to foreground Korea's scientific primacy in hantavirus research — a national-pride angle absent from all other buckets.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "El Pais",
+      "bucket": "spain",
+      "finding": "Framed the outbreak as one warning among ten thousand animal-to-human viruses, driven by climate change and globalization — the broadest risk horizon in the corpus.",
+      "signal_text_idx": 27
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "bucket": "state_tv_intl",
+      "finding": "Only outlet in the corpus actively debunking viral misinformation claiming COVID-19 vaccines render people vulnerable to hantavirus.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Co-framed the hantavirus story alongside a fresh WHO-declared Ebola emergency in Central Africa, the only outlet to place both outbreaks in the same article.",
+      "signal_text_idx": 35
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "Published a first-person narrative from a scientist who was aboard MV Hondius — the only personal witness account in the corpus.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "VnExpress English",
+      "bucket": "vietnam_thai_my",
+      "finding": "Vietnam and Cambodia implemented airport health screening in response — a regional containment measure not reported outside Southeast Asia.",
+      "signal_text_idx": 38
+    },
+    {
+      "outlet": "Guardian Australia",
+      "bucket": "australia_nz",
+      "finding": "Australia placed returnees at a military-adjacent quarantine facility (Bullsbrook Centre for National Resilience, next to RAAF Base Pearce) for three weeks — the most operationally specific quarantine detail in the corpus.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "DutchNews.nl",
+      "bucket": "netherlands_belgium",
+      "finding": "All Hondius evacuees repatriated to the Netherlands tested negative for hantavirus — a finding the Dutch press reported but which received little visibility in other buckets.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "The MV Hondius outbreak produced high semantic coherence across 25 buckets on basic case facts, but split on frame: Western and German press revisited pandemic-preparedness lessons, US coverage added an institutional-failure angle (CDC's communication gap to New York), while Spain and El Pais widened the lens to systemic zoonotic spillover risk driven by climate change. Iran state media's domestic reassurance messaging converged with Western agency communications on the same de-escalation conclusion — no mutation, low general risk — an unusual cross-system alignment.",
+  "generated_at": "2026-05-17T09:45:00Z",
+  "model": "claude-sonnet-4-6"
+}
