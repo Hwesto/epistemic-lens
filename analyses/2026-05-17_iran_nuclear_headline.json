@@ -1,0 +1,108 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "iran_nuclear",
+  "story_title": "Iran nuclear program / negotiations",
+  "analysis_pass": "headline",
+  "n_buckets": 4,
+  "n_articles": 4,
+  "event_summary": "As a fragile US-Iran ceasefire persisted, Trump said he would accept a 20-year suspension of Iran's nuclear program; US military planners simultaneously prepared an escalation option targeting nuclear and oil assets if diplomacy collapsed.",
+  "tldr": "With only four headlines across four buckets, the corpus is small but the divergence is meaningful. Three headlines (Global Times, Haaretz, The New Arab) all frame the story through POLICY_PRESCRIPTION — deal terms, diplomatic meetings, and a US-China consensus that Iran cannot have nuclear weapons. Ukraine's Kyiv Post breaks toward SECURITY_DEFENSE with a headline about a US escalation plan targeting nuclear sites, the only title that treats the negotiations as primarily a military-option story. The China/Iran diplomatic meeting headline is the only one emphasising Tehran's agency in seeking international support rather than framing Iran as the object of US or Israeli demands.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "deal terms and nuclear freeze",
+      "buckets": [
+        "china",
+        "israel",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "accept Iran suspending its nuclear program for 20 years",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Trump, China's Xi 'agree Iran cannot have nuclear weapons'",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "military escalation as fallback",
+      "buckets": [
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "US Prepares 'Escalation Plan' Targeting Iran's Nuclear",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US-China summit alignment",
+      "buckets": [
+        "china",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Trump, China's Xi 'agree Iran cannot have nuclear weapons'",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "Chinese, Iranian diplomats meet before US-Iran nuclear talk",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.506,
+      "note": "Escalation-plan headline focuses on military option rather than diplomacy; diverges in semantic space from the three deal-terms titles."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.531,
+      "note": "Global Times headline uniquely frames China and Iran as diplomatic co-actors seeking international support, not as objects of US demands."
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.545,
+      "note": "Haaretz headline is centred on Trump's offer and Iranian military capacity claims — a specific US domestic-politics angle."
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.572,
+      "note": "Most central bucket: headline captures the US-China summit consensus, the most shared reference point across outlets."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The four-bucket headline corpus splits cleanly: three titles advertise diplomacy and deal terms, while Kyiv Post's headline alone flags the military escalation track — a framing divergence that reflects Ukraine's distinctive interest in preventing a US-Iran deal that might shift US attention and resources away from its own war.",
+  "generated_at": "2026-05-17T09:50:00Z",
+  "model": "claude-sonnet-4-6"
+}

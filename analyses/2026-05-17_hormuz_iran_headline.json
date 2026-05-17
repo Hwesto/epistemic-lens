@@ -1,0 +1,275 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "analysis_pass": "headline",
+  "n_buckets": 28,
+  "n_articles": 49,
+  "event_summary": "Iran unveiled a toll-charging mechanism for Hormuz shipping transit while the Trump-Xi summit in Beijing failed to produce a concrete plan to reopen the strait, leaving global energy markets disrupted by the ten-week-old blockade.",
+  "tldr": "Across 28 buckets the headline corpus bifurcates between two beats: Iran's Hormuz toll mechanism (EXTERNAL_REGULATION, dominant in Qatar, Turkey, Vietnam, Iran state, UK) and the Trump-Xi summit's failure to produce a concrete reopening plan (POLITICAL, dominant in Canada, Israel, South Africa, Asia Pacific). Japan is the most isolated bucket (mean_similarity 0.39): Nikkei's single title frames the story as a domestic supply milestone — first LNG delivery since closure — rather than through any diplomatic or military lens. Syria's Enab Baladi ran an entirely off-topic headline about UN humanitarian progress in Syria. USA uniquely anchors its two titles in allied military capability failures (UK defense shortfalls, missing Indo-Pacific navies) rather than energy or deal-making.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Hormuz toll mechanism and sovereign control",
+      "buckets": [
+        "iran_state",
+        "qatar",
+        "turkey",
+        "vietnam_thai_my",
+        "uk",
+        "china",
+        "wire_services",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Hormuz fallout responsibility lies with 'initiators of war'",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Tehran to unveil Hormuz toll plan",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Iran to announce mechanism to manage traffic, fees",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Iran preparing fee mechanism for Strait of Hormuz route",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "China's U.N. ambassador criticizes US Hormuz resolution",
+          "signal_text_idx": 48
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Xi summit and diplomatic stall",
+      "buckets": [
+        "asia_pacific_regional",
+        "canada",
+        "brazil",
+        "israel",
+        "south_africa",
+        "taiwan_hk",
+        "opinion_magazines",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "little progress to reopen Hormuz",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "Pakistan and the Trump-Xi Summit in Beijing",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "China won't bail Trump out of his Iran woes",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Pakistan makes fresh bid to revive US-Iran talks",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Iran wants oil tariffs paid in Chinese yuan",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "energy crisis and market spillover",
+      "buckets": [
+        "asia_pacific_regional",
+        "hungary_central",
+        "japan",
+        "india",
+        "pan_african",
+        "italy",
+        "state_tv_intl",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Energy crisis set to worsen",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Hungary Today",
+          "quote": "Air Travel Continues Normally despite Fuel Price Surge",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "Japan set to receive first LNG via Hormuz",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Egyptian farmers struggling to survive",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "UAE to complete second oil pipeline bypassing strait of Hormuz",
+          "signal_text_idx": 40
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "allied military capacity and escalation",
+      "buckets": [
+        "germany",
+        "india",
+        "iran_opposition",
+        "pan_arab",
+        "south_korea",
+        "ukraine",
+        "usa",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "Iran Must Only Succeed Once to Trigger a Catastrophe",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "US Prepares 'Escalation Plan' Targeting Iran's Nuclear",
+          "signal_text_idx": 42
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Britain avoids Iran offensive role amid Trump criticism",
+          "signal_text_idx": 43
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "The Missing Navies: The Hormuz Crisis",
+          "signal_text_idx": 44
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "UK ramps up Gulf military role amid US-Iran tensions",
+          "signal_text_idx": 25
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.39,
+      "note": "Nikkei Asia's single title frames the story as Japan's domestic supply milestone (first LNG delivery since Hormuz closure) — the narrowest national-economy angle in the corpus, distant from all diplomatic and military titles."
+    },
+    {
+      "bucket": "syria",
+      "mean_similarity": 0.464,
+      "note": "Enab Baladi's headline covers Syria's UN humanitarian progress — entirely off the Hormuz story; the corpus carries no Syria-specific Hormuz-frame title."
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.482,
+      "note": "Hungary Today frames the crisis through consumer-economy impact (kerosene supply and summer flight disruption) rather than the geopolitical and diplomatic frames dominant elsewhere."
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.483,
+      "note": "News24 focuses on Trump's trade-deal optics and personal rapport with Xi — a political persona angle rather than Hormuz mechanics or energy economics."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.495,
+      "note": "AfricaNews grounds the story in Egyptian farmers' cost pressures — a human agricultural-impact angle at the most distal end of the supply chain, absent from all other buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "syria",
+      "what_they_covered_instead": "Enab Baladi ran a headline on UN progress in Syria's humanitarian situation; the Hormuz closure's impact on Syrian food and fuel costs appeared only in the article body, not the title."
+    },
+    {
+      "bucket": "pan_arab",
+      "what_they_covered_instead": "Middle East Eye's headline covered Israeli shelling in Khan Younis and Bureij refugee camp (idx 26) — off the Hormuz story; only The New Arab's headline was directly on-topic."
+    },
+    {
+      "bucket": "taiwan_hk",
+      "what_they_covered_instead": "SCMP ran a headline about a Singapore deepfake Zoom scam tangentially tied to Hormuz; only Hong Kong Free Press covered the US-China summit with a Hormuz-relevant angle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Nikkei Asia",
+      "bucket": "japan",
+      "finding": "Only outlet to frame the Hormuz story as a domestic supply-chain milestone — Japan receiving its first LNG shipment via the strait since the de facto closure — without any diplomatic or military framing.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "IRNA English",
+      "bucket": "iran_state",
+      "finding": "Iran state newswire leads with a sovereignty counter-narrative — blaming 'initiators of war' and accusing the US of manufacturing false international support — framing Iran as defender rather than blockader.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Only outlet framing the Hormuz crisis as a structural failure of Indo-Pacific alliances — Asian navies largely absent from a waterway whose closure damages Asian economies most.",
+      "signal_text_idx": 44
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "Both South Korean titles focused on the HMM Namu ship attack investigation and weapons debris analysis — a victim-state angle entirely invisible in all other buckets.",
+      "signal_text_idx": 30
+    },
+    {
+      "outlet": "AfricaNews",
+      "bucket": "pan_african",
+      "finding": "Only outlet grounding the Hormuz closure in agricultural livelihoods — Egyptian farmers squeezed by fertilizer and energy cost rises — the most distal human-cost angle in the corpus.",
+      "signal_text_idx": 24
+    }
+  ],
+  "bottom_line": "Headlines across 28 buckets split between Iran's Hormuz toll mechanism (the dominant EXTERNAL_REGULATION frame across 8 buckets) and the Trump-Xi summit's diplomatic stall (POLITICAL, 8 buckets), with Japan's domestic energy-supply angle the most isolated title in the corpus at mean_similarity 0.39. US outlets alone frame the crisis through allied military capability failures rather than deal-making or energy economics — a divergence that reflects Washington's unique vantage as the party bearing the military burden other partners are avoiding.",
+  "generated_at": "2026-05-17T09:50:00Z",
+  "model": "claude-sonnet-4-6"
+}

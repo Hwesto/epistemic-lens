@@ -1,0 +1,206 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "analysis_pass": "headline",
+  "n_buckets": 13,
+  "n_articles": 17,
+  "event_summary": "Israel continued airstrikes across southern Lebanon killing at least 18 people despite a 45-day ceasefire extension agreed with Lebanon; Hezbollah simultaneously launched rockets and drone attacks on Israeli forces in the south.",
+  "tldr": "Religious_press is the most isolated bucket (mean_similarity 0.321) because Vatican News ran a headline about a Korean DMZ barbed wire Cross of Peace for WYD 2027 — entirely off the Lebanon conflict. Russia's RT is the only outlet to lead with the ceasefire extension as its primary story beat, while Iran state and seven other buckets led with Israeli strike operations. Turkey is the only bucket to simultaneously carry a military-casualties headline (captain killed by drone) and a strategic-assessment headline explicitly concluding that military action alone cannot eliminate Hezbollah. USA's Fox News uniquely frames the conflict through a sectarian community-resistance narrative — a Christian Lebanese town that defied Hezbollah — the only title to place religious identity at the center of a corpus dominated by casualty counts.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes and drone exchanges",
+      "buckets": [
+        "iran_state",
+        "israel",
+        "pakistan",
+        "pan_arab",
+        "turkey",
+        "uk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "fresh wave of air and artillery strikes against southern Lebanon",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Lebanon says 18 killed, 124 wounded in Israeli strikes",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "'Extended truce' fails to stop Israeli attacks on Lebanon",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israeli strikes intensify despite ceasefire",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Israeli strikes kill six in southern Lebanon",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Israel attacks south Lebanon day after ceasefire extension",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "ceasefire extension and political breakthrough",
+      "buckets": [
+        "russia",
+        "south_africa",
+        "turkey",
+        "pan_african"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israel and Lebanon extend truce amid airstrikes",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Israel and Lebanon buy more time with 45-day extension",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Israel cannot destroy all Hezbollah weapons",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Lebanese deeply divided over chances of peace talks",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "displacement and community survival",
+      "buckets": [
+        "germany",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Sport helping displaced Lebanese living in stadium to cope",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Inside the Christian border town in Lebanon",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.321,
+      "note": "Vatican News ran an entirely off-topic headline about a Korean DMZ barbed wire Cross of Peace for World Youth Day 2027 in Seoul; the word 'buffer zone' in the body is the only tenuous link to the story."
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.479,
+      "note": "Fox News's Christian-town-defying-Hezbollah headline diverges sharply from the strike-casualty and truce-extension frames that dominate all other buckets."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.505,
+      "note": "AfricaNews frames the story as a Lebanese internal political divide over peace talks rather than reporting strike operations or ceasefire mechanics."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.517,
+      "note": "DW's displaced-Lebanese-in-stadium headline pivots to welfare and coping — a human-interest register distant from all the operational-strike titles."
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.564,
+      "note": "RT leads with the ceasefire extension rather than the airstrikes — the most diplomatically optimistic framing in the corpus, pulling away from the security-dominant majority."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": {
+    "a": {
+      "bucket": "iran_state",
+      "outlet": "IRNA English",
+      "quote": "Israeli regime launches fresh wave of air and artillery strikes against southern Lebanon",
+      "signal_text_idx": 1
+    },
+    "b": {
+      "bucket": "russia",
+      "outlet": "RT",
+      "quote": "Israel and Lebanon extend truce amid airstrikes, Hezbollah attacks",
+      "signal_text_idx": 9
+    },
+    "joint_conclusion": "Both outlets describe the same day's events — ceasefire extension AND ongoing strikes — but Iran state leads with the violence while Russia leads with the diplomatic positive; opposite emphases on identical facts align with each outlet's geopolitical interest in framing Israel as aggressor versus framing a US-brokered truce as progress."
+  },
+  "silences": [
+    {
+      "bucket": "religious_press",
+      "what_they_covered_instead": "Vatican News ran a story about a barbed wire 'Cross of Peace' being built from Korean DMZ wire for World Youth Day 2027 in Seoul — connected to the story's 'buffer zone' theme only in the article body, not in its headline framing."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "Only outlet to frame the Lebanon conflict through the lived experience of internal displacement — displaced people sheltering in stadiums and using sport as a coping mechanism.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only outlet to profile a specific religious community (Christian Lebanese town) that physically confronted and blocked Hezbollah — the sole sectarian-identity angle in the corpus.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "bucket": "turkey",
+      "finding": "Only outlet to explicitly state that full military occupation of southern Lebanon cannot eliminate Hezbollah's weapons, making it the most strategically pessimistic analysis in the corpus.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "Only outlet to frame Hezbollah's drone attacks as an evolving tactical innovation story — FPV drones defeating Israeli defences — rather than treating strikes as a daily count headline.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to lead with the ceasefire extension as the primary news event, burying the continued violence in a subtitle — the most diplomatically positive framing in the corpus.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "Seven of thirteen buckets frame the day purely through SECURITY_DEFENSE (strikes, drone attacks, casualties), with Russia as the sole bucket to lead with the ceasefire extension rather than ongoing violence. The headline paradox — Iran state emphasises Israeli aggression, Russia emphasises diplomatic progress — both describe the same day's events. Vatican News's Korean DMZ Cross headline is the corpus's sharpest off-topic divergence, with religious_press the most isolated bucket despite only 13 in the corpus.",
+  "generated_at": "2026-05-17T09:50:00Z",
+  "model": "claude-sonnet-4-6"
+}

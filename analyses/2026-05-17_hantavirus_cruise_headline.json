@@ -1,0 +1,186 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "hantavirus_cruise",
+  "story_title": "Hantavirus outbreak on MV Hondius",
+  "analysis_pass": "headline",
+  "n_buckets": 25,
+  "n_articles": 41,
+  "event_summary": "Three people died and at least ten tested positive for Andes hantavirus in an outbreak aboard the Dutch cruise ship MV Hondius; by May 17, 2026, a Canadian passenger became the first confirmed case outside Europe, triggering hospital isolation in British Columbia.",
+  "tldr": "Headline framing is overwhelmingly HEALTH_SAFETY — positive tests, quarantine logistics, and case-count updates dominate across 18 of 25 buckets. The most notable divergence is the USA bucket (The Intercept): its headline names a CDC notification failure rather than a case update, the only title in the corpus to frame the outbreak as an accountability story. Germany and the Balkans uniquely pushed a COVID-comparison-anxiety angle, with Turkish headlines amplifying pandemic-era fear. Spain's El Pais headline zoomed out to climate change and zoonotic risk as the broadest contextual frame. Russia_native's title about the embassy receiving no requests is the most isolated and most parochial headline in the corpus.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "case tracking and quarantine",
+      "buckets": [
+        "argentina_chile",
+        "australia_nz",
+        "canada",
+        "india",
+        "iran_state",
+        "kenya",
+        "korea_north",
+        "mexico",
+        "netherlands_belgium",
+        "nordic",
+        "opinion_magazines",
+        "russia",
+        "south_africa",
+        "taiwan_hk",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "hantavirus-affected cruise to be quarantined for three weeks",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "B.C. couple in hospital isolation after testing positive",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "No evidence of Hantavirus in Iran: health ministry",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "France monitoring hantavirus contact cases",
+          "signal_text_idx": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "surveillance and screening gaps",
+      "buckets": [
+        "usa",
+        "vietnam_thai_my",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "CDC Didn't Tell New York About Resident on Hantavirus-Plagued Cruise",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Vietnam, Cambodia strengthen airport screening for hantavirus",
+          "signal_text_idx": 38
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "France tightens health surveillance on deadly Hantavirus",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "COVID-era pandemic anxiety",
+      "buckets": [
+        "germany",
+        "turkey",
+        "balkans"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "hantavirus outbreak revives COVID-era fears worldwide",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Warum das Hantavirus nicht mit Corona vergleichbar ist",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "N1 Serbia English",
+          "quote": "Hantavirus nije novi kovid 19",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "personal witness narrative",
+      "buckets": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "A Scientist's Close Call with Hantavirus Aboard the M.V. Hondius",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.456,
+      "note": "Russian-language Kommersant headline about the embassy receiving no requests from a Russian crew member — parochial angle invisible in every other bucket."
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.471,
+      "note": "Korea Herald headline frames the outbreak as a moment to spotlight South Korea's founding role in hantavirus discovery — national-pride angle absent elsewhere."
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.474,
+      "note": "German-language explainer headlines on pandemic terminology and the COVID-comparison angle isolate semantically from the English case-count dominant."
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.495,
+      "note": "El Pais headline zooms to 10,000 zoonotic viruses and climate change — a macro contextual frame absent from all other coverage."
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.508,
+      "note": "Serbian title in Latin script explicitly refutes a COVID-19 comparison — language confounding combined with genre divergence lowers cosine similarity."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "argentina_chile",
+      "what_they_covered_instead": "La Nacion's headline is about birds at a landfill — tangentially tied to hantavirus origin in its body but no frame is detectable from the title alone."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "what_they_covered_instead": "France 24 Spanish ran a fact-check headline on COVID-vaccine misinformation; RT Africa covered the ship leaving Cape Verde — neither applies a disease-frame to current case counts."
+    },
+    {
+      "bucket": "usa",
+      "what_they_covered_instead": "Fox News ran a WHO Ebola emergency headline entirely unrelated to hantavirus; only The Intercept covered the outbreak with an accountability angle."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "what_they_covered_instead": "The New Yorker's first headline was about high-school debate, unrelated; the second was a first-person scientist narrative departing from news-report genre."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "Headlines across 25 buckets converge on the same HEALTH_SAFETY frame of quarantine logistics and positive-test updates, with Germany, Turkey, and the Balkans as the only outlets using headlines to directly invoke COVID-19 comparisons. The US bucket's accountability-frame headline (CDC failure) is unique in attributing blame to an institution rather than tracking a case number — the sharpest headline-vs-body divergence to watch in the sensationalism index.",
+  "generated_at": "2026-05-17T09:50:00Z",
+  "model": "claude-sonnet-4-6"
+}

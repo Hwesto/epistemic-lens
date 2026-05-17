@@ -1,0 +1,268 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-17",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "analysis_pass": "headline",
+  "n_buckets": 24,
+  "n_articles": 40,
+  "event_summary": "Ukraine launched its largest drone barrage of the war on Russia overnight — 556 drones downed across 14 regions including Moscow — in retaliation for a Russian missile strike on a Kyiv apartment block that killed 24 people the previous week.",
+  "tldr": "Ukraine's record drone barrage on Moscow produces a tight SECURITY_DEFENSE consensus across 14 of 24 buckets on drone counts and casualty tallies, but the framing divergences are sharp. Germany is the only bucket to frame the Ukraine war through European institutional spillover: Latvia's Prime Minister resigned over stray Ukrainian drones landing in Latvia, and 30+ countries agreed to a special tribunal to prosecute Russia. Poland/Baltics (Notes from Poland) headlined a hate-crime attack on Ukrainian teenagers in Warsaw — a domestic xenophobia angle absent from every other bucket. Pan_african is the most isolated bucket (mean_similarity 0.421): AfricaNews ran only a prisoner-swap headline, the sole title not about combat. UK's BBC ran a Hezbollah FPV drone tactics headline inside the Ukraine war corpus — an off-topic bleed suggesting how drone-warfare frames are collapsing across conflict theaters.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "drone barrages and retaliatory strikes",
+      "buckets": [
+        "brazil",
+        "canada",
+        "india",
+        "iran_opposition",
+        "japan",
+        "kenya",
+        "nordic",
+        "pan_arab",
+        "russia",
+        "turkey",
+        "uk",
+        "ukraine",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Russia launches heaviest wartime drone assault on Ukraine",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "52 Dead After Weekly Barrage of 4,500 Russian Missiles",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Mass Ukraine Drone Barrage Kills 3 in Moscow Region",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Ukraine launches more than 500 drones at Russia",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL",
+          "quote": "Biggest Assault On Moscow Region In A Year",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "prisoner swap and humanitarian exchange",
+      "buckets": [
+        "pan_african",
+        "russia",
+        "south_africa",
+        "turkey",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ukraine and Russia swap 205 prisoners each",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Zelensky Confirms Ongoing Logistics for Next Stages of '1,000 for 1,000' Prisoner Swap",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Russia and Ukraine swap 205 prisoners of war each",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Russia, Ukraine exchange 205 POWs each amid heavy aerial strikes",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "institutional spillover and domestic politics",
+      "buckets": [
+        "germany",
+        "opinion_magazines",
+        "korea_north",
+        "nordic",
+        "poland_balt"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Silina resigns over handling of drone incidents",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Russia doesn't have much to celebrate on Victory Day",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Drone strike near DPRK embassy dims prospects for Kim Jong Un visit",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "Notes from Poland",
+          "quote": "brutal attack on Ukrainians in Warsaw",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "sanctions evasion, arms smuggling, graft",
+      "buckets": [
+        "balkans",
+        "iran_opposition",
+        "korea_north",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Russian 'Shadow Fleet' Suspicions Linger in Dropped Albania Smuggling Case",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL",
+          "quote": "Ukrainian Anti-Graft Prosecutor Seeks Detention Of Zelenskyy's Ex-Chief Of Staff",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Former top Zelensky aide detained over large-scale money laundering",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Police bust Donbas-tied arms dealers peddling guns for Kim Jong Un",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "international tribunal to prosecute Russia",
+      "buckets": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "special tribunal plan to prosecute Russia",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.421,
+      "note": "AfricaNews ran only a prisoner-swap headline — the sole title in the corpus not about drones, strikes, or politics; its humanitarian-exchange focus pulls it far from the combat-count dominant."
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.43,
+      "note": "The Diplomat frames the story as a Southeast Asian counter-drone policy lesson rather than a combat update — a defense-technology diffusion angle absent from all other buckets."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.442,
+      "note": "Vatican News's Nuncio-to-Ukraine headline frames the heavy bombing as evidence of Russia's intention to continue the war — a moral-condemnation register distinct from all operational and political frames."
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.473,
+      "note": "Balkan Insight focuses on Russian shadow-fleet sanctions evasion through Albanian ports — a CRIME_PUNISHMENT angle on the war economy, semantically distant from frontline drone-count coverage."
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.502,
+      "note": "The Conversation and Politico Europe frame the war through Russian domestic political pressure (Victory Day failure) and Moldova destabilization — analytical angles diverging from the combat-update majority."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "uk",
+      "what_they_covered_instead": "BBC World ran a headline about Hezbollah FPV drone tactics against Israel (idx 30) — a Lebanon story misrouted into the Ukraine war corpus; only The Independent covered the Ukraine drone barrage directly."
+    },
+    {
+      "bucket": "usa",
+      "what_they_covered_instead": "War on the Rocks ran analytical pieces on Russia's crowd-sourced defense industry and post-Orbán Hungary (idx 35) rather than frontline combat updates or humanitarian developments."
+    },
+    {
+      "bucket": "poland_balt",
+      "what_they_covered_instead": "ERR News (Estonia) ran a headline about Balkan EU accession (idx 22) — a NATO-enlargement story adjacent to the Ukraine war context but not about the conflict itself; Notes from Poland covered the Warsaw hate crime."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "Only bucket to simultaneously frame the Ukraine war through European institutional collapse (Latvian PM resigned over stray Ukrainian drones) and legal accountability (30+ nations joining a Russia prosecution tribunal).",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Notes from Poland",
+      "bucket": "poland_balt",
+      "finding": "Only outlet covering a hate crime against Ukrainian teenagers in Warsaw — five Polish suspects detained, mayor blaming right-wing anti-Ukrainian rhetoric — the sole domestic European xenophobia angle in the corpus.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "NK News",
+      "bucket": "korea_north",
+      "finding": "Only outlet covering the DPRK-Russia arms nexus as a direct Ukraine war story: both an arms-dealer smuggling bust supplying Kim Jong Un, and a drone strike near the DPRK embassy that jeopardises Kim's Moscow visit.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "Ran a Hezbollah FPV drone tactics headline (from the Lebanon story) inside the Ukraine war corpus — an off-topic bleed reflecting how drone-warfare frames are collapsing across conflict theaters in editors' feeds.",
+      "signal_text_idx": 30
+    },
+    {
+      "outlet": "The Diplomat",
+      "bucket": "asia_pacific_regional",
+      "finding": "Only outlet framing the Ukraine war as a counter-drone technology lesson for Southeast Asia — a defense-diffusion angle in which the Ukraine conflict appears as instructor, not protagonist.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "Ukraine's record 556-drone barrage on Moscow yields tight SECURITY_DEFENSE consensus across 14 buckets, but the headline margins carry distinct stories: Germany frames European institutional spillover (Latvia's government collapse, EU tribunal), Poland/Baltics headlines a Warsaw hate crime, Korea North covers the DPRK arms network, and pan_african runs only the prisoner swap. The UK's BBC Hezbollah headline is the cleanest example of a headline corpus failing to contain conflict-specific signal as drone-warfare frames bleed between theaters.",
+  "generated_at": "2026-05-17T09:50:00Z",
+  "model": "claude-sonnet-4-6"
+}
