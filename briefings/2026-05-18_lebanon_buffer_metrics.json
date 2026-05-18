@@ -1,0 +1,261 @@
+{
+  "date": "2026-05-18",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "n_buckets": 8,
+  "n_articles": 12,
+  "buckets": [
+    "india",
+    "israel",
+    "pan_african",
+    "pan_arab",
+    "russia",
+    "taiwan_hk",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "india": 60,
+    "israel": 74,
+    "pan_african": 29,
+    "pan_arab": 57,
+    "russia": 22,
+    "taiwan_hk": 60,
+    "uk": 88,
+    "usa": 26
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.797
+    },
+    {
+      "a": "pan_arab",
+      "b": "taiwan_hk",
+      "score": 0.795
+    },
+    {
+      "a": "israel",
+      "b": "taiwan_hk",
+      "score": 0.777
+    },
+    {
+      "a": "pan_arab",
+      "b": "uk",
+      "score": 0.777
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.769
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.767
+    },
+    {
+      "a": "israel",
+      "b": "uk",
+      "score": 0.763
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.741
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.737
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.72
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.701
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.667
+    },
+    {
+      "a": "israel",
+      "b": "usa",
+      "score": 0.646
+    },
+    {
+      "a": "pan_african",
+      "b": "pan_arab",
+      "score": 0.641
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.638
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.632
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia",
+      "score": 0.631
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "score": 0.608
+    },
+    {
+      "a": "pan_arab",
+      "b": "usa",
+      "score": 0.601
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.554
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.546
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.541
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.54
+    },
+    {
+      "a": "israel",
+      "b": "pan_african",
+      "score": 0.515
+    },
+    {
+      "a": "pan_african",
+      "b": "taiwan_hk",
+      "score": 0.509
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.501
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.456
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.42
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.529
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.577
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.614
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.662
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.68
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.682
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.684
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.711
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE"
+  },
+  "bucket_exclusive_vocab": {
+    "india": [
+      {
+        "term": "iran",
+        "count": 5
+      },
+      {
+        "term": "live",
+        "count": 3
+      },
+      {
+        "term": "updat",
+        "count": 3
+      }
+    ],
+    "israel": [],
+    "pan_african": [],
+    "pan_arab": [],
+    "russia": [],
+    "taiwan_hk": [
+      {
+        "term": "brokered",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "hour",
+        "count": 3
+      },
+      {
+        "term": "strike",
+        "count": 3
+      },
+      {
+        "term": "drone",
+        "count": 3
+      },
+      {
+        "term": "video",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "christian",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-18T11:22:14+00:00",
+  "meta_version": "8.7.3"
+}
