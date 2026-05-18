@@ -1,0 +1,157 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-18",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "analysis_pass": "headline",
+  "n_buckets": 8,
+  "n_articles": 12,
+  "event_summary": "Israeli strikes killed at least 18 people in Lebanon on 18 May 2026 within hours of a ceasefire extension; Hezbollah condemned US-brokered talks as a 'dead end', and an IDF strike killed an Islamic Jihad commander.",
+  "tldr": "Headlines across seven of eight buckets frame the Lebanon story almost entirely as a SECURITY_DEFENSE story — strike counts, casualty tallies, and the simultaneous extension and violation of the ceasefire. A POLITICAL sub-layer is visible in pan_african (Lebanese public divided over talks), pan_arab (Nakba protest), and taiwan_hk (Hezbollah denounces US-brokered talks). The USA bucket breaks completely from the combat frame with a Fox News human-interest profile of a Christian border town that 'survived by defying Hezbollah' — the lone CULTURAL headline in the corpus. India's first headline is misrouted from the Hormuz corpus (Iran war countdown), the most visible cross-story bleed at the title layer.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes, casualties, ceasefire breach",
+      "buckets": [
+        "india",
+        "israel",
+        "pan_arab",
+        "russia",
+        "taiwan_hk",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "IDF kills Islamic Jihad commander in Lebanon",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Lebanon says 18 killed, 124 wounded in Israeli strikes",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Lebanon says Israeli strikes kill 7 as Hezbollah condemns talks",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Israeli strikes kill six in southern Lebanon",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "talks collapse, US-brokered diplomacy",
+      "buckets": [
+        "india",
+        "pan_african",
+        "pan_arab",
+        "taiwan_hk",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Israel strikes Lebanon while Hezbollah calls talks 'dead end'",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Lebanese deeply divided over chances of peace talks",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Israel strikes kill at least 7 in Lebanon as Hezbollah denounces US-brokered talks",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Hezbollah drone strike videos show evolving tactics",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "community identity in conflict",
+      "buckets": [
+        "pan_arab",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Inside the Christian border town in Lebanon",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Israel strikes Lebanon; 250,000 attend London Nakba protest",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.529,
+      "note": "Fox News ran a community-identity profile ('Inside the Christian border town') — a CULTURAL human-interest angle semantically distant from the strike/casualty dominant."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.577,
+      "note": "AfricaNews frames coverage as Lebanese public opinion ('deeply divided') rather than reporting operational strikes — a sentiment angle diverging from the combat majority."
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.614,
+      "note": "RT headline frames the ceasefire extension and airstrikes simultaneously ('extend truce amid airstrikes, Hezbollah attacks') — a contradiction-framing register distinct from Western headers."
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.662,
+      "note": "SCMP headline foregrounds Hezbollah's diplomatic condemnation of US-brokered talks, pulling slightly from the pure-strikes dominant toward a political angle."
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.68,
+      "note": "UK runs two distinct angles — Guardian on ceasefire violations and BBC on Hezbollah drone tactics — a split that disperses the bucket's LaBSE embedding relative to single-frame buckets."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "NDTV World",
+      "bucket": "india",
+      "finding": "India's first headline ('US Iran War News Live Updates: Clock Is ticking') is from the Hormuz/Iran nuclear story, not Lebanon — the most visible cross-story topic bleed at the title layer in today's corpus, likely caused by NDTV's Iran war live-blog being captured by the 'Israeli' + 'Lebanon' proximity pattern.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline in the corpus to frame the Lebanon conflict through community identity ('the Christian border town in Lebanon that says it survived by defying Hezbollah') — a CULTURAL angle completely absent from all other seven buckets.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "Headlines across the eight-bucket lebanon_buffer corpus are almost entirely SECURITY_DEFENSE — strikes, casualty counts, and ceasefire breach — with a thin POLITICAL layer where Hezbollah's rejection of US-brokered talks is visible in India, pan_arab, and taiwan_hk. The Fox News community-identity headline is the only CULTURAL outlier. The India topic-bleed headline (Iran war countdown) is the cleanest evidence of cross-corpus misrouting in today's briefing.",
+  "generated_at": "2026-05-18T06:00:00Z",
+  "model": "claude-sonnet-4-6"
+}

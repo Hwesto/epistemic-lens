@@ -1,0 +1,222 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-18",
+  "story_key": "ukraine_war",
+  "story_title": "Russia-Ukraine war",
+  "analysis_pass": "headline",
+  "n_buckets": 23,
+  "n_articles": 37,
+  "event_summary": "Ukraine launched one of its largest drone barrages on Moscow on 17–18 May 2026, killing at least four people; Russia retaliated with a new air barrage across Ukraine, and a Russian drone struck a Chinese cargo ship in the Black Sea on the eve of Putin's Beijing summit.",
+  "tldr": "SECURITY_DEFENSE is the dominant headline frame in 16 of 23 buckets — drone exchanges, casualty counts, and strike escalation. The most notable headline-layer sub-story is the Russian drone strike on a Chinese cargo ship, which appears prominently in pakistan, uk, ukraine, vietnam_thai_my, and wire_services, creating a POLITICAL sub-frame around Putin-Xi summit timing. CRIME_PUNISHMENT headlines (balkans shadow fleet, south_africa corruption, iran_opposition graft) constitute a distinct third thread. Nordic is the most isolated bucket (0.343) because Yle framed the story entirely through Stubb's diplomatic call to Zelensky. Turkey's Anadolu headline is a hantavirus article misrouted into this corpus — the only outright cross-story bleed in ukraine_war today. Pan_african's sole headline covers only the prisoner swap, the one humanitarian angle absent from the combat-dominant majority.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "drone escalation cycle, casualty counts",
+      "buckets": [
+        "australia_nz",
+        "canada",
+        "india",
+        "iran_opposition",
+        "italy",
+        "kenya",
+        "pakistan",
+        "religious_press",
+        "russia",
+        "taiwan_hk",
+        "turkey",
+        "uk",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "9News",
+          "quote": "Ukraine hits Russia with fatal drone attack",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Ukraine's Biggest Assault On Moscow Region In A Year Leaves 3 Dead",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Russia launches new air barrage on Ukraine",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Russia and Ukraine exchange overnight drone attacks",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Chinese ship, Putin-Xi timing, peace talks",
+      "buckets": [
+        "germany",
+        "india",
+        "italy",
+        "korea_north",
+        "nordic",
+        "uk",
+        "ukraine",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "'strikes Chinese cargo ship' day before Putin-Xi summit",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russian Drone Reportedly Hits Chinese Ship as Zelensky Warns of Wider Escalation",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Drone strike near DPRK embassy dims prospects",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Evika Silina resigns over handling of drone incidents",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "corruption, shadow fleet, graft",
+      "buckets": [
+        "balkans",
+        "canada",
+        "iran_opposition",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Russian 'Shadow Fleet' Suspicions Linger",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Prosecutor Seeks Detention Of Zelenskyy's Ex-Chief Of Staff",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "Former top Zelensky aide detained over money laundering",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "accused of putting activists at risk",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Russian media distortion, war support divides",
+      "buckets": [
+        "poland_balt",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Russian state TV channels played down scale of Ukraine's strike",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "ERR News (Estonia)",
+          "quote": "Most citizens consider government's foreign policy poor",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.343,
+      "note": "Yle headline about Stubb's Zelensky call frames the war through Finnish presidential diplomacy — a political-engagement angle semantically distant from the drone-barrage dominant."
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.379,
+      "note": "AfricaNews ran only the 205-for-205 prisoner-swap headline — the sole title not about drones, strikes, or politics; humanitarian-exchange focus pulls it far from the combat-count majority."
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.425,
+      "note": "News24 headlined the Zelensky aide money-laundering detention — a CRIME_PUNISHMENT angle with significant semantic distance from frontline operational reporting."
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.435,
+      "note": "Vatican Nuncio headline frames heavy attacks as evidence of Russia's intention to continue the war — moral-inference language distinct from operational strike-count reporting."
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.437,
+      "note": "Taipei Times headline ('Barrage of Ukraine drones kills four people in Russia') is factual but very brief (12 LaBSE tokens), limiting embedding resolution against longer multi-clause headlines in the corpus."
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "pan_african",
+      "what_they_covered_instead": "AfricaNews covered only the Ukraine-Russia prisoner swap — a humanitarian-exchange angle that leaves the dominant drone-escalation and diplomatic-crisis frames absent from the Africa title layer."
+    },
+    {
+      "bucket": "germany",
+      "what_they_covered_instead": "Deutsche Welle's first headline covers German chemical-industry decline (an economic-spillover story) rather than frontline Ukraine war developments; only the Latvia PM resignation headline connects to the conflict."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Anadolu Agency English",
+      "bucket": "turkey",
+      "finding": "Turkey's second headline ('Hantavirus cruise ship returns to the Netherlands for quarantine, deep cleaning') is a hantavirus article misrouted into the ukraine_war corpus — the clearest cross-story bleed in today's ukraine_war briefing.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Meduza",
+      "bucket": "russia",
+      "finding": "Only outlet reporting that Russian state TV deliberately played down the scale of Ukraine's largest Moscow assault in over a year — a media-manipulation angle absent from every other bucket and the sharpest accountability headline in the corpus.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Vatican News",
+      "bucket": "religious_press",
+      "finding": "Nuncio to Ukraine headline ('Heavy attacks suggest no intention to end war') infers political intent from military action — a moral-framing register absent from all other buckets and a clean MORALITY/SECURITY_DEFENSE hybrid not captured by any other title.",
+      "signal_text_idx": 20
+    }
+  ],
+  "bottom_line": "Ukraine's drone barrage on Moscow produces tight SECURITY_DEFENSE consensus across 16 buckets, but the headline margins carry distinct sub-stories: the Chinese cargo ship strike generates a POLITICAL layer across five buckets tied to Putin-Xi summit timing, CRIME_PUNISHMENT headlines cluster in balkans, canada, iran_opposition, and south_africa, and Meduza's state-TV accountability headline is the clearest example of a Russian-outlet SECURITY_DEFENSE frame collapsing into PUBLIC_OPINION. The Anadolu hantavirus bleed is the most visible misrouting in today's corpus.",
+  "generated_at": "2026-05-18T06:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
