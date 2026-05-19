@@ -1,0 +1,115 @@
+{
+  "date": "2026-05-19",
+  "story_key": "lebanon_buffer",
+  "story_title": "Israeli buffer zone in southern Lebanon",
+  "by_bucket": {
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 890,
+      "distinctive_terms": [
+        {
+          "term": "iran",
+          "count_in_bucket": 5,
+          "count_in_cohort": 9,
+          "rate_in_bucket": 0.14286,
+          "rate_in_cohort": 0.01011,
+          "llr": 15.819,
+          "log_ratio": 2.648,
+          "p_value": 7e-05
+        }
+      ]
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 857,
+      "distinctive_terms": [
+        {
+          "term": "commander",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.07353,
+          "rate_in_cohort": 0.0,
+          "llr": 26.453,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 896,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 153,
+      "n_tokens_in_cohort": 772,
+      "distinctive_terms": [
+        {
+          "term": "army",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03268,
+          "rate_in_cohort": 0.0,
+          "llr": 18.132,
+          "log_ratio": null,
+          "p_value": 2.1e-05
+        }
+      ]
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 95,
+      "n_tokens_in_cohort": 830,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 232,
+      "n_tokens_in_cohort": 693,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 92,
+      "n_tokens_in_cohort": 833,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 221,
+      "n_tokens_in_cohort": 704,
+      "distinctive_terms": [
+        {
+          "term": "ukrainian",
+          "count_in_bucket": 12,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0543,
+          "rate_in_cohort": 0.0,
+          "llr": 34.866,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "8.7.3"
+}
