@@ -119,11 +119,31 @@ def detect_persistent_tokens(
     return candidates
 
 
+def load_lineage_candidates(end_date: str) -> list[dict]:
+    """PR2 Phase C: read archive/persistent_residual_<end_date>.json
+    (written by analytical.persistence_tracker) and filter to lineages
+    that meet the promotion gate (≥3 days, ≥4 buckets). Returns [] if
+    the file doesn't exist (persistence_tracker hasn't run yet)."""
+    p = ARCHIVE / f"persistent_residual_{end_date}.json"
+    if not p.exists():
+        return []
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    out = []
+    for L in (doc.get("lineages") or []):
+        if L.get("day_count", 0) >= 3 and L.get("n_buckets_union", 0) >= 4:
+            out.append(L)
+    return out
+
+
 def render_markdown(
     candidates: list[dict],
     end_date: str,
     window_days: int,
     persistence: int,
+    lineage_candidates: list[dict] | None = None,
 ) -> str:
     out: list[str] = []
     out.append(f"# Auto-promote candidates — {end_date}")
@@ -163,7 +183,42 @@ def render_markdown(
         "<story_key> from auto-promote'`."
     )
     out.append("")
-    out.append("## Candidates (ranked)")
+    # PR2 Phase C: lineage candidates first (embedding-based; stronger
+    # signal than the token detector since it operates on the residual
+    # AFTER perception assignment, so canonical-covered stories don't
+    # crowd out emerging ones).
+    if lineage_candidates:
+        out.append("## Lineage candidates (PR2 Phase C — embedding residual)")
+        out.append("")
+        out.append(
+            "These lineages persisted ≥3 days with ≥4 distinct buckets in the "
+            "residual cluster pool (articles the perception layer left "
+            "unassigned to a canonical story). The same article-set re-clusters "
+            "day-over-day → real story, not a one-day spike."
+        )
+        out.append("")
+        out.append(
+            "| Lineage | Days | Buckets | Consensus tokens | Sample buckets |"
+        )
+        out.append("|---|---:|---:|---|---|")
+        for L in lineage_candidates[:20]:
+            tokens = ", ".join(L.get("consensus_tokens", [])[:6])
+            buckets = ", ".join(L.get("buckets_seen", [])[:6])
+            if len(L.get("buckets_seen", [])) > 6:
+                buckets += "…"
+            out.append(
+                f"| `{L['lineage_id']}` | {L['day_count']} "
+                f"| {L['n_buckets_union']} | {tokens} | {buckets} |"
+            )
+        out.append("")
+        out.append(
+            "Inspect a lineage's articles via "
+            "`jq '.lineages[] | select(.lineage_id==\"…\") | .latest_member_ids' "
+            f"archive/persistent_residual_{end_date}.json`."
+        )
+        out.append("")
+
+    out.append("## Token candidates (legacy detector)")
     out.append("")
     out.append("| Token | Days | Mean buckets | Sample dates | Sample buckets |")
     out.append("|---|---:|---:|---|---|")
@@ -212,6 +267,9 @@ def main() -> int:
     candidates = detect_persistent_tokens(
         args.end, args.window, args.threshold, args.min_buckets
     )
+    # PR2 Phase C: also surface lineage candidates from
+    # analytical/persistence_tracker.py output (if present).
+    lineage_cands = load_lineage_candidates(args.end)
 
     if args.json:
         body = json.dumps(
@@ -220,20 +278,24 @@ def main() -> int:
                 "window_days": args.window,
                 "persistence_threshold": args.threshold,
                 "meta_version": meta.VERSION,
-                "candidates": candidates,
+                "token_candidates": candidates,
+                "lineage_candidates": lineage_cands,
             },
             indent=2,
             ensure_ascii=False,
         )
         suffix = ".json"
     else:
-        body = render_markdown(candidates, args.end, args.window, args.threshold)
+        body = render_markdown(candidates, args.end, args.window,
+                                 args.threshold,
+                                 lineage_candidates=lineage_cands)
         suffix = ".md"
 
     out_path = args.out or (ARCHIVE / f"auto_promoted_{args.end}{suffix}")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(body, encoding="utf-8")
-    print(f"Wrote {out_path}: {len(candidates)} candidate(s)")
+    print(f"Wrote {out_path}: {len(candidates)} token candidate(s), "
+          f"{len(lineage_cands)} lineage candidate(s)")
     return 0
 
 

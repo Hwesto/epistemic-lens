@@ -101,6 +101,16 @@ jobs:
       - name: Within-language PMI/log-odds bigram associations (Phase 2)
         run: python -m analytical.within_language_pmi
 
+      - name: Discover residual clusters (PR2 Phase C — HDBSCAN over unassigned)
+        # Articles the perception layer didn't assign to any canonical
+        # story are the discovery surface for emerging stories the
+        # canonical set doesn't yet cover. HDBSCAN over their embeddings
+        # surfaces same-day cross-bucket clusters; persistence_tracker
+        # (weekly) chains those into lineages. Idempotent; writes
+        # snapshots/<DATE>_residual_clusters.json. Safe to fail silently
+        # if hdbscan isn't installed or embedding cache is missing.
+        run: python -m pipeline.discover_residual || true
+
       - name: Job summary
         if: always()
         run: |

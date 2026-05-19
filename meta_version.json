@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "9.1.0",
-  "pinned_at": "2026-05-19T14:38:52Z",
-  "pin_reason": "add france bucket (6 feeds: Le Monde, Le Figaro, Le Parisien, BFM TV, France Info, AFP/France24 FR moved from wire_services). bucket_weights: pop_m=68, audience_reach=0.80.",
+  "meta_version": "9.2.0",
+  "pinned_at": "2026-05-19T15:23:56Z",
+  "pin_reason": "PR2 Phase C: discovery layer (HDBSCAN over residuals) + persistence tracker (member-ID Jaccard lineage) + auto_promote rewire. New schemas: residual_clusters, persistent_residual. Forward-compatible.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -75,7 +75,7 @@
   "bucket_weights_hash": "sha256:dfa0525424eed1f4362881f2e63194c1c4f9b98832857c7b6ec5a0ac761544fe",
   "card_picker_hash": "sha256:b41b9c053732d07247f33ef09e59276646c1f794db80890766a0d2ca7cbb503c",
   "today_picker_hash": "sha256:d0e6c6a7c88146538bc07c786b5c97bacb99269902bfa5b77df6f0bb453d37b0",
-  "schemas_hash": "sha256:d0261d4d45e4aca145a5bbc4a3b8edf687195cf31d88df525212282860c88fb2",
+  "schemas_hash": "sha256:ce95e246b269f5ff2aa8244a19abebe1e4c52cb308caf5df9e853b80278faeb2",
   "claude": {
     "_doc": "Dated snapshot ID (claude-<model>-<version>-YYYYMMDD) pins model weights as far as the API permits — the alias may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`. v8.0.0 swap from sonnet to haiku is a deliberate test-pass swap on the simplification branch — see pin_reason.",
     "model": "claude-sonnet-4-6",
@@ -93,5 +93,5 @@
     "calibration_macro_f1": 0.815,
     "calibration_report": "calibration/perception_eval_report.md"
   },
-  "pin_self_hash": "sha256:b7b5fd43c61082c2cc30adae89e55fd7c8dd4949f362d4d87ea5276b9fd0b41a"
+  "pin_self_hash": "sha256:aecdac44495ad8bd2e0ba63fecbde477e1f4aa0f0e6f90ea950befbe996050a3"
 }

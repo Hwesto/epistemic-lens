@@ -48,7 +48,24 @@ jobs:
         # painful (122 MB of unrolled snapshots/ as of 2026-05-12).
         run: python -m pipeline.rollup --window-days 90
 
-      - name: Commit + push lag/ + baseline/ + tilt/ + rollup
+      - name: Persistent residual lineages (PR2 Phase C)
+        # Walks the last 7 days of snapshots/<date>_residual_clusters.json
+        # (written daily by pipeline.discover_residual) and chains
+        # clusters across days into lineages via member-article-ID
+        # Jaccard overlap >=0.30. Member-ID overlap is invariant to
+        # centroid drift; the same article-set re-clustering day-over-day
+        # is real signal. Writes archive/persistent_residual_<DATE>.json.
+        run: python -m analytical.persistence_tracker || true
+
+      - name: Auto-promote review notes (PR2 Phase C — embedding lineage + tokens)
+        # Reads BOTH the legacy token-frequency detector AND the new
+        # embedding-residual lineage tracker; emits a single Markdown
+        # review note at archive/auto_promoted_<DATE>.md. Report-only —
+        # never mutates canonical_stories.json. Promotion is a human
+        # decision (because it bumps the methodology pin).
+        run: python -m analytical.auto_promote || true
+
+      - name: Commit + push lag/ + baseline/ + tilt/ + rollup + lineages
         run: |
           set -e
           git config user.name "epistemic-lens-bot"
@@ -58,13 +75,14 @@ jobs:
           # rollup actually had ≥90-day-old files to bundle, and the live
           # removals from snapshots/ and briefings/ may also be empty.
           [ -d archive/rollup ] && git add archive/rollup/ || true
+          [ -d archive ] && git add archive/persistent_residual_*.json archive/auto_promoted_*.md 2>/dev/null || true
           git add -u snapshots/ briefings/ || true
           if git diff --cached --quiet; then
             echo "No weekly-analytics output changes to commit."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
-          git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt + rollup)"
+          git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt + rollup + lineages)"
           for i in 1 2 3; do
             if git push; then exit 0; fi
             git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
