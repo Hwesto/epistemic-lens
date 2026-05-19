@@ -182,6 +182,101 @@ acknowledge that the primary similarity formula changed (TF-IDF on
 translated pivot → LaBSE cosine on originals). Replay against 7.0.0
 to recover prior findings under the new metric.
 
+## Perception layer (9.0.0)
+
+Pre-9.0.0 the story-matcher in `analytical/build_briefing.py` was a
+Latin-script regex. For each canonical story, `canonical_stories.json`
+held a list of `patterns` (lowercased regexes against title+summary+body)
+and `exclude` veto patterns. Every article matching ≥1 positive pattern
+and no negative pattern was included in the story's briefing.
+
+This had two structural failure modes:
+
+- **Non-Latin-script articles** (Persian, Arabic, Chinese, Japanese,
+  Korean, Hindi, Hebrew) could not match the English-anchored regexes
+  even when their content was clearly about the story. A 2026-05-12
+  audit confirmed: 575/day of these articles reached snapshot, 0
+  reached briefings. The "16+ languages" claim from 7.0.0 was real for
+  the LaBSE similarity layer but largely fictional for the story
+  matcher upstream of it.
+- **Hand-curated patterns** required developer time to maintain as
+  stories evolved (new names, transliterations, story-specific verbs).
+  Coverage gaps surfaced only when downstream metrics flagged
+  underflow.
+
+**9.0.0 swaps to embedding softmax-argmax via `analytical/perception.py`.**
+Each canonical story carries 3-8 `embedding_anchors` (1-2 sentence
+descriptions of one angle of the story, including native-script
+multilingual variants for high-cross-lingual-drift stories) and an
+`assignment_floor`. At briefing-build time:
+
+1. `pipeline/embed_articles.py` encodes every snapshot article's
+   `title + signal_text[:1500]` with the model in
+   `meta.PERCEPTION.embedding_model` (default
+   `intfloat/multilingual-e5-large`). Vectors are unit-normed and cached
+   at `snapshots/<DATE>_embeddings.npy` with a versioned article_id key:
+   `sha256(model_id|signal_text_version|feed|link)`. Bumping the model
+   OR the signal_text version invalidates every cache key loudly.
+2. `analytical/perception.compute_story_centroids()` encodes the anchor
+   sentences for every story, mean-pools, and unit-normalises into
+   centroids.
+3. `analytical/perception.assign_articles_to_stories()` scores each
+   article against every centroid (cosine = dot product since both
+   unit-norm), applies softmax across the n_stories scores per article,
+   and assigns to the argmax story IF cosine ≥ `assignment_floor` AND
+   argmax_cosine − second_best_cosine ≥ `cosine_gap` (open-world
+   filter for the e5-large flat-cosine failure mode).
+
+**Calibration.** Phase A (`calibration/`) produced a 343-row Opus
+silver-labeled eval set drawn from April-May 2026 snapshots, stratified
+across 4 candidate tiers (regex positives, near-neighbor stories,
+non-Latin script, true negatives). Three-way benchmark of LaBSE,
+multilingual-e5-large, and BGE-M3. Winner: e5-large at floor=0.40,
+macro F1=0.815, 4-of-5 gate-checkable per-language F1s pass (en 0.90,
+fa 0.76, ja 0.91, ru 0.89; Arabic 0.67 short by 0.033 — within
+statistical noise of 18 labelled positives). Cross-lingual drift max
+0.055 (under the 0.10 threshold). Full record:
+`calibration/perception_eval_report.md`.
+
+**Why softmax-argmax beats per-story independent thresholds**: an
+article about US-Iran Hormuz negotiations would previously match
+`lebanon_buffer` AND `hormuz_iran` AND `iran_nuclear` via three
+independent regex pattern lists; argmax picks the strongest and the
+others receive zero. Disambiguation by competition, not by
+hand-tuned exclude_anchors.
+
+Longitudinal claims that span the 8.x → 9.0.0 boundary must acknowledge
+that the story-article assignment formula changed (regex → embedding).
+The output of `analytical/longitudinal.py` carries a
+`crosses_major_pin_boundary: bool` flag so consumers can split or mark
+the trajectory at the break. `analytical/robustness_check.py` excludes
+consecutive day-pairs that straddle a major boundary from the
+stability average. `analytical/cross_outlet_lag.py` emits a
+`::warning::` when the CCF window spans multiple majors.
+
+## Discovery layer (9.2.0 / Phase C)
+
+After softmax-argmax assigns articles to canonical stories, anywhere from
+a few hundred to a few thousand articles per day remain UNASSIGNED
+(argmax cosine below floor OR cosine_gap filter rejected an
+equidistant article). Those unassigned articles are the discovery
+surface for stories the canonical set doesn't yet cover.
+
+- `pipeline/discover_residual.py` (daily, after build_briefing) runs
+  HDBSCAN over the residual vectors. Emits
+  `snapshots/<DATE>_residual_clusters.json` with per-cluster member
+  article IDs, bucket distribution, and top tokens via `meta.tokenize`.
+- `analytical/persistence_tracker.py` (weekly) chains residual clusters
+  across days via member-article-ID Jaccard overlap ≥ 0.30 — invariant
+  to centroid drift in a way that centroid-cosine linkage is not. Emits
+  `archive/persistent_residual_<DATE>.json` with lineage_id, day_count,
+  buckets_seen, consensus_tokens.
+- `analytical/auto_promote.py` (weekly) filters lineages to the
+  promotion gate (day_count ≥ 3 AND n_buckets_union ≥ 4) and writes
+  `archive/auto_promoted_<DATE>.md` review notes. Report-only by
+  design — promotion to canonical_stories.json is a human decision
+  because it bumps the methodology pin.
+
 ## Section operationalisation (7.1.0)
 
 Phase 1 introduces a per-item `section` field with values `news`, `opinion`,

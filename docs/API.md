@@ -86,23 +86,57 @@ For each story, six files (some optional):
 
 | Path                                  | Type             | Schema                          |
 |---------------------------------------|------------------|---------------------------------|
-| `<story>/briefing.json`               | application/json | (raw corpus, see source repo)   |
-| `<story>/metrics.json`                | application/json | (LaBSE cosine + divergence + vocab) |
-| `<story>/analysis.md`                 | text/markdown    | structure: `docs/HORMUZ_CORRELATION.md` |
+| `<story>/briefing.json`               | application/json | `/api/schema/briefing.schema.json` |
+| `<story>/metrics.json`                | application/json | `/api/schema/metrics.schema.json`  |
+| `<story>/analysis.json`               | application/json | `/api/schema/analysis.schema.json` |
+| `<story>/analysis.md`                 | text/markdown    | rendered from analysis.json     |
 | `<story>/thread.json`                 | application/json | `/api/schema/thread.schema.json`   |
 | `<story>/carousel.json`               | application/json | `/api/schema/carousel.schema.json` |
 | `<story>/long.json`                   | application/json | `/api/schema/long.schema.json`     |
 
+## Per-day discovery output (v9.2.0+)
+
+| Path                                                  | Type             | Schema                                           |
+|-------------------------------------------------------|------------------|--------------------------------------------------|
+| `<date>/residual_clusters.json`                       | application/json | `/api/schema/residual_clusters.schema.json`      |
+| weekly `archive/persistent_residual_<date>.json`      | application/json | `/api/schema/persistent_residual.schema.json`    |
+
+These surface emerging stories the canonical-set doesn't cover yet:
+articles the perception layer didn't assign get HDBSCAN-clustered daily,
+linked across days by member-article-ID Jaccard ≥ 0.30, and reviewed
+weekly. Lineages with day_count ≥ 3 AND n_buckets_union ≥ 4 land in
+`archive/auto_promoted_<date>.md` as promotion candidates.
+
 ## Schemas — `/api/schema/`
 
-The three draft formats are JSON Schema 2020-12. Validate at parse time
-in your frontend if you want strong typing.
+JSON Schema 2020-12. Validate at parse time in your frontend if you want
+strong typing.
 
 ```bash
+curl https://hwesto.github.io/epistemic-lens/api/schema/briefing.schema.json
+curl https://hwesto.github.io/epistemic-lens/api/schema/analysis.schema.json
+curl https://hwesto.github.io/epistemic-lens/api/schema/canonical_stories.schema.json
+curl https://hwesto.github.io/epistemic-lens/api/schema/residual_clusters.schema.json
+curl https://hwesto.github.io/epistemic-lens/api/schema/persistent_residual.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/thread.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/carousel.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/long.schema.json
 ```
+
+**Briefing schema additions (meta-v9.0.0):** `corpus[].match_cosine` and
+`corpus[].match_softmax` — the matcher's confidence stamp from the
+embedding softmax-argmax assignment. `match_cosine` is the raw cosine
+against the assigned story's anchor centroid; `match_softmax` is the
+softmax-normalised score across the full canonical set. Both optional;
+absent on pre-9.0 briefings.
+
+**Canonical stories schema additions (meta-v9.0.0):** each story carries
+`embedding_anchors` (3-8 sentence anchor list, including native-script
+multilingual variants where applicable), `assignment_floor` (per-story
+override of `meta.PERCEPTION.assignment_floor_default`), and `tier`
+(`long_running` | `dated`). The legacy `patterns` + `exclude` regex
+fields are retained but no longer drive briefing assignment — only the
+emerging-story token detector reads them.
 
 Quick shapes:
 

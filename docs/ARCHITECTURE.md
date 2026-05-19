@@ -4,7 +4,7 @@
 
 ```
                         ┌──────────────────────────────────┐
-                        │  feeds.json  (235 feeds, 54 bk)  │
+                        │  feeds.json  (235 feeds, 55 bk)  │
                         └────────────────┬─────────────────┘
                                          │
                 ┌────────────────────────▼────────────────────────┐
@@ -32,6 +32,12 @@
                 │   • feed health + extraction stats              │
                 │   • alerts: volume_drop + low_extraction        │
                 │                                                 │
+                │  pipeline.embed_articles    (PR2 Phase B, v9)         │
+                │   • intfloat/multilingual-e5-large embedding    │
+                │   • versioned article_id: sha256(model_id |     │
+                │       signal_text_version | feed | link)        │
+                │   • writes snapshots/<DATE>_embeddings.npy      │
+                │                                                 │
                 │  pipeline.feed_rot_check     (weekly)                 │
                 │   • flags persistently broken feeds             │
                 └────────────────┬────────────────────────────────┘
@@ -39,10 +45,16 @@
                                  ▼
                 ┌──────────────────────────────────┐
                 │  analytical.build_briefing               │
-                │   • detects canonical stories    │
+                │   • PERCEPTION layer (v9):       │
+                │     delegates to analytical.     │
+                │     perception.assign_articles_  │
+                │     to_stories — softmax-argmax  │
+                │     against embedding anchors    │
                 │   • per-story corpus with up to  │
                 │     2 distinct framings/bucket   │
                 │   • signal_text fallback chain   │
+                │   • corpus[].match_cosine +      │
+                │     match_softmax stamped       │
                 └────────────────┬─────────────────┘
                                  │
                                  ▼
@@ -59,19 +71,30 @@
                          │
                          ▼
         ┌──────────────────────────────────────────────────┐
-        │  ANALYZE JOB (anthropics/claude-code-action@v1)  │
-        │   prompt: .claude/prompts/daily_analysis.md      │
-        │   model:  claude-sonnet-4-6                      │
-        │           (matches meta_version.json claude.model)│
-        │   • reads briefing + metrics, derives 2-12       │
-        │     story-specific frames                        │
-        │   • emits JSON conforming to                     │
-        │     docs/api/schema/analysis.schema.json         │
-        │     (tldr, frames, isolation_top, paradox,       │
-        │      silences, exclusive_vocab_highlights,       │
-        │      single_outlet_findings, bottom_line)        │
-        │   • agent commits + pushes its own JSON          │
-        │     (claude-code-action sandboxes file writes)   │
+        │  ANALYZE JOBS (per-story matrix, v8.8.1)         │
+        │                                                  │
+        │  analyze_bootstrap → list_qualifying_stories     │
+        │    emits JSON array of stories with              │
+        │    n_buckets ≥ 3 → matrix for the LLM jobs       │
+        │                                                  │
+        │  analyze_body, analyze_headline, analyze_sources │
+        │    each: matrix per story (fail-fast: false)     │
+        │    each entry: one Sonnet session, one briefing  │
+        │    prompts:                                      │
+        │      .claude/prompts/daily_analysis.md           │
+        │      .claude/prompts/headline_analysis.md        │
+        │      .claude/prompts/source_attribution.md       │
+        │    each prompt accepts "# Assigned story:" header│
+        │    so workflow can scope to one story per call.  │
+        │    No more one-Sonnet-session-loads-all-stories  │
+        │    OOM (the 2026-05-19 60-min cancellation).    │
+        │                                                  │
+        │  Each LLM emits JSON conforming to:              │
+        │    analysis.schema.json (body + headline pass)   │
+        │    sources schema (per-quote speaker attrib)     │
+        │                                                  │
+        │  analyze_render: validate, augment metrics,      │
+        │  render MD, longitudinal, robustness, commit.    │
         └────────────────┬─────────────────────────────────┘
                          │
                          ▼
@@ -282,8 +305,16 @@
 | `pipeline.extract_full_text` | snapshot + optional `_convergence.json` | annotates snapshot in place; checkpoints every N |
 | `pipeline.dedup` | snapshot | `_dedup.json` + annotates items in place |
 | `pipeline.daily_health` | snapshot + last 7 days | `_health.json` |
+| `pipeline.embed_articles` | snapshot | `snapshots/<date>_embeddings.npy` + `_embedding_ids.json` (.npy gitignored; ~26 MB/day; CI regenerates each cron) |
+| `pipeline.discover_residual` | embedding cache + briefings/* | `snapshots/<date>_residual_clusters.json` (HDBSCAN over articles perception didn't assign) |
 | `pipeline.feed_rot_check` | last 7 `_health.json` | `archive/review/rot_report_<date>.md` |
-| `analytical.build_briefing` | latest snapshot | `briefings/<date>_<story>.json` |
+| `pipeline.rollup` | snapshots + briefings ≥90d old (weekly) | `archive/rollup/<bucket>-YYYY-MM.tar.gz`; idempotent |
+| `analytical.list_qualifying_stories` | briefings/* | JSON array to stdout (used by `analyze_bootstrap` matrix) |
+| `analytical.perception` | encoded vectors + canonical_stories anchors | `MatchResult` per article — softmax-argmax assignment with cosine + cosine_gap gates |
+| `analytical.build_briefing` | latest snapshot + embedding cache | `briefings/<date>_<story>.json` (delegates to perception) |
+| `analytical.persistence_tracker` | last 7 days `_residual_clusters.json` (weekly) | `archive/persistent_residual_<date>.json` |
+| `analytical.auto_promote` | persistence_tracker output + token detector (weekly) | `archive/auto_promoted_<date>.md` (review notes — never mutates canonical_stories.json) |
+| `calibration.parity_check` | `eval_set.jsonl` + current canonical anchors (weekly Sunday) | exit non-zero if macro F1 < threshold; alerts golden cron |
 | `synthesize_voiceover.py` | `video_scripts/<id>.json` | `video/public/voiceovers/<id>/scene_*.wav` + `durations.json` |
 | `generate_music_bed.py` | (none) | `video/public/music_bed.wav` |
 | `render_video.py` | `video_scripts/<id>.json` + `durations.json` | `videos/<id>.mp4` |
@@ -301,7 +332,10 @@
 
 | Cadence | Job | Action |
 |---|---|---|
-| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → health → commit |
+| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → health → embed → build_briefing → metrics → discover_residual → analyze_bootstrap → analyze_body/headline/sources (matrix) → analyze_render → draft → publish_api → distribute |
+| Mondays 09:00 UTC | `weekly.yml` | cross_outlet_lag (CCF) + wire_baseline + tilt_index + rollup + persistence_tracker + auto_promote → commit |
 | Sundays 09:00 UTC | `weekly_rot.yml` | feed rot check → commit `archive/review/rot_report_<date>.md` |
+| Sundays 10:00 UTC | `golden.yml` | perception parity check vs `calibration/eval_set.jsonl`; fails if macro F1 < 0.75 |
 | Push to main / claude-* | `ci.yml` | unit + edge tests; e2e on main only |
+| Push / PR to main | `meta-check.yml` | `baseline_pin.py --check` — every input hashed in `meta_version.json` must match its file |
 | On-demand (until A3 built) | manual or Claude Code session | build_briefing → write video_scripts → synthesize → render → post |
