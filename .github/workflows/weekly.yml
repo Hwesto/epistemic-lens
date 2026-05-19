@@ -39,18 +39,32 @@ jobs:
       - name: Tilt index (Phase 4f) — per-outlet log-odds vs wire baseline
         run: python -m analytical.tilt_index
 
-      - name: Commit + push lag/ + baseline/ + tilt/
+      - name: Retention rollup (PR2 Phase B; bundles snapshots + briefings ≥90d old)
+        # pipeline/rollup.py is idempotent — re-running on already-rolled
+        # months is a no-op. Bundles old snapshots/briefings into
+        # archive/rollup/<bucket>-YYYY-MM.tar.gz and removes the live
+        # originals, keeping the working tree manageable. Without this
+        # the repo bloats to 1-2 GB by year 2 and `git clone` becomes
+        # painful (122 MB of unrolled snapshots/ as of 2026-05-12).
+        run: python -m pipeline.rollup --window-days 90
+
+      - name: Commit + push lag/ + baseline/ + tilt/ + rollup
         run: |
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
           git add lag/ baseline/ tilt/
+          # Conditional adds: archive/rollup/ exists only on weeks the
+          # rollup actually had ≥90-day-old files to bundle, and the live
+          # removals from snapshots/ and briefings/ may also be empty.
+          [ -d archive/rollup ] && git add archive/rollup/ || true
+          git add -u snapshots/ briefings/ || true
           if git diff --cached --quiet; then
             echo "No weekly-analytics output changes to commit."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
-          git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt)"
+          git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt + rollup)"
           for i in 1 2 3; do
             if git push; then exit 0; fi
             git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
