@@ -1,0 +1,293 @@
+{
+  "meta_version": "8.7.3",
+  "date": "2026-05-19",
+  "story_key": "hormuz_iran",
+  "story_title": "Strait of Hormuz / US-Iran deal",
+  "n_buckets": 30,
+  "n_articles": 51,
+  "event_summary": "Trump postponed a planned military strike on Iran on 19 May 2026 after Gulf leaders requested a 2-3 day delay; Iran submitted a revised 14-point peace proposal through Pakistani mediation while the Strait of Hormuz remained closed and global fuel prices rose.",
+  "tldr": "The most divergent bucket in this 30-outlet corpus is africa_other: BBC Africa covered four Kenyan citizens killed and 30 injured in transport strikes over fuel prices — a direct Hormuz-caused humanitarian crisis on African soil entirely absent from every other bucket. Japan is the most isolated bucket (0.444) with only a title-level signal; the corpus has essentially no analytical Japan voice despite Japan being among the most exposed economies to Hormuz disruptions. The UK's Daily Mail ran a domestic consumer-harm story ('Families face £209 energy bill hike from July... Trumpflation misery will last into the winter') while every other bucket covered the diplomatic story — an ECONOMIC rather than SECURITY_DEFENSE framing that is exclusive to the uk bucket. USA's War on the Rocks published two analytical pieces absent from wire coverage: Operation Epic Fury and the erosion of host-nation consent, and 'The Missing Navies' noting that Asia is 'almost entirely absent' from Hormuz crisis response despite it being 'fundamentally an Asian problem.' Russia's Moscow Times reported that India had lobbied Washington for the 30-day extension of Russian oil sanctions waivers so it could replace lost Hormuz oil with Russian crude — a geopolitical triangle (India-Russia-US) invisible in most other buckets.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strike pause and military threat",
+      "buckets": [
+        "canada",
+        "iran_opposition",
+        "israel",
+        "pan_arab",
+        "turkey",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services",
+        "south_africa",
+        "ukraine",
+        "india",
+        "south_korea",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "U.S. President Donald Trump said he is holding off on a military strike on Iran planned for Tuesday because \"serious negotiations\" are underway to end the war.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "US President Donald Trump said Monday he had halted a strike on Iran planned for Tuesday",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Graham said Trump wanted Iran to halt uranium enrichment, surrender control of its stockpile of highly enriched uranium to the United States, stop interfering in shipping through the Strait of Hormuz, abandon its long-range ballistic missile and nuclear weapons programs, and end support for armed proxy groups across the region.",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Spiegel International",
+          "quote": "U.S. Military Expert on Oil Tanker Convoys in the Strait of Hormuz: \"Iran Must Only Succeed Once to Trigger a Catastrophe\"",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "fuel price contagion",
+      "buckets": [
+        "africa_other",
+        "uk",
+        "turkey",
+        "iraq",
+        "indonesia",
+        "pan_arab",
+        "ukraine",
+        "taiwan_hk",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Kenya, like many other African countries, relies heavily on fuel imports from the Gulf, a supply route disrupted by the US-Israel conflict with Iran that began on 28 February. Even though a ceasefire has been declared, fuel prices have remained high as the Strait of Hormuz, where a fifth of the world's oil passes through, is still blocked.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Families face energy bills going up by hundreds of pounds from July with no prospect of things improving for the winter.",
+          "signal_text_idx": 41
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Rising crude prices driven by the Middle East crisis have pushed fuel hikes across South and Southeast Asia, with India and Cambodia raising petrol and diesel prices this week amid inflation concerns.",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Iraq oil revenues plummets to $1.08 billion in April amid Hormuz crisis",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Iraqi oil exports through the waterway to plunge from 93 million to just 10 million barrels in April, while triggering deadly fuel price riots in Comoros.",
+          "signal_text_idx": 43
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Oil markets remain volatile as movement through the Strait of Hormuz remains significantly hampered.",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Iran's 14-point peace proposal",
+      "buckets": [
+        "canada",
+        "turkey",
+        "egypt",
+        "pakistan",
+        "pan_arab",
+        "italy",
+        "iran_opposition",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "latest peace proposal to the United States involves ending hostilities on all fronts including Lebanon, the exit of U.S. forces from areas close to Iran, and reparations for destruction caused by the U.S.-Israeli war, state media reported on Tuesday.",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "latest peace proposal to the U.S. calls for an end to hostilities across the region, including in Lebanon, the withdrawal of U.S. forces from areas near Iran and reparations for damage caused during the U.S.-Israeli war, Iranian state media reported Tuesday.",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Daily News Egypt",
+          "quote": "tasked with overseeing maritime traffic through the Strait of Hormuz and levying transit charges on passing vessels",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "multilateral pressure and sanctions",
+      "buckets": [
+        "china",
+        "russia",
+        "ukraine",
+        "opinion_magazines",
+        "asia_pacific_regional",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "China's top diplomat Wang Yi on Monday said that blocking the Strait of Hormuz would not serve the common interests of the international community, stressing that a comprehensive and lasting ceasefire through political and diplomatic means is the fundamental way forward",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "The U.S Department of the Treasury on Monday announced a 30-day extension of a sanctions waiver that allows countries to purchase Russian seaborne oil, as the conflict in the Middle East continues to roil energy markets.",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "The U.S.-Israeli war with Iran has put the Gulf states in an impossible position. The American forces they host have become the main reason their hotels and energy infrastructure are under Iranian attack.",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "On May 4, 2026, a South Korean vessel came under fire in the Strait of Hormuz, leading President Donald Trump to urge the government in Seoul to join the U.S.-led operation to secure the waterway.",
+          "signal_text_idx": 46
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.444,
+      "note": "Only a title-level signal (Nikkei Asia: 'After US-China summit, Iran digs in heels over Hormuz') — the thinnest evidence base in the corpus; Japan's actual economic exposure to Hormuz disruptions is among the highest of any country, making this a significant editorial silence."
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.475,
+      "note": "Iraqi News covered the collapse of Iraq's oil export revenues ($1.08B in April vs a normal ~$7B/month) — a domestic economic-devastation angle from an oil-dependent economy whose losses are largely invisible in Western diplomatic coverage; exclusive terms 'revenu' and 'plummet' confirm this unique angle."
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.484,
+      "note": "BBC Africa covered Kenyan transport strikes and four deaths from fuel price riots — a ground-level humanitarian story entirely absent from all other buckets; exclusive terms nairobi, kenyan, police, killed, protest, road, passenger confirm the corpus is describing a Nairobi street scene, not a Middle East diplomatic development."
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.485,
+      "note": "RT Africa covered Somali pirates (Iran-Israel tensions arming them) and Nigeria's oil-export curse — African geopolitical angles that are entirely distinct from the diplomatic and economic frames dominating other buckets."
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.486,
+      "note": "NK News covered the South Korea-Japan Andong summit as a response to Hormuz energy concerns — framing the crisis through Northeast Asian strategic realignment rather than Middle East diplomacy."
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.491,
+      "note": "CGTN's articles are older (April 2026) and covered maritime access restrictions and Wang Yi's principled position rather than the 19 May strike-pause news — temporal displacement drives isolation."
+    }
+  ],
+  "exclusive_vocab_highlights": [
+    {
+      "bucket": "africa_other",
+      "terms": ["nairobi", "kenyan", "police", "killed", "protest", "road", "passenger"],
+      "what_it_reveals": "Story-specific: BBC Africa's corpus entry describes a Nairobi street scene — protesters blocking roads with burning tyres, police using tear gas, stranded bus passengers — making the Hormuz crisis legible as an African street-level humanitarian emergency rather than a Gulf diplomatic standoff."
+    },
+    {
+      "bucket": "uk",
+      "terms": ["famil", "july", "household", "winter", "rise", "cornwall", "fall"],
+      "what_it_reveals": "Story-specific: Daily Mail's consumer-harm framing anchors the Hormuz crisis in British household budgets ('£209 energy bill hike from July... Trumpflation misery will last into the winter'), making it the only bucket where the story is a domestic cost-of-living crisis rather than a geopolitical event."
+    },
+    {
+      "bucket": "turkey",
+      "terms": ["liter", "cambodia"],
+      "what_it_reveals": "Story-specific: Anadolu Agency tracked fuel price increases in rupees-per-liter (India) and Cambodian riel — granular consumer pricing across South and Southeast Asia that no other bucket captured at this level of specificity."
+    },
+    {
+      "bucket": "brazil",
+      "terms": ["passagem", "para", "porta", "pelo", "agência", "taxa", "cabo"],
+      "what_it_reveals": "Language artefacts: Folha de São Paulo articles were published in Portuguese. All exclusive terms are Portuguese-language function words and nouns (passagem = passage, taxa = fee, cabo = cable), not substantive editorial signal — language confounding should be flagged."
+    },
+    {
+      "bucket": "iraq",
+      "terms": ["revenu", "plummet"],
+      "what_it_reveals": "Story-specific: Iraqi News uniquely covered the collapse of Iraq's Hormuz-routed oil export revenues — a direct economic victim of the crisis that is otherwise invisible in diplomatic coverage."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "pan_african",
+      "what_they_covered_instead": "Africa is among the most affected regions (Kenyan fuel riots, Nigerian oil export paradox, Comoros fuel price deaths cited by Ukraine bucket) yet pan_african has no dedicated bucket in this corpus; africa_other partially covers this through BBC Africa."
+    },
+    {
+      "bucket": "france",
+      "what_they_covered_instead": "France is a major Gulf security partner, hosts diplomatic back-channels, and had the IEA executive director in Paris warning of 'weeks of oil inventories left' — yet no French-language or French-perspective bucket is present."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC Africa",
+      "bucket": "africa_other",
+      "finding": "Only outlet to cover Kenyan fuel-price protests that killed four people and injured 30 — grounding the Hormuz closure in ground-level African civilian casualties and transport-sector collapse rather than diplomatic frameworks.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Only outlet to note that Asia-Pacific nations are 'almost entirely absent' from the Hormuz crisis response despite it being 'fundamentally an Asian problem' — and that a South Korean vessel was fired on while Seoul politely declined Trump's request to join the convoy operation.",
+      "signal_text_idx": 46
+    },
+    {
+      "outlet": "War on the Rocks",
+      "bucket": "usa",
+      "finding": "Only outlet to analyse Operation Epic Fury and the erosion of host-nation consent — arguing that Gulf states' public objections to US base use became 'irrelevant the moment US assets were already in place.'",
+      "signal_text_idx": 45
+    },
+    {
+      "outlet": "Moscow Times",
+      "bucket": "russia",
+      "finding": "Only outlet to report that India specifically lobbied Washington for the 30-day extension of Russian oil sanctions waivers so it could replace lost Hormuz supplies with Russian crude — a geopolitical triangle invisible in most diplomatic coverage.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Only outlet to frame the Hormuz crisis through the lens of domestic household energy bills — '£209 energy bill hike from July' coined 'Trumpflation' — while every other bucket covered the diplomatic or military dimension.",
+      "signal_text_idx": 41
+    },
+    {
+      "outlet": "Daily News Egypt",
+      "bucket": "egypt",
+      "finding": "Only outlet to report the formal launch of Iran's 'Persian Gulf Strait Authority' (PGSA), tasked with overseeing Hormuz maritime traffic and levying transit fees — a sovereignty assertion that, if implemented, would redefine the legal status of the strait.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "This 30-bucket, 51-article corpus is the widest in today's analysis. The dominant shared frame is the Trump strike-pause-and-deal-prospect story, anchored by the 'very good chance' phrasing that drove wire_services and south_africa to near-perfect convergence. The most analytically significant divergences are at the edges: Africa's ground-level humanitarian impact (four Kenyan dead), UK's domestic consumer framing ('Trumpflation'), and USA's strategic-analytical work on host-nation consent erosion and Asia's absent navies. Iraq's oil revenue collapse and Iran's Persian Gulf Strait Authority announcement are high-stakes single-outlet findings that are absent from the dominant diplomatic narrative.",
+  "generated_at": "2026-05-19T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
