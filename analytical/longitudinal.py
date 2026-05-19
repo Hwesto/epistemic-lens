@@ -290,6 +290,22 @@ def build_trajectory(paths: list[Path]) -> dict:
                 entry["delta_share"] = round(delta, 3)
                 entry["drivers"] = drivers_today
 
+    # PR2 Phase C audit follow-up: explicit major-pin-boundary flag.
+    # meta-v9.0.0 swapped the perception layer from regex to embedding —
+    # v8.x and v9.x briefings cover different article sets for the same
+    # canonical story key. Frame-share trajectories that straddle this
+    # boundary should be read with caution; consumers can use the
+    # `crosses_major_pin_boundary` flag to slice the trajectory at the
+    # break or visually mark it.
+    def _major(v: str) -> int:
+        try:
+            return int(v.split(".")[0])
+        except (ValueError, IndexError, AttributeError):
+            return 0
+    majors_seen = sorted({_major(seg.get("meta_version", ""))
+                            for seg in meta_version_runs})
+    crosses_major = len(majors_seen) > 1
+
     return {
         "story_key": story_key,
         "story_title": story_title,
@@ -297,6 +313,8 @@ def build_trajectory(paths: list[Path]) -> dict:
         "window_end": daily_summaries[-1]["date"] if daily_summaries else None,
         "n_days_with_analysis": len(daily_summaries),
         "meta_version_segments": meta_version_runs,
+        "crosses_major_pin_boundary": crosses_major,
+        "major_versions_seen": majors_seen,
         "bucket_set_signatures": bucket_set_runs,
         "canonical_stories_pattern_segments": pattern_runs,
         "bucket_feed_set_segments": dict(feed_set_runs),

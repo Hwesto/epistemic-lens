@@ -124,6 +124,18 @@
           },
           "via_wayback": {
             "type": "boolean"
+          },
+          "match_cosine": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "Raw cosine of this article's embedding against the assigned story's anchor centroid. Added meta-v9.0.0 (PR2 Phase B). Auditable: validators / consumers can flag low-cosine assignments for review."
+          },
+          "match_softmax": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "Softmax-normalised score of the assigned story across the full 15-story set. Closer to 1/n_stories = uniform; closer to 1.0 = strong winner. Added meta-v9.0.0."
           }
         }
       }

@@ -41,6 +41,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import meta
+from analytical.mc_correction import bh_filter, bonferroni_filter, two_sided_p_from_z
 from analytical.within_language_pmi import log_odds_with_prior
 
 ROOT = meta.REPO_ROOT
@@ -139,19 +140,36 @@ def build_bucket_mean_baseline(outlets: dict[tuple[str, str], list[dict]]
 def compute_outlet_tilt(outlet_cnt: Counter,
                           baseline_cnt: Counter,
                           min_count: int = 2,
-                          top_k: int = 15) -> dict:
+                          top_k: int = 15,
+                          correction: str = "bh",
+                          q_level: float = 0.05) -> dict:
     """Per-outlet tilt: top positive (over-represented vs the baseline) +
-    top negative (under-represented vs the baseline) bigrams by Z-score.
+    top negative (under-represented vs the baseline) bigrams.
+
+    Significance is controlled per anchor by the Benjamini-Hochberg FDR
+    procedure at level `q_level` (default 0.05). Pre-meta-v8.8.0 this
+    function used a flat z>=1.96 cut, which at our N (thousands of
+    bigram hypotheses per outlet) is the uncorrected family-wise alpha
+    and silently inflates false positives. BH controls the expected
+    proportion of false positives among rejected hypotheses, which is the
+    right framing for exploratory bigram dashboards.
+
+    `correction` accepts {"bh", "bonferroni", "none"}. Bonferroni is
+    retained only for parity with the old behaviour; at our N it
+    produces a near-empty rejection set and isn't recommended.
+
     `baseline_cnt` is either the wire-services anchor or the
     cross-bucket-mean anchor — both are valid, neither is uniquely
-    neutral."""
+    neutral.
+    """
     total_o = sum(outlet_cnt.values()) or 1
     total_b = sum(baseline_cnt.values()) or 1
-    # Scan the union: outlet-bigrams (positive candidates) AND baseline
-    # bigrams the outlet doesn't use (negative candidates).
     candidates = set(outlet_cnt) | set(baseline_cnt)
-    positive: list[dict] = []
-    negative: list[dict] = []
+    # First pass: score every candidate and bucket by sign of z.
+    pos_entries: list[dict] = []
+    neg_entries: list[dict] = []
+    pos_ps: list[float] = []
+    neg_ps: list[float] = []
     for bg in candidates:
         a = int(outlet_cnt.get(bg, 0))
         b = int(baseline_cnt.get(bg, 0))
@@ -168,19 +186,42 @@ def compute_outlet_tilt(outlet_cnt: Counter,
             "rate_in_baseline": round(rate_b, 6),
             "log_odds": round(log_odds, 3),
             "z_score": round(z, 2),
+            "p_value": round(two_sided_p_from_z(z), 6),
         }
-        if z >= 1.96:
-            positive.append(entry)
-        elif z <= -1.96:
-            negative.append(entry)
-    positive.sort(key=lambda r: -r["z_score"])
-    negative.sort(key=lambda r: r["z_score"])
+        if z > 0:
+            pos_entries.append(entry)
+            pos_ps.append(two_sided_p_from_z(z))
+        elif z < 0:
+            neg_entries.append(entry)
+            neg_ps.append(two_sided_p_from_z(z))
+
+    def _apply(entries: list[dict], ps: list[float]) -> tuple[list[dict], dict]:
+        if correction == "bh":
+            survives, info = bh_filter(ps, q=q_level)
+        elif correction == "bonferroni":
+            survives, info = bonferroni_filter(ps, alpha=q_level)
+        else:  # "none"
+            survives = [True] * len(ps)
+            info = {"correction": "none", "n_comparisons": len(ps),
+                    "n_significant": len(ps), "effective_p_critical": None}
+        return [e for e, s in zip(entries, survives) if s], info
+
+    positive_sig, pos_info = _apply(pos_entries, pos_ps)
+    negative_sig, neg_info = _apply(neg_entries, neg_ps)
+    positive_sig.sort(key=lambda r: -r["z_score"])
+    negative_sig.sort(key=lambda r: r["z_score"])
     return {
         "n_outlet_bigrams": int(total_o),
         "n_baseline_bigrams": int(total_b),
         "n_outlet_distinct": len(outlet_cnt),
-        "positive_tilt": positive[:top_k],
-        "negative_tilt": negative[:top_k],
+        "positive_tilt": positive_sig[:top_k],
+        "negative_tilt": negative_sig[:top_k],
+        "correction": {
+            "method": correction,
+            "q_level": q_level,
+            "positive": pos_info,
+            "negative": neg_info,
+        },
     }
 
 
@@ -194,6 +235,21 @@ def main() -> int:
                     help="Filter to outlets in this bucket only.")
     ap.add_argument("--today", default=None)
     ap.add_argument("--out-dir", default=str(TILT))
+    ap.add_argument(
+        "--correction",
+        choices=("bh", "bonferroni", "none"),
+        default="bh",
+        help="Multiple-comparison correction for per-bigram significance. "
+             "Default 'bh' (Benjamini-Hochberg FDR). 'bonferroni' is the "
+             "pre-meta-v8.8.0 default and produces near-empty rejection "
+             "sets at our N; only useful for parity tests.",
+    )
+    ap.add_argument(
+        "--q-level",
+        type=float,
+        default=0.05,
+        help="FDR level for BH (or alpha for Bonferroni). Default 0.05.",
+    )
     args = ap.parse_args()
 
     baseline = load_wire_baseline()
@@ -222,8 +278,12 @@ def main() -> int:
         if len(arts) < args.min_outlet_articles:
             continue
         outlet_cnt = outlet_bigrams(arts)
-        tilt_wire = compute_outlet_tilt(outlet_cnt, wire_cnt, top_k=args.top_k)
-        tilt_mean = compute_outlet_tilt(outlet_cnt, bucket_mean_cnt, top_k=args.top_k)
+        tilt_wire = compute_outlet_tilt(outlet_cnt, wire_cnt, top_k=args.top_k,
+                                          correction=args.correction,
+                                          q_level=args.q_level)
+        tilt_mean = compute_outlet_tilt(outlet_cnt, bucket_mean_cnt, top_k=args.top_k,
+                                          correction=args.correction,
+                                          q_level=args.q_level)
         out = meta.stamp({
             "bucket": bucket,
             "outlet": outlet,
@@ -232,6 +292,12 @@ def main() -> int:
             "wire_baseline_pin": baseline.get("meta_version", "?"),
             "wire_baseline_n_articles": baseline.get("n_articles", 0),
             "n_outlet_distinct": tilt_wire["n_outlet_distinct"],
+            "correction": {
+                "method": args.correction,
+                "q_level": args.q_level,
+                "wire": tilt_wire["correction"],
+                "bucket_mean": tilt_mean["correction"],
+            },
             "anchors": {
                 "wire": {
                     "n_baseline_bigrams": tilt_wire["n_baseline_bigrams"],

@@ -24,6 +24,7 @@ import sys
 import tempfile
 import time
 import unittest
+from pathlib import Path
 
 import meta
 from datetime import datetime, timezone
@@ -3583,6 +3584,252 @@ class TestCardPickers(unittest.TestCase):
         self.assertEqual(result["story_key"], "hormuz")
         self.assertEqual(result["card_kind"], "paradox")
         self.assertIn("final_score", result["score_breakdown"])
+
+
+class TestPR1Hygiene(unittest.TestCase):
+    """PR1 (meta-v8.8.0) hygiene fixes: tier-priority briefing iteration,
+    thin-bucket isolation gate, wire-syndication paradox detection,
+    outlet autofill, and BH multiple-comparison correction."""
+
+    def test_briefing_iteration_tier_priority(self):
+        """Long-running dossiers must come before dated short-lived stories
+        regardless of their order in canonical_stories.json. The pre-v8.8.0
+        JSON-order iteration combined with --max-stories=5 silently
+        truncated 8 of 15 dossiers; the new tier sort guarantees Gaza /
+        Taiwan / Iran nuclear get first shot at the budget."""
+        if "analytical.build_briefing" in sys.modules:
+            importlib.reload(sys.modules["analytical.build_briefing"])
+        from analytical import build_briefing as bb
+        # Stub stories: alphabet-shuffled so JSON-order iteration would
+        # surface the dated entry first.
+        stories = {
+            "zzz_dated_short": {"title": "Zzz", "tier": "dated", "patterns": []},
+            "aaa_long_running": {"title": "Aaa", "tier": "long_running", "patterns": []},
+            "mmm_unspecified": {"title": "Mmm", "patterns": []},
+        }
+        tier_priority = {"long_running": 0, "dated": 2}
+        keys = sorted(
+            stories,
+            key=lambda k: (tier_priority.get(stories[k].get("tier"), 1), k),
+        )
+        # Expected: long_running first, then unspecified (default 1),
+        # then dated last.
+        self.assertEqual(keys, ["aaa_long_running", "mmm_unspecified",
+                                  "zzz_dated_short"])
+
+    def test_isolation_thin_bucket_gate(self):
+        """Buckets below min_tokens_per_bucket go to isolation_excluded_thin
+        rather than the primary isolation list — a 5-token Italian
+        headline bucket should not sit alongside thousand-token corpora."""
+        if "analytical.build_metrics" in sys.modules:
+            importlib.reload(sys.modules["analytical.build_metrics"])
+        from analytical import build_metrics as bm
+        from collections import Counter as _Counter
+        # Synthetic vocabs: 'thin' = 5 tokens, 'normal' = 100 tokens
+        vocabs = {
+            "thin":   _Counter({f"tok{i}": 1 for i in range(5)}),
+            "normal": _Counter({f"tok{i}": 1 for i in range(100)}),
+        }
+        by_bucket = {"thin": ["short text"], "normal": ["padding " * 100]}
+        pairs, iso, iso_excluded, status = bm.labse_pairwise_and_isolation(
+            by_bucket, min_tokens_per_bucket=30, vocabs=vocabs
+        )
+        if status.get("skipped"):
+            self.skipTest("sentence-transformers unavailable")
+        iso_buckets = {r["bucket"] for r in iso}
+        thin_buckets = {r["bucket"] for r in iso_excluded}
+        self.assertIn("normal", iso_buckets)
+        self.assertNotIn("thin", iso_buckets)
+        self.assertIn("thin", thin_buckets)
+
+    def test_wire_syndication_paradox_flagged(self):
+        """When paradox.a and paradox.b quote near-identical signal_text
+        (Jaccard >= 0.6 over tokens) the validator must reject — the
+        'opposing-bloc convergence' is actually two outlets republishing
+        the same wire-syndicated copy verbatim."""
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as v
+        # Two corpus entries with substantially overlapping text.
+        wire = ("Reuters reports that Iran has accelerated uranium enrichment "
+                "at the Fordow facility according to IAEA inspectors.")
+        briefing = {
+            "corpus": [
+                {"bucket": "russia", "feed": "RT", "signal_text": wire},
+                {"bucket": "china",  "feed": "SCMP", "signal_text": wire},
+                {"bucket": "usa",    "feed": "NYT",  "signal_text":
+                    "Completely different prose about a different topic entirely."},
+            ]
+        }
+        para_analysis = {
+            "paradox": {
+                "a": {"bucket": "russia", "outlet": "RT",
+                       "quote": wire[:40], "signal_text_idx": 0},
+                "b": {"bucket": "china",  "outlet": "SCMP",
+                       "quote": wire[:40], "signal_text_idx": 1},
+                "joint_conclusion": "Both quote the same wire dispatch.",
+            }
+        }
+        errs = v.check_wire_syndication(para_analysis, briefing)
+        self.assertTrue(any("wire-syndicated copy" in e for e in errs),
+                          msg=f"expected wire-syndication flag, got: {errs}")
+        # Sanity: a paradox that quotes genuinely different text passes.
+        para_clean = {
+            "paradox": {
+                "a": {"bucket": "russia", "outlet": "RT",
+                       "quote": wire[:40], "signal_text_idx": 0},
+                "b": {"bucket": "usa", "outlet": "NYT",
+                       "quote": "Completely different prose",
+                       "signal_text_idx": 2},
+                "joint_conclusion": "Distinct framings.",
+            }
+        }
+        self.assertEqual(v.check_wire_syndication(para_clean, briefing), [])
+
+    def test_outlet_autofill_from_corpus(self):
+        """Evidence / single_outlet_finding entries that omit `outlet` or
+        carry '?' should have outlet auto-filled from corpus[idx].feed
+        when the citation index is valid. Prevents the rendered MD from
+        showing '?' to readers."""
+        if "analytical.validate_analysis" in sys.modules:
+            importlib.reload(sys.modules["analytical.validate_analysis"])
+        from analytical import validate_analysis as v
+        briefing = {
+            "corpus": [
+                {"bucket": "italy", "feed": "ANSA",
+                  "signal_text": "Some Italian prose about the story."},
+            ]
+        }
+        analysis = {
+            "frames": [{
+                "frame_id": "POLITICAL",
+                "buckets": ["italy"],
+                "evidence": [{"bucket": "italy",
+                                "quote": "Some Italian prose",
+                                "signal_text_idx": 0}],
+            }],
+            "single_outlet_findings": [
+                {"bucket": "italy", "outlet": "?", "finding": "x",
+                  "signal_text_idx": 0},
+            ],
+        }
+        v.check_citations(analysis, briefing)  # mutates in-place
+        self.assertEqual(
+            analysis["frames"][0]["evidence"][0].get("outlet"), "ANSA")
+        self.assertEqual(
+            analysis["single_outlet_findings"][0].get("outlet"), "ANSA")
+
+    def test_bh_correction_applied_in_tilt(self):
+        """compute_outlet_tilt with correction='bh' must report
+        correction.method=='bh' AND filter out null-signal candidates that
+        an uncorrected z>=1.96 cut would have admitted (catches the
+        'tilt vs wire' false-positive inflation at our N)."""
+        from collections import Counter as _Counter
+        if "analytical.tilt_index" in sys.modules:
+            importlib.reload(sys.modules["analytical.tilt_index"])
+        from analytical import tilt_index as ti
+        # Outlet with one strong signal bigram + many low-count noise
+        # candidates. With BH at q=0.05, only the strong one should survive.
+        outlet = _Counter({("alpha", "beta"): 200})
+        # Pad with 50 baseline bigrams each appearing once in baseline
+        # only — sets up many candidates whose z-scores are negative but
+        # tiny.
+        baseline = _Counter({("alpha", "beta"): 2})
+        for i in range(50):
+            baseline[(f"noise{i}a", f"noise{i}b")] = 1
+        result = ti.compute_outlet_tilt(outlet, baseline, min_count=1,
+                                          top_k=20, correction="bh",
+                                          q_level=0.05)
+        self.assertEqual(result["correction"]["method"], "bh")
+        self.assertEqual(result["correction"]["q_level"], 0.05)
+        # Strong signal MUST survive.
+        bigrams_pos = {tuple(r["bigram"]) for r in result["positive_tilt"]}
+        self.assertIn(("alpha", "beta"), bigrams_pos)
+        # Each entry must carry the new p_value field.
+        for row in result["positive_tilt"] + result["negative_tilt"]:
+            self.assertIn("p_value", row)
+
+
+class TestListQualifyingStories(unittest.TestCase):
+    """analytical.list_qualifying_stories — the matrix bootstrap helper
+    that replaced the old one-big-Sonnet-session architecture in
+    meta-v8.8.0."""
+
+    def setUp(self):
+        import tempfile, shutil
+        self.tmp = tempfile.mkdtemp()
+        self.briefings = Path(self.tmp) / "briefings"
+        self.briefings.mkdir()
+        # Patch the module's BRIEFINGS constant for this test
+        from analytical import list_qualifying_stories as lqs
+        self._orig_briefings = lqs.BRIEFINGS
+        lqs.BRIEFINGS = self.briefings
+        self.lqs = lqs
+
+    def tearDown(self):
+        import shutil
+        self.lqs.BRIEFINGS = self._orig_briefings
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _write_briefing(self, date: str, story: str, n_buckets: int):
+        (self.briefings / f"{date}_{story}.json").write_text(
+            '{"story_key":"' + story + '","corpus":[]}'
+        )
+        (self.briefings / f"{date}_{story}_metrics.json").write_text(
+            '{"n_buckets":' + str(n_buckets) + '}'
+        )
+
+    def test_filters_by_n_buckets(self):
+        """min_buckets gate must drop briefings below threshold."""
+        self._write_briefing("2026-05-19", "story_a", 7)
+        self._write_briefing("2026-05-19", "story_b", 2)  # below gate
+        self._write_briefing("2026-05-19", "story_c", 3)  # exactly at gate
+        out = self.lqs.list_qualifying("2026-05-19", min_buckets=3)
+        self.assertEqual(sorted(out), ["story_a", "story_c"])
+
+    def test_excludes_sibling_artefact_files(self):
+        """_within_lang_*.json and _metrics.json must NOT enter the
+        matrix story list — they're sibling artefacts, not briefings."""
+        self._write_briefing("2026-05-19", "story_x", 5)
+        # Write the sibling artefacts the build pipeline produces
+        (self.briefings / "2026-05-19_story_x_within_lang_llr.json").write_text("{}")
+        (self.briefings / "2026-05-19_story_x_within_lang_pmi.json").write_text("{}")
+        out = self.lqs.list_qualifying("2026-05-19")
+        # Must be exactly one entry — story_x — with NO duplicates from
+        # the sibling files being mis-detected as briefings.
+        self.assertEqual(out, ["story_x"])
+
+    def test_missing_metrics_skips_story(self):
+        """A briefing without its metrics sibling is unanalyzable; skip."""
+        (self.briefings / "2026-05-19_orphan.json").write_text(
+            '{"story_key":"orphan","corpus":[]}'
+        )
+        out = self.lqs.list_qualifying("2026-05-19")
+        self.assertEqual(out, [])
+
+    def test_empty_date_returns_empty_list(self):
+        out = self.lqs.list_qualifying("2026-01-01")
+        self.assertEqual(out, [])
+
+
+class TestPromptScoping(unittest.TestCase):
+    """The 3 LLM prompts gained a Scoping section in meta-v8.8.0 so the
+    matrix-bootstrap workflow can run them one story at a time without
+    each Sonnet session loading all stories' briefings. Smoke test:
+    the section must exist with the right phrasing."""
+
+    def _has_scoping(self, prompt_path: str) -> bool:
+        p = (Path(__file__).parent / prompt_path).read_text(encoding="utf-8")
+        return "## Scoping" in p and "Assigned story:" in p
+
+    def test_daily_analysis_has_scoping(self):
+        self.assertTrue(self._has_scoping(".claude/prompts/daily_analysis.md"))
+
+    def test_headline_analysis_has_scoping(self):
+        self.assertTrue(self._has_scoping(".claude/prompts/headline_analysis.md"))
+
+    def test_source_attribution_has_scoping(self):
+        self.assertTrue(self._has_scoping(".claude/prompts/source_attribution.md"))
 
 
 if __name__ == "__main__":

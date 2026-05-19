@@ -167,7 +167,7 @@
     },
     "silences": {
       "type": "array",
-      "description": "Buckets that should plausibly cover this story but didn't.",
+      "description": "Buckets that should plausibly cover this story but didn't — and DID carry items today, just on a different angle. For buckets that had zero items because feeds failed, use coverage_caveats[] instead.",
       "items": {
         "type": "object",
         "required": ["bucket", "what_they_covered_instead"],
@@ -175,6 +175,23 @@
         "properties": {
           "bucket": { "type": "string" },
           "what_they_covered_instead": { "type": "string" }
+        }
+      }
+    },
+    "coverage_caveats": {
+      "type": "array",
+      "description": "Buckets that contributed zero items today because every feed failed (403, timeout, empty). Distinct from silences[] (editorial choice). Populated by the analyze step from briefing.coverage_caveats; consumers (and the renderer) surface this separately so readers don't mistake feed failures for press behaviour.",
+      "items": {
+        "type": "object",
+        "required": ["bucket", "alert_type"],
+        "additionalProperties": true,
+        "properties": {
+          "bucket": { "type": "string" },
+          "alert_type": { "type": "string" },
+          "avg7": { "type": "number" },
+          "drop_pct": { "type": "number" },
+          "now": { "type": "integer" },
+          "reason": { "type": "string" }
         }
       }
     },

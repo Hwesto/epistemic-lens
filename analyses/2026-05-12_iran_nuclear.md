@@ -175,6 +175,12 @@ _No paradox in this corpus._
 - **`uk`** — UK is absent from this corpus despite being part of the E3 (alongside France and Germany) historically central to Iran nuclear diplomacy; likely covered Hormuz and hantavirus stories instead.
 - **`france`** — France — a P5+1 party — has no articles in this corpus; French coverage appears only in wire_services on the hantavirus story.
 
+## Coverage caveats
+
+Buckets below carried zero items today because every feed in them failed (403, timeout, or empty response). Their absence from this analysis is structural, not editorial — they did not choose not to cover the story, they could not be reached.
+
+- **`saudi_arabia`** — bucket carried 0 items today (rolling 7-day avg 6.7). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial.
+
 ## Single-outlet findings
 
 1. **Iran International EN** (`iran_opposition`): Only outlet to run satellite-imagery analysis confirming six nuclear sites struck, with new fortifications at the Natanz Pickaxe Mountain tunnel complex. (corpus[4])

@@ -1,0 +1,110 @@
+{
+  "_doc": "Embedding anchors per canonical story. Each anchor is a 1-2 sentence description of one angle of the story; encoding these and taking the mean gives a story centroid against which articles are scored (cosine), with softmax-argmax across the 15 story set assigning each article to its strongest story (PR2 Phase B). v2 (Phase A.2) addresses 5 anchor problems found in the Phase A benchmark: (1) vietnam_china_visit broadened from 'To Lam to Beijing only' to 'Vietnamese high-level international diplomacy'; (2) iran_nuclear tightened to enrichment/IAEA/NPT, hormuz_iran tightened to shipping/strait/oil to reduce mutual bleed; (3) ukraine_war tightened to combat operations to stop sweeping EU-Ukraine accession articles; (4) us_election_cycle drops 'Trump' by name to stop pulling Persian Trump-Iran articles; (5) high-drift stories (hormuz_iran, iran_nuclear, ai_regulation, ukraine_war, israel_palestine, lebanon_buffer, china_taiwan, africa_political_transitions) gain native-script multilingual anchor variants so the story centroid sits closer to non-Latin content in embedding space. NOT yet wired into canonical_stories.json — that swap is Phase B, gated on Phase A.2's benchmark verdict.",
+  "version": "v2_phase_a2",
+  "anchors": {
+    "hormuz_iran": [
+      "The Strait of Hormuz is a chokepoint for global oil shipping between Iran and the Arabian Peninsula; tanker attacks, Iranian seizure threats, and naval exercises raise the prospect of energy supply disruption.",
+      "Operations near the strait, including episodes labeled Project Freedom and Epic Fury, see Iranian small craft and missiles confront US Navy vessels transiting the chokepoint.",
+      "Qatari LNG tankers and Gulf state oil shipments rely on the strait; alternative pipelines through Saudi Arabia and the UAE only partly bypass the bottleneck.",
+      "تنگه هرمز گذرگاه راهبردی نفت جهان است؛ تنش‌های دریایی، توقیف نفتکش‌ها، و رزمایش‌های نظامی ایران در این آبراه قیمت انرژی را به نوسان درمی‌آورد.",
+      "مضيق هرمز ممر إستراتيجي لشحنات النفط؛ توترات بحرية بين القوات الإيرانية والبحرية الأمريكية، استهداف ناقلات، وتأثيرات على أسعار الطاقة العالمية."
+    ],
+    "iran_nuclear": [
+      "Iran's nuclear program — uranium enrichment at Fordow and Natanz, IAEA inspections, centrifuge capacity, and breakout timelines — sits at the center of diplomatic and military discussion.",
+      "JCPOA framework references, zero-enrichment demands, and plutonium pathway concerns dominate negotiations over a new Iran nuclear deal.",
+      "IAEA Director Grossi and Western intelligence assessments track Iran's stockpile of 60% enriched uranium and the status of underground enrichment facilities.",
+      "برنامه هسته‌ای ایران شامل غنی‌سازی اورانیوم در فردو و نطنز، بازرسی‌های آژانس بین‌المللی انرژی اتمی، و چالش بازگشت به توافق برجام در محور گفتگوهای دیپلماتیک قرار دارد.",
+      "البرنامج النووي الإيراني، تخصيب اليورانيوم، تفتيش الوكالة الدولية للطاقة الذرية، ومفاوضات اتفاق نووي جديد تشمل قيود الإثراء ومدى زمن الاختراق."
+    ],
+    "turner_cnn": [
+      "Ted Turner, the founder of CNN, has died; his career building the first 24-hour cable news network reshaped broadcast journalism.",
+      "Obituaries for the CNN founder cover his media empire, TBS, philanthropy via the UN Foundation, and conservation work.",
+      "Coverage of Turner's death revisits his founding of CNN, his marriage to Jane Fonda, and his rivalry with rival 20th-century US media moguls.",
+      "CNNの創業者テッド・ターナー氏が死去；24時間ニュース・チャンネルを生んだメディア界の重鎮として、その功績が世界中で偲ばれている。"
+    ],
+    "lebanon_buffer": [
+      "Israeli forces hold positions in southern Lebanon and strike Hezbollah targets south of the Litani River, with daily evacuation orders for Lebanese villages.",
+      "Hezbollah and the IDF trade fire across the Lebanese-Israeli border; ceasefire violations and Israeli incursions continue despite the November 2024 truce.",
+      "Lebanese officials and UNIFIL condemn Israeli operations in southern Lebanon as violations of sovereignty and the cessation-of-hostilities agreement.",
+      "تستمر العمليات الإسرائيلية في جنوب لبنان واستهداف مواقع حزب الله جنوبي نهر الليطاني، رغم اتفاق وقف إطلاق النار، مع نزوح سكان القرى الحدودية.",
+      "تواصل اسرائيل خروقاتها لاتفاق وقف اطلاق النار في لبنان مع غارات على بلدات الجنوب وإصدار أوامر إخلاء، وحزب الله يرد بإطلاق صواريخ نحو الجليل."
+    ],
+    "hantavirus_cruise": [
+      "A hantavirus outbreak aboard the cruise ship MV Hondius has sickened passengers and crew; the vessel has been quarantined while health authorities investigate.",
+      "Health officials trace the source of a virus outbreak on a cruise ship, with passengers placed under medical observation and disembarkation procedures coordinated at Tenerife.",
+      "The MV Hondius hantavirus cluster is the largest cruise-ship rodent-borne illness incident in recent years; WHO, CDC, and port health officials are involved.",
+      "ハンタウイルスの集団感染が疑われるクルーズ船MVホンディウスが、カナリア諸島テネリフェ島に到着；乗客は隔離下に置かれ、症状観察が続いている。"
+    ],
+    "vietnam_china_visit": [
+      "Vietnam's senior leadership conducts high-level state visits abroad — to Beijing, New Delhi, and elsewhere — to advance economic, security, and party-to-party relations.",
+      "Vietnamese Communist Party General Secretary To Lam represents Hanoi on major foreign trips, with bilateral agreements on supply chains, infrastructure, and maritime issues.",
+      "Vietnamese diplomatic activity, including comprehensive strategic partnership upgrades and state visits, shapes Hanoi's external posture between China, India, and ASEAN.",
+      "South China Sea, Mekong River, and Indo-Pacific positioning frame Vietnam's bilateral diplomacy with major regional powers."
+    ],
+    "ukraine_war": [
+      "Russian and Ukrainian forces fight along the eastern Donbas front; daily Russian drone and missile strikes hit Ukrainian energy infrastructure while Ukrainian forces target Russian positions in Kursk and Donetsk.",
+      "President Zelensky calls for continued Western military aid; Ukraine's air defense intercepts Shahed drones, Kalibr missiles, and Iskander warheads attacking civilian targets.",
+      "Combat reporting from Pokrovsk, Mariupol, Kharkiv, Kupyansk, and the Donetsk axis covers troop movements, casualty figures, and frontline shifts in the Russia-Ukraine war.",
+      "Drone warfare, jet-powered Shahed variants, and electronic-warfare capabilities shape the day-to-day Russia-Ukraine combat narrative.",
+      "Боевые действия на восточном фронте Украины: российские дроны и ракеты, украинская ПВО, бои в Донбассе и Курске, ежедневные потери и поставки оружия НАТО.",
+      "Війна в Україні: бої на сході, удари по інфраструктурі, дрони Shahed, реакції Заходу, гуманітарна катастрофа й контрнаступ ЗСУ."
+    ],
+    "china_taiwan": [
+      "Chinese military activity around the Taiwan Strait, including PLA Navy and Air Force incursions, raises tensions with Taipei and Washington.",
+      "Taiwan's president Lai Ching-te faces Beijing's pressure campaign over sovereignty claims; Taiwan's defense ministry reports daily PLA crossings of the median line.",
+      "US policy on the one-China framework, Taiwan arms sales, and the Taiwan Strait remains a flashpoint in US-China relations.",
+      "中国军方在台湾海峡的活动、解放军飞越中线、台北和华盛顿之间的紧张关系，以及对台军售争议。",
+      "台湾の頼清徳総統と中国の主権主張、台湾海峡における人民解放軍の活動、米中関係における台湾問題の位置づけ。"
+    ],
+    "climate_policy": [
+      "International climate negotiations at the latest COP summit address emissions targets, climate finance, and a possible new fossil-fuel transition framework.",
+      "Governments debate net-zero pledges, carbon-market design, and Paris Agreement implementation; developing-country negotiators push for loss-and-damage funding.",
+      "Climate-policy disputes between major emitters cover carbon taxes, emissions trading, fossil-fuel phase-down language, and adaptation finance for vulnerable states.",
+      "Santa Marta climate talks and IMO maritime carbon levy proposals frame the diplomatic timetable for the next round of climate commitments."
+    ],
+    "ai_regulation": [
+      "The EU AI Act, US federal AI executive orders, and parallel national legislation shape how artificial intelligence is regulated, including provisions on transparency, foundation models, and high-risk use cases.",
+      "Governments and regulators debate AI safety policy, deepfake election laws, watermarking, and oversight of large AI labs amid concerns about misuse and concentration.",
+      "OpenAI, Anthropic, Microsoft, Meta, and Google face lawsuits, FTC investigations, and content-moderation policy fights over training data and model behavior.",
+      "AI-governance proposals span national-security export controls, safety evaluations of frontier models, mandatory red-teaming, and regulation of deepfakes.",
+      "人工智能监管，欧盟AI法案，深度伪造选举法律，开源大模型的安全评估，以及对OpenAI、Anthropic等公司的法律和政策审查。"
+    ],
+    "israel_palestine": [
+      "Israeli military operations in Gaza and the West Bank continue alongside ceasefire negotiations and humanitarian-aid disputes; Hamas, the IDF, and the Palestinian Authority remain principal actors.",
+      "Civilian casualties in Gaza, hostage-release talks, and the question of post-war Gaza governance dominate coverage of the Israel-Palestine conflict.",
+      "Prime Minister Netanyahu's coalition debates the trajectory of military operations in Gaza, West Bank settlement policy, and settler violence against Palestinian villages.",
+      "International mediators — Qatar, Egypt, the US — continue shuttle diplomacy between Israel and Hamas; UN agencies coordinate humanitarian relief in Gaza.",
+      "العمليات العسكرية الإسرائيلية في قطاع غزة والضفة الغربية، مفاوضات الإفراج عن الأسرى، الأزمة الإنسانية، خروقات وقف إطلاق النار، وقتلى الفلسطينيين.",
+      "תמונת המצב בעזה ובגדה המערבית, פעילות צה\"ל, משא ומתן על שחרור חטופים, וההידברות הבינלאומית בין ישראל לחמאס."
+    ],
+    "india_pakistan": [
+      "Tensions between India and Pakistan along the Line of Control in Kashmir continue, with diplomatic exchanges between New Delhi and Islamabad and disputes over cross-border militancy.",
+      "Indian Operation Sindoor strikes on Pakistan-linked militant infrastructure, Pakistani military responses, J-10CE fighter combat, and aerial clashes shape the bilateral conflict narrative.",
+      "Indian and Pakistani officials trade accusations over Kashmir, water-sharing disputes, and cross-border infiltration; bilateral summits remain rare.",
+      "Kashmir remains the central territorial dispute between India and Pakistan; both armies maintain heavy deployments along the LoC and contested glaciers.",
+      "भारत-पाकिस्तान सीमा तनाव, कश्मीर मुद्दा, ऑपरेशन सिंदूर के बाद रक्षा रणनीति, और नियंत्रण रेखा पर सैन्य गतिविधियाँ।",
+      "پاکستان بھارت تعلقات، کشمیر تنازع، آپریشن سندور، لائن آف کنٹرول پر فوجی نقل و حرکت، اور دو طرفہ سفارت کاری۔"
+    ],
+    "us_election_cycle": [
+      "The 2028 US presidential election cycle is taking shape, with potential Republican and Democratic primary candidates positioning ahead of Iowa and New Hampshire.",
+      "Democratic candidates including Newsom, Beshear, Moore, Shapiro, and Harris position for the 2028 nomination; Republican successors debate the post-incumbency direction.",
+      "Primary debate calendars, fundraising filings, PAC formations, and early state polling frame the 2028 US presidential race coverage.",
+      "Speculation on 2028 candidates, voter-registration trends, state-level redistricting, and primary calendar disputes shape early electoral coverage.",
+      "Senate primaries in Maine, Pennsylvania congressional races, and gubernatorial succession battles feed into the 2028 picture."
+    ],
+    "eu_expansion": [
+      "European Union accession negotiations with Ukraine, Moldova, Albania, Montenegro, Serbia, Kosovo, Bosnia, North Macedonia, and Georgia continue with mixed progress at the level of the European Commission.",
+      "Brussels' enlargement strategy, candidate-country chapter openings, accession-treaty drafting, and Western Balkans summit diplomacy shape EU expansion coverage.",
+      "Accession criteria including rule-of-law reforms, judicial reforms, and anti-corruption progress in candidate states feature in European Commission assessments.",
+      "EU member-state debates on the speed of enlargement and the absorption capacity of the union frame the political timetable for accession negotiations.",
+      "Commissioner Marta Kos and the EU enlargement portfolio progress reports cover negotiation clusters, chapter openings, and bloc-wide ratification timelines."
+    ],
+    "africa_political_transitions": [
+      "Africa's recent wave of military coups in Niger, Mali, Burkina Faso, Gabon, Guinea, and Sudan continues to reshape regional politics; ECOWAS sanctions and African Union mediation remain factors.",
+      "African Union and ECOWAS responses to coups in the Sahel, including sanctions, mediation, and suspended-membership decisions, frame regional diplomacy.",
+      "Elections, transitions, and protests in Kenya, Ethiopia, Senegal, Nigeria, and South Africa carry continent-wide political implications.",
+      "Junta governments in West African states negotiate withdrawal from ECOWAS, pivot foreign policy toward Russia, and reduce ties with former French colonial structures.",
+      "انقلابات عسكرية في النيجر ومالي وبوركينا فاسو والسودان، عقوبات إيكواس، وساطة الاتحاد الأفريقي، وانعكاسات التحولات السياسية على القارة الأفريقية."
+    ]
+  }
+}

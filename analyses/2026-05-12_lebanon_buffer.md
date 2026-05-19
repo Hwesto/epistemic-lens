@@ -189,6 +189,12 @@ Two Israeli soldiers will spend weeks in military prison for desecration of a Ch
 - **`usa`** — US coverage of Lebanon is absent from this corpus; US press appears to have subordinated Lebanon buffer-zone reporting to Hormuz ceasefire and Iran nuclear stories on the same day.
 - **`france`** — France commands UNIFIL forces in southern Lebanon and has a deep historic stake in Lebanese sovereignty, but no dedicated French bucket exists; French Lebanon coverage appears only in hantavirus wire_services.
 
+## Coverage caveats
+
+Buckets below carried zero items today because every feed in them failed (403, timeout, or empty response). Their absence from this analysis is structural, not editorial — they did not choose not to cover the story, they could not be reached.
+
+- **`saudi_arabia`** — bucket carried 0 items today (rolling 7-day avg 6.7). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial.
+
 ## Single-outlet findings
 
 1. **Jerusalem Post** (`israel`): Only outlet to specify that the Golani Brigade used robots for portions of its Litani River advance, and to give a three-day casualty count (15 Hezbollah fighters killed). (corpus[4])

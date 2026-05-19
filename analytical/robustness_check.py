@@ -72,8 +72,37 @@ def frame_set_per_day(trajectory: dict) -> dict[str, set]:
     return by_day
 
 
+def _date_to_major(trajectory: dict) -> dict[str, int]:
+    """Map each date in the trajectory to its meta_version major component.
+    Used to skip consecutive-day pairs that straddle a major pin boundary
+    (e.g. v8.x → v9.0.0 where the matcher swapped regex → embedding).
+    Frame-set Jaccard across such a boundary is meaningless — the
+    underlying corpus changed.
+
+    Reads from daily_summaries (one entry per day with `date` + `meta_version`)
+    rather than meta_version_segments (which use from_date/to_date ranges).
+    """
+    out: dict[str, int] = {}
+    for entry in (trajectory.get("daily_summaries") or []):
+        d = entry.get("date")
+        v = entry.get("meta_version", "")
+        if not d:
+            continue
+        try:
+            out[d] = int(v.split(".")[0])
+        except (ValueError, IndexError, AttributeError):
+            out[d] = 0
+    return out
+
+
 def compute_robustness(trajectory: dict, threshold: float = 0.5) -> dict:
-    """Stability index over consecutive day pairs."""
+    """Stability index over consecutive day pairs.
+
+    Audit follow-up (meta-v9.2.x): consecutive day-pairs that straddle a
+    major meta_version bump are excluded from the stability average — the
+    pre-9.0 (regex) and post-9.0 (embedding) corpora are not comparable.
+    Those pairs are recorded with a `skipped_major_boundary: true` flag so
+    downstream readers can see them, but don't enter the average."""
     days = frame_set_per_day(trajectory)
     sorted_days = sorted(days.keys())
     if len(sorted_days) < 2:
@@ -82,29 +111,46 @@ def compute_robustness(trajectory: dict, threshold: float = 0.5) -> dict:
             "reason": "insufficient_history",
             "n_days": len(sorted_days),
         }
+    date_major = _date_to_major(trajectory)
     pairs: list[dict] = []
     sims: list[float] = []
+    n_skipped_boundary = 0
     for d_curr, d_next in zip(sorted_days, sorted_days[1:]):
         sim = jaccard(days[d_curr], days[d_next])
-        pairs.append({
+        m_curr = date_major.get(d_curr)
+        m_next = date_major.get(d_next)
+        straddles_major = (
+            m_curr is not None and m_next is not None and m_curr != m_next
+        )
+        pair = {
             "from_date": d_curr,
             "to_date": d_next,
             "from_frames": sorted(days[d_curr]),
             "to_frames": sorted(days[d_next]),
             "jaccard": (round(sim, 3) if sim is not None else None),
-        })
-        if sim is not None:
+        }
+        if straddles_major:
+            pair["skipped_major_boundary"] = True
+            pair["from_major"] = m_curr
+            pair["to_major"] = m_next
+            n_skipped_boundary += 1
+        pairs.append(pair)
+        if sim is not None and not straddles_major:
             sims.append(sim)
     if not sims:
         return {
-            "skipped": True, "reason": "all_pairs_undefined",
+            "skipped": True,
+            "reason": ("all_pairs_undefined" if n_skipped_boundary == 0
+                       else "all_pairs_straddle_major_boundary"),
             "n_days": len(sorted_days),
+            "n_skipped_major_boundary": n_skipped_boundary,
         }
     stability = sum(sims) / len(sims)
     return {
         "skipped": False,
         "n_days": len(sorted_days),
         "n_consecutive_pairs": len(pairs),
+        "n_skipped_major_boundary": n_skipped_boundary,
         "stability": round(stability, 3),
         "low_stability": stability < threshold,
         "threshold": threshold,

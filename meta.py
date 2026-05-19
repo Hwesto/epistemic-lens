@@ -108,6 +108,15 @@ INGEST = META["ingest"]
 SIGNAL_TEXT = META["signal_text"]
 CLAUDE = META["claude"]
 FEEDS_META = META["feeds"]
+# Perception layer config (PR2 Phase B, meta-v9.x). Read by:
+#   - pipeline/embed_articles.py      (model_id + signal_text_version for cache keys)
+#   - analytical/build_briefing.py    (model_id, floor, cosine_gap defaults)
+#   - analytical/perception.py        (called by build_briefing — doesn't read PERCEPTION
+#                                       directly; receives parameters from caller)
+#   - pipeline/discover_residual.py   (model_id + signal_text_version for article_id
+#                                       computation against assigned-set)
+# Empty {} on pre-9.0 pins so legacy snapshots/briefings still import meta cleanly.
+PERCEPTION = META.get("perception") or {}
 
 
 @lru_cache(maxsize=1)

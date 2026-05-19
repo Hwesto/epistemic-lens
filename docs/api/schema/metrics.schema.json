@@ -139,6 +139,25 @@
       "type": "string",
       "description": "Human-readable summary of the tokenisation + threshold rules. Computed from meta.TOKENIZER and meta.METRICS at run time."
     },
+    "isolation_excluded_thin": {
+      "type": "array",
+      "description": "Buckets whose token count fell below meta.METRICS['isolation_min_tokens'] and were therefore excluded from the isolation ranking. Their mean_similarity is still computed (so consumers can audit), but ranking-by-isolation no longer surfaces a 10-token headline-only bucket alongside multi-thousand-token corpora. Added in meta-v8.8.0.",
+      "items": {
+        "type": "object",
+        "required": ["bucket", "mean_similarity", "n_tokens"],
+        "additionalProperties": false,
+        "properties": {
+          "bucket": { "type": "string" },
+          "mean_similarity": { "type": "number" },
+          "n_tokens": { "type": "integer" }
+        }
+      }
+    },
+    "weighted_frame_distribution": {
+      "type": "object",
+      "description": "Population-weighted frame aggregates, computed from the matching analysis JSON via build_metrics --augment-from-analysis after the analyze step has produced frames. Added in meta-v8.8.0; previously this block lived only in the renderer's call-site (the function existed but was unwired into the metrics file).",
+      "additionalProperties": true
+    },
     "generated_at": {
       "type": "string"
     }
