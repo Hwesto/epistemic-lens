@@ -12,6 +12,23 @@ renders human-readable markdown for PR review — you don't write markdown.
 
 ---
 
+## Scoping
+
+The cron's analyze step runs you ONE story at a time via a matrix —
+each invocation receives a header like:
+
+    # Assigned story: <story_key>
+
+before this prompt. When that header is present, process ONLY that story.
+Do not enumerate or analyse any other story. Your output is a single file:
+`analyses/<DATE>_<story_key>.json`. Skip step 2 of the procedure below
+(the `ls` discovery step) and read the named briefing directly.
+
+When no `# Assigned story:` header is present (local manual runs),
+fall back to the legacy enumeration in step 2.
+
+---
+
 ## Inputs
 
 For each story you analyse:

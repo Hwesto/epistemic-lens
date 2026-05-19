@@ -24,6 +24,7 @@ import sys
 import tempfile
 import time
 import unittest
+from pathlib import Path
 
 import meta
 from datetime import datetime, timezone
@@ -3747,6 +3748,88 @@ class TestPR1Hygiene(unittest.TestCase):
         # Each entry must carry the new p_value field.
         for row in result["positive_tilt"] + result["negative_tilt"]:
             self.assertIn("p_value", row)
+
+
+class TestListQualifyingStories(unittest.TestCase):
+    """analytical.list_qualifying_stories — the matrix bootstrap helper
+    that replaced the old one-big-Sonnet-session architecture in
+    meta-v8.8.0."""
+
+    def setUp(self):
+        import tempfile, shutil
+        self.tmp = tempfile.mkdtemp()
+        self.briefings = Path(self.tmp) / "briefings"
+        self.briefings.mkdir()
+        # Patch the module's BRIEFINGS constant for this test
+        from analytical import list_qualifying_stories as lqs
+        self._orig_briefings = lqs.BRIEFINGS
+        lqs.BRIEFINGS = self.briefings
+        self.lqs = lqs
+
+    def tearDown(self):
+        import shutil
+        self.lqs.BRIEFINGS = self._orig_briefings
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _write_briefing(self, date: str, story: str, n_buckets: int):
+        (self.briefings / f"{date}_{story}.json").write_text(
+            '{"story_key":"' + story + '","corpus":[]}'
+        )
+        (self.briefings / f"{date}_{story}_metrics.json").write_text(
+            '{"n_buckets":' + str(n_buckets) + '}'
+        )
+
+    def test_filters_by_n_buckets(self):
+        """min_buckets gate must drop briefings below threshold."""
+        self._write_briefing("2026-05-19", "story_a", 7)
+        self._write_briefing("2026-05-19", "story_b", 2)  # below gate
+        self._write_briefing("2026-05-19", "story_c", 3)  # exactly at gate
+        out = self.lqs.list_qualifying("2026-05-19", min_buckets=3)
+        self.assertEqual(sorted(out), ["story_a", "story_c"])
+
+    def test_excludes_sibling_artefact_files(self):
+        """_within_lang_*.json and _metrics.json must NOT enter the
+        matrix story list — they're sibling artefacts, not briefings."""
+        self._write_briefing("2026-05-19", "story_x", 5)
+        # Write the sibling artefacts the build pipeline produces
+        (self.briefings / "2026-05-19_story_x_within_lang_llr.json").write_text("{}")
+        (self.briefings / "2026-05-19_story_x_within_lang_pmi.json").write_text("{}")
+        out = self.lqs.list_qualifying("2026-05-19")
+        # Must be exactly one entry — story_x — with NO duplicates from
+        # the sibling files being mis-detected as briefings.
+        self.assertEqual(out, ["story_x"])
+
+    def test_missing_metrics_skips_story(self):
+        """A briefing without its metrics sibling is unanalyzable; skip."""
+        (self.briefings / "2026-05-19_orphan.json").write_text(
+            '{"story_key":"orphan","corpus":[]}'
+        )
+        out = self.lqs.list_qualifying("2026-05-19")
+        self.assertEqual(out, [])
+
+    def test_empty_date_returns_empty_list(self):
+        out = self.lqs.list_qualifying("2026-01-01")
+        self.assertEqual(out, [])
+
+
+class TestPromptScoping(unittest.TestCase):
+    """The 3 LLM prompts gained a Scoping section in meta-v8.8.0 so the
+    matrix-bootstrap workflow can run them one story at a time without
+    each Sonnet session loading all stories' briefings. Smoke test:
+    the section must exist with the right phrasing."""
+
+    def _has_scoping(self, prompt_path: str) -> bool:
+        p = (Path(__file__).parent / prompt_path).read_text(encoding="utf-8")
+        return "## Scoping" in p and "Assigned story:" in p
+
+    def test_daily_analysis_has_scoping(self):
+        self.assertTrue(self._has_scoping(".claude/prompts/daily_analysis.md"))
+
+    def test_headline_analysis_has_scoping(self):
+        self.assertTrue(self._has_scoping(".claude/prompts/headline_analysis.md"))
+
+    def test_source_attribution_has_scoping(self):
+        self.assertTrue(self._has_scoping(".claude/prompts/source_attribution.md"))
 
 
 if __name__ == "__main__":

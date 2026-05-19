@@ -13,6 +13,22 @@ per-outlet sensationalism index.
 
 ---
 
+## Scoping
+
+The cron's analyze_headline step runs you ONE story at a time via a matrix —
+each invocation receives a header like:
+
+    # Assigned story: <story_key>
+
+before this prompt. When that header is present, process ONLY that story
+and write a single file: `analyses/<DATE>_<story_key>_headline.json`.
+Skip any story-discovery step; read the named briefing directly.
+
+When no `# Assigned story:` header is present (local manual runs),
+fall back to enumerating today's briefings.
+
+---
+
 ## Inputs
 
 For each story:

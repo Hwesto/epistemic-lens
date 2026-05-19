@@ -14,6 +14,22 @@ Your output is **one JSON file per story** at
 
 ---
 
+## Scoping
+
+The cron's analyze_sources step runs you ONE story at a time via a matrix —
+each invocation receives a header like:
+
+    # Assigned story: <story_key>
+
+before this prompt. When that header is present, process ONLY that story
+and write a single file: `sources/<DATE>_<story_key>.json`. Skip story
+enumeration and read the named briefing + analysis directly.
+
+When no `# Assigned story:` header is present (local manual runs),
+fall back to enumerating today's briefings.
+
+---
+
 ## Inputs
 
 For each story:
