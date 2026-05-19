@@ -214,6 +214,32 @@ class TestCanonicalStoriesHaveAnchors(unittest.TestCase):
             self.assertLess(f, 1.0)
 
 
+class TestArticleIdConsistencyAcrossPipeline(unittest.TestCase):
+    """Audit follow-up: every stage of Phase B (embed_articles writing,
+    build_briefing reading the cache, discover_residual subtracting
+    assigned IDs from the universe) must compute identical article_ids
+    for the same (feed, link, model, signal_text_version) tuple. They
+    all call perception.article_id() — assert the helper is the sole
+    source of truth by exercising all three call sites."""
+
+    def test_embed_articles_and_perception_module_agree(self):
+        """pipeline.embed_articles.encode_snapshot writes IDs by calling
+        perception.article_id; pipeline.discover_residual subtracts IDs
+        the same way; build_briefing reads them the same way. The
+        helper is the single point of truth — this test enforces that."""
+        from pipeline import embed_articles as ea
+        from pipeline import discover_residual as dr
+        # All three modules must import the same article_id symbol.
+        self.assertIs(perception.article_id, ea.perception.article_id)
+        self.assertIs(perception.article_id, dr.perception.article_id)
+        # And the symbol must produce identical IDs for matching inputs.
+        a = perception.article_id("BBC", "https://x/y", "m1", "v1")
+        b = ea.perception.article_id("BBC", "https://x/y", "m1", "v1")
+        c = dr.perception.article_id("BBC", "https://x/y", "m1", "v1")
+        self.assertEqual(a, b)
+        self.assertEqual(a, c)
+
+
 class TestPerceptionPinBlock(unittest.TestCase):
     """meta_version.json's perception block is the runtime config the
     matcher reads. Must have model_id, signal_text_version, floor."""

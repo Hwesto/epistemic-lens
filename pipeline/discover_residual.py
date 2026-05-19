@@ -62,11 +62,20 @@ def _assigned_article_ids(date: str) -> set[str]:
         return assigned  # Pre-9.0 transition: nothing to subtract
     for briefing_path in BRIEFINGS.glob(f"{date}_*.json"):
         if briefing_path.stem.endswith(("_metrics", "_within_lang_llr",
-                                          "_within_lang_pmi")):
+                                          "_within_lang_pmi", "_headline")):
             continue
         try:
             b = json.loads(briefing_path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
+            continue
+        # Guard against picking up a stale briefing whose filename matched
+        # by accident (e.g. a partially-written file from yesterday with
+        # today's prefix). If the briefing's stamped date doesn't match
+        # the discovery date, skip it — we'd be subtracting the wrong
+        # article set and contaminating the residual.
+        if b.get("date") and b["date"] != date:
+            print(f"  skipping {briefing_path.name}: stamped date "
+                  f"{b['date']} != {date}", flush=True)
             continue
         for entry in (b.get("corpus") or []):
             feed = entry.get("feed") or ""
