@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "9.0.0",
-  "pinned_at": "2026-05-19T14:09:51Z",
-  "pin_reason": "perception layer rebuild: Latin-script regex matcher (8.x) -> embedding softmax-argmax matcher with multilingual anchors; intfloat/multilingual-e5-large; assignment_floor=0.40; calibrated against 343-row silver eval set at macro F1=0.815 (Phase A.2)",
+  "meta_version": "9.0.1",
+  "pinned_at": "2026-05-19T14:37:28Z",
+  "pin_reason": "open-world cosine_gap filter (rejects equidistant articles; fixes Korean Gwangju shop false positive observed in May-12 smoke)",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -88,9 +88,10 @@
     "embedding_model": "intfloat/multilingual-e5-large",
     "signal_text_version": "v1",
     "assignment_floor_default": 0.4,
+    "cosine_gap_default": 0.02,
     "calibration_eval_n": 343,
     "calibration_macro_f1": 0.815,
     "calibration_report": "calibration/perception_eval_report.md"
   },
-  "pin_self_hash": "sha256:da01b7b7f0cb8aae6bf0ba7a092b50ee8270d52517ad0f5c4ccd79537034b7dc"
+  "pin_self_hash": "sha256:5fe4f26a17b422c3f44436656700e6e9077bdf14fc7140f4e48d0444fdbba71f"
 }

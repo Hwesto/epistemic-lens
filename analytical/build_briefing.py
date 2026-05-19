@@ -65,6 +65,7 @@ def _compute_assignments(snap: dict) -> dict[str, perception.MatchResult]:
     sig_version = perception_cfg.get("signal_text_version", "v1")
     floor = float(perception_cfg.get("assignment_floor_default",
                                        perception.DEFAULT_FLOOR))
+    cosine_gap = float(perception_cfg.get("cosine_gap_default", 0.02))
     if not model_id:
         # Legacy code path: no perception config → empty assignments
         # (callers fall back to regex). Useful for tests + during the
@@ -130,7 +131,8 @@ def _compute_assignments(snap: dict) -> dict[str, perception.MatchResult]:
         story_anchors, model, prefix=perception.model_input_prefix(model_id)
     )
     return perception.assign_articles_to_stories(
-        item_ids, item_langs, article_vecs, centroids, floor=floor,
+        item_ids, item_langs, article_vecs, centroids,
+        floor=floor, cosine_gap=cosine_gap,
     )
 
 

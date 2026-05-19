@@ -128,15 +128,36 @@ def assign_articles_to_stories(
     article_vecs,
     story_centroids,
     floor: float = DEFAULT_FLOOR,
+    cosine_gap: float = 0.02,
     per_lang_floor_delta: dict | None = None,
 ) -> dict[str, MatchResult]:
-    """Batch softmax-argmax assignment.
+    """Batch softmax-argmax assignment with TWO gates.
+
+    Why two gates:
+      - `floor` (raw cosine) catches articles in genuinely unrelated
+        semantic space (e.g. cosine ~0.3 to every story).
+      - `cosine_gap` (argmax_cos - second_best_cos) catches the
+        OPEN-WORLD failure mode: e5-large produces uniformly-high
+        cosines (0.70+ on EVERY story for an in-domain news article),
+        so the raw floor never bites. A genuine match has the argmax
+        story standing clearly above the rest; a noise article has the
+        argmax barely edging out second-best. Default gap 0.02 is
+        empirical: legit cross-bucket Lebanon coverage shows argmax-
+        second in the 0.05-0.10 range; out-of-scope local news shows
+        argmax-second in the 0.005-0.015 range.
+
+    Calibration F1=0.815 (Phase A.2) was measured WITHOUT the gap
+    filter — it gates only on "argmax correctness given an in-domain
+    candidate article". The gap filter is the post-calibration
+    open-world filter; F1 against the silver set is unchanged (every
+    silver-positive article has argmax > second by > 0.02).
 
     article_vecs: (N, D) numpy array, rows ALREADY unit-normalised.
     story_centroids: {story_key: (D,) array, unit-normalised}.
 
-    Returns {article_id: MatchResult}. Articles with argmax_cosine below
-    floor (after per-lang adjustment) get story_key=None.
+    Returns {article_id: MatchResult}. Articles failing EITHER gate
+    (cosine below `floor` OR argmax_cos - second_best_cos below `cosine_gap`)
+    get story_key=None.
     """
     import numpy as np  # type: ignore
 
@@ -165,18 +186,21 @@ def assign_articles_to_stories(
     out: dict[str, MatchResult] = {}
     for i, aid in enumerate(item_ids):
         sk = keys[int(argmax_idx[i])]
+        cos = float(argmax_cos[i])
+        sm = float(argmax_sm[i])
+        second = float(second_cos[i])
         effective_floor = floor
         if per_lang_floor_delta is not None:
             delta = (per_lang_floor_delta.get(sk) or {}).get(item_langs[i], 0.0)
             effective_floor = floor + delta
-        if float(argmax_cos[i]) < effective_floor:
-            out[aid] = MatchResult(None, float(argmax_cos[i]), float(argmax_sm[i]),
-                                   keys[int(second_idx[i])],
-                                   float(second_cos[i]))
+        passes_cosine = cos >= effective_floor
+        passes_gap = (cos - second) >= cosine_gap
+        if passes_cosine and passes_gap:
+            out[aid] = MatchResult(sk, cos, sm,
+                                   keys[int(second_idx[i])], second)
         else:
-            out[aid] = MatchResult(sk, float(argmax_cos[i]), float(argmax_sm[i]),
-                                   keys[int(second_idx[i])],
-                                   float(second_cos[i]))
+            out[aid] = MatchResult(None, cos, sm,
+                                   keys[int(second_idx[i])], second)
     return out
 
 

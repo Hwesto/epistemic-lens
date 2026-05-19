@@ -117,7 +117,7 @@ class TestSoftmaxArgmax(unittest.TestCase):
         out = perception.assign_articles_to_stories(
             item_ids=["a1", "a2"], item_langs=["en", "en"],
             article_vecs=vecs, story_centroids=self.story_centroids,
-            floor=0.5,
+            floor=0.5, cosine_gap=0.0,  # disable gap for argmax-only test
         )
         self.assertEqual(out["a1"].story_key, "story_a")
         self.assertEqual(out["a2"].story_key, "story_b")
@@ -130,7 +130,7 @@ class TestSoftmaxArgmax(unittest.TestCase):
         out = perception.assign_articles_to_stories(
             item_ids=["a1"], item_langs=["en"],
             article_vecs=vecs, story_centroids=self.story_centroids,
-            floor=0.1,
+            floor=0.1, cosine_gap=0.0,
         )
         self.assertIsNone(out["a1"].story_key,
                           msg=f"argmax_cosine={out['a1'].cosine} below floor; should be None")
@@ -144,40 +144,49 @@ class TestSoftmaxArgmax(unittest.TestCase):
         out = perception.assign_articles_to_stories(
             item_ids=["a1"], item_langs=["en"],
             article_vecs=vecs, story_centroids=self.story_centroids,
-            floor=0.1,
+            floor=0.1, cosine_gap=0.0,
         )
         self.assertEqual(out["a1"].story_key, "story_a")
         self.assertEqual(out["a1"].second_best_story, "story_b")
 
+    def test_cosine_gap_rejects_equidistant_article(self):
+        """The open-world filter: an article roughly equidistant from
+        many centroids (cos to argmax barely above second-best) is
+        rejected. This is the Korean-Gwangju-shop failure mode where
+        e5-large gives cosine ~0.75 to many unrelated stories."""
+        import numpy as np
+        # Article roughly equidistant from story_a and story_b: cos ~0.71
+        # to both, gap ~0.0. Floor passes, but gap fails.
+        v = np.array([0.5, 0.5, 0.0, 0.0], dtype="float32")
+        v = v / np.linalg.norm(v)
+        vecs = v.reshape(1, -1)
+        out = perception.assign_articles_to_stories(
+            item_ids=["a1"], item_langs=["en"],
+            article_vecs=vecs, story_centroids=self.story_centroids,
+            floor=0.4, cosine_gap=0.05,
+        )
+        self.assertIsNone(out["a1"].story_key,
+                          msg=f"argmax={out['a1'].cosine} second={out['a1'].second_best_cosine}; "
+                               "gap should fail filter")
+
     def test_per_lang_floor_delta(self):
         import numpy as np
-        # Article scores 0.6 on story_a. Default floor=0.5, but a Persian
-        # delta of +0.2 means Persian articles need to score ≥0.7 for
-        # story_a — this one fails the language-adjusted gate.
         v = np.array([0.6, 0.5, 0.0, 0.0], dtype="float32")
         v = v / np.linalg.norm(v)
         vecs = v.reshape(1, -1)
         out_en = perception.assign_articles_to_stories(
             item_ids=["a1"], item_langs=["en"],
             article_vecs=vecs, story_centroids=self.story_centroids,
-            floor=0.5,
+            floor=0.5, cosine_gap=0.0,
         )
-        out_fa = perception.assign_articles_to_stories(
-            item_ids=["a1"], item_langs=["fa"],
-            article_vecs=vecs, story_centroids=self.story_centroids,
-            floor=0.5, per_lang_floor_delta={"story_a": {"fa": 0.2}},
-        )
-        self.assertEqual(out_en["a1"].story_key, "story_a")
-        # Persian gate is now 0.5+0.2=0.7; article scores ~0.768 actually
-        # (cosine of normed v with [1,0,0,0]). Let me recompute: v/|v| =
-        # [0.6, 0.5, 0, 0]/0.781 = [0.768, 0.640, 0, 0]. Cosine vs story_a
-        # = 0.768 ≥ 0.7. So Persian gate PASSES here. Pick a thinner case:
         out_fa_strict = perception.assign_articles_to_stories(
             item_ids=["a1"], item_langs=["fa"],
             article_vecs=vecs, story_centroids=self.story_centroids,
-            floor=0.5, per_lang_floor_delta={"story_a": {"fa": 0.3}},
+            floor=0.5, cosine_gap=0.0,
+            per_lang_floor_delta={"story_a": {"fa": 0.3}},
         )
-        # floor for story_a in fa = 0.8; article scores 0.768; below.
+        self.assertEqual(out_en["a1"].story_key, "story_a")
+        # floor for story_a in fa = 0.5+0.3=0.8; article cos ~0.768; below.
         self.assertIsNone(out_fa_strict["a1"].story_key)
 
 
