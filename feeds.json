@@ -1,13 +1,66 @@
 {
   "meta": {
     "project": "epistemic-lens",
-    "version": "0.6.0",
+    "version": "0.5.1",
     "last_updated": "2026-05-09",
     "n_feeds": 235,
-    "n_buckets": 54,
+    "n_buckets": 55,
     "notes": "v0.6.0 — adds per-feed `section` field (news|opinion|wire) for Phase 1 opinion-feed exclusion from frame distributions. Defaults: wire_services bucket=wire, opinion_magazines bucket=opinion, plus 3 individual feeds flagged opinion (War on the Rocks, Asia Times, Al Jazeera Arabic). All others default to news. Forward-compatible."
   },
   "countries": {
+    "france": {
+      "label": "France",
+      "feeds": [
+        {
+          "name": "AFP / France 24 FR",
+          "url": "https://www.france24.com/fr/rss",
+          "lang": "fr",
+          "lean": "Public broadcaster — international",
+          "section": "news",
+          "status": "OK"
+        },
+        {
+          "name": "Le Monde",
+          "url": "https://www.lemonde.fr/rss/une.xml",
+          "lang": "fr",
+          "lean": "Centre-left daily",
+          "section": "news",
+          "status": "OK"
+        },
+        {
+          "name": "Le Figaro",
+          "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml",
+          "lang": "fr",
+          "lean": "Centre-right daily",
+          "section": "news",
+          "status": "OK"
+        },
+        {
+          "name": "Le Parisien",
+          "url": "https://feeds.leparisien.fr/leparisien/rss",
+          "lang": "fr",
+          "lean": "Mid-market daily",
+          "section": "news",
+          "status": "OK"
+        },
+        {
+          "name": "BFM TV",
+          "url": "https://www.bfmtv.com/rss/news-24-7/",
+          "lang": "fr",
+          "lean": "Commercial news channel",
+          "section": "news",
+          "status": "OK"
+        },
+        {
+          "name": "France Info",
+          "url": "https://www.francetvinfo.fr/titres.rss",
+          "lang": "fr",
+          "lean": "Public broadcaster — domestic",
+          "section": "news",
+          "status": "OK"
+        }
+      ]
+    },
     "wire_services": {
       "label": "Wire Services (Factual Baseline)",
       "feeds": [
@@ -36,60 +89,10 @@
           "status": "OK"
         },
         {
-          "name": "AFP / France 24 FR",
-          "url": "https://www.france24.com/fr/rss",
-          "lang": "fr",
-          "lean": "French wire — domestic",
-          "section": "wire",
-          "status": "OK"
-        },
-        {
-          "name": "Le Monde",
-          "url": "https://www.lemonde.fr/rss/une.xml",
-          "lang": "fr",
-          "lean": "Centre-left flagship",
-          "section": "wire",
-          "status": "RETRY",
-          "paywalled": true
-        },
-        {
-          "name": "Le Figaro",
-          "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml",
-          "lang": "fr",
-          "lean": "Centre-right",
-          "section": "wire",
-          "status": "RETRY",
-          "paywalled": true
-        },
-        {
           "name": "Liberation",
           "url": "https://www.liberation.fr/rss/",
           "lang": "fr",
           "lean": "Left-liberal",
-          "section": "wire",
-          "status": "RETRY"
-        },
-        {
-          "name": "Le Parisien",
-          "url": "https://feeds.leparisien.fr/leparisien/rss",
-          "lang": "fr",
-          "lean": "Centre-popular tabloid",
-          "section": "wire",
-          "status": "RETRY"
-        },
-        {
-          "name": "BFM TV",
-          "url": "https://www.bfmtv.com/rss/news-24-7/",
-          "lang": "fr",
-          "lean": "Centre commercial TV",
-          "section": "wire",
-          "status": "OK"
-        },
-        {
-          "name": "France Info",
-          "url": "https://www.francetvinfo.fr/titres.rss",
-          "lang": "fr",
-          "lean": "Public broadcaster",
           "section": "wire",
           "status": "RETRY"
         }

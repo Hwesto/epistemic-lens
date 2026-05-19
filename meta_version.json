@@ -1,13 +1,13 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "9.0.1",
-  "pinned_at": "2026-05-19T14:37:28Z",
-  "pin_reason": "open-world cosine_gap filter (rejects equidistant articles; fixes Korean Gwangju shop false positive observed in May-12 smoke)",
+  "meta_version": "9.1.0",
+  "pinned_at": "2026-05-19T14:38:52Z",
+  "pin_reason": "add france bucket (6 feeds: Le Monde, Le Figaro, Le Parisien, BFM TV, France Info, AFP/France24 FR moved from wire_services). bucket_weights: pop_m=68, audience_reach=0.80.",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
-    "n_buckets": 54,
-    "hash": "sha256:a78323a84625d2f0f4e6fe1b990eddc848ebf168c19b5bd79294c352d1b2227c"
+    "n_buckets": 55,
+    "hash": "sha256:26c7b563d90b99770c85eb9620dd9554ec38629b473367b982b480b4bf12497a"
   },
   "tokenizer": {
     "_doc": "Unicode-aware tokenizer via the `regex` library. \\p{L} matches any Unicode letter so diacritics in any script (e.g. 'México', 'résumé', 'göteborg') are preserved as single tokens. Lower bound 4 chars stabilises minimum vocabulary size. Operates on the original signal_text in its source language; the multilingual stopwords union (NLTK + spaCy) filters function words across the languages we ingest. Used for bucket-exclusive vocabulary; cross-bucket similarity is LaBSE (see metrics).",
@@ -93,5 +93,5 @@
     "calibration_macro_f1": 0.815,
     "calibration_report": "calibration/perception_eval_report.md"
   },
-  "pin_self_hash": "sha256:5fe4f26a17b422c3f44436656700e6e9077bdf14fc7140f4e48d0444fdbba71f"
+  "pin_self_hash": "sha256:b7b5fd43c61082c2cc30adae89e55fd7c8dd4949f362d4d87ea5276b9fd0b41a"
 }
