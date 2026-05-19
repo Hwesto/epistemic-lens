@@ -23,6 +23,7 @@ from datetime import datetime
 from pathlib import Path
 
 import meta
+from analytical import perception
 from analytical.coverage_warnings import coverage_warnings_for
 from pipeline.extract_full_text import signal_text
 
@@ -39,6 +40,10 @@ BRIEFINGS.mkdir(exist_ok=True)
 CANONICAL_STORIES = meta.canonical_stories()
 
 
+# meta-v8.x: regex matcher. Kept for the emerging-story token detector
+# below (which uses canonical patterns to exclude already-known stories
+# from the discovery candidate pool). NOT called from build_briefing_for_story
+# any more — that path delegates to analytical.perception.
 def matches_story(item: dict, patterns, exclude=None) -> bool:
     txt = (item.get("title", "") + " " + item.get("summary", "") +
            " " + item.get("body_text", "")[:1500]).lower()
@@ -46,6 +51,114 @@ def matches_story(item: dict, patterns, exclude=None) -> bool:
         if re.search(ex, txt):
             return False
     return any(re.search(p, txt, re.I) for p in patterns)
+
+
+def _compute_assignments(snap: dict) -> dict[str, perception.MatchResult]:
+    """Encode every snapshot article (if not cached) and assign to a story
+    via softmax-argmax. Returns {article_id: MatchResult}.
+
+    Article identification uses analytical.perception.article_id which is
+    keyed by (model_id, signal_text_version, feed_name, link), so bumping
+    either model or signal-text version regenerates the cache loudly."""
+    perception_cfg = getattr(meta, "PERCEPTION", None) or {}
+    model_id = perception_cfg.get("embedding_model")
+    sig_version = perception_cfg.get("signal_text_version", "v1")
+    floor = float(perception_cfg.get("assignment_floor_default",
+                                       perception.DEFAULT_FLOOR))
+    if not model_id:
+        # Legacy code path: no perception config → empty assignments
+        # (callers fall back to regex). Useful for tests + during the
+        # 8.x → 9.0 transition.
+        return {}
+
+    # Flatten the snapshot to (article_id, lang, item) tuples.
+    flat: list[tuple[str, str, dict]] = []
+    for ck, cv in (snap.get("countries") or {}).items():
+        for f in (cv.get("feeds") or []):
+            feed_name = f.get("name") or ""
+            for it in (f.get("items") or []):
+                link = it.get("link") or ""
+                if not link:
+                    continue
+                aid = perception.article_id(feed_name, link, model_id, sig_version)
+                lang = f.get("lang") or "en"
+                flat.append((aid, lang, it))
+    if not flat:
+        return {}
+
+    # Load embedding cache if present (CI's pipeline/embed_articles ran first).
+    # Else, encode on the fly — slow but works for tests.
+    date = snap.get("date") or ""
+    cache = perception.load_embedding_cache(date) if date else None
+    if cache is not None:
+        cached_ids, cached_vecs = cache
+        id_to_row = {aid: i for i, aid in enumerate(cached_ids)}
+        # Subset to articles that have a cached row (all of them should
+        # under steady state; a few may be missing on partial runs).
+        keep_idx = []
+        for aid, _, _ in flat:
+            keep_idx.append(id_to_row.get(aid))
+        # If any IDs missing, the cache is stale vs the snapshot — re-encode.
+        if any(i is None for i in keep_idx):
+            article_vecs, item_ids, item_langs = _encode_inline(flat, model_id)
+        else:
+            import numpy as np  # type: ignore
+            article_vecs = cached_vecs[keep_idx]
+            item_ids = [aid for aid, _, _ in flat]
+            item_langs = [lang for _, lang, _ in flat]
+    else:
+        article_vecs, item_ids, item_langs = _encode_inline(flat, model_id)
+
+    # Encode story anchors → centroids
+    try:
+        from sentence_transformers import SentenceTransformer  # type: ignore
+    except ImportError:
+        sys.stderr.write("sentence-transformers not installed; "
+                          "perception layer disabled\n")
+        return {}
+    # Re-using the model load if we already loaded it inline; otherwise load now.
+    model = _SHARED_MODEL.get(model_id) or SentenceTransformer(model_id)
+    _SHARED_MODEL[model_id] = model
+    story_anchors = {sk: sv.get("embedding_anchors") or []
+                     for sk, sv in CANONICAL_STORIES.items()
+                     if sv.get("embedding_anchors")}
+    if not story_anchors:
+        sys.stderr.write("no embedding_anchors in canonical_stories.json; "
+                          "perception layer disabled\n")
+        return {}
+    centroids = perception.compute_story_centroids(
+        story_anchors, model, prefix=perception.model_input_prefix(model_id)
+    )
+    return perception.assign_articles_to_stories(
+        item_ids, item_langs, article_vecs, centroids, floor=floor,
+    )
+
+
+# Module-level model cache so build_briefing doesn't reload the
+# multilingual model when called multiple times in the same process
+# (tests, the analyze step, etc.).
+_SHARED_MODEL: dict = {}
+
+
+def _encode_inline(flat, model_id):
+    """Fallback encoder used when no per-day .npy cache is present."""
+    try:
+        from sentence_transformers import SentenceTransformer  # type: ignore
+        import numpy as np  # type: ignore
+    except ImportError:
+        sys.stderr.write("sentence-transformers not installed\n")
+        return None, [], []
+    model = _SHARED_MODEL.get(model_id) or SentenceTransformer(model_id)
+    _SHARED_MODEL[model_id] = model
+    prefix = perception.model_input_prefix(model_id)
+    texts = [prefix + perception.signal_excerpt_for_embedding(it)
+             for _, _, it in flat]
+    vecs = model.encode(texts, batch_size=16, show_progress_bar=False,
+                          normalize_embeddings=True)
+    vecs = np.asarray(vecs, dtype="float32")
+    item_ids = [aid for aid, _, _ in flat]
+    item_langs = [lang for _, lang, _ in flat]
+    return vecs, item_ids, item_langs
 
 
 def _title_tokens(s: str) -> set[str]:
@@ -57,25 +170,53 @@ def _title_tokens(s: str) -> set[str]:
 
 def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
                              per_bucket_max: int = 2,
-                             novelty_threshold: float = 0.4) -> dict:
+                             novelty_threshold: float = 0.4,
+                             assignments: dict | None = None) -> dict:
     """For one story definition, collect signal-text per bucket.
+
+    `assignments` is the {article_id: perception.MatchResult} dict produced
+    by `_compute_assignments`. When provided, articles are filtered by
+    softmax-argmax assignment (PR2 Phase B; meta-v9.x). When None (legacy
+    pre-9.0 path), falls back to regex `matches_story` against
+    `story_def["patterns"]`.
 
     Per bucket, keeps up to `per_bucket_max` articles that have meaningfully
     different titles (Jaccard token overlap < 1-novelty_threshold).
     Default: 2 per bucket — captures distinct framings (e.g. UK BBC's neutral
     obit + The Independent's "Trump took shot at CNN" angle on Ted Turner).
     """
+    perception_cfg = getattr(meta, "PERCEPTION", None) or {}
+    model_id = perception_cfg.get("embedding_model") or ""
+    sig_version = perception_cfg.get("signal_text_version", "v1")
+
     by_bucket: dict[str, list[dict]] = defaultdict(list)
     for ck, cv in snap.get("countries", {}).items():
         for f in cv.get("feeds", []):
+            feed_name = f.get("name", "")
             for it in f.get("items", []):
-                if not matches_story(it, story_def["patterns"], story_def.get("exclude")):
-                    continue
+                # PR2 Phase B: embedding-based assignment via softmax-argmax.
+                # Fall back to regex if assignments dict is empty (no
+                # PERCEPTION config; the 8.x → 9.0 transition path).
+                if assignments:
+                    link = it.get("link") or ""
+                    if not link:
+                        continue
+                    aid = perception.article_id(feed_name, link, model_id, sig_version)
+                    match = assignments.get(aid)
+                    if not match or match.story_key != story_key:
+                        continue
+                else:
+                    if not matches_story(
+                        it,
+                        story_def.get("patterns") or [],
+                        story_def.get("exclude"),
+                    ):
+                        continue
                 level, text = signal_text(it)
                 if level == "empty":
                     continue
-                by_bucket[ck].append({
-                    "feed": f["name"],
+                article_entry = {
+                    "feed": feed_name,
                     "lang": f.get("lang", "en"),
                     "title": it.get("title", "")[:240],
                     "link": it.get("link", "")[:300],
@@ -83,7 +224,18 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
                     "signal_text": text,
                     "extraction_status": it.get("extraction_status"),
                     "via_wayback": it.get("extraction_via_wayback", False),
-                })
+                }
+                # Stamp the matcher's confidence so downstream consumers
+                # (validators, render, audit) can see how strongly this
+                # article was pulled into the story.
+                if assignments:
+                    aid = perception.article_id(feed_name, it.get("link") or "",
+                                                  model_id, sig_version)
+                    m = assignments.get(aid)
+                    if m:
+                        article_entry["match_cosine"] = round(m.cosine, 4)
+                        article_entry["match_softmax"] = round(m.softmax_score, 4)
+                by_bucket[ck].append(article_entry)
 
     rank = {"body": 3, "summary": 2, "title": 1}
     corpus = []
@@ -196,6 +348,22 @@ def main():
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
     args.out_dir.mkdir(exist_ok=True)
 
+    # PR2 Phase B: pre-compute softmax-argmax story assignment for every
+    # article in the snapshot, in one pass. Each story-build step then just
+    # filters to its assigned articles. Replaces the Latin-script regex
+    # matcher that rejected 100% of non-Latin articles.
+    if (getattr(meta, "PERCEPTION", None) or {}).get("embedding_model"):
+        print(f"Computing perception assignments "
+              f"(model={meta.PERCEPTION['embedding_model']})...", flush=True)
+        assignments = _compute_assignments(snap)
+        n_assigned = sum(1 for m in assignments.values() if m.story_key)
+        print(f"  {n_assigned} / {len(assignments)} articles assigned to a story",
+              flush=True)
+    else:
+        # 8.x → 9.0 transition path: no PERCEPTION pin yet. Fall back to
+        # regex via the legacy matches_story() path inside the per-story loop.
+        assignments = None
+
     n_written = 0
     # Tier-priority iteration: long_running dossiers (Gaza, Taiwan, climate)
     # get first shot at the --max-stories budget; dated short-lived stories
@@ -216,7 +384,8 @@ def main():
             print(f"  skip: unknown story key '{key}'")
             continue
         story_def = CANONICAL_STORIES[key]
-        b = build_briefing_for_story(snap, key, story_def)
+        b = build_briefing_for_story(snap, key, story_def,
+                                      assignments=assignments)
         if b["n_buckets"] < args.min_buckets:
             print(f"  - {key:<24} {b['n_buckets']} buckets — under threshold, skipped")
             continue

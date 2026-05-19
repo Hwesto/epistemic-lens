@@ -77,6 +77,14 @@ jobs:
       - name: Daily health snapshot
         run: python -m pipeline.daily_health
 
+      - name: Embed every article (PR2 Phase B perception cache)
+        # Writes snapshots/<DATE>_embeddings.npy + <DATE>_embedding_ids.json,
+        # keyed by sha256(model_id|signal_text_version|feed|link) so bumping
+        # either pin invalidates the cache loudly. The .npy is NOT committed
+        # (~13MB at e5-large 1024-dim); CI runners regenerate fresh each cron.
+        # build_briefing reads this cache; missing or stale → encodes inline.
+        run: python -m pipeline.embed_articles
+
       - name: Build per-story briefings
         # --max-stories 15 (covers every canonical dossier) was the
         # implicit default until meta-v8.8.0 set it explicitly. The prior

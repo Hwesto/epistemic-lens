@@ -108,6 +108,7 @@ INGEST = META["ingest"]
 SIGNAL_TEXT = META["signal_text"]
 CLAUDE = META["claude"]
 FEEDS_META = META["feeds"]
+PERCEPTION = META.get("perception") or {}
 
 
 @lru_cache(maxsize=1)
