@@ -75,38 +75,26 @@ python -m pipeline.rollup --window-days 180
 python -m pipeline.rollup --no-remove
 ```
 
-Cron: monthly, 1st of month, after the regular daily ingest. The current
-`.github/workflows/daily.yml` does not run rollup directly; recommended is
-a separate `monthly-rollup.yml` workflow:
+Cron: rollup runs in `.github/workflows/weekly.yml` (Mondays 09:00 UTC)
+alongside the other weekly analytics jobs. Idempotent — re-running on
+already-rolled months is a no-op. Wired as of meta-v9.x.
 
 ```yaml
-# .github/workflows/monthly-rollup.yml
-name: Monthly Rollup
-on:
-  schedule:
-    - cron: '0 8 1 * *'  # 1st of month, 08:00 UTC
-  workflow_dispatch:
-jobs:
-  rollup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.12' }
-      - run: pip install -r requirements.txt
-      - run: python -m pipeline.rollup
-      - run: |
-          set -e
-          git config user.name "epistemic-lens-bot"
-          git config user.email "bot@epistemic-lens"
-          git add archive/rollup/ snapshots/ briefings/
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "monthly rollup: archive snapshots+briefings ≥ 90 days old"
-          git push
-```
+# (excerpt from .github/workflows/weekly.yml)
+- name: Retention rollup
+  run: python -m pipeline.rollup --window-days 90
 
-The cron is **optional** — the rollup module also runs cleanly from a
-local checkout. Adding the workflow is left as a follow-up.
+- name: Commit + push lag/ + baseline/ + tilt/ + rollup + lineages
+  run: |
+    set -e
+    DATE=$(date -u +%Y-%m-%d)
+    git add lag/ baseline/ tilt/
+    [ -d archive/rollup ] && git add archive/rollup/ || true
+    git add -u snapshots/ briefings/ || true
+    if git diff --cached --quiet; then exit 0; fi
+    git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt + rollup + lineages)"
+    git push
+```
 
 ## Limitations
 

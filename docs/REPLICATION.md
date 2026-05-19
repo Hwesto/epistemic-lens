@@ -25,8 +25,10 @@ briefing builder, metrics, longitudinal aggregator) against
 | dedup | `pipeline.dedup` | `snapshots/<DATE>.json` | annotated snapshot, `<DATE>_dedup.json`, `cross_day_dedup_state.json` |
 | coverage_matrix | `pipeline.coverage_matrix` | snapshot + `canonical_stories.json` + `feeds.json` | `coverage/<DATE>.json` |
 | daily_health | `pipeline.daily_health` | snapshot | `<DATE>_health.json` |
-| build_briefing | `analytical.build_briefing` | snapshot + `canonical_stories.json` | `briefings/<DATE>_<story>.json` |
+| embed_articles | `pipeline.embed_articles` | snapshot + `meta.PERCEPTION.embedding_model` | `<DATE>_embeddings.npy` + `<DATE>_embedding_ids.json` |
+| build_briefing | `analytical.build_briefing` | snapshot + embedding cache + `canonical_stories.json` (`embedding_anchors`) | `briefings/<DATE>_<story>.json` |
 | build_metrics | `analytical.build_metrics` | briefings | `briefings/<DATE>_<story>_metrics.json` |
+| discover_residual | `pipeline.discover_residual` | embedding cache + briefings | `<DATE>_residual_clusters.json` |
 | longitudinal | `analytical.longitudinal` | analyses (all dates) | `trajectory/<story>.json` |
 
 **Does NOT run** (non-deterministic):
@@ -35,6 +37,12 @@ briefing builder, metrics, longitudinal aggregator) against
 - `pipeline.extract_full_text` — article fetch is network-dependent.
 - `analyze` — LLM call (OAuth required, model output non-deterministic across snapshots).
 - `draft` (long-form) — LLM call.
+
+**Note (meta-v9.0.0+):** Embedding models are downloaded from HuggingFace
+on first use (~2 GB for e5-large). The cache is keyed by
+`(model_id, signal_text_version, feed, link)` so any pin bump that
+changes the model triggers a full re-encode — replay across a major-pin
+boundary will re-download the model the first time it sees the new pin.
 
 To replay an analysis, you'd need an `analyses/<DATE>_<story>.json` produced
 by an LLM pass. That's a separate (non-replayable) artefact. Replay computes

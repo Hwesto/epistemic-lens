@@ -1,7 +1,17 @@
-# Coverage — Epistemic Lens v0.5
+# Coverage — Epistemic Lens v0.5 (post-PR2)
 
-**235 feeds across 54 country/region buckets, 16+ languages, 6 continents.**
+**235 feeds across 55 country/region buckets, 16+ languages, 6 continents.**
 49+ buckets reliably extract full body text per day.
+
+**Multilingual story matching** is live as of meta-v9.0.0 (PR2 Phase B,
+2026-05-19): the regex-based matcher that rejected 100% of non-Latin
+script articles has been replaced by `analytical/perception.py` —
+embedding softmax-argmax assignment against per-story anchor centroids
+written in English + native-script multilingual variants. Calibrated
+against a 343-row Opus silver-labeled eval set; macro F1=0.815. Persian,
+Arabic, Chinese, Japanese, Korean, Hindi, Hebrew, Russian articles now
+reach briefings rather than silently underflowing the matcher. See
+`calibration/perception_eval_report.md` for the verdict.
 
 ## Country grade table
 
@@ -29,7 +39,7 @@ political-spectrum coverage (left + right + populist + tabloid where exists),
 | **Iran (state+opposition)** | B | 5 + 3 | IRNA EN/FA, Tehran Times, Mehr (RETRY), Press TV alt rsshub + Iran International EN/FA, RFE/RL | Blackout-affected |
 | **Israel** | B+ | 4 | Haaretz, JPost, Times of Israel, Ynet Hebrew | Israel Hayom (free pro-Netanyahu paper, largest by circ) |
 | **Turkey** | B | 4 | Sabah (AKP), Hurriyet, Anadolu (state), Bianet | Sözcü (secular opposition), Yeni Şafak |
-| **France direct + wire** | B+ | 10 | Reuters, AP, AFP/F24 EN/FR, Le Monde, Le Figaro, Liberation (RETRY), BFM TV, Le Parisien, France Info | TF1 |
+| **France** | B+ | 6 | Le Monde, Le Figaro, BFM TV, Le Parisien, France Info, AFP/F24 FR (split into own `france` bucket meta-v9.1.0; English AFP/Reuters/AP wires remain in `wire_services`) | Liberation (RETRY), TF1 |
 | **Egypt** | B- | 5 | Egypt Independent, Mada Masr, Daily News Egypt, Al Ahram (via GN), Ahram Online (via GN) | Direct Al Ahram (403) |
 | **Lebanon** | C+ | 2 | L'Orient Today (RETRY), Al-Akhbar (RETRY) | Naharnet |
 | **Saudi Arabia** | B- | 2 | Arab News (direct), Al Arabiya English (RETRY) | Direct from container blocked |
@@ -61,7 +71,8 @@ political-spectrum coverage (left + right + populist + tabloid where exists),
 
 | Bucket | Feeds | Note |
 |---|---|---|
-| `wire_services` | 10 | Reuters, AP, AFP/F24 (EN+FR), Le Monde, Le Figaro, Liberation (RETRY), BFM TV, Le Parisien (RETRY), France Info (RETRY) |
+| `wire_services` | 3 | Reuters, AP, AFP/France 24 EN (genuine cross-border English wires; French outlets moved to `france` bucket meta-v9.1.0) |
+| `france` | 6 | Le Monde, Le Figaro, Le Parisien, BFM TV, France Info, AFP/France 24 FR (added meta-v9.1.0) |
 | `opinion_magazines` | 7 | Foreign Policy, Foreign Affairs, Atlantic, Politico Europe, Conversation, Economist (RETRY), New Yorker (RETRY) |
 | `pan_arab` | 3 | Middle East Eye, Middle East Monitor, The New Arab (RETRY) |
 | `pan_african` | 3 | AfricaNews, African Arguments, The Africa Report |

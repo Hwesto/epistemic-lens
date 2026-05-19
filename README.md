@@ -2,7 +2,7 @@
 
 **Daily framing comparison across RSS-discoverable mainstream international press.**
 
-> Pull RSS from **235 outlets across 54 country/region buckets** → extract article bodies → cluster cross-bloc stories → build per-story corpora with metrics (LaBSE cosine, divergence, bucket-exclusive vocab) → run the daily Claude framing pass → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
+> Pull RSS from **235 outlets across 55 country/region buckets** → extract article bodies → embed every article and assign it to a canonical story via softmax-argmax against multilingual anchors → build per-story corpora with metrics (LaBSE cosine, divergence, bucket-exclusive vocab) → run the daily Claude framing pass (one Sonnet session per story) → render structured analyses, social drafts, and a public landing page. Daily cron runs unattended on GitHub Actions. Total ongoing cost: $0/mo + a Claude.ai subscription.
 
 **Scope and caveats.** This is RSS-discoverable mainstream press, not "what
 the populace sees." Social platforms, video, podcasts, newsletters, and
@@ -10,9 +10,10 @@ local-TV broadcasts — which carry the majority of news consumption in
 most countries — are out of scope. Outlet selection is biased toward
 English-medium availability and persistent feeds; outlets behind paywalls
 or anti-scraping defences (e.g. Cloudflare 403s) drop out silently.
-Non-Latin-script articles currently underflow the canonical-story matcher
-(meta-v8.8.0 PR1 caveat; PR2 addresses with embedding-based matching).
-Per-day live coverage stats land in `snapshots/<date>_health.json`.
+As of **meta-v9.0.0** (PR2), non-Latin-script articles (Persian, Arabic,
+Chinese, Japanese, Korean, Hindi, Hebrew, Russian) reach briefings via an
+embedding-based story matcher — see `docs/METHODOLOGY.md` for the
+calibration record. Per-day live coverage stats land in `snapshots/<date>_health.json`.
 
 **Live front door:** [hwesto.github.io/epistemic-lens](https://hwesto.github.io/epistemic-lens/)
 
@@ -30,18 +31,24 @@ The codebase decomposes into four loosely-coupled concerns. Each evolves on its 
 ## Daily flow (07:00 UTC, fully unattended)
 
 ```
-ingest    →  pipeline.{ingest,extract_full_text,dedup,daily_health}    ~8 min
-             then analytical.{build_briefing,build_metrics}; commit
-analyze   →  Sonnet writes JSON analyses; analytical.validate_analysis
-             enforces schema + citation + number reconciliation;
-             publication.render_analysis_md emits MD; bot commits      ~5 min
-draft     →  publication.render_thread + render_carousel (templates,
-             no LLM); Sonnet writes long.json                          ~8 min
-publish   →  publication.build_index rebuilds api/ tree, copies web/*,
-             deploys to GitHub Pages                                   ~10 sec
+ingest             →  pipeline.{ingest,extract_full_text,dedup,daily_health}     ~10 min
+                      pipeline.embed_articles  (intfloat/multilingual-e5-large)  ~12 min
+                      analytical.{build_briefing,build_metrics}                    ~3 min
+                      pipeline.discover_residual  (HDBSCAN over unassigned)        ~1 min
+analyze_bootstrap  →  list qualifying stories (n_buckets ≥ 3)                      ~1 min
+analyze_body       →  matrix: one Sonnet session per story, daily_analysis prompt  ~12 min × parallel
+analyze_headline   →  matrix: one Sonnet session per story, headline_analysis      ~10 min × parallel
+analyze_sources    →  matrix: one Sonnet session per story, source_attribution     ~10 min × parallel
+analyze_render     →  validate, augment metrics, render MD, longitudinal, commit    ~3 min
+draft              →  publication.render_thread + render_carousel templates,
+                      Sonnet writes long.json                                       ~8 min
+publish            →  publication.build_index rebuilds api/ tree, copies web/*,
+                      deploys to GitHub Pages                                       ~10 sec
 ```
 
-Workflow: `.github/workflows/daily.yml`. Every step subscription-billed via the OAuth token (`anthropics/claude-code-action@v1`); zero metered API spend. `workflow_dispatch` inputs `skip_ingest` / `skip_analyze` / `skip_draft` let you re-run downstream-only without burning fresh feed pulls or LLM calls.
+Workflow: `.github/workflows/daily.yml`. Every Sonnet call subscription-billed via the OAuth token (`anthropics/claude-code-action@v1`); zero metered API spend. `workflow_dispatch` inputs `skip_ingest` / `skip_analyze` / `skip_draft` let you re-run downstream-only without burning fresh feed pulls or LLM calls.
+
+**Why the matrix split (meta-v8.8.1).** Pre-PR1 the analyze step was one monolithic Sonnet session reading every story's briefing — context fills around 5 briefings, auto-compaction loses working state, citation-fix retry loops eat the 60-min budget. Per-story matrix gives each session ONE briefing's worth of context plus its own ~25-min budget; one story's regression doesn't cancel siblings (`fail-fast: false`).
 
 ## What lands on Pages each day
 
@@ -78,8 +85,9 @@ python -m analytical.build_metrics
 # See docs/OPERATIONS.md for the one-time CLAUDE_CODE_OAUTH_TOKEN setup.
 
 # Test
-python -m unittest tests.py tests_edge.py    # 64 tests, no network (~1 s)
-python tests_e2e.py                            # full pipeline smoke (live, ~6 s)
+python -m unittest tests tests_edge tests_calibration tests_perception tests_discovery
+                                              # ~260 tests; perception/discovery added in v9
+python tests_e2e.py                           # full pipeline smoke (live, ~6 s)
 ```
 
 ## Methodology pin
@@ -99,7 +107,7 @@ See `docs/METHODOLOGY.md` for the full policy.
 
 ## Coverage
 
-235 feeds across 54 buckets. ~85% body-text extraction success on a typical day. See `docs/COVERAGE.md` for the country-by-country grade table. Highlights:
+235 feeds across 55 buckets (France bucket added meta-v9.1.0). ~85% body-text extraction success on a typical day. See `docs/COVERAGE.md` for the country-by-country grade table. Highlights:
 
 - **Mass-tabloid press**: Daily Mail (UK), Bild (DE), Komsomolskaya Pravda (RU)
 - **Right-populist**: Daily Wire / Breitbart (US), Republic World / Aaj Tak (IN), Junge Freiheit (DE), Sky News Australia
@@ -117,35 +125,56 @@ epistemic-lens/
 ├── baseline_pin.py            ← pin bumper / CI check
 ├── stopwords.txt              ← pinned (hashed)
 ├── canonical_stories.json     ← pinned (hashed)
-├── feeds.json                 ← 235 feeds, 54 buckets (hashed)
+├── feeds.json                 ← 235 feeds, 55 buckets (hashed; France added v9.1.0)
 │
 ├── .github/workflows/
-│   ├── daily.yml              ← 4-job daily cron
+│   ├── daily.yml              ← per-story matrix daily cron
+│   ├── weekly.yml             ← Mondays — CCF + tilt + retention rollup + persistence
+│   ├── golden.yml             ← Sundays — perception parity check
 │   ├── meta-check.yml         ← required check (validate-meta + unit-tests)
 │   ├── ci.yml                 ← unit/edge/e2e on code paths only
 │   └── weekly_rot.yml         ← Sundays — feed rot report
 │
 ├── .claude/prompts/
-│   ├── daily_analysis.md      ← analyze job (haiku, JSON output)
-│   └── draft_long.md          ← long-form draft (sonnet, prose output)
+│   ├── daily_analysis.md      ← analyze_body (Sonnet, JSON, one story per session)
+│   ├── headline_analysis.md   ← analyze_headline (Sonnet, JSON, titles only)
+│   ├── source_attribution.md  ← analyze_sources (Sonnet, JSON, per-quote speakers)
+│   └── draft_long.md          ← long-form draft (Sonnet, prose output)
 │
 ├── docs/api/schema/
-│   ├── analysis.schema.json   ← canonical analysis shape
+│   ├── analysis.schema.json          ← canonical analysis shape
+│   ├── briefing.schema.json          ← per-story corpus + match_cosine/softmax
+│   ├── canonical_stories.schema.json ← embedding_anchors, assignment_floor, tier
+│   ├── residual_clusters.schema.json ← daily HDBSCAN over unassigned articles
+│   ├── persistent_residual.schema.json ← weekly lineage tracker output
 │   ├── thread.schema.json
 │   ├── carousel.schema.json
 │   └── long.schema.json
+│
+├── calibration/               ← PERCEPTION-LAYER CALIBRATION (PR2 Phase A)
+│   ├── eval_set.jsonl                ← 343-row Opus silver-labeled set
+│   ├── embedding_anchors_draft.json  ← per-story anchor sentences
+│   ├── benchmark_models.py           ← three-way LaBSE / e5-large / bge-m3 bench
+│   ├── parity_check.py               ← weekly golden cron entry point
+│   └── perception_eval_report.md     ← calibration verdict (macro F1=0.815)
 │
 ├── pipeline/                  ← INGESTION concern
 │   ├── ingest.py              ← parallel async RSS fetcher
 │   ├── extract_full_text.py   ← trafilatura + Wayback fallback
 │   ├── dedup.py               ← URL canon + title near-dup
 │   ├── daily_health.py        ← health snapshot + bucket alerts
+│   ├── embed_articles.py      ← e5-large embed cache for the perception layer (v9)
+│   ├── discover_residual.py   ← HDBSCAN over articles perception left unassigned (v9)
 │   └── feed_rot_check.py      ← weekly rot detection
 │
 ├── analytical/                ← ANALYTICAL concern
-│   ├── build_briefing.py      ← per-story corpus assembler
+│   ├── perception.py          ← embedding softmax-argmax matcher (v9 PR2 Phase B)
+│   ├── build_briefing.py      ← per-story corpus assembler (delegates to perception)
 │   ├── build_metrics.py       ← LaBSE cosine + divergence + exclusive vocab
 │   ├── validate_analysis.py   ← schema + citation + number reconciliation
+│   ├── list_qualifying_stories.py ← matrix bootstrap helper for analyze jobs (v8.8.1)
+│   ├── persistence_tracker.py ← cross-day lineage tracker over residual clusters (v9)
+│   ├── auto_promote.py        ← review notes: token + lineage candidates for canonical promotion
 │   └── restamp_analyses.py    ← refresh meta_version on agent JSON output
 │
 ├── publication/               ← PUBLICATION concern
@@ -154,7 +183,8 @@ epistemic-lens/
 │   ├── render_carousel.py     ← analysis JSON → carousel draft (template)
 │   └── build_index.py         ← assemble api/ tree for GitHub Pages
 │
-├── tests.py / tests_edge.py / tests_e2e.py
+├── tests.py / tests_edge.py / tests_e2e.py / tests_calibration.py
+├── tests_perception.py / tests_discovery.py                ← v9 perception + Phase C
 │
 ├── web/                       ← static landing page (served at Pages root)
 │   ├── index.html

@@ -1,5 +1,11 @@
 # Three-branch integration plan
 
+> **Status: historical** (kept as the record of how meta-v2 → meta-v3
+> was integrated). The decisions here landed years before the codebase
+> reached meta-v9.x. For current architecture see
+> `docs/ARCHITECTURE.md`; for the post-v9.0 perception swap see the
+> "Perception layer (9.0.0)" section in `docs/METHODOLOGY.md`.
+
 ## Why this exists
 
 Epistemic Lens has three live branches that need to converge:

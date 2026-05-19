@@ -2,25 +2,37 @@
 
 ## Daily flow (cron)
 
-The 07:00 UTC GitHub Actions cron runs two jobs end-to-end:
+The 07:00 UTC GitHub Actions cron runs the following jobs in sequence:
 
 ```bash
 # Job 1: ingest (no secrets needed)
-python ingest.py                # 235 feeds → snapshots/<date>.json (~2 min)
-python extract_full_text.py     # +body text (top clusters + per-feed sample, ~3 min)
-python dedup.py                 # collapse near-dup items
-python daily_health.py          # health snapshot + alerts
-python build_briefing.py        # per-story corpora → briefings/<date>_<story>.json
-python build_metrics.py         # LaBSE cosine + divergence + exclusive vocab
-git commit + push               # snapshots/, briefings/
+python -m pipeline.ingest               # 235 feeds → snapshots/<date>.json (~2 min)
+python -m pipeline.extract_full_text    # +body text (~3 min)
+python -m pipeline.dedup                # collapse near-dup items
+python -m pipeline.daily_health         # health snapshot + alerts
+python -m pipeline.embed_articles       # v9 PR2 Phase B: e5-large embed cache (~12 min)
+python -m analytical.build_briefing     # per-story corpora via softmax-argmax
+python -m analytical.build_metrics      # LaBSE cosine + divergence + exclusive vocab
+python -m pipeline.discover_residual    # v9 PR2 Phase C: HDBSCAN over unassigned (~1 min)
+git commit + push                       # snapshots/, briefings/, coverage/
 
-# Job 2: analyze (needs CLAUDE_CODE_OAUTH_TOKEN secret — see setup below)
-anthropics/claude-code-action@v1 with .claude/prompts/daily_analysis.md
-git commit + push               # analyses/<date>_<story>.md
+# Job 2-5: per-story matrix analyze (v8.8.1; needs CLAUDE_CODE_OAUTH_TOKEN)
+# analyze_bootstrap → list_qualifying_stories → matrix story list
+# analyze_body × N stories   (Sonnet, daily_analysis.md per story)
+# analyze_headline × N        (Sonnet, headline_analysis.md per story; parallel with sources)
+# analyze_sources × N         (Sonnet, source_attribution.md per story)
+# analyze_render              (Python: validate, augment, render MD, longitudinal, commit)
+
+# Job 6: draft  (templates + Sonnet long-form)
+# Job 7: publish_api → GitHub Pages
+# Job 8: distribute (stage drafts to pending/)
 ```
 
-Total runtime: ~15 min for ingest, ~10-20 min for analyze. Each job is
-within the 30-min timeout.
+Total runtime: ~30 min for ingest (incl. embed step), ~25-40 min for the
+analyze matrix (parallelism dependent on Actions runner availability),
+~5 min draft + publish. Each LLM matrix entry has its own ~25-min budget
+— one slow story can no longer cancel the entire analyze step (the
+2026-05-19 60-min cancellation that motivated the matrix restructure).
 
 Videos are NOT auto-rendered. After the cron lands, a human picks angles
 from the day's analyses and writes `video_scripts/<date>_<n>.json`.
@@ -51,11 +63,15 @@ After the cron commits the snapshot, build the day's videos:
 git pull
 
 # Generate per-story briefings from the latest snapshot
-python build_briefing.py
+# (requires the embedding cache; CI writes it but local runs must too)
+python -m pipeline.embed_articles
+python -m analytical.build_briefing
 # ⇒ briefings/<date>_hormuz_iran.json
-# ⇒ briefings/<date>_turner_cnn.json
+# ⇒ briefings/<date>_iran_nuclear.json
 # ⇒ briefings/<date>_lebanon_buffer.json
-# (and others matching the canonical-story patterns)
+# ⇒ briefings/<date>_ukraine_war.json
+# (and ~10 others — embedding softmax-argmax replaces regex patterns
+#  as of meta-v9.0.0; see canonical_stories.json embedding_anchors)
 
 # Open Claude Code, paste the top 3 briefings, ask Claude to write
 # video scripts in the schema documented in docs/ARCHITECTURE.md.
@@ -120,9 +136,10 @@ Review and either drop the feed or replace with an alternative URL.
 `ci.yml` runs on every push to `main` or `claude/**`:
 
 ```bash
-python -m unittest tests.py tests_edge.py    # 45 tests, ~12 s
+python -m unittest tests tests_edge tests_calibration tests_perception tests_discovery
+                                              # ~260 tests across the v9 surface
 # On main only or workflow_dispatch:
-python tests_e2e.py                          # full pipeline smoke
+python tests_e2e.py                           # full pipeline smoke
 ```
 
 ## Health alerts
@@ -200,10 +217,12 @@ money it's because:
 If you're not sure the pipeline still works:
 
 ```bash
-SKIP_EMBED=1 MAX_ITEMS=5 python ingest.py    # tiny pull
-python extract_full_text.py --max-per-feed 1 # one item per feed
-python build_briefing.py
-ls briefings/ video_scripts/ snapshots/
+MAX_ITEMS=5 python -m pipeline.ingest                # tiny pull
+python -m pipeline.extract_full_text --max-per-feed 1
+python -m pipeline.dedup
+python -m pipeline.embed_articles                     # encodes ~5 articles fast
+python -m analytical.build_briefing
+ls briefings/ snapshots/
 ```
 
 If those produce reasonable output, the pipeline is healthy.
