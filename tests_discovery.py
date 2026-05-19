@@ -138,6 +138,43 @@ class TestPersistenceTracker(unittest.TestCase):
         self.assertTrue(a.startswith("L"))
 
 
+class TestDiscoverResidualArticleIDs(unittest.TestCase):
+    """Phase C invariant: pipeline.discover_residual computes assigned
+    and residual article_ids via the same perception.article_id helper
+    that embed_articles uses to write the cache and build_briefing uses
+    to read it. The audit found no direct test of this — adding one."""
+
+    def test_discover_residual_uses_perception_article_id(self):
+        from pipeline import discover_residual as dr
+        from analytical import perception
+        # _assigned_article_ids and _index_snapshot both call
+        # perception.article_id. Assert they're the SAME symbol — if
+        # discover_residual ever stops importing from perception, this
+        # fails loudly.
+        self.assertIs(dr.perception.article_id, perception.article_id)
+
+    def test_snap_index_returns_bucket_title_tuples(self):
+        """_index_snapshot collapses two earlier passes into one; verify
+        the (bucket, title) tuple shape stays correct."""
+        from pipeline import discover_residual as dr
+        snap = {
+            "date": "2026-05-12",
+            "countries": {
+                "uk": {
+                    "feeds": [{
+                        "name": "BBC",
+                        "items": [{"link": "https://bbc/x", "title": "Headline 1"}]
+                    }]
+                }
+            }
+        }
+        idx = dr._index_snapshot(snap)
+        self.assertEqual(len(idx), 1)
+        bucket, title = next(iter(idx.values()))
+        self.assertEqual(bucket, "uk")
+        self.assertEqual(title, "Headline 1")
+
+
 class TestAutoPromoteLineagePath(unittest.TestCase):
     """The auto_promote.py extension that surfaces lineage candidates
     alongside the legacy token-based ones."""

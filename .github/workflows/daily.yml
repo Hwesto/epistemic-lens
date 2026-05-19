@@ -50,6 +50,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Verify methodology pin is clean (defensive)
+        # meta-check.yml already runs this on PRs, but a direct push or a
+        # rebase-merge can land an unvalidated meta_version.json on main.
+        # Catch it here so the cron alerts loudly rather than silently
+        # producing artefacts stamped with a drifted pin.
+        run: python baseline_pin.py --check
+
       - name: Pull feeds + embed + cluster
         env:
           MAX_ITEMS: '50'
@@ -83,6 +90,12 @@ jobs:
         # either pin invalidates the cache loudly. The .npy is NOT committed
         # (~13MB at e5-large 1024-dim); CI runners regenerate fresh each cron.
         # build_briefing reads this cache; missing or stale → encodes inline.
+        #
+        # First run on a fresh runner / after a model bump downloads
+        # intfloat/multilingual-e5-large (~2GB) which adds ~5 min.
+        # Subsequent runs hit the HF cache (~/.cache/huggingface). Encoding
+        # ~6,500 articles takes ~12 min on the 2-core ubuntu-latest runner.
+        # Total Phase B cost per cron: ~12 min steady-state, ~17 min cold.
         run: python -m pipeline.embed_articles
 
       - name: Build per-story briefings
@@ -161,13 +174,22 @@ jobs:
           DATE=$(date -u +%Y-%m-%d)
           ITEMS=$(python3 -c "import json,sys; d=json.load(open(f'snapshots/{sys.argv[1]}_health.json')); print(d['n_items'])" "$DATE" 2>/dev/null || echo "?")
           git commit -m "snapshot ${DATE} (${ITEMS} items)"
-          # Retry-on-conflict push: rebase if remote moved
+          # Retry-on-conflict push: rebase if remote moved. After three
+          # failed attempts the ingest job fails, and analyze gates on
+          # `needs.ingest.result` so the entire downstream cascade
+          # (analyze → render → draft → publish_api → distribute) is
+          # skipped. Snapshots / briefings ARE still on disk; a manual
+          # workflow_dispatch with skip_ingest=true on the next run can
+          # pick them up.
           for i in 1 2 3; do
-            if git push; then exit 0; fi
+            if git push; then
+              echo "::notice::snapshot ${DATE} pushed on attempt $i (${ITEMS} items)"
+              exit 0
+            fi
             echo "push failed, attempt $i — rebasing"
             git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
           done
-          echo "all push attempts failed"
+          echo "::error::all push attempts failed for snapshot ${DATE}. Snapshots are still on the runner's disk; re-trigger via workflow_dispatch with skip_ingest=false once the conflict resolves."
           exit 1
 
   # ----------------------------------------------------------------------

@@ -32,12 +32,14 @@ class TestCalibrationScaffolding(unittest.TestCase):
                  f"missing={canonical - set(anchors)}, "
                  f"extra={set(anchors) - canonical}",
         )
-        # Every anchor list has 3-5 sentences.
+        # Every anchor list has 3-8 sentences. Phase A.2 added multilingual
+        # variants to high-drift stories (ukraine_war has English + Russian
+        # + Ukrainian = 6 anchors total). Schema upper bound is 8.
         for sk, sents in anchors.items():
             self.assertGreaterEqual(len(sents), 3,
-                                       msg=f"{sk}: anchors must be 3-5 sentences, "
+                                       msg=f"{sk}: anchors must be 3-8 sentences, "
                                            f"got {len(sents)}")
-            self.assertLessEqual(len(sents), 5,
+            self.assertLessEqual(len(sents), 8,
                                     msg=f"{sk}: too many anchor sentences")
 
     def test_silver_labels_align_with_candidates(self):

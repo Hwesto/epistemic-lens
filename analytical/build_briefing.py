@@ -40,11 +40,22 @@ BRIEFINGS.mkdir(exist_ok=True)
 CANONICAL_STORIES = meta.canonical_stories()
 
 
-# meta-v8.x: regex matcher. Kept for the emerging-story token detector
-# below (which uses canonical patterns to exclude already-known stories
-# from the discovery candidate pool). NOT called from build_briefing_for_story
-# any more — that path delegates to analytical.perception.
 def matches_story(item: dict, patterns, exclude=None) -> bool:
+    """LEGACY: meta-v8.x regex matcher.
+
+    NOT called from build_briefing_for_story any more — that path
+    delegates to analytical.perception.assign_articles_to_stories (PR2
+    Phase B, embedding softmax-argmax). This function survives ONLY as
+    the canonical-pattern pre-filter used by find_emerging_stories
+    below: when scanning unmatched article titles for emerging tokens,
+    we exclude tokens that match an existing canonical regex so the
+    discovery candidates aren't drowned out by known stories.
+
+    Future: when find_emerging_stories is retired in favour of
+    pipeline/discover_residual (which subtracts perception-assigned
+    articles from the embedding cache to find true residuals),
+    matches_story can be deleted.
+    """
     txt = (item.get("title", "") + " " + item.get("summary", "") +
            " " + item.get("body_text", "")[:1500]).lower()
     for ex in (exclude or []):
@@ -197,8 +208,9 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
             feed_name = f.get("name", "")
             for it in f.get("items", []):
                 # PR2 Phase B: embedding-based assignment via softmax-argmax.
-                # Fall back to regex if assignments dict is empty (no
-                # PERCEPTION config; the 8.x → 9.0 transition path).
+                # Compute article_id ONCE per item so we don't re-hash for
+                # the filter and again for the match_cosine stamp.
+                match = None
                 if assignments:
                     link = it.get("link") or ""
                     if not link:
@@ -208,6 +220,7 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
                     if not match or match.story_key != story_key:
                         continue
                 else:
+                    # 8.x → 9.0 transition path: no PERCEPTION pin.
                     if not matches_story(
                         it,
                         story_def.get("patterns") or [],
@@ -230,13 +243,9 @@ def build_briefing_for_story(snap: dict, story_key: str, story_def: dict,
                 # Stamp the matcher's confidence so downstream consumers
                 # (validators, render, audit) can see how strongly this
                 # article was pulled into the story.
-                if assignments:
-                    aid = perception.article_id(feed_name, it.get("link") or "",
-                                                  model_id, sig_version)
-                    m = assignments.get(aid)
-                    if m:
-                        article_entry["match_cosine"] = round(m.cosine, 4)
-                        article_entry["match_softmax"] = round(m.softmax_score, 4)
+                if match is not None:
+                    article_entry["match_cosine"] = round(match.cosine, 4)
+                    article_entry["match_softmax"] = round(match.softmax_score, 4)
                 by_bucket[ck].append(article_entry)
 
     rank = {"body": 3, "summary": 2, "title": 1}

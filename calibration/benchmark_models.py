@@ -56,11 +56,43 @@ DEFAULT_MODELS = {
 # retrieval. multilingual-e5-large takes "query: ..." / "passage: ..."
 # but for symmetric similarity (story anchors vs article body), we use
 # "passage: ..." on both sides which matches the model's intent.
+#
+# Production runtime uses analytical.perception.model_input_prefix() to
+# resolve prefixes by HF model_id rather than the friendly name. The two
+# code paths MUST stay in sync; the assertion below enforces it at
+# import time.
 INPUT_PREFIXES = {
     "LaBSE": ("", ""),
     "e5-large": ("passage: ", "passage: "),
     "bge-m3": ("", ""),
 }
+
+
+def _assert_prefix_consistency():
+    """At import time, assert that calibration's INPUT_PREFIXES matches
+    analytical.perception.model_input_prefix() for every model — so a
+    divergence between benchmark-time and runtime input formatting
+    raises loudly instead of silently degrading recall."""
+    from analytical import perception
+    name_to_id = {
+        "LaBSE":    "sentence-transformers/LaBSE",
+        "e5-large": "intfloat/multilingual-e5-large",
+        "bge-m3":   "BAAI/bge-m3",
+    }
+    for name, (pfx_cal, _) in INPUT_PREFIXES.items():
+        model_id = name_to_id.get(name)
+        if not model_id:
+            continue
+        pfx_runtime = perception.model_input_prefix(model_id)
+        assert pfx_cal == pfx_runtime, (
+            f"INPUT_PREFIXES divergence for {name!r}: "
+            f"calibration={pfx_cal!r}, runtime={pfx_runtime!r}. "
+            f"Update analytical/perception.py:model_input_prefix or "
+            f"calibration/benchmark_models.py:INPUT_PREFIXES so they agree."
+        )
+
+
+_assert_prefix_consistency()
 
 
 def load_eval_set() -> list[dict]:

@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "9.2.1",
-  "pinned_at": "2026-05-19T15:35:59Z",
-  "pin_reason": "audit follow-up: schemas reflect Phase B fields (briefing.match_cosine/softmax, canonical_stories.embedding_anchors/assignment_floor/tier); longitudinal flags major-pin boundary; discover_residual date guard",
+  "meta_version": "9.2.2",
+  "pinned_at": "2026-05-19T16:08:36Z",
+  "pin_reason": "audit cleanups: pin-boundary handling in robustness_check + cross_outlet_lag; meta validation in ingest; ingest commit status notice; docstring + comment polish across PERCEPTION/build_briefing/perception; auto_promote silence message when persistence_tracker hasn't run; weekly.yml explicit Phase C output checks; discover_residual O(2N)->O(N) snapshot index; INPUT_PREFIXES consistency assert",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -83,7 +83,7 @@
     "prompts_hash": "sha256:ac9129869d39cad6a7f739f7739a7284a5b0975b7959d14c293fab658903431a"
   },
   "perception": {
-    "_doc": "Perception layer (PR2 Phase B, meta-v9.0.0). The story-matcher that turns raw articles into per-story briefings. Pre-9.0.0 this was Latin-script regex patterns that rejected 100% of non-Latin script articles. As of 9.0.0 it's an embedding-based softmax-argmax matcher: every article is encoded with `embedding_model`, scored (cosine) against each canonical story's anchor centroid (anchors live in canonical_stories.json), and assigned to its argmax story above `assignment_floor`. Calibrated against the 343-row Opus silver-labeled eval set in calibration/; macro F1 = 0.815, 4 of 5 gate-checkable per-language F1s pass.",
+    "_doc": "Perception layer (PR2 Phase B, meta-v9.0.0). The story-matcher that turns raw articles into per-story briefings. Pre-9.0.0 this was Latin-script regex patterns that rejected 100% of non-Latin script articles. As of 9.0.0 it's an embedding-based softmax-argmax matcher: every article is encoded with `embedding_model`, scored (cosine) against each canonical story's anchor centroid (anchors live in canonical_stories.json), and assigned to its argmax story above `assignment_floor`. Calibrated against the 343-row Opus silver-labeled eval set in calibration/; macro F1 = 0.815, 4 of 5 gate-checkable per-language F1s pass. NOTE: `signal_text_version` is ONLY a cache-invalidation knob — it composes into the article_id hash so a bump triggers a re-encode. It does NOT represent a runtime feature flag or pin segment by itself.",
     "method": "embedding_softmax_argmax",
     "embedding_model": "intfloat/multilingual-e5-large",
     "signal_text_version": "v1",
@@ -93,5 +93,5 @@
     "calibration_macro_f1": 0.815,
     "calibration_report": "calibration/perception_eval_report.md"
   },
-  "pin_self_hash": "sha256:3e56a8390d92ca5baa50dc7dc6dec3290299ad26f9bda5687dc3b9b7e641dee9"
+  "pin_self_hash": "sha256:3761c1044815b096e9fa6456d13004a5b1943af7cc00a9b286044a60d4477a9a"
 }

@@ -64,20 +64,42 @@ CURATED_PAIRS = [
 def load_coverage_history(window_days: int = 30,
                             today: str | None = None,
                             cov_dir: Path = COVERAGE_DIR) -> dict[str, dict]:
-    """Load the last `window_days` of coverage matrices, keyed by date."""
+    """Load the last `window_days` of coverage matrices, keyed by date.
+
+    Audit follow-up (meta-v9.2.x): emits a warning when the window spans
+    a major meta_version bump (e.g. v8.x → v9.x). The pre-9.0 (regex
+    matcher) and post-9.0 (embedding matcher) coverage matrices reflect
+    DIFFERENT story-article assignments — bigram lag correlations
+    computed across that boundary are mixing two distinct sampling
+    regimes. Caller can split the window at the boundary or accept the
+    noise.
+    """
     today_d = date.fromisoformat(today) if today else date.today()
     out: dict[str, dict] = {}
     if not cov_dir.is_dir():
         return out
+    majors_seen: set[int] = set()
     for d_offset in range(window_days):
         d = (today_d - timedelta(days=d_offset)).isoformat()
         p = cov_dir / f"{d}.json"
         if p.exists():
             try:
-                out[d] = json.loads(p.read_text(encoding="utf-8"))
+                doc = json.loads(p.read_text(encoding="utf-8"))
             except (json.JSONDecodeError, OSError, ValueError, KeyError) as e:
                 print(f"FAIL: {p}: {e}", file=sys.stderr)
                 continue
+            out[d] = doc
+            v = (doc.get("meta_version") or "").split(".")[0]
+            if v.isdigit():
+                majors_seen.add(int(v))
+    if len(majors_seen) > 1:
+        print(
+            f"::warning::cross_outlet_lag window spans major meta_version "
+            f"bumps {sorted(majors_seen)}; pre-/post-major coverage are not "
+            f"directly comparable (regex vs embedding matcher). Results "
+            f"reflect a mixed sampling regime.",
+            file=sys.stderr,
+        )
     return out
 
 

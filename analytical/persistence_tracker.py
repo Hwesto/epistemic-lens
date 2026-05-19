@@ -48,6 +48,14 @@ import meta
 
 SNAPSHOTS = meta.REPO_ROOT / "snapshots"
 ARCHIVE = meta.REPO_ROOT / "archive"
+# Defensive: if archive/ exists but is something other than a directory
+# (corruption; recovery from a checkout that hit a file collision), fail
+# loudly with a clear message rather than letting mkdir explode.
+if ARCHIVE.exists() and not ARCHIVE.is_dir():
+    raise RuntimeError(
+        f"{ARCHIVE} exists but is not a directory; "
+        "remove or rename it before running persistence_tracker."
+    )
 ARCHIVE.mkdir(exist_ok=True)
 
 

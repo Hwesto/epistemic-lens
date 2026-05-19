@@ -187,7 +187,29 @@ def render_markdown(
     # signal than the token detector since it operates on the residual
     # AFTER perception assignment, so canonical-covered stories don't
     # crowd out emerging ones).
-    if lineage_candidates:
+    lineage_file = ARCHIVE / f"persistent_residual_{end_date}.json"
+    if not lineage_file.exists():
+        out.append("## Lineage candidates (PR2 Phase C — embedding residual)")
+        out.append("")
+        out.append(
+            f"_persistence_tracker hasn't run yet for `{end_date}` — no "
+            "lineage candidates available. Expected on the first week after "
+            "deploying Phase C, or when the weekly cron hasn't fired since "
+            "the daily cron started writing residual_clusters.json. Token "
+            "candidates below are unaffected._"
+        )
+        out.append("")
+    elif not lineage_candidates:
+        out.append("## Lineage candidates (PR2 Phase C — embedding residual)")
+        out.append("")
+        out.append(
+            "_persistence_tracker ran but no lineages met the promotion gate "
+            "(>=3 days, >=4 buckets). Either the residual pool is genuinely "
+            "stable (canonical set covers everything) or the window is still "
+            "ramping up after deployment._"
+        )
+        out.append("")
+    elif lineage_candidates:
         out.append("## Lineage candidates (PR2 Phase C — embedding residual)")
         out.append("")
         out.append(

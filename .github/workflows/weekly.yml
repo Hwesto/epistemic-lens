@@ -68,6 +68,7 @@ jobs:
       - name: Commit + push lag/ + baseline/ + tilt/ + rollup + lineages
         run: |
           set -e
+          DATE=$(date -u +%Y-%m-%d)
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
           git add lag/ baseline/ tilt/
@@ -75,13 +76,24 @@ jobs:
           # rollup actually had ≥90-day-old files to bundle, and the live
           # removals from snapshots/ and briefings/ may also be empty.
           [ -d archive/rollup ] && git add archive/rollup/ || true
-          [ -d archive ] && git add archive/persistent_residual_*.json archive/auto_promoted_*.md 2>/dev/null || true
+          # Phase C outputs — explicit existence checks so a silent failure
+          # in persistence_tracker / auto_promote surfaces a CI warning
+          # rather than vanishing into an empty `git add` glob.
+          if [ -f "archive/persistent_residual_${DATE}.json" ]; then
+            git add "archive/persistent_residual_${DATE}.json"
+          else
+            echo "::warning::persistence_tracker output missing for ${DATE}; check the persistence_tracker step (likely no residual_clusters.json in the last 7 days)"
+          fi
+          if [ -f "archive/auto_promoted_${DATE}.md" ]; then
+            git add "archive/auto_promoted_${DATE}.md"
+          else
+            echo "::warning::auto_promote output missing for ${DATE}; check the auto_promote step for errors"
+          fi
           git add -u snapshots/ briefings/ || true
           if git diff --cached --quiet; then
             echo "No weekly-analytics output changes to commit."
             exit 0
           fi
-          DATE=$(date -u +%Y-%m-%d)
           git commit -m "weekly analytics ${DATE} (CCF + wire-baseline + tilt + rollup + lineages)"
           for i in 1 2 3; do
             if git push; then exit 0; fi

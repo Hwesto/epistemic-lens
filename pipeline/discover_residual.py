@@ -86,13 +86,15 @@ def _assigned_article_ids(date: str) -> set[str]:
     return assigned
 
 
-def _bucket_of_article(snap: dict) -> dict[str, str]:
-    """Map article_id -> bucket_key from a snapshot. Used to compute
-    per-cluster bucket distribution."""
+def _index_snapshot(snap: dict) -> dict[str, tuple[str, str]]:
+    """One pass: map article_id -> (bucket_key, title). Used by `discover`
+    for per-cluster bucket distribution and top-tokens. Merged from
+    earlier _bucket_of_article + _title_of_article (2N) into single
+    iteration (N) — audit follow-up cleanup."""
     perception_cfg = getattr(meta, "PERCEPTION", None) or {}
     model_id = perception_cfg.get("embedding_model") or ""
     sig_version = perception_cfg.get("signal_text_version", "v1")
-    out: dict[str, str] = {}
+    out: dict[str, tuple[str, str]] = {}
     for ck, cv in (snap.get("countries") or {}).items():
         for f in (cv.get("feeds") or []):
             feed_name = f.get("name") or ""
@@ -101,25 +103,7 @@ def _bucket_of_article(snap: dict) -> dict[str, str]:
                 if not link:
                     continue
                 aid = perception.article_id(feed_name, link, model_id, sig_version)
-                out[aid] = ck
-    return out
-
-
-def _title_of_article(snap: dict) -> dict[str, str]:
-    """Map article_id -> title from a snapshot. Used for cluster top-tokens."""
-    perception_cfg = getattr(meta, "PERCEPTION", None) or {}
-    model_id = perception_cfg.get("embedding_model") or ""
-    sig_version = perception_cfg.get("signal_text_version", "v1")
-    out: dict[str, str] = {}
-    for ck, cv in (snap.get("countries") or {}).items():
-        for f in (cv.get("feeds") or []):
-            feed_name = f.get("name") or ""
-            for it in (f.get("items") or []):
-                link = it.get("link") or ""
-                if not link:
-                    continue
-                aid = perception.article_id(feed_name, link, model_id, sig_version)
-                out[aid] = it.get("title") or ""
+                out[aid] = (ck, it.get("title") or "")
     return out
 
 
@@ -178,8 +162,7 @@ def discover(date: str, min_cluster_size: int | None = None) -> dict:
     print(f"  {n_clusters} clusters; {n_noise} noise points", flush=True)
 
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
-    bucket_of = _bucket_of_article(snap)
-    title_of = _title_of_article(snap)
+    snap_index = _index_snapshot(snap)
     stability = (getattr(clusterer, "cluster_persistence_", None)
                  if hasattr(clusterer, "cluster_persistence_") else None)
 
@@ -191,12 +174,13 @@ def discover(date: str, min_cluster_size: int | None = None) -> dict:
         cn = float(np.linalg.norm(centroid))
         if cn > 0:
             centroid = centroid / cn
-        # Bucket distribution
-        bucket_dist = Counter(bucket_of.get(aid, "?") for aid in member_ids)
-        # Top tokens from member titles
+        # Bucket distribution + top tokens via single snap_index lookup
+        bucket_dist: Counter = Counter()
         tok_counter: Counter = Counter()
         for aid in member_ids:
-            for t in meta.tokenize(title_of.get(aid, "")):
+            bucket, title = snap_index.get(aid, ("?", ""))
+            bucket_dist[bucket] += 1
+            for t in meta.tokenize(title):
                 tok_counter[t] += 1
         top_tokens = [t for t, _ in tok_counter.most_common(10)]
         clusters_out.append({
