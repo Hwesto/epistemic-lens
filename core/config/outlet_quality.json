@@ -1,5 +1,5 @@
 {
-  "_doc": "Per-bucket data-quality tier system. Pinned by meta_version.json -> bucket_quality_hash. Buckets at tier `EXCLUDE_QUANT` are dropped entirely from cross-bucket lexical metrics (pairwise_similarity, isolation, bucket_exclusive_vocab) because their corpus is dominated by stub-only feeds (Reuters via Google News, China Global Times, etc.) where the tokenizer sees titles, not bodies — title statistics are not commensurable with full-body statistics. Tier `C` buckets ship with a confidence flag the renderer surfaces; they remain in metrics but the analyst is warned. Tier `A`/`B` is the default for healthy buckets. Adding a bucket here is a minor bump; changing a tier label or removing an entry is a major bump.",
+  "_doc": "Per-outlet OR per-country data-quality tier (v10). EXCLUDE_QUANT marks stubs/Google-News-proxies whose corpus is title-only; metrics ignore them. Tier C marks structural underrepresentation (small countries with thin feed coverage). Schema mixes outlet keys (google_news_reuters) with country keys (africa) — fine for v10; D.4 can split if needed.",
   "version": "1.0.0",
   "tier_definitions": {
     "A": "Healthy: extraction success >70%, stub ratio <20%, multiple feeds.",
@@ -7,7 +7,7 @@
     "C": "Narrative only: extraction success 30-50%. Included in metrics with confidence flag; not for cross-bucket comparative claims.",
     "EXCLUDE_QUANT": "Quarantined from quantitative metrics. Stub-only aggregators where signal_text is the title, not the body. Bucket still appears in briefings for narrative coverage; it just doesn't contribute to LaBSE-cosine / exclusive-vocab numbers."
   },
-  "buckets": {
+  "entries": {
     "google_news_reuters": {
       "tier": "EXCLUDE_QUANT",
       "reason": "41/50 stubs in 2026-05-06 baseline; aggregator returns headlines+links, no body extractable",

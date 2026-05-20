@@ -1,120 +1,156 @@
 # Daily Framing Analysis — JSON output
 
 You are doing the **daily cross-country framing analysis** for the Epistemic
-Lens dataset. You run on cron once a day, after the ingest + briefing pipeline
-has produced today's corpora.
+Lens dataset. You run on cron once a day, after the ingest → embed →
+cluster → briefing pipeline has produced today's per-cluster corpora.
 
-Your output is **one JSON file per story** at
-`analyses/<DATE>_<story_key>.json`, conforming to the schema at
-`docs/api/schema/analysis.schema.json`. The JSON is the canonical product.
-A separate `python -m publish.render.analysis_md` step in the workflow
-renders human-readable markdown for PR review — you don't write markdown.
+Your output is **one JSON file per cluster** at
+`data/analyses/<DATE>_<lineage_id>.json`, conforming to the schema at
+`publish/api/schemas/analysis.schema.json`. The JSON is the canonical
+product. A separate `python -m publish.render.analysis_md` step in the
+workflow renders human-readable markdown for review — you don't write
+markdown.
 
 ---
 
-## Scoping
+## Scoping (v10)
 
-The cron's analyze step runs you ONE story at a time via a matrix —
+The cron's analyze step runs you ONE cluster at a time via a matrix —
 each invocation receives a header like:
 
-    # Assigned story: <story_key>
+    # Assigned cluster: <lineage_id>
 
-before this prompt. When that header is present, process ONLY that story.
-Do not enumerate or analyse any other story. Your output is a single file:
-`analyses/<DATE>_<story_key>.json`. Skip step 2 of the procedure below
-(the `ls` discovery step) and read the named briefing directly.
+before this prompt. `<lineage_id>` is an opaque hash (e.g. `Le4f8a39c1d`)
+that uniquely identifies a cluster lineage across days. When that header
+is present, process ONLY that cluster. Do not enumerate or analyse any
+other cluster. Your output is a single file:
+`data/analyses/<DATE>_<lineage_id>.json`. Read the named briefing
+directly:
 
-When no `# Assigned story:` header is present (local manual runs),
-fall back to the legacy enumeration in step 2.
+    data/briefings/<DATE>_<lineage_id>.json
+
+When no `# Assigned cluster:` header is present (local manual runs),
+enumerate today's briefings via `ls data/briefings/<DATE>_*.json` and
+process each one.
+
+---
+
+## What changed from v9
+
+Previously the pipeline pre-defined 15 canonical stories (Ukraine war,
+Iran nuclear, etc.) and assigned articles to them via embedding
+softmax-argmax. As of v10 stories are **emergent**: HDBSCAN clusters all
+articles each day, salience ranking picks the top ~15 clusters, and you
+get one per matrix entry. There's no pre-set story name — **you assign
+the name** as part of your output.
+
+Practical differences when you read the briefing:
+- The corpus is keyed by **outlet** (the feed name like "Wall Street Journal"),
+  not by bucket. Each `corpus[i]` carries `outlet`, `country`,
+  `country_label`, `lang`, `lean`, `section` as tags.
+- The briefing has `top_tokens` (top 10 tokens across member article titles)
+  and `salience_score` — both inputs to help you understand the cluster
+  before you name it.
+- The cluster has a `lineage_id` (which you put in your output) and a
+  `cluster_id` (the day-local int, just for debugging).
+- There's no `story_key`. **You write a `cluster_name`** (5-12 words,
+  factual not editorial — see procedure step (c) below).
 
 ---
 
 ## Inputs
 
-For each story you analyse:
+For each cluster you analyse:
 
-- `briefings/<DATE>_<story_key>.json` — corpus. Each `corpus[i]` entry has
-  `bucket`, `feed`, `lang`, `title`, `link`, `signal_level`, `signal_text`.
-  **The index `i` is the `signal_text_idx` you cite in evidence.**
-  Quote verbatim from `signal_text` in its source language.
-- `briefings/<DATE>_<story_key>_metrics.json` — precomputed numbers.
-  Primary similarity (meta-v7.0.0): `pairwise_similarity` and `isolation`
-  with `mean_similarity` per bucket — both are LaBSE bucket-mean cosine
-  on original signal_text (multilingual; no translation pivot). Plus
-  `bucket_exclusive_vocab` (operates on raw originals — flag in the
-  bucket's `note` if the distinctive terms look like language artefacts
-  rather than story-specific vocabulary), `n_buckets`, `n_articles`,
-  `buckets_excluded_quant`. **Use these numbers verbatim. Never invent
-  counts or scores.**
-- `frames_codebook.json` — closed taxonomy of 15 valid `frame_id` values
-  (Boydstun/Card). **Every frame you emit must use one of these IDs.**
-- `docs/api/schema/analysis.schema.json` — required output shape.
+- `data/briefings/<DATE>_<lineage_id>.json` — the corpus. Fields:
+  - `corpus[i]` with `outlet`, `country`, `country_label`, `lang`, `lean`,
+    `section`, `title`, `link`, `signal_level`, `signal_text`.
+  - **The index `i` is the `signal_text_idx` you cite in evidence.**
+    Quote verbatim from `signal_text` in its source language.
+  - `n_outlets`, `n_countries`, `n_langs` — exact counts; use verbatim.
+  - `top_tokens` — top 10 tokens across member titles. Hint for naming.
+  - `salience_score` — the salience that selected this cluster for analysis.
+  - `coverage_caveats` — countries with zero items today due to feed
+    failures (see structural-silence note below).
+- `core/config/frames_codebook.json` — closed taxonomy of 15 valid `frame_id`
+  values (Boydstun/Card). **Every frame you emit must use one of these IDs.**
+- `publish/api/schemas/analysis.schema.json` — required output shape.
 
 ---
 
 ## Procedure
 
 1. `date -u +%Y-%m-%d` to get today's date.
-2. `ls briefings/<DATE>_*.json` (excluding `_metrics.json` files) to find today's stories.
-3. For each briefing where `n_buckets >= 3`:
-   a. Read the briefing and matching `_metrics.json`.
-   b. Read every `signal_text` in `corpus[]`. Note the index of each — you cite by index.
-   c. Read `frames_codebook.json` and identify **2–8 frames** carried by the corpus.
-      Each frame entry is:
+2. Read the named briefing (or, in fallback enumeration mode, every
+   `data/briefings/<DATE>_*.json` whose `n_outlets >= 3`).
+3. For each briefing:
+   a. Read every `signal_text` in `corpus[]`. Note the index of each —
+      you cite by index.
+   b. Read `core/config/frames_codebook.json` and identify **2–8 frames**
+      carried by the corpus. Each frame entry:
         - `frame_id` — REQUIRED. One of the 15 codebook IDs (e.g.
-          `SECURITY_DEFENSE`, `ECONOMIC`, `MORALITY`). This is what
-          longitudinal aggregation tracks; do not invent IDs.
-        - `sub_frame` — OPTIONAL. Story-specific human-readable label
-          (e.g. `"energy contagion"`, `"sovereign reputation"`). This is
-          where story-specific color goes — NOT in `frame_id`.
-        - `buckets` — list of bucket keys carrying the frame.
+          `SECURITY_DEFENSE`, `ECONOMIC`, `MORALITY`). Longitudinal
+          aggregation tracks these IDs; do not invent IDs.
+        - `sub_frame` — OPTIONAL. Cluster-specific human-readable label
+          (e.g. `"energy contagion"`, `"sovereign reputation"`).
+        - `outlets` — list of outlet names carrying the frame.
+        - `countries` — list of country codes carrying the frame
+          (derived from outlets but explicit for cross-country views).
         - `evidence` — at least one verbatim quote per frame, citing
           `corpus[i].signal_text` by `signal_text_idx`.
       Use `OTHER` only when no codebook frame applies, and pair it with
       a non-empty `sub_frame` explaining the framing.
-   d. Look for a paradox: opposing-bloc buckets converging on the same conclusion.
-      Quote both verbatim with their `signal_text_idx`. If no genuine paradox, set `"paradox": null`.
-   e. List silences: buckets that plausibly should cover this and didn't (or covered
-      something else). Cross-reference today's snapshot if needed.
+   c. **Name the cluster.** Write a 5-12 word `cluster_name` (factual,
+      not editorial — describe what concretely happened or what the
+      coverage is about). Examples:
+        - "Ukraine drone strike on Moscow oil refinery"
+        - "US-Iran Hormuz Strait naval standoff continues"
+        - "OpenAI lawsuit alleges training data theft"
+        - "Lebanese-Israeli border ceasefire negotiations week 4"
+      AVOID generic names like "Middle East tensions", "Tech regulation",
+      "China relations". The name should pass a reader's sniff test:
+      does it tell me what specifically happened? If your name has the
+      word "tensions", "developments", "situation", or "relations" —
+      delete it and try again.
+   d. Look for a paradox: opposing-bloc outlets converging on the same
+      conclusion. Quote both verbatim with their `signal_text_idx`. If
+      no genuine paradox, set `"paradox": null`.
+   e. List silences: countries that plausibly should cover this and
+      didn't (or covered something else).
 
       **Distinguish structural silence from editorial silence.** The
-      briefing's top-level `coverage_caveats[]` lists buckets that had
-      zero items today because every feed in them failed (403,
-      timeout, empty response). Do **NOT** include those buckets in
-      `silences[]` — their absence is structural, not editorial; a
-      reader who treats it as "Lebanon stayed quiet" mistakes feed
-      health for press behaviour. Instead, copy `briefing.coverage_caveats`
-      verbatim into your output's top-level `coverage_caveats[]` array
-      (same shape: one object per bucket with `bucket`, `alert_type`,
-      `avg7`, `reason`). `silences[]` is reserved for buckets that DID
-      carry items today but chose a different angle.
+      briefing's top-level `coverage_caveats[]` lists countries that had
+      zero items today because every feed in them failed (403, timeout,
+      empty response). Do **NOT** include those countries in `silences[]`
+      — their absence is structural, not editorial; a reader who treats
+      it as "Lebanon stayed quiet" mistakes feed health for press
+      behaviour. Instead, copy `briefing.coverage_caveats` verbatim into
+      your output's top-level `coverage_caveats[]` array. `silences[]`
+      is reserved for countries that DID carry items today but chose a
+      different angle.
    f. Pick up to 10 single-outlet findings worth surfacing.
    g. Write a 1-2 sentence factual `event_summary` describing what
-      concretely happened — places, people, decisions, dates. This
-      is the anchor for readers not already across the story. NO
-      framing language ("frames as", "casts as", "narrative"), NO
-      editorial voice, NO cross-outlet comparison. If you reach
-      for the word "frames", delete it and try again. Then write
-      `tldr` (3–6 sentences) which extends into the framing
-      observation.
+      concretely happened — places, people, decisions, dates. This is
+      the anchor for readers not already across the story. NO framing
+      language ("frames as", "casts as", "narrative"), NO editorial
+      voice, NO cross-outlet comparison. If you reach for the word
+      "frames", delete it and try again. Then write `tldr` (3-6
+      sentences) which extends into the framing observation.
    h. Assemble the JSON conforming to the schema.
-   i. Validate the file with the project's full validator (schema +
-      citation grounding + number reconciliation):
-      `python -m core.analyze.validate analyses/<DATE>_<story>.json`
+   i. Validate the file:
+      `python -m core.analyze.validate data/analyses/<DATE>_<lineage_id>.json`
    j. If it reports any errors, fix them in your JSON and re-run the
-      validator until it prints `OK`. The same validator runs in the
-      workflow post-commit; if you skip this step and any error is
-      caught downstream, the workflow fails and your work has to be
-      manually reverted.
-4. Skip stories with `n_buckets < 3`. Note in your final summary.
-5. Print one summary line per story written: `<story_key> n_buckets=N paradox=yes|no n_frames=N`.
+      validator until it prints `OK`.
+4. Skip clusters with `n_outlets < 3`. Note in your final summary.
+5. Print one summary line per cluster written:
+   `<lineage_id> "<cluster_name>" n_outlets=N n_countries=N paradox=yes|no n_frames=N`.
 6. **Commit and push** (uncommitted writes do not persist):
 
-       git add analyses/
+       git add data/analyses/
        git diff --cached --quiet && exit 0
        DATE=$(date -u +%Y-%m-%d)
-       N=$(ls analyses/${DATE}_*.json 2>/dev/null | wc -l | tr -d ' ')
-       git commit -m "analyses ${DATE} (${N} stories)"
+       N=$(ls data/analyses/${DATE}_*.json 2>/dev/null | wc -l | tr -d ' ')
+       git commit -m "analyses ${DATE} (${N} clusters)"
        git push origin HEAD
 
    On non-fast-forward push failure: `git pull --rebase origin HEAD && git push`.
@@ -125,19 +161,20 @@ For each story you analyse:
 
 - **Verbatim quotes only.** Every `evidence.quote` and `paradox.{a,b}.quote`
   must be copy-pasted from a `corpus[i].signal_text`. The `signal_text_idx`
-  field references the exact corpus position. The pre-commit citation linter
-  (Phase 4) will reject mismatches.
-- **Numbers from metrics only.** `n_buckets`, `n_articles`, isolation scores,
-  exclusive-vocab terms — all from `metrics.json`. Never invent.
+  field references the exact corpus position. The post-commit citation
+  validator will reject mismatches.
+- **Numbers from briefing only.** `n_outlets`, `n_countries`, `n_articles_total`
+  — read from the briefing JSON. Never invent.
 - **Frames use the closed codebook.** `frame_id` MUST be one of the 15
-  IDs in `frames_codebook.json`. The codebook is what makes longitudinal
-  comparison ("Italy's framing of Iran shifted from SECURITY_DEFENSE to
-  ECONOMIC over 30 days") defensible. Story-specific color belongs in
+  IDs in `core/config/frames_codebook.json`. The codebook is what makes
+  longitudinal comparison defensible. Cluster-specific color belongs in
   the optional `sub_frame` field, not in `frame_id`.
 - **No paradox if none exists.** Set `"paradox": null`. Do not invent.
-- **Schema-conformant or it doesn't ship.** Validate before commit; the
-  workflow's render step depends on conforming JSON.
-- **One JSON file per story.** Path: `analyses/<DATE>_<story_key>.json`.
+- **`cluster_name` is factual.** Past tense or "ongoing". No editorial
+  framing words. If a reader asks "what is this cluster?" the name
+  should answer it in one sentence.
+- **One JSON file per cluster.** Path:
+  `data/analyses/<DATE>_<lineage_id>.json`.
 
 ---
 
@@ -145,49 +182,54 @@ For each story you analyse:
 
 ```json
 {
-  "meta_version": "<read from meta_version.json — do NOT copy from briefing>",
+  "meta_version": "<read from core/config/meta_version.json — do NOT copy from briefing>",
   "date": "YYYY-MM-DD",
-  "story_key": "...",
-  "story_title": "...",
-  "n_buckets": 27,
+  "lineage_id": "Le4f8a39c1d",
+  "cluster_id": 42,
+  "cluster_name": "Ukraine drone strike on Moscow oil refinery",
+  "n_outlets": 27,
+  "n_countries": 18,
   "n_articles": 41,
-  "event_summary": "What concretely happened. 1-2 sentences. Factual only — no framing language, no editorial voice, no cross-outlet comparison.",
+  "salience_score": 12.4,
+  "event_summary": "What concretely happened. 1-2 sentences. Factual only.",
   "tldr": "Lead with the most surprising finding (3-6 sentences).",
   "frames": [
     {
       "frame_id": "ECONOMIC",
       "sub_frame": "energy-price contagion",
-      "buckets": ["philippines", "south_korea", "japan"],
+      "outlets": ["Asia Times", "Korea Herald", "NHK"],
+      "countries": ["philippines", "south_korea", "japan"],
       "evidence": [
-        {"bucket": "philippines", "outlet": "Asia Times",
+        {"outlet": "Asia Times", "country": "philippines",
          "quote": "verbatim text from corpus[12].signal_text",
          "signal_text_idx": 12}
       ]
     }
   ],
-  "isolation_top": [
-    {"bucket": "italy", "mean_similarity": 0.74,
-     "note": "Aligned semantically with the corpus mean."}
+  "outlet_isolation_top": [
+    {"outlet": "ANSA", "country": "italy", "mean_similarity": 0.74,
+     "note": "Aligned with the cluster mean despite Italian-language vocabulary."}
   ],
-  "exclusive_vocab_highlights": [
-    {"bucket": "italy", "terms": ["guerra", "accordo", "uniti"],
+  "outlet_exclusive_vocab_highlights": [
+    {"outlet": "ANSA", "country": "italy",
+     "terms": ["guerra", "accordo", "uniti"],
      "what_it_reveals": "war framing; Italian press treats this as conflict-not-deal."}
   ],
   "paradox": null,
   "silences": [
-    {"bucket": "egypt", "what_they_covered_instead": "Sisi's domestic emergency."}
-  ],
-  "coverage_caveats": [
-    {"bucket": "lebanon", "alert_type": "structural_silence", "avg7": 3.4,
-     "reason": "bucket carried 0 items today (7-day avg 3.4); feeds 403'd."}
+    {"country": "egypt", "what_they_covered_instead": "Sisi's domestic emergency."}
   ],
   "single_outlet_findings": [
-    {"outlet": "RT", "bucket": "russia",
-     "finding": "Frames the deal as an Iranian win.", "signal_text_idx": 22}
+    {"outlet": "RT", "country": "russia",
+     "finding": "Frames the strike as an Iranian win.", "signal_text_idx": 22}
+  ],
+  "coverage_caveats": [
+    {"country": "lebanon", "alert_type": "100_percent_feed_failure",
+     "n_failed_feeds": 3, "reason": "all 3 Lebanese feeds returned 403 today"}
   ],
   "bottom_line": "Two sentences restating the headline finding.",
-  "generated_at": "2026-05-08T12:34:56Z",
-  "model": "claude-haiku-4-5-20251001"
+  "generated_at": "2026-05-20T07:35:12Z",
+  "model": "claude-sonnet-4-6"
 }
 ```
 

@@ -31,7 +31,9 @@ import time
 from pathlib import Path
 
 import core.meta as meta
-from core.embed import perception
+from core.embed import article_id as perception  # alias: legacy callers
+# expected perception.article_id/model_input_prefix/signal_excerpt_for_embedding.
+# The new article_id module exports those three; softmax-argmax retires in D.3.
 
 SNAPSHOTS = meta.SNAPSHOTS_DIR
 

@@ -41,11 +41,18 @@ ROOT = REPO_ROOT  # legacy alias for existing call sites
 CONFIG_DIR = REPO_ROOT / "core" / "config"
 META_PATH = CONFIG_DIR / "meta_version.json"
 STOPWORDS_PATH = CONFIG_DIR / "stopwords.txt"
-CANONICAL_STORIES_PATH = CONFIG_DIR / "canonical_stories.json"
+# v10: canonical_stories.json + bucket_* configs are LEGACY. Retained for
+# v9 → v10 transition only (D.2/D.3 stop reading them). The new sources
+# of truth are outlets.json + country_weights.json + outlet_quality.json.
+CANONICAL_STORIES_PATH = CONFIG_DIR / "canonical_stories.json"  # LEGACY
 FRAMES_CODEBOOK_PATH = CONFIG_DIR / "frames_codebook.json"
-BUCKET_QUALITY_PATH = CONFIG_DIR / "bucket_quality.json"
-BUCKET_WEIGHTS_PATH = CONFIG_DIR / "bucket_weights.json"
-FEEDS_PATH = CONFIG_DIR / "feeds.json"
+BUCKET_QUALITY_PATH = CONFIG_DIR / "bucket_quality.json"  # LEGACY
+BUCKET_WEIGHTS_PATH = CONFIG_DIR / "bucket_weights.json"  # LEGACY
+FEEDS_PATH = CONFIG_DIR / "feeds.json"                    # LEGACY (kept until D.4)
+# v10 outlet-first config:
+OUTLETS_PATH = CONFIG_DIR / "outlets.json"
+COUNTRY_WEIGHTS_PATH = CONFIG_DIR / "country_weights.json"
+OUTLET_QUALITY_PATH = CONFIG_DIR / "outlet_quality.json"
 # Picker config still lives in publish/ since it's a render-layer concern
 CARD_PICKER_PATH = REPO_ROOT / "publish" / "api" / "card_picker.json"
 TODAY_PICKER_PATH = REPO_ROOT / "publish" / "api" / "today_picker.json"
@@ -145,20 +152,56 @@ def stopwords() -> frozenset[str]:
 
 @lru_cache(maxsize=1)
 def canonical_stories() -> dict:
-    """Compiled story-group definitions for build_briefing.py."""
+    """LEGACY (v9): closed-world story definitions. v10 has no canonical
+    set — stories emerge from daily HDBSCAN clustering. Returns empty
+    dict when canonical_stories.json is absent (v10 default)."""
+    if not CANONICAL_STORIES_PATH.exists():
+        return {}
     raw = json.loads(CANONICAL_STORIES_PATH.read_text(encoding="utf-8"))
-    return raw["stories"]
+    return raw.get("stories") or {}
+
+
+@lru_cache(maxsize=1)
+def outlets() -> list[dict]:
+    """v10 source of truth: flat list of outlets.
+
+    Each outlet: name, url, lang, country (was bucket), country_label,
+    lean, section, status. Some carry optional tags (ownership). Read
+    from core/config/outlets.json.
+
+    For consumers wanting the old "buckets" abstraction, use
+    `outlets_by_country()` to get the same {country: [outlet_name, ...]}
+    grouping. Buckets are no longer an aggregation unit in v10 — they're
+    just one of several tags articles carry.
+    """
+    raw = json.loads(OUTLETS_PATH.read_text(encoding="utf-8"))
+    return raw.get("outlets") or []
+
+
+@lru_cache(maxsize=1)
+def outlets_by_country() -> dict[str, list[str]]:
+    """{country_key: [outlet_name, ...]} — convenience grouping.
+    Replaces _feeds_by_bucket(); same shape."""
+    out: dict[str, list[str]] = {}
+    for o in outlets():
+        out.setdefault(o.get("country", ""), []).append(o.get("name", ""))
+    for k in out:
+        out[k].sort()
+    return out
+
+
+@lru_cache(maxsize=1)
+def outlet_by_name() -> dict[str, dict]:
+    """{outlet_name: outlet_dict} for fast metadata lookup."""
+    return {o.get("name", ""): o for o in outlets()}
 
 
 @lru_cache(maxsize=1)
 def _feeds_by_bucket() -> dict[str, list[str]]:
-    """Per-bucket sorted list of feed names, derived from feeds.json. Cached."""
-    raw = json.loads(FEEDS_PATH.read_text(encoding="utf-8"))
-    out: dict[str, list[str]] = {}
-    for bucket_key, bucket in (raw.get("countries") or {}).items():
-        names = sorted(f.get("name", "") for f in (bucket.get("feeds") or []))
-        out[bucket_key] = names
-    return out
+    """LEGACY (v9 callers): per-bucket feed names.
+    Equivalent to outlets_by_country() — kept as alias during v10
+    transition. New code should call outlets_by_country() directly."""
+    return outlets_by_country()
 
 
 def bucket_feed_set_hash(bucket: str) -> str:
@@ -184,34 +227,49 @@ def bucket_feed_set_hashes(buckets: list[str] | None = None) -> dict[str, str]:
 
 
 @lru_cache(maxsize=1)
-def bucket_quality() -> dict:
-    """Per-bucket quality tier (see bucket_quality.json). Empty dict if absent."""
-    if not BUCKET_QUALITY_PATH.exists():
+def outlet_quality_entries() -> dict:
+    """Per-outlet (or per-country, mixed) quality tier from outlet_quality.json.
+    Entries can be keyed by outlet name (e.g. "google_news_reuters") or by
+    country (e.g. "africa"). Empty dict if file absent."""
+    if not OUTLET_QUALITY_PATH.exists():
+        if BUCKET_QUALITY_PATH.exists():
+            # Fallback to legacy bucket_quality.json during v9→v10 transition
+            return json.loads(BUCKET_QUALITY_PATH.read_text(encoding="utf-8")).get("buckets") or {}
         return {}
-    return json.loads(BUCKET_QUALITY_PATH.read_text(encoding="utf-8")).get("buckets") or {}
+    return json.loads(OUTLET_QUALITY_PATH.read_text(encoding="utf-8")).get("entries") or {}
 
 
-def is_quant_excluded(bucket: str) -> bool:
-    """True if bucket is tier=EXCLUDE_QUANT (drop from cross-bucket lexical metrics)."""
-    return bucket_quality().get(bucket, {}).get("tier") == "EXCLUDE_QUANT"
+def is_quant_excluded(key: str) -> bool:
+    """True if outlet OR country is tier=EXCLUDE_QUANT (drop from quantitative metrics).
+    `key` can be an outlet name or a country code; lookup tries the entry as-is."""
+    return outlet_quality_entries().get(key, {}).get("tier") == "EXCLUDE_QUANT"
+
+
+# Legacy alias (v9 callers used `bucket_quality()`):
+def bucket_quality() -> dict:
+    """LEGACY: alias for outlet_quality_entries()."""
+    return outlet_quality_entries()
 
 
 @lru_cache(maxsize=1)
-def bucket_weights_table() -> dict:
-    """Per-bucket weighting parameters (see bucket_weights.json)."""
-    if not BUCKET_WEIGHTS_PATH.exists():
+def country_weights_table() -> dict:
+    """Per-country weighting parameters from country_weights.json."""
+    if not COUNTRY_WEIGHTS_PATH.exists():
+        if BUCKET_WEIGHTS_PATH.exists():
+            # Fallback to legacy bucket_weights.json during v9→v10 transition
+            return json.loads(BUCKET_WEIGHTS_PATH.read_text(encoding="utf-8")).get("buckets") or {}
         return {}
-    return json.loads(BUCKET_WEIGHTS_PATH.read_text(encoding="utf-8")).get("buckets") or {}
+    return json.loads(COUNTRY_WEIGHTS_PATH.read_text(encoding="utf-8")).get("countries") or {}
 
 
-def bucket_weight(bucket: str) -> float:
-    """Weight for population-weighted aggregates. Defaults to 1.0 for unknown buckets.
+def country_weight(country: str) -> float:
+    """Weight for population-weighted aggregates. Defaults to 1.0 for unknowns.
 
-    Formula: population_m * audience_reach (see bucket_weights.json doc).
-    Returns 0 for buckets explicitly weighted to 0 (wires, opinion, EXCLUDE_QUANT
-    aggregators) so they don't double-count against country buckets.
+    Formula: population_m * audience_reach (see country_weights.json).
+    Returns 0 for countries explicitly weighted to 0 (wires bucket, opinion
+    bucket, EXCLUDE_QUANT aggregators) so they don't double-count.
     """
-    entry = bucket_weights_table().get(bucket)
+    entry = country_weights_table().get(country)
     if entry is None:
         return 1.0
     pop = float(entry.get("population_m", 0))
@@ -219,12 +277,28 @@ def bucket_weight(bucket: str) -> float:
     return pop * reach
 
 
-def bucket_weight_confidence(bucket: str) -> str:
-    """Returns 'high', 'medium', 'low', or 'unknown' (when bucket isn't in table)."""
-    entry = bucket_weights_table().get(bucket)
+def country_weight_confidence(country: str) -> str:
+    """Returns 'high', 'medium', 'low', or 'unknown'."""
+    entry = country_weights_table().get(country)
     if entry is None:
         return "unknown"
     return entry.get("confidence", "unknown")
+
+
+# Legacy aliases (v9 callers used `bucket_weight` / `bucket_weight_confidence`):
+def bucket_weights_table() -> dict:
+    """LEGACY: alias for country_weights_table()."""
+    return country_weights_table()
+
+
+def bucket_weight(bucket: str) -> float:
+    """LEGACY: alias for country_weight()."""
+    return country_weight(bucket)
+
+
+def bucket_weight_confidence(bucket: str) -> str:
+    """LEGACY: alias for country_weight_confidence()."""
+    return country_weight_confidence(bucket)
 
 
 # Tokenisation primitives — kept here so build_metrics, build_briefing, and
