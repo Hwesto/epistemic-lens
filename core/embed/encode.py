@@ -48,11 +48,11 @@ def encode_snapshot(date: str, snapshots_dir: Path = SNAPSHOTS) -> int:
         print(f"snapshot not found: {snap_path}", file=sys.stderr)
         return 1
     perception_cfg = getattr(meta, "PERCEPTION", None) or {}
-    model_id = perception_cfg.get("embedding_model")
+    model_id = meta.embedding_model()
     sig_version = perception_cfg.get("signal_text_version", "v1")
     if not model_id:
-        print("meta.PERCEPTION.embedding_model is unset; cannot embed",
-              file=sys.stderr)
+        print("no embedding model configured (meta.embedding_model() empty); "
+              "cannot embed", file=sys.stderr)
         return 1
 
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
@@ -109,23 +109,12 @@ def encode_snapshot(date: str, snapshots_dir: Path = SNAPSHOTS) -> int:
     return 0
 
 
-def latest_snapshot_date() -> str | None:
-    cands = sorted(p for p in SNAPSHOTS.glob("[0-9]*.json")
-                   if not p.stem.endswith(("_convergence", "_similarity",
-                                           "_prompt", "_dedup", "_health",
-                                           "_pull_report")))
-    if not cands:
-        return None
-    # filename = "<date>.json"
-    return cands[-1].stem
-
-
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None,
                     help="Date (YYYY-MM-DD). Defaults to latest snapshot.")
     args = ap.parse_args()
-    date = args.date or latest_snapshot_date()
+    date = args.date or meta.latest_snapshot_date()
     if not date:
         print("no snapshot date found", file=sys.stderr)
         return 1

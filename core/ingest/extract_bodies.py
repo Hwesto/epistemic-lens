@@ -359,13 +359,10 @@ def main():
     if args.snapshot:
         snap_path = Path(args.snapshot)
     else:
-        cands = sorted(p for p in snaps_dir.glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity",
-                                                "_prompt", "_dedup", "_health",
-                                                "_pull_report", "_baseline")))
-        if not cands:
+        date = meta.latest_snapshot_date(snaps_dir)
+        if not date:
             sys.exit(f"No snapshot found in {snaps_dir}")
-        snap_path = cands[-1]
+        snap_path = snaps_dir / f"{date}.json"
     print(f"Snapshot: {snap_path}")
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
 

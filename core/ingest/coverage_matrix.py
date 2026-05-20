@@ -264,14 +264,11 @@ def main() -> int:
             print(f"No snapshot at {snap_path}", file=sys.stderr)
             return 1
     else:
-        cands = sorted(p for p in SNAPS.glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity",
-                                               "_prompt", "_dedup", "_health",
-                                               "_pull_report", "_baseline")))
-        if not cands:
+        date = meta.latest_snapshot_date(SNAPS)
+        if not date:
             print("No snapshot found.", file=sys.stderr)
             return 1
-        snap_path = cands[-1]
+        snap_path = SNAPS / f"{date}.json"
 
     print(f"Coverage matrix from {snap_path}")
     snap = json.loads(snap_path.read_text(encoding="utf-8"))

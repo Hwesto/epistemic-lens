@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re as _stdlib_re
 from functools import lru_cache
 from pathlib import Path
@@ -75,6 +76,38 @@ LAG_DIR = REPO_ROOT / "data" / "lag"
 ROBUSTNESS_DIR = REPO_ROOT / "data" / "robustness"
 DISTRIBUTION_PENDING_DIR = REPO_ROOT / "data" / "distribution_pending"
 ARCHIVE_DIR = REPO_ROOT / "data" / "archive"
+
+
+def latest_snapshot_date(snap_dir: "Path | None" = None) -> str | None:
+    """Most recent YYYY-MM-DD that has a raw snapshot file in data/snapshots/.
+
+    The stem must be EXACTLY a date. This is the single source of truth for
+    "which day are we processing" — using a date-strict match (not a
+    blocklist of suffixes) means sibling artefacts that share the date
+    prefix — `<date>_embeddings`, `<date>_embedding_ids`, `<date>_clusters`,
+    `<date>_top_clusters`, `<date>_health`, `<date>_dedup`, `<date>_convergence`,
+    … — can never be mistaken for a snapshot and yield a bogus date string.
+    """
+    snap_dir = snap_dir or SNAPSHOTS_DIR
+    dates = sorted(
+        p.stem for p in snap_dir.glob("[0-9][0-9][0-9][0-9]-*.json")
+        if _stdlib_re.fullmatch(r"\d{4}-\d{2}-\d{2}", p.stem)
+    )
+    return dates[-1] if dates else None
+
+
+def embedding_model() -> str:
+    """The sentence-embedding model id for the daily clustering cache.
+
+    Pinned in meta_version.json (`perception.embedding_model`); the
+    `EMBEDDING_MODEL` environment variable overrides it for local testing
+    or model experiments without a pin bump. core/embed/encode.py,
+    core/cluster/cluster_daily.py and core/briefing/build.py all read this
+    one function, so the versioned article_id cache key stays consistent
+    across the three within a single run.
+    """
+    return os.environ.get("EMBEDDING_MODEL") or (
+        PERCEPTION.get("embedding_model") or "")
 
 
 def file_hash(path: Path) -> str:

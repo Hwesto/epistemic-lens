@@ -82,7 +82,7 @@ def _index_snapshot(snap: dict) -> dict[str, dict]:
     just the country in v10's outlet-first model.
     """
     perception_cfg = getattr(meta, "PERCEPTION", None) or {}
-    model_id = perception_cfg.get("embedding_model") or ""
+    model_id = meta.embedding_model()
     sig_version = perception_cfg.get("signal_text_version", "v1")
     outlet_lookup = meta.outlet_by_name()
     out: dict[str, dict] = {}
@@ -212,11 +212,7 @@ def _write_clusters(date: str, clusters: list[dict]) -> dict:
 
 
 def latest_snapshot_date() -> str | None:
-    cands = sorted(p for p in SNAPSHOTS.glob("[0-9]*.json")
-                   if not p.stem.endswith(("_convergence", "_similarity",
-                                           "_prompt", "_dedup", "_health",
-                                           "_pull_report", "_clusters")))
-    return cands[-1].stem if cands else None
+    return meta.latest_snapshot_date()
 
 
 def main() -> int:

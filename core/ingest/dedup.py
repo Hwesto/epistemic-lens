@@ -288,12 +288,10 @@ def main():
     if len(sys.argv) > 1:
         snap_path = Path(sys.argv[1])
     else:
-        # latest non-suffix snapshot
-        cands = sorted(p for p in SNAPS.glob("[0-9]*.json")
-                       if not p.stem.endswith(("_convergence", "_similarity",
-                                               "_prompt", "_dedup", "_health",
-                                               "_pull_report")))
-        snap_path = cands[-1]
+        date = meta.latest_snapshot_date(SNAPS)
+        if not date:
+            sys.exit(f"No snapshot found in {SNAPS}")
+        snap_path = SNAPS / f"{date}.json"
     print(f"Dedup'ing {snap_path}")
     snap = json.loads(snap_path.read_text(encoding="utf-8"))
     cross_day_state = load_cross_day_state()
