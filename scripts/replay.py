@@ -43,8 +43,7 @@ from pathlib import Path
 
 import core.meta as meta
 
-ROOT = meta.REPO_ROOT
-SNAPS = ROOT / "snapshots"
+SNAPS = meta.SNAPSHOTS_DIR
 
 # Step name → list of CLI commands to run. Order matters: each step writes
 # artefacts the next step depends on. Steps marked `network=True` are NOT

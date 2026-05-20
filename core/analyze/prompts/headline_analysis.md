@@ -6,7 +6,7 @@ on the same set of stories.
 
 Your output is **one JSON file per story** at
 `analyses/<DATE>_<story_key>_headline.json`, conforming to the same schema
-at `docs/api/schema/analysis.schema.json` as the regular pass. The output
+at `publish/api/schemas/analysis.schema.json` as the regular pass. The output
 is the headline-only counterpart to the body-text analysis; downstream the
 two are compared by `analytical/headline_body_divergence.py` to compute a
 per-outlet sensationalism index.

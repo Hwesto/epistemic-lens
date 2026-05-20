@@ -46,8 +46,8 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-TRAJECTORY = ROOT / "trajectory"
-ROBUSTNESS = ROOT / "robustness"
+TRAJECTORY = meta.TRAJECTORY_DIR
+ROBUSTNESS = meta.ROBUSTNESS_DIR
 
 
 def jaccard(a: set, b: set) -> float | None:

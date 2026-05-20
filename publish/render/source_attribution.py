@@ -39,8 +39,8 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-BRIEFINGS = ROOT / "briefings"
-SOURCES = ROOT / "sources"
+BRIEFINGS = meta.BRIEFINGS_DIR
+SOURCES = meta.SOURCES_DIR
 CACHE = SOURCES / "cache"
 
 VALID_SPEAKER_TYPES = {

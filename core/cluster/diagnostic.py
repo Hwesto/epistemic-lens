@@ -38,7 +38,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SNAPS = ROOT / "snapshots"
+SNAPS = meta.SNAPSHOTS_DIR
 DIAG = ROOT / "diagnostic"
 
 

@@ -17,10 +17,9 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import core.meta as meta
-from core.meta import REPO_ROOT as ROOT
-SNAPS = ROOT / "snapshots"
-REVIEW = ROOT / "review"
-REVIEW.mkdir(exist_ok=True)
+SNAPS = meta.SNAPSHOTS_DIR
+REVIEW = meta.ARCHIVE_DIR / "review"
+REVIEW.mkdir(parents=True, exist_ok=True)
 
 
 def main(n_days: int = 7):

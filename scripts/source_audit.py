@@ -22,9 +22,12 @@ from urllib.parse import urlparse
 import requests
 import xml.etree.ElementTree as ET
 
-ROOT = Path(__file__).parent
-SNAPS = ROOT / "snapshots"
-FEEDS = json.loads((ROOT / "feeds.json").read_text(encoding="utf-8"))
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+import core.meta as meta
+
+SNAPS = meta.SNAPSHOTS_DIR
+FEEDS = json.loads(meta.FEEDS_PATH.read_text(encoding="utf-8"))
 
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124 Safari/537.36")

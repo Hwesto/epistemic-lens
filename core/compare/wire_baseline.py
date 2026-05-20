@@ -45,8 +45,8 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-BRIEFINGS = ROOT / "briefings"
-BASELINE = ROOT / "baseline"
+BRIEFINGS = meta.BRIEFINGS_DIR
+BASELINE = meta.BASELINE_DIR
 
 
 def collect_wire_articles(window_days: int = 90,

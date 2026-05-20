@@ -34,7 +34,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-DRAFTS = ROOT / "drafts"
+DRAFTS = meta.DRAFTS_DIR
 
 
 def stamp(p: Path) -> bool:

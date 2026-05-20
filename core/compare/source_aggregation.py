@@ -47,7 +47,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SOURCES = ROOT / "sources"
+SOURCES = meta.SOURCES_DIR
 AGGREGATE = SOURCES / "aggregate"
 
 # Region grouping. Buckets not listed → region="other". Coarse on purpose;

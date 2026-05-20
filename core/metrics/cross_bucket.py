@@ -41,7 +41,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-BRIEFINGS = ROOT / "briefings"
+BRIEFINGS = meta.BRIEFINGS_DIR
 
 
 # ---------------------------------------------------------------------------
@@ -500,7 +500,7 @@ def main():
             return
 
     if args.augment_from_analysis:
-        analyses_dir = ROOT / "analyses"
+        analyses_dir = meta.ANALYSES_DIR
         n_augmented = 0
         for briefing_path in targets:
             metrics_path = metrics_path_for(briefing_path)

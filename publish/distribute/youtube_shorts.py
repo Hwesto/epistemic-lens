@@ -41,7 +41,7 @@ import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 VIDEOS = ROOT / "videos"
-ANALYSES = ROOT / "analyses"
+ANALYSES = meta.ANALYSES_DIR
 
 REQUIRED_SECRETS = ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
 

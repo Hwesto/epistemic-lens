@@ -30,10 +30,9 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-DIST = ROOT / "distribution"
-PENDING = DIST / "pending"
-APPROVED = DIST / "approved"
-REJECTED = DIST / "rejected"
+PENDING = meta.DISTRIBUTION_PENDING_DIR
+APPROVED = ROOT / "data" / "distribution_approved"
+REJECTED = ROOT / "data" / "distribution_rejected"
 
 
 def _all_pending(date: str | None = None) -> list[Path]:

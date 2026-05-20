@@ -33,11 +33,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import core.meta as meta
-from core.meta import REPO_ROOT as ROOT
-ANALYSES = ROOT / "analyses"
-BRIEFINGS = ROOT / "briefings"
-SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "analysis.schema.json"
-CODEBOOK_PATH = ROOT / "frames_codebook.json"
+ANALYSES = meta.ANALYSES_DIR
+BRIEFINGS = meta.BRIEFINGS_DIR
+SCHEMA_PATH = meta.SCHEMAS_DIR / "analysis.schema.json"
+CODEBOOK_PATH = meta.FRAMES_CODEBOOK_PATH
 
 
 def _codebook_ids() -> set[str]:
@@ -455,7 +454,7 @@ def main() -> int:
             total_errors += len(errs)
 
     # Phase 3a: parallel-validate source-attribution outputs.
-    SOURCES = ROOT / "sources"
+    SOURCES = meta.SOURCES_DIR
     if SOURCES.exists():
         date = args.date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
         for sp in sorted(SOURCES.glob(f"{date}_*.json")):

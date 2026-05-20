@@ -18,7 +18,7 @@ from statistics import mean
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SNAPS = ROOT / "snapshots"
+SNAPS = meta.SNAPSHOTS_DIR
 
 
 def items_per_bucket(snap):

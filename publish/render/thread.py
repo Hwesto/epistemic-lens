@@ -6,7 +6,7 @@ templates over the canonical analysis JSON. No LLM call.
 
 For each `analyses/<DATE>_<story_key>.json`, produces
 `drafts/<DATE>_<story_key>_thread.json` conforming to
-`docs/api/schema/thread.schema.json`.
+`publish/api/schemas/thread.schema.json`.
 
 Hook selection (priority order):
   1. Paradox (opposing blocs converging) — strongest signal
@@ -34,11 +34,10 @@ from pathlib import Path
 
 import core.meta as meta
 
-ROOT = meta.REPO_ROOT
-ANALYSES = ROOT / "analyses"
-BRIEFINGS = ROOT / "briefings"
-DRAFTS = ROOT / "drafts"
-SCHEMA_PATH = ROOT / "docs" / "api" / "schema" / "thread.schema.json"
+ANALYSES = meta.ANALYSES_DIR
+BRIEFINGS = meta.BRIEFINGS_DIR
+DRAFTS = meta.DRAFTS_DIR
+SCHEMA_PATH = meta.SCHEMAS_DIR / "thread.schema.json"
 
 MAX_TWEET_CHARS = 280
 MAX_HOOK_CHARS = 240
