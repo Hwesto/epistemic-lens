@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "9.2.2",
-  "pinned_at": "2026-05-19T16:08:36Z",
-  "pin_reason": "audit cleanups: pin-boundary handling in robustness_check + cross_outlet_lag; meta validation in ingest; ingest commit status notice; docstring + comment polish across PERCEPTION/build_briefing/perception; auto_promote silence message when persistence_tracker hasn't run; weekly.yml explicit Phase C output checks; discover_residual O(2N)->O(N) snapshot index; INPUT_PREFIXES consistency assert",
+  "meta_version": "10.0.0",
+  "pinned_at": "2026-05-20T01:21:24Z",
+  "pin_reason": "v10 rebuild: dynamic HDBSCAN clustering replaces canonical-story matching; outlets-not-buckets; core/ + publish/ repo split",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -75,12 +75,12 @@
   "bucket_weights_hash": "sha256:dfa0525424eed1f4362881f2e63194c1c4f9b98832857c7b6ec5a0ac761544fe",
   "card_picker_hash": "sha256:b41b9c053732d07247f33ef09e59276646c1f794db80890766a0d2ca7cbb503c",
   "today_picker_hash": "sha256:d0e6c6a7c88146538bc07c786b5c97bacb99269902bfa5b77df6f0bb453d37b0",
-  "schemas_hash": "sha256:14de8096e458a7ae61a9f90e75e9bf31ef021c1aca74bbbe197cc9f6ca8cb3da",
+  "schemas_hash": "sha256:b5ab3ffb4bb1024925cd4b116e54bc4ad57ef1ea02ff22c300b96227c6a1f7a7",
   "claude": {
     "_doc": "Dated snapshot ID (claude-<model>-<version>-YYYYMMDD) pins model weights as far as the API permits — the alias may roll forward as Anthropic ships updates. Anthropic deprecates snapshots after ~12 months; bump major when a snapshot is end-of-life and re-baseline. Drift between snapshot and what is actually served can be checked manually via `python -m canary.run`. v8.0.0 swap from sonnet to haiku is a deliberate test-pass swap on the simplification branch — see pin_reason.",
     "model": "claude-sonnet-4-6",
     "model_alias": "claude-sonnet-4-6",
-    "prompts_hash": "sha256:ac9129869d39cad6a7f739f7739a7284a5b0975b7959d14c293fab658903431a"
+    "prompts_hash": "sha256:37f01ad4a87a35c7b3f65c4db1d2bff80e7152e8ff54349044ee08bc2f8db6f3"
   },
   "perception": {
     "_doc": "Perception layer (PR2 Phase B, meta-v9.0.0). The story-matcher that turns raw articles into per-story briefings. Pre-9.0.0 this was Latin-script regex patterns that rejected 100% of non-Latin script articles. As of 9.0.0 it's an embedding-based softmax-argmax matcher: every article is encoded with `embedding_model`, scored (cosine) against each canonical story's anchor centroid (anchors live in canonical_stories.json), and assigned to its argmax story above `assignment_floor`. Calibrated against the 343-row Opus silver-labeled eval set in calibration/; macro F1 = 0.815, 4 of 5 gate-checkable per-language F1s pass. NOTE: `signal_text_version` is ONLY a cache-invalidation knob — it composes into the article_id hash so a bump triggers a re-encode. It does NOT represent a runtime feature flag or pin segment by itself.",
@@ -93,5 +93,5 @@
     "calibration_macro_f1": 0.815,
     "calibration_report": "calibration/perception_eval_report.md"
   },
-  "pin_self_hash": "sha256:3761c1044815b096e9fa6456d13004a5b1943af7cc00a9b286044a60d4477a9a"
+  "pin_self_hash": "sha256:6994277c72d7db6f923b5a6029e7a71f0b091fb1943b94a5066a4be634549d5d"
 }

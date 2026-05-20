@@ -48,7 +48,7 @@ CANONICAL_STORIES_PATH = CONFIG_DIR / "canonical_stories.json"  # LEGACY
 FRAMES_CODEBOOK_PATH = CONFIG_DIR / "frames_codebook.json"
 BUCKET_QUALITY_PATH = CONFIG_DIR / "bucket_quality.json"  # LEGACY
 BUCKET_WEIGHTS_PATH = CONFIG_DIR / "bucket_weights.json"  # LEGACY
-FEEDS_PATH = CONFIG_DIR / "feeds.json"                    # LEGACY (kept until D.4)
+FEEDS_PATH = CONFIG_DIR / "feeds.json"                    # ingest config (nested by country)
 # v10 outlet-first config:
 OUTLETS_PATH = CONFIG_DIR / "outlets.json"
 COUNTRY_WEIGHTS_PATH = CONFIG_DIR / "country_weights.json"
@@ -127,14 +127,13 @@ INGEST = META["ingest"]
 SIGNAL_TEXT = META["signal_text"]
 CLAUDE = META["claude"]
 FEEDS_META = META["feeds"]
-# Perception layer config (PR2 Phase B, meta-v9.x). Read by:
-#   - pipeline/embed_articles.py      (model_id + signal_text_version for cache keys)
-#   - analytical/build_briefing.py    (model_id, floor, cosine_gap defaults)
-#   - analytical/perception.py        (called by build_briefing — doesn't read PERCEPTION
-#                                       directly; receives parameters from caller)
-#   - pipeline/discover_residual.py   (model_id + signal_text_version for article_id
-#                                       computation against assigned-set)
-# Empty {} on pre-9.0 pins so legacy snapshots/briefings still import meta cleanly.
+# Embedding config. v10 reads only `embedding_model` + `signal_text_version`
+# from this block — they compose into the versioned article_id, so bumping
+# either invalidates every embedding-cache key loudly. Read by:
+#   - core/embed/encode.py        (model_id + signal_text_version for cache keys)
+#   - core/cluster/cluster_daily.py (same, to key the cache it reads back)
+#   - core/briefing/build.py      (same, to resolve member articles)
+# Empty {} on pins that predate the block, so old artefacts still import cleanly.
 PERCEPTION = META.get("perception") or {}
 
 

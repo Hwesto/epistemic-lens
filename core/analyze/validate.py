@@ -82,11 +82,12 @@ def check_schema(analysis: dict) -> list[str]:
 
 
 def _outlet_of(corpus_entry: dict | None) -> str | None:
-    """Return the outlet (`feed`) name for a corpus entry, or None."""
+    """Return the outlet name for a corpus entry, or None.
+    v10 corpus entries carry `outlet`; v9 used `feed` — accept either."""
     if not corpus_entry:
         return None
-    feed = corpus_entry.get("feed")
-    return feed if (feed and feed != "?") else None
+    name = corpus_entry.get("outlet") or corpus_entry.get("feed")
+    return name if (name and name != "?") else None
 
 
 WIRE_SYNDICATION_JACCARD = 0.6

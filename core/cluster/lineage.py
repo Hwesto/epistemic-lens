@@ -1,33 +1,33 @@
-"""persistence_tracker.py — member-ID Jaccard lineage across residual cluster days.
+"""lineage.py — member-ID Jaccard lineage across daily cluster files (v10).
 
-PR2 Phase C. After discover_residual writes per-day residual_clusters.json
-files, this script links clusters across days into LINEAGES — sequences of
-clusters that share a substantial fraction of member articles. Lineage = a
-candidate emerging story that has stuck around.
+After core/cluster/cluster_daily.py writes per-day `<DATE>_clusters.json`,
+this script links clusters across days into LINEAGES — sequences of
+clusters that share a substantial fraction of member articles. A lineage
+is a story that persisted: the same articles re-clustering day over day.
+
+The lineage_id this emits is the stable cross-day identity that
+core/briefing/build.py stamps onto each briefing filename
+(`data/briefings/<DATE>_<lineage_id>.json`), so a story keeps the same ID
+for as long as it keeps surfacing.
 
 Why member-ID Jaccard rather than centroid-cosine:
-  HDBSCAN cluster centroids drift day-to-day as the residual pool changes
-  (today's residual = all unmatched articles, which depends on what
-  perception assigned that day). The same underlying story may produce
-  drifting centroids while still being carried by overlapping article sets.
-  Member-article-ID Jaccard is invariant to centroid composition — if the
-  same N articles appear in clusters two days running, that's signal.
-
-The promotion gate (≥3 days, ≥4 buckets) is the same as the prior
-token-based detector in auto_promote.py — but operates on a much cleaner
-denominator (the residual is post-perception, so canonical-covered
-stories aren't competing with the emerging ones).
+  HDBSCAN cluster centroids drift day-to-day as the day's article pool
+  changes. The same underlying story may produce drifting centroids while
+  still being carried by overlapping article sets. Member-article-ID
+  Jaccard is invariant to centroid composition — if the same N articles
+  appear in clusters two days running, that's signal.
 
 Algorithm:
-  1. Walk snapshots/<date>_residual_clusters.json for the last N days.
+  1. Walk data/snapshots/<DATE>_clusters.json for the last N days.
   2. For each adjacent day-pair, compute Jaccard overlap on
      member_article_ids between every cluster pair.
   3. Link clusters across days when Jaccard ≥ jaccard_threshold (default
      0.30 — empirically picked, may need calibration).
   4. Union-find: emit lineages, each with a stable lineage_id, day_count,
-     buckets_seen (union of bucket distributions across days),
-     latest_top_tokens, latest_cluster_id_per_day.
-  5. Write archive/persistent_residual_<DATE>.json.
+     countries_seen (union of country distributions across days),
+     latest_top_tokens, seed/latest cluster ids.
+  5. Write data/archive/persistent_lineages_<DATE>.json — the file
+     core/briefing/build.py reads to reuse lineage_ids.
 
 Usage:
   python -m core.cluster.lineage                  # 7-day window
@@ -54,13 +54,13 @@ ARCHIVE = meta.ARCHIVE_DIR
 if ARCHIVE.exists() and not ARCHIVE.is_dir():
     raise RuntimeError(
         f"{ARCHIVE} exists but is not a directory; "
-        "remove or rename it before running persistence_tracker."
+        "remove or rename it before running the lineage tracker."
     )
 ARCHIVE.mkdir(exist_ok=True)
 
 
 def _load_day(date: str) -> dict | None:
-    p = SNAPSHOTS / f"{date}_residual_clusters.json"
+    p = SNAPSHOTS / f"{date}_clusters.json"
     if not p.exists():
         return None
     try:
@@ -78,8 +78,8 @@ def _jaccard(a: set, b: set) -> float:
 
 
 def _lineage_id(seed_date: str, seed_cluster_id: int) -> str:
-    """Stable opaque ID for a lineage. Hashed so renaming the seed cluster
-    (e.g. by re-running discover_residual with different MCS) doesn't
+    """Stable opaque ID for a lineage. Hashed so re-running cluster_daily
+    with a different min_cluster_size (which renumbers clusters) doesn't
     rename existing lineages — the seed_date+seed_cluster pair is enough
     for human inspection."""
     h = hashlib.sha256(f"{seed_date}|{seed_cluster_id}".encode()).hexdigest()
@@ -155,12 +155,13 @@ def build_lineages(window_days: int, end_date: str,
         keys.sort()  # oldest first
         seed_date, seed_cid = keys[0]
         latest_date, latest_cid = keys[-1]
-        buckets_seen: set[str] = set()
+        countries_seen: set[str] = set()
         token_counter: defaultdict = defaultdict(int)
         for k in keys:
             md = metadata[k]
-            for b in (md.get("bucket_distribution") or {}):
-                buckets_seen.add(b)
+            for c in (md.get("country_distribution")
+                      or md.get("bucket_distribution") or {}):
+                countries_seen.add(c)
             for t in (md.get("top_tokens") or [])[:10]:
                 token_counter[t] += 1
         lineages.append({
@@ -170,14 +171,14 @@ def build_lineages(window_days: int, end_date: str,
             "latest_date": latest_date,
             "latest_cluster_id": latest_cid,
             "day_count": len({d for d, _ in keys}),
-            "n_buckets_union": len(buckets_seen),
-            "buckets_seen": sorted(buckets_seen),
+            "n_countries_union": len(countries_seen),
+            "countries_seen": sorted(countries_seen),
             "latest_top_tokens": metadata[(latest_date, latest_cid)].get("top_tokens") or [],
             "latest_member_ids": metadata[(latest_date, latest_cid)].get("member_article_ids") or [],
             "consensus_tokens": [t for t, n in sorted(
                 token_counter.items(), key=lambda kv: -kv[1])[:10] if n >= 2],
         })
-    lineages.sort(key=lambda L: (-L["day_count"], -L["n_buckets_union"]))
+    lineages.sort(key=lambda L: (-L["day_count"], -L["n_countries_union"]))
     return lineages
 
 
@@ -186,7 +187,7 @@ def main() -> int:
     ap.add_argument("--end-date", default=None,
                     help="Date (YYYY-MM-DD). Defaults to today UTC.")
     ap.add_argument("--window", type=int, default=7,
-                    help="Days of residual_clusters.json to walk. Default 7.")
+                    help="Days of <DATE>_clusters.json to walk. Default 7.")
     ap.add_argument("--jaccard", type=float, default=0.30,
                     help="Min member-ID Jaccard for cross-day linkage. Default 0.30.")
     args = ap.parse_args()
@@ -201,18 +202,18 @@ def main() -> int:
         "n_lineages": len(lineages),
         "lineages": lineages,
     })
-    out_path = ARCHIVE / f"persistent_residual_{end_date}.json"
+    out_path = ARCHIVE / f"persistent_lineages_{end_date}.json"
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
     print(f"wrote {out_path.relative_to(meta.REPO_ROOT)} "
           f"({len(lineages)} lineages)")
-    promotion_candidates = [L for L in lineages
-                              if L["day_count"] >= 3 and L["n_buckets_union"] >= 4]
-    if promotion_candidates:
-        print(f"  {len(promotion_candidates)} promotion candidate(s) "
-              f"(>=3 days, >=4 buckets):")
-        for L in promotion_candidates[:5]:
+    persistent = [L for L in lineages
+                  if L["day_count"] >= 3 and L["n_countries_union"] >= 4]
+    if persistent:
+        print(f"  {len(persistent)} persistent lineage(s) "
+              f"(>=3 days, >=4 countries):")
+        for L in persistent[:5]:
             print(f"    {L['lineage_id']}: day_count={L['day_count']} "
-                  f"buckets={L['n_buckets_union']} "
+                  f"countries={L['n_countries_union']} "
                   f"tokens={L['consensus_tokens'][:5]}")
     return 0
 

@@ -1,19 +1,16 @@
-"""Edge-case stress tests for ingest + dedup + health.
+"""Offline edge-case stress tests for the RSS parser + dedup.
 
 Covers:
   - Malformed RSS (truncated, mixed encoding, illegal XML chars)
-  - Empty feeds
-  - Feed with item count == 0
-  - Single-item feed
-  - Feed where all items are identical
-  - Mixed RSS+Atom in one document
-  - Items missing title (should be dropped)
-  - Items missing link / summary / pubDate (should be tolerated)
-  - URL canonicalisation: edge URLs (no scheme, just hostname, query-only)
-  - Title normalisation: pure-emoji title, all-punctuation title
-  - Dedup: empty snapshot, one-item snapshot, all-stub snapshot
-  - Health: missing keys gracefully handled
+  - Mixed RSS+Atom namespaces in one document
+  - Items missing title (dropped) / link / summary / pubDate (tolerated)
   - Annotation: future-dated published, malformed dates, very long summary
+  - URL canonicalisation: no scheme, host-only
+  - Title normalisation: pure-emoji, all-punctuation
+  - Dedup: empty snapshot, one-item snapshot, intra-feed duplicates
+
+Network-dependent ingest tests retired with the v10 cleanup — live feed
+behaviour is exercised by the daily cron, not the unit suite.
 """
 from __future__ import annotations
 
@@ -163,42 +160,6 @@ class TestEdgeDedup(unittest.TestCase):
         result = self.dedup.dedup_snapshot(snap)
         self.assertEqual(result["n_total_items"], 3)
         self.assertEqual(result["n_deduped"], 1)
-
-
-class TestEdgeIngest(unittest.TestCase):
-    def setUp(self):
-        if "ingest" in sys.modules:
-            importlib.reload(sys.modules["ingest"])
-        from core.ingest import pull_feeds as ingest
-        self.ingest = ingest
-
-    def test_pull_feed_dead_url(self):
-        info = {"name": "Nope", "url": "https://nonexistent-domain-9999.invalid/rss",
-                "lang": "en", "lean": ""}
-        result = self.ingest.pull_feed(info)
-        self.assertEqual(result["item_count"], 0)
-        self.assertIsNotNone(result["error"])
-        self.assertEqual(result["items"], [])
-
-    def test_pull_all_with_one_dead_one_alive(self):
-        cfg = {"meta": {}, "countries": {
-            "alive": {"label": "alive", "feeds": [
-                {"name": "DW", "url": "https://rss.dw.com/rdf/rss-en-all",
-                 "lang": "en", "lean": ""}
-            ]},
-            "dead": {"label": "dead", "feeds": [
-                {"name": "Bogus", "url": "https://nonexistent-domain-99999.invalid/rss",
-                 "lang": "en", "lean": ""}
-            ]},
-        }}
-        snap = self.ingest.pull_all(cfg)
-        self.assertEqual(len(snap["countries"]), 2)
-        # Alive feed pulled items
-        self.assertGreater(snap["countries"]["alive"]["feeds"][0]["item_count"], 0)
-        # Dead feed gracefully recorded
-        dead_feed = snap["countries"]["dead"]["feeds"][0]
-        self.assertEqual(dead_feed["item_count"], 0)
-        self.assertIsNotNone(dead_feed["error"])
 
 
 if __name__ == "__main__":

@@ -60,7 +60,7 @@ def bucket_vocabularies(corpus: list[dict]) -> dict[str, Counter]:
     """
     by_bucket: dict[str, list[str]] = defaultdict(list)
     for art in corpus:
-        b = art.get("bucket", "")
+        b = art.get("country") or art.get("bucket") or ""
         if not b:
             continue
         if meta.is_quant_excluded(b):
@@ -74,7 +74,7 @@ def bucket_original_texts(corpus: list[dict]) -> dict[str, list[str]]:
     """For LaBSE: per-bucket list of original signal_text."""
     by_bucket: dict[str, list[str]] = defaultdict(list)
     for art in corpus:
-        b = art.get("bucket", "")
+        b = art.get("country") or art.get("bucket") or ""
         if not b or meta.is_quant_excluded(b):
             continue
         # LaBSE handles 16+ langs natively; truncate to a reasonable length.
@@ -370,7 +370,7 @@ def build_metrics(briefing: dict) -> dict:
     )
 
     excluded = sorted(
-        b for b in {a.get("bucket", "") for a in corpus}
+        b for b in {a.get("country") or a.get("bucket") or "" for a in corpus}
         if b and meta.is_quant_excluded(b)
     )
 

@@ -36,7 +36,7 @@ def _load_sources_sibling(analysis: dict) -> dict | None:
     """Load `sources/<DATE>_<story>.json` for the given analysis. Returns
     None if missing (Phase 3a; renderer's section is skipped if absent)."""
     date = analysis.get("date")
-    story_key = analysis.get("story_key")
+    story_key = analysis.get("lineage_id") or analysis.get("story_key")
     if not (date and story_key):
         return None
     p = SOURCES / f"{date}_{story_key}.json"
@@ -56,7 +56,7 @@ def _load_sibling(analysis: dict, suffix: str) -> dict | None:
     so the renderer's section is simply skipped.
     """
     date = analysis.get("date")
-    story_key = analysis.get("story_key")
+    story_key = analysis.get("lineage_id") or analysis.get("story_key")
     if not (date and story_key):
         return None
     candidates = [

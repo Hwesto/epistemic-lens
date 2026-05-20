@@ -70,8 +70,8 @@ MAX_ITEMS = int(os.environ.get("MAX_ITEMS", str(meta.INGEST["max_items_per_feed"
 MAX_WORKERS = int(os.environ.get("MAX_WORKERS", str(meta.INGEST["max_workers"])))
 PER_HOST_DELAY = float(os.environ.get("PER_HOST_DELAY", str(meta.INGEST["per_host_delay_s"])))
 TIMEOUT_S = int(os.environ.get("FETCH_TIMEOUT", str(meta.INGEST["fetch_timeout_s"])))
-OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "snapshots")
-FEEDS_CONFIG = os.environ.get("FEEDS_CONFIG", "feeds.json")
+OUTPUT_DIR = os.environ.get("OUTPUT_DIR", str(meta.SNAPSHOTS_DIR))
+FEEDS_CONFIG = os.environ.get("FEEDS_CONFIG", str(meta.FEEDS_PATH))
 SKIP_EMBED = os.environ.get("SKIP_EMBED", "0") == "1"
 
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "

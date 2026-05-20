@@ -332,10 +332,8 @@
 
 | Cadence | Job | Action |
 |---|---|---|
-| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → health → embed → build_briefing → metrics → discover_residual → analyze_bootstrap → analyze_body/headline/sources (matrix) → analyze_render → draft → publish_api → distribute |
-| Mondays 09:00 UTC | `weekly.yml` | cross_outlet_lag (CCF) + wire_baseline + tilt_index + rollup + persistence_tracker + auto_promote → commit |
+| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → coverage → health → embed → cluster_daily → salience → build → metrics → analyze_bootstrap → analyze_body/headline/sources (matrix) → analyze_render → draft → publish_api → distribute |
+| Mondays 09:00 UTC | `weekly.yml` | cross_outlet_lag (CCF) + wire_baseline + tilt_index + rollup + lineage → commit |
 | Sundays 09:00 UTC | `weekly_rot.yml` | feed rot check → commit `archive/review/rot_report_<date>.md` |
-| Sundays 10:00 UTC | `golden.yml` | perception parity check vs `calibration/eval_set.jsonl`; fails if macro F1 < 0.75 |
-| Push to main / claude-* | `ci.yml` | unit + edge tests; e2e on main only |
-| Push / PR to main | `meta-check.yml` | `baseline_pin.py --check` — every input hashed in `meta_version.json` must match its file |
+| Push / PR to main / claude-* | `meta-check.yml` | `baseline_pin.py --check` (pin drift) + offline unit suite (`tests.tests` + `tests.tests_edge`) |
 | On-demand (until A3 built) | manual or Claude Code session | build_briefing → write video_scripts → synthesize → render → post |

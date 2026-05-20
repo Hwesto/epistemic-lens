@@ -55,7 +55,7 @@ def bucket_lang_vocabularies(corpus: list[dict]) -> dict[tuple[str, str], Counte
     """Per (bucket, lang), token Counter of title + signal_text."""
     by_bl: dict[tuple[str, str], list[str]] = defaultdict(list)
     for art in corpus:
-        b = art.get("bucket")
+        b = art.get("country") or art.get("bucket")
         l = art.get("lang", "en")
         if not b:
             continue

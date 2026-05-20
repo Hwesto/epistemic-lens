@@ -132,7 +132,7 @@ def detect_paradox(analysis_md: str) -> bool:
 
 
 def extract_title(briefing: dict, fallback_key: str) -> str:
-    return briefing.get("story_title") or briefing.get("title") or fallback_key.replace("_", " ").title()
+    return briefing.get("cluster_name") or briefing.get("story_title") or briefing.get("title") or fallback_key.replace("_", " ").title()
 
 
 # ---------------------------------------------------------------------------

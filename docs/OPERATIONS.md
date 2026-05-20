@@ -133,13 +133,12 @@ Review and either drop the feed or replace with an alternative URL.
 
 ## CI flow
 
-`ci.yml` runs on every push to `main` or `claude/**`:
+`meta-check.yml` runs on every push to `main` or `claude/**` — two
+required checks: the methodology-pin drift check and the unit suite.
 
 ```bash
-python -m unittest tests tests_edge tests_calibration tests_perception tests_discovery
-                                              # ~260 tests across the v9 surface
-# On main only or workflow_dispatch:
-python tests_e2e.py                           # full pipeline smoke
+python scripts/baseline_pin.py --check        # pin drift gate
+python -m unittest tests.tests tests.tests_edge   # offline unit + edge suite
 ```
 
 ## Health alerts

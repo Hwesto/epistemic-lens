@@ -44,7 +44,7 @@ def bucket_lang_bigrams(corpus: list[dict]) -> dict[tuple[str, str], Counter]:
     """Per (bucket, lang), bigram Counter over stopword-filtered tokens."""
     by_bl: dict[tuple[str, str], Counter] = defaultdict(Counter)
     for art in corpus:
-        b = art.get("bucket")
+        b = art.get("country") or art.get("bucket")
         l = art.get("lang", "en")
         if not b:
             continue

@@ -194,7 +194,7 @@ def build_trajectory(paths: list[Path]) -> dict:
                     continue
                 drivers_today.append({
                     "url": url,
-                    "bucket": ev.get("bucket") or art.get("bucket") or "?",
+                    "bucket": ev.get("bucket") or art.get("country") or art.get("bucket") or "?",
                     "outlet": ev.get("outlet") or art.get("feed") or "?",
                 })
             entry = {

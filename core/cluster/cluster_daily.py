@@ -215,8 +215,7 @@ def latest_snapshot_date() -> str | None:
     cands = sorted(p for p in SNAPSHOTS.glob("[0-9]*.json")
                    if not p.stem.endswith(("_convergence", "_similarity",
                                            "_prompt", "_dedup", "_health",
-                                           "_pull_report", "_clusters",
-                                           "_residual_clusters")))
+                                           "_pull_report", "_clusters")))
     return cands[-1].stem if cands else None
 
 

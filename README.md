@@ -300,13 +300,13 @@ python -m core.ingest.extract_bodies
 python -m core.ingest.dedup
 python -m core.ingest.health
 python -m core.embed.encode                # downloads ~2GB on first run
-python -m core.briefing.build
+python -m core.cluster.cluster_daily       # HDBSCAN over the day's articles
+python -m core.cluster.salience            # rank clusters, pick top 15
+python -m core.briefing.build              # one briefing per top cluster
 python -m core.metrics.cross_bucket
-python -m core.cluster.cluster_daily
 
-# Test
-python -m unittest tests tests_edge tests_calibration tests_perception tests_discovery
-python tests_e2e.py                              # full pipeline smoke (live, ~6 s)
+# Test (offline; no network, no embedding model)
+python -m unittest tests.tests tests.tests_edge
 ```
 
 The analyze + draft + publish stages run via GitHub Actions only; see
@@ -362,98 +362,84 @@ Country-by-country grade table in
 
 ```
 epistemic-lens/
-├── README.md                         ← you are here
-├── meta_version.json                 ← methodology pin (the spine)
-├── meta.py                           ← loader / asserter / stamper
-├── baseline_pin.py                   ← pin bumper / CI check
-├── stopwords.txt                     ← pinned (hashed)
-├── canonical_stories.json            ← 15 stories: anchor sentences + per-story floor
-├── feeds.json                        ← 235 feeds, 55 buckets (hashed)
+├── README.md                         ← you are here (research-product README)
+├── requirements.txt
 │
-├── .github/workflows/
-│   ├── daily.yml                     ← per-story matrix daily cron
-│   ├── weekly.yml                    ← Mondays: cross-outlet lag + tilt + rollup + persistence
-│   ├── golden.yml                    ← Sundays: matcher accuracy regression check
-│   ├── meta-check.yml                ← required check on every PR
-│   ├── ci.yml                        ← unit/edge/e2e tests
-│   └── weekly_rot.yml                ← Sundays: feed rot report
+├── core/                             ← THE RESEARCH PRODUCT
+│   ├── meta.py                       ← config loader / asserter / stamper
+│   ├── config/
+│   │   ├── outlets.json              ← flat list of 235 outlets (country/lang/lean tags)
+│   │   ├── feeds.json                ← nested ingest config (235 feeds, 55 countries)
+│   │   ├── country_weights.json      ← per-country aggregate weights
+│   │   ├── outlet_quality.json       ← per-outlet quality tier
+│   │   ├── frames_codebook.json      ← Boydstun/Card 15-frame taxonomy
+│   │   ├── stopwords.txt
+│   │   └── meta_version.json         ← methodology pin (the spine)
+│   │
+│   ├── ingest/                       ← DATA INGEST
+│   │   ├── pull_feeds.py             ← parallel RSS fetcher
+│   │   ├── extract_bodies.py         ← Trafilatura body extraction + Wayback fallback
+│   │   ├── dedup.py                  ← URL canonicalisation + title near-dup + cross-day state
+│   │   ├── health.py                 ← health snapshot + alerts
+│   │   ├── coverage_matrix.py        ← per-feed coverage product
+│   │   ├── rollup.py                 ← weekly snapshot/briefing tarball retention
+│   │   └── feed_rot_check.py         ← weekly rot detection
+│   │
+│   ├── embed/
+│   │   ├── encode.py                 ← multilingual embedding cache (one .npy per day)
+│   │   └── article_id.py             ← versioned article identifier
+│   │
+│   ├── cluster/                      ← DYNAMIC STORY DISCOVERY
+│   │   ├── cluster_daily.py          ← HDBSCAN over every article in the day's set
+│   │   ├── salience.py               ← rank clusters, pick the top N for briefing
+│   │   └── lineage.py                ← cross-day cluster lineage (member-ID Jaccard)
+│   │
+│   ├── briefing/
+│   │   ├── build.py                  ← one outlet-keyed corpus per top cluster
+│   │   ├── qualifying.py             ← analyze-matrix gate (n_outlets >= 3)
+│   │   └── coverage_warnings.py      ← structural-silence caveats per briefing
+│   │
+│   ├── metrics/                      ← cross_bucket + within-language LLR / PMI
+│   │
+│   ├── analyze/                      ← LLM framing-analysis layer
+│   │   ├── prompts/                  ← daily_analysis / headline / source_attribution
+│   │   ├── validate.py               ← schema + citation + number reconciliation
+│   │   ├── restamp.py                ← refresh meta_version on agent JSON output
+│   │   └── divergence.py             ← headline-body sensationalism index
+│   │
+│   └── compare/                      ← longitudinal cross-comparators
+│       ├── longitudinal.py / robustness.py / lag.py
+│       ├── wire_baseline.py / tilt.py / mc_correction.py
+│       └── source_aggregation.py
 │
-├── .claude/prompts/
-│   ├── daily_analysis.md             ← body-pass framing analysis (Sonnet, JSON)
-│   ├── headline_analysis.md          ← headline-only pass (Sonnet, JSON)
-│   ├── source_attribution.md         ← per-quote speaker attribution (Sonnet, JSON)
-│   └── draft_long.md                 ← long-form blog/post draft (Sonnet, prose)
+├── publish/                          ← DOWNSTREAM CONTENT PRODUCT (own README)
+│   ├── render/                       ← analysis/sources Markdown + thread/carousel
+│   ├── api/                          ← api/ tree for GitHub Pages + JSON schemas
+│   ├── distribute/                   ← poster staging
+│   ├── web/                          ← static landing page
+│   └── video/                        ← dormant
 │
-├── pipeline/                         ← DATA INGEST
-│   ├── ingest.py                     ← parallel RSS fetcher
-│   ├── extract_full_text.py          ← Trafilatura body extraction + Wayback fallback
-│   ├── dedup.py                      ← URL canonicalisation + title near-dup + cross-day state
-│   ├── daily_health.py               ← health snapshot + bucket alerts
-│   ├── embed_articles.py             ← multilingual-e5-large embedding cache
-│   ├── discover_residual.py          ← HDBSCAN clustering over unassigned articles
-│   ├── rollup.py                     ← weekly snapshot/briefing tarball retention
-│   └── feed_rot_check.py             ← weekly rot detection
+├── data/                             ← runtime artefacts (mostly gitignored)
+│   ├── snapshots/                    ← daily ingest output + <DATE>_clusters.json
+│   ├── briefings/                    ← per-cluster corpora, keyed by lineage_id
+│   ├── analyses/ sources/ drafts/ coverage/ trajectory/
+│   └── archive/
+│       ├── rollup/                   ← snapshot/briefing tarballs >90 days old
+│       └── pre-v10/                  ← frozen v9.x data snapshot (see SUNSET.md)
 │
-├── analytical/                       ← ANALYSIS
-│   ├── perception.py                 ← softmax-argmax story matcher (embedding-based)
-│   ├── build_briefing.py             ← per-story corpus assembler
-│   ├── build_metrics.py              ← LaBSE pairwise + isolation + exclusive vocab
-│   ├── within_language_llr.py        ← distinctive vocab per language stratum
-│   ├── within_language_pmi.py        ← bigram associations per language stratum
-│   ├── validate_analysis.py          ← schema + citation + number reconciliation
-│   ├── list_qualifying_stories.py    ← matrix bootstrap helper
-│   ├── headline_body_divergence.py   ← sensationalism index per outlet
-│   ├── source_aggregation.py         ← daily rollup of speaker attribution
-│   ├── longitudinal.py               ← frame-share trajectories per story
-│   ├── robustness_check.py           ← day-over-day Jaccard stability
-│   ├── cross_outlet_lag.py           ← weekly cross-correlation (who-follows-whom)
-│   ├── wire_baseline.py              ← rolling 90-day wire bigram baseline
-│   ├── tilt_index.py                 ← per-outlet log-odds vs wire (Benjamini-Hochberg corrected)
-│   ├── persistence_tracker.py        ← residual cluster lineage across days
-│   ├── auto_promote.py               ← token + lineage promotion review notes
-│   └── restamp_analyses.py           ← refresh meta_version on agent JSON output
+├── tests/
+│   ├── tests.py                      ← crucial v10 regression suite (offline)
+│   └── tests_edge.py                 ← RSS parser + dedup edge cases (offline)
 │
-├── calibration/                      ← PERCEPTION-LAYER CALIBRATION
-│   ├── eval_set.jsonl                ← 343-row hand-labeled test set
-│   ├── embedding_anchors_draft.json  ← per-story anchor sentences (English + multilingual)
-│   ├── benchmark_models.py           ← three-way embedding-model bench
-│   ├── parity_check.py               ← weekly accuracy-drift cron entry point
-│   └── perception_eval_report.md     ← calibration verdict
-│
-├── publication/                      ← RENDER + PUBLISH
-│   ├── render_analysis_md.py         ← analysis JSON → human Markdown
-│   ├── render_sources_md.py          ← source aggregate → Markdown
-│   ├── render_thread.py              ← analysis JSON → Twitter/Threads template
-│   ├── render_carousel.py            ← analysis JSON → IG/LinkedIn carousel template
-│   └── build_index.py                ← assemble api/ tree for GitHub Pages
-│
-├── distribution/                     ← POSTER STAGING
-│   └── stage.py                      ← stage drafts to pending/ for downstream bots
-│
-├── tests.py / tests_edge.py / tests_e2e.py
-├── tests_calibration.py
-├── tests_perception.py               ← perception-layer tests
-├── tests_discovery.py                ← discovery-layer tests
-│
-├── web/                              ← static landing page (Pages root)
-│   ├── index.html / styles.css / app.js
-│
-├── snapshots/                        ← daily ingest output (data, grows daily)
-├── briefings/                        ← per-story corpora + metrics
-├── analyses/                         ← per-story JSON + MD analyses
-├── sources/                          ← per-quote speaker attributions
-├── drafts/                           ← thread/carousel/long-form drafts
-├── coverage/                         ← per-story × per-feed coverage matrix
-├── trajectory/                       ← frame-share trajectories per story
+├── scripts/                          ← one-off operational scripts (baseline_pin, replay, …)
 │
 ├── docs/                             ← deep-dive documentation (see "Deep dive" above)
 │
-├── video/                            ← Remotion + React + 3 Python orchestrators (dormant)
-│
-└── archive/
-    ├── rollup/                       ← snapshot/briefing tarballs >90 days old
-    ├── scripts/                      ← retired one-off scripts
-    └── review/                       ← per-feed audit decisions (rot history)
+└── .github/workflows/
+    ├── daily.yml                     ← per-cluster matrix daily cron
+    ├── weekly.yml                    ← Mondays: cross-outlet lag + tilt + rollup + lineage
+    ├── weekly_rot.yml                ← Sundays: feed rot report
+    └── meta-check.yml                ← required check (pin + unit tests) on every push
 ```
 
 ---
