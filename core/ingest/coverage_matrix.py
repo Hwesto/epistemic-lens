@@ -60,8 +60,8 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SNAPS = ROOT / "snapshots"
-COVERAGE_DIR = ROOT / "coverage"
+SNAPS = meta.SNAPSHOTS_DIR
+COVERAGE_DIR = meta.COVERAGE_DIR
 
 
 def _matches(item: dict, patterns, exclude=None) -> bool:

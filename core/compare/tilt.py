@@ -45,9 +45,9 @@ from core.compare.mc_correction import bh_filter, bonferroni_filter, two_sided_p
 from core.metrics.within_language_pmi import log_odds_with_prior
 
 ROOT = meta.REPO_ROOT
-BRIEFINGS = ROOT / "briefings"
-BASELINE = ROOT / "baseline"
-TILT = ROOT / "tilt"
+BRIEFINGS = meta.BRIEFINGS_DIR
+BASELINE = meta.BASELINE_DIR
+TILT = meta.TILT_DIR
 
 
 def load_wire_baseline(path: Path = BASELINE / "wire_bigrams.json") -> dict | None:

@@ -69,6 +69,11 @@ SOURCES_DIR = REPO_ROOT / "data" / "sources"
 DRAFTS_DIR = REPO_ROOT / "data" / "drafts"
 COVERAGE_DIR = REPO_ROOT / "data" / "coverage"
 TRAJECTORY_DIR = REPO_ROOT / "data" / "trajectory"
+BASELINE_DIR = REPO_ROOT / "data" / "baseline"
+TILT_DIR = REPO_ROOT / "data" / "tilt"
+LAG_DIR = REPO_ROOT / "data" / "lag"
+ROBUSTNESS_DIR = REPO_ROOT / "data" / "robustness"
+DISTRIBUTION_PENDING_DIR = REPO_ROOT / "data" / "distribution_pending"
 ARCHIVE_DIR = REPO_ROOT / "data" / "archive"
 
 
@@ -444,7 +449,7 @@ def stamp(artifact: dict) -> dict:
 
 
 def load_schema(name: str) -> dict:
-    """Load `docs/api/schema/<name>.schema.json` as a parsed dict."""
+    """Load `publish/api/schemas/<name>.schema.json` as a parsed dict."""
     return json.loads((SCHEMAS_DIR / f"{name}.schema.json").read_text(encoding="utf-8"))
 
 

@@ -12,7 +12,7 @@ Slide order (variable; only the title slide is mandatory):
   N+2. Silence slide (kind=silence), if any silences
   Last. Closing CTA
 
-Schema: docs/api/schema/carousel.schema.json — slides array 4..10.
+Schema: publish/api/schemas/carousel.schema.json — slides array 4..10.
 We aim for 6-8 slides per story.
 
 Usage:
@@ -31,9 +31,9 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-ANALYSES = ROOT / "analyses"
-BRIEFINGS = ROOT / "briefings"
-DRAFTS = ROOT / "drafts"
+ANALYSES = meta.ANALYSES_DIR
+BRIEFINGS = meta.BRIEFINGS_DIR
+DRAFTS = meta.DRAFTS_DIR
 
 MAX_SLIDE_BODY_CHARS = 200
 

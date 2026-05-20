@@ -16,13 +16,13 @@ Outputs:
       artifacts{briefing, metrics, analysis, thread?, carousel?, long?},
       top_isolation_bucket?, paradox?} ] }
 
-  api/<DATE>/<story_key>/{briefing.json, metrics.json, analysis.md,
+  api/<DATE>/<lineage_id>/{briefing.json, metrics.json, analysis.md,
                           thread.json, carousel.json, long.json}
 
-  api/schema/{thread,carousel,long}.schema.json   (copied from docs/api/schema)
+  api/schema/{thread,carousel,long}.schema.json   (copied from publish/api/schemas)
 
 Idempotent: re-running on the same date overwrites. Source files in
-briefings/, analyses/, drafts/ remain canonical; the api/ tree is a
+data/briefings/, data/analyses/, data/drafts/ remain canonical; the api/ tree is a
 publication bundle.
 
 Usage:
@@ -44,18 +44,18 @@ import core.meta as meta
 from publish.api.site_config import SITE_BASE
 
 ROOT = meta.REPO_ROOT
-BRIEFINGS = ROOT / "briefings"
-ANALYSES = ROOT / "analyses"
-DRAFTS = ROOT / "drafts"
-COVERAGE = ROOT / "coverage"
-TRAJECTORY = ROOT / "trajectory"
-LAG = ROOT / "lag"
-SOURCES = ROOT / "sources"
-BASELINE = ROOT / "baseline"
-TILT = ROOT / "tilt"
-ROBUSTNESS = ROOT / "robustness"
-SCHEMAS_SRC = ROOT / "docs" / "api" / "schema"
-WEB_SRC = ROOT / "web"
+BRIEFINGS = meta.BRIEFINGS_DIR
+ANALYSES = meta.ANALYSES_DIR
+DRAFTS = meta.DRAFTS_DIR
+COVERAGE = meta.COVERAGE_DIR
+TRAJECTORY = meta.TRAJECTORY_DIR
+LAG = meta.LAG_DIR
+SOURCES = meta.SOURCES_DIR
+BASELINE = meta.BASELINE_DIR
+TILT = meta.TILT_DIR
+ROBUSTNESS = meta.ROBUSTNESS_DIR
+SCHEMAS_SRC = meta.SCHEMAS_DIR
+WEB_SRC = ROOT / "publish" / "web"
 API = ROOT / "api"
 
 DATE_RE = re.compile(
@@ -1051,7 +1051,7 @@ def write_methodology_page() -> None:
     from publish.api.page_renderers import render_methodology_page
     meta_dict = json.loads(meta.META_PATH.read_text(encoding="utf-8"))
     # Load the codebook (frames + descriptions).
-    codebook_path = ROOT / "frames_codebook.json"
+    codebook_path = meta.FRAMES_CODEBOOK_PATH
     codebook = None
     if codebook_path.exists():
         try:
@@ -1059,7 +1059,7 @@ def write_methodology_page() -> None:
         except (OSError, json.JSONDecodeError):
             codebook = None
     # Daily analysis prompt.
-    prompt_path = ROOT / ".claude" / "prompts" / "daily_analysis.md"
+    prompt_path = meta.PROMPTS_DIR / "daily_analysis.md"
     prompt_md = prompt_path.read_text(encoding="utf-8") if prompt_path.exists() else ""
     # Picker configs.
     card_picker = json.loads(meta.CARD_PICKER_PATH.read_text(encoding="utf-8")) \

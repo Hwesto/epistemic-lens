@@ -2,7 +2,7 @@
 """render_analysis_md.py — render JSON analyses into human-readable markdown.
 
 The canonical analytical artifact is `analyses/<DATE>_<story_key>.json` — the
-shape Claude emits, schema-validated against `docs/api/schema/analysis.schema.json`.
+shape Claude emits, schema-validated against `publish/api/schemas/analysis.schema.json`.
 This script reads those JSON files and produces matching `.md` files for PR
 review and the Pages render.
 
@@ -22,14 +22,12 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from core.meta import REPO_ROOT as ROOT
+import core.meta as meta
 from core.metrics.cross_bucket import weighted_frame_distribution
 from core.briefing.coverage_warnings import coverage_warnings_for
-ANALYSES = ROOT / "analyses"
-BRIEFINGS = ROOT / "briefings"
-
-
-SOURCES = ROOT / "sources"
+ANALYSES = meta.ANALYSES_DIR
+BRIEFINGS = meta.BRIEFINGS_DIR
+SOURCES = meta.SOURCES_DIR
 
 
 def _load_sources_sibling(analysis: dict) -> dict | None:

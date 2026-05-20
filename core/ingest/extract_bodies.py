@@ -45,7 +45,7 @@ except ImportError:
     HAS_TRAFILATURA = False
 
 ROOT = meta.REPO_ROOT
-SNAPS_DEFAULT = ROOT / "snapshots"
+SNAPS_DEFAULT = meta.SNAPSHOTS_DIR
 
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124 Safari/537.36")

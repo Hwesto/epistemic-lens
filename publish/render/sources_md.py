@@ -23,7 +23,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SOURCES = ROOT / "sources"
+SOURCES = meta.SOURCES_DIR
 
 
 def render_sources(sources_doc: dict) -> str:
