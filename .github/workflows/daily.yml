@@ -55,7 +55,7 @@ jobs:
         # rebase-merge can land an unvalidated meta_version.json on main.
         # Catch it here so the cron alerts loudly rather than silently
         # producing artefacts stamped with a drifted pin.
-        run: python baseline_pin.py --check
+        run: python scripts/baseline_pin.py --check
 
       - name: Pull feeds + embed + cluster
         env:
@@ -63,7 +63,7 @@ jobs:
           MAX_WORKERS: '30'
           PER_HOST_DELAY: '1.0'
           FETCH_TIMEOUT: '20'
-        run: python -m pipeline.ingest
+        run: python -m core.ingest.pull_feeds
 
       - name: Extract full article text (hybrid — clusters + per-feed coverage)
         env:
@@ -73,16 +73,16 @@ jobs:
           EXTRACT_WORKERS: '20'
           PER_HOST_DELAY: '1.0'
           EXTRACT_TIMEOUT: '15'
-        run: python -m pipeline.extract_full_text
+        run: python -m core.ingest.extract_bodies
 
       - name: Deduplicate snapshot
-        run: python -m pipeline.dedup
+        run: python -m core.ingest.dedup
 
       - name: Coverage matrix (deterministic per-story × per-feed coverage product, Phase 1)
-        run: python -m pipeline.coverage_matrix
+        run: python -m core.ingest.coverage_matrix
 
       - name: Daily health snapshot
-        run: python -m pipeline.daily_health
+        run: python -m core.ingest.health
 
       - name: Embed every article (PR2 Phase B perception cache)
         # Writes snapshots/<DATE>_embeddings.npy + <DATE>_embedding_ids.json,
@@ -96,42 +96,47 @@ jobs:
         # Subsequent runs hit the HF cache (~/.cache/huggingface). Encoding
         # ~6,500 articles takes ~12 min on the 2-core ubuntu-latest runner.
         # Total Phase B cost per cron: ~12 min steady-state, ~17 min cold.
-        run: python -m pipeline.embed_articles
+        run: python -m core.embed.encode
 
-      - name: Build per-story briefings
-        # --max-stories 15 (covers every canonical dossier) was the
-        # implicit default until meta-v8.8.0 set it explicitly. The prior
-        # default of 5 + JSON-order iteration silently truncated 8 of
-        # the 15 canonical stories.
-        run: python -m analytical.build_briefing --max-stories 15
+      - name: Cluster all articles via HDBSCAN (v10)
+        # v10: open-world clustering replaces canonical-story matching.
+        # Reads the embedding cache, runs HDBSCAN over EVERY article in
+        # the day's set, writes data/snapshots/<DATE>_clusters.json with
+        # ~50-200 clusters + their member article IDs, country/outlet/lang
+        # distributions, and top tokens.
+        run: python -m core.cluster.cluster_daily
 
-      - name: Compute briefing metrics (LaBSE cosine + bucket-exclusive vocab)
-        run: python -m analytical.build_metrics
+      - name: Rank clusters by salience, pick top N for briefing
+        # Score each cluster (article count × country spread × cross-
+        # lingual bonus × stability) and select the top 15. Writes
+        # data/snapshots/<DATE>_top_clusters.json — the input to
+        # build_briefing.
+        run: python -m core.cluster.salience --top-n 15
 
-      - name: Within-language LLR distinctive vocab (Phase 2)
-        run: python -m analytical.within_language_llr
+      - name: Build per-cluster briefings (outlet-level corpora)
+        # For each top cluster, assemble a per-outlet corpus to
+        # data/briefings/<DATE>_<lineage_id>.json. Lineage IDs persist
+        # across days when the same articles re-cluster (≥30% Jaccard
+        # overlap, computed weekly by core/cluster/lineage.py).
+        run: python -m core.briefing.build
 
-      - name: Within-language PMI/log-odds bigram associations (Phase 2)
-        run: python -m analytical.within_language_pmi
+      - name: Compute cross-outlet metrics (LaBSE cosine + exclusive vocab)
+        run: python -m core.metrics.cross_bucket
 
-      - name: Discover residual clusters (PR2 Phase C — HDBSCAN over unassigned)
-        # Articles the perception layer didn't assign to any canonical
-        # story are the discovery surface for emerging stories the
-        # canonical set doesn't yet cover. HDBSCAN over their embeddings
-        # surfaces same-day cross-bucket clusters; persistence_tracker
-        # (weekly) chains those into lineages. Idempotent; writes
-        # snapshots/<DATE>_residual_clusters.json. Safe to fail silently
-        # if hdbscan isn't installed or embedding cache is missing.
-        run: python -m pipeline.discover_residual || true
+      - name: Within-language LLR distinctive vocab
+        run: python -m core.metrics.within_language_llr
+
+      - name: Within-language PMI/log-odds bigram associations
+        run: python -m core.metrics.within_language_pmi
 
       - name: Job summary
         if: always()
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          if [ -f "snapshots/${DATE}_health.json" ]; then
+          if [ -f "data/snapshots/${DATE}_health.json" ]; then
             python3 - <<PY >> $GITHUB_STEP_SUMMARY
           import json
-          d = json.load(open("snapshots/${DATE}_health.json"))
+          d = json.load(open("data/snapshots/${DATE}_health.json"))
           print(f"# Daily ingest — {d['date']}")
           print()
           print(f"- Feeds: **{d['n_feeds']}**")
@@ -161,18 +166,18 @@ jobs:
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add snapshots/ briefings/ coverage/ cross_day_dedup_state.json
-          # archive/rollup/ only exists on weeks the rollup job ran. Conditional
+          git add data/snapshots/ data/briefings/ data/coverage/ cross_day_dedup_state.json
+          # data/archive/rollup/ only exists on weeks the rollup job ran. Conditional
           # add so a missing directory doesn't abort `set -e` and fail the
           # whole ingest job — that cascade was skipping analyze entirely
           # (analyze's `if:` requires needs.ingest.result in success/skipped).
-          [ -d archive/rollup ] && git add archive/rollup/ || true
+          [ -d data/archive/rollup ] && git add data/archive/rollup/ || true
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
-          ITEMS=$(python3 -c "import json,sys; d=json.load(open(f'snapshots/{sys.argv[1]}_health.json')); print(d['n_items'])" "$DATE" 2>/dev/null || echo "?")
+          ITEMS=$(python3 -c "import json,sys; d=json.load(open(f'data/snapshots/{sys.argv[1]}_health.json')); print(d['n_items'])" "$DATE" 2>/dev/null || echo "?")
           git commit -m "snapshot ${DATE} (${ITEMS} items)"
           # Retry-on-conflict push: rebase if remote moved. After three
           # failed attempts the ingest job fails, and analyze gates on
@@ -226,8 +231,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      stories: ${{ steps.list.outputs.stories }}
-      n_stories: ${{ steps.list.outputs.n_stories }}
+      lineages: ${{ steps.list.outputs.lineages }}
+      n_lineages: ${{ steps.list.outputs.n_lineages }}
       date: ${{ steps.list.outputs.date }}
     steps:
       - uses: actions/checkout@v4
@@ -245,20 +250,20 @@ jobs:
       - name: Install minimal deps (meta imports regex)
         run: pip install jsonschema regex
 
-      - name: List qualifying stories (n_buckets >= 3) for the matrix
+      - name: List qualifying lineages (n_outlets >= 3) for the matrix
         id: list
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          STORIES=$(python -m analytical.list_qualifying_stories --date "$DATE")
-          N=$(python3 -c 'import json,sys; print(len(json.loads(sys.argv[1])))' "$STORIES")
-          echo "stories=$STORIES" >> "$GITHUB_OUTPUT"
-          echo "n_stories=$N" >> "$GITHUB_OUTPUT"
+          LINEAGES=$(python -m core.briefing.qualifying --date "$DATE")
+          N=$(python3 -c 'import json,sys; print(len(json.loads(sys.argv[1])))' "$LINEAGES")
+          echo "lineages=$LINEAGES" >> "$GITHUB_OUTPUT"
+          echo "n_lineages=$N" >> "$GITHUB_OUTPUT"
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
-          echo "Qualifying stories for $DATE: $STORIES (n=$N)"
+          echo "Qualifying lineages for $DATE: $LINEAGES (n=$N)"
 
   analyze_body:
     needs: analyze_bootstrap
-    if: ${{ always() && needs.analyze_bootstrap.result == 'success' && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.result == 'success' && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     permissions:
@@ -268,7 +273,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        story: ${{ fromJSON(needs.analyze_bootstrap.outputs.stories) }}
+        lineage: ${{ fromJSON(needs.analyze_bootstrap.outputs.lineages) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -290,24 +295,24 @@ jobs:
       - name: Install jsonschema + regex
         run: pip install jsonschema regex
 
-      - name: Load + scope daily-analysis prompt (story=${{ matrix.story }})
+      - name: Load + scope daily-analysis prompt (cluster=${{ matrix.lineage }})
         id: load_prompt
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            echo "# Assigned story: ${STORY}"
+            echo "# Assigned cluster: ${LINEAGE}"
             echo ""
-            echo "Process ONLY the story \`${STORY}\` from today's briefings."
+            echo "Process ONLY the cluster \`${LINEAGE}\` from today's briefings."
             echo "Do not enumerate other stories. Your output is a single file:"
-            echo "\`analyses/<DATE>_${STORY}.json\`."
+            echo "\`data/analyses/<DATE>_${LINEAGE}.json\`."
             echo ""
-            cat .claude/prompts/daily_analysis.md
+            cat core/analyze/prompts/daily_analysis.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Run Claude Code daily framing analysis (story=${{ matrix.story }})
+      - name: Run Claude Code daily framing analysis (cluster=${{ matrix.lineage }})
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -332,7 +337,7 @@ jobs:
     # `always()` so a sibling story's body failure doesn't cancel this matrix
     # entry — each entry checks its OWN body file before running. Combined
     # with fail-fast: false on analyze_body, that gives per-story isolation.
-    if: ${{ always() && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -342,7 +347,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        story: ${{ fromJSON(needs.analyze_bootstrap.outputs.stories) }}
+        lineage: ${{ fromJSON(needs.analyze_bootstrap.outputs.lineages) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -355,13 +360,13 @@ jobs:
       - name: Check that body analysis exists for this story
         id: check
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          if [ -f "analyses/${DATE}_${STORY}.json" ]; then
+          if [ -f "data/analyses/${DATE}_${LINEAGE}.json" ]; then
             echo "has_body=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning::body analysis missing for ${STORY}; skipping headline pass"
+            echo "::warning::body analysis missing for ${LINEAGE}; skipping headline pass"
             echo "has_body=false" >> "$GITHUB_OUTPUT"
           fi
 
@@ -369,24 +374,24 @@ jobs:
         if: steps.check.outputs.has_body == 'true'
         run: pip install jsonschema regex
 
-      - name: Load + scope headline prompt (story=${{ matrix.story }})
+      - name: Load + scope headline prompt (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         id: load_prompt
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            echo "# Assigned story: ${STORY}"
+            echo "# Assigned cluster: ${LINEAGE}"
             echo ""
-            echo "Process ONLY the story \`${STORY}\`. Output:"
-            echo "\`analyses/<DATE>_${STORY}_headline.json\`."
+            echo "Process ONLY the cluster \`${LINEAGE}\`. Output:"
+            echo "\`data/analyses/<DATE>_${LINEAGE}_headline.json\`."
             echo ""
-            cat .claude/prompts/headline_analysis.md
+            cat core/analyze/prompts/headline_analysis.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Run Claude Code headline analysis (story=${{ matrix.story }})
+      - name: Run Claude Code headline analysis (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         uses: anthropics/claude-code-action@v1
         with:
@@ -409,7 +414,7 @@ jobs:
     needs: [analyze_bootstrap, analyze_body]
     # Same shape + dependency logic as analyze_headline. Headline + sources
     # can run in parallel once their per-story body file lands.
-    if: ${{ always() && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -419,7 +424,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        story: ${{ fromJSON(needs.analyze_bootstrap.outputs.stories) }}
+        lineage: ${{ fromJSON(needs.analyze_bootstrap.outputs.lineages) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -432,13 +437,13 @@ jobs:
       - name: Check that body analysis exists for this story
         id: check
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          if [ -f "analyses/${DATE}_${STORY}.json" ]; then
+          if [ -f "data/analyses/${DATE}_${LINEAGE}.json" ]; then
             echo "has_body=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning::body analysis missing for ${STORY}; skipping source-attribution pass"
+            echo "::warning::body analysis missing for ${LINEAGE}; skipping source-attribution pass"
             echo "has_body=false" >> "$GITHUB_OUTPUT"
           fi
 
@@ -446,24 +451,24 @@ jobs:
         if: steps.check.outputs.has_body == 'true'
         run: pip install jsonschema regex
 
-      - name: Load + scope source-attribution prompt (story=${{ matrix.story }})
+      - name: Load + scope source-attribution prompt (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         id: load_prompt
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            echo "# Assigned story: ${STORY}"
+            echo "# Assigned cluster: ${LINEAGE}"
             echo ""
-            echo "Process ONLY the story \`${STORY}\`. Output:"
-            echo "\`sources/<DATE>_${STORY}.json\`."
+            echo "Process ONLY the cluster \`${LINEAGE}\`. Output:"
+            echo "\`sources/<DATE>_${LINEAGE}.json\`."
             echo ""
-            cat .claude/prompts/source_attribution.md
+            cat core/analyze/prompts/source_attribution.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Run Claude Code source attribution (story=${{ matrix.story }})
+      - name: Run Claude Code source attribution (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         uses: anthropics/claude-code-action@v1
         with:
@@ -488,7 +493,7 @@ jobs:
     # successful stories still get rendered + committed. validate_analysis,
     # render_*, longitudinal, robustness_check are all idempotent against
     # partial data.
-    if: ${{ always() && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -514,50 +519,50 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Re-stamp meta_version on today's analyses
-        run: python -m analytical.restamp_analyses
+        run: python -m core.analyze.restamp
 
       - name: Validate analyses (citation grounding + number reconciliation)
         # Idempotent. Skips files that don't exist. Fails the job only on
         # genuine grounding errors in the files that DO exist.
-        run: python -m analytical.validate_analysis
+        run: python -m core.analyze.validate
 
       - name: Augment metrics with weighted_frame_distribution
         # Folds analysis frames back into matching _metrics.json so renderer
         # / consumers see the population-weighted view as a first-class field.
         # Added meta-v8.8.0.
-        run: python -m analytical.build_metrics --augment-from-analysis
+        run: python -m core.metrics.cross_bucket --augment-from-analysis
 
       - name: Headline-body divergence (sensationalism index)
         # Skips silently when a story is missing one of (body, headline).
-        run: python -m analytical.headline_body_divergence
+        run: python -m core.analyze.divergence
 
       - name: Source aggregation (daily rollup per outlet/region)
-        run: python -m analytical.source_aggregation
+        run: python -m core.compare.source_aggregation
 
       - name: Render sources markdown
-        run: python -m publication.render_sources_md
+        run: python -m publish.render.sources_md
 
       - name: Render analysis markdown from JSON
-        run: python -m publication.render_analysis_md
+        run: python -m publish.render.analysis_md
 
       - name: Longitudinal aggregator (frame-share trajectories per story)
-        run: python -m analytical.longitudinal
+        run: python -m core.compare.longitudinal
 
       - name: Robustness check (frame-allocation stability per story)
-        run: python -m analytical.robustness_check
+        run: python -m core.compare.robustness
 
       - name: Commit and push rendered markdown + trajectories
         run: |
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add analyses/ trajectory/ sources/ robustness/ briefings/
+          git add data/analyses/ data/trajectory/ data/sources/ data/robustness/ data/briefings/
           if git diff --cached --quiet; then
             echo "No new MD or trajectory to commit."
             exit 0
           fi
           DATE=$(date -u +%Y-%m-%d)
-          N=$(ls analyses/${DATE}_*.md 2>/dev/null | wc -l | tr -d ' ')
+          N=$(ls data/analyses/${DATE}_*.md 2>/dev/null | wc -l | tr -d ' ')
           git commit -m "render analyses ${DATE} markdown (${N} files) + trajectories"
           for i in 1 2 3; do
             if git push; then exit 0; fi
@@ -600,17 +605,17 @@ jobs:
       # Phase 3: thread + carousel are deterministic templates over the
       # canonical analysis JSON. No LLM required — saves ~8 messages/day.
       - name: Render thread drafts (template)
-        run: python -m publication.render_thread
+        run: python -m publish.render.thread
 
       - name: Render carousel drafts (template)
-        run: python -m publication.render_carousel
+        run: python -m publish.render.carousel
 
       - name: Commit and push template-rendered drafts
         run: |
           set -e
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add drafts/
+          git add data/drafts/
           if git diff --cached --quiet; then
             echo "No template-rendered drafts to commit."
           else
@@ -631,7 +636,7 @@ jobs:
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            cat .claude/prompts/draft_long.md
+            cat publish/render/prompts/draft_long.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
@@ -650,7 +655,7 @@ jobs:
         # Pre-8.7.2 wasn't wired into the workflow → today's long drafts
         # land schema-noncompliant and the validator below trips on
         # `'meta_version' is a required property`. Wiring fixes that.
-        run: python -m analytical.stamp_long_drafts
+        run: python -m publish.render.stamp_long_drafts
 
       - name: Validate drafts against schemas
         run: |
@@ -661,9 +666,9 @@ jobs:
           from pathlib import Path
           import jsonschema
           schemas = {
-              "thread":   json.load(open("docs/api/schema/thread.schema.json")),
-              "carousel": json.load(open("docs/api/schema/carousel.schema.json")),
-              "long":     json.load(open("docs/api/schema/long.schema.json")),
+              "thread":   json.load(open("publish/api/schemas/thread.schema.json")),
+              "carousel": json.load(open("publish/api/schemas/carousel.schema.json")),
+              "long":     json.load(open("publish/api/schemas/long.schema.json")),
           }
           fails = 0
           for p in sorted(Path("drafts").glob("*.json")):
@@ -743,7 +748,7 @@ jobs:
         run: git pull --ff-only origin "$(git rev-parse --abbrev-ref HEAD)" || true
 
       - name: Build api/ tree (renders HTML cards + PNGs)
-        run: python -m publication.build_index
+        run: python -m publish.api.build_index
 
       - uses: actions/configure-pages@v4
 
@@ -782,16 +787,16 @@ jobs:
       # X poster or YouTube Shorts uploader. Instead, today's drafts are
       # staged to distribution/pending/<date>/ as approval envelopes.
       # A separate workflow (or a human running
-      # `python -m distribution.publish --approve <id>`) moves an
+      # `python -m publish.distribute.publish --approve <id>`) moves an
       # envelope to distribution/approved/, where the actual posting
       # picks it up. Rationale in distribution/stage.py docstring +
       # docs/MERGE_PLAN.md PR 6.
       - name: Stage drafts to distribution/pending/
-        run: python -m distribution.stage
+        run: python -m publish.distribute.stage
 
       - name: Commit pending envelopes
         run: |
-          git add distribution/pending/ || true
+          git add data/distribution_pending/ || true
           if ! git diff --cached --quiet; then
             git -c user.name="epistemic-lens-bot" \
                 -c user.email="bot@epistemic-lens" \

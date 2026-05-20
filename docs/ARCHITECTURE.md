@@ -1,218 +1,151 @@
-# Architecture — Epistemic Lens
+# Architecture — Epistemic Lens (v10)
 
 ## System overview
 
-```
-                        ┌──────────────────────────────────┐
-                        │  feeds.json  (235 feeds, 55 bk)  │
-                        └────────────────┬─────────────────┘
-                                         │
-                ┌────────────────────────▼────────────────────────┐
-                │  DATA PIPELINE                                  │
-                │                                                 │
-                │  pipeline.ingest            → snapshots/<date>.json   │
-                │   • parallel fetch (ThreadPool, 30 workers)     │
-                │   • per-host rate limit + retries               │
-                │   • xml.etree parser (RSS/Atom/RDF)             │
-                │   • per-item flags: is_stub, is_google_news,    │
-                │       summary_chars, published_age_hours        │
-                │                                                 │
-                │  pipeline.extract_full_text                           │
-                │   • trafilatura body extraction                 │
-                │   • Wayback Machine fallback on 4xx             │
-                │   • signal_text() helper: body | summary | title│
-                │   • per-bucket coverage so every country has    │
-                │       at least N items extracted daily          │
-                │                                                 │
-                │  pipeline.dedup                                       │
-                │   • URL canonicalisation (utm/m./www/GN)        │
-                │   • title near-dup collapse                     │
-                │                                                 │
-                │  pipeline.daily_health                                │
-                │   • feed health + extraction stats              │
-                │   • alerts: volume_drop + low_extraction        │
-                │                                                 │
-                │  pipeline.embed_articles    (PR2 Phase B, v9)         │
-                │   • intfloat/multilingual-e5-large embedding    │
-                │   • versioned article_id: sha256(model_id |     │
-                │       signal_text_version | feed | link)        │
-                │   • writes snapshots/<DATE>_embeddings.npy      │
-                │                                                 │
-                │  pipeline.feed_rot_check     (weekly)                 │
-                │   • flags persistently broken feeds             │
-                └────────────────┬────────────────────────────────┘
-                                 │
-                                 ▼
-                ┌──────────────────────────────────┐
-                │  analytical.build_briefing               │
-                │   • PERCEPTION layer (v9):       │
-                │     delegates to analytical.     │
-                │     perception.assign_articles_  │
-                │     to_stories — softmax-argmax  │
-                │     against embedding anchors    │
-                │   • per-story corpus with up to  │
-                │     2 distinct framings/bucket   │
-                │   • signal_text fallback chain   │
-                │   • corpus[].match_cosine +      │
-                │     match_softmax stamped       │
-                └────────────────┬─────────────────┘
-                                 │
-                                 ▼
-                  briefings/<date>_<story>.json
-                                 │
-                                 ▼
-        ┌──────────────────────────────────────────────────┐
-        │  analytical.build_metrics                                │
-        │   • pairwise LaBSE cosine on per-bucket means    │
-        │   • bucket divergence (mean cosine vs others)    │
-        │   • bucket-exclusive vocab (df==1, count>=3)     │
-        │   • emits briefings/<date>_<story>_metrics.json  │
-        └────────────────┬─────────────────────────────────┘
-                         │
-                         ▼
-        ┌──────────────────────────────────────────────────┐
-        │  ANALYZE JOBS (per-story matrix, v8.8.1)         │
-        │                                                  │
-        │  analyze_bootstrap → list_qualifying_stories     │
-        │    emits JSON array of stories with              │
-        │    n_buckets ≥ 3 → matrix for the LLM jobs       │
-        │                                                  │
-        │  analyze_body, analyze_headline, analyze_sources │
-        │    each: matrix per story (fail-fast: false)     │
-        │    each entry: one Sonnet session, one briefing  │
-        │    prompts:                                      │
-        │      .claude/prompts/daily_analysis.md           │
-        │      .claude/prompts/headline_analysis.md        │
-        │      .claude/prompts/source_attribution.md       │
-        │    each prompt accepts "# Assigned story:" header│
-        │    so workflow can scope to one story per call.  │
-        │    No more one-Sonnet-session-loads-all-stories  │
-        │    OOM (the 2026-05-19 60-min cancellation).    │
-        │                                                  │
-        │  Each LLM emits JSON conforming to:              │
-        │    analysis.schema.json (body + headline pass)   │
-        │    sources schema (per-quote speaker attrib)     │
-        │                                                  │
-        │  analyze_render: validate, augment metrics,      │
-        │  render MD, longitudinal, robustness, commit.    │
-        └────────────────┬─────────────────────────────────┘
-                         │
-                         ▼
-        ┌──────────────────────────────────────────────────┐
-        │  analytical.validate_analysis    (defence in depth)      │
-        │   • schema check (jsonschema)                    │
-        │   • citation grounding: every signal_text_idx    │
-        │     resolves; quote substring match; bucket      │
-        │     label matches corpus[idx].bucket             │
-        │   • number reconciliation: n_buckets/n_articles  │
-        │     match metrics.json; divergence scores match; │
-        │     exclusive_vocab terms present in metrics     │
-        │   • exits non-zero on any violation              │
-        └────────────────┬─────────────────────────────────┘
-                         │
-                         ▼
-        ┌──────────────────────────────────────────────────┐
-        │  publication.render_analysis_md                           │
-        │   • analysis.json → analysis.md                  │
-        │   • Markdown is presentation-only; JSON is       │
-        │     canonical                                    │
-        └────────────────┬─────────────────────────────────┘
-                         │
-                         ▼
-        analyses/<date>_<story>.{json,md}  (canonical + render)
-                         │
-        ┌────────────────┴────────────────────────────────┐
-        │  DRAFT JOB (publication layer)                  │
-        │                                                 │
-        │  Python templates (no LLM):                     │
-        │   • publication.render_thread    → thread.json           │
-        │     (hook priority: paradox > divergence        │
-        │      outlier > exclusive vocab > generic)       │
-        │   • publication.render_carousel  → carousel.json         │
-        │                                                 │
-        │  Claude Code Action (sonnet):                   │
-        │   • prompt: .claude/prompts/draft_long.md       │
-        │   • model:  claude-sonnet-4-6                   │
-        │   • emits long.json (markdown body, sources[])  │
-        │                                                 │
-        │  All three outputs schema-validated against     │
-        │  docs/api/schema/{thread,carousel,long}.schema  │
-        └────────────────┬────────────────────────────────┘
-                         │
-                         ▼
-        drafts/<date>_<story>_{thread,carousel,long}.json
-                         │
-                         ▼
-        ┌──────────────────────────────────────────────────┐
-        │  PUBLISH_API JOB                                 │
-        │   publication.build_index walks briefings/, analyses/,    │
-        │   drafts/, copies into api/<date>/<story>/,      │
-        │   copies docs/api/schema/* into api/schema/,     │
-        │   copies web/* (index.html + styles.css +        │
-        │   app.js) into api/, deploys to GitHub Pages.    │
-        └────────────────┬─────────────────────────────────┘
-                         │
-                         ▼
-                hwesto.github.io/epistemic-lens/
-                         │
-                         ├── /                 → web/index.html landing
-                         ├── /<DATE>/index.json
-                         ├── /<DATE>/<story>/{briefing,metrics,analysis}.{json,md}
-                         ├── /<DATE>/<story>/{thread,carousel,long}.json
-                         ├── /latest.json
-                         └── /schema/*.schema.json
+v10 replaces v9's closed-world story matching (a fixed
+`canonical_stories.json` + softmax-argmax matcher) with **open-world
+dynamic clustering**: every article in the day's set is embedded and
+clustered, salience ranking picks the top ~15, and each top cluster
+becomes a briefing. There is no pre-defined story list.
 
-      [Optional, manual: video pipeline (synthesize_voiceover.py +
-       generate_music_bed.py + render_video.py + video/)
-       remains in repo but is not invoked by the cron. Reactivate
-       when the public publication surface needs short-form video.]
 ```
+              ┌──────────────────────────────────────────┐
+              │  core/config/feeds.json (235 feeds, 55)  │
+              └────────────────────┬─────────────────────┘
+                                   │
+          ┌────────────────────────▼────────────────────────────┐
+          │  INGEST  (core/ingest/)                              │
+          │                                                      │
+          │  pull_feeds      → data/snapshots/<date>.json        │
+          │   • parallel fetch (ThreadPool, 30 workers)          │
+          │   • per-host rate limit + retries                    │
+          │   • RSS / Atom / RDF parser                          │
+          │  extract_bodies  → annotates snapshot in place       │
+          │   • trafilatura body extraction                      │
+          │   • Wayback + Common Crawl News fallbacks            │
+          │   • signal_text(): body | summary | title            │
+          │  dedup           → _dedup.json + annotations         │
+          │   • URL canonicalisation, title near-dup collapse    │
+          │  coverage_matrix → data/coverage/<date>.json         │
+          │  health          → <date>_health.json + alerts       │
+          └────────────────────────┬─────────────────────────────┘
+                                   │
+          ┌────────────────────────▼─────────────────────────────┐
+          │  EMBED + CLUSTER                                      │
+          │                                                       │
+          │  core/embed/encode    → <date>_embeddings.npy        │
+          │   • multilingual-e5-large, unit-normed vectors        │
+          │   • versioned article_id keys the cache               │
+          │  core/cluster/cluster_daily → <date>_clusters.json   │
+          │   • HDBSCAN over EVERY article (~50-200 clusters)    │
+          │   • member IDs + country/outlet/lang distributions    │
+          │  core/cluster/salience → <date>_top_clusters.json    │
+          │   • score = n_articles × country_spread ×            │
+          │     multilingual_bonus × stability; keep top ~15      │
+          │  core/cluster/lineage (weekly) → archive/            │
+          │     persistent_lineages_<date>.json                  │
+          │   • cross-day member-ID Jaccard ≥ 0.30 → lineage_id  │
+          └────────────────────────┬─────────────────────────────┘
+                                   │
+          ┌────────────────────────▼─────────────────────────────┐
+          │  core/briefing/build                                  │
+          │   • one corpus per top cluster                        │
+          │   • up to 2 articles per OUTLET (novelty filter)     │
+          │   • each entry tagged outlet/country/lang/lean        │
+          │   • filename keyed by stable lineage_id               │
+          └────────────────────────┬─────────────────────────────┘
+                                   │
+                  data/briefings/<date>_<lineage_id>.json
+                                   │
+          ┌────────────────────────▼─────────────────────────────┐
+          │  core/metrics/cross_bucket                            │
+          │   • pairwise LaBSE cosine on per-outlet means         │
+          │   • outlet isolation (mean cosine vs others)          │
+          │   • outlet-exclusive vocab (df==1, count>=3)          │
+          │   • within-language LLR + PMI siblings                │
+          │   • → <date>_<lineage_id>_metrics.json                │
+          └────────────────────────┬─────────────────────────────┘
+                                   │
+          ┌────────────────────────▼─────────────────────────────┐
+          │  ANALYZE  (per-cluster matrix)                        │
+          │                                                       │
+          │  analyze_bootstrap → core/briefing/qualifying         │
+          │    emits JSON array of lineage_ids with               │
+          │    n_outlets ≥ 3 → matrix axis for the LLM jobs       │
+          │                                                       │
+          │  analyze_body / analyze_headline / analyze_sources    │
+          │    each: matrix per lineage_id (fail-fast: false)     │
+          │    each entry: one Sonnet session, one briefing       │
+          │    prompts under core/analyze/prompts/                │
+          │    prompts accept a "# Assigned cluster:" header so   │
+          │    the workflow scopes each call to one cluster       │
+          │                                                       │
+          │  analyze_render: restamp → validate → divergence →    │
+          │    source_aggregation → render MD → longitudinal →    │
+          │    robustness → commit                                │
+          └────────────────────────┬─────────────────────────────┘
+                                   │
+              data/analyses/<date>_<lineage_id>.{json,md}
+                                   │
+          ┌────────────────────────▼─────────────────────────────┐
+          │  DRAFT + PUBLISH  (publish/)                          │
+          │   • publish/render/{thread,carousel}.py — templates   │
+          │   • publish/render/prompts/draft_long.md — Sonnet     │
+          │   • publish/api/build_index.py → api/ tree → Pages    │
+          │   • publish/distribute/stage.py → pending queue       │
+          └────────────────────────┬─────────────────────────────┘
+                                   │
+                       hwesto.github.io/epistemic-lens/
+                                   │
+              ├── /                          → landing page
+              ├── /<DATE>/index.json
+              ├── /<DATE>/<lineage_id>/{briefing,metrics,analysis}.{json,md}
+              ├── /<DATE>/<lineage_id>/{thread,carousel,long}.json
+              ├── /latest.json
+              └── /schema/*.schema.json
+
+      [Dormant: the video pipeline under publish/video/ is kept in
+       the repo but not invoked by any cron. Reactivate when the
+       public surface needs short-form video.]
+```
+
+## Repo layers
+
+| Layer | Path | Role |
+|---|---|---|
+| Research product | `core/` | ingest → embed → cluster → briefing → metrics → analyze |
+| Content product | `publish/` | render, api tree, distribution, web, video (dormant) |
+| Runtime data | `data/` | snapshots, briefings, analyses, archive — mostly gitignored |
+| Config | `core/config/` | feeds, outlets, weights, codebook, `meta_version.json` |
+
+`core/` produces the data; `publish/` consumes it. The two are kept
+visibly separate so the research pipeline has no dependency on the
+content layer.
 
 ## Data layer details
 
-**Snapshot file shape** (`snapshots/<date>.json`):
+**Snapshot file** (`data/snapshots/<date>.json`) — country-nested raw
+ingest. `countries` is an organisational container; the atomic unit is
+the outlet (a feed within a country).
+
 ```json
 {
-  "pulled_at": "2026-05-06T07:00:00Z",
-  "date": "2026-05-06",
-  "config_version": "0.5.0",
-  "max_items": 50,
+  "date": "2026-05-20",
   "countries": {
     "usa": {
       "label": "United States",
       "feeds": [
         {
-          "name": "CNN World",
-          "lang": "en",
-          "lean": "Centre-liberal",
-          "fetch_ms": 1234,
-          "http_status": 200,
-          "bytes": 45000,
-          "error": null,
+          "name": "CNN World", "lang": "en", "lean": "Centre-liberal",
           "item_count": 50,
           "items": [
             {
-              "title": "...",
-              "link": "https://...",
-              "summary": "...",
-              "published": "Tue, 06 May 2026 06:00:00 +0000",
+              "title": "...", "link": "https://...", "summary": "...",
+              "published": "Tue, 20 May 2026 06:00:00 +0000",
               "id": "abc123ef",
-              "summary_chars": 240,
-              "is_stub": false,
-              "is_google_news": false,
-              "published_age_hours": 1.2,
-              // After pipeline.extract_full_text:
-              "body_text": "...",
-              "body_chars": 4200,
-              "extraction_status": "FULL",
-              "extraction_ms": 1500,
-              "extraction_http": 200,
-              "extraction_via_wayback": false,
-              // After pipeline.dedup:
-              "canonical_url": "https://...",
-              "normalised_title": "...",
-              "url_dup_count": 1,
-              "title_dup_count": 1
+              "body_text": "...", "body_chars": 4200,
+              "extraction_status": "FULL", "extraction_via_wayback": false,
+              "canonical_url": "https://...", "normalised_title": "..."
             }
           ]
         }
@@ -222,120 +155,104 @@
 }
 ```
 
-**Briefing file shape** (`briefings/<date>_<story>.json`):
+**Clusters file** (`data/snapshots/<date>_clusters.json`) — HDBSCAN
+output over the whole day. Each cluster:
+
 ```json
 {
-  "date": "2026-05-06",
-  "story_key": "hormuz_iran",
-  "story_title": "Strait of Hormuz / US-Iran deal",
-  "n_buckets": 27,
-  "n_articles_total": 41,
-  "signal_breakdown": {"body": 24, "summary": 3},
-  "corpus": [
-    {
-      "bucket": "usa",
-      "feed": "Fox News World",
-      "lang": "en",
-      "title": "...",
-      "link": "https://...",
-      "signal_level": "body",
-      "signal_text": "first 2500 chars of body or summary",
-      "extraction_status": "FULL",
-      "via_wayback": false
-    }
-  ]
+  "cluster_id": 7,
+  "n_articles": 38, "n_countries": 14, "n_outlets": 22, "n_langs": 5,
+  "member_article_ids": ["a1b2c3...", "..."],
+  "country_distribution": {"usa": 6, "iran": 4, "...": 0},
+  "outlet_distribution":  {"BBC News": 3, "...": 0},
+  "lang_distribution":    {"en": 20, "fa": 7, "...": 0},
+  "top_tokens": ["hormuz", "strait", "tanker"],
+  "stability": 0.71
 }
 ```
 
-**Video script shape** (`video_scripts/<date>_<n>.json`):
+`<date>_top_clusters.json` is the salience-ranked top ~15 of the same
+shape, each with an added `salience_score`.
+
+**Briefing file** (`data/briefings/<date>_<lineage_id>.json`):
+
 ```json
 {
-  "video_id": "2026-05-06_01_hormuz",
-  "story_date": "2026-05-06",
-  "story_title": "Strait of Hormuz / Project Freedom paused",
-  "rank": 1,
-  "duration_seconds": 60,
-  "scenes": [
+  "date": "2026-05-20",
+  "lineage_id": "Le4f8a39c1d",
+  "cluster_id": 7,
+  "cluster_name": null,
+  "salience_score": 28.4,
+  "top_tokens": ["hormuz", "strait", "tanker"],
+  "n_outlets": 22, "n_countries": 14, "n_langs": 5,
+  "n_articles_total": 38,
+  "countries_present": ["iran", "usa", "..."],
+  "corpus": [
     {
-      "scene": 1,
-      "time": "0:00-0:05",
-      "voiceover": "Same news. Five very different stories.",
-      "on_screen_text": "5 COUNTRIES.\n1 STORY.",
-      "country": null
-    },
-    {
-      "scene": 3,
-      "time": "0:13-0:22",
-      "voiceover": "United States. Trump on Truth Social: ...",
-      "on_screen_text": "🇺🇸 USA: 'If they don't agree, the bombing starts'\nTrump, Truth Social",
-      "headline_quoted": "Trump warns 'much higher-level' bombing — Yonhap"
+      "outlet": "Fox News World",
+      "country": "usa", "country_label": "United States",
+      "lang": "en", "lean": "Centre-right", "section": "news",
+      "title": "...", "link": "https://...",
+      "signal_level": "body",
+      "signal_text": "first 2500 chars of body or summary",
+      "extraction_status": "FULL", "via_wayback": false
     }
   ],
-  "fact_check_provenance": {
-    "supporting_quotes_per_frame": [
-      {"frame": "USA", "outlet": "Yonhap News", "exact_headline": "..."}
-    ],
-    "briefing_corpus": "briefings/2026-05-06_hormuz_iran.json"
-  }
+  "coverage_caveats": []
 }
 ```
+
+`cluster_name` is written later by Claude's analysis pass — the briefing
+ships with it `null`.
 
 ## Component reference
 
-### Remotion video template (`video/`)
-
-| Component | Purpose |
-|---|---|
-| `Root.tsx` | Composition registry, default props for `npm run dev` |
-| `FramingVideo.tsx` | Top-level: parses scenes, computes frame ranges, orchestrates camera dolly |
-| `cameraPresets.ts` | 35 country `[lon, lat, zoom, flag, label]` presets |
-| `WorldMap.tsx` | Dark equirectangular map with real country shapes + active-country highlight |
-| `CountryPin.tsx` | Pulsing flag pin centered on the focused country |
-| `QuoteCard.tsx` | Bottom slide-up card with framing + italic provenance |
-| `TitleCard.tsx` | Opening hook with line-stagger reveal |
-| `OutroCard.tsx` | Closing CTA with pulsing FOLLOW button |
-| `Captions.tsx` | TikTok-style burned-in subtitles |
-| `types.ts` | `VideoScriptProps`, `Scene` type definitions |
-
 ### Pipeline scripts
 
-| Script | Reads | Writes |
+| Module | Reads | Writes |
 |---|---|---|
-| `pipeline.ingest` | `feeds.json` | `snapshots/<date>.json` + `_pull_report.md` |
-| `pipeline.extract_full_text` | snapshot + optional `_convergence.json` | annotates snapshot in place; checkpoints every N |
-| `pipeline.dedup` | snapshot | `_dedup.json` + annotates items in place |
-| `pipeline.daily_health` | snapshot + last 7 days | `_health.json` |
-| `pipeline.embed_articles` | snapshot | `snapshots/<date>_embeddings.npy` + `_embedding_ids.json` (.npy gitignored; ~26 MB/day; CI regenerates each cron) |
-| `pipeline.discover_residual` | embedding cache + briefings/* | `snapshots/<date>_residual_clusters.json` (HDBSCAN over articles perception didn't assign) |
-| `pipeline.feed_rot_check` | last 7 `_health.json` | `archive/review/rot_report_<date>.md` |
-| `pipeline.rollup` | snapshots + briefings ≥90d old (weekly) | `archive/rollup/<bucket>-YYYY-MM.tar.gz`; idempotent |
-| `analytical.list_qualifying_stories` | briefings/* | JSON array to stdout (used by `analyze_bootstrap` matrix) |
-| `analytical.perception` | encoded vectors + canonical_stories anchors | `MatchResult` per article — softmax-argmax assignment with cosine + cosine_gap gates |
-| `analytical.build_briefing` | latest snapshot + embedding cache | `briefings/<date>_<story>.json` (delegates to perception) |
-| `analytical.persistence_tracker` | last 7 days `_residual_clusters.json` (weekly) | `archive/persistent_residual_<date>.json` |
-| `analytical.auto_promote` | persistence_tracker output + token detector (weekly) | `archive/auto_promoted_<date>.md` (review notes — never mutates canonical_stories.json) |
-| `calibration.parity_check` | `eval_set.jsonl` + current canonical anchors (weekly Sunday) | exit non-zero if macro F1 < threshold; alerts golden cron |
-| `synthesize_voiceover.py` | `video_scripts/<id>.json` | `video/public/voiceovers/<id>/scene_*.wav` + `durations.json` |
-| `generate_music_bed.py` | (none) | `video/public/music_bed.wav` |
-| `render_video.py` | `video_scripts/<id>.json` + `durations.json` | `videos/<id>.mp4` |
+| `core.ingest.pull_feeds` | `core/config/feeds.json` | `<date>.json` + `_pull_report.md` |
+| `core.ingest.extract_bodies` | snapshot | annotates snapshot in place |
+| `core.ingest.dedup` | snapshot | `_dedup.json` + annotations |
+| `core.ingest.coverage_matrix` | snapshot | `data/coverage/<date>.json` |
+| `core.ingest.health` | snapshot + last 7 days | `<date>_health.json` |
+| `core.embed.encode` | snapshot | `<date>_embeddings.npy` + `_embedding_ids.json` (.npy gitignored; CI regenerates each cron) |
+| `core.cluster.cluster_daily` | embedding cache + snapshot | `<date>_clusters.json` (HDBSCAN over every article) |
+| `core.cluster.salience` | `<date>_clusters.json` | `<date>_top_clusters.json` (top ~15) |
+| `core.cluster.lineage` | last 7 days `<date>_clusters.json` (weekly) | `data/archive/persistent_lineages_<date>.json` |
+| `core.briefing.build` | snapshot + `<date>_top_clusters.json` | `data/briefings/<date>_<lineage_id>.json` |
+| `core.briefing.qualifying` | `data/briefings/*` | JSON array of lineage_ids to stdout (analyze-matrix bootstrap) |
+| `core.metrics.cross_bucket` | briefing | `<date>_<lineage_id>_metrics.json` |
+| `core.analyze.validate` | analysis + briefing + metrics | exits non-zero on schema / citation / number violation |
+| `core.ingest.feed_rot_check` | last 7 `_health.json` (weekly) | `archive/review/rot_report_<date>.md` |
+| `core.ingest.rollup` | snapshots + briefings ≥90d old (weekly) | `archive/rollup/<group>-YYYY-MM.tar.gz`; idempotent |
+
+### Validation (defence in depth)
+
+`core/analyze/validate.py` runs after the LLM matrix:
+
+- **schema check** — `jsonschema` against `analysis.schema.json`
+- **citation grounding** — every `signal_text_idx` resolves; quote is a
+  verbatim substring of `corpus[idx].signal_text`; the claimed `outlet`
+  matches `corpus[idx].outlet` (auto-filled from the corpus when blank)
+- **number reconciliation** — `n_outlets` / `n_countries` match the
+  metrics file; exclusive-vocab terms are present in metrics
+- exits non-zero on any violation, failing the render job loudly
 
 ## Status flags in feeds.json
 
 | Flag | Meaning |
 |---|---|
-| `OK` | Feed live, returns parseable items, real summaries |
-| `STUB` | Title-only feed (Lenta, RIA, ARY News, Taipei Times). Useful for headline tracking, weak for embedding nuance |
-| `RETRY` | 403/429 from probe container; expected to work from production IP. Mostly major Western outlets behind anti-bot |
-| `OK + extraction via Wayback` | Live feed but article body retrieved via web.archive.org because the live host blocks |
+| `OK` | Feed live, returns parseable items with real summaries |
+| `STUB` | Title-only feed. Useful for headline tracking, weak for embedding nuance |
+| `RETRY` | 403/429 from the probe container; expected to work from the production IP |
+| `OK + extraction via Wayback` | Live feed, article body retrieved via web.archive.org because the host blocks |
 
 ## Pipeline cadence
 
 | Cadence | Job | Action |
 |---|---|---|
-| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → health → embed → build_briefing → metrics → discover_residual → analyze_bootstrap → analyze_body/headline/sources (matrix) → analyze_render → draft → publish_api → distribute |
-| Mondays 09:00 UTC | `weekly.yml` | cross_outlet_lag (CCF) + wire_baseline + tilt_index + rollup + persistence_tracker + auto_promote → commit |
+| Daily 07:00 UTC | `daily.yml` | ingest → extract → dedup → coverage → health → embed → cluster_daily → salience → build → metrics → analyze_bootstrap → analyze_body/headline/sources (matrix) → analyze_render → draft → publish_api → distribute |
+| Mondays 09:00 UTC | `weekly.yml` | cross_outlet_lag (CCF) + wire_baseline + tilt_index + rollup + lineage → commit |
 | Sundays 09:00 UTC | `weekly_rot.yml` | feed rot check → commit `archive/review/rot_report_<date>.md` |
-| Sundays 10:00 UTC | `golden.yml` | perception parity check vs `calibration/eval_set.jsonl`; fails if macro F1 < 0.75 |
-| Push to main / claude-* | `ci.yml` | unit + edge tests; e2e on main only |
-| Push / PR to main | `meta-check.yml` | `baseline_pin.py --check` — every input hashed in `meta_version.json` must match its file |
-| On-demand (until A3 built) | manual or Claude Code session | build_briefing → write video_scripts → synthesize → render → post |
+| Push / PR to main / claude-* | `meta-check.yml` | `baseline_pin.py --check` (pin drift) + offline unit suite (`tests.tests` + `tests.tests_edge`) |

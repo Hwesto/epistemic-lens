@@ -1,17 +1,15 @@
-# Coverage — Epistemic Lens v0.5 (post-PR2)
+# Coverage — Epistemic Lens v10
 
-**235 feeds across 55 country/region buckets, 16+ languages, 6 continents.**
-49+ buckets reliably extract full body text per day.
+**235 feeds across 55 countries, 16+ languages, 6 continents.**
+49+ countries reliably extract full body text per day.
 
-**Multilingual story matching** is live as of meta-v9.0.0 (PR2 Phase B,
-2026-05-19): the regex-based matcher that rejected 100% of non-Latin
-script articles has been replaced by `analytical/perception.py` —
-embedding softmax-argmax assignment against per-story anchor centroids
-written in English + native-script multilingual variants. Calibrated
-against a 343-row Opus silver-labeled eval set; macro F1=0.815. Persian,
-Arabic, Chinese, Japanese, Korean, Hindi, Hebrew, Russian articles now
-reach briefings rather than silently underflowing the matcher. See
-`calibration/perception_eval_report.md` for the verdict.
+**Multilingual story discovery.** v10 clusters every article in the
+day's set with HDBSCAN over multilingual embedding vectors — there is
+no fixed story list and no regex matcher. Because the clusterer works
+on meaning-vectors, Persian, Arabic, Chinese, Japanese, Korean, Hindi,
+Hebrew, and Russian articles cluster alongside English coverage of the
+same event without any per-story anchor. See `docs/METHODOLOGY.md` for
+the clustering + salience + lineage details.
 
 ## Country grade table
 
@@ -39,7 +37,7 @@ political-spectrum coverage (left + right + populist + tabloid where exists),
 | **Iran (state+opposition)** | B | 5 + 3 | IRNA EN/FA, Tehran Times, Mehr (RETRY), Press TV alt rsshub + Iran International EN/FA, RFE/RL | Blackout-affected |
 | **Israel** | B+ | 4 | Haaretz, JPost, Times of Israel, Ynet Hebrew | Israel Hayom (free pro-Netanyahu paper, largest by circ) |
 | **Turkey** | B | 4 | Sabah (AKP), Hurriyet, Anadolu (state), Bianet | Sözcü (secular opposition), Yeni Şafak |
-| **France** | B+ | 6 | Le Monde, Le Figaro, BFM TV, Le Parisien, France Info, AFP/F24 FR (split into own `france` bucket meta-v9.1.0; English AFP/Reuters/AP wires remain in `wire_services`) | Liberation (RETRY), TF1 |
+| **France** | B+ | 6 | Le Monde, Le Figaro, BFM TV, Le Parisien, France Info, AFP/F24 FR (own `france` country; English AFP/Reuters/AP wires remain in `wire_services`) | Liberation (RETRY), TF1 |
 | **Egypt** | B- | 5 | Egypt Independent, Mada Masr, Daily News Egypt, Al Ahram (via GN), Ahram Online (via GN) | Direct Al Ahram (403) |
 | **Lebanon** | C+ | 2 | L'Orient Today (RETRY), Al-Akhbar (RETRY) | Naharnet |
 | **Saudi Arabia** | B- | 2 | Arab News (direct), Al Arabiya English (RETRY) | Direct from container blocked |
@@ -67,12 +65,17 @@ political-spectrum coverage (left + right + populist + tabloid where exists),
 | **Netherlands/Belgium** | C+ | 2 | NL Times, DutchNews | Brussels Times (parse fail) |
 | **Jordan** | C | 1 | Jordan Times (RETRY) | Roya News, Al Ghad |
 
-## Structural buckets (cross-country)
+## Cross-country feed groups
 
-| Bucket | Feeds | Note |
+A handful of `country` keys in `outlets.json` aren't geographic — they
+group feeds that function as a cross-border editorial unit (wires,
+opinion magazines, pan-regional outlets). They behave like any other
+country tag in clustering and metrics.
+
+| Group | Feeds | Note |
 |---|---|---|
-| `wire_services` | 3 | Reuters, AP, AFP/France 24 EN (genuine cross-border English wires; French outlets moved to `france` bucket meta-v9.1.0) |
-| `france` | 6 | Le Monde, Le Figaro, Le Parisien, BFM TV, France Info, AFP/France 24 FR (added meta-v9.1.0) |
+| `wire_services` | 3 | Reuters, AP, AFP/France 24 EN (genuine cross-border English wires; French-language outlets sit in `france`) |
+| `france` | 6 | Le Monde, Le Figaro, Le Parisien, BFM TV, France Info, AFP/France 24 FR |
 | `opinion_magazines` | 7 | Foreign Policy, Foreign Affairs, Atlantic, Politico Europe, Conversation, Economist (RETRY), New Yorker (RETRY) |
 | `pan_arab` | 3 | Middle East Eye, Middle East Monitor, The New Arab (RETRY) |
 | `pan_african` | 3 | AfricaNews, African Arguments, The Africa Report |
@@ -120,19 +123,19 @@ Each video's `fact_check_provenance` block names the exact outlet for each frame
 
 RSS feeds are **algorithmically curated by the outlets that emit them**: opinion pieces, paywalled stories, and sometimes breaking-news inserts are excluded. The pipeline ingests `feeds.json` URLs which are RSS, so what we have is *what the outlet emits via RSS*, not *what the outlet publishes*.
 
-`pipeline/sitemap_diff.py` audits the gap. For an outlet's `(rss_url, sitemap_url)` pair, it pulls one week of items from each, normalizes URLs, and reports:
+`core/ingest/sitemap_diff.py` audits the gap. For an outlet's `(rss_url, sitemap_url)` pair, it pulls one week of items from each, normalizes URLs, and reports:
 
 - `sitemap_in_rss` — what fraction of sitemap-published items appear in RSS. Lower = larger selection bias.
 - `missing_categories` — the URL-path components that dominate the gap (e.g., `/opinion/`, `/sports/`).
 
-Run a one-shot audit of representative outlets and append the output to `archive/rss_vs_sitemap_audit_<date>.md`. When an outlet's `sitemap_in_rss` falls below 0.6 the renderer should annotate any framing claim that depends on that outlet — what we see is at most 60% of what they publish, with systematic exclusions on category, not random sampling.
+Run a one-shot audit of representative outlets and append the output to `data/archive/rss_vs_sitemap_audit_<date>.md`. When an outlet's `sitemap_in_rss` falls below 0.6 the renderer should annotate any framing claim that depends on that outlet — what we see is at most 60% of what they publish, with systematic exclusions on category, not random sampling.
 
 This is structural disclosure, not a fix. RSS is what RSS is. The audit makes the gap measurable; closing it would require switching to sitemap-driven ingest, which is out of scope for the current pipeline.
 
 ## Common Crawl News fallback for paywalled majors (Phase C.2)
 
-Trafilatura + Wayback fail systematically on paywalled outlets (Le Monde, Le Figaro, Bild, The Telegraph in the current feed list; NYT/WaPo/WSJ/FT not subscribed). `pipeline/commoncrawl_fallback.py` adds a third extraction tier that queries the [Common Crawl News](https://commoncrawl.org/blog/news-dataset-available) CDX index for the URL within ±21 days and parses the matched WARC record.
+Trafilatura + Wayback fail systematically on paywalled outlets (Le Monde, Le Figaro, Bild, The Telegraph in the current feed list; NYT/WaPo/WSJ/FT not subscribed). `core/ingest/commoncrawl_fallback.py` adds a third extraction tier that queries the [Common Crawl News](https://commoncrawl.org/blog/news-dataset-available) CDX index for the URL within ±21 days and parses the matched WARC record.
 
 Latency caveat: CC-NEWS has a 1–2 week ingestion lag, so the fallback only enriches **retroactive** replays (re-running the pipeline against a past date once CC-NEWS has caught up). Today's paywalled coverage is still missing. This is documented as a coverage limitation, not a defect.
 
-Feeds flagged `paywalled: true` in `feeds.json` get the fallback automatically; new flags are a `minor` pin bump.
+Feeds flagged `paywalled: true` in `core/config/feeds.json` get the fallback automatically; new flags are a `minor` pin bump.

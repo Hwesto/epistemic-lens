@@ -14,8 +14,9 @@ guaranteed stable; optional fields may be added.
 https://hwesto.github.io/epistemic-lens/api/
 ```
 
-> If you're running locally during development, `python build_index.py`
-> emits the same tree under `./api/` for testing without deploying.
+> If you're running locally during development,
+> `python -m publish.api.build_index` emits the same tree under `./api/`
+> for testing without deploying.
 
 ## Entry point — `latest.json`
 
@@ -50,9 +51,10 @@ curl https://hwesto.github.io/epistemic-lens/api/2026-05-07/index.json
   "n_stories": 4,
   "stories": [
     {
-      "key": "hormuz_iran",
-      "title": "Hormuz / US-Iran Deal",
-      "n_buckets": 27,
+      "key": "Le4f8a39c1d",
+      "title": "Strait of Hormuz / US-Iran deal",
+      "n_outlets": 27,
+      "n_countries": 14,
       "n_articles": 41,
       "has": {
         "briefing": true,
@@ -63,49 +65,40 @@ curl https://hwesto.github.io/epistemic-lens/api/2026-05-07/index.json
         "long":     true
       },
       "artifacts": {
-        "briefing": "/api/2026-05-07/hormuz_iran/briefing.json",
-        "metrics":  "/api/2026-05-07/hormuz_iran/metrics.json",
-        "analysis": "/api/2026-05-07/hormuz_iran/analysis.md",
-        "thread":   "/api/2026-05-07/hormuz_iran/thread.json",
-        "carousel": "/api/2026-05-07/hormuz_iran/carousel.json",
-        "long":     "/api/2026-05-07/hormuz_iran/long.json"
+        "briefing": "/api/2026-05-07/Le4f8a39c1d/briefing.json",
+        "metrics":  "/api/2026-05-07/Le4f8a39c1d/metrics.json",
+        "analysis": "/api/2026-05-07/Le4f8a39c1d/analysis.md",
+        "thread":   "/api/2026-05-07/Le4f8a39c1d/thread.json",
+        "carousel": "/api/2026-05-07/Le4f8a39c1d/carousel.json",
+        "long":     "/api/2026-05-07/Le4f8a39c1d/long.json"
       },
-      "top_isolation_bucket": "iran_opposition",
+      "top_isolation_outlet": "Iran International",
       "paradox": true
     }
   ]
 }
 ```
 
+`key` is the cluster's `lineage_id` — a stable hash that persists for
+as long as the story keeps re-clustering across days. `title` is the
+`cluster_name` Claude wrote during the analysis pass.
+
 `has.<format>` tells you whether that artifact is present. Drafts may
 be missing if the analyze or draft job failed; the index still ships.
 
 ## Per-story artifacts
 
-For each story, six files (some optional):
+For each story, keyed by its `lineage_id`, six files (some optional):
 
 | Path                                  | Type             | Schema                          |
 |---------------------------------------|------------------|---------------------------------|
-| `<story>/briefing.json`               | application/json | `/api/schema/briefing.schema.json` |
-| `<story>/metrics.json`                | application/json | `/api/schema/metrics.schema.json`  |
-| `<story>/analysis.json`               | application/json | `/api/schema/analysis.schema.json` |
-| `<story>/analysis.md`                 | text/markdown    | rendered from analysis.json     |
-| `<story>/thread.json`                 | application/json | `/api/schema/thread.schema.json`   |
-| `<story>/carousel.json`               | application/json | `/api/schema/carousel.schema.json` |
-| `<story>/long.json`                   | application/json | `/api/schema/long.schema.json`     |
-
-## Per-day discovery output (v9.2.0+)
-
-| Path                                                  | Type             | Schema                                           |
-|-------------------------------------------------------|------------------|--------------------------------------------------|
-| `<date>/residual_clusters.json`                       | application/json | `/api/schema/residual_clusters.schema.json`      |
-| weekly `archive/persistent_residual_<date>.json`      | application/json | `/api/schema/persistent_residual.schema.json`    |
-
-These surface emerging stories the canonical-set doesn't cover yet:
-articles the perception layer didn't assign get HDBSCAN-clustered daily,
-linked across days by member-article-ID Jaccard ≥ 0.30, and reviewed
-weekly. Lineages with day_count ≥ 3 AND n_buckets_union ≥ 4 land in
-`archive/auto_promoted_<date>.md` as promotion candidates.
+| `<lineage_id>/briefing.json`          | application/json | `/api/schema/briefing.schema.json` |
+| `<lineage_id>/metrics.json`           | application/json | `/api/schema/metrics.schema.json`  |
+| `<lineage_id>/analysis.json`          | application/json | `/api/schema/analysis.schema.json` |
+| `<lineage_id>/analysis.md`            | text/markdown    | rendered from analysis.json     |
+| `<lineage_id>/thread.json`            | application/json | `/api/schema/thread.schema.json`   |
+| `<lineage_id>/carousel.json`          | application/json | `/api/schema/carousel.schema.json` |
+| `<lineage_id>/long.json`              | application/json | `/api/schema/long.schema.json`     |
 
 ## Schemas — `/api/schema/`
 
@@ -115,39 +108,32 @@ strong typing.
 ```bash
 curl https://hwesto.github.io/epistemic-lens/api/schema/briefing.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/analysis.schema.json
-curl https://hwesto.github.io/epistemic-lens/api/schema/canonical_stories.schema.json
-curl https://hwesto.github.io/epistemic-lens/api/schema/residual_clusters.schema.json
-curl https://hwesto.github.io/epistemic-lens/api/schema/persistent_residual.schema.json
+curl https://hwesto.github.io/epistemic-lens/api/schema/metrics.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/thread.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/carousel.schema.json
 curl https://hwesto.github.io/epistemic-lens/api/schema/long.schema.json
 ```
 
-**Briefing schema additions (meta-v9.0.0):** `corpus[].match_cosine` and
-`corpus[].match_softmax` — the matcher's confidence stamp from the
-embedding softmax-argmax assignment. `match_cosine` is the raw cosine
-against the assigned story's anchor centroid; `match_softmax` is the
-softmax-normalised score across the full canonical set. Both optional;
-absent on pre-9.0 briefings.
+**Briefing schema (v10).** A briefing is one HDBSCAN cluster's corpus.
+Top-level: `lineage_id`, `cluster_id`, `n_outlets`, `n_countries`,
+`salience_score`, `top_tokens`. Each `corpus[]` entry carries `outlet`
+plus `country`, `lang`, `lean`, and `section` tags — so a consumer can
+group the same corpus by outlet, country, language, or political lean
+without re-fetching anything.
 
-**Canonical stories schema additions (meta-v9.0.0):** each story carries
-`embedding_anchors` (3-8 sentence anchor list, including native-script
-multilingual variants where applicable), `assignment_floor` (per-story
-override of `meta.PERCEPTION.assignment_floor_default`), and `tier`
-(`long_running` | `dated`). The legacy `patterns` + `exclude` regex
-fields are retained but no longer drive briefing assignment — only the
-emerging-story token detector reads them.
+**Analysis schema (v10).** Required: `lineage_id`, `cluster_id`,
+`cluster_name` (Claude's name for the story), `n_outlets`,
+`n_countries`. Each `frames[]` entry lists the `outlets` and
+`countries` that carried that frame.
 
 Quick shapes:
 
-- **thread**: `{story_key, date, hook, tweets[{text, sources[{bucket,url}]}], closing_cta?}`
-- **carousel**: `{story_key, date, title, subtitle?, slides[{title, body, source?}], closing}`
-- **long**: `{story_key, date, title, body_md (markdown), sources[{bucket,url}]}`
+- **thread**: `{lineage_id, date, hook, tweets[{text, sources[{outlet,url}]}], closing_cta?}`
+- **carousel**: `{lineage_id, date, title, subtitle?, slides[{title, body, source?}], closing}`
+- **long**: `{lineage_id, date, title, body_md (markdown), sources[{outlet,url}]}`
 
-Every factual claim cites at least one source. The `bucket` value is a
-stable key from `feeds.json` (e.g. `usa`, `iran_opposition`, `russia`).
-The `url` is the article link from the briefing's source field — not a
-homepage, not a search result.
+Every factual claim cites at least one source. The `url` is the article
+link from the briefing corpus — not a homepage, not a search result.
 
 ## CORS
 
@@ -167,16 +153,19 @@ on a normal day. Recommended polling:
 
 ## Retention
 
-All dates are kept indefinitely. URL paths are stable. If a story is
-later renamed (rare), the old key remains a 404 and the new key
-appears in fresh indexes.
+All dates are kept indefinitely. URL paths are stable. A story's
+`lineage_id` persists across days for as long as the cluster keeps
+re-surfacing; a story that stops being covered and later returns may
+get a fresh `lineage_id`.
 
 ## Versioning
 
-The URL surface, `latest.json` shape, and required schema fields are
-contracted — breaking changes will ship under `/api/v2/`. Optional
-fields (`top_isolation_bucket`, `paradox`, `tags`, etc.) and metric
-internals may evolve without notice.
+This is a prototype: the v10 rebuild changed the URL surface
+(`<story_key>` → `<lineage_id>`) and several schema shapes, and no
+API-stability promise is made yet. Optional fields
+(`top_isolation_outlet`, `paradox`, `tags`, etc.) and metric internals
+may evolve without notice. Each artifact carries a `meta_version` field
+so consumers can detect the era they're reading.
 
 ## Reading the source repo directly
 
@@ -185,10 +174,10 @@ during local dev or for an offline pipeline — they live at canonical
 paths in this repo:
 
 ```
-briefings/<DATE>_<story>.json
-briefings/<DATE>_<story>_metrics.json
-analyses/<DATE>_<story>.md
-drafts/<DATE>_<story>_{thread,carousel,long}.json
+data/briefings/<DATE>_<lineage_id>.json
+data/briefings/<DATE>_<lineage_id>_metrics.json
+data/analyses/<DATE>_<lineage_id>.md
+data/drafts/<DATE>_<lineage_id>_{thread,carousel,long}.json
 ```
 
 `raw.githubusercontent.com` works but is rate-limited per IP and lacks

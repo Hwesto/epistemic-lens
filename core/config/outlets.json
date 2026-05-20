@@ -1,0 +1,2360 @@
+{
+  "_doc": "v10 outlets list. Each entry is one outlet (RSS feed). Tags: country (was bucket), lang, lean, section, status. Country is a tag for grouping; not an aggregation unit (use core.metrics.cross_outlet.aggregate(by=\"country\") at compute time).",
+  "version": "1.0.0",
+  "n_outlets": 235,
+  "outlets": [
+    {
+      "name": "AFP / France 24 FR",
+      "url": "https://www.france24.com/fr/rss",
+      "lang": "fr",
+      "lean": "Public broadcaster — international",
+      "section": "news",
+      "status": "OK",
+      "country": "france",
+      "country_label": "France"
+    },
+    {
+      "name": "Le Monde",
+      "url": "https://www.lemonde.fr/rss/une.xml",
+      "lang": "fr",
+      "lean": "Centre-left daily",
+      "section": "news",
+      "status": "OK",
+      "country": "france",
+      "country_label": "France"
+    },
+    {
+      "name": "Le Figaro",
+      "url": "https://www.lefigaro.fr/rss/figaro_actualites.xml",
+      "lang": "fr",
+      "lean": "Centre-right daily",
+      "section": "news",
+      "status": "OK",
+      "country": "france",
+      "country_label": "France"
+    },
+    {
+      "name": "Le Parisien",
+      "url": "https://feeds.leparisien.fr/leparisien/rss",
+      "lang": "fr",
+      "lean": "Mid-market daily",
+      "section": "news",
+      "status": "OK",
+      "country": "france",
+      "country_label": "France"
+    },
+    {
+      "name": "BFM TV",
+      "url": "https://www.bfmtv.com/rss/news-24-7/",
+      "lang": "fr",
+      "lean": "Commercial news channel",
+      "section": "news",
+      "status": "OK",
+      "country": "france",
+      "country_label": "France"
+    },
+    {
+      "name": "France Info",
+      "url": "https://www.francetvinfo.fr/titres.rss",
+      "lang": "fr",
+      "lean": "Public broadcaster — domestic",
+      "section": "news",
+      "status": "OK",
+      "country": "france",
+      "country_label": "France"
+    },
+    {
+      "name": "Reuters (via Google News)",
+      "url": "https://news.google.com/rss/search?q=site:reuters.com&hl=en-US&gl=US&ceid=US:en",
+      "lang": "en",
+      "lean": "Wire — factual baseline",
+      "section": "wire",
+      "status": "OK",
+      "country": "wire_services",
+      "country_label": "Wire Services (Factual Baseline)"
+    },
+    {
+      "name": "AP News",
+      "url": "https://feedx.net/rss/ap.xml",
+      "lang": "en",
+      "lean": "Wire — factual baseline",
+      "section": "wire",
+      "status": "OK",
+      "country": "wire_services",
+      "country_label": "Wire Services (Factual Baseline)"
+    },
+    {
+      "name": "AFP / France 24 EN",
+      "url": "https://www.france24.com/en/rss",
+      "lang": "en",
+      "lean": "French wire — European angle",
+      "section": "wire",
+      "status": "OK",
+      "country": "wire_services",
+      "country_label": "Wire Services (Factual Baseline)"
+    },
+    {
+      "name": "Liberation",
+      "url": "https://www.liberation.fr/rss/",
+      "lang": "fr",
+      "lean": "Left-liberal",
+      "section": "wire",
+      "status": "RETRY",
+      "country": "wire_services",
+      "country_label": "Wire Services (Factual Baseline)"
+    },
+    {
+      "name": "CNN World",
+      "url": "http://rss.cnn.com/rss/edition_world.rss",
+      "lang": "en",
+      "lean": "Centre-liberal establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Fox News World",
+      "url": "https://moxie.foxnews.com/google-publisher/world.xml",
+      "lang": "en",
+      "lean": "Right / pro-administration",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "NPR World",
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "lang": "en",
+      "lean": "Centre-left public media",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Politico",
+      "url": "https://www.politico.com/rss/politicopicks.xml",
+      "lang": "en",
+      "lean": "Centrist beltway",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Axios World",
+      "url": "https://www.axios.com/feeds/feed.rss",
+      "lang": "en",
+      "lean": "Centrist explainer",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "The Hill",
+      "url": "https://thehill.com/homenews/feed/",
+      "lang": "en",
+      "lean": "Centrist beltway",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Daily Wire",
+      "url": "https://www.dailywire.com/feeds/rss.xml",
+      "lang": "en",
+      "lean": "Conservative — Shapiro",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Breitbart",
+      "url": "https://feeds.feedburner.com/breitbart",
+      "lang": "en",
+      "lean": "Right-populist",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Daily Caller",
+      "url": "https://dailycaller.com/feed/",
+      "lang": "en",
+      "lean": "Conservative",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Mother Jones",
+      "url": "https://www.motherjones.com/feed/",
+      "lang": "en",
+      "lean": "Progressive — counterweight",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Defense News",
+      "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml",
+      "lang": "en",
+      "lean": "Defense industry",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "War on the Rocks",
+      "url": "https://warontherocks.com/feed/",
+      "lang": "en",
+      "lean": "Defense policy commentary",
+      "section": "opinion",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "ProPublica",
+      "url": "https://www.propublica.org/feeds/propublica/main",
+      "lang": "en",
+      "lean": "Investigative non-profit",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "The Intercept",
+      "url": "https://theintercept.com/feed/?lang=en",
+      "lang": "en",
+      "lean": "Left investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "Reason",
+      "url": "https://reason.com/feed/",
+      "lang": "en",
+      "lean": "Libertarian",
+      "section": "news",
+      "status": "OK",
+      "country": "usa",
+      "country_label": "United States"
+    },
+    {
+      "name": "BBC World",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "lang": "en",
+      "lean": "Centre establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "The Guardian World",
+      "url": "https://www.theguardian.com/world/rss",
+      "lang": "en",
+      "lean": "Centre-left liberal",
+      "section": "news",
+      "status": "OK",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "The Telegraph",
+      "url": "https://www.telegraph.co.uk/news/rss.xml",
+      "lang": "en",
+      "lean": "Centre-right conservative",
+      "section": "news",
+      "status": "OK",
+      "paywalled": true,
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "Daily Mail",
+      "url": "https://www.dailymail.co.uk/articles.rss",
+      "lang": "en",
+      "lean": "Right tabloid — largest UK readership",
+      "section": "news",
+      "status": "STUB",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "Daily Mirror",
+      "url": "https://www.mirror.co.uk/?service=rss",
+      "lang": "en",
+      "lean": "Centre-left tabloid",
+      "section": "news",
+      "status": "RETRY",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "Sky News UK",
+      "url": "https://feeds.skynews.com/feeds/rss/world.xml",
+      "lang": "en",
+      "lean": "Centre commercial broadcaster",
+      "section": "news",
+      "status": "OK",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "The Independent",
+      "url": "https://www.independent.co.uk/news/world/rss",
+      "lang": "en",
+      "lean": "Centre-left digital",
+      "section": "news",
+      "status": "OK",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "i News",
+      "url": "https://inews.co.uk/feed",
+      "lang": "en",
+      "lean": "Centre mainstream",
+      "section": "news",
+      "status": "OK",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "New Statesman",
+      "url": "https://www.newstatesman.com/rss",
+      "lang": "en",
+      "lean": "Centre-left magazine",
+      "section": "news",
+      "status": "OK",
+      "country": "uk",
+      "country_label": "United Kingdom"
+    },
+    {
+      "name": "Tehran Times",
+      "url": "https://www.tehrantimes.com/rss",
+      "lang": "en",
+      "lean": "State-aligned — .com hosted outside Iran",
+      "section": "news",
+      "status": "OK",
+      "country": "iran_state",
+      "country_label": "Iran (State)"
+    },
+    {
+      "name": "IRNA English",
+      "url": "https://en.irna.ir/rss",
+      "lang": "en",
+      "lean": "Official state news agency",
+      "section": "news",
+      "status": "OK",
+      "country": "iran_state",
+      "country_label": "Iran (State)"
+    },
+    {
+      "name": "IRNA Farsi",
+      "url": "https://www.irna.ir/rss",
+      "lang": "fa",
+      "lean": "State agency — domestic audience",
+      "section": "news",
+      "status": "OK",
+      "country": "iran_state",
+      "country_label": "Iran (State)"
+    },
+    {
+      "name": "Mehr News English (rsshub)",
+      "url": "https://rsshub.app/mehrnews/en/news",
+      "lang": "en",
+      "lean": "Conservative state — IRGC-aligned",
+      "section": "news",
+      "status": "RETRY",
+      "country": "iran_state",
+      "country_label": "Iran (State)"
+    },
+    {
+      "name": "Kayhan (rsshub)",
+      "url": "https://rsshub.app/kayhan/en",
+      "lang": "en",
+      "lean": "Hardline daily — supreme leader-aligned",
+      "section": "news",
+      "status": "RETRY",
+      "country": "iran_state",
+      "country_label": "Iran (State)"
+    },
+    {
+      "name": "Iran International EN",
+      "url": "https://www.iranintl.com/en/feed",
+      "lang": "en",
+      "lean": "Anti-regime — Saudi-linked funding, London-based",
+      "section": "news",
+      "status": "OK",
+      "country": "iran_opposition",
+      "country_label": "Iran (Opposition / Diaspora)"
+    },
+    {
+      "name": "Iran International FA",
+      "url": "https://www.iranintl.com/fa/feed",
+      "lang": "fa",
+      "lean": "Anti-regime — Farsi audience",
+      "section": "news",
+      "status": "OK",
+      "country": "iran_opposition",
+      "country_label": "Iran (Opposition / Diaspora)"
+    },
+    {
+      "name": "RFE/RL (was Radio Farda)",
+      "url": "https://www.rferl.org/api/zbqiml-vomx-tpeqkmy",
+      "lang": "en",
+      "lean": "US Congress-funded RFE/RL",
+      "section": "news",
+      "status": "OK",
+      "country": "iran_opposition",
+      "country_label": "Iran (Opposition / Diaspora)"
+    },
+    {
+      "name": "Al Jazeera English",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "lang": "en",
+      "lean": "Pan-Arab / critical of West",
+      "section": "news",
+      "status": "OK",
+      "country": "qatar",
+      "country_label": "Qatar"
+    },
+    {
+      "name": "Al Jazeera Arabic",
+      "url": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9",
+      "lang": "ar",
+      "lean": "Arabic domestic — different editorial weight",
+      "section": "opinion",
+      "status": "OK",
+      "country": "qatar",
+      "country_label": "Qatar"
+    },
+    {
+      "name": "CGTN Politics",
+      "url": "https://www.cgtn.com/subscribe/rss/section/politics.xml",
+      "lang": "en",
+      "lean": "CPC state — international",
+      "section": "news",
+      "status": "OK",
+      "country": "china",
+      "country_label": "China"
+    },
+    {
+      "name": "CGTN World",
+      "url": "https://www.cgtn.com/subscribe/rss/section/world.xml",
+      "lang": "en",
+      "lean": "CPC state — world section",
+      "section": "news",
+      "status": "OK",
+      "country": "china",
+      "country_label": "China"
+    },
+    {
+      "name": "Xinhua English",
+      "url": "http://www.xinhuanet.com/english/rss/worldrss.xml",
+      "lang": "en",
+      "lean": "CPC state agency — export",
+      "section": "news",
+      "status": "OK",
+      "country": "china",
+      "country_label": "China"
+    },
+    {
+      "name": "Global Times",
+      "url": "https://www.globaltimes.cn/rss/outbrain.xml",
+      "lang": "en",
+      "lean": "CPC nationalist hawkish",
+      "section": "news",
+      "status": "OK",
+      "country": "china",
+      "country_label": "China"
+    },
+    {
+      "name": "People's Daily CN",
+      "url": "http://www.people.com.cn/rss/politics.xml",
+      "lang": "zh",
+      "lean": "CPC official party paper — domestic",
+      "section": "news",
+      "status": "OK",
+      "country": "china",
+      "country_label": "China"
+    },
+    {
+      "name": "Sixth Tone",
+      "url": "https://www.sixthtone.com/rss",
+      "lang": "en",
+      "lean": "Society + culture, state-aligned but softer tone",
+      "section": "news",
+      "status": "OK",
+      "country": "china",
+      "country_label": "China"
+    },
+    {
+      "name": "TASS English",
+      "url": "https://tass.com/rss/v2.xml",
+      "lang": "en",
+      "lean": "State news agency — export",
+      "section": "news",
+      "status": "OK",
+      "country": "russia",
+      "country_label": "Russia"
+    },
+    {
+      "name": "RT",
+      "url": "https://www.rt.com/rss/news/",
+      "lang": "en",
+      "lean": "State-funded intl propaganda",
+      "section": "news",
+      "status": "OK",
+      "country": "russia",
+      "country_label": "Russia"
+    },
+    {
+      "name": "Moscow Times",
+      "url": "https://www.themoscowtimes.com/rss/news",
+      "lang": "en",
+      "lean": "Independent exiled — Netherlands-based",
+      "section": "news",
+      "status": "OK",
+      "country": "russia",
+      "country_label": "Russia"
+    },
+    {
+      "name": "Meduza",
+      "url": "https://meduza.io/rss/en/all",
+      "lang": "en",
+      "lean": "Independent exiled — Latvia-based",
+      "section": "news",
+      "status": "OK",
+      "country": "russia",
+      "country_label": "Russia"
+    },
+    {
+      "name": "Times of India",
+      "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+      "lang": "en",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "NDTV World",
+      "url": "https://feeds.feedburner.com/ndtvnews-world-news",
+      "lang": "en",
+      "lean": "Centre-left liberal",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "The Hindu Intl",
+      "url": "https://www.thehindu.com/news/international/feeder/default.rss",
+      "lang": "en",
+      "lean": "Centre-left quality broadsheet",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Dainik Bhaskar",
+      "url": "https://www.bhaskar.com/rss-feed/1061",
+      "lang": "hi",
+      "lean": "Hindi mass-market — 500M readers",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "India Today",
+      "url": "https://www.indiatoday.in/rss/home",
+      "lang": "en",
+      "lean": "Mass-market commercial",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Zee News",
+      "url": "https://zeenews.india.com/rss/india-news.xml",
+      "lang": "en",
+      "lean": "Right-leaning establishment",
+      "section": "news",
+      "status": "RETRY",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "OpIndia",
+      "url": "https://www.opindia.com/feed/",
+      "lang": "en",
+      "lean": "Right-Hindu nationalist",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "News18",
+      "url": "https://www.news18.com/commonfeeds/v1/eng/rss/world.xml",
+      "lang": "en",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "RETRY",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "News18 India",
+      "url": "https://www.news18.com/commonfeeds/v1/eng/rss/india.xml",
+      "lang": "en",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "RETRY",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Times Now",
+      "url": "https://www.timesnownews.com/rss/world",
+      "lang": "en",
+      "lean": "Mainstream commercial right",
+      "section": "news",
+      "status": "RETRY",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Republic World (alt)",
+      "url": "https://www.republicworld.com/rss/world-news.xml",
+      "lang": "en",
+      "lean": "Right-populist",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "ABP Live",
+      "url": "https://news.abplive.com/feed",
+      "lang": "en",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "STUB",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Aaj Tak (alt)",
+      "url": "https://www.aajtak.in/rssfeeds/?id=home",
+      "lang": "hi",
+      "lean": "Hindi mass-market TV news leader",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Hindustan Times",
+      "url": "https://www.hindustantimes.com/feeds/rss/world-news/rssfeed.xml",
+      "lang": "en",
+      "lean": "Mainstream centrist",
+      "section": "news",
+      "status": "OK",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Firstpost",
+      "url": "https://www.firstpost.com/commonfeeds/v1/mfp/rss/world.xml",
+      "lang": "en",
+      "lean": "Right-leaning digital",
+      "section": "news",
+      "status": "RETRY",
+      "country": "india",
+      "country_label": "India"
+    },
+    {
+      "name": "Haaretz",
+      "url": "https://www.haaretz.com/srv/haaretz-latest-headlines",
+      "lang": "en",
+      "lean": "Left-liberal / critical of govt",
+      "section": "news",
+      "status": "OK",
+      "country": "israel",
+      "country_label": "Israel"
+    },
+    {
+      "name": "Jerusalem Post",
+      "url": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+      "lang": "en",
+      "lean": "Centre-right mainstream",
+      "section": "news",
+      "status": "OK",
+      "country": "israel",
+      "country_label": "Israel"
+    },
+    {
+      "name": "Times of Israel",
+      "url": "https://www.timesofisrael.com/feed/",
+      "lang": "en",
+      "lean": "Centre / broad readership",
+      "section": "news",
+      "status": "OK",
+      "country": "israel",
+      "country_label": "Israel"
+    },
+    {
+      "name": "Ynet Hebrew",
+      "url": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+      "lang": "he",
+      "lean": "Mass-market Hebrew — domestic audience",
+      "section": "news",
+      "status": "OK",
+      "country": "israel",
+      "country_label": "Israel"
+    },
+    {
+      "name": "Daily Sabah",
+      "url": "https://www.dailysabah.com/rssFeed/world",
+      "lang": "en",
+      "lean": "Pro-government / AKP",
+      "section": "news",
+      "status": "OK",
+      "country": "turkey",
+      "country_label": "Turkey"
+    },
+    {
+      "name": "Hurriyet",
+      "url": "https://www.hurriyet.com.tr/rss/gundem",
+      "lang": "tr",
+      "lean": "Mainstream — historically secular",
+      "section": "news",
+      "status": "OK",
+      "country": "turkey",
+      "country_label": "Turkey"
+    },
+    {
+      "name": "Anadolu Agency English",
+      "url": "https://www.aa.com.tr/en/rss/default?cat=guncel",
+      "lang": "en",
+      "lean": "State agency — pro-government",
+      "section": "news",
+      "status": "OK",
+      "country": "turkey",
+      "country_label": "Turkey"
+    },
+    {
+      "name": "Bianet English",
+      "url": "https://bianet.org/english/rss",
+      "lang": "en",
+      "lean": "Independent leftist",
+      "section": "news",
+      "status": "OK",
+      "country": "turkey",
+      "country_label": "Turkey"
+    },
+    {
+      "name": "Arab News",
+      "url": "https://www.arabnews.com/rss.xml",
+      "lang": "en",
+      "lean": "Saudi state-aligned",
+      "section": "news",
+      "status": "RETRY",
+      "country": "saudi_arabia",
+      "country_label": "Saudi Arabia"
+    },
+    {
+      "name": "Al Arabiya English",
+      "url": "https://english.alarabiya.net/.mrss/feed.xml",
+      "lang": "en",
+      "lean": "Saudi/UAE-backed — Al Jazeera counterweight",
+      "section": "news",
+      "status": "RETRY",
+      "country": "saudi_arabia",
+      "country_label": "Saudi Arabia"
+    },
+    {
+      "name": "Yonhap News",
+      "url": "https://en.yna.co.kr/RSS/news.xml",
+      "lang": "en",
+      "lean": "National wire service",
+      "section": "news",
+      "status": "OK",
+      "country": "south_korea",
+      "country_label": "South Korea"
+    },
+    {
+      "name": "Korea Herald (via Google News)",
+      "url": "https://news.google.com/rss/search?q=site:koreaherald.com&hl=en&gl=KR&ceid=KR:en",
+      "lang": "en",
+      "lean": "Centre mainstream — via GN, body-extraction won't work",
+      "section": "news",
+      "status": "STUB",
+      "country": "south_korea",
+      "country_label": "South Korea"
+    },
+    {
+      "name": "Hankyoreh English",
+      "url": "https://english.hani.co.kr/rss/",
+      "lang": "en",
+      "lean": "Progressive left",
+      "section": "news",
+      "status": "STUB",
+      "country": "south_korea",
+      "country_label": "South Korea"
+    },
+    {
+      "name": "KBS World",
+      "url": "https://world.kbs.co.kr/rss/rss_news.htm?lang=e",
+      "lang": "en",
+      "lean": "Public broadcaster",
+      "section": "news",
+      "status": "OK",
+      "country": "south_korea",
+      "country_label": "South Korea"
+    },
+    {
+      "name": "Chosun Ilbo (alt)",
+      "url": "https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml",
+      "lang": "ko",
+      "lean": "Largest conservative daily",
+      "section": "news",
+      "status": "OK",
+      "country": "south_korea",
+      "country_label": "South Korea"
+    },
+    {
+      "name": "Yonhap Korean",
+      "url": "https://www.yna.co.kr/rss/news.xml",
+      "lang": "ko",
+      "lean": "Wire",
+      "section": "news",
+      "status": "OK",
+      "country": "south_korea",
+      "country_label": "South Korea"
+    },
+    {
+      "name": "NHK Japanese",
+      "url": "https://www3.nhk.or.jp/rss/news/cat0.xml",
+      "lang": "ja",
+      "lean": "Public broadcaster — domestic",
+      "section": "news",
+      "status": "OK",
+      "note": "May need certifi or SSL fix on Windows",
+      "country": "japan",
+      "country_label": "Japan"
+    },
+    {
+      "name": "Japan Times",
+      "url": "https://www.japantimes.co.jp/feed/",
+      "lang": "en",
+      "lean": "English-language liberal",
+      "section": "news",
+      "status": "OK",
+      "country": "japan",
+      "country_label": "Japan"
+    },
+    {
+      "name": "Asahi Shimbun",
+      "url": "https://www.asahi.com/rss/asahi/newsheadlines.rdf",
+      "lang": "ja",
+      "lean": "Centre-left flagship",
+      "section": "news",
+      "status": "STUB",
+      "country": "japan",
+      "country_label": "Japan"
+    },
+    {
+      "name": "Mainichi",
+      "url": "https://mainichi.jp/rss/etc/mainichi-flash.rss",
+      "lang": "ja",
+      "lean": "Centre mainstream",
+      "section": "news",
+      "status": "STUB",
+      "country": "japan",
+      "country_label": "Japan"
+    },
+    {
+      "name": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/rss/feed/nar",
+      "lang": "en",
+      "lean": "Business establishment",
+      "section": "news",
+      "status": "STUB",
+      "country": "japan",
+      "country_label": "Japan"
+    },
+    {
+      "name": "Mainichi (alt)",
+      "url": "https://mainichi.jp/rss/etc/mainichi.rss",
+      "lang": "ja",
+      "lean": "Centre",
+      "section": "news",
+      "status": "STUB",
+      "country": "japan",
+      "country_label": "Japan"
+    },
+    {
+      "name": "Folha de São Paulo",
+      "url": "https://feeds.folha.uol.com.br/mundo/rss091.xml",
+      "lang": "pt",
+      "lean": "Centre-left broadsheet",
+      "section": "news",
+      "status": "OK",
+      "country": "brazil",
+      "country_label": "Brazil"
+    },
+    {
+      "name": "O Globo",
+      "url": "https://oglobo.globo.com/rss/oglobo",
+      "lang": "pt",
+      "lean": "Centre-right establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "brazil",
+      "country_label": "Brazil"
+    },
+    {
+      "name": "G1 Globo",
+      "url": "https://g1.globo.com/rss/g1/",
+      "lang": "pt",
+      "lean": "Largest portal — Globo TV ecosystem",
+      "section": "news",
+      "status": "OK",
+      "country": "brazil",
+      "country_label": "Brazil"
+    },
+    {
+      "name": "BBC Brasil",
+      "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
+      "lang": "pt",
+      "lean": "BBC Portuguese",
+      "section": "news",
+      "status": "OK",
+      "country": "brazil",
+      "country_label": "Brazil"
+    },
+    {
+      "name": "Carta Capital",
+      "url": "https://www.cartacapital.com.br/feed/",
+      "lang": "pt",
+      "lean": "Centre-left investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "brazil",
+      "country_label": "Brazil"
+    },
+    {
+      "name": "The Punch",
+      "url": "https://punchng.com/feed/",
+      "lang": "en",
+      "lean": "Independent — largest circ.",
+      "section": "news",
+      "status": "OK",
+      "country": "nigeria",
+      "country_label": "Nigeria"
+    },
+    {
+      "name": "Vanguard",
+      "url": "https://www.vanguardngr.com/feed/",
+      "lang": "en",
+      "lean": "Independent — southern Nigeria",
+      "section": "news",
+      "status": "OK",
+      "country": "nigeria",
+      "country_label": "Nigeria"
+    },
+    {
+      "name": "Dawn",
+      "url": "https://www.dawn.com/feeds/home",
+      "lang": "en",
+      "lean": "Independent broadsheet — most-cited PK English daily",
+      "section": "news",
+      "status": "OK",
+      "country": "pakistan",
+      "country_label": "Pakistan"
+    },
+    {
+      "name": "Geo News English",
+      "url": "https://www.geo.tv/rss/1/0",
+      "lang": "en",
+      "lean": "Mainstream commercial — Jang group",
+      "section": "news",
+      "status": "OK",
+      "country": "pakistan",
+      "country_label": "Pakistan"
+    },
+    {
+      "name": "Express Tribune",
+      "url": "https://tribune.com.pk/feed",
+      "lang": "en",
+      "lean": "Centre — partner of NYT",
+      "section": "news",
+      "status": "RETRY",
+      "country": "pakistan",
+      "country_label": "Pakistan"
+    },
+    {
+      "name": "ARY News English",
+      "url": "https://arynews.tv/feed/",
+      "lang": "en",
+      "lean": "Right-leaning establishment",
+      "section": "news",
+      "status": "STUB",
+      "country": "pakistan",
+      "country_label": "Pakistan"
+    },
+    {
+      "name": "Bol News",
+      "url": "https://www.bolnews.com/feed/",
+      "lang": "en",
+      "lean": "Right-populist sensational",
+      "section": "news",
+      "status": "OK",
+      "country": "pakistan",
+      "country_label": "Pakistan"
+    },
+    {
+      "name": "Al-Akhbar Lebanon",
+      "url": "https://al-akhbar.com/rss.xml",
+      "lang": "ar",
+      "lean": "Hezbollah-aligned / pro-resistance",
+      "section": "news",
+      "status": "RETRY",
+      "country": "lebanon",
+      "country_label": "Lebanon"
+    },
+    {
+      "name": "LBCI English",
+      "url": "https://www.lbcgroup.tv/rss/",
+      "lang": "en",
+      "lean": "Centrist broadcaster",
+      "section": "news",
+      "status": "RETRY",
+      "country": "lebanon",
+      "country_label": "Lebanon"
+    },
+    {
+      "name": "Iraqi News",
+      "url": "https://www.iraqinews.com/feed/",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "iraq",
+      "country_label": "Iraq"
+    },
+    {
+      "name": "Egypt Independent",
+      "url": "https://egyptindependent.com/feed/",
+      "lang": "en",
+      "lean": "Independent — Al-Masry Al-Youm sister",
+      "section": "news",
+      "status": "OK",
+      "country": "egypt",
+      "country_label": "Egypt"
+    },
+    {
+      "name": "Mada Masr",
+      "url": "https://www.madamasr.com/en/feed/",
+      "lang": "en",
+      "lean": "Independent critical — frequently blocked domestically",
+      "section": "news",
+      "status": "OK",
+      "country": "egypt",
+      "country_label": "Egypt"
+    },
+    {
+      "name": "Daily News Egypt",
+      "url": "https://dailynewsegypt.com/feed/",
+      "lang": "en",
+      "lean": "Centre-business",
+      "section": "news",
+      "status": "OK",
+      "country": "egypt",
+      "country_label": "Egypt"
+    },
+    {
+      "name": "Jordan Times",
+      "url": "https://www.jordantimes.com/rss.xml",
+      "lang": "en",
+      "lean": "Establishment",
+      "section": "news",
+      "status": "RETRY",
+      "country": "jordan",
+      "country_label": "Jordan"
+    },
+    {
+      "name": "Enab Baladi",
+      "url": "https://english.enabbaladi.net/feed/",
+      "lang": "en",
+      "lean": "Opposition / Idlib-based",
+      "section": "news",
+      "status": "OK",
+      "country": "syria",
+      "country_label": "Syria"
+    },
+    {
+      "name": "Syrian Observer",
+      "url": "https://syrianobserver.com/feed",
+      "lang": "en",
+      "lean": "Diaspora opposition aggregator",
+      "section": "news",
+      "status": "OK",
+      "country": "syria",
+      "country_label": "Syria"
+    },
+    {
+      "name": "Maan News English",
+      "url": "https://www.maannews.net/rss",
+      "lang": "en",
+      "lean": "Independent Palestinian",
+      "section": "news",
+      "status": "RETRY",
+      "country": "palestine",
+      "country_label": "Palestine"
+    },
+    {
+      "name": "Palestine Chronicle",
+      "url": "https://www.palestinechronicle.com/feed/",
+      "lang": "en",
+      "lean": "Diaspora pro-Palestinian",
+      "section": "news",
+      "status": "RETRY",
+      "country": "palestine",
+      "country_label": "Palestine"
+    },
+    {
+      "name": "Ukrainska Pravda English",
+      "url": "https://www.pravda.com.ua/eng/rss/",
+      "lang": "en",
+      "lean": "Independent flagship",
+      "section": "news",
+      "status": "OK",
+      "country": "ukraine",
+      "country_label": "Ukraine"
+    },
+    {
+      "name": "Ukrinform English",
+      "url": "https://www.ukrinform.net/rss/block-lastnews",
+      "lang": "en",
+      "lean": "State news agency",
+      "section": "news",
+      "status": "OK",
+      "country": "ukraine",
+      "country_label": "Ukraine"
+    },
+    {
+      "name": "Kyiv Post",
+      "url": "https://www.kyivpost.com/feed",
+      "lang": "en",
+      "lean": "Centrist establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "ukraine",
+      "country_label": "Ukraine"
+    },
+    {
+      "name": "Lenta.ru",
+      "url": "https://lenta.ru/rss",
+      "lang": "ru",
+      "lean": "Mainstream — pro-government since 2014",
+      "section": "news",
+      "status": "STUB",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "Kommersant",
+      "url": "https://www.kommersant.ru/RSS/news.xml",
+      "lang": "ru",
+      "lean": "Business establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "RIA Novosti RU",
+      "url": "https://ria.ru/export/rss2/index.xml",
+      "lang": "ru",
+      "lean": "State agency — domestic",
+      "section": "news",
+      "status": "STUB",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "Novaya Gazeta Europe",
+      "url": "https://novayagazeta.eu/rss/all.xml",
+      "lang": "ru",
+      "lean": "Exiled independent — Riga",
+      "section": "news",
+      "status": "RETRY",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "Komsomolskaya Pravda",
+      "url": "https://www.kp.ru/rss/allsections.xml",
+      "lang": "ru",
+      "lean": "Mass-market right-populist tabloid",
+      "section": "news",
+      "status": "OK",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "Argumenty i Fakty",
+      "url": "https://aif.ru/rss/all.php",
+      "lang": "ru",
+      "lean": "Mass-market state-aligned",
+      "section": "news",
+      "status": "OK",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "RIA Novosti Telegram",
+      "url": "https://rsshub.app/telegram/channel/rian_ru",
+      "lang": "ru",
+      "lean": "State agency Telegram channel",
+      "section": "news",
+      "status": "RETRY",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "Mash Telegram",
+      "url": "https://rsshub.app/telegram/channel/mash",
+      "lang": "ru",
+      "lean": "Russian breaking-news channel",
+      "section": "news",
+      "status": "RETRY",
+      "country": "russia_native",
+      "country_label": "Russia (Russian-language)"
+    },
+    {
+      "name": "Deutsche Welle English",
+      "url": "https://rss.dw.com/rdf/rss-en-all",
+      "lang": "en",
+      "lean": "Public broadcaster — international",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Deutsche Welle Deutsch",
+      "url": "https://rss.dw.com/rdf/rss-de-all",
+      "lang": "de",
+      "lean": "Public broadcaster — domestic",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Spiegel International",
+      "url": "https://www.spiegel.de/international/index.rss",
+      "lang": "en",
+      "lean": "Centre-left investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Tagesschau",
+      "url": "https://www.tagesschau.de/xml/rss2/",
+      "lang": "de",
+      "lean": "Public broadcaster — domestic flagship",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Deutsche Welle Russian",
+      "url": "https://rss.dw.com/rdf/rss-ru-all",
+      "lang": "ru",
+      "lean": "DW — Russian-speaking audience",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Bild",
+      "url": "https://www.bild.de/feed/alles.xml",
+      "lang": "de",
+      "lean": "Largest tabloid — populist right",
+      "section": "news",
+      "status": "OK",
+      "paywalled": true,
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Welt",
+      "url": "https://www.welt.de/feeds/topnews.rss",
+      "lang": "de",
+      "lean": "Centre-right Springer",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Sueddeutsche Zeitung",
+      "url": "https://rss.sueddeutsche.de/rss/Topthemen",
+      "lang": "de",
+      "lean": "Centre-left flagship",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "ZDF Heute",
+      "url": "https://www.zdf.de/rss/zdf/nachrichten",
+      "lang": "de",
+      "lean": "Public broadcaster",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "Junge Freiheit",
+      "url": "https://jungefreiheit.de/feed/",
+      "lang": "de",
+      "lean": "AfD-aligned right-populist",
+      "section": "news",
+      "status": "OK",
+      "country": "germany",
+      "country_label": "Germany"
+    },
+    {
+      "name": "ANSA English",
+      "url": "https://www.ansa.it/english/english_rss.xml",
+      "lang": "en",
+      "lean": "Wire service — flagship",
+      "section": "news",
+      "status": "OK",
+      "country": "italy",
+      "country_label": "Italy"
+    },
+    {
+      "name": "ANSA Italian (Mondo)",
+      "url": "https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml",
+      "lang": "it",
+      "lean": "Wire service — domestic",
+      "section": "news",
+      "status": "OK",
+      "country": "italy",
+      "country_label": "Italy"
+    },
+    {
+      "name": "La Repubblica",
+      "url": "https://www.repubblica.it/rss/homepage/rss2.0.xml",
+      "lang": "it",
+      "lean": "Centre-left",
+      "section": "news",
+      "status": "OK",
+      "country": "italy",
+      "country_label": "Italy"
+    },
+    {
+      "name": "Il Sole 24 Ore",
+      "url": "https://www.ilsole24ore.com/rss/mondo.xml",
+      "lang": "it",
+      "lean": "Business establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "italy",
+      "country_label": "Italy"
+    },
+    {
+      "name": "Il Giornale",
+      "url": "https://www.ilgiornale.it/rss.xml",
+      "lang": "it",
+      "lean": "Right Berlusconi-family",
+      "section": "news",
+      "status": "OK",
+      "country": "italy",
+      "country_label": "Italy"
+    },
+    {
+      "name": "La Stampa",
+      "url": "https://www.lastampa.it/rss",
+      "lang": "it",
+      "lean": "Centre-left mainstream",
+      "section": "news",
+      "status": "OK",
+      "country": "italy",
+      "country_label": "Italy"
+    },
+    {
+      "name": "El Pais",
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+      "lang": "es",
+      "lean": "Centre-left flagship",
+      "section": "news",
+      "status": "OK",
+      "country": "spain",
+      "country_label": "Spain"
+    },
+    {
+      "name": "El Mundo",
+      "url": "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml",
+      "lang": "es",
+      "lean": "Centre-right",
+      "section": "news",
+      "status": "OK",
+      "country": "spain",
+      "country_label": "Spain"
+    },
+    {
+      "name": "ABC.es",
+      "url": "https://www.abc.es/rss/feeds/abc_ultima.xml",
+      "lang": "es",
+      "lean": "Conservative establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "spain",
+      "country_label": "Spain"
+    },
+    {
+      "name": "El Pais English",
+      "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/english.elpais.com/portada",
+      "lang": "en",
+      "lean": "EN edition for international",
+      "section": "news",
+      "status": "OK",
+      "country": "spain",
+      "country_label": "Spain"
+    },
+    {
+      "name": "NL Times",
+      "url": "https://nltimes.nl/rss.xml",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "netherlands_belgium",
+      "country_label": "Netherlands / Belgium"
+    },
+    {
+      "name": "DutchNews.nl",
+      "url": "https://www.dutchnews.nl/feed/",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "netherlands_belgium",
+      "country_label": "Netherlands / Belgium"
+    },
+    {
+      "name": "Notes from Poland",
+      "url": "https://notesfrompoland.com/feed/",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "poland_balt",
+      "country_label": "Poland / Baltics"
+    },
+    {
+      "name": "ERR News (Estonia)",
+      "url": "https://news.err.ee/rss",
+      "lang": "en",
+      "lean": "Public broadcaster EN",
+      "section": "news",
+      "status": "OK",
+      "country": "poland_balt",
+      "country_label": "Poland / Baltics"
+    },
+    {
+      "name": "N1 Serbia English",
+      "url": "https://rs.n1info.com/feed/",
+      "lang": "en",
+      "lean": "CNN-affiliate independent",
+      "section": "news",
+      "status": "OK",
+      "country": "balkans",
+      "country_label": "Balkans"
+    },
+    {
+      "name": "Balkan Insight",
+      "url": "https://balkaninsight.com/feed/",
+      "lang": "en",
+      "lean": "Investigative regional",
+      "section": "news",
+      "status": "OK",
+      "country": "balkans",
+      "country_label": "Balkans"
+    },
+    {
+      "name": "Hungary Today",
+      "url": "https://hungarytoday.hu/feed/",
+      "lang": "en",
+      "lean": "Pro-Fidesz",
+      "section": "news",
+      "status": "OK",
+      "country": "hungary_central",
+      "country_label": "Central Europe (Hungary, Czechia)"
+    },
+    {
+      "name": "Telex Hungary",
+      "url": "https://telex.hu/rss",
+      "lang": "hu",
+      "lean": "Independent post-Index",
+      "section": "news",
+      "status": "OK",
+      "country": "hungary_central",
+      "country_label": "Central Europe (Hungary, Czechia)"
+    },
+    {
+      "name": "Prague Morning",
+      "url": "https://praguemorning.cz/feed/",
+      "lang": "en",
+      "lean": "Independent EN",
+      "section": "news",
+      "status": "OK",
+      "country": "hungary_central",
+      "country_label": "Central Europe (Hungary, Czechia)"
+    },
+    {
+      "name": "Civil Georgia",
+      "url": "https://civil.ge/feed",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "belarus_caucasus",
+      "country_label": "Belarus / Caucasus"
+    },
+    {
+      "name": "OC Media",
+      "url": "https://oc-media.org/feed/",
+      "lang": "en",
+      "lean": "Caucasus regional independent",
+      "section": "news",
+      "status": "OK",
+      "country": "belarus_caucasus",
+      "country_label": "Belarus / Caucasus"
+    },
+    {
+      "name": "Yle Finland English",
+      "url": "https://yle.fi/uutiset/rss/uutiset.rss?osasto=news",
+      "lang": "en",
+      "lean": "Public broadcaster EN",
+      "section": "news",
+      "status": "OK",
+      "country": "nordic",
+      "country_label": "Nordic"
+    },
+    {
+      "name": "The Local Sweden",
+      "url": "https://feeds.thelocal.com/rss/se",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "nordic",
+      "country_label": "Nordic"
+    },
+    {
+      "name": "The Local Germany",
+      "url": "https://feeds.thelocal.com/rss/de",
+      "lang": "en",
+      "lean": "Independent EN-language",
+      "section": "news",
+      "status": "OK",
+      "country": "nordic",
+      "country_label": "Nordic"
+    },
+    {
+      "name": "Antara English",
+      "url": "https://en.antaranews.com/rss/news.xml",
+      "lang": "en",
+      "lean": "State news agency EN",
+      "section": "news",
+      "status": "OK",
+      "country": "indonesia",
+      "country_label": "Indonesia"
+    },
+    {
+      "name": "Tempo",
+      "url": "https://rss.tempo.co/nasional",
+      "lang": "id",
+      "lean": "Independent investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "indonesia",
+      "country_label": "Indonesia"
+    },
+    {
+      "name": "CNN Indonesia",
+      "url": "https://www.cnnindonesia.com/nasional/rss",
+      "lang": "id",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "OK",
+      "country": "indonesia",
+      "country_label": "Indonesia"
+    },
+    {
+      "name": "Tribunnews",
+      "url": "https://www.tribunnews.com/rss",
+      "lang": "id",
+      "lean": "Mass-market commercial",
+      "section": "news",
+      "status": "OK",
+      "country": "indonesia",
+      "country_label": "Indonesia"
+    },
+    {
+      "name": "Inquirer",
+      "url": "https://www.inquirer.net/fullfeed",
+      "lang": "en",
+      "lean": "Centrist flagship",
+      "section": "news",
+      "status": "OK",
+      "country": "philippines",
+      "country_label": "Philippines"
+    },
+    {
+      "name": "Rappler",
+      "url": "https://www.rappler.com/feed/",
+      "lang": "en",
+      "lean": "Independent — Maria Ressa's outlet",
+      "section": "news",
+      "status": "OK",
+      "country": "philippines",
+      "country_label": "Philippines"
+    },
+    {
+      "name": "Philstar",
+      "url": "https://www.philstar.com/rss/headlines",
+      "lang": "en",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "OK",
+      "country": "philippines",
+      "country_label": "Philippines"
+    },
+    {
+      "name": "ABS-CBN",
+      "url": "https://news.abs-cbn.com/news/rss",
+      "lang": "en",
+      "lean": "Largest TV network",
+      "section": "news",
+      "status": "RETRY",
+      "country": "philippines",
+      "country_label": "Philippines"
+    },
+    {
+      "name": "VnExpress English",
+      "url": "https://e.vnexpress.net/rss/news.rss",
+      "lang": "en",
+      "lean": "Mainstream domestic EN",
+      "section": "news",
+      "status": "OK",
+      "country": "vietnam_thai_my",
+      "country_label": "Vietnam / Thailand / Malaysia / Singapore"
+    },
+    {
+      "name": "Bangkok Post",
+      "url": "https://www.bangkokpost.com/rss/data/topstories.xml",
+      "lang": "en",
+      "lean": "Establishment EN",
+      "section": "news",
+      "status": "OK",
+      "country": "vietnam_thai_my",
+      "country_label": "Vietnam / Thailand / Malaysia / Singapore"
+    },
+    {
+      "name": "Malay Mail World",
+      "url": "https://www.malaymail.com/feed/rss/world",
+      "lang": "en",
+      "lean": "Independent",
+      "section": "news",
+      "status": "OK",
+      "country": "vietnam_thai_my",
+      "country_label": "Vietnam / Thailand / Malaysia / Singapore"
+    },
+    {
+      "name": "Channel News Asia",
+      "url": "https://www.channelnewsasia.com/rssfeeds/8395986",
+      "lang": "en",
+      "lean": "Singapore state-aligned regional",
+      "section": "news",
+      "status": "OK",
+      "country": "vietnam_thai_my",
+      "country_label": "Vietnam / Thailand / Malaysia / Singapore"
+    },
+    {
+      "name": "Straits Times",
+      "url": "https://www.straitstimes.com/news/world/rss.xml",
+      "lang": "en",
+      "lean": "Singapore establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "vietnam_thai_my",
+      "country_label": "Vietnam / Thailand / Malaysia / Singapore"
+    },
+    {
+      "name": "Taipei Times",
+      "url": "https://www.taipeitimes.com/xml/index.rss",
+      "lang": "en",
+      "lean": "Independent EN — pro-DPP",
+      "section": "news",
+      "status": "STUB",
+      "country": "taiwan_hk",
+      "country_label": "Taiwan / Hong Kong"
+    },
+    {
+      "name": "Hong Kong Free Press",
+      "url": "https://hongkongfp.com/feed/",
+      "lang": "en",
+      "lean": "Independent — pro-democracy",
+      "section": "news",
+      "status": "OK",
+      "country": "taiwan_hk",
+      "country_label": "Taiwan / Hong Kong"
+    },
+    {
+      "name": "South China Morning Post",
+      "url": "https://www.scmp.com/rss/91/feed",
+      "lang": "en",
+      "lean": "Establishment HK — Alibaba-owned",
+      "section": "news",
+      "status": "OK",
+      "country": "taiwan_hk",
+      "country_label": "Taiwan / Hong Kong"
+    },
+    {
+      "name": "Liberty Times",
+      "url": "https://news.ltn.com.tw/rss/all.xml",
+      "lang": "zh",
+      "lean": "Largest daily — pro-DPP",
+      "section": "news",
+      "status": "OK",
+      "country": "taiwan_hk",
+      "country_label": "Taiwan / Hong Kong"
+    },
+    {
+      "name": "NK News",
+      "url": "https://www.nknews.org/feed/",
+      "lang": "en",
+      "lean": "DPRK-watcher independent",
+      "section": "news",
+      "status": "OK",
+      "country": "korea_north",
+      "country_label": "Korea (North/peninsula)"
+    },
+    {
+      "name": "Daily NK",
+      "url": "https://www.dailynk.com/english/feed/",
+      "lang": "en",
+      "lean": "Defector-sourced independent",
+      "section": "news",
+      "status": "OK",
+      "country": "korea_north",
+      "country_label": "Korea (North/peninsula)"
+    },
+    {
+      "name": "ABC Australia World",
+      "url": "https://www.abc.net.au/news/feed/2942460/rss.xml",
+      "lang": "en",
+      "lean": "Public broadcaster",
+      "section": "news",
+      "status": "OK",
+      "country": "australia_nz",
+      "country_label": "Australia / New Zealand"
+    },
+    {
+      "name": "Sydney Morning Herald",
+      "url": "https://www.smh.com.au/rss/feed.xml",
+      "lang": "en",
+      "lean": "Centre-left establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "australia_nz",
+      "country_label": "Australia / New Zealand"
+    },
+    {
+      "name": "Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/rss",
+      "lang": "en",
+      "lean": "Centre-left",
+      "section": "news",
+      "status": "RETRY",
+      "country": "australia_nz",
+      "country_label": "Australia / New Zealand"
+    },
+    {
+      "name": "News.com.au",
+      "url": "https://www.news.com.au/feed",
+      "lang": "en",
+      "lean": "Murdoch — largest digital news AU",
+      "section": "news",
+      "status": "RETRY",
+      "country": "australia_nz",
+      "country_label": "Australia / New Zealand"
+    },
+    {
+      "name": "The Australian",
+      "url": "https://www.theaustralian.com.au/feed",
+      "lang": "en",
+      "lean": "Murdoch broadsheet",
+      "section": "news",
+      "status": "RETRY",
+      "country": "australia_nz",
+      "country_label": "Australia / New Zealand"
+    },
+    {
+      "name": "9News",
+      "url": "https://www.9news.com.au/rss",
+      "lang": "en",
+      "lean": "Mainstream TV",
+      "section": "news",
+      "status": "OK",
+      "country": "australia_nz",
+      "country_label": "Australia / New Zealand"
+    },
+    {
+      "name": "CBC World",
+      "url": "https://rss.cbc.ca/lineup/world.xml",
+      "lang": "en",
+      "lean": "Public broadcaster",
+      "section": "news",
+      "status": "OK",
+      "country": "canada",
+      "country_label": "Canada"
+    },
+    {
+      "name": "Globe and Mail",
+      "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/world/",
+      "lang": "en",
+      "lean": "Centre-establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "canada",
+      "country_label": "Canada"
+    },
+    {
+      "name": "National Post",
+      "url": "https://nationalpost.com/feed/",
+      "lang": "en",
+      "lean": "Centre-right",
+      "section": "news",
+      "status": "OK",
+      "country": "canada",
+      "country_label": "Canada"
+    },
+    {
+      "name": "Toronto Star",
+      "url": "https://www.thestar.com/feeds.articles.world.rss",
+      "lang": "en",
+      "lean": "Centre-left",
+      "section": "news",
+      "status": "RETRY",
+      "country": "canada",
+      "country_label": "Canada"
+    },
+    {
+      "name": "Le Devoir",
+      "url": "https://www.ledevoir.com/rss/manchettes.xml",
+      "lang": "fr",
+      "lean": "Quebec progressive",
+      "section": "news",
+      "status": "OK",
+      "country": "canada",
+      "country_label": "Canada"
+    },
+    {
+      "name": "Mexico News Daily",
+      "url": "https://mexiconewsdaily.com/feed/",
+      "lang": "en",
+      "lean": "Independent EN expat-focused",
+      "section": "news",
+      "status": "OK",
+      "country": "mexico",
+      "country_label": "Mexico"
+    },
+    {
+      "name": "La Jornada",
+      "url": "https://www.jornada.com.mx/rss/edicion.xml",
+      "lang": "es",
+      "lean": "Left-of-centre",
+      "section": "news",
+      "status": "OK",
+      "country": "mexico",
+      "country_label": "Mexico"
+    },
+    {
+      "name": "El Sol de Mexico",
+      "url": "https://www.elsoldemexico.com.mx/rss",
+      "lang": "es",
+      "lean": "Centre-right",
+      "section": "news",
+      "status": "OK",
+      "country": "mexico",
+      "country_label": "Mexico"
+    },
+    {
+      "name": "El Financiero",
+      "url": "https://www.elfinanciero.com.mx/rss",
+      "lang": "es",
+      "lean": "Business establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "mexico",
+      "country_label": "Mexico"
+    },
+    {
+      "name": "24 Horas",
+      "url": "https://www.24-horas.mx/feed/",
+      "lang": "es",
+      "lean": "Mainstream digital",
+      "section": "news",
+      "status": "OK",
+      "country": "mexico",
+      "country_label": "Mexico"
+    },
+    {
+      "name": "El Economista",
+      "url": "https://www.eleconomista.com.mx/rss/internacional.xml",
+      "lang": "es",
+      "lean": "Business",
+      "section": "news",
+      "status": "RETRY",
+      "country": "mexico",
+      "country_label": "Mexico"
+    },
+    {
+      "name": "Clarin",
+      "url": "https://www.clarin.com/rss/lo-ultimo/",
+      "lang": "es",
+      "lean": "Centre-right flagship AR",
+      "section": "news",
+      "status": "OK",
+      "country": "argentina_chile",
+      "country_label": "Argentina / Chile"
+    },
+    {
+      "name": "La Nacion AR",
+      "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml",
+      "lang": "es",
+      "lean": "Centre-right establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "argentina_chile",
+      "country_label": "Argentina / Chile"
+    },
+    {
+      "name": "Buenos Aires Herald",
+      "url": "https://www.batimes.com.ar/feed",
+      "lang": "en",
+      "lean": "EN-language AR",
+      "section": "news",
+      "status": "OK",
+      "country": "argentina_chile",
+      "country_label": "Argentina / Chile"
+    },
+    {
+      "name": "El Tiempo Colombia",
+      "url": "https://www.eltiempo.com/rss/mundo.xml",
+      "lang": "es",
+      "lean": "Mainstream establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "colombia_ven_peru",
+      "country_label": "Colombia / Venezuela / Peru"
+    },
+    {
+      "name": "Caracas Chronicles",
+      "url": "https://www.caracaschronicles.com/feed/",
+      "lang": "en",
+      "lean": "Opposition diaspora EN",
+      "section": "news",
+      "status": "OK",
+      "country": "colombia_ven_peru",
+      "country_label": "Colombia / Venezuela / Peru"
+    },
+    {
+      "name": "News24 World",
+      "url": "https://feeds.24.com/articles/news24/world/rss",
+      "lang": "en",
+      "lean": "Mainstream commercial",
+      "section": "news",
+      "status": "OK",
+      "country": "south_africa",
+      "country_label": "South Africa"
+    },
+    {
+      "name": "Mail & Guardian",
+      "url": "https://mg.co.za/feed/",
+      "lang": "en",
+      "lean": "Centre-left investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "south_africa",
+      "country_label": "South Africa"
+    },
+    {
+      "name": "Daily Maverick",
+      "url": "https://www.dailymaverick.co.za/dmrss/",
+      "lang": "en",
+      "lean": "Independent investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "south_africa",
+      "country_label": "South Africa"
+    },
+    {
+      "name": "Standard Kenya World",
+      "url": "https://www.standardmedia.co.ke/rss/world.php",
+      "lang": "en",
+      "lean": "Mainstream",
+      "section": "news",
+      "status": "OK",
+      "country": "kenya",
+      "country_label": "Kenya"
+    },
+    {
+      "name": "AllAfrica",
+      "url": "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
+      "lang": "en",
+      "lean": "Continental aggregator",
+      "section": "news",
+      "status": "OK",
+      "country": "africa_other",
+      "country_label": "Other Africa (Ethiopia, Ghana, Uganda, Tanzania, Senegal)"
+    },
+    {
+      "name": "Premium Times Nigeria",
+      "url": "https://www.premiumtimesng.com/feed",
+      "lang": "en",
+      "lean": "Independent investigative — adds to Punch/Vanguard",
+      "section": "news",
+      "status": "OK",
+      "country": "africa_other",
+      "country_label": "Other Africa (Ethiopia, Ghana, Uganda, Tanzania, Senegal)"
+    },
+    {
+      "name": "Addis Standard Ethiopia",
+      "url": "https://addisstandard.com/feed/",
+      "lang": "en",
+      "lean": "Independent ET",
+      "section": "news",
+      "status": "RETRY",
+      "country": "africa_other",
+      "country_label": "Other Africa (Ethiopia, Ghana, Uganda, Tanzania, Senegal)"
+    },
+    {
+      "name": "Morocco World News",
+      "url": "https://www.moroccoworldnews.com/feed",
+      "lang": "en",
+      "lean": "Independent EN",
+      "section": "news",
+      "status": "RETRY",
+      "country": "africa_other",
+      "country_label": "Other Africa (Ethiopia, Ghana, Uganda, Tanzania, Senegal)"
+    },
+    {
+      "name": "RFI Afrique",
+      "url": "https://www.rfi.fr/fr/afrique/rss",
+      "lang": "fr",
+      "lean": "French public broadcaster Africa",
+      "section": "news",
+      "status": "OK",
+      "country": "africa_other",
+      "country_label": "Other Africa (Ethiopia, Ghana, Uganda, Tanzania, Senegal)"
+    },
+    {
+      "name": "BBC Africa",
+      "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml",
+      "lang": "en",
+      "lean": "BBC Africa coverage",
+      "section": "news",
+      "status": "OK",
+      "country": "africa_other",
+      "country_label": "Other Africa (Ethiopia, Ghana, Uganda, Tanzania, Senegal)"
+    },
+    {
+      "name": "Foreign Policy",
+      "url": "https://foreignpolicy.com/feed/",
+      "lang": "en",
+      "lean": "Centrist establishment policy mag",
+      "section": "opinion",
+      "status": "OK",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "Foreign Affairs",
+      "url": "https://www.foreignaffairs.com/rss.xml",
+      "lang": "en",
+      "lean": "Establishment policy",
+      "section": "opinion",
+      "status": "OK",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "The Atlantic",
+      "url": "https://www.theatlantic.com/feed/all/",
+      "lang": "en",
+      "lean": "Centre-left magazine",
+      "section": "opinion",
+      "status": "OK",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "The Economist World",
+      "url": "https://www.economist.com/the-world-this-week/rss.xml",
+      "lang": "en",
+      "lean": "Centrist policy",
+      "section": "opinion",
+      "status": "RETRY",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "The New Yorker",
+      "url": "https://www.newyorker.com/feed/news",
+      "lang": "en",
+      "lean": "Centre-left literary",
+      "section": "opinion",
+      "status": "RETRY",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "Politico Europe",
+      "url": "https://www.politico.eu/feed/",
+      "lang": "en",
+      "lean": "Centrist Brussels-beltway",
+      "section": "opinion",
+      "status": "OK",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "The Conversation",
+      "url": "https://theconversation.com/global/articles.atom",
+      "lang": "en",
+      "lean": "Academic explainer",
+      "section": "opinion",
+      "status": "OK",
+      "country": "opinion_magazines",
+      "country_label": "Opinion magazines / narrative drivers"
+    },
+    {
+      "name": "Middle East Eye",
+      "url": "https://www.middleeasteye.net/rss",
+      "lang": "en",
+      "lean": "Critical of Gulf monarchies",
+      "section": "news",
+      "status": "OK",
+      "country": "pan_arab",
+      "country_label": "Pan-Arab / Middle East regional"
+    },
+    {
+      "name": "Middle East Monitor",
+      "url": "https://www.middleeastmonitor.com/feed/",
+      "lang": "en",
+      "lean": "Pro-Palestinian pan-Arab",
+      "section": "news",
+      "status": "OK",
+      "country": "pan_arab",
+      "country_label": "Pan-Arab / Middle East regional"
+    },
+    {
+      "name": "The New Arab",
+      "url": "https://www.newarab.com/rss",
+      "lang": "en",
+      "lean": "Pan-Arab independent",
+      "section": "news",
+      "status": "RETRY",
+      "country": "pan_arab",
+      "country_label": "Pan-Arab / Middle East regional"
+    },
+    {
+      "name": "AfricaNews",
+      "url": "https://www.africanews.com/feed/",
+      "lang": "en",
+      "lean": "Pan-African Euronews subsidiary",
+      "section": "news",
+      "status": "OK",
+      "country": "pan_african",
+      "country_label": "Pan-African regional"
+    },
+    {
+      "name": "African Arguments",
+      "url": "https://africanarguments.org/feed/",
+      "lang": "en",
+      "lean": "Independent investigative",
+      "section": "news",
+      "status": "OK",
+      "country": "pan_african",
+      "country_label": "Pan-African regional"
+    },
+    {
+      "name": "The Africa Report",
+      "url": "https://www.theafricareport.com/feed/",
+      "lang": "en",
+      "lean": "Business establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "pan_african",
+      "country_label": "Pan-African regional"
+    },
+    {
+      "name": "The Diplomat",
+      "url": "https://thediplomat.com/feed/",
+      "lang": "en",
+      "lean": "Asia-Pacific policy magazine",
+      "section": "news",
+      "status": "OK",
+      "country": "asia_pacific_regional",
+      "country_label": "Asia / Pacific regional"
+    },
+    {
+      "name": "Asia Times",
+      "url": "https://asiatimes.com/feed/",
+      "lang": "en",
+      "lean": "Pan-Asian commentary",
+      "section": "opinion",
+      "status": "OK",
+      "country": "asia_pacific_regional",
+      "country_label": "Asia / Pacific regional"
+    },
+    {
+      "name": "East Asia Forum",
+      "url": "https://www.eastasiaforum.org/feed/",
+      "lang": "en",
+      "lean": "Academic policy",
+      "section": "news",
+      "status": "RETRY",
+      "country": "asia_pacific_regional",
+      "country_label": "Asia / Pacific regional"
+    },
+    {
+      "name": "France 24 Arabic",
+      "url": "https://www.france24.com/ar/rss",
+      "lang": "ar",
+      "lean": "French wire — Arabic",
+      "section": "news",
+      "status": "OK",
+      "country": "state_tv_intl",
+      "country_label": "International state broadcasters"
+    },
+    {
+      "name": "France 24 Spanish",
+      "url": "https://www.france24.com/es/rss",
+      "lang": "es",
+      "lean": "French wire — Spanish",
+      "section": "news",
+      "status": "OK",
+      "country": "state_tv_intl",
+      "country_label": "International state broadcasters"
+    },
+    {
+      "name": "Sputnik International",
+      "url": "https://sputnikglobe.com/export/rss2/archive/index.xml",
+      "lang": "en",
+      "lean": "Russian state-export",
+      "section": "news",
+      "status": "OK",
+      "country": "state_tv_intl",
+      "country_label": "International state broadcasters"
+    },
+    {
+      "name": "RT Africa",
+      "url": "https://www.rt.com/rss/africa/",
+      "lang": "en",
+      "lean": "Russian state media in Africa",
+      "section": "news",
+      "status": "OK",
+      "country": "state_tv_intl",
+      "country_label": "International state broadcasters"
+    },
+    {
+      "name": "Readovka TG",
+      "url": "https://rsshub.app/telegram/channel/readovkanews",
+      "lang": "ru",
+      "lean": "Russian pro-war populist",
+      "section": "news",
+      "status": "RETRY",
+      "country": "telegram_proxies",
+      "country_label": "Telegram channels (via proxies)"
+    },
+    {
+      "name": "Bashtanka TG (Iran-state via TG)",
+      "url": "https://rsshub.app/telegram/channel/IRGC_QF",
+      "lang": "fa",
+      "lean": "IRGC Quds Force channel",
+      "section": "news",
+      "status": "RETRY",
+      "country": "telegram_proxies",
+      "country_label": "Telegram channels (via proxies)"
+    },
+    {
+      "name": "Hamshahri TG",
+      "url": "https://rsshub.app/telegram/channel/Hamshahri",
+      "lang": "fa",
+      "lean": "Iran reformist",
+      "section": "news",
+      "status": "RETRY",
+      "country": "telegram_proxies",
+      "country_label": "Telegram channels (via proxies)"
+    },
+    {
+      "name": "Vatican News",
+      "url": "https://www.vaticannews.va/en.rss.xml",
+      "lang": "en",
+      "lean": "Catholic establishment",
+      "section": "news",
+      "status": "OK",
+      "country": "religious_press",
+      "country_label": "Religious / cultural press"
+    },
+    {
+      "name": "Religion News Service",
+      "url": "https://religionnews.com/feed/",
+      "lang": "en",
+      "lean": "Centrist religious news",
+      "section": "news",
+      "status": "OK",
+      "country": "religious_press",
+      "country_label": "Religious / cultural press"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_doc": "Per-outlet OR per-country data-quality tier (v10). EXCLUDE_QUANT marks stubs/Google-News-proxies whose corpus is title-only; metrics ignore them. Tier C marks structural underrepresentation (small countries with thin feed coverage). Schema mixes outlet keys (google_news_reuters) with country keys (africa) — fine for v10; D.4 can split if needed.",
+  "version": "1.0.0",
+  "tier_definitions": {
+    "A": "Healthy: extraction success >70%, stub ratio <20%, multiple feeds.",
+    "B": "Acceptable: extraction success 50-70% OR single-feed bucket. Included in all metrics; renderer may flag.",
+    "C": "Narrative only: extraction success 30-50%. Included in metrics with confidence flag; not for cross-bucket comparative claims.",
+    "EXCLUDE_QUANT": "Quarantined from quantitative metrics. Stub-only aggregators where signal_text is the title, not the body. Bucket still appears in briefings for narrative coverage; it just doesn't contribute to LaBSE-cosine / exclusive-vocab numbers."
+  },
+  "entries": {
+    "google_news_reuters": {
+      "tier": "EXCLUDE_QUANT",
+      "reason": "41/50 stubs in 2026-05-06 baseline; aggregator returns headlines+links, no body extractable",
+      "since_meta_version": "5.0.0"
+    },
+    "china_global_times": {
+      "tier": "EXCLUDE_QUANT",
+      "reason": "50/50 stubs; CGT RSS does not include article bodies",
+      "since_meta_version": "5.0.0"
+    },
+    "africa": {
+      "tier": "C",
+      "reason": "6 feeds for 1.4B people across 50+ countries; structural underrepresentation flagged in docs/COVERAGE.md. Narrative coverage only; do not derive cross-bucket comparative claims.",
+      "since_meta_version": "5.0.0"
+    }
+  }
+}

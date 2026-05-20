@@ -1,0 +1,288 @@
+{
+  "_doc": "Per-country weights for population-weighted aggregates. Renamed from bucket_weights.json in v10. Weight = population_m * audience_reach. Outlets inherit their country's weight via outlets.json country field.",
+  "version": "1.0.0",
+  "weighting_formula": "weight = population_m * audience_reach",
+  "default_weight_for_unknown_countries": 1.0,
+  "countries": {
+    "usa": {
+      "population_m": 333,
+      "audience_reach": 0.85,
+      "confidence": "high"
+    },
+    "uk": {
+      "population_m": 67,
+      "audience_reach": 0.85,
+      "confidence": "high"
+    },
+    "wire_services": {
+      "population_m": 0,
+      "audience_reach": 0.0,
+      "confidence": "high",
+      "note": "Wire services are upstream of buckets; weight 0 to avoid double-counting."
+    },
+    "germany": {
+      "population_m": 84,
+      "audience_reach": 0.8,
+      "confidence": "high"
+    },
+    "france": {
+      "population_m": 68,
+      "audience_reach": 0.8,
+      "confidence": "high"
+    },
+    "italy": {
+      "population_m": 60,
+      "audience_reach": 0.7,
+      "confidence": "high"
+    },
+    "spain": {
+      "population_m": 48,
+      "audience_reach": 0.7,
+      "confidence": "medium"
+    },
+    "nordic": {
+      "population_m": 28,
+      "audience_reach": 0.85,
+      "confidence": "medium",
+      "note": "Sweden+Norway+Denmark+Finland; high reach typical of Nordic media markets."
+    },
+    "netherlands_belgium": {
+      "population_m": 29,
+      "audience_reach": 0.8,
+      "confidence": "medium"
+    },
+    "balkans": {
+      "population_m": 65,
+      "audience_reach": 0.55,
+      "confidence": "low",
+      "note": "Region varies wildly; mid-range estimate."
+    },
+    "hungary_central": {
+      "population_m": 45,
+      "audience_reach": 0.65,
+      "confidence": "low"
+    },
+    "russia_state": {
+      "population_m": 144,
+      "audience_reach": 0.45,
+      "confidence": "medium",
+      "note": "Reach reflects state-aligned outlets specifically, not general media use."
+    },
+    "russia_opposition": {
+      "population_m": 144,
+      "audience_reach": 0.1,
+      "confidence": "low",
+      "note": "Opposition outlets often blocked domestically; reach is diaspora-heavy."
+    },
+    "belarus_caucasus": {
+      "population_m": 28,
+      "audience_reach": 0.45,
+      "confidence": "low"
+    },
+    "ukraine": {
+      "population_m": 38,
+      "audience_reach": 0.65,
+      "confidence": "low",
+      "note": "Wartime media consumption; estimate is rough."
+    },
+    "turkey": {
+      "population_m": 86,
+      "audience_reach": 0.6,
+      "confidence": "medium"
+    },
+    "iran_state": {
+      "population_m": 89,
+      "audience_reach": 0.4,
+      "confidence": "low",
+      "note": "State outlets compete with widely-used VPN-accessed alternatives."
+    },
+    "iran_opposition": {
+      "population_m": 89,
+      "audience_reach": 0.25,
+      "confidence": "low"
+    },
+    "iraq": {
+      "population_m": 45,
+      "audience_reach": 0.45,
+      "confidence": "low"
+    },
+    "saudi_arabia": {
+      "population_m": 36,
+      "audience_reach": 0.55,
+      "confidence": "low"
+    },
+    "uae_qatar": {
+      "population_m": 13,
+      "audience_reach": 0.65,
+      "confidence": "low"
+    },
+    "lebanon": {
+      "population_m": 5,
+      "audience_reach": 0.5,
+      "confidence": "low"
+    },
+    "jordan": {
+      "population_m": 11,
+      "audience_reach": 0.5,
+      "confidence": "low"
+    },
+    "egypt": {
+      "population_m": 112,
+      "audience_reach": 0.45,
+      "confidence": "low"
+    },
+    "israel": {
+      "population_m": 10,
+      "audience_reach": 0.8,
+      "confidence": "medium"
+    },
+    "palestine": {
+      "population_m": 5,
+      "audience_reach": 0.6,
+      "confidence": "low"
+    },
+    "yemen": {
+      "population_m": 35,
+      "audience_reach": 0.2,
+      "confidence": "low",
+      "note": "Conflict severely disrupts media reach."
+    },
+    "syria": {
+      "population_m": 23,
+      "audience_reach": 0.3,
+      "confidence": "low"
+    },
+    "africa_other": {
+      "population_m": 800,
+      "audience_reach": 0.2,
+      "confidence": "low",
+      "note": "Africa outside Egypt, Nigeria, Kenya, South Africa — coverage gap flagged in COVERAGE.md."
+    },
+    "nigeria": {
+      "population_m": 224,
+      "audience_reach": 0.3,
+      "confidence": "low"
+    },
+    "kenya": {
+      "population_m": 55,
+      "audience_reach": 0.4,
+      "confidence": "low"
+    },
+    "south_africa": {
+      "population_m": 60,
+      "audience_reach": 0.55,
+      "confidence": "medium"
+    },
+    "india": {
+      "population_m": 1428,
+      "audience_reach": 0.45,
+      "confidence": "medium"
+    },
+    "pakistan": {
+      "population_m": 240,
+      "audience_reach": 0.4,
+      "confidence": "low"
+    },
+    "china": {
+      "population_m": 1410,
+      "audience_reach": 0.5,
+      "confidence": "low",
+      "note": "Reach via state-aligned outlets specifically; foreign-language Chinese press only."
+    },
+    "taiwan": {
+      "population_m": 24,
+      "audience_reach": 0.75,
+      "confidence": "medium"
+    },
+    "japan": {
+      "population_m": 124,
+      "audience_reach": 0.8,
+      "confidence": "high"
+    },
+    "korea_south": {
+      "population_m": 52,
+      "audience_reach": 0.85,
+      "confidence": "high"
+    },
+    "korea_north": {
+      "population_m": 26,
+      "audience_reach": 0.05,
+      "confidence": "low",
+      "note": "Domestic information access severely restricted; bucket is state-channel coverage."
+    },
+    "vietnam": {
+      "population_m": 99,
+      "audience_reach": 0.4,
+      "confidence": "low"
+    },
+    "indonesia": {
+      "population_m": 278,
+      "audience_reach": 0.45,
+      "confidence": "low"
+    },
+    "philippines": {
+      "population_m": 117,
+      "audience_reach": 0.55,
+      "confidence": "low"
+    },
+    "thailand": {
+      "population_m": 72,
+      "audience_reach": 0.5,
+      "confidence": "low"
+    },
+    "asia_pacific_regional": {
+      "population_m": 100,
+      "audience_reach": 0.55,
+      "confidence": "low",
+      "note": "Pan-regional outlets; population is editorially-relevant readership, not bucket country pop."
+    },
+    "australia_nz": {
+      "population_m": 32,
+      "audience_reach": 0.85,
+      "confidence": "high"
+    },
+    "canada": {
+      "population_m": 40,
+      "audience_reach": 0.85,
+      "confidence": "high"
+    },
+    "mexico": {
+      "population_m": 129,
+      "audience_reach": 0.55,
+      "confidence": "medium"
+    },
+    "brazil": {
+      "population_m": 217,
+      "audience_reach": 0.65,
+      "confidence": "medium"
+    },
+    "argentina_chile": {
+      "population_m": 65,
+      "audience_reach": 0.65,
+      "confidence": "low"
+    },
+    "colombia_ven_peru": {
+      "population_m": 100,
+      "audience_reach": 0.55,
+      "confidence": "low"
+    },
+    "opinion_magazines": {
+      "population_m": 0,
+      "audience_reach": 0.0,
+      "confidence": "high",
+      "note": "Editorial outlets; weight 0 to avoid double-counting against country buckets."
+    },
+    "google_news_reuters": {
+      "population_m": 0,
+      "audience_reach": 0.0,
+      "confidence": "high",
+      "note": "Tier EXCLUDE_QUANT; weight 0 reflects metric exclusion."
+    },
+    "china_global_times": {
+      "population_m": 0,
+      "audience_reach": 0.0,
+      "confidence": "high",
+      "note": "Tier EXCLUDE_QUANT; weight 0 reflects metric exclusion."
+    }
+  }
+}

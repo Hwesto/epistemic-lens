@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://epistemic-lens/api/schema/briefing.schema.json",
+  "title": "Per-cluster briefing (v10)",
+  "description": "The central analytical artifact: per-cluster, per-outlet corpus assembled from a snapshot, written by core/briefing/build.py. v10 replaces v9's per-canonical-story briefings (keyed by story_key) with per-cluster briefings (keyed by lineage_id). Each cluster comes from HDBSCAN over the day's full article set; salience ranking picks the top ~15 for briefing. corpus[] order is the signal_text_idx contract — renaming or reordering silently breaks downstream LLM citation grounding.",
+  "type": "object",
+  "required": [
+    "meta_version",
+    "date",
+    "lineage_id",
+    "cluster_id",
+    "n_outlets",
+    "n_countries",
+    "signal_breakdown",
+    "corpus"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "meta_version": {
+      "type": "string",
+      "description": "Methodology pin (added by meta.stamp())."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "lineage_id": {
+      "type": "string",
+      "pattern": "^L[0-9a-f]+$",
+      "description": "Stable hash identifying the cluster lineage across days (e.g. Le4f8a39c1d). Persistent stories carry the same lineage_id day-over-day when the same articles re-cluster (≥30% Jaccard overlap)."
+    },
+    "cluster_id": {
+      "type": "integer",
+      "description": "Day-local cluster index from HDBSCAN. Reassigned every day; lineage_id is the cross-day stable identifier."
+    },
+    "cluster_name": {
+      "type": ["string", "null"],
+      "description": "Human-readable cluster name. Written by Claude during the analyze step; null at briefing-build time."
+    },
+    "salience_score": {
+      "type": ["number", "null"],
+      "description": "Cluster salience from core/cluster/salience.py — article_count × country_spread × (1 + lang_bonus) × stability."
+    },
+    "top_tokens": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Top 10 tokens across member article titles. Hint for naming + understanding the cluster."
+    },
+    "n_outlets": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "n_countries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "n_langs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "n_articles_total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total candidate articles in the cluster (pre per-outlet dedup)."
+    },
+    "countries_present": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "langs_present": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "leans_present": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "signal_breakdown": {
+      "type": "object",
+      "description": "Counts of corpus[] entries by signal_level.",
+      "additionalProperties": false,
+      "properties": {
+        "body":    { "type": "integer", "minimum": 0 },
+        "summary": { "type": "integer", "minimum": 0 },
+        "title":   { "type": "integer", "minimum": 0 }
+      }
+    },
+    "corpus": {
+      "type": "array",
+      "description": "Per-article entries. Position `i` is the signal_text_idx the LLM cites by — order matters and must be stable.",
+      "items": {
+        "type": "object",
+        "required": [
+          "outlet",
+          "country",
+          "lang",
+          "title",
+          "link",
+          "signal_level",
+          "signal_text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "outlet": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Outlet name (was `feed` in v9). The atomic identity unit in v10."
+          },
+          "country": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Country code (was `bucket` in v9). Now a tag, not an aggregation unit."
+          },
+          "country_label": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lean": {
+            "type": "string",
+            "description": "Editorial-lean tag (e.g. 'Centre-right business', 'Public broadcaster — international'). Optional descriptor; empty string if unset."
+          },
+          "section": {
+            "type": "string",
+            "enum": ["news", "opinion", "wire"]
+          },
+          "title": { "type": "string" },
+          "link": {
+            "type": "string",
+            "format": "uri"
+          },
+          "signal_level": {
+            "type": "string",
+            "enum": ["body", "summary", "title"]
+          },
+          "signal_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "extraction_status": {
+            "type": ["string", "null"],
+            "enum": ["FULL", "PARTIAL", "STUB", "NONE", "ERROR", "SKIPPED", null]
+          },
+          "via_wayback": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "coverage_caveats": {
+      "type": "array",
+      "description": "Countries with zero items today due to feed failures. Used by Claude to distinguish structural silence (feed broke) from editorial silence (outlet chose different angle).",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  }
+}

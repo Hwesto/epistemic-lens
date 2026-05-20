@@ -31,39 +31,32 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Cross-outlet lag (CCF)
-        run: python -m analytical.cross_outlet_lag
+        run: python -m core.compare.lag
 
       - name: Wire baseline (Phase 4e) — rolling 90-day wire bigram corpus
-        run: python -m analytical.wire_baseline
+        run: python -m core.compare.wire_baseline
 
       - name: Tilt index (Phase 4f) — per-outlet log-odds vs wire baseline
-        run: python -m analytical.tilt_index
+        run: python -m core.compare.tilt
 
       - name: Retention rollup (PR2 Phase B; bundles snapshots + briefings ≥90d old)
         # pipeline/rollup.py is idempotent — re-running on already-rolled
         # months is a no-op. Bundles old snapshots/briefings into
-        # archive/rollup/<bucket>-YYYY-MM.tar.gz and removes the live
+        # data/archive/rollup/<bucket>-YYYY-MM.tar.gz and removes the live
         # originals, keeping the working tree manageable. Without this
         # the repo bloats to 1-2 GB by year 2 and `git clone` becomes
         # painful (122 MB of unrolled snapshots/ as of 2026-05-12).
-        run: python -m pipeline.rollup --window-days 90
+        run: python -m core.ingest.rollup --window-days 90
 
-      - name: Persistent residual lineages (PR2 Phase C)
-        # Walks the last 7 days of snapshots/<date>_residual_clusters.json
-        # (written daily by pipeline.discover_residual) and chains
+      - name: Persistent lineages (v10 — cross-day cluster tracking)
+        # Walks the last 7 days of data/snapshots/<DATE>_clusters.json
+        # (written daily by core.cluster.cluster_daily) and chains
         # clusters across days into lineages via member-article-ID
         # Jaccard overlap >=0.30. Member-ID overlap is invariant to
         # centroid drift; the same article-set re-clustering day-over-day
-        # is real signal. Writes archive/persistent_residual_<DATE>.json.
-        run: python -m analytical.persistence_tracker || true
-
-      - name: Auto-promote review notes (PR2 Phase C — embedding lineage + tokens)
-        # Reads BOTH the legacy token-frequency detector AND the new
-        # embedding-residual lineage tracker; emits a single Markdown
-        # review note at archive/auto_promoted_<DATE>.md. Report-only —
-        # never mutates canonical_stories.json. Promotion is a human
-        # decision (because it bumps the methodology pin).
-        run: python -m analytical.auto_promote || true
+        # is real signal. Writes data/archive/persistent_lineages_<DATE>.json,
+        # which core/briefing/build.py reads to reuse stable lineage_ids.
+        run: python -m core.cluster.lineage || true
 
       - name: Commit + push lag/ + baseline/ + tilt/ + rollup + lineages
         run: |
@@ -71,25 +64,20 @@ jobs:
           DATE=$(date -u +%Y-%m-%d)
           git config user.name "epistemic-lens-bot"
           git config user.email "bot@epistemic-lens"
-          git add lag/ baseline/ tilt/
-          # Conditional adds: archive/rollup/ exists only on weeks the
+          git add data/lag/ data/baseline/ data/tilt/
+          # Conditional adds: data/archive/rollup/ exists only on weeks the
           # rollup actually had ≥90-day-old files to bundle, and the live
           # removals from snapshots/ and briefings/ may also be empty.
-          [ -d archive/rollup ] && git add archive/rollup/ || true
-          # Phase C outputs — explicit existence checks so a silent failure
-          # in persistence_tracker / auto_promote surfaces a CI warning
-          # rather than vanishing into an empty `git add` glob.
-          if [ -f "archive/persistent_residual_${DATE}.json" ]; then
-            git add "archive/persistent_residual_${DATE}.json"
+          [ -d data/archive/rollup ] && git add data/archive/rollup/ || true
+          # Lineage output — explicit existence check so a silent failure
+          # in the lineage step surfaces a CI warning rather than
+          # vanishing into an empty `git add` glob.
+          if [ -f "data/archive/persistent_lineages_${DATE}.json" ]; then
+            git add "data/archive/persistent_lineages_${DATE}.json"
           else
-            echo "::warning::persistence_tracker output missing for ${DATE}; check the persistence_tracker step (likely no residual_clusters.json in the last 7 days)"
+            echo "::warning::lineage output missing for ${DATE}; check the lineage step (likely no <DATE>_clusters.json in the last 7 days)"
           fi
-          if [ -f "archive/auto_promoted_${DATE}.md" ]; then
-            git add "archive/auto_promoted_${DATE}.md"
-          else
-            echo "::warning::auto_promote output missing for ${DATE}; check the auto_promote step for errors"
-          fi
-          git add -u snapshots/ briefings/ || true
+          git add -u data/snapshots/ data/briefings/ || true
           if git diff --cached --quiet; then
             echo "No weekly-analytics output changes to commit."
             exit 0
