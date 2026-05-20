@@ -29,7 +29,9 @@ jobs:
   ingest:
     if: ${{ inputs.skip_ingest != true }}
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # 60 min: extract ~7 + e5-large encode of ~6,500 articles ~25-30 +
+    # cluster/salience/build/metrics ~10. ~45-50 min typical, 60 for headroom.
+    timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v4
@@ -41,11 +43,13 @@ jobs:
           python-version: '3.12'
           cache: pip
 
-      - name: Cache multilingual embedding model (~500MB)
+      - name: Cache embedding model (multilingual-e5-large ~2GB)
         uses: actions/cache@v4
         with:
-          path: ~/.cache/torch/sentence_transformers
-          key: paraphrase-multilingual-MiniLM-L12-v2
+          path: |
+            ~/.cache/huggingface
+            ~/.cache/torch/sentence_transformers
+          key: hf-multilingual-e5-large-v1
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -94,10 +98,10 @@ jobs:
         # model OR signal_text_version invalidates the cache loudly. The .npy is
         # NOT committed; CI runners regenerate fresh each cron.
         #
-        # Model: paraphrase-multilingual-MiniLM-L12-v2 (384-dim, ~120MB).
-        # Encodes the full ~6,500-article day in ~3-4 min on the 2-core
-        # ubuntu-latest runner. (e5-large was tried first but took 17+ min
-        # and timed the job out — see meta_version.json perception._doc.)
+        # Model: intfloat/multilingual-e5-large (1024-dim, ~2GB). Encoding the
+        # full ~6,500-article day takes ~25-30 min on the 2-core ubuntu-latest
+        # runner — the job's 60-min budget accounts for it. Override the model
+        # for a faster run via the EMBEDDING_MODEL env var.
         run: python -m core.embed.encode
 
       - name: Cluster all articles via HDBSCAN (v10)

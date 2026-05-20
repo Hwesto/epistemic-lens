@@ -118,7 +118,7 @@ def build_briefing_for_cluster(
         return _empty_briefing(snap.get("date") or "", cluster, lineage_id)
 
     perception_cfg = getattr(meta, "PERCEPTION", None) or {}
-    model_id = perception_cfg.get("embedding_model") or ""
+    model_id = meta.embedding_model()
     sig_version = perception_cfg.get("signal_text_version", "v1")
     outlet_lookup = meta.outlet_by_name()
 
@@ -213,12 +213,11 @@ def _empty_briefing(date: str, cluster: dict, lineage_id: str) -> dict:
 
 def latest_snapshot_path(snap_dir: Path | None = None) -> Path | None:
     snap_dir = snap_dir or SNAPSHOTS
-    cands = sorted(p for p in snap_dir.glob("[0-9]*.json")
-                   if not p.stem.endswith(("_convergence", "_similarity",
-                                           "_prompt", "_dedup", "_health",
-                                           "_pull_report", "_clusters",
-                                           "_top_clusters")))
-    return cands[-1] if cands else None
+    date = meta.latest_snapshot_date(snap_dir)
+    if not date:
+        return None
+    p = snap_dir / f"{date}.json"
+    return p if p.exists() else None
 
 
 def main() -> int:

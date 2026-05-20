@@ -110,12 +110,14 @@ def main() -> int:
                     help=f"Top N clusters to select (default {DEFAULT_TOP_N}).")
     args = ap.parse_args()
     if args.date is None:
-        cands = sorted(SNAPSHOTS.glob("[0-9]*_clusters.json"))
+        # Match "<date>_clusters.json" but NOT "<date>_top_clusters.json"
+        # (this script's own output also ends in _clusters.json).
+        cands = sorted(p for p in SNAPSHOTS.glob("[0-9][0-9][0-9][0-9]-*_clusters.json")
+                       if not p.name.endswith("_top_clusters.json"))
         if not cands:
             print("no _clusters.json found", file=sys.stderr)
             return 1
-        # strip "_clusters.json" suffix
-        args.date = cands[-1].stem.replace("_clusters", "")
+        args.date = cands[-1].name[:-len("_clusters.json")]
     try:
         rank(args.date, top_n=args.top_n)
     except FileNotFoundError as e:

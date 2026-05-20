@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "10.0.2",
-  "pinned_at": "2026-05-20T11:51:33Z",
-  "pin_reason": "embedding model e5-large -> MiniLM-L12-v2: e5-large timed out the 30min ingest job; MiniLM encodes the full day in ~3-4min",
+  "meta_version": "10.0.3",
+  "pinned_at": "2026-05-20T13:15:12Z",
+  "pin_reason": "revert embedding model to e5-large (the stronger model); fix latest_snapshot_date picking up _embedding_ids/_clusters sibling files; add EMBEDDING_MODEL override + scripts/smoke_pipeline.py",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -83,9 +83,9 @@
     "prompts_hash": "sha256:9fed72e324163e5cfeb00c5003d3453fc5ac56d257367f02df1f743565f91372"
   },
   "perception": {
-    "_doc": "v10 article embedding. Every article in the daily snapshot is encoded with `embedding_model`; the vectors feed core/cluster/cluster_daily.py (HDBSCAN over the full day). `signal_text_version` is a cache-invalidation knob — it composes into the article_id hash, so bumping it OR `embedding_model` forces a clean re-encode. Switched from intfloat/multilingual-e5-large to MiniLM-L12-v2 in v10.0.2: e5-large took 17+ min on the 2-core runner and timed the ingest job out; MiniLM encodes the full day in ~3-4 min with embeddings still well-suited to topic clustering. (Block name kept as `perception` for the meta.PERCEPTION accessor; the v9 softmax-argmax matcher it was named for retired in v10.)",
-    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "_doc": "v10 article embedding. Every article in the daily snapshot is encoded with `embedding_model`; the vectors feed core/cluster/cluster_daily.py (HDBSCAN over the full day). `signal_text_version` is a cache-invalidation knob — it composes into the article_id hash, so bumping it OR `embedding_model` forces a clean re-encode. Model: intfloat/multilingual-e5-large (1024-dim) — the strongest multilingual option; encoding the full ~6,500-article day takes ~25-30 min on the 2-core runner, which is why the ingest job has a 60-min budget. The `EMBEDDING_MODEL` env var overrides this at runtime (used by scripts/smoke_pipeline.py for fast local logic tests). (Block name kept as `perception` for the meta.PERCEPTION accessor; the v9 softmax-argmax matcher it was named for retired in v10.)",
+    "embedding_model": "intfloat/multilingual-e5-large",
     "signal_text_version": "v1"
   },
-  "pin_self_hash": "sha256:a3e1392b0575d32b0fcabc2053bc0b152a2122a72ddfb29863123004c236fde9"
+  "pin_self_hash": "sha256:bf240390de9baf9bcbd177906a55fb1245878f4b5e50fc3b346dd03908ceb002"
 }
