@@ -3,11 +3,11 @@
 **Daily framing comparison across mainstream international press.**
 
 Every morning, this project pulls articles from 235 RSS feeds across 55
-country/region buckets, decides which "story" each article is about
-(using an AI that understands articles in Persian, Arabic, Chinese, and
-English equally well), and has Claude write one structured framing
-analysis per story — showing how outlets across 55 countries frame the
-same event differently.
+countries, clusters the day's articles into the stories actually being
+covered (using an AI that understands articles in Persian, Arabic,
+Chinese, and English equally well), and has Claude write one structured
+framing analysis per top story — showing how outlets across those
+countries frame the same event differently.
 
 The whole pipeline is unattended, runs on GitHub Actions, and costs
 nothing beyond a Claude.ai subscription (used via OAuth, no metered API
@@ -28,26 +28,31 @@ countries — are out of scope. Outlet selection is biased toward
 English-medium availability and persistent feeds; outlets behind
 paywalls or anti-scraping defences (Cloudflare 403s) drop out silently.
 
-The story matcher works across non-Latin scripts (Persian, Arabic,
-Chinese, Japanese, Korean, Hindi, Hebrew, Russian) by encoding article
-meaning as a numerical vector — articles about the same topic land close
-together in vector space regardless of their language. So a Persian Iran
+The clusterer works across non-Latin scripts (Persian, Arabic, Chinese,
+Japanese, Korean, Hindi, Hebrew, Russian) by encoding article meaning as
+a numerical vector — articles about the same topic land close together
+in vector space regardless of their language. So a Persian Iran
 International article about southern Lebanon ends up in the same
 briefing as a BBC English piece about the same border conflict.
 
-Per-day coverage stats land in `snapshots/<date>_health.json`.
+There is no fixed list of stories. Whatever the day's outlets are
+actually talking about is what surfaces — so coverage isn't pinned to a
+pre-defined set that goes stale.
+
+Per-day coverage stats land in `data/snapshots/<date>_health.json`.
 
 ---
 
 ## What lands every morning
 
-For each story (typically 10-13 per day), the cron publishes a folder
-on GitHub Pages:
+For each top story (the day's ~15 highest-salience clusters), the cron
+publishes a folder on GitHub Pages, keyed by a stable cross-day
+`lineage_id`:
 
 ```
-hwesto.github.io/epistemic-lens/<DATE>/<story_key>/
-  briefing.json     ← the corpus: every relevant article from every bucket
-  metrics.json      ← cross-bucket similarity, distinctive vocabulary
+hwesto.github.io/epistemic-lens/<DATE>/<lineage_id>/
+  briefing.json     ← the corpus: the cluster's articles, one entry per outlet
+  metrics.json      ← cross-outlet similarity, distinctive vocabulary
   analysis.json     ← Claude's framing analysis (citation-grounded)
   analysis.md       ← human-readable version of the above
   thread.json       ← X/Threads draft (template, no LLM)
@@ -63,22 +68,23 @@ page at `/`.
 ## How it works (one paragraph per stage)
 
 Nine stages run back-to-back every morning. Each is a separate Python
-module under `pipeline/` (data ingest) or `analytical/` (analysis), and
-each is independently runnable for local development.
+module under `core/` — `core/ingest/`, `core/embed/`, `core/cluster/`,
+`core/briefing/`, `core/metrics/`, `core/analyze/` — and each is
+independently runnable for local development.
 
 ### 1. Ingest — pull every RSS feed
 
-**`pipeline/ingest.py`** fetches all 235 RSS feeds concurrently using
-30 worker threads with a per-host rate limit and exponential backoff
-on server errors. Parses RSS, Atom, and RDF feeds, then writes
-`snapshots/<DATE>.json` with raw items: title, link, summary,
+**`core/ingest/pull_feeds.py`** fetches all 235 RSS feeds concurrently
+using 30 worker threads with a per-host rate limit and exponential
+backoff on server errors. Parses RSS, Atom, and RDF feeds, then writes
+`data/snapshots/<DATE>.json` with raw items: title, link, summary,
 publish date, plus flags like "title-only feed" or "Google News proxy."
 Failed feeds get marked and reported rather than retried to death.
 **~10 min.**
 
 ### 2. Extract — fetch the full article body
 
-**`pipeline/extract_full_text.py`** follows the article links and runs
+**`core/ingest/extract_bodies.py`** follows the article links and runs
 each page through **Trafilatura** (an open-source library that strips
 the navigation, ads, and boilerplate to leave just the article body).
 About 85% of articles yield clean body text on a typical day. When the
@@ -90,23 +96,23 @@ which usually has an unblocked copy. Each item gets annotated with an
 
 ### 3. Deduplicate + health-check
 
-**`pipeline/dedup.py`** canonicalises URLs (strips UTM tracking params,
-normalises `m.example.com` → `example.com`, decodes Google News proxy
-links) so the same article posted to multiple feeds collapses to one
-item. Title-Jaccard near-duplicates within a bucket collapse too. A
+**`core/ingest/dedup.py`** canonicalises URLs (strips UTM tracking
+params, normalises `m.example.com` → `example.com`, decodes Google News
+proxy links) so the same article posted to multiple feeds collapses to
+one item. Title-Jaccard near-duplicates within a feed collapse too. A
 cross-day state file tracks wire-syndicated stories so AFP's coverage
 of an event doesn't double-count across days.
 
-**`pipeline/daily_health.py`** writes a health snapshot summarising
-feed status, per-bucket extraction rates, and alerts. Two alert types:
-**volume_drop** (a bucket's item count dropped >50% vs its trailing
-7-day average — probably a feed broke), and **low_extraction** (a
-bucket pulled items fine but bodies didn't extract — probably the host
+**`core/ingest/health.py`** writes a health snapshot summarising
+feed status, per-country extraction rates, and alerts. Two alert types:
+**volume_drop** (a country's item count dropped >50% vs its trailing
+7-day average — probably a feed broke), and **low_extraction** (feeds
+pulled items fine but bodies didn't extract — probably the host
 started 403-ing). **~1 min total.**
 
 ### 4. Embed — convert each article into a vector
 
-**`pipeline/embed_articles.py`** turns each article's text into a
+**`core/embed/encode.py`** turns each article's text into a
 1024-dimensional vector using **multilingual-e5-large**, an
 **embedding model** — a neural network that converts text into
 numerical vectors such that articles about the same topic end up close
@@ -115,124 +121,98 @@ about Iran and an English article about Iran will produce vectors that
 point in similar directions, even though their characters share
 nothing in common.
 
-The vectors get written to `snapshots/<DATE>_embeddings.npy` with a
-versioned cache key — bumping the embedding model OR the way we
+The vectors get written to `data/snapshots/<DATE>_embeddings.npy` with
+a versioned cache key — bumping the embedding model OR the way we
 extract text from articles invalidates the cache automatically so
 stale vectors can never silently get served. **~12 min on the
 2-core Actions runner.**
 
-### 5. Match — assign each article to a canonical story
+### 5. Cluster — group the day's articles into stories
 
-The project tracks 15 **canonical stories** — recurring international
-narratives like the Ukraine war, China-Taiwan tensions, Iran nuclear
-program, Hormuz Strait, Israel-Palestine, etc. Each story has 3-8
-**anchor sentences** that describe it (e.g. for Lebanon: "Israeli
-forces hold positions in southern Lebanon and strike Hezbollah targets
-south of the Litani River"). Anchors are written in English plus
-native scripts (Persian, Arabic) where the story has strong
-non-Latin-language coverage.
+There is no fixed list of stories. **`core/cluster/cluster_daily.py`**
+runs **HDBSCAN** over every article's vector from stage 4. HDBSCAN is a
+density-based clustering algorithm: it groups vectors that are dense
+neighbours of each other and leaves outliers as "noise" — no article is
+forced into a cluster it doesn't belong in. A typical day produces
+~50–200 clusters.
 
-**`analytical/perception.py`** encodes every story's anchors with the
-same model from stage 4 and averages them into a **centroid** — a
-single vector that represents "what this story looks like in
-embedding space." Then for each article, it computes the **cosine
-similarity** to every story's centroid. Cosine similarity is the
-standard way to measure how closely two vectors point in the same
-direction: 1.0 = identical meaning, 0.0 = unrelated, with most
-in-domain news articles landing in the 0.5–0.9 range.
+For each cluster, the script records the member article IDs, the
+country / outlet / language distributions, and the most common words in
+the member titles, and writes `data/snapshots/<DATE>_clusters.json`.
+Because the clusterer operates on meaning-vectors, a cluster naturally
+spans languages: the Persian, Arabic, and English coverage of one event
+land in the same cluster without any pre-defined anchor for it.
 
-The article gets assigned to whichever story it scores highest against
-— this is called **softmax-argmax assignment**: compare against all
-15 stories simultaneously and pick the strongest. The assignment only
-counts if (a) the top cosine clears a floor (default 0.40, so articles
-that don't strongly match anything get rejected) and (b) the top score
-beats the second-best by a small margin (the "open-world filter" — an
-article roughly equidistant from many stories doesn't strongly belong
-to any of them).
+Stories that persist get a stable identity. Weekly,
+**`core/cluster/lineage.py`** chains clusters across days by the
+**Jaccard overlap** of their member article IDs — if today's cluster
+shares ≥30% of articles with a prior day's, it's the same lineage and
+keeps the same `lineage_id`. (Jaccard overlap = intersection / union of
+two sets.) That's what lets a long-running story carry one ID across
+weeks while a one-off breaking story gets its own. **~3 min.**
 
-This is what unlocks the multilingual coverage: a Persian Iran
-International article about southern Lebanon (cosine ≈ 0.84 against
-Lebanon's mixed Persian + Arabic + English anchors) gets correctly
-grouped with English coverage from BBC, Al Jazeera, Times of Israel,
-and so on. The matcher is calibrated against a 343-row hand-labelled
-test set — see
-[`calibration/perception_eval_report.md`](calibration/perception_eval_report.md)
-for the full record (test accuracy ~82%).
+### 6. Rank salience + build briefings
 
-**`analytical/build_briefing.py`** then collects the matched articles
-into per-story corpora — up to 2 articles per bucket, chosen to
-maximise framing diversity (titles too similar to an already-kept one
-get dropped). Each entry carries its matcher confidence scores for
-auditing. **~3 min.**
+A day's 50–200 clusters are too many to analyse. **`core/cluster/salience.py`**
+scores each one — `n_articles × country_spread × multilingual_bonus ×
+cluster_stability` — and keeps the top ~15. The formula rewards exactly
+what the project is about: broad cross-country coverage of the same
+event, with a bonus when the coverage spans multiple language spheres.
 
-### 6. Metrics + within-language signals
+**`core/briefing/build.py`** then assembles a per-cluster corpus for
+each top cluster, keeping up to 2 articles per **outlet** (titles too
+similar to an already-kept one get dropped, to maximise framing
+diversity). Each corpus entry carries its outlet plus `country`,
+`lang`, `lean`, and `section` tags — so downstream comparison can group
+by any of them, not just geography. Briefings are written to
+`data/briefings/<DATE>_<lineage_id>.json`. **~3 min.**
 
-**`analytical/build_metrics.py`** measures how different the buckets'
-coverage looks from each other for each story:
+### 7. Metrics + within-language signals
 
-- **Pairwise similarity:** average vector similarity between every
-  pair of buckets (e.g. how much do German articles about Hormuz
-  resemble Indian articles about Hormuz?). The base similarity uses
-  **LaBSE**, a separate multilingual embedding model used here for its
-  speed on the small bucket-mean computation.
-- **Isolation:** which bucket sits furthest from everyone else (an
+**`core/metrics/cross_bucket.py`** measures how different outlets'
+coverage of a story looks from each other:
+
+- **Pairwise similarity:** average vector similarity between outlets'
+  coverage (e.g. how much does a German outlet's Hormuz coverage
+  resemble an Indian outlet's?). The base similarity uses **LaBSE**, a
+  separate multilingual embedding model used here for its speed on the
+  small per-outlet computation.
+- **Isolation:** which outlet sits furthest from everyone else (an
   outlier — possibly framing the story uniquely, possibly just
   covering a different angle entirely).
-- **Bucket-exclusive vocabulary:** words that appear in exactly one
-  bucket and nowhere else (often the most revealing tell of how that
-  bucket is framing the story differently).
+- **Outlet-exclusive vocabulary:** words that appear in only one
+  outlet's coverage and nowhere else (often the most revealing tell of
+  how that outlet is framing the story differently).
 
 **`within_language_llr.py`** and **`within_language_pmi.py`** compute
 additional within-language signals — log-likelihood-ratio distinctive
 vocab and pointwise-mutual-information bigram associations within each
-language stratum, so vocabulary differences between buckets aren't
-confounded by them speaking different languages. **~3 min.**
-
-### 7. Discover — cluster the leftovers
-
-Articles the matcher didn't assign (typically a few thousand per day —
-either they didn't strongly match any canonical story or they were
-equidistant from too many) are the discovery surface for emerging
-stories the canonical set doesn't cover yet.
-
-**`pipeline/discover_residual.py`** runs **HDBSCAN** over the residual
-vectors. HDBSCAN is a clustering algorithm: it groups vectors that are
-dense neighbours of each other and ignores outliers as "noise" (no
-forced cluster assignment). For each cluster it finds, the script
-records the member article IDs, which buckets contributed, and the
-most common words in their titles.
-
-Weekly, **`analytical/persistence_tracker.py`** chains clusters across
-days by checking the **Jaccard overlap** of their member article IDs —
-if today's cluster shares ≥30% of articles with yesterday's, it's the
-same lineage. (Jaccard overlap = intersection / union of two sets;
-0.30 = 30% of the combined article set appears in both clusters.)
-Lineages that persist ≥ 3 days with ≥ 4 different buckets get
-surfaced by **`analytical/auto_promote.py`** as promotion candidates
-in `archive/auto_promoted_<DATE>.md` — a human-decision artefact, never
-a silent canonical mutation. **~2 min daily; weekly review.**
+language stratum, so vocabulary differences between outlets aren't
+confounded by them publishing in different languages. **~3 min.**
 
 ### 8. Analyze — Claude writes the framing analyses
 
-For each qualifying story (n_buckets ≥ 3), the workflow spawns a
+For each qualifying cluster (n_outlets ≥ 3), the workflow spawns a
 **separate Sonnet session** via `anthropics/claude-code-action@v1`.
-Each session reads ONE briefing + ONE metrics file and writes:
+Each session reads ONE briefing + ONE metrics file, names the story
+(Claude writes a `cluster_name` — the cluster arrives without one), and
+writes:
 
-- **`analyses/<DATE>_<story>.json`** — frames identified (2-8, drawn
-  from a closed 15-frame codebook: ECONOMIC, MORALITY, FAIRNESS,
+- **`analyses/<DATE>_<lineage_id>.json`** — frames identified (2-8,
+  drawn from a closed 15-frame codebook: ECONOMIC, MORALITY, FAIRNESS,
   SECURITY_DEFENSE, etc. The codebook is from
   Boydstun & Card's published framing research; using a fixed
   vocabulary across all stories makes longitudinal comparison
   possible), supporting quotes (verbatim, citation-validated against
   the briefing corpus), paradox (opposing-bloc convergence — when two
   ideologically opposed outlets reach the same conclusion), silences
-  (which buckets plausibly should have covered this and didn't), and
-  single-outlet findings.
-- **`analyses/<DATE>_<story>_headline.json`** — same shape but
+  (which outlets or countries plausibly should have covered this and
+  didn't), and single-outlet findings.
+- **`analyses/<DATE>_<lineage_id>_headline.json`** — same shape but
   operating only on titles, so a downstream step can compare to the
   body analysis and produce a sensationalism index per outlet.
-- **`sources/<DATE>_<story>.json`** — per-quote speaker attribution
-  (who got quoted, what's their role, what stance did they take).
+- **`sources/<DATE>_<lineage_id>.json`** — per-quote speaker attribution
+  (who got quoted, what's their role).
 
 The matrix runs in parallel via GitHub Actions, with `fail-fast: false`
 so one story's regression doesn't cancel siblings. Each LLM session has
@@ -240,23 +220,26 @@ its own ~25-min budget and only ever sees one briefing's worth of
 context.
 
 After the matrix completes, **`analyze_render`** validates every JSON
-(`validate_analysis.py` enforces schema + citation grounding + number
-reconciliation), augments metrics with population-weighted frame
+(`core/analyze/validate.py` enforces schema + citation grounding +
+number reconciliation), augments metrics with population-weighted frame
 distribution, computes headline-body divergence, aggregates source
 attribution, renders Markdown, runs the longitudinal aggregator, and
 commits everything. **~25-40 min for the matrix + ~5 min for render.**
 
 ### 9. Render + publish + distribute
 
-- **`publication/render_thread.py`** and **`render_carousel.py`** —
+Everything downstream of the analysis JSON lives under `publish/` — the
+content layer, kept separate from the `core/` research product.
+
+- **`publish/render/thread.py`** and **`carousel.py`** —
   deterministic templates over the analysis JSON; no LLM. Hook priority
   for social drafts: paradox > divergence outlier > exclusive vocab >
   generic.
-- **`.claude/prompts/draft_long.md`** runs Sonnet over the analysis to
-  write the long-form blog/post draft.
-- **`publication/build_index.py`** assembles the public `api/` tree and
+- **`publish/render/prompts/draft_long.md`** runs Sonnet over the
+  analysis to write the long-form blog/post draft.
+- **`publish/api/build_index.py`** assembles the public `api/` tree and
   deploys to GitHub Pages.
-- **`distribution/stage.py`** stages drafts to `distribution/pending/`
+- **`publish/distribute/stage.py`** stages drafts to a pending queue
   for downstream poster bots.
 
 **~10 min for draft + publish + distribute combined.**
@@ -270,19 +253,19 @@ Detailed technical documentation:
 - [**`docs/ARCHITECTURE.md`**](docs/ARCHITECTURE.md) — system diagram,
   per-script I/O reference, cadence table
 - [**`docs/METHODOLOGY.md`**](docs/METHODOLOGY.md) — the analytical
-  decisions: cross-lingual similarity, perception layer (embedding
-  softmax-argmax + calibration record), discovery layer, weighted frame
-  distribution, multiple-testing corrections, every methodology change
-  explained
+  decisions: cross-lingual similarity, dynamic clustering + salience
+  ranking, cross-day lineage, weighted frame distribution,
+  multiple-testing corrections, every methodology change explained
 - [**`docs/OPERATIONS.md`**](docs/OPERATIONS.md) — cron setup, the
   `CLAUDE_CODE_OAUTH_TOKEN` secret, manual runs, health alerts,
   retention rollup
 - [**`docs/API.md`**](docs/API.md) — the public JSON API contract,
   every schema, CORS policy, polling cadence
-- [**`docs/COVERAGE.md`**](docs/COVERAGE.md) — bucket-by-bucket grade
+- [**`docs/COVERAGE.md`**](docs/COVERAGE.md) — country-by-country grade
   table + the structural blind spots that survive
 - [**`docs/RETENTION.md`**](docs/RETENTION.md) — snapshot/briefing
-  archival policy (>90-day artefacts bundled into `archive/rollup/`)
+  archival policy (>90-day artefacts bundled into
+  `data/archive/rollup/`)
 - [**`docs/REPLICATION.md`**](docs/REPLICATION.md) — replay any past
   day's analytics from its frozen snapshot
 
@@ -318,24 +301,24 @@ The analyze + draft + publish stages run via GitHub Actions only; see
 ## Methodology pin
 
 Every input that affects analytical output (feeds list, stopwords,
-canonical-story anchors, prompts, embedding model, schema definitions,
-model identifiers) is hashed in `meta_version.json`. Every artifact
-(snapshot, briefing, metrics, analysis, draft) carries the active
-`meta_version` so longitudinal consumers know which era they're reading.
+frames codebook, prompts, embedding model, schema definitions, model
+identifiers) is hashed in `core/config/meta_version.json`. Every
+artifact (snapshot, briefing, metrics, analysis, draft) carries the
+active `meta_version` so longitudinal consumers know which era they're
+reading.
 
 ```bash
-python baseline_pin.py --check                       # CI gate
-python baseline_pin.py --bump minor --reason "..."   # bumper
+python scripts/baseline_pin.py --check                       # CI gate
+python scripts/baseline_pin.py --bump minor --reason "..."   # bumper
 ```
 
 CI's `meta-check.yml` workflow enforces hash match on every push and PR.
 
 **Bump rules:**
 - `patch` — no output change (typo fix, comment, internal refactor)
-- `minor` — forward-compatible addition (new story, new feed, new
-  optional field)
+- `minor` — forward-compatible addition (new feed, new optional field)
 - `major` — invalidates longitudinal comparison (changed similarity
-  formula, swapped embedding model, removed a story)
+  formula, swapped embedding model, changed the clusterer)
 
 See [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) for the full policy
 and the per-version changelog.
@@ -344,7 +327,7 @@ and the per-version changelog.
 
 ## Coverage
 
-235 feeds across 55 buckets. ~85% body-text extraction success on a
+235 feeds across 55 countries. ~85% body-text extraction success on a
 typical day. Highlights:
 
 - **Mass-tabloid press:** Daily Mail (UK), Bild (DE), Komsomolskaya Pravda (RU)
