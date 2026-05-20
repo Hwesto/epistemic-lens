@@ -4,22 +4,26 @@ A design spec for a data-journalism frontend: a set of recurring,
 data-driven visualizations that a daily editorial piece can be built
 around. This document is **plan only** — no code is changed by it.
 
-This is **v2** of the plan. v1 took the project's metrics at face value
-and proposed a chart for each. This revision instead audited what the
-pipeline *actually* produces — verified against the code, not the prose
-docs — and asks which framings the data can **defend**, and which it
-cannot.
+This is **v3** of the plan. v1 took the project's metrics at face value.
+v2 audited what the pipeline *actually* produces — verified against the
+code — and re-grounded the catalogue on the frame layer. v3 fixes a
+**scale defect**: the framing comparison was specced as a `frames ×
+outlets` heatmap, but a real story (the 2026-05-19 Hormuz cluster, 30
+outlets across ~25 countries) blows that up to ~12 × 30 ≈ 1500px —
+unreadable on the mobile-first audience. The fix is structural and runs
+through the whole catalogue (§5): **no visualization renders an
+exhaustive per-outlet axis** — outlets are aggregated to ~6 *blocs* or
+truncated to a curated divergent shortlist.
 
-The headline conclusion: **the project is frame-first, not
-cluster-first.** Its unique, defensible asset is the *frame matrix* — a
-fixed 15-frame vocabulary applied with verbatim citations across N
-outlets in M countries for one event. The HDBSCAN cluster landscape is
-a good "explore today" doorway, but it is **not** where the defensible
-daily stories live. The two visualizations that lean hardest on raw
-embedding geometry — a 2D cluster scatter, and a re-embedded "word
-axis" — are the weakest ideas in the catalogue: they manufacture axes a
-reader cannot name. Both are kept, but **re-specified** to encode only
-real, nameable quantities. See §8.
+The headline conclusion is unchanged: **the project is frame-first, not
+cluster-first.** Its unique, defensible asset is the frame layer — a
+fixed 15-frame vocabulary applied with verbatim citations across many
+outlets and countries for one event. The HDBSCAN cluster landscape is a
+good "explore today" doorway, but it is **not** where the defensible
+daily stories live. The visualizations that leaned hardest on raw
+embedding geometry — a 2D cluster scatter, a re-embedded "word axis" —
+and the `frames × outlets` heatmap are all **re-specified** to encode
+only real, nameable, scale-bounded quantities. See §8.
 
 It answers four questions:
 
@@ -93,11 +97,12 @@ fixed 15-frame codebook** (Boydstun/Card), an optional free-text
 `evidence[]` — verbatim quotes with a `signal_text_idx`. That is a
 **categorical, nameable, citation-grounded** structure:
 
-- frames × country → a heatmap (V2)
+- frames × bloc (lean or region) → a compact grid (V2)
 - one frame's countries → a choropleth (V5)
 - frames over days → a trajectory (V3)
 - two opposed outlets, one shared frame → a paradox diagram (V6)
-- frame × political `lean` → a bias grid (V11)
+- the consensus frame + the per-story outliers → an edge-findings
+  strip (V13)
 
 None of these needs a projection, a re-embedding, or a manufactured
 axis. They are strong *because* their axes are things a reader can
@@ -110,7 +115,7 @@ This maps directly onto the three requests that prompted the plan:
 | Request | Delivered by | Note |
 |---|---|---|
 | Cluster map w/ country flags for the HDBSCAN intro | **V1** | re-specified as a packed-bubble / treemap, **not** a scatter — see §8 |
-| Framing comparison ("eco" etc.) | **V2** | the flagship; data is grade-A today |
+| Framing comparison ("eco" etc.) | **V2** | a compact `frames × bloc` grid, **not** a `frames × outlets` heatmap — see §5 / §6 |
 | Word groups ("threat" camp vs "peace" camp), *not hard-set* | **V4** | grouped by the **emergent-per-story frames**, not a hand-coded lexicon and not a re-embedded axis — see §4/§8 |
 
 ---
@@ -282,8 +287,8 @@ makes the word groups comparable across days. This satisfies the
 ### Frame color system
 
 All 15 Boydstun/Card frames get a **fixed palette**, defined once and
-reused everywhere — landscape bubbles, frame matrix, trajectory, lean
-grid. Consistent color = the reader learns "blue means ECONOMIC" once
+reused everywhere — landscape bubbles, framing grid, trajectory.
+Consistent color = the reader learns "blue means ECONOMIC" once
 and carries it across every chart. This belongs in a shared
 `publish/api/site_config.py` constant. With the frame-first thesis this
 is now the **most load-bearing** cross-cutting decision — do it first
@@ -301,6 +306,34 @@ The audience reads on phones (the existing card is phone-shaped, the
 share/download-image flow is phone-shaped). Every visualization needs a
 legible small-screen form — usually a simplified or vertically-stacked
 variant, not the desktop chart shrunk.
+
+### Scale discipline — no exhaustive per-outlet axis
+
+The corpus is large: **235 outlets, 55 countries**, and a single
+high-salience story spans ~20–30 outlets (the 2026-05-19 Hormuz cluster
+had 30). Any visualization with one row or column *per outlet* is
+therefore unbounded — a `frames × outlets` heatmap reaches ~12 × 30 and
+~1500px, far past a 360px phone.
+
+**Rule: no visualization renders an exhaustive per-outlet axis.** An
+outlet dimension is always reduced one of two ways:
+
+- **Aggregate to a bloc** — ~6 columns. The bloc axis is
+  *context-dependent*: political `lean` (Left / Centre-left / Centre /
+  Centre-right / Right / State) for framing / tilt / word views;
+  geographic region (the 55 buckets collapsed to ~6 world regions) for
+  silence / coverage views. Both tags are already on every
+  `briefing.corpus[]` entry; the `lean` free-text values need
+  normalising to the 6 bloc labels once, in `site_config.py`.
+- **Truncate to a curated top-N shortlist** — the 3–5 most divergent
+  outlets, named explicitly. The codebase already does this (the `word`
+  card caps at 6 buckets, `tilt` at 5).
+
+Naming specific outlets in a short curated list is fine; an exhaustive
+outlet row/column is banned. This rule re-specs V2 (→ bloc grid), V7 (→
+per-bloc bars) and V11 (→ divergent shortlist). The legacy
+`render_coverage_page` (stories × buckets) has the same defect and
+should be migrated on the same principle.
 
 ### One striking thing per day
 
@@ -334,17 +367,39 @@ small faint bubbles — "the conversations that did not cross borders."
 - Angle: *"Today the world's press split into 87 conversations. These 15
   crossed borders — here is the map."* The HDBSCAN intro piece.
 
-### V2 — Cross-country framing matrix · ✅ (the flagship)
+### V2 — Framing grid: frames × bloc · ✅ (the per-story page spine)
 
-For one story: a heatmap, `frame_id` (rows) × outlet/country (columns),
-cell shaded where that outlet carried the frame, the verbatim evidence
-quote on hover/tap. A real-chart upgrade of today's HTML-table
-`render_frames_matrix`.
+For one story: a **compact grid**, `frame_id` (rows) × bloc (~6
+columns), never `frames × outlets`. Each cell is shaded by how many
+outlets in that bloc carried the frame; tap a cell → the outlet list
+and the verbatim evidence quote (progressive disclosure replaces the
+dropped per-outlet matrix).
 
-- Data: `analysis.frames[]` (`outlets`, `countries`, `evidence`) —
-  grade-A, available today.
-- Angle: *"Everyone agreed it happened. Here is where they disagreed
-  about what it meant."* — the signature **framing** viz.
+- **Rows sorted by prevalence** — the consensus frame floats to the
+  top, the rare "edge" frames sink to the bottom. The row header
+  carries the outlet count and a mini prevalence bar, so the chart
+  reads as "consensus + edges" at a glance *and* as a cross-tab. One
+  chart does both jobs; no separate bars viz is needed.
+- **Bloc axis is context-dependent** (§5): political `lean` for this
+  framing page; the same grid keyed on geographic region serves the
+  coverage views.
+- This is also the **cross-corpus bias grid**: the identical chart, run
+  over many `data/analyses/` instead of one story, answers "which lean
+  reaches for which frame" across months. (Absorbs what v2 of this plan
+  listed separately as V11 — the per-story grid and the cross-corpus
+  grid are one chart at two scopes.)
+
+- Data: `analysis.frames[]` (`outlets`, `countries`, `evidence`) joined
+  to `briefing.corpus[].lean` — grade-A, available today.
+- Slot: **none in the daily card rotation.** V2 is the always-on spine
+  of every per-story detail page — whichever archetype card headlined
+  the day, that story's page still shows its framing grid.
+  `card_picker.json` has no framing archetype (its cascade fallback
+  kind is `word`); the framing comparison is the standing view, not a
+  rotating hero — which is exactly why it must be the most scannable
+  viz in the set.
+- Angle: *"Everyone agreed it happened. Here is where the blocs
+  disagreed about what it meant."* — the signature **framing** viz.
 
 ### V3 — Frame share over time (the Shift) · ✅ after trajectory re-key
 
@@ -403,14 +458,15 @@ shows its verbatim quote and country flag.
 
 ### V7 — Whose voices (source composition) · ✅ after sources re-key
 
-A stacked bar per outlet (or per country) of `speaker_affiliation_bucket`
-— state / political / civilian / expert / wire / corporate / academic /
-NGO. Shows whose voices a story platformed and whose it omitted.
+A stacked bar **per bloc** (§5 — never per outlet) of
+`speaker_affiliation_bucket` — state / political / civilian / expert /
+wire / corporate / academic / NGO. Shows whose voices a story
+platformed and whose it omitted.
 
 - Data: `sources.json` (`speaker_affiliation_bucket`,
-  `stance_toward_target`).
+  `stance_toward_target`), outlets aggregated to the bloc axis.
 - Archetype: **sources**.
-- Angle: *"Vietnam's state media quoted 7 officials and zero civilians."*
+- Angle: *"State-media outlets quoted officials 7:1 over civilians."*
 
 ### V8 — Tilt vs the wire baseline · ✅ after tilt re-key (weekly)
 
@@ -443,36 +499,25 @@ proper-chart upgrade of today's CSS `render_isolation_panel`.
 - **Supporting viz, never a hero** (§3.3). Use it to add texture beside
   V2, not to anchor a daily piece.
 
-### V11 — Lean × frame bias grid · ✅ (single-story) · 🔶 (cross-corpus)
-
-A grid: political `lean` (rows) × `frame_id` (columns), each cell
-shaded by how often outlets of that lean carried that frame. Surfaces
-systematic framing differences along the *pre-registered* `lean` tag.
-
-- Data: `analysis.frames[].outlets` joined to `briefing.corpus[].lean`.
-  Single-story version is a pure frontend join (✅). The punchy
-  cross-corpus version ("Centre-right reaches for SECURITY_DEFENSE,
-  Centre-left for FAIRNESS — across 200 stories") needs a small
-  aggregator over `data/analyses/`.
-- Angle: *"It is not which story they cover — it is which frame they
-  reach for."* A **stronger bias story than tilt**: `lean` is a tag set
-  in advance, not a statistic derived after the fact.
-
-### V12 — Headline vs body divergence · ⚠️ needs divergence output exposed
+### V11 — Headline vs body divergence · ⚠️ needs divergence output exposed
 
 `core/analyze/divergence.py` already compares the title-only frame pass
 to the body pass and emits an `agreement_rate` and
-`highest_diverging_outlets` — a sensationalism index. A simple
-slope/dumbbell chart per outlet (headline frame → body frame) makes it
-visible.
+`highest_diverging_outlets` — a sensationalism index. Render it as a
+**top-N divergent shortlist** (§5): the 3–5 outlets whose headline
+frame departs most from their own body frame, each a small slope
+(headline frame → body frame). A curated shortlist, not a dumbbell per
+outlet.
 
-- Data: `divergence.py` output. **Verify it ships in the public API
-  before building** — it is not in the per-story artifact list in
-  API.md; exposing it is a small migration item.
+- Data: `divergence.py` output (`highest_diverging_outlets`). **Verify
+  it ships in the public API before building** — it is not in the
+  per-story artifact list in API.md; exposing it is a small migration
+  item.
+- Slot: supporting — deepens any framing page.
 - Angle: *"These outlets' headlines say one thing; their articles say
   another."*
 
-### V13 — Frame co-occurrence network · 🔶 needs an aggregator
+### V12 — Frame co-occurrence network · 🔶 needs an aggregator
 
 A network graph over accumulated `analysis.json`: nodes = the 15
 frames, edge weight = how often two frames are assigned to the same
@@ -484,9 +529,33 @@ energy stories; MORALITY ↔ FAIRNESS on rights stories).
 - Angle: *"The frames the press never separates."* A genuinely novel
   view nothing in the pipeline computes today.
 
-### Archetype → hero visualization
+### V13 — Edge-findings strip · ✅ (new — grade-A data, available today)
 
-| Archetype | Hero viz |
+The consensus frame is the boring part of a story; the journalism is at
+the edges. `analysis.single_outlet_findings` and `analysis.silences`
+are exactly that — and nothing visualizes them today. Render them as a
+**compact chip strip**: each finding a flag-tagged callout
+("🇰🇪 BBC Africa: four dead in Kenya fuel-price riots · 🇮🇶 Iraqi oil
+revenue collapse · 🇪🇬 'Persian Gulf Strait Authority' sovereignty
+claim").
+
+Both arrays are short by construction (`single_outlet_findings` capped
+at 10; the real Hormuz story had 5) — there is no scale risk, and the
+strip stacks vertically on a phone.
+
+- Data: `analysis.single_outlet_findings`, `analysis.silences` —
+  grade-A, available today. No new artifact.
+- Slot: supporting — pairs with V2 on every per-story page, and
+  supplies the "single-outlet finding" hook for the thread draft.
+- Angle: *"The story everyone ran — and the five things only one outlet
+  noticed."*
+
+### Slot → hero visualization
+
+The 7 archetypes each get one rotating daily hero. V1 and V2 sit
+*outside* the rotation — they are always-on page spines.
+
+| Slot | Hero viz |
 |---|---|
 | word | V4 vocabulary-by-frame |
 | paradox | V6 convergence diagram |
@@ -495,11 +564,35 @@ energy stories; MORALITY ↔ FAIRNESS on rights stories).
 | sources | V7 voice composition |
 | tilt | V8 tilt dot plot |
 | echo | V9 lag timeline |
-| (landscape) | V1 packed-bubble — always-on "explore today" |
+| (per-story page) | V2 framing grid + V13 edge-findings strip |
+| (landscape page) | V1 packed-bubble — always-on "explore today" |
 
-V2 (framing matrix), V10 (isolation), V11 (lean grid) and V12
-(divergence) are **supporting** views that deepen any framing piece;
-V13 is a standalone longitudinal feature.
+V10 (isolation) and V11 (divergence) are **supporting** views that
+deepen any framing page; V12 (co-occurrence) is a standalone
+longitudinal feature.
+
+### Viz → editorial output
+
+The project already ships three draft formats per story —
+`thread.json` (template), `carousel.json` (template), `long.json`
+(Sonnet) — plus the daily hero card and a baked `today.png` share
+image. Each viz feeds specific outputs:
+
+| Viz | Feeds |
+|---|---|
+| V1 landscape | the "explore today" page — navigation, not a draft |
+| V2 framing grid | every per-story detail page; `carousel` frame slides; `long` frame-spread lede |
+| V3 trajectory | `shift` hero card; `carousel` shift slide; `long` "how it moved" |
+| V4 vocabulary | `word` hero card; `thread` exclusive-vocab hook; `carousel` word slide |
+| V5 coverage map | `silence` hero card; `carousel` silence slide; `thread` silence hook |
+| V6 paradox | `paradox` hero card; `thread` paradox hook (top draft priority); `carousel` paradox slide |
+| V7 voices | `sources` hero card; `carousel` stat slide |
+| V8 tilt | `tilt` hero card; `carousel` callout slide |
+| V9 lag | weekly `echo` piece |
+| V10 isolation | supporting texture beside V2 |
+| V11 divergence | supporting texture; `carousel` callout slide |
+| V12 co-occurrence | a standalone longitudinal `long` feature |
+| V13 edge-findings | pairs with V2 on every per-story page; `thread` single-outlet-finding hook; `carousel` callout slides |
 
 ---
 
@@ -511,8 +604,9 @@ Two viable paths; the choice is deferred but the trade-off is recorded.
 API (`latest.json` → `index.json` → artifacts) and rendering interactive
 charts. Best fit for data journalism: hover, zoom, the landscape needs
 real interaction. Requires a build step and a charting choice (D3 for
-the bespoke V1/V4/V10; Observable Plot or Vega-Lite for the standard
-V2/V3/V7/V8/V11).
+the bespoke V1 packed-bubble and V4; Observable Plot or Vega-Lite for
+the standard grid / bar / line charts V2/V3/V7/V8/V10/V11; V13's chip
+strip is plain HTML).
 
 **Option B — extend the server-rendered site.** Keep `build_index.py`
 rendering; add SVG charts to the static HTML output. Lower lift, no
@@ -575,6 +669,21 @@ needs no embedding. The user's "threat camp vs peace camp" is real — it
 is the SECURITY_DEFENSE-vs-FAIRNESS/POLICY_PRESCRIPTION frame split the
 pipeline already computes, not a new clustering.
 
+### Rejected: the full `frames × outlets` heatmap
+
+v2 of this plan made V2 a heatmap with one column per outlet. With
+~20–30 outlets per story (30 in the real Hormuz cluster) that is a
+~12 × 30 grid — ~1500px, unreadable on the mobile-first audience — and
+it weights all ~360 cells equally when the story is only ever the
+consensus frame plus a handful of outliers.
+
+**Kept instead (V2 + §5):** a `frames × bloc` grid — ~6 columns,
+outlets aggregated to political lean or region — with rows sorted by
+prevalence so the consensus-and-edges reading is built in. The
+per-outlet detail moves to tap-to-expand, not a standing axis. The
+outlier outlets that *do* deserve naming get the V13 edge-findings
+strip — a curated shortlist, not an axis.
+
 ### General principle
 
 A visualization is only as defensible as its least nameable axis. The
@@ -589,11 +698,11 @@ grouping it already does well.
 | Phase | Work | Unlocks | Depends on |
 |---|---|---|---|
 | **0** | v10 migration (§2) + metric corrections (§3): `cross_bucket.py` → outlet-level; re-key 6 schemas; fix `build_index.py` / renderers / pickers; unweighted-share-for-charts; drop PMI from viz; one major meta bump | every chart below renders correct, defensible data | — |
-| **1** | Frame color system; V2 framing matrix; V3 frame trajectory; V11 lean grid (single-story); V10 isolation beeswarm | the **framing** story (request #2) — the project's strongest asset | Phase 0 |
-| **2** | V5 coverage map (salvage video `WorldMap`); V6 paradox diagram; V7 voice composition; V8 tilt plot; V12 divergence (expose the artifact first) | 4 archetype heroes + the sensationalism view | Phase 0 |
+| **1** | Frame color system; V2 framing grid (frames × bloc, absorbs the lean grid); V13 edge-findings strip; V3 frame trajectory; V10 isolation beeswarm | the **framing** story (request #2) — the project's strongest asset | Phase 0 |
+| **2** | V5 coverage map (salvage video `WorldMap`); V6 paradox diagram; V7 voice composition (per-bloc); V8 tilt plot; V11 divergence shortlist (expose the artifact first) | 4 archetype heroes + the sensationalism view | Phase 0 |
 | **3** | N1 `clusters.json`; V1 landscape packed-bubble | the **HDBSCAN intro** map (request #1) | Phase 0 |
 | **4** | The words-by-frame join (§4 N3); V4 vocabulary-by-frame | the **word-grouping** viz (request #3) | Phases 0, 1 (needs the LLR re-key + the frame layer) |
-| **5** | Cross-corpus aggregator; V11 cross-corpus grid; V13 frame co-occurrence | the longitudinal / "systematic bias" features | Phases 0–1, accumulated `data/analyses/` |
+| **5** | Cross-corpus aggregator; V2 cross-corpus bias grid; V12 frame co-occurrence | the longitudinal / "systematic bias" features | Phases 0–1, accumulated `data/analyses/` |
 
 Phase 1 is the fastest win **and** the strongest journalism — it needs
 no new artifact, only the migration and real charts on the grade-A
@@ -613,11 +722,15 @@ framing work: it is the doorway, not the story.
 3. **Term → frame fallback (§4 N3).** When a distinctive term is not in
    any evidence quote, fall back to *all* frames its outlet carries, or
    only the outlet's dominant frame? Spot-check in Phase 4.
-4. **V12 exposure.** `divergence.py` output is not in the public API
+4. **V11 exposure.** `divergence.py` output is not in the public API
    today — confirm where it lands and add it to the artifact set before
-   committing to V12.
+   committing to V11.
 5. **Landscape payload (V1).** `clusters.json` with full
    `country_distribution` per cluster is small; confirm it stays under
    ~100 KB/day so the "explore" fetch is cheap.
 6. **Frontend architecture (§7).** Deferred — but Phase 1 can proceed
    server-rendered regardless; the decision only blocks V1 / V4.
+7. **Bloc-axis mapping (§5).** The lean-vs-region choice is
+   context-dependent; pin the per-archetype mapping (lean for framing /
+   tilt / word, region for silence / coverage) and the `lean`-string →
+   6-bloc normalisation in `publish/api/site_config.py`.
