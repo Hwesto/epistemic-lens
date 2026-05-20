@@ -31,9 +31,9 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-DRAFTS = ROOT / "drafts"
+DRAFTS = meta.DRAFTS_DIR
 VIDEOS = ROOT / "videos"
-PENDING_BASE = ROOT / "distribution" / "pending"
+PENDING_BASE = meta.DISTRIBUTION_PENDING_DIR
 
 # Target-platform → (suffix glob in drafts/, paths to record on the envelope)
 PLATFORMS: dict[str, dict] = {

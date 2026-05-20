@@ -37,7 +37,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-BRIEFINGS = ROOT / "briefings"
+BRIEFINGS = meta.BRIEFINGS_DIR
 
 
 def bucket_lang_bigrams(corpus: list[dict]) -> dict[tuple[str, str], Counter]:

@@ -12,7 +12,7 @@ For each story, write **one** JSON file:
 
   `drafts/<DATE>_<story_key>_long.json`
 
-conforming to `docs/api/schema/long.schema.json`. The post body is
+conforming to `publish/api/schemas/long.schema.json`. The post body is
 markdown inside a JSON envelope so the frontend can parse metadata
 uniformly across formats.
 
@@ -142,7 +142,7 @@ headers; use them as a discipline):
   the paradox, don't invent one. Switch the lede to the silence or a
   bucket-exclusive frame instead.
 - **One JSON file per story.** Path: `drafts/<DATE>_<story_key>_long.json`.
-- **Schema compliance.** `docs/api/schema/long.schema.json` is authoritative.
+- **Schema compliance.** `publish/api/schemas/long.schema.json` is authoritative.
 - **600–900 words** in `body_md`. Shorter is OK if the corpus is thin;
   do not pad. Longer drifts into newsletter territory we don't want.
 

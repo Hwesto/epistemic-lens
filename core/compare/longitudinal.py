@@ -61,8 +61,8 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-ANALYSES = ROOT / "analyses"
-TRAJECTORY = ROOT / "trajectory"
+ANALYSES = meta.ANALYSES_DIR
+TRAJECTORY = meta.TRAJECTORY_DIR
 
 # analyses/<YYYY-MM-DD>_<story_key>.json
 ANALYSIS_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})_(.+)\.json$")
@@ -108,7 +108,7 @@ def collect_analyses(story_key: str | None = None,
     return {sk: [p for _, p in sorted(items)] for sk, items in by_story.items()}
 
 
-BRIEFINGS = ROOT / "briefings"
+BRIEFINGS = meta.BRIEFINGS_DIR
 
 
 def _load_briefing_for(analysis_path: Path) -> dict | None:

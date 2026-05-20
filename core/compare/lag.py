@@ -35,8 +35,8 @@ import core.meta as meta
 from core.compare.mc_correction import bh_filter, bonferroni_filter, pearson_r_to_p
 
 ROOT = meta.REPO_ROOT
-COVERAGE_DIR = ROOT / "coverage"
-LAG_DIR = ROOT / "lag"
+COVERAGE_DIR = meta.COVERAGE_DIR
+LAG_DIR = meta.LAG_DIR
 
 # Curated pairs. Buckets named per `feeds.json/countries`. Phase 2 starts
 # small; pairs can be added without a major bump (forward-compatible).

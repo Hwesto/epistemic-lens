@@ -51,7 +51,7 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-ANALYSES = ROOT / "analyses"
+ANALYSES = meta.ANALYSES_DIR
 
 
 def _frame_key(frame: dict) -> str:

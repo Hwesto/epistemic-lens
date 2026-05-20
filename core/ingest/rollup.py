@@ -41,9 +41,9 @@ from pathlib import Path
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SNAPS = ROOT / "snapshots"
-BRIEFINGS = ROOT / "briefings"
-ROLLUP = ROOT / "archive" / "rollup"
+SNAPS = meta.SNAPSHOTS_DIR
+BRIEFINGS = meta.BRIEFINGS_DIR
+ROLLUP = meta.ARCHIVE_DIR / "rollup"
 
 DATE_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})")
 

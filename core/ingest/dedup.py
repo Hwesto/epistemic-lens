@@ -40,7 +40,7 @@ from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 import core.meta as meta
 
 ROOT = meta.REPO_ROOT
-SNAPS = ROOT / "snapshots"
+SNAPS = meta.SNAPSHOTS_DIR
 CROSS_DAY_STATE_FILE = ROOT / "cross_day_dedup_state.json"
 CROSS_DAY_WINDOW_DAYS = 30
 
