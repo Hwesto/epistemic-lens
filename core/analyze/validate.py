@@ -52,15 +52,15 @@ class ValidationError(Exception):
     pass
 
 
-def _load_briefing(date: str, story_key: str) -> dict:
-    p = BRIEFINGS / f"{date}_{story_key}.json"
+def _load_briefing(date: str, lineage_id: str) -> dict:
+    p = BRIEFINGS / f"{date}_{lineage_id}.json"
     if not p.exists():
         raise ValidationError(f"briefing missing: {p}")
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def _load_metrics(date: str, story_key: str) -> dict:
-    p = BRIEFINGS / f"{date}_{story_key}_metrics.json"
+def _load_metrics(date: str, lineage_id: str) -> dict:
+    p = BRIEFINGS / f"{date}_{lineage_id}_metrics.json"
     if not p.exists():
         raise ValidationError(f"metrics missing: {p}")
     return json.loads(p.read_text(encoding="utf-8"))
@@ -179,11 +179,11 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
                 auto = _outlet_of(entry)
                 if auto:
                     ev["outlet"] = auto
-            if ev.get("bucket") and entry.get("bucket") != ev["bucket"]:
+            if ev.get("outlet") and entry.get("outlet") != ev["outlet"]:
                 errors.append(
-                    f"citation: frames[{fi}].evidence[{ei}] claims bucket "
-                    f"{ev['bucket']!r} but corpus[{idx}].bucket is "
-                    f"{entry.get('bucket')!r}"
+                    f"citation: frames[{fi}].evidence[{ei}] claims outlet "
+                    f"{ev['outlet']!r} but corpus[{idx}].outlet is "
+                    f"{entry.get('outlet')!r}"
                 )
             quote = (ev.get("quote") or "").strip()
             text = (entry.get("signal_text") or "")
@@ -212,11 +212,11 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
                 auto = _outlet_of(entry)
                 if auto:
                     s["outlet"] = auto
-            if s.get("bucket") and entry.get("bucket") != s["bucket"]:
+            if s.get("outlet") and entry.get("outlet") != s["outlet"]:
                 errors.append(
-                    f"citation: paradox.{side} claims bucket "
-                    f"{s['bucket']!r} but corpus[{idx}].bucket is "
-                    f"{entry.get('bucket')!r}"
+                    f"citation: paradox.{side} claims outlet "
+                    f"{s['outlet']!r} but corpus[{idx}].outlet is "
+                    f"{entry.get('outlet')!r}"
                 )
             quote = (s.get("quote") or "").strip()
             text = (entry.get("signal_text") or "")
@@ -241,11 +241,11 @@ def check_citations(analysis: dict, briefing: dict) -> list[str]:
             auto = _outlet_of(entry)
             if auto:
                 s["outlet"] = auto
-        if s.get("bucket") and entry.get("bucket") != s["bucket"]:
+        if s.get("outlet") and entry.get("outlet") != s["outlet"]:
             errors.append(
-                f"citation: single_outlet_findings[{si}] claims bucket "
-                f"{s['bucket']!r} but corpus[{idx}].bucket is "
-                f"{entry.get('bucket')!r}"
+                f"citation: single_outlet_findings[{si}] claims outlet "
+                f"{s['outlet']!r} but corpus[{idx}].outlet is "
+                f"{entry.get('outlet')!r}"
             )
 
     return errors
@@ -286,44 +286,55 @@ def check_codebook(analysis: dict) -> list[str]:
 
 
 def check_numbers(analysis: dict, metrics: dict) -> list[str]:
-    """Reconcile n_buckets, n_articles, isolation values against metrics."""
+    """Reconcile outlet/country counts and isolation values against metrics.
+
+    v10: analysis carries `n_outlets` + `n_countries` (replaces v9's
+    `n_buckets`). Outlet-level isolation_top + exclusive_vocab_highlights.
+    Falls back gracefully when metrics file is in v9 shape (n_buckets etc).
+    """
     errors: list[str] = []
 
-    # n_buckets / n_articles must match metrics.
-    if analysis.get("n_buckets") != metrics.get("n_buckets"):
-        errors.append(
-            f"numbers: n_buckets {analysis.get('n_buckets')} != "
-            f"metrics.n_buckets {metrics.get('n_buckets')}"
-        )
-    if analysis.get("n_articles") != metrics.get("n_articles"):
-        errors.append(
-            f"numbers: n_articles {analysis.get('n_articles')} != "
-            f"metrics.n_articles {metrics.get('n_articles')}"
-        )
-
-    # isolation_top values must match metrics.isolation (LaBSE cosine, primary).
-    metrics_iso_primary = {
-        r["bucket"]: r["mean_similarity"] for r in metrics.get("isolation") or []
-    }
-    for ii, r in enumerate(analysis.get("isolation_top") or []):
-        b = r.get("bucket")
-        if b not in metrics_iso_primary:
+    # n_outlets / n_articles must match briefing/metrics.
+    if analysis.get("n_outlets") is not None and metrics.get("n_outlets") is not None:
+        if analysis.get("n_outlets") != metrics.get("n_outlets"):
             errors.append(
-                f"numbers: isolation_top[{ii}].bucket {b!r} not in "
-                f"metrics.isolation"
+                f"numbers: n_outlets {analysis.get('n_outlets')} != "
+                f"metrics.n_outlets {metrics.get('n_outlets')}"
+            )
+    if analysis.get("n_articles") is not None and metrics.get("n_articles") is not None:
+        if analysis.get("n_articles") != metrics.get("n_articles"):
+            errors.append(
+                f"numbers: n_articles {analysis.get('n_articles')} != "
+                f"metrics.n_articles {metrics.get('n_articles')}"
+            )
+
+    # outlet_isolation_top values must match metrics.outlet_isolation
+    # (LaBSE outlet-mean cosine; v10).
+    metrics_iso = {
+        r["outlet"]: r["mean_similarity"]
+        for r in (metrics.get("outlet_isolation") or metrics.get("isolation") or [])
+        if r.get("outlet") or r.get("bucket")
+    }
+    for ii, r in enumerate(analysis.get("outlet_isolation_top") or []):
+        b = r.get("outlet")
+        if b not in metrics_iso:
+            errors.append(
+                f"numbers: outlet_isolation_top[{ii}].outlet {b!r} not in "
+                f"metrics outlet_isolation"
             )
             continue
         v = r.get("mean_similarity")
-        if v is not None and abs(metrics_iso_primary[b] - v) > 1e-6:
+        if v is not None and abs(metrics_iso[b] - v) > 1e-6:
             errors.append(
-                f"numbers: isolation_top[{ii}].mean_similarity {v} != "
-                f"metrics value {metrics_iso_primary[b]} for bucket {b!r}"
+                f"numbers: outlet_isolation_top[{ii}].mean_similarity {v} != "
+                f"metrics value {metrics_iso[b]} for outlet {b!r}"
             )
 
-    # exclusive_vocab terms claimed must appear in metrics.bucket_exclusive_vocab.
-    metrics_excl = metrics.get("bucket_exclusive_vocab") or {}
-    for hi, h in enumerate(analysis.get("exclusive_vocab_highlights") or []):
-        b = h.get("bucket")
+    # outlet_exclusive_vocab_highlights terms claimed must appear in metrics.
+    metrics_excl = (metrics.get("outlet_exclusive_vocab")
+                    or metrics.get("bucket_exclusive_vocab") or {})
+    for hi, h in enumerate(analysis.get("outlet_exclusive_vocab_highlights") or []):
+        b = h.get("outlet")
         if b not in metrics_excl:
             errors.append(
                 f"numbers: exclusive_vocab_highlights[{hi}].bucket {b!r} not in "
@@ -404,9 +415,9 @@ def check_quote_grounding_sources(
                 f"sources[{ii}]: quote not found verbatim in "
                 f"corpus[{idx}].signal_text — {quote[:60]!r}"
             )
-        if s.get("bucket") != article.get("bucket"):
+        if s.get("outlet") != article.get("bucket"):
             errors.append(
-                f"sources[{ii}]: claims bucket {s.get('bucket')!r} but "
+                f"sources[{ii}]: claims outlet {s.get('bucket')!r} but "
                 f"corpus[{idx}].bucket = {article.get('bucket')!r}"
             )
     return errors

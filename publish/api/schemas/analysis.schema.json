@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://epistemic-lens/api/schema/analysis.schema.json",
-  "title": "Daily framing analysis (canonical, structured)",
-  "description": "Per-story analytical output produced by the daily analyze pass. The canonical artifact: machine-parseable, schema-validated, citation-grounded. Markdown rendering for PR review is generated downstream by render_analysis_md.py.",
+  "title": "Daily cluster framing analysis (v10)",
+  "description": "Per-cluster analytical output produced by the daily analyze pass. v10: clusters replace canonical stories; outlets replace buckets as the atomic unit. The canonical artifact — machine-parseable, schema-validated, citation-grounded. Markdown rendering for review is generated downstream by publish/render/analysis_md.py.",
   "type": "object",
   "required": [
-    "meta_version", "date", "story_key", "story_title",
-    "n_buckets", "n_articles", "tldr", "frames",
-    "isolation_top", "bottom_line", "generated_at"
+    "meta_version", "date", "lineage_id", "cluster_id", "cluster_name",
+    "n_outlets", "n_countries", "tldr", "frames",
+    "bottom_line", "generated_at"
   ],
   "additionalProperties": false,
   "properties": {
@@ -19,125 +19,120 @@
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
-    "story_key": {
+    "lineage_id": {
       "type": "string",
-      "description": "Canonical story key matching briefings/<date>_<story_key>.json."
+      "pattern": "^L[0-9a-f]+$",
+      "description": "Stable cluster lineage identifier across days. Matches briefings/<DATE>_<lineage_id>.json."
     },
-    "story_title": {
-      "type": "string"
+    "cluster_id": {
+      "type": "integer",
+      "description": "Day-local cluster index. Reassigned every day; lineage_id is the cross-day stable identifier."
     },
-    "n_buckets": { "type": "integer", "minimum": 1 },
+    "cluster_name": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "5-12 words, factual not editorial. Written by Claude during analysis. Examples: 'Ukraine drone strike on Moscow oil refinery', 'OpenAI lawsuit alleges training data theft'."
+    },
+    "salience_score": {
+      "type": "number",
+      "description": "Cluster salience score from core/cluster/salience.py."
+    },
+    "n_outlets": { "type": "integer", "minimum": 1 },
+    "n_countries": { "type": "integer", "minimum": 1 },
     "n_articles": { "type": "integer", "minimum": 1 },
     "tldr": {
       "type": "string",
       "minLength": 60,
-      "description": "3-6 sentences. Lead with the most surprising finding in the corpus."
+      "description": "3-6 sentences. Lead with the most surprising finding."
     },
     "event_summary": {
       "type": "string",
       "minLength": 20,
       "maxLength": 300,
-      "description": "1-2 sentences. WHAT HAPPENED, factual only. No framing language, no editorial voice, no cross-outlet comparison. The story anchor for readers not already across the event. Optional for archived analyses (renderer falls back to tldr); required on go-forward per .claude/prompts/daily_analysis.md as of meta-v8.7.0."
+      "description": "1-2 sentences. WHAT HAPPENED, factual only. No framing language, no editorial voice, no cross-outlet comparison."
     },
     "frames": {
       "type": "array",
       "minItems": 2,
       "maxItems": 12,
-      "description": "Frames identified in the corpus. `frame_id` is drawn from the closed Boydstun/Card codebook (frames_codebook.json) so longitudinal aggregation is possible. `sub_frame` is an optional short tag for story-specific color (1-3 words, no full sentences).",
+      "description": "Frames identified in the corpus. frame_id drawn from the closed Boydstun/Card codebook (core/config/frames_codebook.json).",
       "items": {
         "type": "object",
-        "required": ["frame_id", "buckets", "evidence"],
+        "required": ["frame_id", "outlets", "countries", "evidence"],
         "additionalProperties": false,
         "properties": {
           "frame_id": {
             "type": "string",
             "enum": [
-              "ECONOMIC",
-              "CAPACITY_RESOURCES",
-              "MORALITY",
-              "FAIRNESS",
-              "LEGALITY",
-              "POLICY_PRESCRIPTION",
-              "CRIME_PUNISHMENT",
-              "SECURITY_DEFENSE",
-              "HEALTH_SAFETY",
-              "QUALITY_OF_LIFE",
-              "CULTURAL",
-              "PUBLIC_OPINION",
-              "POLITICAL",
-              "EXTERNAL_REGULATION",
-              "OTHER"
-            ],
-            "description": "Required closed-taxonomy frame from frames_codebook.json. Use OTHER only when no other frame applies; pair with sub_frame."
+              "ECONOMIC", "CAPACITY_RESOURCES", "MORALITY", "FAIRNESS",
+              "LEGALITY", "POLICY_PRESCRIPTION", "CRIME_PUNISHMENT",
+              "SECURITY_DEFENSE", "HEALTH_SAFETY", "QUALITY_OF_LIFE",
+              "CULTURAL", "PUBLIC_OPINION", "POLITICAL",
+              "EXTERNAL_REGULATION", "OTHER"
+            ]
           },
           "sub_frame": {
             "type": "string",
             "minLength": 2,
-            "maxLength": 40,
-            "description": "Optional short tag (1-3 words, no full sentences) for story-specific color, e.g. 'energy contagion', 'sovereign reputation'. Human-readable; not used for longitudinal aggregation."
+            "maxLength": 60,
+            "description": "Optional 1-3 word cluster-specific colour."
           },
-          "buckets": {
+          "outlets": {
             "type": "array",
             "minItems": 1,
             "items": { "type": "string" },
-            "description": "Bucket keys (matching briefings/) that carry this frame."
+            "description": "Outlet names carrying this frame."
+          },
+          "countries": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Country codes carrying this frame (derived from outlets but explicit for cross-country views)."
           },
           "evidence": {
             "type": "array",
             "minItems": 1,
-            "description": "At least one verbatim quote per frame, citing a corpus entry by index.",
             "items": {
               "type": "object",
-              "required": ["bucket", "quote", "signal_text_idx"],
+              "required": ["outlet", "quote", "signal_text_idx"],
               "additionalProperties": false,
               "properties": {
-                "bucket": { "type": "string" },
-                "outlet": { "type": "string" },
-                "quote": {
-                  "type": "string",
-                  "description": "Verbatim from briefing.corpus[idx].signal_text. No paraphrase."
-                },
-                "signal_text_idx": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "description": "Index into briefing.corpus[]. Used by the citation linter to verify groundedness."
-                }
+                "outlet":  { "type": "string" },
+                "country": { "type": "string" },
+                "quote":   { "type": "string", "description": "Verbatim from briefing.corpus[idx].signal_text." },
+                "signal_text_idx": { "type": "integer", "minimum": 0 }
               }
             }
           }
         }
       }
     },
-    "isolation_top": {
+    "outlet_isolation_top": {
       "type": "array",
       "maxItems": 8,
-      "description": "Top-N most isolated buckets, copied verbatim from metrics.json. As of meta_version 7.0.0 the primary metric is LaBSE bucket-mean cosine on original signal_text (`mean_similarity`).",
+      "description": "Top-N most isolated outlets within the cluster. v10 replacement for v9's bucket-level isolation.",
       "items": {
         "type": "object",
-        "required": ["bucket", "mean_similarity"],
+        "required": ["outlet", "mean_similarity"],
         "additionalProperties": false,
         "properties": {
-          "bucket": { "type": "string" },
-          "mean_similarity": {
-            "type": "number",
-            "description": "LaBSE bucket-mean cosine from metrics.isolation."
-          },
-          "note": {
-            "type": "string",
-            "description": "One-line interpretation. Flag suspected language confounding when lexical highlights look like language artefacts."
-          }
+          "outlet": { "type": "string" },
+          "country": { "type": "string" },
+          "mean_similarity": { "type": "number" },
+          "note": { "type": "string" }
         }
       }
     },
-    "exclusive_vocab_highlights": {
+    "outlet_exclusive_vocab_highlights": {
       "type": "array",
-      "description": "Selected buckets where exclusive vocabulary is editorially significant.",
+      "description": "Outlets where exclusive vocabulary is editorially significant.",
       "items": {
         "type": "object",
-        "required": ["bucket", "terms"],
+        "required": ["outlet", "terms"],
         "additionalProperties": false,
         "properties": {
-          "bucket": { "type": "string" },
+          "outlet": { "type": "string" },
+          "country": { "type": "string" },
           "terms": {
             "type": "array",
             "items": { "type": "string" },
@@ -159,7 +154,7 @@
             "b": { "$ref": "#/$defs/paradox_side" },
             "joint_conclusion": {
               "type": "string",
-              "description": "Why opposing-bloc buckets converge. One sentence."
+              "description": "Why opposing-bloc outlets converge."
             }
           }
         }
@@ -167,26 +162,26 @@
     },
     "silences": {
       "type": "array",
-      "description": "Buckets that should plausibly cover this story but didn't — and DID carry items today, just on a different angle. For buckets that had zero items because feeds failed, use coverage_caveats[] instead.",
+      "description": "Countries that plausibly should cover this and DID carry items today on a different angle. For zero-item countries due to feed failure, use coverage_caveats[].",
       "items": {
         "type": "object",
-        "required": ["bucket", "what_they_covered_instead"],
+        "required": ["country", "what_they_covered_instead"],
         "additionalProperties": false,
         "properties": {
-          "bucket": { "type": "string" },
+          "country": { "type": "string" },
           "what_they_covered_instead": { "type": "string" }
         }
       }
     },
     "coverage_caveats": {
       "type": "array",
-      "description": "Buckets that contributed zero items today because every feed failed (403, timeout, empty). Distinct from silences[] (editorial choice). Populated by the analyze step from briefing.coverage_caveats; consumers (and the renderer) surface this separately so readers don't mistake feed failures for press behaviour.",
+      "description": "Countries that contributed zero items today because every feed failed.",
       "items": {
         "type": "object",
-        "required": ["bucket", "alert_type"],
+        "required": ["country", "alert_type"],
         "additionalProperties": true,
         "properties": {
-          "bucket": { "type": "string" },
+          "country": { "type": "string" },
           "alert_type": { "type": "string" },
           "avg7": { "type": "number" },
           "drop_pct": { "type": "number" },
@@ -200,11 +195,11 @@
       "maxItems": 10,
       "items": {
         "type": "object",
-        "required": ["outlet", "bucket", "finding"],
+        "required": ["outlet", "finding"],
         "additionalProperties": false,
         "properties": {
           "outlet": { "type": "string" },
-          "bucket": { "type": "string" },
+          "country": { "type": "string" },
           "finding": { "type": "string" },
           "signal_text_idx": { "type": "integer", "minimum": 0 }
         }
@@ -221,17 +216,17 @@
     },
     "model": {
       "type": "string",
-      "description": "Model identifier (e.g. claude-haiku-4-5-20251001)."
+      "description": "Model identifier (e.g. claude-sonnet-4-6)."
     }
   },
   "$defs": {
     "paradox_side": {
       "type": "object",
-      "required": ["bucket", "outlet", "quote", "signal_text_idx"],
+      "required": ["outlet", "quote", "signal_text_idx"],
       "additionalProperties": false,
       "properties": {
-        "bucket": { "type": "string" },
         "outlet": { "type": "string" },
+        "country": { "type": "string" },
         "quote": { "type": "string", "description": "Verbatim." },
         "signal_text_idx": { "type": "integer", "minimum": 0 }
       }
