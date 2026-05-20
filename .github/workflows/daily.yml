@@ -98,31 +98,36 @@ jobs:
         # Total Phase B cost per cron: ~12 min steady-state, ~17 min cold.
         run: python -m core.embed.encode
 
-      - name: Build per-story briefings
-        # --max-stories 15 (covers every canonical dossier) was the
-        # implicit default until meta-v8.8.0 set it explicitly. The prior
-        # default of 5 + JSON-order iteration silently truncated 8 of
-        # the 15 canonical stories.
-        run: python -m core.briefing.build --max-stories 15
+      - name: Cluster all articles via HDBSCAN (v10)
+        # v10: open-world clustering replaces canonical-story matching.
+        # Reads the embedding cache, runs HDBSCAN over EVERY article in
+        # the day's set, writes data/snapshots/<DATE>_clusters.json with
+        # ~50-200 clusters + their member article IDs, country/outlet/lang
+        # distributions, and top tokens.
+        run: python -m core.cluster.cluster_daily
 
-      - name: Compute briefing metrics (LaBSE cosine + bucket-exclusive vocab)
+      - name: Rank clusters by salience, pick top N for briefing
+        # Score each cluster (article count × country spread × cross-
+        # lingual bonus × stability) and select the top 15. Writes
+        # data/snapshots/<DATE>_top_clusters.json — the input to
+        # build_briefing.
+        run: python -m core.cluster.salience --top-n 15
+
+      - name: Build per-cluster briefings (outlet-level corpora)
+        # For each top cluster, assemble a per-outlet corpus to
+        # data/briefings/<DATE>_<lineage_id>.json. Lineage IDs persist
+        # across days when the same articles re-cluster (≥30% Jaccard
+        # overlap, computed weekly by core/cluster/lineage.py).
+        run: python -m core.briefing.build
+
+      - name: Compute cross-outlet metrics (LaBSE cosine + exclusive vocab)
         run: python -m core.metrics.cross_bucket
 
-      - name: Within-language LLR distinctive vocab (Phase 2)
+      - name: Within-language LLR distinctive vocab
         run: python -m core.metrics.within_language_llr
 
-      - name: Within-language PMI/log-odds bigram associations (Phase 2)
+      - name: Within-language PMI/log-odds bigram associations
         run: python -m core.metrics.within_language_pmi
-
-      - name: Discover residual clusters (PR2 Phase C — HDBSCAN over unassigned)
-        # Articles the perception layer didn't assign to any canonical
-        # story are the discovery surface for emerging stories the
-        # canonical set doesn't yet cover. HDBSCAN over their embeddings
-        # surfaces same-day cross-bucket clusters; persistence_tracker
-        # (weekly) chains those into lineages. Idempotent; writes
-        # snapshots/<DATE>_residual_clusters.json. Safe to fail silently
-        # if hdbscan isn't installed or embedding cache is missing.
-        run: python -m core.cluster.cluster_daily || true
 
       - name: Job summary
         if: always()
@@ -226,8 +231,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      stories: ${{ steps.list.outputs.stories }}
-      n_stories: ${{ steps.list.outputs.n_stories }}
+      lineages: ${{ steps.list.outputs.lineages }}
+      n_lineages: ${{ steps.list.outputs.n_lineages }}
       date: ${{ steps.list.outputs.date }}
     steps:
       - uses: actions/checkout@v4
@@ -245,20 +250,20 @@ jobs:
       - name: Install minimal deps (meta imports regex)
         run: pip install jsonschema regex
 
-      - name: List qualifying stories (n_buckets >= 3) for the matrix
+      - name: List qualifying lineages (n_outlets >= 3) for the matrix
         id: list
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          STORIES=$(python -m core.briefing.qualifying --date "$DATE")
-          N=$(python3 -c 'import json,sys; print(len(json.loads(sys.argv[1])))' "$STORIES")
-          echo "stories=$STORIES" >> "$GITHUB_OUTPUT"
-          echo "n_stories=$N" >> "$GITHUB_OUTPUT"
+          LINEAGES=$(python -m core.briefing.qualifying --date "$DATE")
+          N=$(python3 -c 'import json,sys; print(len(json.loads(sys.argv[1])))' "$LINEAGES")
+          echo "lineages=$LINEAGES" >> "$GITHUB_OUTPUT"
+          echo "n_lineages=$N" >> "$GITHUB_OUTPUT"
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
-          echo "Qualifying stories for $DATE: $STORIES (n=$N)"
+          echo "Qualifying lineages for $DATE: $LINEAGES (n=$N)"
 
   analyze_body:
     needs: analyze_bootstrap
-    if: ${{ always() && needs.analyze_bootstrap.result == 'success' && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.result == 'success' && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     permissions:
@@ -268,7 +273,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        story: ${{ fromJSON(needs.analyze_bootstrap.outputs.stories) }}
+        lineage: ${{ fromJSON(needs.analyze_bootstrap.outputs.lineages) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -290,24 +295,24 @@ jobs:
       - name: Install jsonschema + regex
         run: pip install jsonschema regex
 
-      - name: Load + scope daily-analysis prompt (story=${{ matrix.story }})
+      - name: Load + scope daily-analysis prompt (cluster=${{ matrix.lineage }})
         id: load_prompt
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            echo "# Assigned story: ${STORY}"
+            echo "# Assigned cluster: ${LINEAGE}"
             echo ""
-            echo "Process ONLY the story \`${STORY}\` from today's briefings."
+            echo "Process ONLY the cluster \`${LINEAGE}\` from today's briefings."
             echo "Do not enumerate other stories. Your output is a single file:"
-            echo "\`analyses/<DATE>_${STORY}.json\`."
+            echo "\`data/analyses/<DATE>_${LINEAGE}.json\`."
             echo ""
             cat core/analyze/prompts/daily_analysis.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Run Claude Code daily framing analysis (story=${{ matrix.story }})
+      - name: Run Claude Code daily framing analysis (cluster=${{ matrix.lineage }})
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -332,7 +337,7 @@ jobs:
     # `always()` so a sibling story's body failure doesn't cancel this matrix
     # entry — each entry checks its OWN body file before running. Combined
     # with fail-fast: false on analyze_body, that gives per-story isolation.
-    if: ${{ always() && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -342,7 +347,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        story: ${{ fromJSON(needs.analyze_bootstrap.outputs.stories) }}
+        lineage: ${{ fromJSON(needs.analyze_bootstrap.outputs.lineages) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -355,13 +360,13 @@ jobs:
       - name: Check that body analysis exists for this story
         id: check
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          if [ -f "data/analyses/${DATE}_${STORY}.json" ]; then
+          if [ -f "data/analyses/${DATE}_${LINEAGE}.json" ]; then
             echo "has_body=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning::body analysis missing for ${STORY}; skipping headline pass"
+            echo "::warning::body analysis missing for ${LINEAGE}; skipping headline pass"
             echo "has_body=false" >> "$GITHUB_OUTPUT"
           fi
 
@@ -369,24 +374,24 @@ jobs:
         if: steps.check.outputs.has_body == 'true'
         run: pip install jsonschema regex
 
-      - name: Load + scope headline prompt (story=${{ matrix.story }})
+      - name: Load + scope headline prompt (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         id: load_prompt
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            echo "# Assigned story: ${STORY}"
+            echo "# Assigned cluster: ${LINEAGE}"
             echo ""
-            echo "Process ONLY the story \`${STORY}\`. Output:"
-            echo "\`analyses/<DATE>_${STORY}_headline.json\`."
+            echo "Process ONLY the cluster \`${LINEAGE}\`. Output:"
+            echo "\`data/analyses/<DATE>_${LINEAGE}_headline.json\`."
             echo ""
             cat core/analyze/prompts/headline_analysis.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Run Claude Code headline analysis (story=${{ matrix.story }})
+      - name: Run Claude Code headline analysis (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         uses: anthropics/claude-code-action@v1
         with:
@@ -409,7 +414,7 @@ jobs:
     needs: [analyze_bootstrap, analyze_body]
     # Same shape + dependency logic as analyze_headline. Headline + sources
     # can run in parallel once their per-story body file lands.
-    if: ${{ always() && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -419,7 +424,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        story: ${{ fromJSON(needs.analyze_bootstrap.outputs.stories) }}
+        lineage: ${{ fromJSON(needs.analyze_bootstrap.outputs.lineages) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -432,13 +437,13 @@ jobs:
       - name: Check that body analysis exists for this story
         id: check
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
-          if [ -f "data/analyses/${DATE}_${STORY}.json" ]; then
+          if [ -f "data/analyses/${DATE}_${LINEAGE}.json" ]; then
             echo "has_body=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning::body analysis missing for ${STORY}; skipping source-attribution pass"
+            echo "::warning::body analysis missing for ${LINEAGE}; skipping source-attribution pass"
             echo "has_body=false" >> "$GITHUB_OUTPUT"
           fi
 
@@ -446,24 +451,24 @@ jobs:
         if: steps.check.outputs.has_body == 'true'
         run: pip install jsonschema regex
 
-      - name: Load + scope source-attribution prompt (story=${{ matrix.story }})
+      - name: Load + scope source-attribution prompt (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         id: load_prompt
         env:
-          STORY: ${{ matrix.story }}
+          LINEAGE: ${{ matrix.lineage }}
         run: |
           {
             echo 'content<<__PROMPT_EOF__'
-            echo "# Assigned story: ${STORY}"
+            echo "# Assigned cluster: ${LINEAGE}"
             echo ""
-            echo "Process ONLY the story \`${STORY}\`. Output:"
-            echo "\`sources/<DATE>_${STORY}.json\`."
+            echo "Process ONLY the cluster \`${LINEAGE}\`. Output:"
+            echo "\`sources/<DATE>_${LINEAGE}.json\`."
             echo ""
             cat core/analyze/prompts/source_attribution.md
             echo '__PROMPT_EOF__'
           } >> "$GITHUB_OUTPUT"
 
-      - name: Run Claude Code source attribution (story=${{ matrix.story }})
+      - name: Run Claude Code source attribution (cluster=${{ matrix.lineage }})
         if: steps.check.outputs.has_body == 'true'
         uses: anthropics/claude-code-action@v1
         with:
@@ -488,7 +493,7 @@ jobs:
     # successful stories still get rendered + committed. validate_analysis,
     # render_*, longitudinal, robustness_check are all idempotent against
     # partial data.
-    if: ${{ always() && needs.analyze_bootstrap.outputs.n_stories != '0' }}
+    if: ${{ always() && needs.analyze_bootstrap.outputs.n_lineages != '0' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
