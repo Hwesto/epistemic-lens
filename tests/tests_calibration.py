@@ -13,7 +13,7 @@ import json
 import unittest
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 CALIBRATION = meta.REPO_ROOT / "calibration"
 
@@ -71,7 +71,7 @@ class TestCalibrationScaffolding(unittest.TestCase):
 
     def test_bh_filter_matches_mc_correction(self):
         """Sanity: calibration uses the same BH primitive as analytical/."""
-        from analytical.mc_correction import bh_filter
+        from core.compare.mc_correction import bh_filter
         # p_1=0.001 ≤ 1/5*0.05=0.01 ✓
         # p_2=0.01  ≤ 2/5*0.05=0.02 ✓
         # p_3=0.04  ≤ 3/5*0.05=0.03 ✗ — largest k = 2

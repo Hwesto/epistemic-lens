@@ -17,10 +17,10 @@ Output: `lag/<bucket_a>__<bucket_b>.json` per curated pair, with peak lag
 + correlation strength + per-story breakdown + overall.
 
 Usage:
-  python -m analytical.cross_outlet_lag                        # all pairs
-  python -m analytical.cross_outlet_lag --min-days 30          # custom min
-  python -m analytical.cross_outlet_lag --pairs wire,flagship  # subset
-  python -m analytical.cross_outlet_lag --weekly               # weekly cron entry
+  python -m core.compare.lag                        # all pairs
+  python -m core.compare.lag --min-days 30          # custom min
+  python -m core.compare.lag --pairs wire,flagship  # subset
+  python -m core.compare.lag --weekly               # weekly cron entry
 """
 from __future__ import annotations
 
@@ -31,8 +31,8 @@ from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-import meta
-from analytical.mc_correction import bh_filter, bonferroni_filter, pearson_r_to_p
+import core.meta as meta
+from core.compare.mc_correction import bh_filter, bonferroni_filter, pearson_r_to_p
 
 ROOT = meta.REPO_ROOT
 COVERAGE_DIR = ROOT / "coverage"

@@ -22,9 +22,9 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from meta import REPO_ROOT as ROOT
-from analytical.build_metrics import weighted_frame_distribution
-from analytical.coverage_warnings import coverage_warnings_for
+from core.meta import REPO_ROOT as ROOT
+from core.metrics.cross_bucket import weighted_frame_distribution
+from core.briefing.coverage_warnings import coverage_warnings_for
 ANALYSES = ROOT / "analyses"
 BRIEFINGS = ROOT / "briefings"
 

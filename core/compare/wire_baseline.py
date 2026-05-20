@@ -29,9 +29,9 @@ Skip: with `insufficient_history` when fewer than `--min-days` (default
 14) of briefings have wire articles.
 
 Usage:
-  python -m analytical.wire_baseline                       # default 90-day window
-  python -m analytical.wire_baseline --window-days 30
-  python -m analytical.wire_baseline --min-days 7          # for testing
+  python -m core.compare.wire_baseline                       # default 90-day window
+  python -m core.compare.wire_baseline --window-days 30
+  python -m core.compare.wire_baseline --min-days 7          # for testing
 """
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"

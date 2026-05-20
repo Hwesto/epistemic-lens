@@ -37,7 +37,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

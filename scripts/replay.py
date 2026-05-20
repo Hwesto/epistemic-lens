@@ -41,7 +41,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

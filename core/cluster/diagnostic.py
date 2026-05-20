@@ -23,9 +23,9 @@ HDBSCAN's structural improvement isn't supported by the data, revert
 the clustering.method pin at the next minor bump.
 
 Usage:
-  python -m pipeline.cluster_diagnostic                # today's snapshot
-  python -m pipeline.cluster_diagnostic --date 2026-05-08
-  python -m pipeline.cluster_diagnostic --sample 200   # cap corpus size
+  python -m core.cluster.diagnostic                # today's snapshot
+  python -m core.cluster.diagnostic --date 2026-05-08
+  python -m core.cluster.diagnostic --sample 200   # cap corpus size
 """
 from __future__ import annotations
 
@@ -35,7 +35,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

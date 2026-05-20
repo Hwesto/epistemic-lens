@@ -33,8 +33,8 @@ changes. Member-article overlap is invariant to centroid composition — if
 the same articles cluster together two days running, that's a real signal.
 
 Usage:
-  python -m pipeline.discover_residual                 # latest snapshot
-  python -m pipeline.discover_residual --date 2026-05-12
+  python -m core.cluster.cluster_daily                 # latest snapshot
+  python -m core.cluster.cluster_daily --date 2026-05-12
 """
 from __future__ import annotations
 
@@ -44,11 +44,11 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-import meta
-from analytical import perception
+import core.meta as meta
+from core.embed import perception
 
-SNAPSHOTS = meta.REPO_ROOT / "snapshots"
-BRIEFINGS = meta.REPO_ROOT / "briefings"
+SNAPSHOTS = meta.SNAPSHOTS_DIR
+BRIEFINGS = meta.BRIEFINGS_DIR
 
 
 def _assigned_article_ids(date: str) -> set[str]:
@@ -118,7 +118,7 @@ def discover(date: str, min_cluster_size: int | None = None) -> dict:
     if cache is None:
         raise FileNotFoundError(
             f"embedding cache missing for {date}; "
-            "run `python -m pipeline.embed_articles --date {date}` first"
+            "run `python -m core.embed.encode --date {date}` first"
         )
     all_ids, all_vecs = cache
 

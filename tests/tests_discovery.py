@@ -15,7 +15,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 
 class TestPersistenceTracker(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestPersistenceTracker(unittest.TestCase):
     asserts the lineage is detected."""
 
     def setUp(self):
-        from analytical import persistence_tracker as pt
+        from core.cluster import lineage as pt
         self.pt = pt
         self.tmp = tempfile.mkdtemp()
         self.snapshots = Path(self.tmp) / "snapshots"
@@ -145,8 +145,8 @@ class TestDiscoverResidualArticleIDs(unittest.TestCase):
     to read it. The audit found no direct test of this — adding one."""
 
     def test_discover_residual_uses_perception_article_id(self):
-        from pipeline import discover_residual as dr
-        from analytical import perception
+        from core.cluster import cluster_daily as dr
+        from core.embed import perception
         # _assigned_article_ids and _index_snapshot both call
         # perception.article_id. Assert they're the SAME symbol — if
         # discover_residual ever stops importing from perception, this
@@ -156,7 +156,7 @@ class TestDiscoverResidualArticleIDs(unittest.TestCase):
     def test_snap_index_returns_bucket_title_tuples(self):
         """_index_snapshot collapses two earlier passes into one; verify
         the (bucket, title) tuple shape stays correct."""
-        from pipeline import discover_residual as dr
+        from core.cluster import cluster_daily as dr
         snap = {
             "date": "2026-05-12",
             "countries": {
@@ -180,7 +180,7 @@ class TestAutoPromoteLineagePath(unittest.TestCase):
     alongside the legacy token-based ones."""
 
     def setUp(self):
-        from analytical import auto_promote as ap
+        from core.cluster import auto_promote as ap
         self.ap = ap
         self.tmp = tempfile.mkdtemp()
         self.archive = Path(self.tmp) / "archive"

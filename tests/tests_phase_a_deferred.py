@@ -25,7 +25,7 @@ class TestUnicodeTokenizer(unittest.TestCase):
             import regex  # noqa
         except ImportError:
             self.skipTest("`regex` library not installed")
-        import meta
+        import core.meta as meta
         # Translation outputs sometimes preserve proper-noun diacritics.
         # The ASCII regex [A-Za-z]{4,} silently dropped "México" (split on é
         # and "Mxico" was never a token); the Unicode-aware \p{L}{4,} keeps
@@ -35,7 +35,7 @@ class TestUnicodeTokenizer(unittest.TestCase):
         self.assertIn("résumé", toks)
 
     def test_short_words_still_dropped(self):
-        import meta
+        import core.meta as meta
         toks = meta.tokenize("It is a test of the system here.")
         # 1-3 char words dropped by min_token_length=4
         self.assertNotIn("it", toks)
@@ -47,7 +47,7 @@ class TestUnicodeTokenizer(unittest.TestCase):
 
 class TestLaBSEGracefulSkip(unittest.TestCase):
     def test_skips_when_sentence_transformers_unavailable(self):
-        from analytical import build_metrics
+        from core.metrics import cross_bucket as build_metrics
         # Patch the import inside the function to raise.
         with patch.dict(sys.modules, {"sentence_transformers": None}):
             pairs, iso, status = build_metrics.labse_pairwise_and_isolation(
@@ -60,7 +60,7 @@ class TestLaBSEGracefulSkip(unittest.TestCase):
         self.assertIn("reason", status)
 
     def test_skips_when_only_one_bucket(self):
-        from analytical import build_metrics
+        from core.metrics import cross_bucket as build_metrics
         pairs, iso, status = build_metrics.labse_pairwise_and_isolation(
             {"only_one": ["text"]}
         )
@@ -70,8 +70,8 @@ class TestLaBSEGracefulSkip(unittest.TestCase):
 
 class TestBucketQualityTier(unittest.TestCase):
     def test_quant_excluded_buckets_dropped_from_vocab(self):
-        from analytical import build_metrics
-        import meta
+        from core.metrics import cross_bucket as build_metrics
+        import core.meta as meta
 
         # Mock bucket_quality to mark "stub_bucket" as EXCLUDE_QUANT.
         original = meta.bucket_quality.cache_clear
@@ -98,8 +98,8 @@ class TestBucketQualityTier(unittest.TestCase):
             meta.bucket_quality.cache_clear()
 
     def test_excluded_buckets_listed_in_metrics_output(self):
-        from analytical import build_metrics
-        import meta
+        from core.metrics import cross_bucket as build_metrics
+        import core.meta as meta
 
         meta.bucket_quality.cache_clear()
         try:

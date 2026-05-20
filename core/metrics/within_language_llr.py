@@ -31,9 +31,9 @@ Filters applied:
   - Over-represented only (rate_in_bucket > rate_in_cohort).
 
 Usage:
-  python -m analytical.within_language_llr                       # all today's
-  python -m analytical.within_language_llr --date 2026-05-08
-  python -m analytical.within_language_llr briefings/<file>.json # one file
+  python -m core.metrics.within_language_llr                       # all today's
+  python -m core.metrics.within_language_llr --date 2026-05-08
+  python -m core.metrics.within_language_llr briefings/<file>.json # one file
 """
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"

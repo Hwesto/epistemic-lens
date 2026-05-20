@@ -14,10 +14,10 @@ import json
 import threading
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 
-_CACHE_PATH = meta.REPO_ROOT / "archive" / "translations.json"
+_CACHE_PATH = meta.ARCHIVE_DIR / "translations.json"
 _cache_lock = threading.Lock()
 _cache: dict[str, str] | None = None
 _translator = None  # lazily constructed

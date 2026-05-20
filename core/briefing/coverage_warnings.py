@@ -22,9 +22,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
-SNAPS = meta.REPO_ROOT / "snapshots"
+SNAPS = meta.SNAPSHOTS_DIR
 
 
 def coverage_warnings_for(date: str,

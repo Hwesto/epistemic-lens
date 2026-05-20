@@ -35,7 +35,7 @@ from urllib.parse import urlparse
 
 import requests
 
-import meta
+import core.meta as meta
 
 try:
     import trafilatura
@@ -208,7 +208,7 @@ def extract_one(item: dict, max_body: int = 4000, timeout: int = 15,
     out["extraction_via_commoncrawl"] = False
     if (out["body_chars"] < 200 and item.get("paywalled")):
         try:
-            from pipeline.commoncrawl_fallback import fetch_body_via_cc
+            from core.ingest.commoncrawl_fallback import fetch_body_via_cc
             cc_body, cc_status = fetch_body_via_cc(url)
             if cc_body and len(cc_body) > out["body_chars"]:
                 out["body_text"] = cc_body[:max_body]

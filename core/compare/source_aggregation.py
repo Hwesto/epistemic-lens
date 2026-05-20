@@ -32,8 +32,8 @@ Output: `sources/aggregate/<DATE>.json`:
     }
 
 Usage:
-  python -m analytical.source_aggregation
-  python -m analytical.source_aggregation --date 2026-05-08
+  python -m core.compare.source_aggregation
+  python -m core.compare.source_aggregation --date 2026-05-08
 """
 from __future__ import annotations
 
@@ -44,7 +44,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SOURCES = ROOT / "sources"

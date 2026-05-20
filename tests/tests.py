@@ -26,7 +26,7 @@ import time
 import unittest
 from pathlib import Path
 
-import meta
+import core.meta as meta
 from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch, MagicMock
@@ -48,8 +48,8 @@ class TestParser(unittest.TestCase):
         if "pipeline.ingest" in sys.modules:
             importlib.reload(sys.modules["pipeline.ingest"])
         else:
-            from pipeline import ingest  # noqa
-        from pipeline.ingest import _parse_feed, _strip_html, _parse_pub, _annotate_item
+            from core.ingest import pull_feeds as ingest  # noqa
+        from core.ingest.pull_feeds import _parse_feed, _strip_html, _parse_pub, _annotate_item
         self.parse = _parse_feed
         self.strip = _strip_html
         self.pub = _parse_pub
@@ -188,7 +188,7 @@ class TestRateLimiter(unittest.TestCase):
         os.environ["PER_HOST_DELAY"] = "0.5"
         if "pipeline.ingest" in sys.modules:
             importlib.reload(sys.modules["pipeline.ingest"])
-        from pipeline.ingest import _wait_for_host
+        from core.ingest.pull_feeds import _wait_for_host
         t0 = time.time()
         _wait_for_host("test.example.com")
         _wait_for_host("test.example.com")
@@ -209,7 +209,7 @@ class TestHttpRetry(unittest.TestCase):
     def setUp(self):
         if "pipeline.ingest" in sys.modules:
             importlib.reload(sys.modules["pipeline.ingest"])
-        from pipeline import ingest
+        from core.ingest import pull_feeds as ingest
         self.ingest = ingest
 
     def test_retry_on_5xx(self):
@@ -246,7 +246,7 @@ class TestDedup(unittest.TestCase):
     def setUp(self):
         if "pipeline.dedup" in sys.modules:
             importlib.reload(sys.modules["pipeline.dedup"])
-        from pipeline import dedup
+        from core.ingest import dedup
         self.dedup = dedup
 
     def test_canonical_url_strip_tracking(self):
@@ -370,7 +370,7 @@ class TestCoverageMatrix(unittest.TestCase):
     def setUp(self):
         if "pipeline.coverage_matrix" in sys.modules:
             importlib.reload(sys.modules["pipeline.coverage_matrix"])
-        from pipeline import coverage_matrix
+        from core.ingest import coverage_matrix
         self.cm = coverage_matrix
 
     def test_matrix_records_matching_feeds_only(self):
@@ -415,7 +415,7 @@ class TestCoverageMatrix(unittest.TestCase):
         """build_trajectory groups frames across dates and computes per-day share."""
         if "analytical.longitudinal" in sys.modules:
             importlib.reload(sys.modules["analytical.longitudinal"])
-        from analytical import longitudinal as lg
+        from core.compare import longitudinal as lg
         import tempfile
 
         with tempfile.TemporaryDirectory() as td:
@@ -462,7 +462,7 @@ class TestCoverageMatrix(unittest.TestCase):
         """Pre-7.0.0 analyses use `label` not `frame_id` — both must group together."""
         if "analytical.longitudinal" in sys.modules:
             importlib.reload(sys.modules["analytical.longitudinal"])
-        from analytical import longitudinal as lg
+        from core.compare import longitudinal as lg
         import tempfile
 
         with tempfile.TemporaryDirectory() as td:
@@ -511,7 +511,7 @@ class TestDailyHealth(unittest.TestCase):
     def setUp(self):
         if "pipeline.daily_health" in sys.modules:
             importlib.reload(sys.modules["pipeline.daily_health"])
-        from pipeline import daily_health
+        from core.ingest import health as daily_health
         self.dh = daily_health
 
     def test_health_flags(self):
@@ -617,7 +617,7 @@ class TestExtractFullText(unittest.TestCase):
     def setUp(self):
         if "pipeline.extract_full_text" in sys.modules:
             importlib.reload(sys.modules["pipeline.extract_full_text"])
-        from pipeline import extract_full_text as eft
+        from core.ingest import extract_bodies as eft
         self.eft = eft
 
     def test_classify_thresholds(self):
@@ -718,7 +718,7 @@ class TestSitemapFallback(unittest.TestCase):
     def test_sitemap_news_parse(self):
         if "pipeline.ingest" in sys.modules:
             importlib.reload(sys.modules["pipeline.ingest"])
-        from pipeline import ingest
+        from core.ingest import pull_feeds as ingest
         body = b"""<?xml version="1.0"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
                 xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
@@ -742,8 +742,8 @@ class TestBuildMetrics(unittest.TestCase):
     def setUp(self):
         if "analytical.build_metrics" in sys.modules:
             importlib.reload(sys.modules["analytical.build_metrics"])
-        from analytical import build_metrics
-        import meta as _meta
+        from core.metrics import cross_bucket as build_metrics
+        import core.meta as _meta
         from collections import Counter as _Counter
         self.bm = build_metrics
         self.meta = _meta
@@ -823,7 +823,7 @@ class TestPhase2Modules(unittest.TestCase):
     def test_within_language_llr_basic(self):
         if "analytical.within_language_llr" in sys.modules:
             importlib.reload(sys.modules["analytical.within_language_llr"])
-        from analytical import within_language_llr as wll
+        from core.metrics import within_language_llr as wll
         # Two English buckets: A heavily uses "blockade", B heavily uses "summit"
         briefing = {
             "corpus": [
@@ -849,7 +849,7 @@ class TestPhase2Modules(unittest.TestCase):
         self.assertIn("summit", b_terms)
 
     def test_within_language_llr_skips_singleton_lang(self):
-        from analytical import within_language_llr as wll
+        from core.metrics import within_language_llr as wll
         # Only one bucket in language → no cohort → bucket excluded from output
         briefing = {
             "corpus": [
@@ -860,7 +860,7 @@ class TestPhase2Modules(unittest.TestCase):
         self.assertEqual(out["by_bucket"], {})
 
     def test_within_language_llr_excludes_opinion_items(self):
-        from analytical import within_language_llr as wll
+        from core.metrics import within_language_llr as wll
         briefing = {
             "corpus": [
                 {"bucket": "A", "lang": "en", "section": "opinion",
@@ -878,7 +878,7 @@ class TestPhase2Modules(unittest.TestCase):
     def test_within_language_pmi_basic(self):
         if "analytical.within_language_pmi" in sys.modules:
             importlib.reload(sys.modules["analytical.within_language_pmi"])
-        from analytical import within_language_pmi as wpmi
+        from core.metrics import within_language_pmi as wpmi
         briefing = {
             "corpus": [
                 {"bucket": "A", "lang": "en", "title": "x",
@@ -895,7 +895,7 @@ class TestPhase2Modules(unittest.TestCase):
     def test_headline_body_divergence_skips_no_headline(self):
         if "analytical.headline_body_divergence" in sys.modules:
             importlib.reload(sys.modules["analytical.headline_body_divergence"])
-        from analytical import headline_body_divergence as hbd
+        from core.analyze import divergence as hbd
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
             body_path = tdp / "2026-05-09_x.json"
@@ -909,7 +909,7 @@ class TestPhase2Modules(unittest.TestCase):
             self.assertEqual(r["reason"], "no_headline_pass_yet")
 
     def test_headline_body_divergence_basic(self):
-        from analytical import headline_body_divergence as hbd
+        from core.analyze import divergence as hbd
         body = {
             "story_key": "x",
             "frames": [
@@ -939,7 +939,7 @@ class TestPhase2Modules(unittest.TestCase):
     def test_cross_outlet_lag_insufficient_history(self):
         if "analytical.cross_outlet_lag" in sys.modules:
             importlib.reload(sys.modules["analytical.cross_outlet_lag"])
-        from analytical import cross_outlet_lag as col
+        from core.compare import lag as col
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
             # Only 5 days of coverage → insufficient
@@ -955,7 +955,7 @@ class TestPhase2Modules(unittest.TestCase):
             # Main path skips when n < min_days; we test the load directly here.
 
     def test_cross_outlet_lag_pearson_at_lag(self):
-        from analytical import cross_outlet_lag as col
+        from core.compare import lag as col
         # Perfectly lagged: B = A shifted right by 2
         a = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
         b = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
@@ -981,7 +981,7 @@ class TestPhase2Modules(unittest.TestCase):
     def test_rollup_finds_old_files(self):
         if "pipeline.rollup" in sys.modules:
             importlib.reload(sys.modules["pipeline.rollup"])
-        from pipeline import rollup
+        from core.ingest import rollup
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
             snaps = tdp / "snapshots"; snaps.mkdir()
@@ -1004,13 +1004,13 @@ class TestPhase2Modules(unittest.TestCase):
     def test_x_poster_skipped_no_token(self):
         if "distribution.x_poster" in sys.modules:
             importlib.reload(sys.modules["distribution.x_poster"])
-        from distribution import x_poster
+        from publish.distribute import x_poster
         # No tokens in env → secrets check fails → would_post is False
         for k in x_poster.REQUIRED_SECRETS:
             self.assertFalse(os.environ.get(k))  # confirm clean env
 
     def test_x_poster_payloads_with_thread_link(self):
-        from distribution import x_poster
+        from publish.distribute import x_poster
         thread = {
             "story_key": "test",
             "date": "2026-05-08",
@@ -1069,12 +1069,12 @@ class TestPhase3SourceAttribution(unittest.TestCase):
     def test_source_attribution_validate_clean(self):
         if "analytical.source_attribution" in sys.modules:
             importlib.reload(sys.modules["analytical.source_attribution"])
-        from analytical import source_attribution as sa
+        from publish.render import source_attribution as sa
         errs = sa.validate_sources(self._sources_doc(), self._briefing())
         self.assertEqual(errs, [])
 
     def test_source_attribution_validate_catches_fabricated_quote(self):
-        from analytical import source_attribution as sa
+        from publish.render import source_attribution as sa
         bad = json.loads(json.dumps(self._sources_doc()))
         bad["sources"][0]["exact_quote"] = "this is not in the article"
         errs = sa.validate_sources(bad, self._briefing())
@@ -1082,21 +1082,21 @@ class TestPhase3SourceAttribution(unittest.TestCase):
                         msg=f"expected verbatim error, got: {errs}")
 
     def test_source_attribution_validate_catches_bad_speaker_type(self):
-        from analytical import source_attribution as sa
+        from publish.render import source_attribution as sa
         bad = json.loads(json.dumps(self._sources_doc()))
         bad["sources"][0]["speaker_type"] = "bogus"
         errs = sa.validate_sources(bad, self._briefing())
         self.assertTrue(any("speaker_type" in e for e in errs))
 
     def test_source_attribution_validate_catches_bad_stance(self):
-        from analytical import source_attribution as sa
+        from publish.render import source_attribution as sa
         bad = json.loads(json.dumps(self._sources_doc()))
         bad["sources"][0]["stance_toward_target"] = "bogus"
         errs = sa.validate_sources(bad, self._briefing())
         self.assertTrue(any("stance_toward_target" in e for e in errs))
 
     def test_source_attribution_list_pending(self):
-        from analytical import source_attribution as sa
+        from publish.render import source_attribution as sa
         with tempfile.TemporaryDirectory() as td:
             cache = Path(td)
             briefing = self._briefing()
@@ -1113,7 +1113,7 @@ class TestPhase3SourceAttribution(unittest.TestCase):
     def test_source_aggregation_basic(self):
         if "analytical.source_aggregation" in sys.modules:
             importlib.reload(sys.modules["analytical.source_aggregation"])
-        from analytical import source_aggregation as sag
+        from core.compare import source_aggregation as sag
         sources_with_story = [
             {**s, "story_key": "test"}
             for s in self._sources_doc()["sources"]
@@ -1130,7 +1130,7 @@ class TestPhase3SourceAttribution(unittest.TestCase):
         self.assertEqual(agg["by_region"]["middle_east"]["stance_mix"]["against"], 1)
 
     def test_source_aggregation_region_for(self):
-        from analytical import source_aggregation as sag
+        from core.compare import source_aggregation as sag
         self.assertEqual(sag.region_for("usa"), "americas")
         self.assertEqual(sag.region_for("germany"), "europe")
         self.assertEqual(sag.region_for("iran_state"), "middle_east")
@@ -1142,7 +1142,7 @@ class TestPhase3SourceAttribution(unittest.TestCase):
     def test_validator_quote_grounding_sources(self):
         if "analytical.validate_analysis" in sys.modules:
             importlib.reload(sys.modules["analytical.validate_analysis"])
-        from analytical import validate_analysis as va
+        from core.analyze import validate as va
         # Clean
         errs = va.check_quote_grounding_sources(self._sources_doc(), self._briefing())
         self.assertEqual(errs, [])
@@ -1161,14 +1161,14 @@ class TestPhase4Modules(unittest.TestCase):
         # Same bucket should give the same hash on repeat calls.
         if "meta" in sys.modules:
             importlib.reload(sys.modules["meta"])
-        import meta as m
+        import core.meta as m
         h1 = m.bucket_feed_set_hash("wire_services")
         h2 = m.bucket_feed_set_hash("wire_services")
         self.assertEqual(h1, h2)
         self.assertEqual(len(h1), 16)  # truncated sha256
 
     def test_bucket_feed_set_hash_differs_per_bucket(self):
-        import meta as m
+        import core.meta as m
         h_wire = m.bucket_feed_set_hash("wire_services")
         h_uk = m.bucket_feed_set_hash("uk")
         self.assertNotEqual(h_wire, h_uk)
@@ -1176,7 +1176,7 @@ class TestPhase4Modules(unittest.TestCase):
     def test_wire_baseline_skips_insufficient_history(self):
         if "analytical.wire_baseline" in sys.modules:
             importlib.reload(sys.modules["analytical.wire_baseline"])
-        from analytical import wire_baseline as wb
+        from core.compare import wire_baseline as wb
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
             articles = wb.collect_wire_articles(window_days=30,
@@ -1185,7 +1185,7 @@ class TestPhase4Modules(unittest.TestCase):
             self.assertEqual(articles, [])
 
     def test_wire_baseline_collects_wire_articles(self):
-        from analytical import wire_baseline as wb
+        from core.compare import wire_baseline as wb
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
             (tdp / "2026-05-08_x.json").write_text(json.dumps({
@@ -1203,7 +1203,7 @@ class TestPhase4Modules(unittest.TestCase):
             self.assertEqual(arts[0]["bucket"], "wire_services")
 
     def test_wire_baseline_build_bigrams(self):
-        from analytical import wire_baseline as wb
+        from core.compare import wire_baseline as wb
         articles = [
             {"title": "a", "signal_text": "supply shock crisis " * 5},
         ]
@@ -1213,7 +1213,7 @@ class TestPhase4Modules(unittest.TestCase):
     def test_tilt_index_log_odds_consistent(self):
         if "analytical.tilt_index" in sys.modules:
             importlib.reload(sys.modules["analytical.tilt_index"])
-        from analytical import tilt_index as ti
+        from core.compare import tilt as ti
         from collections import Counter
         outlet = Counter({("a", "b"): 10, ("c", "d"): 1})
         wire = Counter({("a", "b"): 1, ("e", "f"): 5})
@@ -1226,7 +1226,7 @@ class TestPhase4Modules(unittest.TestCase):
         self.assertIn(("e", "f"), neg_bigrams)
 
     def test_tilt_index_parse_baseline_bigrams(self):
-        from analytical import tilt_index as ti
+        from core.compare import tilt as ti
         baseline = {"bigrams": {"a|b": 5, "c|d": 3, "no_pipe": 1}}
         cnt = ti.parse_baseline_bigrams(baseline)
         self.assertEqual(cnt[("a", "b")], 5)
@@ -1236,14 +1236,14 @@ class TestPhase4Modules(unittest.TestCase):
     def test_robustness_jaccard(self):
         if "analytical.robustness_check" in sys.modules:
             importlib.reload(sys.modules["analytical.robustness_check"])
-        from analytical import robustness_check as rc
+        from core.compare import robustness as rc
         self.assertEqual(rc.jaccard({"a", "b"}, {"a", "b"}), 1.0)
         self.assertAlmostEqual(rc.jaccard({"a", "b", "c"}, {"a", "b", "d"}), 2 / 4)
         self.assertEqual(rc.jaccard({"a"}, {"b"}), 0.0)
         self.assertIsNone(rc.jaccard(set(), set()))
 
     def test_robustness_compute(self):
-        from analytical import robustness_check as rc
+        from core.compare import robustness as rc
         traj = {
             "frame_trajectories": {
                 "F1": [{"date": "2026-05-07"}, {"date": "2026-05-08"}],
@@ -1258,7 +1258,7 @@ class TestPhase4Modules(unittest.TestCase):
         self.assertTrue(result["low_stability"])  # below 0.5
 
     def test_robustness_skips_one_day(self):
-        from analytical import robustness_check as rc
+        from core.compare import robustness as rc
         traj = {
             "frame_trajectories": {
                 "F1": [{"date": "2026-05-07"}],
@@ -1273,19 +1273,19 @@ class TestMethodologyPin(unittest.TestCase):
     """meta.py: the methodology pin — hashes, stamping, drift detection."""
 
     def test_pinned_inputs_match_declared_hashes(self):
-        import meta
+        import core.meta as meta
         # Should not raise on a clean repo.
         meta.assert_pinned(strict=True)
 
     def test_stamp_embeds_meta_version(self):
-        import meta
+        import core.meta as meta
         art = {"foo": 1}
         stamped = meta.stamp(art)
         self.assertIs(stamped, art)  # in-place
         self.assertEqual(stamped["meta_version"], meta.VERSION)
 
     def test_tokenize_uses_pinned_stopwords(self):
-        import meta
+        import core.meta as meta
         toks = meta.tokenize("The quick brown fox said over the moon")
         self.assertNotIn("the", toks)
         self.assertNotIn("said", toks)  # pinned stopword
@@ -1293,7 +1293,7 @@ class TestMethodologyPin(unittest.TestCase):
         self.assertIn("moon", toks)
 
     def test_canonical_stories_loads(self):
-        import meta
+        import core.meta as meta
         stories = meta.canonical_stories()
         self.assertIn("hormuz_iran", stories)
         self.assertIn("patterns", stories["hormuz_iran"])
@@ -1309,7 +1309,7 @@ class TestMethodologyPin(unittest.TestCase):
 
     def test_drift_is_detected(self):
         import json, tempfile, shutil
-        import meta as _meta
+        import core.meta as _meta
         # Snapshot the current pinned file, mutate it, expect drift.
         sw = Path(__file__).parent / "stopwords.txt"
         original = sw.read_bytes()
@@ -1328,7 +1328,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
 
     def setUp(self):
         import json as _json
-        with open(Path(__file__).parent / "docs/api/schema/analysis.schema.json", encoding="utf-8") as f:
+        with open(meta.SCHEMAS_DIR / "analysis.schema.json", encoding="utf-8") as f:
             self.schema = _json.load(f)
         self.minimal = {
             "meta_version": "1.1.0",
@@ -1396,7 +1396,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
     def test_render_produces_expected_sections(self):
         if "publication.render_analysis_md" in sys.modules:
             importlib.reload(sys.modules["publication.render_analysis_md"])
-        from publication import render_analysis_md
+        from publish.render import analysis_md as render_analysis_md
         md = render_analysis_md.render(self.minimal)
         # Header + every section header should appear.
         self.assertIn("# Test Story", md)
@@ -1420,7 +1420,7 @@ class TestAnalysisSchemaAndRender(unittest.TestCase):
     def test_render_handles_paradox(self):
         if "publication.render_analysis_md" in sys.modules:
             importlib.reload(sys.modules["publication.render_analysis_md"])
-        from publication import render_analysis_md
+        from publish.render import analysis_md as render_analysis_md
         with_paradox = dict(self.minimal)
         with_paradox["paradox"] = {
             "a": {"bucket": "iran_state", "outlet": "PressTV",
@@ -1446,8 +1446,8 @@ class TestTemplateRenderers(unittest.TestCase):
             self.skipTest("jsonschema not installed")
         self.jsonschema = jsonschema
         repo = Path(__file__).parent
-        self.thread_schema = json.load(open(repo / "docs/api/schema/thread.schema.json"))
-        self.carousel_schema = json.load(open(repo / "docs/api/schema/carousel.schema.json"))
+        self.thread_schema = json.load(open(repo / str(meta.SCHEMAS_DIR) + "/thread.schema.json"))
+        self.carousel_schema = json.load(open(repo / str(meta.SCHEMAS_DIR) + "/carousel.schema.json"))
         # Use the existing 2026-05-06_hormuz_iran briefing as a real corpus.
         self.briefing = json.load(open(repo / "briefings/2026-05-06_hormuz_iran.json"))
         self.analysis = {
@@ -1484,7 +1484,7 @@ class TestTemplateRenderers(unittest.TestCase):
     def test_thread_renders_to_valid_schema(self):
         if "publication.render_thread" in sys.modules:
             importlib.reload(sys.modules["publication.render_thread"])
-        from publication import render_thread
+        from publish.render import thread as render_thread
         out = render_thread.render(self.analysis, self.briefing)
         self.jsonschema.validate(out, self.thread_schema)
         self.assertEqual(out["story_key"], "hormuz_iran")
@@ -1497,7 +1497,7 @@ class TestTemplateRenderers(unittest.TestCase):
     def test_thread_uses_paradox_hook_when_present(self):
         if "publication.render_thread" in sys.modules:
             importlib.reload(sys.modules["publication.render_thread"])
-        from publication import render_thread
+        from publish.render import thread as render_thread
         with_p = dict(self.analysis)
         with_p["paradox"] = {
             "a": {"bucket": "iran_state", "outlet": "PressTV",
@@ -1514,7 +1514,7 @@ class TestTemplateRenderers(unittest.TestCase):
     def test_carousel_renders_to_valid_schema(self):
         if "publication.render_carousel" in sys.modules:
             importlib.reload(sys.modules["publication.render_carousel"])
-        from publication import render_carousel
+        from publish.render import carousel as render_carousel
         out = render_carousel.render(self.analysis, self.briefing)
         self.jsonschema.validate(out, self.carousel_schema)
         self.assertEqual(out["story_key"], "hormuz_iran")
@@ -1528,7 +1528,7 @@ class TestTemplateRenderers(unittest.TestCase):
     def test_carousel_paradox_slide_when_present(self):
         if "publication.render_carousel" in sys.modules:
             importlib.reload(sys.modules["publication.render_carousel"])
-        from publication import render_carousel
+        from publish.render import carousel as render_carousel
         with_p = dict(self.analysis)
         with_p["paradox"] = {
             "a": {"bucket": "x", "outlet": "X", "quote": "q1", "signal_text_idx": 0},
@@ -1542,16 +1542,16 @@ class TestTemplateRenderers(unittest.TestCase):
     def test_thread_meta_version_stamped(self):
         if "publication.render_thread" in sys.modules:
             importlib.reload(sys.modules["publication.render_thread"])
-        from publication import render_thread
-        import meta as _meta
+        from publish.render import thread as render_thread
+        import core.meta as _meta
         out = render_thread.render(self.analysis, self.briefing)
         self.assertEqual(out.get("meta_version"), _meta.VERSION)
 
     def test_carousel_meta_version_stamped(self):
         if "publication.render_carousel" in sys.modules:
             importlib.reload(sys.modules["publication.render_carousel"])
-        from publication import render_carousel
-        import meta as _meta
+        from publish.render import carousel as render_carousel
+        import core.meta as _meta
         out = render_carousel.render(self.analysis, self.briefing)
         self.assertEqual(out.get("meta_version"), _meta.VERSION)
 
@@ -1608,21 +1608,21 @@ class TestValidateAnalysis(unittest.TestCase):
     def test_clean_analysis_passes_all_checks(self):
         if "analytical.validate_analysis" in sys.modules:
             importlib.reload(sys.modules["analytical.validate_analysis"])
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         errs = (v.check_schema(self.clean)
                 + v.check_citations(self.clean, self.briefing)
                 + v.check_numbers(self.clean, self.metrics))
         self.assertEqual(errs, [], msg="clean analysis should produce 0 errors")
 
     def test_n_buckets_mismatch_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = dict(self.clean)
         bad["n_buckets"] = 99
         errs = v.check_numbers(bad, self.metrics)
         self.assertTrue(any("n_buckets" in e for e in errs))
 
     def test_isolation_score_mismatch_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = dict(self.clean)
         bad["isolation_top"] = [
             {"bucket": self.metrics["isolation"][0]["bucket"], "mean_similarity": 0.999}
@@ -1631,14 +1631,14 @@ class TestValidateAnalysis(unittest.TestCase):
         self.assertTrue(any("mean_similarity" in e for e in errs))
 
     def test_isolation_unknown_bucket_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = dict(self.clean)
         bad["isolation_top"] = [{"bucket": "fake_bucket_xyz", "mean_similarity": 0.5}]
         errs = v.check_numbers(bad, self.metrics)
         self.assertTrue(any("not in" in e and "fake_bucket_xyz" in e for e in errs))
 
     def test_exclusive_vocab_term_not_in_metrics_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = dict(self.clean)
         bad["exclusive_vocab_highlights"] = [
             {"bucket": "italy", "terms": ["term_that_does_not_exist_in_metrics"]}
@@ -1647,14 +1647,14 @@ class TestValidateAnalysis(unittest.TestCase):
         self.assertTrue(any("term_that_does_not_exist_in_metrics" in e for e in errs))
 
     def test_quote_not_in_corpus_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = json.loads(json.dumps(self.clean))
         bad["frames"][0]["evidence"][0]["quote"] = "this is not in any signal_text"
         errs = v.check_citations(bad, self.briefing)
         self.assertTrue(any("not found verbatim" in e for e in errs))
 
     def test_bucket_mismatch_with_corpus_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = json.loads(json.dumps(self.clean))
         bad["frames"][0]["evidence"][0]["bucket"] = "wrong_bucket_label"
         errs = v.check_citations(bad, self.briefing)
@@ -1663,14 +1663,14 @@ class TestValidateAnalysis(unittest.TestCase):
         )
 
     def test_signal_text_idx_out_of_range_caught(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         bad = json.loads(json.dumps(self.clean))
         bad["frames"][0]["evidence"][0]["signal_text_idx"] = 99999
         errs = v.check_citations(bad, self.briefing)
         self.assertTrue(any("out of range" in e for e in errs))
 
     def test_paradox_citation_validated(self):
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         # Add a valid paradox using two real corpus entries.
         ok = json.loads(json.dumps(self.clean))
         ok["paradox"] = {
@@ -1705,7 +1705,7 @@ class TestFeedRotCheck(unittest.TestCase):
     def setUp(self):
         if "pipeline.feed_rot_check" in sys.modules:
             importlib.reload(sys.modules["pipeline.feed_rot_check"])
-        from pipeline import feed_rot_check
+        from core.ingest import feed_rot_check
         self.frc = feed_rot_check
 
     def _write_window(self, td: Path, days: list[dict]) -> None:
@@ -1813,7 +1813,7 @@ class TestFeedRotCheck(unittest.TestCase):
             d = (today - _dt.timedelta(days=1)).isoformat()
             self._write_window(td, [{"date": d, "feeds": {"X": 1}}])
             report = self._run(td, n_days=7, today_iso=base_date)
-            import meta as _meta
+            import core.meta as _meta
             self.assertIn(f"meta_version {_meta.VERSION}", report)
 
 
@@ -1829,7 +1829,7 @@ class TestSchemaCorpus(unittest.TestCase):
         except ImportError:
             self.skipTest("jsonschema not installed")
         self.jsonschema = jsonschema
-        self.schema_dir = Path(__file__).parent / "docs/api/schema"
+        self.schema_dir = meta.SCHEMAS_DIR
 
     def test_every_schema_is_valid_draft_2020_12(self):
         validator_cls = self.jsonschema.Draft202012Validator
@@ -1874,7 +1874,7 @@ class TestCoverageMatrix4State(unittest.TestCase):
     as silent / errored / dark when joined with daily_health output."""
 
     def setUp(self):
-        from pipeline import coverage_matrix as cm
+        from core.ingest import coverage_matrix as cm
         self.cm = cm
 
     def test_classify_non_coverage_distinguishes_three_states(self):
@@ -1972,8 +1972,8 @@ class TestSourceAttributionAffiliation(unittest.TestCase):
     / bucket / region."""
 
     def setUp(self):
-        from analytical import source_attribution as sa
-        from analytical import source_aggregation as sg
+        from publish.render import source_attribution as sa
+        from core.compare import source_aggregation as sg
         self.sa = sa
         self.sg = sg
 
@@ -2052,7 +2052,7 @@ class TestLongitudinalDrivers(unittest.TestCase):
     def setUp(self):
         if "analytical.longitudinal" in sys.modules:
             importlib.reload(sys.modules["analytical.longitudinal"])
-        from analytical import longitudinal as lt
+        from core.compare import longitudinal as lt
         self.lt = lt
         self.tmp = tempfile.TemporaryDirectory()
         self.td = Path(self.tmp.name)
@@ -2167,8 +2167,8 @@ class TestDistributionApprovalGate(unittest.TestCase):
     auto-fire posters with a pending → approved/rejected flow."""
 
     def setUp(self):
-        from distribution import stage as st
-        from distribution import publish as pb
+        from publish.distribute import stage as st
+        from publish.distribute import publish as pb
         self.st = st
         self.pb = pb
         self.tmp = tempfile.TemporaryDirectory()
@@ -2265,7 +2265,7 @@ class TestTiltIndexTwoAnchors(unittest.TestCase):
     consumers don't read 'tilt vs wire' as 'tilt vs neutral.'"""
 
     def setUp(self):
-        from analytical import tilt_index as ti
+        from core.compare import tilt as ti
         self.ti = ti
 
     def _articles_with_bigrams(self, bigrams_per_article: list[list[tuple]]) -> list[dict]:
@@ -2326,7 +2326,7 @@ class TestClusterDiagnostic(unittest.TestCase):
             import hdbscan  # noqa
         except ImportError:
             self.skipTest("numpy / sklearn / hdbscan required")
-        from pipeline import cluster_diagnostic as cd
+        from core.cluster import diagnostic as cd
         self.cd = cd
 
     def _synthetic_distance_matrix(self):
@@ -2419,7 +2419,7 @@ class TestDeterministicCanary(unittest.TestCase):
     canary) is designed in canary/ANALYTICAL_DESIGN.md."""
 
     def setUp(self):
-        from canary import deterministic_run as dr
+        from scripts.canary import deterministic_run as dr
         self.dr = dr
 
     def test_corpus_exists_and_is_well_formed(self):
@@ -2563,14 +2563,14 @@ class TestSiteBasePrefix(unittest.TestCase):
     def test_default_is_epistemic_lens(self):
         # Reload to read fresh env state.
         import importlib, os
-        from publication import site_config
+        from publish.api import site_config
         os.environ.pop("EPISTEMIC_LENS_BASE", None)
         importlib.reload(site_config)
         self.assertEqual(site_config.SITE_BASE, "/epistemic-lens")
 
     def test_env_override(self):
         import importlib, os
-        from publication import site_config
+        from publish.api import site_config
         os.environ["EPISTEMIC_LENS_BASE"] = "/foo"
         try:
             importlib.reload(site_config)
@@ -2581,7 +2581,7 @@ class TestSiteBasePrefix(unittest.TestCase):
 
     def test_trailing_slash_stripped(self):
         import importlib, os
-        from publication import site_config
+        from publish.api import site_config
         os.environ["EPISTEMIC_LENS_BASE"] = "/foo/"
         try:
             importlib.reload(site_config)
@@ -2593,7 +2593,7 @@ class TestSiteBasePrefix(unittest.TestCase):
     def test_empty_is_valid(self):
         # For org-page or custom-domain deploys at the root.
         import importlib, os
-        from publication import site_config
+        from publish.api import site_config
         os.environ["EPISTEMIC_LENS_BASE"] = ""
         try:
             importlib.reload(site_config)
@@ -2606,7 +2606,7 @@ class TestSiteBasePrefix(unittest.TestCase):
         """End-to-end: with SITE_BASE='/epistemic-lens', a rendered
         story page's <link rel="stylesheet"> uses the prefixed path."""
         import importlib
-        from publication import site_config, page_renderers, card_renderers
+        from publish.api import site_config, page_renderers, card_renderers
         site_config.SITE_BASE = "/epistemic-lens"
         page_renderers.SITE_BASE = "/epistemic-lens"
         card_renderers.SITE_BASE = "/epistemic-lens"
@@ -2638,9 +2638,9 @@ class TestHomeRenderer(unittest.TestCase):
     check that the right data ended up in the right cube class."""
 
     def setUp(self):
-        from publication import page_renderers as pr
-        from publication import card_renderers as cr
-        from publication import site_config as sc
+        from publish.api import page_renderers as pr
+        from publish.api import card_renderers as cr
+        from publish.api import site_config as sc
         self._site_base_orig = sc.SITE_BASE
         sc.SITE_BASE = ""
         pr.SITE_BASE = ""
@@ -2648,9 +2648,9 @@ class TestHomeRenderer(unittest.TestCase):
         self.pr = pr
 
     def tearDown(self):
-        from publication import page_renderers as pr
-        from publication import card_renderers as cr
-        from publication import site_config as sc
+        from publish.api import page_renderers as pr
+        from publish.api import card_renderers as cr
+        from publish.api import site_config as sc
         sc.SITE_BASE = self._site_base_orig
         pr.SITE_BASE = self._site_base_orig
         cr.SITE_BASE = self._site_base_orig
@@ -2993,7 +2993,7 @@ class TestTopNPicker(unittest.TestCase):
     """Plan 4: pick_top_n_stories returns top-N by score (instead of top-1)."""
 
     def test_returns_n_stories_with_score_breakdown(self):
-        from publication import build_index as bi
+        from publish.api import build_index as bi
         stories = [
             {"story_key": "a", "title": "A", "n_buckets": 30,
              "card_kind": "paradox", "finding_synthesis": "p"},
@@ -3014,7 +3014,7 @@ class TestTopNPicker(unittest.TestCase):
             self.assertIn("final_score", entry["score_breakdown"])
 
     def test_filters_below_min_buckets(self):
-        from publication import build_index as bi
+        from publish.api import build_index as bi
         # Today picker config has min_n_buckets_for_hero=8;
         # pick_top_n_stories lowers this to 3.
         stories = [
@@ -3034,9 +3034,9 @@ class TestPageRenderers(unittest.TestCase):
         # Monkey-patch SITE_BASE to empty so tests assert root-relative paths
         # without coupling to the deploy-prefix value. Production uses the
         # real env-derived prefix; tests verify path SHAPE not exact prefix.
-        from publication import page_renderers as pr
-        from publication import card_renderers as cr
-        from publication import site_config as sc
+        from publish.api import page_renderers as pr
+        from publish.api import card_renderers as cr
+        from publish.api import site_config as sc
         self._site_base_orig = sc.SITE_BASE
         sc.SITE_BASE = ""
         pr.SITE_BASE = ""
@@ -3044,9 +3044,9 @@ class TestPageRenderers(unittest.TestCase):
         self.pr = pr
 
     def tearDown(self):
-        from publication import page_renderers as pr
-        from publication import card_renderers as cr
-        from publication import site_config as sc
+        from publish.api import page_renderers as pr
+        from publish.api import card_renderers as cr
+        from publish.api import site_config as sc
         sc.SITE_BASE = self._site_base_orig
         pr.SITE_BASE = self._site_base_orig
         cr.SITE_BASE = self._site_base_orig
@@ -3291,8 +3291,8 @@ class TestCardRenderers(unittest.TestCase):
     (html.escape on every interpolation)."""
 
     def setUp(self):
-        from publication import card_renderers as cr
-        from publication import site_config as sc
+        from publish.api import card_renderers as cr
+        from publish.api import site_config as sc
         self._site_base_orig = sc.SITE_BASE
         sc.SITE_BASE = ""
         cr.SITE_BASE = ""
@@ -3305,8 +3305,8 @@ class TestCardRenderers(unittest.TestCase):
         }
 
     def tearDown(self):
-        from publication import card_renderers as cr
-        from publication import site_config as sc
+        from publish.api import card_renderers as cr
+        from publish.api import site_config as sc
         sc.SITE_BASE = self._site_base_orig
         cr.SITE_BASE = self._site_base_orig
 
@@ -3436,7 +3436,7 @@ class TestCardPNGRender(unittest.TestCase):
             from playwright.sync_api import sync_playwright
         except ImportError:
             self.skipTest("playwright not installed")
-        from publication import card_renderers as cr
+        from publish.api import card_renderers as cr
         self.cr = cr
         # Smoke-launch to confirm Chromium is downloaded. If launch
         # fails with "Executable doesn't exist", the runner doesn't
@@ -3479,7 +3479,7 @@ class TestCardPickers(unittest.TestCase):
     gracefully handle missing signal sources (day-1 stories)."""
 
     def setUp(self):
-        from publication import build_index as bi
+        from publish.api import build_index as bi
         self.bi = bi
         # Reset the lru_cache between tests so config edits land.
         bi._card_picker_cfg.cache_clear()
@@ -3599,7 +3599,7 @@ class TestPR1Hygiene(unittest.TestCase):
         Taiwan / Iran nuclear get first shot at the budget."""
         if "analytical.build_briefing" in sys.modules:
             importlib.reload(sys.modules["analytical.build_briefing"])
-        from analytical import build_briefing as bb
+        from core.briefing import build as bb
         # Stub stories: alphabet-shuffled so JSON-order iteration would
         # surface the dated entry first.
         stories = {
@@ -3623,7 +3623,7 @@ class TestPR1Hygiene(unittest.TestCase):
         headline bucket should not sit alongside thousand-token corpora."""
         if "analytical.build_metrics" in sys.modules:
             importlib.reload(sys.modules["analytical.build_metrics"])
-        from analytical import build_metrics as bm
+        from core.metrics import cross_bucket as bm
         from collections import Counter as _Counter
         # Synthetic vocabs: 'thin' = 5 tokens, 'normal' = 100 tokens
         vocabs = {
@@ -3649,7 +3649,7 @@ class TestPR1Hygiene(unittest.TestCase):
         the same wire-syndicated copy verbatim."""
         if "analytical.validate_analysis" in sys.modules:
             importlib.reload(sys.modules["analytical.validate_analysis"])
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         # Two corpus entries with substantially overlapping text.
         wire = ("Reuters reports that Iran has accelerated uranium enrichment "
                 "at the Fordow facility according to IAEA inspectors.")
@@ -3693,7 +3693,7 @@ class TestPR1Hygiene(unittest.TestCase):
         showing '?' to readers."""
         if "analytical.validate_analysis" in sys.modules:
             importlib.reload(sys.modules["analytical.validate_analysis"])
-        from analytical import validate_analysis as v
+        from core.analyze import validate as v
         briefing = {
             "corpus": [
                 {"bucket": "italy", "feed": "ANSA",
@@ -3727,7 +3727,7 @@ class TestPR1Hygiene(unittest.TestCase):
         from collections import Counter as _Counter
         if "analytical.tilt_index" in sys.modules:
             importlib.reload(sys.modules["analytical.tilt_index"])
-        from analytical import tilt_index as ti
+        from core.compare import tilt as ti
         # Outlet with one strong signal bigram + many low-count noise
         # candidates. With BH at q=0.05, only the strong one should survive.
         outlet = _Counter({("alpha", "beta"): 200})
@@ -3761,7 +3761,7 @@ class TestListQualifyingStories(unittest.TestCase):
         self.briefings = Path(self.tmp) / "briefings"
         self.briefings.mkdir()
         # Patch the module's BRIEFINGS constant for this test
-        from analytical import list_qualifying_stories as lqs
+        from core.briefing import qualifying as lqs
         self._orig_briefings = lqs.BRIEFINGS
         lqs.BRIEFINGS = self.briefings
         self.lqs = lqs

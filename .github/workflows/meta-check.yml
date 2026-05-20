@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify meta_version.json hashes match pinned inputs
-        run: python baseline_pin.py --check
+        run: python scripts/baseline_pin.py --check
 
   unit-tests:
     runs-on: ubuntu-latest

@@ -37,7 +37,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-import meta
+import core.meta as meta
 
 # Articles below this raw cosine never get assigned (after per-lang delta
 # adjustment). Set by Phase A calibration; conservative default for safety.
@@ -216,7 +216,7 @@ def load_embedding_cache(
     when present."""
     import numpy as np  # type: ignore
 
-    cache_dir = cache_dir or (meta.REPO_ROOT / "snapshots")
+    cache_dir = cache_dir or (meta.SNAPSHOTS_DIR)
     vec_path = cache_dir / f"{date}_embeddings.npy"
     id_path = cache_dir / f"{date}_embedding_ids.json"
     if not vec_path.exists() or not id_path.exists():

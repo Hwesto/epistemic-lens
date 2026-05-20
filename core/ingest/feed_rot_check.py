@@ -16,8 +16,8 @@ from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import meta
-from meta import REPO_ROOT as ROOT
+import core.meta as meta
+from core.meta import REPO_ROOT as ROOT
 SNAPS = ROOT / "snapshots"
 REVIEW = ROOT / "review"
 REVIEW.mkdir(exist_ok=True)

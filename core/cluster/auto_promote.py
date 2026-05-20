@@ -13,10 +13,10 @@ out of scope — promotion bumps the methodology pin (minor for additive,
 major if patterns are revised) and that decision should be conscious.
 
 Usage:
-  python -m analytical.auto_promote                    # 7-day window ending today
-  python -m analytical.auto_promote --window 14        # different window
-  python -m analytical.auto_promote --threshold 4      # stricter persistence
-  python -m analytical.auto_promote --json             # machine-readable output
+  python -m core.cluster.auto_promote                    # 7-day window ending today
+  python -m core.cluster.auto_promote --window 14        # different window
+  python -m core.cluster.auto_promote --threshold 4      # stricter persistence
+  python -m core.cluster.auto_promote --json             # machine-readable output
 """
 from __future__ import annotations
 
@@ -28,8 +28,8 @@ from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import meta
-from analytical.build_briefing import find_emerging_stories
+import core.meta as meta
+from core.briefing.build import find_emerging_stories
 
 ROOT = meta.REPO_ROOT
 SNAPSHOTS = ROOT / "snapshots"

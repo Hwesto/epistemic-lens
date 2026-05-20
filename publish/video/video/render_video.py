@@ -22,7 +22,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from meta import REPO_ROOT as ROOT
+from core.meta import REPO_ROOT as ROOT
 TEMPLATE = ROOT / "video_template"
 DEFAULT_OUT = ROOT / "videos"
 

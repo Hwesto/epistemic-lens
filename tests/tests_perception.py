@@ -15,8 +15,8 @@ import json
 import unittest
 from pathlib import Path
 
-import meta
-from analytical import perception
+import core.meta as meta
+from core.embed import perception
 
 
 class TestArticleId(unittest.TestCase):
@@ -227,8 +227,8 @@ class TestArticleIdConsistencyAcrossPipeline(unittest.TestCase):
         perception.article_id; pipeline.discover_residual subtracts IDs
         the same way; build_briefing reads them the same way. The
         helper is the single point of truth — this test enforces that."""
-        from pipeline import embed_articles as ea
-        from pipeline import discover_residual as dr
+        from core.embed import encode as ea
+        from core.cluster import cluster_daily as dr
         # All three modules must import the same article_id symbol.
         self.assertIs(perception.article_id, ea.perception.article_id)
         self.assertIs(perception.article_id, dr.perception.article_id)

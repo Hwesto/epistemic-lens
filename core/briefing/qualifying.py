@@ -16,8 +16,8 @@ Output: a JSON array of `story_key` strings printed to stdout (single
 line, suitable for piping into `$GITHUB_OUTPUT`).
 
 Usage:
-  python -m analytical.list_qualifying_stories --date 2026-05-19
-  python -m analytical.list_qualifying_stories --date 2026-05-19 --min-buckets 3
+  python -m core.briefing.qualifying --date 2026-05-19
+  python -m core.briefing.qualifying --date 2026-05-19 --min-buckets 3
 """
 from __future__ import annotations
 
@@ -26,9 +26,9 @@ import json
 import sys
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
-BRIEFINGS = meta.REPO_ROOT / "briefings"
+BRIEFINGS = meta.BRIEFINGS_DIR
 
 # Sibling artefact suffixes the build pipeline writes alongside each
 # briefing. None of these are themselves story briefings; filter them out

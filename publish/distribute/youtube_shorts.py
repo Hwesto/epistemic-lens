@@ -23,9 +23,9 @@ YT_*` so cron continues. See `human.md` and `docs/OPERATIONS.md`.
 uploading.
 
 Usage:
-  python -m distribution.youtube_shorts                       # upload today's
-  python -m distribution.youtube_shorts --date 2026-05-08
-  python -m distribution.youtube_shorts --dry-run
+  python -m publish.distribute.youtube_shorts                       # upload today's
+  python -m publish.distribute.youtube_shorts --date 2026-05-08
+  python -m publish.distribute.youtube_shorts --dry-run
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 VIDEOS = ROOT / "videos"

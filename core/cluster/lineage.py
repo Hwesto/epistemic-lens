@@ -30,9 +30,9 @@ Algorithm:
   5. Write archive/persistent_residual_<DATE>.json.
 
 Usage:
-  python -m analytical.persistence_tracker                  # 7-day window
-  python -m analytical.persistence_tracker --window 14
-  python -m analytical.persistence_tracker --jaccard 0.40   # stricter
+  python -m core.cluster.lineage                  # 7-day window
+  python -m core.cluster.lineage --window 14
+  python -m core.cluster.lineage --jaccard 0.40   # stricter
 """
 from __future__ import annotations
 
@@ -44,10 +44,10 @@ from collections import defaultdict
 from datetime import date as date_cls, timedelta
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
-SNAPSHOTS = meta.REPO_ROOT / "snapshots"
-ARCHIVE = meta.REPO_ROOT / "archive"
+SNAPSHOTS = meta.SNAPSHOTS_DIR
+ARCHIVE = meta.ARCHIVE_DIR
 # Defensive: if archive/ exists but is something other than a directory
 # (corruption; recovery from a checkout that hit a file collision), fail
 # loudly with a clear message rather than letting mkdir explode.

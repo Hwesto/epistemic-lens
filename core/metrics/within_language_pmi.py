@@ -21,8 +21,8 @@ Inputs: a briefing JSON.
 Output: per (bucket, lang) top-k bigram-association list.
 
 Usage:
-  python -m analytical.within_language_pmi
-  python -m analytical.within_language_pmi --date 2026-05-08
+  python -m core.metrics.within_language_pmi
+  python -m core.metrics.within_language_pmi --date 2026-05-08
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"

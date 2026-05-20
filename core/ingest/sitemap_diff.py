@@ -20,11 +20,11 @@ each, normalize URLs, and compute:
 Output: stdout JSON or markdown table.
 
 Usage:
-  python -m pipeline.sitemap_diff \\
+  python -m core.ingest.sitemap_diff \\
       https://www.bbc.co.uk/news/world/rss.xml \\
       https://www.bbc.co.uk/sitemaps/https-sitemap-com-news-1.xml
 
-  python -m pipeline.sitemap_diff --batch outlets.json
+  python -m core.ingest.sitemap_diff --batch outlets.json
 """
 from __future__ import annotations
 

@@ -295,14 +295,14 @@ git clone <repo> && cd epistemic-lens
 pip install -r requirements.txt
 
 # Run today's deterministic pipeline locally (matches the cron's ingest job)
-python -m pipeline.ingest
-python -m pipeline.extract_full_text
-python -m pipeline.dedup
-python -m pipeline.daily_health
-python -m pipeline.embed_articles                # downloads ~2GB on first run
-python -m analytical.build_briefing
-python -m analytical.build_metrics
-python -m pipeline.discover_residual
+python -m core.ingest.pull_feeds
+python -m core.ingest.extract_bodies
+python -m core.ingest.dedup
+python -m core.ingest.health
+python -m core.embed.encode                # downloads ~2GB on first run
+python -m core.briefing.build
+python -m core.metrics.cross_bucket
+python -m core.cluster.cluster_daily
 
 # Test
 python -m unittest tests tests_edge tests_calibration tests_perception tests_discovery

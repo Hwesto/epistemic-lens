@@ -61,7 +61,7 @@ except ImportError:
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-import meta
+import core.meta as meta
 
 # Pinned defaults come from meta_version.json; env vars still allow ad-hoc
 # override for local debugging (e.g. SKIP_EMBED=1 python ingest.py).

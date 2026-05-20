@@ -22,10 +22,10 @@ from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 
-import meta
-from analytical import perception
-from analytical.coverage_warnings import coverage_warnings_for
-from pipeline.extract_full_text import signal_text
+import core.meta as meta
+from core.embed import perception
+from core.briefing.coverage_warnings import coverage_warnings_for
+from core.ingest.extract_bodies import signal_text
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

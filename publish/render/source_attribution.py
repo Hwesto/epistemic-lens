@@ -23,9 +23,9 @@ Cache (write-through; agent maintains via the prompt's commit step):
     {"sha": "...", "n_quotes": 0, "first_extracted_at": "...", "story_key": "..."}
 
 Usage:
-  python -m analytical.source_attribution --validate sources/<file>.json
-  python -m analytical.source_attribution --list-pending --date 2026-05-08
-  python -m analytical.source_attribution --validate-all --date 2026-05-08
+  python -m publish.render.source_attribution --validate sources/<file>.json
+  python -m publish.render.source_attribution --list-pending --date 2026-05-08
+  python -m publish.render.source_attribution --validate-all --date 2026-05-08
 """
 from __future__ import annotations
 
@@ -36,7 +36,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"

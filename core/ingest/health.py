@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from statistics import mean
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

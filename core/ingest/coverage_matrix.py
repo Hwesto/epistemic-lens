@@ -43,9 +43,9 @@ Phase 1. Reads dedup'd snapshots so cross-day duplicates are visible to
 consumers. New cron entry sits between `dedup` and `build_briefing`.
 
 Usage:
-  python -m pipeline.coverage_matrix
-  python -m pipeline.coverage_matrix --date 2026-05-08
-  python -m pipeline.coverage_matrix --snapshot path/to/snap.json
+  python -m core.ingest.coverage_matrix
+  python -m core.ingest.coverage_matrix --date 2026-05-08
+  python -m core.ingest.coverage_matrix --snapshot path/to/snap.json
 """
 from __future__ import annotations
 
@@ -57,7 +57,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

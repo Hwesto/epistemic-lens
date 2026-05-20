@@ -19,10 +19,10 @@ that survives a fresh clone — that step requires `gh` CLI auth and is left
 to a human (see human.md). Default behaviour: just bundle locally.
 
 Usage:
-  python -m pipeline.rollup --dry-run                      # list candidates
-  python -m pipeline.rollup                                # bundle + remove
-  python -m pipeline.rollup --window-days 180              # custom retention
-  python -m pipeline.rollup --no-remove                    # bundle only, keep originals
+  python -m core.ingest.rollup --dry-run                      # list candidates
+  python -m core.ingest.rollup                                # bundle + remove
+  python -m core.ingest.rollup --window-days 180              # custom retention
+  python -m core.ingest.rollup --no-remove                    # bundle only, keep originals
 
 Cron: monthly (1st of each month). Idempotent — re-running on already-rolled
 months is a no-op.
@@ -38,7 +38,7 @@ from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SNAPS = ROOT / "snapshots"

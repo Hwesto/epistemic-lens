@@ -41,16 +41,16 @@ import json
 import sys
 from pathlib import Path
 
-import meta
-from pipeline.dedup import dedup_snapshot
-from analytical.within_language_llr import within_language_llr
-from analytical.within_language_pmi import within_language_pmi
-from publication.build_index import (
+import core.meta as meta
+from core.ingest.dedup import dedup_snapshot
+from core.metrics.within_language_llr import within_language_llr
+from core.metrics.within_language_pmi import within_language_pmi
+from publish.api.build_index import (
     pick_per_story_card_kind, compute_finding_synthesis,
 )
 
 ROOT = meta.REPO_ROOT
-CANARY = ROOT / "canary"
+CANARY = Path(__file__).parent  # v10 layout: scripts/canary/
 CORPUS = CANARY / "deterministic_corpus.json"
 BASELINES = CANARY / "deterministic_baseline"
 

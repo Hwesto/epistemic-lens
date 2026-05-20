@@ -18,10 +18,10 @@ part of PR 1 (schemas_hash discipline + meta_version requirement on
 existing artifacts).
 
 Usage:
-  python -m analytical.stamp_long_drafts                  # all today's
-  python -m analytical.stamp_long_drafts --date 2026-05-08
-  python -m analytical.stamp_long_drafts FILE.json [...]
-  python -m analytical.stamp_long_drafts --all            # backfill all
+  python -m publish.render.stamp_long_drafts                  # all today's
+  python -m publish.render.stamp_long_drafts --date 2026-05-08
+  python -m publish.render.stamp_long_drafts FILE.json [...]
+  python -m publish.render.stamp_long_drafts --all            # backfill all
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 DRAFTS = ROOT / "drafts"

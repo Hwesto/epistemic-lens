@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT))
 # ---------------------------------------------------------------------------
 class TestBucketWeighting(unittest.TestCase):
     def setUp(self):
-        import meta
+        import core.meta as meta
         # Ensure cache is warm with the live bucket_weights.json.
         meta.bucket_weights_table.cache_clear()
         self.meta = meta
@@ -47,7 +47,7 @@ class TestBucketWeighting(unittest.TestCase):
         self.assertEqual(self.meta.bucket_weight_confidence("unknown_xyz"), "unknown")
 
     def test_weighted_distribution_dominated_by_heavy_bucket(self):
-        from analytical.build_metrics import weighted_frame_distribution
+        from core.metrics.cross_bucket import weighted_frame_distribution
         analysis = {
             "frames": [
                 {"frame_id": "SECURITY_DEFENSE", "buckets": ["india"]},  # weight ~640
@@ -66,7 +66,7 @@ class TestBucketWeighting(unittest.TestCase):
         )
 
     def test_low_confidence_buckets_surfaced(self):
-        from analytical.build_metrics import weighted_frame_distribution
+        from core.metrics.cross_bucket import weighted_frame_distribution
         analysis = {
             "frames": [
                 {"frame_id": "POLITICAL", "buckets": ["yemen", "syria", "lebanon"]},
@@ -82,7 +82,7 @@ class TestBucketWeighting(unittest.TestCase):
 # ---------------------------------------------------------------------------
 class TestAutoPromote(unittest.TestCase):
     def test_existing_canonical_tokens_filtered(self):
-        from analytical import auto_promote
+        from core.cluster import auto_promote
         existing = auto_promote.existing_canonical_tokens()
         # canonical_stories.json has "hormuz", "ukraine", "taiwan" tokens
         # baked into patterns.
@@ -91,7 +91,7 @@ class TestAutoPromote(unittest.TestCase):
         self.assertIn("ukrain", existing)  # \bukrain(?:e|ian)\b prefix
 
     def test_persistent_token_detection_with_synthetic_snapshots(self):
-        from analytical import auto_promote
+        from core.cluster import auto_promote
         # Mock snapshots: token "novelthing" appears 4 of 7 days; "oneoff" 1 of 7.
         from collections import defaultdict
         days_seen: dict[str, dict[str, set[str]]] = defaultdict(dict)
@@ -122,7 +122,7 @@ class TestAutoPromote(unittest.TestCase):
         self.assertNotIn("oneoff", names, "1-day appearances must not promote")
 
     def test_renders_no_candidates_message(self):
-        from analytical import auto_promote
+        from core.cluster import auto_promote
         out = auto_promote.render_markdown([], "2026-05-08", 7, 3)
         self.assertIn("No candidates met the persistence threshold", out)
 
@@ -132,26 +132,26 @@ class TestAutoPromote(unittest.TestCase):
 # ---------------------------------------------------------------------------
 class TestSitemapDiff(unittest.TestCase):
     def test_canonicalize_strips_www_and_trailing_slash(self):
-        from pipeline.sitemap_diff import _canonicalize
+        from core.ingest.sitemap_diff import _canonicalize
         self.assertEqual(
             _canonicalize("https://www.bbc.com/news/world/"),
             _canonicalize("https://bbc.com/news/world"),
         )
 
     def test_canonicalize_drops_query(self):
-        from pipeline.sitemap_diff import _canonicalize
+        from core.ingest.sitemap_diff import _canonicalize
         self.assertEqual(
             _canonicalize("https://example.com/article?utm_source=feed"),
             "https://example.com/article",
         )
 
     def test_category_extraction(self):
-        from pipeline.sitemap_diff import _category_of
+        from core.ingest.sitemap_diff import _category_of
         self.assertEqual(_category_of("https://x.com/opinion/2026/foo"), "/opinion")
         self.assertEqual(_category_of("https://x.com/"), "/")
 
     def test_parse_rss_extracts_links(self):
-        from pipeline.sitemap_diff import _parse_rss
+        from core.ingest.sitemap_diff import _parse_rss
         rss = b"""<?xml version="1.0"?>
         <rss version="2.0"><channel>
         <title>X</title>
@@ -163,7 +163,7 @@ class TestSitemapDiff(unittest.TestCase):
         self.assertEqual(items[0]["url"], "https://x.com/a")
 
     def test_parse_sitemap_extracts_locs(self):
-        from pipeline.sitemap_diff import _parse_sitemap
+        from core.ingest.sitemap_diff import _parse_sitemap
         sm = b"""<?xml version="1.0"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
           <url><loc>https://x.com/a</loc><lastmod>2026-05-05</lastmod></url>
@@ -184,7 +184,7 @@ class TestClusteringSwap(unittest.TestCase):
             from sklearn.cluster import DBSCAN  # noqa
         except ImportError:
             self.skipTest("sklearn / numpy not installed")
-        from pipeline import ingest
+        from core.ingest import pull_feeds as ingest
 
         # 6 vectors in 2 obvious clusters
         vectors = np.array([
@@ -208,7 +208,7 @@ class TestClusteringSwap(unittest.TestCase):
             import numpy as np
         except ImportError:
             self.skipTest("hdbscan not installed in test env")
-        from pipeline import ingest
+        from core.ingest import pull_feeds as ingest
 
         vectors = np.array([
             [1.0, 0.0, 0.0],
@@ -229,14 +229,14 @@ class TestClusteringSwap(unittest.TestCase):
 # ---------------------------------------------------------------------------
 class TestCommonCrawlFallback(unittest.TestCase):
     def test_no_index_returns_no_index_status(self):
-        from pipeline import commoncrawl_fallback as cc
+        from core.ingest import commoncrawl_fallback as cc
         with patch.object(cc, "_list_recent_news_indices", lambda *a, **k: []):
             body, status = cc.fetch_body_via_cc("https://example.com/article")
         self.assertIsNone(body)
         self.assertEqual(status, "no_index")
 
     def test_indices_but_no_record(self):
-        from pipeline import commoncrawl_fallback as cc
+        from core.ingest import commoncrawl_fallback as cc
         with patch.object(cc, "_list_recent_news_indices", lambda *a, **k: ["http://fake-index"]), \
              patch.object(cc, "_query_cdx", lambda *a, **k: None):
             body, status = cc.fetch_body_via_cc("https://example.com/article")
@@ -244,7 +244,7 @@ class TestCommonCrawlFallback(unittest.TestCase):
         self.assertEqual(status, "no_record")
 
     def test_record_but_warc_failure(self):
-        from pipeline import commoncrawl_fallback as cc
+        from core.ingest import commoncrawl_fallback as cc
         with patch.object(cc, "_list_recent_news_indices", lambda *a, **k: ["http://fake-index"]), \
              patch.object(cc, "_query_cdx", lambda *a, **k: {"filename": "x", "offset": 1, "length": 2}), \
              patch.object(cc, "_fetch_warc_record", lambda *a, **k: None):

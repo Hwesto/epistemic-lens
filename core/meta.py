@@ -33,24 +33,36 @@ except ImportError:  # pragma: no cover
     _re = _stdlib_re
     _REGEX_LIB_AVAILABLE = False
 
-ROOT = Path(__file__).parent
-META_PATH = ROOT / "meta_version.json"
-STOPWORDS_PATH = ROOT / "stopwords.txt"
-CANONICAL_STORIES_PATH = ROOT / "canonical_stories.json"
-FRAMES_CODEBOOK_PATH = ROOT / "frames_codebook.json"
-BUCKET_QUALITY_PATH = ROOT / "bucket_quality.json"
-BUCKET_WEIGHTS_PATH = ROOT / "bucket_weights.json"
-CARD_PICKER_PATH = ROOT / "card_picker.json"
-TODAY_PICKER_PATH = ROOT / "today_picker.json"
-FEEDS_PATH = ROOT / "feeds.json"
-PROMPTS_DIR = ROOT / ".claude" / "prompts"
-SCHEMAS_DIR = ROOT / "docs" / "api" / "schema"
-
-# Public alias used by scripts that have moved into subdirectories
-# (pipeline/, analytical/, publication/, video/). Their own
-# Path(__file__).parent points at the subdir, not the repo root, so
-# they read REPO_ROOT from here as the single source of truth.
-REPO_ROOT = ROOT
+# v10 layout: meta.py lives at core/meta.py; config files at core/config/;
+# data dirs at data/; publish artefacts at publish/; tests at tests/.
+# REPO_ROOT is the actual repo root (one level up from core/).
+REPO_ROOT = Path(__file__).parent.parent
+ROOT = REPO_ROOT  # legacy alias for existing call sites
+CONFIG_DIR = REPO_ROOT / "core" / "config"
+META_PATH = CONFIG_DIR / "meta_version.json"
+STOPWORDS_PATH = CONFIG_DIR / "stopwords.txt"
+CANONICAL_STORIES_PATH = CONFIG_DIR / "canonical_stories.json"
+FRAMES_CODEBOOK_PATH = CONFIG_DIR / "frames_codebook.json"
+BUCKET_QUALITY_PATH = CONFIG_DIR / "bucket_quality.json"
+BUCKET_WEIGHTS_PATH = CONFIG_DIR / "bucket_weights.json"
+FEEDS_PATH = CONFIG_DIR / "feeds.json"
+# Picker config still lives in publish/ since it's a render-layer concern
+CARD_PICKER_PATH = REPO_ROOT / "publish" / "api" / "card_picker.json"
+TODAY_PICKER_PATH = REPO_ROOT / "publish" / "api" / "today_picker.json"
+# Prompts split: core/analyze for analytical prompts; publish/render for draft prompts
+PROMPTS_DIR = REPO_ROOT / "core" / "analyze" / "prompts"
+PUBLISH_PROMPTS_DIR = REPO_ROOT / "publish" / "render" / "prompts"
+# JSON schemas served from /api/schema/ live in publish/api/schemas/
+SCHEMAS_DIR = REPO_ROOT / "publish" / "api" / "schemas"
+# Runtime data dirs all under data/
+SNAPSHOTS_DIR = REPO_ROOT / "data" / "snapshots"
+BRIEFINGS_DIR = REPO_ROOT / "data" / "briefings"
+ANALYSES_DIR = REPO_ROOT / "data" / "analyses"
+SOURCES_DIR = REPO_ROOT / "data" / "sources"
+DRAFTS_DIR = REPO_ROOT / "data" / "drafts"
+COVERAGE_DIR = REPO_ROOT / "data" / "coverage"
+TRAJECTORY_DIR = REPO_ROOT / "data" / "trajectory"
+ARCHIVE_DIR = REPO_ROOT / "data" / "archive"
 
 
 def file_hash(path: Path) -> str:

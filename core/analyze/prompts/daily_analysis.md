@@ -7,7 +7,7 @@ has produced today's corpora.
 Your output is **one JSON file per story** at
 `analyses/<DATE>_<story_key>.json`, conforming to the schema at
 `docs/api/schema/analysis.schema.json`. The JSON is the canonical product.
-A separate `python -m publication.render_analysis_md` step in the workflow
+A separate `python -m publish.render.analysis_md` step in the workflow
 renders human-readable markdown for PR review — you don't write markdown.
 
 ---
@@ -100,7 +100,7 @@ For each story you analyse:
    h. Assemble the JSON conforming to the schema.
    i. Validate the file with the project's full validator (schema +
       citation grounding + number reconciliation):
-      `python -m analytical.validate_analysis analyses/<DATE>_<story>.json`
+      `python -m core.analyze.validate analyses/<DATE>_<story>.json`
    j. If it reports any errors, fix them in your JSON and re-run the
       validator until it prints `OK`. The same validator runs in the
       workflow post-commit; if you skip this step and any error is

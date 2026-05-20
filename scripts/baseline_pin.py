@@ -34,10 +34,13 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta as M
+# Allow `python scripts/baseline_pin.py …` from repo root
+sys.path.insert(0, str(Path(__file__).parent.parent))
+import core.meta as M
 
-ROOT = Path(__file__).parent
-META_PATH = ROOT / "meta_version.json"
+# v10 layout: meta_version.json lives at core/config/, not at repo root.
+ROOT = Path(__file__).parent.parent
+META_PATH = M.META_PATH
 
 LEVELS = ("patch", "minor", "major")
 

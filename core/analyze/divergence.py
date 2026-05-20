@@ -35,9 +35,9 @@ Skips silently with `skipped: no_headline_pass_yet` if the headline JSON
 hasn't been produced for that story (e.g. the cron sub-step hasn't run).
 
 Usage:
-  python -m analytical.headline_body_divergence
-  python -m analytical.headline_body_divergence --date 2026-05-08
-  python -m analytical.headline_body_divergence --analysis analyses/<file>.json
+  python -m core.analyze.divergence
+  python -m core.analyze.divergence --date 2026-05-08
+  python -m core.analyze.divergence --analysis analyses/<file>.json
 """
 from __future__ import annotations
 
@@ -48,7 +48,7 @@ from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 ANALYSES = ROOT / "analyses"

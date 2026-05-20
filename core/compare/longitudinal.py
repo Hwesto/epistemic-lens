@@ -43,9 +43,9 @@ Output: `trajectory/<story_key>.json`:
     }
 
 Usage:
-  python -m analytical.longitudinal                      # all stories, all dates
-  python -m analytical.longitudinal --story hormuz_iran  # one story
-  python -m analytical.longitudinal --window 30          # last 30 days only
+  python -m core.compare.longitudinal                      # all stories, all dates
+  python -m core.compare.longitudinal --story hormuz_iran  # one story
+  python -m core.compare.longitudinal --window 30          # last 30 days only
 """
 from __future__ import annotations
 
@@ -58,7 +58,7 @@ from collections import defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 ANALYSES = ROOT / "analyses"

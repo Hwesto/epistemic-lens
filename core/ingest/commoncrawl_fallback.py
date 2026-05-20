@@ -21,11 +21,11 @@ Network deps: `requests` (already in requirements.txt) plus `warcio` for
 WARC parsing if available; gracefully skipped otherwise.
 
 Usage (called automatically by extract_full_text):
-  from pipeline.commoncrawl_fallback import fetch_body_via_cc
+  from core.ingest.commoncrawl_fallback import fetch_body_via_cc
   text, status = fetch_body_via_cc(url, within_days=14)
 
 Standalone (for one-off retroactive enrichment):
-  python -m pipeline.commoncrawl_fallback https://example.com/article
+  python -m core.ingest.commoncrawl_fallback https://example.com/article
 """
 from __future__ import annotations
 

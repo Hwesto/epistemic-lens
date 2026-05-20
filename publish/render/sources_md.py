@@ -8,8 +8,8 @@ inline; this module is for cases where consumers want sources alone.
 Output: `sources/<DATE>_<story_key>.md` (sits alongside the JSON).
 
 Usage:
-  python -m publication.render_sources_md
-  python -m publication.render_sources_md --date 2026-05-08
+  python -m publish.render.sources_md
+  python -m publish.render.sources_md --date 2026-05-08
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 SOURCES = ROOT / "sources"

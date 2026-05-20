@@ -27,9 +27,9 @@ Skip: insufficient_history if wire baseline isn't built yet, or per-outlet
 when the outlet has fewer than `--min-outlet-articles` articles in window.
 
 Usage:
-  python -m analytical.tilt_index
-  python -m analytical.tilt_index --window-days 30 --top-k 15
-  python -m analytical.tilt_index --bucket usa
+  python -m core.compare.tilt
+  python -m core.compare.tilt --window-days 30 --top-k 15
+  python -m core.compare.tilt --bucket usa
 """
 from __future__ import annotations
 
@@ -40,9 +40,9 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
-import meta
-from analytical.mc_correction import bh_filter, bonferroni_filter, two_sided_p_from_z
-from analytical.within_language_pmi import log_odds_with_prior
+import core.meta as meta
+from core.compare.mc_correction import bh_filter, bonferroni_filter, two_sided_p_from_z
+from core.metrics.within_language_pmi import log_odds_with_prior
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
@@ -255,7 +255,7 @@ def main() -> int:
     baseline = load_wire_baseline()
     if not baseline:
         print("insufficient_history: no baseline/wire_bigrams.json yet. "
-              "Run `python -m analytical.wire_baseline` first.")
+              "Run `python -m core.compare.wire_baseline` first.")
         return 0
     wire_cnt = parse_baseline_bigrams(baseline)
     if sum(wire_cnt.values()) == 0:

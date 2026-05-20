@@ -40,8 +40,8 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
-from publication.site_config import SITE_BASE
+import core.meta as meta
+from publish.api.site_config import SITE_BASE
 
 ROOT = meta.REPO_ROOT
 BRIEFINGS = ROOT / "briefings"
@@ -710,7 +710,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
 
         # Plan 4: 4-card home page. Top 3 stories each get their own
         # card with 6 cubes; the 4th card is "Today" (meta cubes).
-        from publication.page_renderers import render_home_page
+        from publish.api.page_renderers import render_home_page
         top_picks = pick_top_n_stories(
             [{"story_key": e["key"], "title": e["title"],
               "n_buckets": e.get("n_buckets"),
@@ -747,7 +747,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
         # rendered as a card via the existing card_renderers path. Same
         # try/except shape as before — a missing playwright skips PNG.
         try:
-            from publication.card_renderers import render_card_html, render_card_png
+            from publish.api.card_renderers import render_card_html, render_card_png
             picked_signals = signals_by_key.get(todays_card["story_key"], {})
             card_html = render_card_html(today_payload, picked_signals)
             styles_text = (WEB_SRC / "styles.css").read_text(encoding="utf-8")
@@ -768,7 +768,7 @@ def build_one_date(date: str, stories: dict[str, set[str]]) -> dict | None:
     # Plan 2: per-story HTML pages + today's coverage matrix.
     # Each story gets a multi-card-stack page at /<date>/<story>/index.html
     # composed from every archetype renderer that has signal.
-    from publication.page_renderers import render_story_page, render_coverage_page
+    from publish.api.page_renderers import render_story_page, render_coverage_page
     for entry in story_entries:
         story_key = entry["key"]
         story_dir_local = out_dir / story_key
@@ -1021,7 +1021,7 @@ def copy_outlet_pages() -> int:
     written."""
     if not TILT.is_dir():
         return 0
-    from publication.page_renderers import render_outlet_page
+    from publish.api.page_renderers import render_outlet_page
     out_base = API / "outlet"
     out_base.mkdir(parents=True, exist_ok=True)
     n = 0
@@ -1048,7 +1048,7 @@ def copy_outlet_pages() -> int:
 def write_methodology_page() -> None:
     """Plan 2: render the methodology page that surfaces today's pin +
     codebook + analysis prompt + picker explanation + drift segments."""
-    from publication.page_renderers import render_methodology_page
+    from publish.api.page_renderers import render_methodology_page
     meta_dict = json.loads(meta.META_PATH.read_text(encoding="utf-8"))
     # Load the codebook (frames + descriptions).
     codebook_path = ROOT / "frames_codebook.json"
@@ -1097,7 +1097,7 @@ def write_methodology_page() -> None:
 def write_archive_page() -> None:
     """Plan 2: render the archive browser. Walks every api/<date>/index.json
     and produces a chronological table."""
-    from publication.page_renderers import render_archive_page
+    from publish.api.page_renderers import render_archive_page
     date_indexes: list[tuple[str, dict]] = []
     for sub in sorted(API.iterdir(), reverse=True):
         if not sub.is_dir():

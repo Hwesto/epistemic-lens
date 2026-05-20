@@ -13,10 +13,10 @@ approval can happen from any clone of the repo (no secrets needed);
 posting only happens where the secrets live.
 
 Usage:
-  python -m distribution.publish --list                # all pending
-  python -m distribution.publish --list --date 2026-05-08
-  python -m distribution.publish --approve <id>        # → approved/
-  python -m distribution.publish --reject <id>         # → rejected/
+  python -m publish.distribute.publish --list                # all pending
+  python -m publish.distribute.publish --list --date 2026-05-08
+  python -m publish.distribute.publish --approve <id>        # → approved/
+  python -m publish.distribute.publish --reject <id>         # → rejected/
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 DIST = ROOT / "distribution"

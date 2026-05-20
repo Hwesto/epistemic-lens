@@ -19,8 +19,8 @@ day at e5-large's 1024-dim float32, and CI runners regenerate fresh each
 cron. Local development re-runs reuse when present.
 
 Usage:
-  python -m pipeline.embed_articles                  # latest snapshot in snapshots/
-  python -m pipeline.embed_articles --date 2026-05-19
+  python -m core.embed.encode                  # latest snapshot in snapshots/
+  python -m core.embed.encode --date 2026-05-19
 """
 from __future__ import annotations
 
@@ -30,10 +30,10 @@ import sys
 import time
 from pathlib import Path
 
-import meta
-from analytical import perception
+import core.meta as meta
+from core.embed import perception
 
-SNAPSHOTS = meta.REPO_ROOT / "snapshots"
+SNAPSHOTS = meta.SNAPSHOTS_DIR
 
 
 def encode_snapshot(date: str, snapshots_dir: Path = SNAPSHOTS) -> int:

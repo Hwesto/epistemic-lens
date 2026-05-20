@@ -4,7 +4,7 @@ PR 6: approval-gate transformation. The daily cron no longer
 auto-fires x_poster.py or youtube_shorts.py. Instead, this script
 produces one "pending envelope" per (story, target-platform) at
 distribution/pending/<date>/<story>_<platform>.json. A human (or a
-separate workflow) calls `python -m distribution.publish --approve
+separate workflow) calls `python -m publish.distribute.publish --approve
 <id>` to move an envelope to distribution/approved/, where the
 actual posting can pick it up.
 
@@ -17,8 +17,8 @@ zero-touch for the analytical pipeline (which IS the load-bearing
 claim); the public-channels surface is opt-in.
 
 Usage:
-  python -m distribution.stage                         # today
-  python -m distribution.stage --date 2026-05-08
+  python -m publish.distribute.stage                         # today
+  python -m publish.distribute.stage --date 2026-05-08
 """
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 DRAFTS = ROOT / "drafts"

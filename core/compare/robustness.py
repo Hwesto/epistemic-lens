@@ -31,9 +31,9 @@ Cron: daily, after `analytical.longitudinal`. Skips with `no_trajectories`
 when no trajectory files yet exist.
 
 Usage:
-  python -m analytical.robustness_check
-  python -m analytical.robustness_check --story hormuz_iran
-  python -m analytical.robustness_check --threshold 0.4
+  python -m core.compare.robustness
+  python -m core.compare.robustness --story hormuz_iran
+  python -m core.compare.robustness --threshold 0.4
 """
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 TRAJECTORY = ROOT / "trajectory"
@@ -171,7 +171,7 @@ def main() -> int:
     traj_dir = Path(args.trajectory_dir)
     if not traj_dir.is_dir():
         print(f"no_trajectories: {traj_dir} doesn't exist. "
-              "Run `python -m analytical.longitudinal` first.")
+              "Run `python -m core.compare.longitudinal` first.")
         return 0
     targets = sorted(p for p in traj_dir.glob("*.json")
                       if p.stem != "index"

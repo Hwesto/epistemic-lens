@@ -22,7 +22,7 @@ from __future__ import annotations
 import html as _html
 from datetime import date as _date
 
-from publication.site_config import SITE_BASE
+from publish.api.site_config import SITE_BASE
 
 
 # Bucket → emoji flag. Not exhaustive; unknown buckets render with

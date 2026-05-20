@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT))
 
-from analytical import validate_analysis as V
+from core.analyze import validate as V
 
 
 # ---------------------------------------------------------------------------
@@ -69,13 +69,13 @@ class TestCodebookValidator(unittest.TestCase):
 # ---------------------------------------------------------------------------
 class TestCanaryParser(unittest.TestCase):
     def test_parse_strict_json(self):
-        from canary import run as C
+        from scripts.canary import run as C
         out = C._parse('{"primary_frame":"SECURITY_DEFENSE","secondary_frame":"ECONOMIC"}')
         self.assertEqual(out["primary_frame"], "SECURITY_DEFENSE")
         self.assertEqual(out["secondary_frame"], "ECONOMIC")
 
     def test_parse_with_prose_recovers(self):
-        from canary import run as C
+        from scripts.canary import run as C
         out = C._parse(
             'Looking at this, my answer is:\n'
             '{"primary_frame":"HEALTH_SAFETY","secondary_frame":null}\n'
@@ -84,11 +84,11 @@ class TestCanaryParser(unittest.TestCase):
         self.assertEqual(out["primary_frame"], "HEALTH_SAFETY")
 
     def test_parse_garbage_returns_empty(self):
-        from canary import run as C
+        from scripts.canary import run as C
         self.assertEqual(C._parse("definitely not json"), {})
 
     def test_cosine_basic(self):
-        from canary import run as C
+        from scripts.canary import run as C
         self.assertAlmostEqual(C.cosine([1, 0, 0], [1, 0, 0]), 1.0, places=5)
         self.assertAlmostEqual(C.cosine([1, 0, 0], [0, 1, 0]), 0.0, places=5)
 

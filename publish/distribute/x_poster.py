@@ -19,9 +19,9 @@ the one-time auth setup.
 even when tokens are present.
 
 Usage:
-  python -m distribution.x_poster                       # post today's threads
-  python -m distribution.x_poster --date 2026-05-08
-  python -m distribution.x_poster --dry-run             # never posts
+  python -m publish.distribute.x_poster                       # post today's threads
+  python -m publish.distribute.x_poster --date 2026-05-08
+  python -m publish.distribute.x_poster --dry-run             # never posts
 """
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meta
+import core.meta as meta
 
 ROOT = meta.REPO_ROOT
 DRAFTS = ROOT / "drafts"

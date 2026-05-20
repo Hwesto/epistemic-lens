@@ -33,13 +33,13 @@ import re
 from datetime import date as _date
 from pathlib import Path
 
-import meta
-from publication.card_renderers import (
+import core.meta as meta
+from publish.api.card_renderers import (
     BUCKET_FLAGS, EYEBROWS, _e, _flag, _human_date,
     _render_word, _render_paradox, _render_silence,
     _render_shift, _render_sources, _render_tilt,
 )
-from publication.site_config import SITE_BASE
+from publish.api.site_config import SITE_BASE
 
 
 # Archetype → section heading tagline pair (shown above each per-story card).
@@ -333,7 +333,7 @@ def render_story_page(date: str, story_key: str, signals: dict,
         "meta_version": story_entry.get("meta_version") or meta.VERSION,
         "finding_synthesis": "",  # section caption fills this role; no inline line
     }
-    from publication.card_renderers import RENDERERS as _RENDERERS
+    from publish.api.card_renderers import RENDERERS as _RENDERERS
     for kind in _archetypes_with_signal(signals):
         renderer = _RENDERERS.get(kind)
         if not renderer:
@@ -341,7 +341,7 @@ def render_story_page(date: str, story_key: str, signals: dict,
         tc = dict(today_card_for_synthesis, card_kind=kind)
         card_html = renderer(tc, signals)
         # Use card's finding_synthesis as the section caption.
-        from publication.build_index import compute_finding_synthesis
+        from publish.api.build_index import compute_finding_synthesis
         try:
             caption = compute_finding_synthesis(signals, kind)
         except Exception:
@@ -434,7 +434,7 @@ def render_story_page(date: str, story_key: str, signals: dict,
 def _load_metrics_for_story(date: str, story_key: str) -> dict | None:
     """Sibling-load metrics.json for the story (not in signals from
     collect_story_signals — that one loads everything except metrics)."""
-    p = meta.REPO_ROOT / "briefings" / f"{date}_{story_key}_metrics.json"
+    p = meta.BRIEFINGS_DIR / f"{date}_{story_key}_metrics.json"
     if not p.exists():
         return None
     try:
@@ -1025,7 +1025,7 @@ def _translation_html(text: str, src_lang: str) -> str:
     if not src_lang or src_lang.lower().startswith("en"):
         return ""
     try:
-        from publication import translate as _translate_mod
+        from publish.render import translate as _translate_mod
         en = _translate_mod.translate(text, src_lang)
     except Exception:
         en = ""
@@ -1098,7 +1098,7 @@ def _cube_tension(today_card: dict, signals: dict, group: str) -> str:
             f'<p class="cube-joint">{_e(joint_teaser)}</p>'
         )
         caption = f"{_e(a_bucket)} vs {_e(b_bucket)} · paradox"
-        from publication.card_renderers import _render_paradox
+        from publish.api.card_renderers import _render_paradox
         tc = dict(today_card, card_kind="paradox")
         open_html = _render_paradox(tc, signals)
     else:
@@ -1205,7 +1205,7 @@ def _cube_words(today_card: dict, signals: dict, group: str) -> str:
             )
         thing = f'<ul class="words-list">{"".join(items)}</ul>'
         caption = f"{len(rows)} buckets · distinctive PMI/LLR"
-        from publication.card_renderers import _render_word
+        from publish.api.card_renderers import _render_word
         tc = dict(today_card, card_kind="word")
         open_html = _render_word(tc, signals)
     return _cube_shell("words", "WORDS", thing, caption, open_html, group)
@@ -1275,7 +1275,7 @@ def _cube_silence(today_card: dict, signals: dict, group: str) -> str:
         )
         caption = "convergent coverage · no off-narrative bucket"
 
-    from publication.card_renderers import _render_silence
+    from publish.api.card_renderers import _render_silence
     tc = dict(today_card, card_kind="silence")
     open_html = _render_silence(tc, signals)
     return _cube_shell("silence", "SILENCE", thing, caption, open_html, group)
@@ -1464,7 +1464,7 @@ def _signals_metrics(signals: dict) -> dict:
         return m
     date = signals.get("date") or ""
     story_key = signals.get("story_key") or ""
-    p = meta.REPO_ROOT / "briefings" / f"{date}_{story_key}_metrics.json"
+    p = meta.BRIEFINGS_DIR / f"{date}_{story_key}_metrics.json"
     if p.exists():
         try:
             return json.loads(p.read_text(encoding="utf-8"))
@@ -1556,7 +1556,7 @@ def _render_headlines_strip(briefing: dict, analysis: dict) -> str:
         tr_html = ""
         if title and lang and not lang.startswith("en"):
             try:
-                from publication import translate as _translate_mod
+                from publish.render import translate as _translate_mod
                 en = _translate_mod.translate(title, lang)
             except Exception:
                 en = ""
@@ -1674,7 +1674,7 @@ def _render_today_card(date: str, all_story_entries: list[dict],
     group = "cubes-today"
     n_stories = len(all_story_entries)
     # Active buckets today: union from coverage/<date>.json
-    coverage_path = meta.REPO_ROOT / "coverage" / f"{date}.json"
+    coverage_path = meta.COVERAGE_DIR / f"{date}.json"
     n_buckets_active = 0
     n_buckets_total = 0
     active_constellation = ""
@@ -1706,7 +1706,7 @@ def _render_today_card(date: str, all_story_entries: list[dict],
     from collections import Counter
     lang_counts: Counter[str] = Counter()
     for s in all_story_entries:
-        bpath = meta.REPO_ROOT / "briefings" / f"{date}_{s['key']}.json"
+        bpath = meta.BRIEFINGS_DIR / f"{date}_{s['key']}.json"
         if bpath.exists():
             try:
                 b = json.loads(bpath.read_text(encoding="utf-8"))
@@ -1719,7 +1719,7 @@ def _render_today_card(date: str, all_story_entries: list[dict],
     # Biggest framing-share move today: walk trajectories for picked stories
     biggest_move = (None, 0.0, None, None)  # (story, abs, signed, frame)
     for s in all_story_entries:
-        tpath = meta.REPO_ROOT / "trajectory" / f"{s['key']}.json"
+        tpath = meta.TRAJECTORY_DIR / f"{s['key']}.json"
         if not tpath.exists():
             continue
         try:
