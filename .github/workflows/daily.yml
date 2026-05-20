@@ -29,7 +29,7 @@ jobs:
   ingest:
     if: ${{ inputs.skip_ingest != true }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
 
     steps:
       - uses: actions/checkout@v4
@@ -57,12 +57,16 @@ jobs:
         # producing artefacts stamped with a drifted pin.
         run: python scripts/baseline_pin.py --check
 
-      - name: Pull feeds + embed + cluster
+      - name: Pull feeds
         env:
           MAX_ITEMS: '50'
           MAX_WORKERS: '30'
           PER_HOST_DELAY: '1.0'
           FETCH_TIMEOUT: '20'
+          # v10 clustering runs off core.embed.encode + core.cluster.cluster_daily.
+          # pull_feeds' legacy MiniLM embed + HDBSCAN + convergence/similarity is
+          # v9 dead weight — skip it (saves a model load + ~3 min).
+          SKIP_EMBED: '1'
         run: python -m core.ingest.pull_feeds
 
       - name: Extract full article text (hybrid — clusters + per-feed coverage)
@@ -84,18 +88,16 @@ jobs:
       - name: Daily health snapshot
         run: python -m core.ingest.health
 
-      - name: Embed every article (PR2 Phase B perception cache)
-        # Writes snapshots/<DATE>_embeddings.npy + <DATE>_embedding_ids.json,
-        # keyed by sha256(model_id|signal_text_version|feed|link) so bumping
-        # either pin invalidates the cache loudly. The .npy is NOT committed
-        # (~13MB at e5-large 1024-dim); CI runners regenerate fresh each cron.
-        # build_briefing reads this cache; missing or stale → encodes inline.
+      - name: Embed every article (clustering cache)
+        # Writes data/snapshots/<DATE>_embeddings.npy + <DATE>_embedding_ids.json,
+        # keyed by sha256(model_id|signal_text_version|feed|link) so bumping the
+        # model OR signal_text_version invalidates the cache loudly. The .npy is
+        # NOT committed; CI runners regenerate fresh each cron.
         #
-        # First run on a fresh runner / after a model bump downloads
-        # intfloat/multilingual-e5-large (~2GB) which adds ~5 min.
-        # Subsequent runs hit the HF cache (~/.cache/huggingface). Encoding
-        # ~6,500 articles takes ~12 min on the 2-core ubuntu-latest runner.
-        # Total Phase B cost per cron: ~12 min steady-state, ~17 min cold.
+        # Model: paraphrase-multilingual-MiniLM-L12-v2 (384-dim, ~120MB).
+        # Encodes the full ~6,500-article day in ~3-4 min on the 2-core
+        # ubuntu-latest runner. (e5-large was tried first but took 17+ min
+        # and timed the job out — see meta_version.json perception._doc.)
         run: python -m core.embed.encode
 
       - name: Cluster all articles via HDBSCAN (v10)

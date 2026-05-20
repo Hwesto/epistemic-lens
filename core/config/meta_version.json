@@ -1,8 +1,8 @@
 {
   "_doc": "Methodology pin. The single declaration of every input and parameter that affects analytical output. Every artifact (snapshot, briefing, metrics, analysis, draft) is stamped with `meta_version` so longitudinal consumers can tell which era it belongs to. Bump rules: patch=no output change; minor=forward-compatible (added story, added feed); major=invalidates longitudinal comparison (swapped cross-bucket similarity, swapped embedding model, removed buckets). Bump via `python baseline_pin.py --bump <level> --reason '...'`. CI enforces hash match via `python -m meta` on every PR.",
-  "meta_version": "10.0.1",
-  "pinned_at": "2026-05-20T02:13:05Z",
-  "pin_reason": "v10 path fixes: prompt schema-path reference updated to publish/api/schemas/",
+  "meta_version": "10.0.2",
+  "pinned_at": "2026-05-20T11:51:33Z",
+  "pin_reason": "embedding model e5-large -> MiniLM-L12-v2: e5-large timed out the 30min ingest job; MiniLM encodes the full day in ~3-4min",
   "feeds": {
     "version": "0.5.0",
     "n_feeds": 235,
@@ -83,15 +83,9 @@
     "prompts_hash": "sha256:9fed72e324163e5cfeb00c5003d3453fc5ac56d257367f02df1f743565f91372"
   },
   "perception": {
-    "_doc": "Perception layer (PR2 Phase B, meta-v9.0.0). The story-matcher that turns raw articles into per-story briefings. Pre-9.0.0 this was Latin-script regex patterns that rejected 100% of non-Latin script articles. As of 9.0.0 it's an embedding-based softmax-argmax matcher: every article is encoded with `embedding_model`, scored (cosine) against each canonical story's anchor centroid (anchors live in canonical_stories.json), and assigned to its argmax story above `assignment_floor`. Calibrated against the 343-row Opus silver-labeled eval set in calibration/; macro F1 = 0.815, 4 of 5 gate-checkable per-language F1s pass. NOTE: `signal_text_version` is ONLY a cache-invalidation knob — it composes into the article_id hash so a bump triggers a re-encode. It does NOT represent a runtime feature flag or pin segment by itself.",
-    "method": "embedding_softmax_argmax",
-    "embedding_model": "intfloat/multilingual-e5-large",
-    "signal_text_version": "v1",
-    "assignment_floor_default": 0.4,
-    "cosine_gap_default": 0.02,
-    "calibration_eval_n": 343,
-    "calibration_macro_f1": 0.815,
-    "calibration_report": "calibration/perception_eval_report.md"
+    "_doc": "v10 article embedding. Every article in the daily snapshot is encoded with `embedding_model`; the vectors feed core/cluster/cluster_daily.py (HDBSCAN over the full day). `signal_text_version` is a cache-invalidation knob — it composes into the article_id hash, so bumping it OR `embedding_model` forces a clean re-encode. Switched from intfloat/multilingual-e5-large to MiniLM-L12-v2 in v10.0.2: e5-large took 17+ min on the 2-core runner and timed the ingest job out; MiniLM encodes the full day in ~3-4 min with embeddings still well-suited to topic clustering. (Block name kept as `perception` for the meta.PERCEPTION accessor; the v9 softmax-argmax matcher it was named for retired in v10.)",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "signal_text_version": "v1"
   },
-  "pin_self_hash": "sha256:e79439fef2c6ab4f21582757f72df13489e3a0ebe6eea07535a21cafd363213a"
+  "pin_self_hash": "sha256:a3e1392b0575d32b0fcabc2053bc0b152a2122a72ddfb29863123004c236fde9"
 }
