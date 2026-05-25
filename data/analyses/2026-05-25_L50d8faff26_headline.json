@@ -1,0 +1,73 @@
+{
+  "story_key": "L50d8faff26",
+  "date": "2026-05-25",
+  "n_buckets": 9,
+  "n_articles": 11,
+  "tldr": "Headlines across 9 countries uniformly memorialize Suzuki as the 'father' or 'pioneer' of Japan's convenience store culture, with Argentine and Pakistani outlets adding a business-growth framing that calls him a 'retail god' and successful entrepreneur.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Father/pioneer of Japan's konbini",
+      "buckets": ["mexico", "pakistan", "germany", "japan", "brazil", "wire_services", "india", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "Muere Toshifumi Suzuki, 'padre' de las tiendas 7-Eleven",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "father of Japan's convenience store industry, dies at 93",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Er machte Eier-Sandwiches zu Internet-Hits",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "father of Japan's convenience stores, dies at 93",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Retail empire builder / 'retail god'",
+      "buckets": ["argentina_chile", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "La Nacion AR",
+          "quote": "destacado empresario japonés vinculado al crecimiento",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Japan's 'retail god' who founded 7-Eleven, dies aged 93",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "india", "mean_similarity": 0.765, "n_tokens": 37},
+    {"bucket": "argentina_chile", "mean_similarity": 0.802, "n_tokens": 36},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.812, "n_tokens": 53},
+    {"bucket": "pakistan", "mean_similarity": 0.856, "n_tokens": 146},
+    {"bucket": "japan", "mean_similarity": 0.863, "n_tokens": 41}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage presents Suzuki as an iconic cultural figure — the universally recognized 'father' of Japan's convenience store industry — with minimal framing divergence across 9 countries.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
