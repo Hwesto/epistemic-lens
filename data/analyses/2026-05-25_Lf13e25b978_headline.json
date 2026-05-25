@@ -1,0 +1,137 @@
+{
+  "story_key": "Lf13e25b978",
+  "date": "2026-05-25",
+  "n_buckets": 7,
+  "n_articles": 13,
+  "tldr": "At the headline layer, Gabbard's resignation is framed almost universally as a straightforward Trump administration personnel change. Only Globe and Mail names the husband's cancer in the headline itself; India-based outlets uniquely use their headline slots to question that explanation (OpIndia) or draw factional conclusions (Hindustan Times). Daily Wire foregrounds forthcoming intelligence disclosures; Mother Jones pivots entirely to the right-wing conspiracy ecosystem's response. Five of seven country-buckets offer no distinctive frame beyond the bare personnel announcement.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "DNI exit as Trump admin personnel event",
+      "buckets": ["usa", "turkey", "brazil", "canada", "india", "russia", "kenya"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Trump Reacts To Tulsi Gabbard's Surprise Resignation",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump's national intelligence chief Gabbard announces",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Diretora de Inteligência Nacional dos EUA renuncia",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Tulsi Gabbard resigns as Trump's director",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Tulsi Gabbard's exit weakens MAGA's anti-war faction",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Tulsi Gabbard quits Trump administration",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "US intelligence chief Tulsi Gabbard resigns",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Husband's cancer named in headline",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "citing husband's cancer battle",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Intel disclosures & Iran/Venezuela rift",
+      "buckets": ["usa", "india"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "What Tulsi Gabbard Plans To Reveal Before Leaving Office",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "OpIndia",
+          "quote": "fell out with Trump over the Iran war, Venezuela operation",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "kenya", "mean_similarity": 0.691, "n_tokens": 23},
+    {"bucket": "brazil", "mean_similarity": 0.747, "n_tokens": 39},
+    {"bucket": "russia", "mean_similarity": 0.749, "n_tokens": 23},
+    {"bucket": "canada", "mean_similarity": 0.779, "n_tokens": 29},
+    {"bucket": "india", "mean_similarity": 0.797, "n_tokens": 133},
+    {"bucket": "turkey", "mean_similarity": 0.803, "n_tokens": 27},
+    {"bucket": "usa", "mean_similarity": 0.806, "n_tokens": 180}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mother Jones",
+      "bucket": "usa",
+      "finding": "Only outlet whose headline is primarily about the right-wing conspiracy ecosystem's response rather than the resignation itself — the resignation is framed as backdrop to an online reaction story, inverting the conventional announcement structure.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "Only headline to frame the departure as an intelligence disclosure event ('Plans To Reveal Before Leaving Office') rather than a personnel change or health emergency — the story is what she will do next, not that she is leaving.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Uses 'quits' rather than 'resigns' — the only outlet to choose vocabulary with an adversarial/impulsive connotation, subtly implying rupture without stating political disagreement; all other English-language outlets use 'resigns' or 'announces resignation.'",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "OpIndia",
+      "bucket": "india",
+      "finding": "Only outlet to publish a question headline explicitly challenging the cancer explanation and naming Iran war and Venezuela operations as alternative causes — the policy-disagreement hypothesis is in the headline itself, not buried in the body.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "Publishes a tabloid gossip headline ('bizarre nickname,' 'explosive claim') foregrounding intra-MAGA hostility from Trump allies — a completely distinct story angle absent from every other outlet's headline.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "Headline coverage reduces Gabbard's exit to a bare personnel-change announcement across most country-buckets; only India-based outlets and US ideological-outlier titles use the headline slot to advance skeptical, factional, or intelligence-disclosure frames that diverge sharply from the official stated reason.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
