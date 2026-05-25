@@ -369,6 +369,8 @@ def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
     date = analysis["date"]
     # v10 uses lineage_id; v9 used story_key — accept either.
     lineage_id = analysis.get("lineage_id") or analysis.get("story_key")
+    if not lineage_id:
+        return 1, ["missing lineage_id (or story_key for v9 files)"]
 
     try:
         briefing = _load_briefing(date, lineage_id)
