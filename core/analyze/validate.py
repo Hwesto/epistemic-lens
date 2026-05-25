@@ -301,7 +301,11 @@ def check_numbers(analysis: dict, metrics: dict) -> list[str]:
                 f"numbers: n_outlets {analysis.get('n_outlets')} != "
                 f"metrics.n_outlets {metrics.get('n_outlets')}"
             )
-    if analysis.get("n_articles") is not None and metrics.get("n_articles") is not None:
+    # Skip n_articles cross-check when metrics is v9-format (has n_buckets but
+    # not n_outlets); the two pipeline versions count articles differently.
+    if (analysis.get("n_articles") is not None
+            and metrics.get("n_articles") is not None
+            and metrics.get("n_outlets") is not None):
         if analysis.get("n_articles") != metrics.get("n_articles"):
             errors.append(
                 f"numbers: n_articles {analysis.get('n_articles')} != "
@@ -309,9 +313,9 @@ def check_numbers(analysis: dict, metrics: dict) -> list[str]:
             )
 
     # outlet_isolation_top values must match metrics.outlet_isolation
-    # (LaBSE outlet-mean cosine; v10).
+    # (LaBSE outlet-mean cosine; v10). Metrics may carry v9 `bucket` key.
     metrics_iso = {
-        r["outlet"]: r["mean_similarity"]
+        (r.get("outlet") or r.get("bucket")): r["mean_similarity"]
         for r in (metrics.get("outlet_isolation") or metrics.get("isolation") or [])
         if r.get("outlet") or r.get("bucket")
     }
@@ -363,14 +367,15 @@ def validate_one(analysis_path: Path) -> tuple[int, list[str]]:
         return 1, schema_errs
 
     date = analysis["date"]
-    story_key = analysis["story_key"]
+    # v10 uses lineage_id; v9 used story_key — accept either.
+    lineage_id = analysis.get("lineage_id") or analysis.get("story_key")
 
     try:
-        briefing = _load_briefing(date, story_key)
+        briefing = _load_briefing(date, lineage_id)
     except ValidationError as e:
         return 1, [str(e)]
     try:
-        metrics = _load_metrics(date, story_key)
+        metrics = _load_metrics(date, lineage_id)
     except ValidationError as e:
         return 1, [str(e)]
 
