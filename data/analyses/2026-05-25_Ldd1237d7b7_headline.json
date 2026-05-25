@@ -1,0 +1,144 @@
+{
+  "story_key": "Ldd1237d7b7",
+  "date": "2026-05-25",
+  "n_buckets": 8,
+  "n_articles": 15,
+  "tldr": "At the headline layer this story is locked into a single dominant frame: China's year-long orbital mission as capability preparation for a 2030 Moon landing. France24 is the only outlet to use race language ('la course vers la Lune'); all other titles use mission-planning language ('targets,' 'eyes,' 'ambitions'). Two of three Chinese-outlet headlines cover BCI standards and AI development rather than the launch, making the china bucket a structural outlier at 0.457 cosine similarity. Hong Kong Free Press uniquely foregrounds the astronaut's rank as 'a police superintendent' — a detail absent from every other outlet's headline.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Year-long orbital stay as 2030 Moon prep",
+      "buckets": ["france", "canada", "germany", "india", "russia", "taiwan_hk", "usa", "china"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "l'un d'eux restera un an dans la station Tiangong",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "astronaut on year-long space mission",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "China launches year-long orbital mission with lunar ambitions",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Chinesischer Raumfahrer bleibt erstmals ein Jahr im All",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "1 of 3 astronauts set for yearlong stay",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "year-long space mission as it eyes 2030 moon landing",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "crewed space flight as part of Moon ambitions",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "China schedules next moonshot this year",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China racing or targeting 2030 Moon landing",
+      "buckets": ["france", "canada", "india"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "la Chine dans la course vers la Lune",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "targets 2030 moon landing",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "eyes 2030 moon landing",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "First HK astronaut: former police superintendent",
+      "buckets": ["taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "with Hong Kong astronaut – a police superintendent – aboard",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "Hong Kong police officer-turned-astronaut aboard",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.457, "n_tokens": 44},
+    {"bucket": "russia", "mean_similarity": 0.668, "n_tokens": 244},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.703, "n_tokens": 282},
+    {"bucket": "canada", "mean_similarity": 0.704, "n_tokens": 41},
+    {"bucket": "india", "mean_similarity": 0.706, "n_tokens": 35},
+    {"bucket": "usa", "mean_similarity": 0.717, "n_tokens": 35},
+    {"bucket": "germany", "mean_similarity": 0.734, "n_tokens": 81},
+    {"bucket": "france", "mean_similarity": 0.75, "n_tokens": 91}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "bucket": "france",
+      "finding": "Only outlet to use 'race' language in the headline ('la course vers la Lune'); every other outlet uses 'targets,' 'eyes,' 'ambitions,' or 'goals' — neutral mission-planning vocabulary.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Hong Kong Free Press",
+      "bucket": "taiwan_hk",
+      "finding": "Only outlet to headline the astronaut's institutional rank as 'a police superintendent' rather than the generic 'police officer,' foregrounding a precise title that carries institutional weight in the post-2020 Hong Kong security context.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "CGTN Politics",
+      "bucket": "china",
+      "finding": "Only article in the cluster covering not the Shenzhou-23 launch but BCI national standards — grouped here by topic proximity to China tech governance, not the space mission; one of two china-bucket headlines entirely absent from the launch story.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "Headline coverage of Shenzhou-23 is overwhelmingly a capability story — the year-long orbital stay as a stepping stone to the 2030 Moon landing — with France24 the lone outlier naming this a race, and Hong Kong Free Press the lone outlier placing the astronaut's police rank, not just her city, in the headline.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
