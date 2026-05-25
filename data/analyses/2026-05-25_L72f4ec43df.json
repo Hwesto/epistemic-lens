@@ -1,0 +1,246 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "L72f4ec43df",
+  "cluster_id": 116,
+  "cluster_name": "Nine-story building collapse kills four in Angeles City Philippines",
+  "n_outlets": 17,
+  "n_countries": 11,
+  "n_articles": 21,
+  "salience_score": 4.812,
+  "event_summary": "A nine-story building under construction collapsed before dawn on May 24, 2026, in Angeles City, Pampanga province, Philippines. At least four people died and approximately 17 remained missing as of May 25, with rescue crews working manually through unstable rubble.",
+  "tldr": "The most consequential detail in this corpus is that the collapsed building had been formally shut down by labor inspectors in September 2024 for occupational safety violations yet was cleared to reopen a month later after the contractor claimed compliance. Rescue operations were severely constrained: crews had to work entirely by hand under scorching heat for more than 24 hours, unable to deploy excavators because the unstable structure risked further collapse. The only Philippine outlet in the corpus (Inquirer) was alone in reporting that construction workers' family members, including children, may have been living at the site, a detail absent from every international wire. Malaysian press ran two separate articles foregrounding the Malaysian nationality of the first confirmed fatality, showing how regional identity shapes disaster coverage within Southeast Asia.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "occupational safety violations pre-collapse",
+      "outlets": [
+        "AFP / France 24 EN",
+        "VnExpress English",
+        "Hindustan Times",
+        "NDTV World"
+      ],
+      "countries": [
+        "wire_services",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "authorities revealed the project had previously been suspended over safety violations before work resumed last year.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Regional labor department director Geraldine Panlilio said she had briefly shut the project down in September 2024 over violations of occupational safety standards.",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "The construction workers \"lacked safety gear\" like hardhats, boots, safety belts and lifelines, and worked under poor lighting and with no visible safety signages, she added.",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "machinery-restricted manual rescue",
+      "outlets": [
+        "South China Morning Post",
+        "Daily Maverick",
+        "Reuters (via Google News)",
+        "Deutsche Welle English",
+        "Al Jazeera English",
+        "CBC World"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "south_africa",
+        "wire_services",
+        "germany",
+        "qatar",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Philippine rescuers were racing against time on Monday in a search for possible signs of life more than 24 hours after the collapse of a building under construction in the city of Angeles, with crews carefully removing rocks and surrounding debris by hand.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The building collapsed before dawn after a severe thunderstorm. Officials said rescuers reported \"hearing voices\" in the rubble.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "workers and families living on construction site",
+      "outlets": [
+        "Inquirer",
+        "VnExpress English"
+      ],
+      "countries": [
+        "philippines",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Inquirer",
+          "country": "philippines",
+          "quote": "At least two survivors of the collapsed nine-story building in Barangay Balibago said minors may have been inside the construction site before the structure gave way. The accounts surfaced as rescuers continued searching for individuals feared trapped beneath the rubble of the unfinished mixed-use building along Teodoro Street. Ernesto Toleroso, 60, a construction worker, said some of his co-workers had their families staying with them at the site.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "\"It's very difficult, it is breaking my heart to wait for something uncertain,\" 47-year-old Casilao said, crying as she recounted how she slept alone at a local government building overnight Sunday.",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "regulatory clearance after prior shutdown",
+      "outlets": [
+        "AFP / France 24 EN",
+        "VnExpress English"
+      ],
+      "countries": [
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "authorities revealed the project had previously been suspended over safety violations before work resumed last year.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Construction resumed a month later after the building contractor complied with requirements,",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Malaysian victim nationality emphasis",
+      "outlets": [
+        "Malay Mail World",
+        "BBC World",
+        "CBC World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "uk",
+        "canada",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "A Malaysian man has been killed as a building collapsed in the northern Philippines today,",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "A Malaysian man has died and about 20 people are feared trapped at the site near Manila, officials say.",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "philippines",
+      "country": "philippines",
+      "mean_similarity": 0.613,
+      "note": "Most isolated bucket. Philippines coverage diverges most from the cross-country mean, driven by local survivor testimony and the child-presence detail absent from all wire and international outlets."
+    },
+    {
+      "outlet": "taiwan_hk",
+      "country": "taiwan_hk",
+      "mean_similarity": 0.632,
+      "note": "Second-most isolated; SCMP's detailed rescue-operation account emphasises machinery restrictions and manual debris removal in ways that differ in framing emphasis from wire-service toll summaries."
+    },
+    {
+      "outlet": "south_africa",
+      "country": "south_africa",
+      "mean_similarity": 0.657,
+      "note": "Third-most isolated; slight divergence from wire-service paraphrase reflects editorial framing around the time-pressure rescue narrative."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US domestic outlet present despite an estimated four-million-strong Filipino-American diaspora; US press appears to have deferred to wire services rather than filing dedicated coverage."
+    },
+    {
+      "country": "australia",
+      "what_they_covered_instead": "No Australian outlet present despite significant Filipino community and regional proximity; coverage appears to have defaulted to wire-service syndication."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Inquirer",
+      "country": "philippines",
+      "finding": "Only outlet to report that construction workers' family members, including children, may have been living inside the site at collapse time, with one survivor naming a co-worker whose family was staying there.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Inquirer",
+      "country": "philippines",
+      "finding": "Sole outlet to name and quote a survivor (Bryan Sytangco) describing the pre-dawn wakeup inside the workers' barracks and the moments before collapse.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Alone in pairing the Philippines event with a Moroccan building collapse in Fes three days earlier (nine dead), broadening the story to a cross-continental pattern of construction failures.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to specify that thermal imaging was used to detect breathing and heartbeats beneath the rubble, adding technical precision about the rescue methodology absent from other coverage.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Highlights that Angeles City Mayor Carmelo Lazatin explicitly refused to reclassify the operation from search-and-rescue to body retrieval more than 24 hours after collapse, a politically significant affirmation that survivors were still sought.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "VnExpress English",
+      "country": "vietnam_thai_my",
+      "finding": "Most regulatory-rich piece in the corpus: names labor director Geraldine Panlilio, cites the September 2024 shutdown, the contractor compliance claim, and specific missing gear, all absent from wire summaries.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Published two separate articles spotlighting the Malaysian nationality of the fatal victim, the only outlet to do so twice, reflecting diaspora-nationality salience unique to Southeast Asian regional press.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "International coverage converged on the rescue timeline and missing-persons toll, while the Philippine press surfaced the deeper story: a site with documented occupational safety violations, cleared to reopen months before the collapse, where workers' families including children appear to have been living. The prior regulatory shutdown-and-clearance sequence makes this a failure of enforcement, not merely a natural disaster triggered by a thunderstorm.",
+  "generated_at": "2026-05-25T12:13:46Z",
+  "model": "claude-sonnet-4-6"
+}
