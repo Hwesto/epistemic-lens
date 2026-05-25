@@ -1,0 +1,131 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "L4fc3d9cdb0",
+  "cluster_id": 131,
+  "cluster_name": "Gaza flotilla activists allege rape and torture in Israeli detention",
+  "salience_score": 3.208,
+  "n_outlets": 11,
+  "n_countries": 11,
+  "n_articles": 13,
+  "tldr": "The headline layer is almost unanimously locked on the crime-and-punishment register: abuse, rape, beatings, and torture in Israeli detention dominate nine of eleven outlet headlines, a narrower and more visceral framing than body text typically sustains. Daily Sabah breaks from the near-universal hedge by asserting facts rather than allegations ('describe beatings and rape by Israeli forces'), the starkest attribution in the corpus. Guardian Australia is the only outlet to surface a direct moral-condemnation framing via activist quote ('worse than animals') in the headline itself, a rhetorical move absent from all other titles. The diplomatic counter-narrative — Turkey's reception of 422 activists and the UK/Irish return — appears only in AfricaNews and The New Arab headlines, signalling that pan-African and pan-Arab outlets found the geopolitical hospitality angle more newsworthy at the homepage level than the abuse specifics.",
+  "event_summary": "Israeli forces intercepted the Global Sumud flotilla in international waters on 22 May 2026, detaining over 430 aid volunteers from 40 countries; Australians and other nationals returned home by 25 May alleging torture, rape, and beatings in Israeli custody.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "abuse, rape, beatings allegations in detention",
+      "outlets": [
+        "Al Jazeera English",
+        "Daily Sabah",
+        "Globe and Mail",
+        "Guardian Australia",
+        "Haaretz",
+        "Malay Mail World",
+        "News24 World",
+        "Reuters (via Google News)",
+        "The Guardian World"
+      ],
+      "countries": [
+        "qatar",
+        "turkey",
+        "canada",
+        "australia_nz",
+        "israel",
+        "vietnam_thai_my",
+        "south_africa",
+        "wire_services",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Freed flotilla activists describe beatings and rape",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Freed Gaza flotilla activists allege Israeli abuse",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "alleging sexual assault and beatings in Israeli detention",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "dehumanization — treated worse than animals",
+      "outlets": [
+        "Guardian Australia"
+      ],
+      "countries": [
+        "australia_nz"
+      ],
+      "evidence": [
+        {
+          "outlet": "Guardian Australia",
+          "country": "australia_nz",
+          "quote": "treated ‘worse than animals’ by Israel",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "diplomatic reception across nationalities",
+      "outlets": [
+        "AfricaNews",
+        "The New Arab"
+      ],
+      "countries": [
+        "pan_african",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Turkey welcomes 422 Gaza flotilla activists",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "UK and Irish Gaza flotilla activists return after detention",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "One of Daily Sabah's two headlines asserts 'Freed flotilla activists describe beatings and rape by Israeli forces' as established fact — the only headline in the corpus to drop hedging qualifiers entirely, presenting activist accounts as verified rather than alleged.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Guardian Australia",
+      "country": "australia_nz",
+      "finding": "Only outlet to embed a direct activist quote in the headline ('worse than animals'), making the morality/dehumanization frame surface-visible at the RSS/homepage layer where all other outlets relied on neutral allegation language.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Leads with Turkey's reception of 422 activists rather than the abuse narrative — the only headline in the corpus that foregrounds Turkey's diplomatic role, positioning the story around geopolitical hospitality rather than custodial violence.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "At the headline layer, nine of eleven outlets reduce this story to a single frame — allegations of rape, beatings, and torture in Israeli detention — with Daily Sabah uniquely asserting these as established fact rather than allegation, widening the gap between that outlet's advertised framing and the hedged register of the wire and Western press. The diplomatic and security dimensions visible in body text (blockade authority, Australian sanctions on Ben-Gvir, UK/Irish returnees) are almost entirely suppressed at headline level, appearing only in the pan-African and pan-Arab outlets.",
+  "generated_at": "2026-05-25T13:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
