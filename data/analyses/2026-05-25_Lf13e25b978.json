@@ -1,0 +1,198 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "Lf13e25b978",
+  "cluster_id": 123,
+  "cluster_name": "Tulsi Gabbard resigns as US Director of National Intelligence",
+  "n_outlets": 11,
+  "n_countries": 7,
+  "n_articles": 13,
+  "salience_score": 2.844,
+  "event_summary": "Tulsi Gabbard announced her resignation as Director of National Intelligence on May 22, 2026, effective June 30, citing her husband Abraham's diagnosis with an extremely rare form of bone cancer. Trump designated principal deputy Aaron Lukas as acting director.",
+  "tldr": "The most striking divergence in this cluster is between the personal-health framing dominant in English-language Western press and the political-tension subtext carried by non-Western and ideologically distinct outlets. Brazil's Folha de São Paulo explicitly states the departure followed 'desgastes e divergências' with Trump on sensitive issues — a framing absent from US mainstream coverage. India's Hindustan Times interprets the exit as weakening MAGA's anti-war faction, while Russian state outlet RT leads not with the cancer diagnosis but with Gabbard's unfinished investigation into US biolabs in Ukraine. The Daily Wire counterintuitively treats Gabbard as departing on her own terms, planning to release high-profile intelligence findings before leaving. Across 7 countries and 11 outlets, the cancer story is the stated reason, but multiple non-US outlets layer in political and geopolitical context that US mainstream press sidesteps.",
+  "frames": [
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "spousal loyalty / family crisis",
+      "outlets": [
+        "Axios World",
+        "Republic World (alt)",
+        "Standard Kenya World",
+        "Globe and Mail",
+        "Daily Wire",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "usa",
+        "india",
+        "kenya",
+        "canada",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "At this time, I must step away from public service to be by his side and fully support him through this battle,\" she wrote. \"Abraham has been my rock throughout our eleven years of marriage — standing steadfast through m",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "US Director of National Intelligence Tulsi Gabbard is resigning effective June 30 to support her husband Abraham, through an extremely rare bone cancer diagnosis, telling Trump she must step away from public service.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Trump says Gabbard’s principal deputy, Aaron Lukas, will serve as acting director",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "MAGA faction erosion / internal Trump friction",
+      "outlets": [
+        "Hindustan Times",
+        "Folha de São Paulo",
+        "Mother Jones"
+      ],
+      "countries": [
+        "india",
+        "brazil",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Tulsi Gabbard’s exit weakens MAGA’s anti-war faction\n\nHer resignation shows how little influence such voices wield around Donald Trump",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "A saída ocorre após desgastes e divergências entre ela e o presidente Donald Trump em temas considerados sensíveis para o governo. Leia mais (05/22/2026 - 14h35)",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Mother Jones",
+          "country": "usa",
+          "quote": "With Tulsi Gabbard’s Resignation, the Right-Wing Conspiracy Machine Spins Into High Gear\n\nDirector of National Intelligence Tulsi Gabbard announced on Friday that she would resign, saying that her husband, Abraham, has been diagnosed with a rare form of bone cancer. “At this time, I must step away from public service to be by his side and fully support him through this battle,” Gabbard wrote in her resignation […]",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "intelligence leadership gap / unfinished investigations",
+      "outlets": [
+        "Daily Wire",
+        "RT",
+        "Standard Kenya World"
+      ],
+      "countries": [
+        "usa",
+        "russia",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Director of National Intelligence Tulsi Gabbard plans to release findings from a number of high-profile investigations before she departs her role as President Donald Trump’s spy chief, The Daily Wire has learned.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Gabbard, who had been leading an investigation into US biolabs in Ukraine, quit after her husband was diagnosed with bone cancer Read Full Article at RT.com",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US foreign policy dissent — Iran, Venezuela, Ukraine",
+      "outlets": [
+        "RT",
+        "OpIndia"
+      ],
+      "countries": [
+        "russia",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "OpIndia",
+          "country": "india",
+          "quote": "Gabbard had long opposed American intervention in Venezuela, regime change wars carried out by USA, and deploying troops thousands of miles away from US shores.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Gabbard, who had been leading an investigation into US biolabs in Ukraine, quit after her husband was diagnosed with bone cancer Read Full Article at RT.com",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Leads with Gabbard's pending investigation into US biolabs in Ukraine as the defining context for her tenure — the only outlet to foreground this geopolitical intelligence angle above the personal cancer story.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "The only outlet to explicitly state the departure followed political tensions and disagreements with Trump on sensitive government issues, treating the health reason as incomplete.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Publishes an analysis piece arguing that the resignation weakens MAGA's anti-war faction and shows the limited influence of non-interventionist voices around Trump.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Exclusively reports that Gabbard plans to release high-profile investigation findings before her June 30 departure, framing this as a consequential intelligence disclosure event.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Mother Jones",
+      "country": "usa",
+      "finding": "Focuses on the right-wing online reaction and conspiracy ecosystem the resignation triggered rather than the resignation itself.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "OpIndia",
+      "country": "india",
+      "finding": "Explicitly questions whether the cancer diagnosis was the sole driver, cataloguing Gabbard's longstanding opposition to US intervention in Venezuela, Iran war, and regime-change operations.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Reports that Trump allies used a 'bizarre nickname' for Gabbard and that Laura Loomer celebrated the resignation, surfacing intra-MAGA hostility absent from other outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "The only outlet to name the successor — Aaron Lukas as acting director — providing the most concrete policy-continuity detail in the cluster.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Western English-language press accepts the cancer-diagnosis rationale as the primary frame; non-Western and ideologically distinct outlets — from Brazilian centre-left to Indian right-nationalist to Russian state media — consistently layer in political, geopolitical, and foreign-policy-dissent context that US mainstream press sidesteps. The cluster reveals a clean split between outlets that treat the stated reason as sufficient and those that treat it as incomplete.",
+  "generated_at": "2026-05-25T08:14:03Z",
+  "model": "claude-sonnet-4-6"
+}
