@@ -1,0 +1,129 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "Lcdf464fea1",
+  "cluster_id": 36,
+  "cluster_name": "Senegal President Faye sacks PM Sonko, parliament speaker resigns",
+  "salience_score": 3.5,
+  "n_outlets": 10,
+  "n_countries": 8,
+  "n_articles": 12,
+  "event_summary": "Senegal's President Bassirou Diomaye Faye dismissed PM Ousmane Sonko on 22 May 2026 and dissolved the government; parliament speaker El Malick Ndiaye resigned two days later, opening a path for Sonko to seek the speakership in an assembly his Pastef party dominates.",
+  "tldr": "The headline layer collapses a multi-dimensional constitutional crisis into two registers: Anglophone wire and establishment outlets narrate an event sequence — PM sacked, speaker quits — framed almost uniformly as a political feud or crisis deepening; pan-African and French-language outlets look past the institutional sequence to foreground divided public sentiment and youth disaffection. The legal dispute over Sonko's parliamentary eligibility, the debt-crisis economic backdrop, and the anti-colonial ideological stakes that animate body-text coverage are entirely absent from headlines across all twelve articles.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "feud, crisis, cascading resignations",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "BBC Africa",
+        "BBC World",
+        "Daily Maverick",
+        "RFI Afrique",
+        "Straits Times"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "africa_other",
+        "uk",
+        "south_africa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "steps down as political crisis deepens",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "sacks PM and former ally after months-long feud",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "la rupture entre Sonko et Diomaye semblait inévitable",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "parliament speaker quits two days after prime minister",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "divided reaction, disaffected youth",
+      "outlets": [
+        "AfricaNews",
+        "France 24 Spanish",
+        "RFI Afrique"
+      ],
+      "countries": [
+        "pan_african",
+        "state_tv_intl",
+        "africa_other"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Dakar residents react to sacking of Senegal's PM Sonko",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Sonkomania: Senegal's ousted PM strikes a chord",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "opiniones divididas sobre destitución del primer ministro",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "RFI Afrique",
+          "country": "africa_other",
+          "quote": "la rupture entre président et Premier ministre divise",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Only outlet to deploy 'Sonkomania' in a headline — treating Sonko's support base as a culturally named phenomenon rather than a political faction, a framing absent from all wire services and European outlets.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Sole headline to characterise the Faye-Sonko split as 'inévitable' — an analytical verdict implying structural cause rather than personal decision; all other outlets report the event without attribution of inevitability.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "The only article whose headline ('Africa: All of Africa Today - May 25, 2026') provides zero frame signal on the Senegal story — a daily-digest title that renders this article invisible to headline-layer framing analysis.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "Headline coverage locks onto the event sequence — PM sacked, speaker quits — framed as political crisis or feud by six of eight buckets; only pan-African and French-language state-TV outlets look past institutional drama to surface divided public sentiment, while the economic, legal, and anti-colonial dimensions central to body-text coverage are absent from every headline in the corpus.",
+  "generated_at": "2026-05-25T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
