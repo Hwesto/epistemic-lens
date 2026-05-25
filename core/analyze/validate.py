@@ -339,6 +339,10 @@ def check_numbers(analysis: dict, metrics: dict) -> list[str]:
                     or metrics.get("bucket_exclusive_vocab") or {})
     for hi, h in enumerate(analysis.get("outlet_exclusive_vocab_highlights") or []):
         b = h.get("outlet")
+        # v10 metrics key by country/bucket; fall back to country field when
+        # outlet name doesn't match any metrics key.
+        if b not in metrics_excl and h.get("country"):
+            b = h.get("country")
         if b not in metrics_excl:
             errors.append(
                 f"numbers: exclusive_vocab_highlights[{hi}].bucket {b!r} not in "
