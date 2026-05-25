@@ -1,0 +1,185 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "L50d8faff26",
+  "cluster_id": 102,
+  "cluster_name": "Toshifumi Suzuki, founder of 7-Eleven Japan, dies at 93",
+  "salience_score": 3.094,
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 11,
+  "event_summary": "Toshifumi Suzuki, former chairman of Seven & i Holdings and the executive who brought 7-Eleven to Japan and built it into a global retail empire, died of cardiac arrest on May 18, 2026, at age 93. Seven & i Holdings confirmed his death publicly on May 25, 2026.",
+  "tldr": "Coverage across 11 outlets in 9 countries converges almost uniformly on a founding-father obituary frame, with little editorial divergence across blocs or regions. Germany's Bild is the sole outlier, anchoring the legacy to viral internet culture — egg sandwiches as social media hits — rather than business achievement. The Hindu is the only outlet to foreground Suzuki's data-driven inventory model as his defining contribution, while every other outlet reproduces the 'father of convenience stores' formulation from the company statement. The US, where 7-Eleven originated with the Southland Corporation and remains a major commercial presence, is entirely absent from coverage despite no feed failures listed in the briefing. The Alibaba-owned South China Morning Post gives Suzuki unreserved credit for the chain's global success, notable given Alibaba's competing convenience retail footprint across Asia.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "founding father of retail identity",
+      "outlets": [
+        "24 Horas",
+        "ARY News English",
+        "Geo News English",
+        "Japan Times",
+        "Nikkei Asia",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "The Hindu Intl",
+        "O Globo"
+      ],
+      "countries": [
+        "mexico",
+        "pakistan",
+        "japan",
+        "wire_services",
+        "taiwan_hk",
+        "india",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "Toshifumi Suzuki, pioneer of Japanese convenience stores, dies at age 93\n\nSuzuki, who is most well known for bringing 7-Eleven stores to Japan, had most recently served as an honorary adviser to the company.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Toshifumi Suzuki, the founder of 7-Eleven Japan, who was widely recognized as the ‘retail god,’ passed away at age 93 on May 18, 2026.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Toshifumi Suzuki, father of Japan's convenience stores, dies at 93",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Suzuki - known as the “father of the convenience store” in Japan - died due to heart failure on May 18, the company said in a statement on Monday.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "global retail empire-building",
+      "outlets": [
+        "Geo News English",
+        "South China Morning Post",
+        "La Nacion AR",
+        "Nikkei Asia",
+        "Bild"
+      ],
+      "countries": [
+        "pakistan",
+        "taiwan_hk",
+        "argentina_chile",
+        "japan",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Former chairman of Seven & i Holdings Toshifumi Suzuki, credited for the global success of 7-Eleven convenience stores, had died at the age of 93, according to the company.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Under Toshifumi Suzuki's chairmanship, the company expanded its growth, becoming the retail conglomerate in Japan",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "La Nacion AR",
+          "country": "argentina_chile",
+          "quote": "Fue presidente de Seven & i Holdings y el encargado de abrir la primera tienda de 7-Eleven en Japón en 1974; señalaron que su muerte se debió a una insuficiencia cardíaca",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "convenience stores as daily life infrastructure",
+      "outlets": [
+        "The Hindu Intl",
+        "Geo News English"
+      ],
+      "countries": [
+        "india",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "helping transform convenience stores into a cornerstone of Japan’s retail landscape",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Suzuki intriduced innovations to the retail store business, with 24hr operations, as well as other essential services including ATMs and utility bill payments.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "viral pop culture obituary",
+      "outlets": [
+        "Bild"
+      ],
+      "countries": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "Bild",
+          "country": "germany",
+          "quote": "7-Eleven-Pionier Suzuki (†93) ist tot - Er machte Eier-Sandwiches zu Internet-Hits\n\nEr machte 7-Eleven zum Welt-Imperium – jetzt ist Toshifumi Suzuki gestorben.",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Bild",
+      "country": "germany",
+      "finding": "Only outlet to reframe the obituary around viral internet culture — egg sandwiches as social media hits — subordinating business accomplishment to entertainment value.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Uniquely foregrounds Suzuki's data-driven inventory model as his defining contribution rather than the store count or global empire narrative carried by every other outlet.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Most detailed biographical account in the cluster; the only outlet to mention Suzuki's 2016 resignation from chairmanship due to 'legal woes', information omitted by every other outlet.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Alibaba-owned outlet gives Suzuki unreserved credit for 7-Eleven's global success, notable given Alibaba's own competing convenience retail footprint across Asia.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "24 Horas",
+      "country": "mexico",
+      "finding": "Mexican outlet's framing of Suzuki as 'padre' (father) reflects 7-Eleven's commercial footprint in Mexico, one of the chain's largest non-Asian markets.",
+      "signal_text_idx": 0
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The death of Toshifumi Suzuki produced near-uniform international obituary coverage anchored to a 'founding father of convenience stores' frame across nine countries and four languages, with Germany's Bild the sole outlier substituting viral-culture framing for business biography. The complete absence of US coverage — despite 7-Eleven originating from the American Southland Corporation — is the sharpest editorial gap in the cluster.",
+  "generated_at": "2026-05-25T11:59:58Z",
+  "model": "claude-sonnet-4-6"
+}
