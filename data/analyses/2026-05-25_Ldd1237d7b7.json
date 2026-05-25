@@ -1,0 +1,248 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "Ldd1237d7b7",
+  "cluster_id": 97,
+  "cluster_name": "China launches Shenzhou-23 with first Hong Kong astronaut for year-long orbit",
+  "salience_score": 3.75,
+  "n_outlets": 11,
+  "n_countries": 8,
+  "n_articles": 15,
+  "event_summary": "China's Shenzhou-23 launched from Jiuquan on 25 May 2026 and docked with Tiangong station 3.5 hours later, carrying three astronauts including Li Jiaying, the first from Hong Kong. One crew member will spend a full year in orbit in preparation for China's 2030 Moon landing.",
+  "tldr": "The most striking editorial finding is that Hong Kong Free Press — historically critical of Beijing's security apparatus — describes Li Jiaying, a former Hong Kong police officer, as a straightforward historic milestone with no comment on the political weight of that background, matching Russian state media's framing exactly. France24 is the only Western outlet to use the word 'race' (course) for China's lunar push; every other outlet uses neutral terms like 'ambitions' or 'goals,' while RT quotes a CMSA engineer explicitly denying competition: 'We are not competing with other countries in space.' Nine of 11 outlets treat the year-long orbital stay primarily as a technical proof-of-concept for lunar endurance, not as a standalone scientific achievement. Chinese-outlet articles (CGTN, Global Times) diverge sharply from the cluster mean at 0.457 cosine similarity, covering BCI standards and AI development rather than the launch itself.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "year-long orbit as lunar mission preparation",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Globe and Mail",
+        "Hong Kong Free Press",
+        "Le Devoir",
+        "NPR World",
+        "RT",
+        "Tagesschau",
+        "The Hindu Intl",
+        "ZDF Heute"
+      ],
+      "countries": [
+        "france",
+        "canada",
+        "taiwan_hk",
+        "usa",
+        "russia",
+        "germany",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "A key experiment of Shenzhou-23 will be the full-year stay in orbit by one of the crew in order to study the effects of a long stay in microgravity.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Three Chinese astronauts have successfully reached the Tiangong space station, with one of them set to spend more than a year in orbit.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Drei neue Taikonauten erreichen Chinas Raumstation, einer von ihnen wird erstmals ein Jahr im All verbringen. Für China ein großer Schritt Richtung Mondmission 2030.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China in global space race toward Moon",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Globe and Mail",
+        "RT"
+      ],
+      "countries": [
+        "france",
+        "canada",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "la Chine dans la course vers la Lune",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "We carry out the project of crewed lunar exploration under the established plan. We are not competing with other countries in space",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "long-duration microgravity effects on human physiology",
+      "outlets": [
+        "Hong Kong Free Press",
+        "NPR World"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "The main challenges will involve long-term effects on humans, including bone density loss, muscle wasting, radiation exposure, sleep disturbances, behavioural and psychological fatigue",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "One astronaut is set to stay in space for a year to explore human adaptability in long-duration spaceflights.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "first Hong Kong astronaut as national integration milestone",
+      "outlets": [
+        "Hong Kong Free Press",
+        "The Hindu Intl",
+        "RT"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "india",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "The mission marks the first spaceflight by an astronaut from Hong Kong: 43-year-old Li Jiaying (Lai Ka-ying in Cantonese), who previously worked for the Hong Kong police.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Payload specialist Li Jiaying, a former Hong Kong police inspector, will be the first astronaut from the city to take part in a Chinese space mission",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "space achievement as national pride milestone",
+      "outlets": [
+        "Hong Kong Free Press",
+        "RT"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "Cheering crowds waved Chinese flags at a farewell ceremony ahead of the launch, while a band played and the three astronauts saluted on stage.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Former Air Force pilot Zhang Zhiyuan and payload specialist Lai Ka-ying, a former Hong Kong police officer and the first person from the city to travel to space, were welcomed by the outgoing Shenzhou-22 team.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "terms": ["taïkonaut", "spatiale"],
+      "what_it_reveals": "French press uses 'taïkonautes' — the French adaptation of the Chinese astronaut designation — rather than the generic 'astronautes', editorially marking the crew's distinct Chinese-national status."
+    },
+    {
+      "outlet": "Hong Kong Free Press",
+      "country": "taiwan_hk",
+      "terms": ["cmsa"],
+      "what_it_reveals": "HKFP cites CMSA as the principal authoritative source more than any other outlet, a sourcing pattern that mirrors Chinese state media despite HKFP's editorially independent stance."
+    },
+    {
+      "outlet": "ZDF Heute",
+      "country": "germany",
+      "terms": ["raumfahrer", "erstmal", "drei", "astronauten", "raumstation"],
+      "what_it_reveals": "German public broadcasters use 'Raumfahrer' (space traveler) rather than the English loanword 'Astronaut', and 'erstmals' (for the first time) anchors the year-long mission as an unprecedented record — a milestone-first framing exclusive to the German-language cluster."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Hong Kong Free Press",
+      "country": "taiwan_hk",
+      "quote": "The mission marks the first spaceflight by an astronaut from Hong Kong: 43-year-old Li Jiaying (Lai Ka-ying in Cantonese), who previously worked for the Hong Kong police.",
+      "signal_text_idx": 6
+    },
+    "b": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "Former Air Force pilot Zhang Zhiyuan and payload specialist Lai Ka-ying, a former Hong Kong police officer and the first person from the city to travel to space, were welcomed by the outgoing Shenzhou-22 team.",
+      "signal_text_idx": 10
+    },
+    "joint_conclusion": "Hong Kong's leading pro-democracy outlet and Moscow's state broadcaster both describe Li Jiaying's Hong Kong police background — central to post-2019 crackdowns — as neutral biographical context for a historic first, with no editorial divergence on its political weight."
+  },
+  "silences": [
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Japan has an active JAXA lunar programme targeting the same 2030 window as China; its absence from this cluster suggests domestic editors treated the Shenzhou-23 launch as incremental rather than a competitive milestone."
+    },
+    {
+      "country": "south_korea",
+      "what_they_covered_instead": "South Korea's KARI space programme and tech press would ordinarily track major Chinese launch milestones; no South Korean outlet is present in the cluster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to quote CMSA directly denying space race competition: 'We are not competing with other countries in space' — the explicit denial is itself the competitive signal.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only Western outlet to use the word 'race' (course) in a headline: 'la Chine dans la course vers la Lune', while all English-language outlets use 'ambitions' or 'targets'.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Hong Kong Free Press",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to headline Li Jiaying as 'a police superintendent' — a precise rank that carries institutional weight in the context of Hong Kong's post-2020 security apparatus, treated as straightforward biography.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "The only article in the cluster not covering the Shenzhou-23 launch; instead covers BCI and emerging technology national standards — grouped here by semantic proximity to China tech governance, not the space mission.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Global Times",
+      "country": "china",
+      "finding": "Reports 'China schedules next moonshot this year' — the only outlet to name a near-term lunar robotics milestone alongside the crewed programme, grounding China's 2030 goal in an imminent robotic precursor.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Across eight countries, Shenzhou-23 is covered almost entirely as a technical milestone in China's 2030 lunar programme rather than a geopolitical signal — the capacity-building frame dominates even in outlets editorially skeptical of Beijing. The sharpest divergence is between France24's explicit 'race to the Moon' framing and RT's CMSA-sourced denial that China is racing anyone at all.",
+  "generated_at": "2026-05-25T12:24:58Z",
+  "model": "claude-sonnet-4-6"
+}
