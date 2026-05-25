@@ -1,0 +1,199 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-05-25",
+  "lineage_id": "Le31159f6a6",
+  "cluster_id": 135,
+  "cluster_name": "Armed gunman shot dead at White House security checkpoint",
+  "salience_score": 8.938,
+  "n_outlets": 24,
+  "n_countries": 13,
+  "n_articles": 27,
+  "tldr": "Headlines across all 13 country-buckets converge almost entirely on the security-event register — gunman, checkpoint, Secret Service kills — producing far less interpretive scatter than most stories of comparable salience. The sharpest headline-layer divergences are: RT labels the suspect 'allegedly delusional' rather than a security threat; Hindustan Times frames the entire incident as part of 'Donald Trump's wild weekend' (wedding, Iran deal, then gunfire); and News24 and Republic World both lead with 'Trump safe', elevating presidential protection to the dominant news value rather than the security breach itself.",
+  "event_summary": "On May 23, 2026, Nasire Best, 21, approached the White House checkpoint at 17th Street and Pennsylvania Avenue NW, drew a revolver, and opened fire on Secret Service officers; agents returned fire and killed him. A bystander was struck and hospitalized while President Trump remained unharmed inside.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "White House checkpoint breach, gunman killed",
+      "outlets": [
+        "AP News",
+        "Axios World",
+        "BBC World",
+        "Breitbart",
+        "CBC World",
+        "Daily Caller",
+        "Daily Sabah",
+        "Daily Wire",
+        "Globe and Mail",
+        "Haaretz",
+        "KBS World",
+        "Kyiv Post",
+        "Malay Mail World",
+        "National Post",
+        "Republic World (alt)",
+        "Sky News UK",
+        "The Hindu Intl",
+        "The New Arab",
+        "Yonhap News"
+      ],
+      "countries": [
+        "wire_services",
+        "usa",
+        "uk",
+        "canada",
+        "turkey",
+        "israel",
+        "south_korea",
+        "ukraine",
+        "vietnam_thai_my",
+        "pan_arab",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "Secret Service shoots person near White House",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Suspect killed after opening fire on Secret Service",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "US Secret Service kills gunman in shootout near White House",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Shooter's prior history and violent record",
+      "outlets": [
+        "Hindustan Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Shooter's multiple past encounters with Secret Service",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Gunman had 'violent history and possible obsession'",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump safety and presidential context",
+      "outlets": [
+        "Hindustan Times",
+        "News24 World",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "india",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Son's wedding skipped, Iran deal teased, then gunfire",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "News24 World",
+          "country": "south_africa",
+          "quote": "Trump safe as US Secret Service kills gunman",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "White House Checkpoint With Weapon, Trump Safe",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Bystander injury; suspect mental health",
+      "outlets": [
+        "AP News",
+        "RT",
+        "The Hill",
+        "The Independent"
+      ],
+      "countries": [
+        "wire_services",
+        "russia",
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Bystander wounded in shooting near White House",
+          "signal_text_idx": 24
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "Thoughts with bystander shot after gunfire exchanged",
+          "signal_text_idx": 21
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Allegedly delusional gunman fatally shot near White House",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to characterise the suspect as 'allegedly delusional' in the headline, using a mental-health dismissal rather than any security-threat or White House-perimeter framing — conspicuously avoiding any systemic-vulnerability narrative.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only headline in the corpus to embed the shooting within Trump's full political weekend — wedding skipped, Iran deal teased, then gunfire — making it the sole title that contextualises the incident as one beat in a larger presidential narrative rather than a standalone security event.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Leads with journalists ducking for cover ('Journalists Duck For Cover As Gunfire Erupts') — the only headline to foreground eyewitness chaos over the security outcome, foregrounding spectacle rather than the gunman killed or bystander injured.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Most stripped headline in the corpus: 'Gunshots Heard Outside White House' — passive witness framing with no mention of the gunman killed, the bystander shot, or the Secret Service response; minimises the breach to an ambient sound event.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "At the headline layer, the White House shooting story is almost uniformly rendered as a security event — gunman killed at checkpoint, Secret Service responds — with virtually no cross-outlet interpretive divergence; the notable exceptions are RT's dismissive 'allegedly delusional' label, Hindustan Times' political-narrative framing across Trump's entire weekend, and the 'Trump safe' presidential-protection hook favoured by South African and Indian right-populist outlets.",
+  "generated_at": "2026-05-25T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
