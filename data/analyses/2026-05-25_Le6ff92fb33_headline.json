@@ -1,0 +1,189 @@
+{
+  "story_key": "Le6ff92fb33",
+  "date": "2026-05-25",
+  "n_buckets": 13,
+  "n_articles": 22,
+  "tldr": "Across 13 countries, headline writers uniformly led with explosion risk and mass evacuation — a near-identical safety frame varying only in scale (40,000 vs 50,000 residents) and alarm level. The sole editorial divergence visible from titles alone is the Indian press, which used its headline to surface the state-federal political clash over a Trump emergency declaration.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "toxic chemical explosion/evacuation",
+      "buckets": [
+        "mexico",
+        "wire_services",
+        "pakistan",
+        "turkey",
+        "uk",
+        "canada",
+        "usa",
+        "brazil",
+        "vietnam_thai_my",
+        "russia",
+        "taiwan_hk",
+        "india",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "California lucha por evitar un desastre químico",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "toxic leak threatens 40,000 residents",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "40,000 People Ordered Evacuated After SoCal Chemical Leak",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Chemical blast fears trigger mass evacuation in California",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Los Angeles: Chemietank droht zu explodieren",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "crews racing to contain tank failure",
+      "buckets": [
+        "wire_services",
+        "turkey",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "prevent explosion or leak from damaged chemical tank",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "crews prepare overnight operation as toxic leak keeps",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "fire crews race to contain toxic leak",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "CA-federal emergency declaration",
+      "buckets": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "lawmakers urge Trump to approve federal emergency declaration",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.679,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.686,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.698,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.706,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.748,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.752,
+      "n_tokens": 279
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.757,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.785,
+      "n_tokens": 100
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.789,
+      "n_tokens": 81
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "Only headline in the corpus to surface the political dimension: 'California lawmakers urge Trump to approve federal emergency declaration' — frames the event as a state-federal standoff, not a chemical hazard.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Most alarming headline framing: 'Chemical blast fears trigger mass evacuation' uses 'blast fears' where peers say 'explosion risk', and appends '(VIDEOS)' — sensational register absent from all other outlets.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "El Financiero",
+      "bucket": "mexico",
+      "finding": "Only headline to foreground rising temperature as the primary story driver ('Aumenta temperatura y riesgo de explosión') rather than evacuation headcount.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Only headline to quote an official's categorical statement ('will fail') and name a federal actor (EPA chief), casting regulatory authority onto the safety narrative.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "South China Morning Post",
+      "bucket": "taiwan_hk",
+      "finding": "Only headline to use the word 'catastrophic' ('help avert catastrophic explosion'), elevating the severity beyond peers who say 'prevent explosion'.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "Headline coverage is monothematic — 22 articles across 13 countries uniformly led with explosion risk and mass evacuation; the only editorial divergence visible in titles alone is India's Hindustan Times, which foregrounded California-Trump federal politics rather than the chemical hazard.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
