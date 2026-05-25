@@ -1,0 +1,903 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 17,
+  "n_articles": 26,
+  "buckets": [
+    "australia_nz",
+    "brazil",
+    "canada",
+    "germany",
+    "india",
+    "iran_state",
+    "japan",
+    "mexico",
+    "pakistan",
+    "pan_arab",
+    "russia_native",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "australia_nz": 28,
+    "wire_services": 84,
+    "turkey": 52,
+    "uk": 94,
+    "canada": 36,
+    "pakistan": 60,
+    "germany": 78,
+    "brazil": 43,
+    "usa": 207,
+    "india": 141,
+    "iran_state": 35,
+    "russia_native": 29,
+    "mexico": 33,
+    "vietnam_thai_my": 20,
+    "japan": 10,
+    "taiwan_hk": 10,
+    "pan_arab": 22
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "pan_arab",
+      "score": 0.922
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.915
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.887
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.887
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.878
+    },
+    {
+      "a": "germany",
+      "b": "mexico",
+      "score": 0.875
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.874
+    },
+    {
+      "a": "brazil",
+      "b": "pan_arab",
+      "score": 0.867
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.865
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.854
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.851
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.85
+    },
+    {
+      "a": "pan_arab",
+      "b": "uk",
+      "score": 0.848
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.844
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.843
+    },
+    {
+      "a": "india",
+      "b": "mexico",
+      "score": 0.839
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.836
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.836
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.832
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.832
+    },
+    {
+      "a": "mexico",
+      "b": "pan_arab",
+      "score": 0.831
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.831
+    },
+    {
+      "a": "brazil",
+      "b": "mexico",
+      "score": 0.829
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.826
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.821
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.815
+    },
+    {
+      "a": "germany",
+      "b": "russia_native",
+      "score": 0.814
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.814
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.813
+    },
+    {
+      "a": "mexico",
+      "b": "uk",
+      "score": 0.811
+    },
+    {
+      "a": "mexico",
+      "b": "russia_native",
+      "score": 0.806
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.803
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.802
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.795
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.792
+    },
+    {
+      "a": "japan",
+      "b": "taiwan_hk",
+      "score": 0.787
+    },
+    {
+      "a": "brazil",
+      "b": "russia_native",
+      "score": 0.783
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.783
+    },
+    {
+      "a": "mexico",
+      "b": "wire_services",
+      "score": 0.783
+    },
+    {
+      "a": "mexico",
+      "b": "turkey",
+      "score": 0.781
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.78
+    },
+    {
+      "a": "russia_native",
+      "b": "uk",
+      "score": 0.779
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.775
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.769
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.763
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.76
+    },
+    {
+      "a": "mexico",
+      "b": "vietnam_thai_my",
+      "score": 0.757
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia_native",
+      "score": 0.755
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.751
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.748
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.748
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.745
+    },
+    {
+      "a": "india",
+      "b": "russia_native",
+      "score": 0.743
+    },
+    {
+      "a": "russia_native",
+      "b": "vietnam_thai_my",
+      "score": 0.743
+    },
+    {
+      "a": "canada",
+      "b": "pan_arab",
+      "score": 0.742
+    },
+    {
+      "a": "russia_native",
+      "b": "wire_services",
+      "score": 0.742
+    },
+    {
+      "a": "mexico",
+      "b": "pakistan",
+      "score": 0.74
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.74
+    },
+    {
+      "a": "japan",
+      "b": "turkey",
+      "score": 0.739
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.737
+    },
+    {
+      "a": "japan",
+      "b": "uk",
+      "score": 0.737
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.736
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.736
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.735
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.732
+    },
+    {
+      "a": "japan",
+      "b": "vietnam_thai_my",
+      "score": 0.725
+    },
+    {
+      "a": "russia_native",
+      "b": "turkey",
+      "score": 0.721
+    },
+    {
+      "a": "germany",
+      "b": "japan",
+      "score": 0.717
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.713
+    },
+    {
+      "a": "mexico",
+      "b": "usa",
+      "score": 0.712
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.71
+    },
+    {
+      "a": "canada",
+      "b": "mexico",
+      "score": 0.705
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.704
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.703
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.702
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.696
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.686
+    },
+    {
+      "a": "iran_state",
+      "b": "turkey",
+      "score": 0.679
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.675
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.674
+    },
+    {
+      "a": "pan_arab",
+      "b": "usa",
+      "score": 0.673
+    },
+    {
+      "a": "pakistan",
+      "b": "pan_arab",
+      "score": 0.667
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.666
+    },
+    {
+      "a": "india",
+      "b": "iran_state",
+      "score": 0.664
+    },
+    {
+      "a": "iran_state",
+      "b": "wire_services",
+      "score": 0.662
+    },
+    {
+      "a": "japan",
+      "b": "mexico",
+      "score": 0.655
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.655
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.653
+    },
+    {
+      "a": "japan",
+      "b": "pan_arab",
+      "score": 0.653
+    },
+    {
+      "a": "brazil",
+      "b": "pakistan",
+      "score": 0.649
+    },
+    {
+      "a": "iran_state",
+      "b": "uk",
+      "score": 0.649
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.644
+    },
+    {
+      "a": "pan_arab",
+      "b": "taiwan_hk",
+      "score": 0.643
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.641
+    },
+    {
+      "a": "australia_nz",
+      "b": "uk",
+      "score": 0.637
+    },
+    {
+      "a": "iran_state",
+      "b": "pakistan",
+      "score": 0.636
+    },
+    {
+      "a": "canada",
+      "b": "russia_native",
+      "score": 0.625
+    },
+    {
+      "a": "australia_nz",
+      "b": "canada",
+      "score": 0.623
+    },
+    {
+      "a": "australia_nz",
+      "b": "india",
+      "score": 0.619
+    },
+    {
+      "a": "japan",
+      "b": "russia_native",
+      "score": 0.619
+    },
+    {
+      "a": "brazil",
+      "b": "japan",
+      "score": 0.618
+    },
+    {
+      "a": "iran_state",
+      "b": "usa",
+      "score": 0.616
+    },
+    {
+      "a": "russia_native",
+      "b": "usa",
+      "score": 0.609
+    },
+    {
+      "a": "germany",
+      "b": "iran_state",
+      "score": 0.605
+    },
+    {
+      "a": "iran_state",
+      "b": "mexico",
+      "score": 0.604
+    },
+    {
+      "a": "australia_nz",
+      "b": "wire_services",
+      "score": 0.594
+    },
+    {
+      "a": "mexico",
+      "b": "taiwan_hk",
+      "score": 0.593
+    },
+    {
+      "a": "japan",
+      "b": "pakistan",
+      "score": 0.592
+    },
+    {
+      "a": "australia_nz",
+      "b": "germany",
+      "score": 0.59
+    },
+    {
+      "a": "iran_state",
+      "b": "vietnam_thai_my",
+      "score": 0.59
+    },
+    {
+      "a": "pakistan",
+      "b": "russia_native",
+      "score": 0.585
+    },
+    {
+      "a": "australia_nz",
+      "b": "mexico",
+      "score": 0.583
+    },
+    {
+      "a": "australia_nz",
+      "b": "usa",
+      "score": 0.583
+    },
+    {
+      "a": "russia_native",
+      "b": "taiwan_hk",
+      "score": 0.582
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.58
+    },
+    {
+      "a": "australia_nz",
+      "b": "turkey",
+      "score": 0.573
+    },
+    {
+      "a": "iran_state",
+      "b": "taiwan_hk",
+      "score": 0.572
+    },
+    {
+      "a": "japan",
+      "b": "usa",
+      "score": 0.567
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.565
+    },
+    {
+      "a": "iran_state",
+      "b": "japan",
+      "score": 0.564
+    },
+    {
+      "a": "iran_state",
+      "b": "russia_native",
+      "score": 0.558
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.552
+    },
+    {
+      "a": "iran_state",
+      "b": "pan_arab",
+      "score": 0.551
+    },
+    {
+      "a": "canada",
+      "b": "japan",
+      "score": 0.548
+    },
+    {
+      "a": "brazil",
+      "b": "iran_state",
+      "score": 0.535
+    },
+    {
+      "a": "canada",
+      "b": "iran_state",
+      "score": 0.534
+    },
+    {
+      "a": "australia_nz",
+      "b": "pan_arab",
+      "score": 0.53
+    },
+    {
+      "a": "australia_nz",
+      "b": "pakistan",
+      "score": 0.523
+    },
+    {
+      "a": "australia_nz",
+      "b": "taiwan_hk",
+      "score": 0.523
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.517
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.509
+    },
+    {
+      "a": "australia_nz",
+      "b": "iran_state",
+      "score": 0.495
+    },
+    {
+      "a": "australia_nz",
+      "b": "russia_native",
+      "score": 0.488
+    },
+    {
+      "a": "australia_nz",
+      "b": "brazil",
+      "score": 0.482
+    },
+    {
+      "a": "australia_nz",
+      "b": "vietnam_thai_my",
+      "score": 0.478
+    },
+    {
+      "a": "australia_nz",
+      "b": "japan",
+      "score": 0.47
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.595,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.665,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.666,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.688,
+      "n_tokens": 207
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.717,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.744,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.759,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.768,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.783,
+      "n_tokens": 141
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.787,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.792,
+      "n_tokens": 94
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.549,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.63,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.649,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.685,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.724,
+      "n_tokens": 20
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.75,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "australia_nz": [],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "uk": [],
+    "canada": [],
+    "pakistan": [
+      {
+        "term": "shuttle",
+        "count": 4
+      }
+    ],
+    "germany": [
+      {
+        "term": "anschlag",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "ataque",
+        "count": 3
+      },
+      {
+        "term": "contra",
+        "count": 3
+      },
+      {
+        "term": "trem",
+        "count": 3
+      },
+      {
+        "term": "militar",
+        "count": 3
+      },
+      {
+        "term": "paquistão",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "group",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "iran_state": [],
+    "russia_native": [
+      {
+        "term": "подрыве",
+        "count": 3
+      },
+      {
+        "term": "поезда",
+        "count": 3
+      }
+    ],
+    "mexico": [
+      {
+        "term": "explosión",
+        "count": 3
+      },
+      {
+        "term": "tren",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "japan": [],
+    "taiwan_hk": [],
+    "pan_arab": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-25T11:54:22+00:00",
+  "meta_version": "10.0.3"
+}

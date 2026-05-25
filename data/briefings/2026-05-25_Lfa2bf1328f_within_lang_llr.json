@@ -1,0 +1,140 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 61,
+      "n_tokens_in_cohort": 1753,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 1745,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 79,
+      "n_tokens_in_cohort": 1735,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 268,
+      "n_tokens_in_cohort": 1546,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 317,
+      "n_tokens_in_cohort": 1497,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 283,
+      "n_tokens_in_cohort": 1531,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 98,
+      "n_tokens_in_cohort": 1716,
+      "distinctive_terms": []
+    },
+    "south_korea": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 36,
+      "n_tokens_in_cohort": 1778,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 181,
+      "n_tokens_in_cohort": 1633,
+      "distinctive_terms": [
+        {
+          "term": "seven",
+          "count_in_bucket": 6,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.03315,
+          "rate_in_cohort": 0.00061,
+          "llr": 22.301,
+          "log_ratio": 3.991,
+          "p_value": 2e-06
+        },
+        {
+          "term": "uganda",
+          "count_in_bucket": 10,
+          "count_in_cohort": 10,
+          "rate_in_bucket": 0.05525,
+          "rate_in_cohort": 0.00612,
+          "llr": 20.875,
+          "log_ratio": 2.2,
+          "p_value": 5e-06
+        },
+        {
+          "term": "total",
+          "count_in_bucket": 6,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.03315,
+          "rate_in_cohort": 0.00184,
+          "llr": 16.993,
+          "log_ratio": 2.893,
+          "p_value": 3.8e-05
+        },
+        {
+          "term": "case",
+          "count_in_bucket": 15,
+          "count_in_cohort": 36,
+          "rate_in_bucket": 0.08287,
+          "rate_in_cohort": 0.02205,
+          "llr": 15.552,
+          "log_ratio": 1.324,
+          "p_value": 8e-05
+        }
+      ]
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 1783,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 210,
+      "n_tokens_in_cohort": 1604,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 181,
+      "n_tokens_in_cohort": 1633,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 4,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

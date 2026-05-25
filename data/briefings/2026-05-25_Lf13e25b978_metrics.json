@@ -1,0 +1,229 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 13,
+  "buckets": [
+    "brazil",
+    "canada",
+    "india",
+    "kenya",
+    "russia",
+    "turkey",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 180,
+    "turkey": 27,
+    "brazil": 39,
+    "canada": 29,
+    "india": 133,
+    "russia": 23,
+    "kenya": 23
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.856
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.855
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.844
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.832
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.827
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.814
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.812
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.808
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.801
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.8
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.766
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.763
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.76
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.749
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.724
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.722
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.708
+    },
+    {
+      "a": "brazil",
+      "b": "russia",
+      "score": 0.705
+    },
+    {
+      "a": "brazil",
+      "b": "kenya",
+      "score": 0.696
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.66
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.613
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.747,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.797,
+      "n_tokens": 133
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.806,
+      "n_tokens": 180
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.691,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.749,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.779,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.803,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "form",
+        "count": 4
+      },
+      {
+        "term": "leaving",
+        "count": 3
+      },
+      {
+        "term": "plan",
+        "count": 3
+      },
+      {
+        "term": "high",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "brazil": [
+      {
+        "term": "diretora",
+        "count": 3
+      },
+      {
+        "term": "inteligência",
+        "count": 3
+      },
+      {
+        "term": "nacional",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "india": [
+      {
+        "term": "venezuela",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "quit",
+        "count": 3
+      }
+    ],
+    "kenya": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-25T11:55:33+00:00",
+  "meta_version": "10.0.3"
+}

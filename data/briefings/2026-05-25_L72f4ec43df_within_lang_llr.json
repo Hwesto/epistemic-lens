@@ -1,0 +1,103 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 122,
+      "n_tokens_in_cohort": 720,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 20,
+      "n_tokens_in_cohort": 822,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 817,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 793,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 809,
+      "distinctive_terms": []
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 37,
+      "n_tokens_in_cohort": 805,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 19,
+      "n_tokens_in_cohort": 823,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 110,
+      "n_tokens_in_cohort": 732,
+      "distinctive_terms": [
+        {
+          "term": "hotel",
+          "count_in_bucket": 7,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.06364,
+          "rate_in_cohort": 0.0041,
+          "llr": 17.465,
+          "log_ratio": 2.743,
+          "p_value": 2.9e-05
+        }
+      ]
+    },
+    "philippines": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 112,
+      "n_tokens_in_cohort": 730,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 255,
+      "n_tokens_in_cohort": 587,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 782,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

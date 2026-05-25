@@ -1,0 +1,184 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 75,
+      "n_tokens_in_cohort": 2140,
+      "distinctive_terms": [
+        {
+          "term": "manifesto",
+          "count_in_bucket": 6,
+          "count_in_cohort": 21,
+          "rate_in_bucket": 0.08,
+          "rate_in_cohort": 0.00981,
+          "llr": 13.838,
+          "log_ratio": 2.098,
+          "p_value": 0.000199
+        }
+      ]
+    },
+    "italy": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 147,
+      "n_tokens_in_cohort": 2068,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 459,
+      "n_tokens_in_cohort": 1756,
+      "distinctive_terms": [
+        {
+          "term": "mean",
+          "count_in_bucket": 7,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.01525,
+          "rate_in_cohort": 0.00114,
+          "llr": 13.503,
+          "log_ratio": 2.595,
+          "p_value": 0.000238
+        }
+      ]
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 201,
+      "n_tokens_in_cohort": 2014,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 59,
+      "n_tokens_in_cohort": 2156,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 209,
+      "n_tokens_in_cohort": 2006,
+      "distinctive_terms": [
+        {
+          "term": "anthropic",
+          "count_in_bucket": 7,
+          "count_in_cohort": 6,
+          "rate_in_bucket": 0.03349,
+          "rate_in_cohort": 0.00299,
+          "llr": 16.473,
+          "log_ratio": 2.416,
+          "p_value": 4.9e-05
+        }
+      ]
+    },
+    "religious_press": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 774,
+      "n_tokens_in_cohort": 1441,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 2164,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 170,
+      "n_tokens_in_cohort": 2045,
+      "distinctive_terms": [
+        {
+          "term": "trump",
+          "count_in_bucket": 6,
+          "count_in_cohort": 9,
+          "rate_in_bucket": 0.03529,
+          "rate_in_cohort": 0.0044,
+          "llr": 12.206,
+          "log_ratio": 2.082,
+          "p_value": 0.000476
+        }
+      ]
+    },
+    "nigeria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 70,
+      "n_tokens_in_cohort": 2145,
+      "distinctive_terms": [
+        {
+          "term": "major",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.08571,
+          "rate_in_cohort": 0.00093,
+          "llr": 33.088,
+          "log_ratio": 4.521,
+          "p_value": 0.0
+        },
+        {
+          "term": "artificial",
+          "count_in_bucket": 8,
+          "count_in_cohort": 18,
+          "rate_in_bucket": 0.11429,
+          "rate_in_cohort": 0.00839,
+          "llr": 25.128,
+          "log_ratio": 2.611,
+          "p_value": 1e-06
+        },
+        {
+          "term": "intelligence",
+          "count_in_bucket": 8,
+          "count_in_cohort": 18,
+          "rate_in_bucket": 0.11429,
+          "rate_in_cohort": 0.00839,
+          "llr": 25.128,
+          "log_ratio": 2.611,
+          "p_value": 1e-06
+        },
+        {
+          "term": "manifesto",
+          "count_in_bucket": 8,
+          "count_in_cohort": 19,
+          "rate_in_bucket": 0.11429,
+          "rate_in_cohort": 0.00886,
+          "llr": 24.467,
+          "log_ratio": 2.557,
+          "p_value": 1e-06
+        }
+      ]
+    },
+    "spain": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 44,
+      "n_tokens_in_cohort": 60,
+      "distinctive_terms": []
+    },
+    "argentina_chile": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 44,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

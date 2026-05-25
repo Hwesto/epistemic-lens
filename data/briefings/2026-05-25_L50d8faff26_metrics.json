@@ -1,0 +1,321 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 11,
+  "buckets": [
+    "argentina_chile",
+    "brazil",
+    "germany",
+    "india",
+    "japan",
+    "mexico",
+    "pakistan",
+    "taiwan_hk",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "mexico": 26,
+    "pakistan": 146,
+    "germany": 24,
+    "japan": 41,
+    "argentina_chile": 36,
+    "brazil": 21,
+    "wire_services": 24,
+    "taiwan_hk": 53,
+    "india": 37
+  },
+  "pairwise_similarity": [
+    {
+      "a": "brazil",
+      "b": "mexico",
+      "score": 0.955
+    },
+    {
+      "a": "japan",
+      "b": "pakistan",
+      "score": 0.927
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.922
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.904
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.897
+    },
+    {
+      "a": "brazil",
+      "b": "japan",
+      "score": 0.895
+    },
+    {
+      "a": "japan",
+      "b": "mexico",
+      "score": 0.886
+    },
+    {
+      "a": "argentina_chile",
+      "b": "taiwan_hk",
+      "score": 0.872
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.87
+    },
+    {
+      "a": "mexico",
+      "b": "pakistan",
+      "score": 0.863
+    },
+    {
+      "a": "mexico",
+      "b": "taiwan_hk",
+      "score": 0.861
+    },
+    {
+      "a": "brazil",
+      "b": "pakistan",
+      "score": 0.859
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.854
+    },
+    {
+      "a": "argentina_chile",
+      "b": "mexico",
+      "score": 0.851
+    },
+    {
+      "a": "argentina_chile",
+      "b": "pakistan",
+      "score": 0.849
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.841
+    },
+    {
+      "a": "argentina_chile",
+      "b": "japan",
+      "score": 0.84
+    },
+    {
+      "a": "mexico",
+      "b": "wire_services",
+      "score": 0.84
+    },
+    {
+      "a": "japan",
+      "b": "taiwan_hk",
+      "score": 0.837
+    },
+    {
+      "a": "germany",
+      "b": "mexico",
+      "score": 0.817
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.814
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.814
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.812
+    },
+    {
+      "a": "argentina_chile",
+      "b": "brazil",
+      "score": 0.797
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.792
+    },
+    {
+      "a": "germany",
+      "b": "japan",
+      "score": 0.753
+    },
+    {
+      "a": "argentina_chile",
+      "b": "wire_services",
+      "score": 0.751
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.746
+    },
+    {
+      "a": "india",
+      "b": "mexico",
+      "score": 0.74
+    },
+    {
+      "a": "argentina_chile",
+      "b": "india",
+      "score": 0.738
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.726
+    },
+    {
+      "a": "argentina_chile",
+      "b": "germany",
+      "score": 0.717
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.709
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.692
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.69
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.661
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.765,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.802,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.812,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.856,
+      "n_tokens": 146
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.863,
+      "n_tokens": 41
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.732,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.824,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.844,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.852,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "mexico": [
+      {
+        "term": "padre",
+        "count": 3
+      },
+      {
+        "term": "años",
+        "count": 3
+      }
+    ],
+    "pakistan": [
+      {
+        "term": "chairmanship",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "machte",
+        "count": 3
+      }
+    ],
+    "japan": [],
+    "argentina_chile": [],
+    "brazil": [
+      {
+        "term": "morre",
+        "count": 3
+      },
+      {
+        "term": "loja",
+        "count": 3
+      },
+      {
+        "term": "conveniência",
+        "count": 3
+      },
+      {
+        "term": "anos",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-25T11:54:16+00:00",
+  "meta_version": "10.0.3"
+}

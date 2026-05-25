@@ -1,0 +1,287 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 15,
+  "buckets": [
+    "canada",
+    "china",
+    "france",
+    "germany",
+    "india",
+    "russia",
+    "taiwan_hk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "france": 91,
+    "china": 44,
+    "canada": 41,
+    "taiwan_hk": 282,
+    "usa": 35,
+    "russia": 244,
+    "germany": 81,
+    "india": 35
+  },
+  "pairwise_similarity": [
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.889
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.857
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.849
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.839
+    },
+    {
+      "a": "france",
+      "b": "taiwan_hk",
+      "score": 0.825
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.81
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.789
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.778
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.772
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.767
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.767
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.731
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.73
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.726
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.719
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.716
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.715
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.696
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.695
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.621
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.56
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.553
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.506
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.486
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.469
+    },
+    {
+      "a": "china",
+      "b": "france",
+      "score": 0.44
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.398
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.336
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.457,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.668,
+      "n_tokens": 244
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.703,
+      "n_tokens": 282
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.704,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.706,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.717,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.734,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.75,
+      "n_tokens": 91
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "france": [
+      {
+        "term": "troi",
+        "count": 4
+      },
+      {
+        "term": "spatiale",
+        "count": 4
+      },
+      {
+        "term": "taïkonaut",
+        "count": 3
+      }
+    ],
+    "china": [],
+    "canada": [],
+    "taiwan_hk": [
+      {
+        "term": "cmsa",
+        "count": 3
+      }
+    ],
+    "usa": [],
+    "russia": [
+      {
+        "term": "twitter",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "drei",
+        "count": 5
+      },
+      {
+        "term": "astronauten",
+        "count": 5
+      },
+      {
+        "term": "chinesische",
+        "count": 5
+      },
+      {
+        "term": "raumstation",
+        "count": 5
+      },
+      {
+        "term": "raumfahrer",
+        "count": 3
+      },
+      {
+        "term": "erstmal",
+        "count": 3
+      },
+      {
+        "term": "jahr",
+        "count": 3
+      },
+      {
+        "term": "erreichen",
+        "count": 3
+      }
+    ],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-25T11:55:18+00:00",
+  "meta_version": "10.0.3"
+}

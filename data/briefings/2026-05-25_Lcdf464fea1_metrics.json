@@ -1,0 +1,333 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 12,
+  "buckets": [
+    "africa_other",
+    "france",
+    "pan_african",
+    "south_africa",
+    "state_tv_intl",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 46,
+    "france": 69,
+    "pan_african": 74,
+    "africa_other": 543,
+    "uk": 24,
+    "south_africa": 81,
+    "state_tv_intl": 60,
+    "vietnam_thai_my": 30
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.863
+    },
+    {
+      "a": "africa_other",
+      "b": "france",
+      "score": 0.86
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.833
+    },
+    {
+      "a": "africa_other",
+      "b": "uk",
+      "score": 0.826
+    },
+    {
+      "a": "africa_other",
+      "b": "south_africa",
+      "score": 0.811
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.81
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.809
+    },
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.782
+    },
+    {
+      "a": "africa_other",
+      "b": "vietnam_thai_my",
+      "score": 0.771
+    },
+    {
+      "a": "africa_other",
+      "b": "wire_services",
+      "score": 0.76
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.748
+    },
+    {
+      "a": "france",
+      "b": "pan_african",
+      "score": 0.739
+    },
+    {
+      "a": "france",
+      "b": "south_africa",
+      "score": 0.736
+    },
+    {
+      "a": "south_africa",
+      "b": "wire_services",
+      "score": 0.734
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.727
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.71
+    },
+    {
+      "a": "south_africa",
+      "b": "state_tv_intl",
+      "score": 0.696
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.67
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.663
+    },
+    {
+      "a": "pan_african",
+      "b": "south_africa",
+      "score": 0.661
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.657
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.655
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.644
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.64
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.635
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.612
+    },
+    {
+      "a": "south_africa",
+      "b": "vietnam_thai_my",
+      "score": 0.611
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "vietnam_thai_my",
+      "score": 0.6
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.678,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.698,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.727,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.732,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.738,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.74,
+      "n_tokens": 69
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.803,
+      "n_tokens": 543
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.673,
+      "n_tokens": 24
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "down",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "focu",
+        "count": 3
+      }
+    ],
+    "pan_african": [
+      {
+        "term": "resident",
+        "count": 3
+      },
+      {
+        "term": "sacking",
+        "count": 3
+      },
+      {
+        "term": "sonkomania",
+        "count": 3
+      },
+      {
+        "term": "disaffected",
+        "count": 3
+      }
+    ],
+    "africa_other": [
+      {
+        "term": "démission",
+        "count": 7
+      },
+      {
+        "term": "assemblée",
+        "count": 7
+      },
+      {
+        "term": "africa",
+        "count": 6
+      },
+      {
+        "term": "nationale",
+        "count": 6
+      },
+      {
+        "term": "masarira",
+        "count": 5
+      },
+      {
+        "term": "fonction",
+        "count": 5
+      },
+      {
+        "term": "opposition",
+        "count": 4
+      },
+      {
+        "term": "control",
+        "count": 4
+      },
+      {
+        "term": "avec",
+        "count": 4
+      },
+      {
+        "term": "zimbabwe",
+        "count": 3
+      },
+      {
+        "term": "état",
+        "count": 3
+      },
+      {
+        "term": "étudiant",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "south_africa": [],
+    "state_tv_intl": [
+      {
+        "term": "opinion",
+        "count": 3
+      },
+      {
+        "term": "dividida",
+        "count": 3
+      },
+      {
+        "term": "sobre",
+        "count": 3
+      },
+      {
+        "term": "primer",
+        "count": 3
+      },
+      {
+        "term": "ministro",
+        "count": 3
+      },
+      {
+        "term": "aseguran",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-05-25T11:55:09+00:00",
+  "meta_version": "10.0.3"
+}

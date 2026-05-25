@@ -1,0 +1,110 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 73,
+      "n_tokens_in_cohort": 557,
+      "distinctive_terms": [
+        {
+          "term": "crisi",
+          "count_in_bucket": 5,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.06849,
+          "rate_in_cohort": 0.00539,
+          "llr": 11.971,
+          "log_ratio": 2.543,
+          "p_value": 0.00054
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 61,
+      "n_tokens_in_cohort": 569,
+      "distinctive_terms": []
+    },
+    "balkans": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 157,
+      "n_tokens_in_cohort": 473,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 58,
+      "n_tokens_in_cohort": 572,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 579,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 602,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 58,
+      "n_tokens_in_cohort": 572,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 61,
+      "n_tokens_in_cohort": 569,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 598,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 579,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 57,
+      "n_tokens_in_cohort": 56,
+      "distinctive_terms": []
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 56,
+      "n_tokens_in_cohort": 57,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

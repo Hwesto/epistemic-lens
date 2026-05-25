@@ -1,0 +1,64 @@
+{
+  "date": "2026-05-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 36,
+      "distinctive_terms": []
+    },
+    "argentina_chile": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 36,
+      "n_tokens_in_cohort": 26,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 146,
+      "n_tokens_in_cohort": 155,
+      "distinctive_terms": []
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 41,
+      "n_tokens_in_cohort": 260,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 277,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 248,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 37,
+      "n_tokens_in_cohort": 264,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 4,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
