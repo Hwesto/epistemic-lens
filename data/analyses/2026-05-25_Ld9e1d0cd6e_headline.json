@@ -1,0 +1,106 @@
+{
+  "story_key": "Ld9e1d0cd6e",
+  "date": "2026-05-25",
+  "n_buckets": 11,
+  "n_articles": 17,
+  "tldr": "Headlines universally lead with the death toll and mine explosion, framing this as China's worst mining disaster in 17 years. Accountability framing — punishment vows and investigation orders — is visible only in Southeast Asian and Indian outlet titles, while UK, Canadian, and Russian headlines stay with the raw casualty count.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "mass-casualty mine blast",
+      "buckets": ["qatar", "uk", "canada", "turkey", "usa", "taiwan_hk", "russia", "india", "germany", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Moment of gas explosion at China coal mine",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "At least 82 killed after massive gas explosion",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "At least 82 dead in China's worst mining disaster",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Dozens dead in Chinese coal mine explosion",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "investigation and punishment vow",
+      "buckets": ["vietnam_thai_my", "germany", "india"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "China vows to 'severely' punish those responsible",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "China mine blast: Search and investigation continue",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Xi Jinping Orders 'Thorough Investigation'",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "rescue search for survivors",
+      "buckets": ["canada", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Rescuers race to find survivors",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "China rescuers search for two men still missing",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Leaves More Than 38 Trapped, Xi Orders Rescue",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.702, "n_tokens": 48},
+    {"bucket": "usa", "mean_similarity": 0.712, "n_tokens": 204},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.719, "n_tokens": 44},
+    {"bucket": "russia", "mean_similarity": 0.743, "n_tokens": 30},
+    {"bucket": "india", "mean_similarity": 0.756, "n_tokens": 121},
+    {"bucket": "canada", "mean_similarity": 0.777, "n_tokens": 54},
+    {"bucket": "uk", "mean_similarity": 0.798, "n_tokens": 79}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer of this story is almost entirely a death-toll event report, with the accountability and investigation framing that dominates article bodies surfacing only in Southeast Asian and Indian outlet titles — meaning a reader scanning headlines alone receives a narrower, less analytical picture of the disaster.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
