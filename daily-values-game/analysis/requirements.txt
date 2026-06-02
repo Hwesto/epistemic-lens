@@ -1,0 +1,9 @@
+# Offline psychometric analysis (§2, §7). Not part of the live app.
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+factor_analyzer>=0.5.1     # exploratory + confirmatory factor analysis
+statsmodels>=0.14          # reliability, regressions, predictive checks
+psycopg[binary]>=3.2       # read-only pull from the Postgres replica
+jupyterlab>=4.2
+matplotlib>=3.9

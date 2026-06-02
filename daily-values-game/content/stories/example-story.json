@@ -1,0 +1,54 @@
+{
+  "_comment": "Reference shape for a pipeline-authored, fully-tagged story. Rich SETUP in body; CLEAN FORK in the gate options. One of the gates is an anchor (immutable, recurs unchanged forever). Loadings are a PRIOR stamped with framework_version_id.",
+  "publish_date": "2026-06-15",
+  "genre": "kitchen-sink realism",
+  "title": "The Reference",
+  "status": "scheduled",
+  "body": "Maya has managed Theo for two years. He is kind, tries hard, and is — by every honest measure — not good at the job. He has just asked her to be a reference for a role he desperately wants and, she suspects, also cannot do. He is the family's only earner this month.",
+  "gates": [
+    {
+      "sequence": 1,
+      "body": "The hiring manager calls. 'Would you recommend him without reservation?' The honest answer is no. The kind answer is yes.",
+      "is_terminal": false,
+      "conflict_edge": "care__honesty",
+      "scope_variant": "stranger",
+      "framing_variant": "identifiable_victim",
+      "process_frame": "outcome",
+      "is_anchor": true,
+      "anchor_id": "anchor_care_honesty",
+      "is_exploratory": false,
+      "choices": [
+        {
+          "label": "Vouch for him. He needs the chance more than the manager needs the caveat.",
+          "axis_loadings": { "care": 0.8, "honesty": -0.6, "loyalty": 0.3 }
+        },
+        {
+          "label": "Tell the truth, gently. The manager asked you a straight question.",
+          "axis_loadings": { "honesty": 0.8, "care": -0.4, "authority": 0.2 }
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "body": "Later, Theo asks what you said. (An exploratory beat — this tension isn't cleanly one of the spine axes.)",
+      "is_terminal": true,
+      "conflict_edge": null,
+      "scope_variant": "kin",
+      "framing_variant": "neutral",
+      "process_frame": null,
+      "is_anchor": false,
+      "anchor_id": null,
+      "is_exploratory": true,
+      "choices": [
+        {
+          "label": "Tell him exactly what you told the manager.",
+          "axis_loadings": { "honesty": 0.7 }
+        },
+        {
+          "label": "Soften it to protect the working relationship.",
+          "axis_loadings": { "care": 0.5, "honesty": -0.3 }
+        }
+      ]
+    }
+  ]
+}

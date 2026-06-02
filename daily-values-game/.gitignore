@@ -1,0 +1,22 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# builds
+dist/
+.vercel/
+*.tsbuildinfo
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# python (analysis)
+analysis/.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# os / editor
+.DS_Store
+*.log

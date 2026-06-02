@@ -1,0 +1,16 @@
+{
+  "name": "daily-values-game",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Daily Values-Mirror Game — web-first PWA with an append-only, richly-tagged choice log feeding an offline factor-analysis loop.",
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace @dvg/web run dev",
+    "build:web": "npm --workspace @dvg/web run build",
+    "typecheck:api": "npm --workspace @dvg/api run typecheck"
+  },
+  "license": "UNLICENSED"
+}
