@@ -29,14 +29,17 @@ write the awkward, low-drama edges or those axes stay unmeasurable.)
 
 ```
               care  equal  propor loyal  author purity
-care            —     ·      ·      ·      ·      ·
+care            —     ·      ·      ·      ★      ·
 equality              —      ★      ·      ·      ·
 proportionality              —      ·      ·      ·
-loyalty                             —      ★      ·
+loyalty                             —      ·      ·
 authority                                  —      ·
 purity                                            —
 ```
-`★` = also designated an anchor family (never over-write, never edit).
+`★` = a locked anchor family (never over-write, never edit). Two more locked
+anchors sit on **extra-axis** edges not shown in this spine grid:
+`honesty__autonomy` (Baker letter) and `authority__honesty` (Whistle memo).
+See `anchors.md` for the full locked set.
 
 ## Variation across re-runs (the story is shared, so vary over TIME)
 

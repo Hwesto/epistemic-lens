@@ -27,27 +27,30 @@ reliability and drift. Nothing else can measure it.
 4. **Spread, don't cluster.** Place anchor re-runs on different dates so a user
    meets the same anchor at intervals, not back-to-back.
 
-## The starter anchor set (~3–5 families)
+## The locked anchor set (MIRROR v2)
 
-These span the spine's load-bearing trade-offs. Designate them in Phase 0.
+The four anchors are now **locked** and bound to specific story beats. They span
+the spine's load-bearing trade-offs (with two probing the unvalidated extras,
+Honesty/Autonomy, for longitudinal data on whether they earn their place).
 
-| anchor_id            | conflict_edge              | The bind (kept identical every re-run)                          |
-|----------------------|----------------------------|-----------------------------------------------------------------|
-| `anchor_care_honesty`        | `care__honesty`        | Protect someone from a painful truth, or tell it.               |
-| `anchor_equality_proportion` | `equality__proportionality` | Split equally, or by contribution/desert.                  |
-| `anchor_loyalty_authority`   | `loyalty__authority`   | Cover for your group, or comply with a legitimate rule.         |
-| `anchor_authority_autonomy`  | `authority__autonomy`  | Defer to legitimate authority, or follow your own judgement.    |
-| `anchor_care_purity`         | `care__purity`         | Relieve suffering via a means that violates a sanctity norm.    |
+| anchor_id            | conflict_edge              | beat | The bind (kept identical every re-run)                          |
+|----------------------|----------------------------|------|-----------------------------------------------------------------|
+| `anchor_equality_proportion` | `equality__proportionality` | Baker — split the tip jar | Split equally, or by contribution/desert.        |
+| `anchor_honesty_autonomy`    | `honesty__autonomy`         | Baker — the letter about his daughter | Tell the truth, or respect his autonomy to not know. |
+| `anchor_authority_honesty`   | `authority__honesty`        | Whistle — report it up, or sit on it | Comply with the chain, or disclose.       |
+| `anchor_authority_care`      | `authority__care`           | Verdict — convict as the law demands, or refuse | Apply the rule, or protect the person.    |
 
-> Note: `authority__autonomy` deliberately probes an **unvalidated extra**
-> (autonomy). It is included as an anchor so we get *longitudinal* data on whether
-> the extra earns its place — but the corpus still must not over-invest in extras
-> elsewhere (§3, §5).
+> **Two anchors double as `[PROCESS]` beats** (Whistle memo, Verdict law-vs-gut).
+> That is fine, but they must stay *identical forever* and **defection-free** — a
+> costed temptation would shift their meaning and break both drift measurement and
+> CNI matching. The DB enforces no-defection-on-anchor
+> (`choices_no_defection_on_anchor`) and immutability (`gates_protect_anchors`).
 
 ## Cadence
 
-- Each anchor re-runs on a fixed rotation. With 5 anchors and a ~quarterly
+- Each anchor re-runs on a fixed rotation. With 4 anchors and a ~quarterly
   rotation, a daily player meets each anchor ~4×/year — enough to estimate
-  individual stability within a year.
+  individual stability within a year. Crossed (norm/outcome) re-runs of these
+  same anchors over time are what eventually enable true C/N/I extraction.
 - Track via the `anchor_health` view (`db/schema.sql`): instances, distinct
   dates, and plays per family.

@@ -39,14 +39,27 @@
       "is_anchor": false,
       "anchor_id": null,
       "is_exploratory": true,
+      "process_frame_note": "v2: on a [PROCESS] beat, tag each answer's cni_role (consequences|norms|inaction). On a [DEFECT] beat, mark the costed self-interest option is_defection:true with a self_enhancement loading. Never put a defection option on an anchor gate.",
       "choices": [
         {
           "label": "Tell him exactly what you told the manager.",
-          "axis_loadings": { "honesty": 0.7 }
+          "axis_loadings": { "honesty": 0.7 },
+          "cni_role": "norms"
         },
         {
           "label": "Soften it to protect the working relationship.",
-          "axis_loadings": { "care": 0.5, "honesty": -0.3 }
+          "axis_loadings": { "care": 0.5, "honesty": -0.3 },
+          "cni_role": "consequences"
+        },
+        {
+          "label": "Say nothing and let it blow over.",
+          "axis_loadings": {},
+          "cni_role": "inaction"
+        },
+        {
+          "label": "Quietly take the credit for the good outcome with your boss.",
+          "axis_loadings": { "self_enhancement": 0.7, "honesty": -0.4 },
+          "is_defection": true
         }
       ]
     }

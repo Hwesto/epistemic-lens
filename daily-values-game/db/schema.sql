@@ -80,11 +80,16 @@ create table choices (
   label                 text not null,
   next_gate_id          uuid references gates(id),       -- null => leads to terminal/end
   axis_loadings         jsonb not null default '{}'::jsonb,  -- {"care": 0.7, "honesty": -0.4}
+  -- v2 (framework prior-v2): the Self-enhancement / defection layer.
+  is_defection          boolean not null default false,  -- the costed self-interest option
+  -- v2: CNI process layer — which route this answer represents on a [PROCESS] beat.
+  cni_role              text check (cni_role in ('consequences','norms','inaction') or cni_role is null),
   framework_version_id  int  not null references framework_versions(id),
   created_at            timestamptz not null default now()
 );
 
 create index choices_gate_idx on choices(gate_id);
+create index choices_defection_idx on choices(is_defection) where is_defection;
 
 -- ---------------------------------------------------------------------------
 -- Users. Profile is PRIVATE by default (privacy is a legal necessity AND the
@@ -234,3 +239,20 @@ $$ language plpgsql;
 create trigger gates_protect_anchors
   before update on gates
   for each row execute function forbid_anchor_edit();
+
+-- No defection option on an anchor (§ v2 design rule). Anchors must measure the
+-- same thing unchanged for years; a costed temptation would shift their meaning.
+create or replace function forbid_defection_on_anchor() returns trigger as $$
+begin
+  if new.is_defection and exists (
+    select 1 from gates g where g.id = new.gate_id and g.is_anchor
+  ) then
+    raise exception 'choice % is a defection option on an anchor gate — not permitted (anchors stay temptation-free)', new.id;
+  end if;
+  return new;
+end;
+$$ language plpgsql;
+
+create trigger choices_no_defection_on_anchor
+  before insert or update on choices
+  for each row execute function forbid_defection_on_anchor();

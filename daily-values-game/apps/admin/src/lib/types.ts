@@ -3,7 +3,9 @@
 export interface ChoiceInput {
   label: string;
   next_sequence?: number | null;
-  axis_loadings?: Record<string, number>;
+  axis_loadings?: Record<string, number>; // may include `self_enhancement` (v2)
+  is_defection?: boolean; // v2: costed self-interest option
+  cni_role?: "consequences" | "norms" | "inaction" | null; // v2: CNI route
 }
 
 export interface GateInput {

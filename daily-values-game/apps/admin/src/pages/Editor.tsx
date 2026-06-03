@@ -56,6 +56,8 @@ function NewStory() {
             label: c.label,
             next_sequence: c.next_sequence,
             axis_loadings: parseLoadings(loadingsText[`${g.sequence}-${ci}`]),
+            is_defection: c.is_defection ?? false,
+            cni_role: c.cni_role ?? null,
           })),
         })),
       };
@@ -250,42 +252,67 @@ function GateEditor({
       )}
 
       <div className="space-y-2">
-        {gate.choices.map((c, ci) => (
-          <div key={ci} className="grid grid-cols-12 gap-2">
-            <input
-              placeholder={`Choice ${ci + 1}`}
-              value={c.label}
-              onChange={(e) =>
-                onChange({
-                  choices: gate.choices.map((x, j) =>
-                    j === ci ? { ...x, label: e.target.value } : x
-                  ),
-                })
-              }
-              className="col-span-6 rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 text-sm"
-            />
-            <input
-              placeholder="next seq"
-              value={c.next_sequence ?? ""}
-              onChange={(e) =>
-                onChange({
-                  choices: gate.choices.map((x, j) =>
-                    j === ci ? { ...x, next_sequence: e.target.value ? Number(e.target.value) : null } : x
-                  ),
-                })
-              }
-              className="col-span-2 rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 text-sm"
-            />
-            <input
-              placeholder='loadings {"care":0.7}'
-              value={loadingsText[`${gate.sequence}-${ci}`] ?? ""}
-              onChange={(e) =>
-                setLoadingsText((s) => ({ ...s, [`${gate.sequence}-${ci}`]: e.target.value }))
-              }
-              className="col-span-4 rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 font-mono text-xs"
-            />
-          </div>
-        ))}
+        {gate.choices.map((c, ci) => {
+          const setChoice = (patch: Partial<typeof c>) =>
+            onChange({ choices: gate.choices.map((x, j) => (j === ci ? { ...x, ...patch } : x)) });
+          return (
+            <div key={ci} className="space-y-1 rounded-lg border border-slate-800 p-2">
+              <div className="grid grid-cols-12 gap-2">
+                <input
+                  placeholder={`Choice ${ci + 1}`}
+                  value={c.label}
+                  onChange={(e) => setChoice({ label: e.target.value })}
+                  className="col-span-8 rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 text-sm"
+                />
+                <input
+                  placeholder="next seq"
+                  value={c.next_sequence ?? ""}
+                  onChange={(e) =>
+                    setChoice({ next_sequence: e.target.value ? Number(e.target.value) : null })
+                  }
+                  className="col-span-2 rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 text-sm"
+                />
+                <input
+                  placeholder='loadings {"care":0.7}'
+                  value={loadingsText[`${gate.sequence}-${ci}`] ?? ""}
+                  onChange={(e) =>
+                    setLoadingsText((s) => ({ ...s, [`${gate.sequence}-${ci}`]: e.target.value }))
+                  }
+                  className="col-span-12 rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 font-mono text-xs"
+                />
+              </div>
+              <div className="flex items-center gap-4 text-xs text-slate-400">
+                <label
+                  className={`flex items-center gap-1 ${gate.is_anchor ? "opacity-40" : ""}`}
+                  title={gate.is_anchor ? "Anchors must stay defection-free" : ""}
+                >
+                  <input
+                    type="checkbox"
+                    disabled={gate.is_anchor}
+                    checked={c.is_defection ?? false}
+                    onChange={(e) => setChoice({ is_defection: e.target.checked })}
+                  />
+                  defection (costed self-interest)
+                </label>
+                <label className="flex items-center gap-1">
+                  CNI:
+                  <select
+                    value={c.cni_role ?? ""}
+                    onChange={(e) =>
+                      setChoice({ cni_role: (e.target.value || null) as typeof c.cni_role })
+                    }
+                    className="rounded border border-slate-700 bg-slate-900 px-1 py-0.5"
+                  >
+                    <option value="">—</option>
+                    <option value="consequences">consequences</option>
+                    <option value="norms">norms</option>
+                    <option value="inaction">inaction</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
