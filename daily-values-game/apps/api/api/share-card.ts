@@ -85,7 +85,9 @@ export default async function handler(req: VercelRequest) {
           },
         ],
       },
-    },
+      // @vercel/og renders this plain-element object at runtime; its type wants a
+      // ReactElement, so cast rather than pull JSX tooling into one server file.
+    } as any,
     { width: 1200, height: 630 }
   );
 }

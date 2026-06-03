@@ -42,21 +42,37 @@ analysis/            offline psychometrics notebook layer (confirmatory + explor
 docs/                architecture, measurement, pipeline, build phases, privacy
 ```
 
-## Run it (local dev)
+## Run it (end-to-end)
+
+Needs a Postgres `DATABASE_URL` (hosted Supabase/Neon, or local). `db:*` scripts
+use `psql`; the API runs in a small Node dev server (`apps/api/dev-server.ts`,
+via `tsx`) — no Vercel CLI needed for local dev.
 
 ```bash
-# 1. Database  (Supabase / Neon / local Postgres)
-psql "$DATABASE_URL" -f db/schema.sql
-psql "$DATABASE_URL" -f db/seed/0001_framework_v1.sql
+# 0. point at your database (or copy .env.example → apps/api/.env)
+export DATABASE_URL=postgres://user:pass@host:5432/dbname
 
-# 2. Web client
-cd apps/web && npm install && npm run dev
+# 1. schema + framework seed (db:reset drops & recreates — dev only)
+npm run db:reset
 
-# 3. API (serverless functions — Vercel-style handlers in apps/api/api/)
-cd apps/api && npm install && vercel dev    # or your serverless runtime
+# 2. a dev fixture story dated TODAY, so /api/today has something to serve
+npm run seed:dev
+
+# 3. API on :3000  (one terminal)
+npm install --workspaces
+npm run dev:api
+
+# 4. web client  (another terminal)
+npm run dev:web
 ```
 
-Copy `.env.example` → `.env` and fill in `DATABASE_URL`, `ADMIN_TOKEN`, etc.
+Then open the Vite URL and play the loop. The dev server injects a `dev-user`
+auth subject so accounts aren't needed locally; production wires real auth in
+`apps/api/src/auth.ts` (the deferred layer).
+
+> The dev fixture is **not** the real anchor corpus — it only exercises the loop.
+> Production content is loaded via the admin import endpoint (`POST
+> /api/admin/import-story`) from `content/stories/*.json`.
 
 ## What's real vs deferred in v1 (§9)
 

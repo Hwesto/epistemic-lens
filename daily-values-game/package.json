@@ -8,6 +8,11 @@
     "apps/api"
   ],
   "scripts": {
+    "db:schema": "psql \"$DATABASE_URL\" -v ON_ERROR_STOP=1 -f db/schema.sql",
+    "db:seed": "psql \"$DATABASE_URL\" -v ON_ERROR_STOP=1 -f db/seed/0001_framework_v1.sql",
+    "db:reset": "psql \"$DATABASE_URL\" -v ON_ERROR_STOP=1 -c 'drop schema public cascade; create schema public;' && npm run db:schema && npm run db:seed",
+    "seed:dev": "npm --workspace @dvg/api run seed:dev",
+    "dev:api": "npm --workspace @dvg/api run dev",
     "dev:web": "npm --workspace @dvg/web run dev",
     "build:web": "npm --workspace @dvg/web run build",
     "typecheck:api": "npm --workspace @dvg/api run typecheck"

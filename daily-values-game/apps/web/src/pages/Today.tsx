@@ -5,14 +5,16 @@ import { Gate } from "../components/Gate";
 import { SocialSplit } from "../components/SocialSplit";
 import { ShareCard } from "../components/ShareCard";
 
-type Phase = "loading" | "reading" | "playing" | "done" | "error";
+type Phase = "loading" | "reading" | "playing" | "decided" | "done" | "error";
 
 export default function Today() {
   const [story, setStory] = useState<Story | null>(null);
   const [phase, setPhase] = useState<Phase>("loading");
   const [gate, setGate] = useState<GateT | null>(null);
   const [split, setSplit] = useState<Split>({});
-  const [lastChoice, setLastChoice] = useState<Choice | null>(null);
+  // the gate + choice the user just decided — drives the split reveal so it
+  // always matches the gate that was answered (not the next one).
+  const [decided, setDecided] = useState<{ gate: GateT; choice: Choice } | null>(null);
 
   useEffect(() => {
     api
@@ -32,7 +34,6 @@ export default function Today() {
     responseMs: number;
   }) {
     if (!story) return;
-    setLastChoice(input.choice);
     await api.recordChoice({
       storyId: story.id,
       gateId: input.gate.id,
@@ -40,14 +41,18 @@ export default function Today() {
       rejectedChoiceId: input.rejected?.id,
       responseMs: input.responseMs,
     });
-    // Reveal the social split for this gate, then advance or finish.
     setSplit(await api.split(story.id));
+    setDecided({ gate: input.gate, choice: input.choice });
+    setPhase("decided");
+  }
 
-    const nextId = input.choice.next_gate_id;
+  function advance() {
+    if (!story || !decided) return;
+    const nextId = decided.choice.next_gate_id;
     const next = nextId ? story.gates.find((g) => g.id === nextId) ?? null : null;
-    if (next && !input.gate.is_terminal) {
-      // brief pause to show the split is handled by the page below
+    if (next && !decided.gate.is_terminal) {
       setGate(next);
+      setPhase("playing");
     } else {
       setPhase("done");
     }
@@ -78,13 +83,26 @@ export default function Today() {
 
       {phase === "playing" && gate && <Gate gate={gate} onDecide={handleDecide} />}
 
-      {lastChoice && gate && (
-        <SocialSplit choices={gate.choices} split={split} yourChoiceId={lastChoice.id} />
+      {phase === "decided" && decided && (
+        <div className="space-y-4">
+          <p className="text-lg leading-relaxed">{decided.gate.body}</p>
+          <SocialSplit
+            choices={decided.gate.choices}
+            split={split}
+            yourChoiceId={decided.choice.id}
+          />
+          <button
+            onClick={advance}
+            className="w-full rounded-xl bg-slate-100 px-4 py-3 font-medium text-slate-900"
+          >
+            Continue
+          </button>
+        </div>
       )}
 
       {phase === "done" && (
         <div className="space-y-6 border-t border-slate-800 pt-6">
-          <ShareCard storyId={story.id} title={story.title} />
+          <ShareCard storyId={story.id} title={story.title} date={story.publish_date} />
         </div>
       )}
     </div>

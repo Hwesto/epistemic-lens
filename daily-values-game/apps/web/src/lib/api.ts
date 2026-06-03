@@ -36,5 +36,7 @@ export const api = {
   },
 
   // URL of the server-rendered, spoiler-free share card PNG (§10, growth engine).
-  shareCardUrl: (storyId: string) => `${base}/api/share-card?story=${storyId}`,
+  // The card shows the date + title and the axis legend — never an outcome.
+  shareCardUrl: (title: string, date: string) =>
+    `${base}/api/share-card?title=${encodeURIComponent(title)}&date=${encodeURIComponent(date)}`,
 };

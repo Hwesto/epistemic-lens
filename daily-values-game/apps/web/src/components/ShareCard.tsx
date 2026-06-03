@@ -4,8 +4,16 @@ import { api } from "../lib/api";
 // The actual shareable image is SERVER-rendered (spoiler-free PNG with a tiny
 // legend, see api/src/share-card.ts). This component just previews it and wires
 // the native share sheet.
-export function ShareCard({ storyId, title }: { storyId: string; title: string }) {
-  const url = api.shareCardUrl(storyId);
+export function ShareCard({
+  storyId,
+  title,
+  date,
+}: {
+  storyId: string;
+  title: string;
+  date: string;
+}) {
+  const url = api.shareCardUrl(title, date);
 
   async function share() {
     const shareUrl = `${window.location.origin}/?s=${storyId}`;

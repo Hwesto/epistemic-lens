@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx --env-file-if-exists=.env dev-server.ts",
+    "seed:dev": "tsx --env-file-if-exists=.env scripts/seed-dev.ts"
   },
   "dependencies": {
     "@vercel/og": "^0.6.2",
@@ -13,6 +15,7 @@
   "devDependencies": {
     "@types/node": "^20.14.0",
     "@vercel/node": "^3.2.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.4"
   }
 }
