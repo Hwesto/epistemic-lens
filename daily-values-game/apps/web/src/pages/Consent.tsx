@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { api } from "../lib/api";
 
 // Explicit, logged consent before any profiling (§10). Shown after sign-in until
 // granted; the server also blocks /api/choice without it.
 export default function Consent() {
-  const navigate = useNavigate();
   const [busy, setBusy] = useState(false);
 
   async function agree() {
     setBusy(true);
     try {
       await api.recordConsent();
-      navigate("/", { replace: true });
+      // Full reload so the route guard re-fetches consent status (a SPA navigate
+      // would keep the guard's stale consented=false and bounce back here).
+      window.location.assign("/");
     } finally {
       setBusy(false);
     }
