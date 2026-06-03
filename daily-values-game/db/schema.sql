@@ -78,6 +78,11 @@ create table choices (
   id                    uuid primary key default gen_random_uuid(),
   gate_id               uuid not null references gates(id) on delete cascade,
   label                 text not null,
+  -- authored display ordinal within the gate (0-based). Options are shown in this
+  -- FIXED order, identical for every player, so the shared split / friend-diff /
+  -- share card describe one thing two people both saw. Position bias becomes a
+  -- shared constant, de-confounded over time via re-runs in varied authored orders.
+  position              smallint not null default 0,
   next_gate_id          uuid references gates(id),       -- null => leads to terminal/end
   axis_loadings         jsonb not null default '{}'::jsonb,  -- {"care": 0.7, "honesty": -0.4}
   -- v2 (framework prior-v2): the Self-enhancement / defection layer.
@@ -85,7 +90,8 @@ create table choices (
   -- v2: CNI process layer — which route this answer represents on a [PROCESS] beat.
   cni_role              text check (cni_role in ('consequences','norms','inaction') or cni_role is null),
   framework_version_id  int  not null references framework_versions(id),
-  created_at            timestamptz not null default now()
+  created_at            timestamptz not null default now(),
+  unique (gate_id, position)
 );
 
 create index choices_gate_idx on choices(gate_id);

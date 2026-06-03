@@ -79,16 +79,19 @@ export async function importStory(
     gateIdBySeq.set(g.sequence, row.id);
   }
 
-  // second pass: choices, stamped with the framework_version
+  // second pass: choices, stamped with the framework_version. `position` is the
+  // index in the authoring array → authored order == stored == served order.
   for (const g of story.gates) {
     const gateId = gateIdBySeq.get(g.sequence)!;
-    for (const c of g.choices ?? []) {
+    const choices = g.choices ?? [];
+    for (let i = 0; i < choices.length; i++) {
+      const c = choices[i];
       const nextGateId = c.next_sequence ? gateIdBySeq.get(c.next_sequence) ?? null : null;
       await tx`
         insert into choices
-          (gate_id, label, next_gate_id, axis_loadings, is_defection, cni_role, framework_version_id)
+          (gate_id, label, position, next_gate_id, axis_loadings, is_defection, cni_role, framework_version_id)
         values
-          (${gateId}, ${c.label}, ${nextGateId}, ${tx.json(c.axis_loadings ?? {})},
+          (${gateId}, ${c.label}, ${i}, ${nextGateId}, ${tx.json(c.axis_loadings ?? {})},
            ${c.is_defection ?? false}, ${c.cni_role ?? null}, ${frameworkVersionId})
       `;
     }

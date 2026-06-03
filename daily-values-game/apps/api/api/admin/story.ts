@@ -28,7 +28,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const gates = await sql`select * from gates where story_id = ${id} order by sequence`;
     const gateIds = gates.map((g: any) => g.id);
     const choices = gateIds.length
-      ? await sql`select * from choices where gate_id in ${sql(gateIds)}`
+      ? await sql`select * from choices where gate_id in ${sql(gateIds)} order by gate_id, position`
       : [];
     res.status(200).json({
       ...story,

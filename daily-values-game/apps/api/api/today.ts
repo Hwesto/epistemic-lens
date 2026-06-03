@@ -29,6 +29,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ? await sql`
         select id, gate_id, label, next_gate_id
         from choices where gate_id in ${sql(gateIds)}
+        order by gate_id, position
       `
     : [];
 
