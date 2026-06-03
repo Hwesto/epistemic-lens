@@ -61,6 +61,25 @@ try {
   await sql`delete from stories where publish_date = ${today}`;
   const result = await sql.begin((tx) => importStory(tx, fixture));
   console.log(`seeded dev story for ${today}:`, result);
+
+  // dev-user: the subject the dev server injects. Make it an admin and grant
+  // consent so the loop AND the admin tool work locally without real Supabase.
+  const consentVersion = process.env.CONSENT_VERSION ?? "v1";
+  const [devUser] = await sql<{ id: string }[]>`
+    insert into users (auth_id, is_admin)
+    values ('dev-user', true)
+    on conflict (auth_id) do update set is_admin = true
+    returning id
+  `;
+  await sql`
+    insert into consents (user_id, version)
+    select ${devUser.id}, ${consentVersion}
+    where not exists (
+      select 1 from consents
+      where user_id = ${devUser.id} and version = ${consentVersion} and withdrawn_at is null
+    )
+  `;
+  console.log(`dev-user ${devUser.id} is admin + consented (${consentVersion})`);
 } catch (e) {
   console.error("seed failed:", e);
   process.exitCode = 1;

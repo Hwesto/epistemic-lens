@@ -64,11 +64,18 @@ npm run dev:api
 
 # 4. web client  (another terminal)
 npm run dev:web
+
+# 5. admin tool  (another terminal) — coverage, authoring, scheduling
+npm run dev:admin
 ```
 
 Then open the Vite URL and play the loop. The dev server injects a `dev-user`
-auth subject so accounts aren't needed locally; production wires real auth in
-`apps/api/src/auth.ts` (the deferred layer).
+auth subject (made **admin + consented** by `seed:dev`), so neither accounts nor
+a Supabase project are needed locally. In production, auth is real **Supabase**
+JWT verification (`apps/api/src/auth.ts`): the web app gates play behind sign-in
++ consent, and the admin tool is gated by the `is_admin` flag. Account deletion
+**anonymises and retains** de-identified events — see `docs/PRIVACY.md`. Set the
+`SUPABASE_*` / `VITE_SUPABASE_*` vars (`.env.example`) to enable real login.
 
 > The dev fixture is **not** the real anchor corpus — it only exercises the loop.
 > Production content is loaded via the admin import endpoint (`POST

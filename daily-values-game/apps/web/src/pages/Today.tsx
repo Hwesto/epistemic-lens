@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../lib/api";
 import type { Story, Gate as GateT, Choice, Split } from "../lib/types";
 import { Gate } from "../components/Gate";
@@ -8,6 +9,7 @@ import { ShareCard } from "../components/ShareCard";
 type Phase = "loading" | "reading" | "playing" | "decided" | "done" | "error";
 
 export default function Today() {
+  const navigate = useNavigate();
   const [story, setStory] = useState<Story | null>(null);
   const [phase, setPhase] = useState<Phase>("loading");
   const [gate, setGate] = useState<GateT | null>(null);
@@ -34,13 +36,21 @@ export default function Today() {
     responseMs: number;
   }) {
     if (!story) return;
-    await api.recordChoice({
-      storyId: story.id,
-      gateId: input.gate.id,
-      choiceId: input.choice.id,
-      rejectedChoiceId: input.rejected?.id,
-      responseMs: input.responseMs,
-    });
+    try {
+      await api.recordChoice({
+        storyId: story.id,
+        gateId: input.gate.id,
+        choiceId: input.choice.id,
+        rejectedChoiceId: input.rejected?.id,
+        responseMs: input.responseMs,
+      });
+    } catch (e: any) {
+      if (e?.detail?.error === "consent_required") {
+        navigate("/consent");
+        return;
+      }
+      throw e;
+    }
     setSplit(await api.split(story.id));
     setDecided({ gate: input.gate, choice: input.choice });
     setPhase("decided");

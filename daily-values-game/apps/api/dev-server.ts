@@ -13,11 +13,20 @@ const IS_PROD = process.env.NODE_ENV === "production";
 // pathname -> lazy handler import. Keys are "METHOD /path".
 const routes: Record<string, () => Promise<{ default: Function }>> = {
   "GET /api/today": () => import("./api/today"),
+  "GET /api/me": () => import("./api/me"),
   "POST /api/choice": () => import("./api/choice"),
   "GET /api/split": () => import("./api/split"),
   "GET /api/profile": () => import("./api/profile"),
   "GET /api/share-card": () => import("./api/share-card"),
+  "POST /api/consent": () => import("./api/consent"),
+  "POST /api/account/delete": () => import("./api/account/delete"),
+  "GET /api/account/export": () => import("./api/account/export"),
+  "POST /api/account/privacy": () => import("./api/account/privacy"),
   "POST /api/admin/import-story": () => import("./api/admin/import-story"),
+  "GET /api/admin/coverage": () => import("./api/admin/coverage"),
+  "GET /api/admin/stories": () => import("./api/admin/stories"),
+  "GET /api/admin/story": () => import("./api/admin/story"),
+  "PATCH /api/admin/story": () => import("./api/admin/story"),
 };
 
 async function readBody(req: IncomingMessage): Promise<unknown> {
@@ -77,7 +86,8 @@ const server = createServer(async (nodeReq, nodeRes) => {
     const headers = { ...nodeReq.headers } as Record<string, any>;
     if (!IS_PROD && !headers["x-auth-subject"]) headers["x-auth-subject"] = "dev-user";
 
-    const body = nodeReq.method === "POST" ? await readBody(nodeReq) : undefined;
+    const hasBody = nodeReq.method === "POST" || nodeReq.method === "PATCH";
+    const body = hasBody ? await readBody(nodeReq) : undefined;
     const req = { method: nodeReq.method, url: nodeReq.url, headers, query, body };
 
     const mod = await route();

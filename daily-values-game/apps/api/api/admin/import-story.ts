@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { db } from "../../src/db";
 import { importStory } from "../../src/import";
+import { requireAdmin } from "../../src/auth";
 
 // PROTECTED admin import. Loads a pipeline-authored, fully-tagged story
 // (see content/stories/example-story.json) into the DB, stamping every choice's
@@ -15,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.status(405).json({ error: "POST only" });
     return;
   }
-  if (req.headers["x-admin-token"] !== process.env.ADMIN_TOKEN) {
+  if (!(await requireAdmin(req))) {
     res.status(403).json({ error: "admin only" });
     return;
   }

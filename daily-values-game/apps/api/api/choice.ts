@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { db } from "../src/db";
-import { currentUserId } from "../src/auth";
+import { currentUserId, hasActiveConsent, CONSENT_VERSION } from "../src/auth";
 
 // Record one decision into the APPEND-ONLY log. This is the single most
 // important write in the system — it is the asset (§4, §10). We never update or
@@ -24,6 +24,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const sql = db();
+
+  // No profiling without consent (§10). The UI also gates play; this is the
+  // server-side backstop.
+  if (!(await hasActiveConsent(sql, userId, CONSENT_VERSION))) {
+    res.status(403).json({ error: "consent_required", version: CONSENT_VERSION });
+    return;
+  }
 
   await sql.begin(async (tx) => {
     // append-only insert; richly tagged context is derivable via gate_id

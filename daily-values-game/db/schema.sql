@@ -95,8 +95,24 @@ create table users (
   created_at        timestamptz not null default now(),
   display_name      text,
   auth_id           text unique,             -- maps to Supabase Auth / Clerk subject
+  is_admin          boolean not null default false,   -- gates the content admin tool
+  is_anonymized     boolean not null default false,   -- set when the account is deleted
   privacy_settings  jsonb not null default '{"profile_public": false}'::jsonb
 );
+
+-- Versioned, logged consent. Values data can infer special-category data, so
+-- explicit consent is captured before any profiling and is withdrawable (§10).
+-- On account deletion these rows are removed (PII-adjacent); choice_events are
+-- de-identified and retained.
+create table consents (
+  id            bigserial primary key,
+  user_id       uuid not null references users(id),
+  version       text not null,           -- the consent text/version granted
+  granted_at    timestamptz not null default now(),
+  withdrawn_at  timestamptz              -- null = still active
+);
+
+create index consents_user_idx on consents(user_id);
 
 -- ---------------------------------------------------------------------------
 -- THE append-only log. Immutable. Tagged richly enough that analysis can

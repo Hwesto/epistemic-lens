@@ -12,20 +12,34 @@ for** (§10). This is not optional polish.
 - **Consent at signup.** Explicit, logged consent before any profiling.
 - **Deletion is real.** Account + data deletion must remove personal data.
 
-## The deletion tension with append-only
+## The deletion tension with append-only — implemented: **anonymise & retain**
 
 `choice_events` is append-only and immutable — that is the measurement moat. But
-users must be able to delete their data. Reconcile by **separating identity from
-the event stream**:
+users must be able to delete their data. We reconcile this by **scrubbing
+identity rather than touching the event log** (`apps/api/api/account/delete.ts`):
 
-- On deletion, **hard-delete the `users` row and any PII** (display name, auth
-  mapping), and either delete or **irreversibly anonymise** that user's
-  `choice_events` (e.g. detach `user_id` → a tombstone) per your retention policy
-  and the consent you obtained.
-- Append-only protects against *accidental/silent* mutation in normal operation;
-  it is not a reason to retain a user's data against a valid deletion request.
-- Document the chosen policy here before launch and reflect it in the consent copy.
+1. **Delete the Supabase auth user** — removes login and the PII Supabase holds
+   (email, name). This is the only place real PII lived.
+2. **Scrub the `users` row** — null `auth_id` and `display_name`, clear
+   `privacy_settings`, set `is_anonymized = true`. This severs every link between
+   the person and their events.
+3. **Delete derived/relational rows** — `profiles`, `consents`, `friendships`.
+4. **Leave `choice_events` untouched** — they now reference an anonymous,
+   PII-free subject, so the behavioural signal is retained for the science while
+   nothing identifies the person.
 
-> Design note: store the minimum identity needed to support friend-diff and login;
-> keep the analytic value in the *de-identified* event stream wherever possible so
-> deletion costs you as little signal as the law and ethics require.
+Why this shape:
+
+- The append-only trigger is **never touched** — normal-operation immutability
+  holds, and there is no privileged "anonymise" bypass to misuse.
+- **Within-user linkage is preserved** (the events keep a single, now-anonymous
+  `user_id`), so a deleted user remains one coherent anonymous respondent rather
+  than being scattered — better for analysis, still non-identifying.
+- We store the **minimum identity** in our DB (just the auth subject); the real
+  PII lives in Supabase Auth and is deleted there. Deletion therefore costs as
+  little signal as the law and ethics require.
+
+Users can also **export** their data (`account/export.ts`, GDPR access) and
+toggle profile visibility (`account/privacy.ts`); profiles stay **private by
+default**. Consent is captured before any profiling (`consent.ts`,
+`CONSENT_VERSION`) and the choice endpoint refuses to record without it.
