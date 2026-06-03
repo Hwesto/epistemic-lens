@@ -19,7 +19,17 @@
     "dev:admin": "npm --workspace @dvg/admin run dev",
     "build:web": "npm --workspace @dvg/web run build",
     "build:admin": "npm --workspace @dvg/admin run build",
-    "typecheck:api": "npm --workspace @dvg/api run typecheck"
+    "typecheck:api": "npm --workspace @dvg/api run typecheck",
+    "db:bootstrap": "tsx scripts/deploy-setup.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "@vercel/og": "^0.6.2",
+    "jose": "^5.6.0",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
   },
   "license": "UNLICENSED"
 }

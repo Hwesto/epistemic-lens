@@ -5,11 +5,23 @@ import { supabase } from "./supabase";
 // choices are light writes to the append-only log.
 const base = import.meta.env.VITE_API_BASE ?? "";
 
-// Attach the Supabase access token as a Bearer header (verified server-side).
+// A stable per-browser id for frictionless anonymous play (no login). Used by the
+// backend only when ALLOW_ANON is enabled; harmless otherwise.
+function anonId(): string {
+  let id = localStorage.getItem("anon_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem("anon_id", id);
+  }
+  return id;
+}
+
+// Attach the Supabase access token as a Bearer header (verified server-side); when
+// there's no session, fall back to the anonymous id header.
 async function authHeaders(): Promise<Record<string, string>> {
   const { data } = await supabase.auth.getSession();
   const token = data.session?.access_token;
-  return token ? { authorization: `Bearer ${token}` } : {};
+  return token ? { authorization: `Bearer ${token}` } : { "x-anon-id": anonId() };
 }
 
 async function get<T>(path: string): Promise<T> {

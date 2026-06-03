@@ -59,9 +59,16 @@ function bearer(req: VercelRequest): string | null {
 }
 
 // Resolve the auth subject for a request (verified token, or dev shim).
+// Frictionless anonymous mode (spec Phase 0: "bare page, no accounts"). When
+// ALLOW_ANON=true, an `x-anon-id` header (a stable per-browser id) is accepted as
+// the subject — no login. Anonymous users are auto-consented below.
+const ALLOW_ANON = process.env.ALLOW_ANON === "true";
+
 async function authSubject(req: VercelRequest): Promise<string | null> {
   const token = bearer(req);
   if (token) return subjectFromToken(token);
+  const anon = req.headers["x-anon-id"];
+  if (ALLOW_ANON && typeof anon === "string" && anon) return `anon:${anon}`;
   if (!IS_PROD) return (req.headers["x-auth-subject"] as string) ?? null;
   return null;
 }
@@ -78,7 +85,20 @@ export async function currentUserId(req: VercelRequest): Promise<string | null> 
     on conflict (auth_id) do update set auth_id = excluded.auth_id
     returning id
   `;
-  return rows[0]?.id ?? null;
+  const id = rows[0]?.id ?? null;
+
+  // Anonymous users carry no consent ceremony — auto-grant the active version so
+  // the profiling guard passes (Phase 0). Real accounts go through /api/consent.
+  if (id && sub.startsWith("anon:")) {
+    await sql`
+      insert into consents (user_id, version)
+      select ${id}, ${CONSENT_VERSION}
+      where not exists (
+        select 1 from consents where user_id = ${id} and version = ${CONSENT_VERSION} and withdrawn_at is null
+      )
+    `;
+  }
+  return id;
 }
 
 // Like currentUserId, but additionally requires users.is_admin. Gates the
