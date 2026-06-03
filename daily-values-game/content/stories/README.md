@@ -17,6 +17,11 @@ A story passes only if every gate is:
 - **a clean fork** — richness in the scene, not leaking into the options
 - **not preachy**
 
+The full authoring standard — the prime directive ("the narrator has no
+favourite"), choice-symmetry, writing the defection, and the pre-submission
+checklist — is in **[`../STYLE.md`](../STYLE.md)**. Every story passes that
+checklist before it goes in.
+
 ## Import
 
 `content/stories/*.json` → `db` via a loader (see `analysis/README.md` and the
