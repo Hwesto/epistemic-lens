@@ -1,0 +1,100 @@
+{
+  "_comment": "MIRROR Story 1 — curated draft per content/STYLE.md (rite doctrine). 5 beats x 4 options; second person, present tense; cipher protagonist. Beats 2 (jar) and 3 (letter) are ANCHORs — frozen, defection-free, and (per the path-invariance rule) NO incoming lead_in_text on the choices that lead into them. Remembered narration (lead_in_text) routes into the non-anchor beats 4 (debt) and 5 (will): it acknowledges the prior choice, never evaluates it. Beat 4 carries the one costed defection, written to the same weight as the virtues. Beat 5 is the CNI [PROCESS] beat. Loadings are a PRIOR. publish_date is a placeholder.",
+  "publish_date": "2026-09-01",
+  "genre": "domestic / inheritance",
+  "title": "The Baker's Last Day",
+  "status": "draft",
+  "body": "The baker is dead, and you are the one left to close the shop on its last day. By the door the smell of it is already going. There is the week's money in the jar, the old dog under the counter, a letter in the till drawer, a debt nobody wrote down, and the will the lawyer will read at dusk. The town is quieter for him. Before the light goes, each of these has to be settled, and there is only you to do it.",
+  "gates": [
+    {
+      "sequence": 1,
+      "body": "The dog has lain under the counter since he went, and it has not eaten. Its breathing comes slow and wrong now. The vet's number is chalked on the wall above it. Of this dog the baker said only one thing, once: that it should never be left to a stranger.",
+      "is_terminal": false,
+      "conflict_edge": "care__loyalty",
+      "scope_variant": "kin",
+      "framing_variant": "identifiable_victim",
+      "process_frame": null,
+      "is_anchor": false,
+      "anchor_id": null,
+      "is_exploratory": false,
+      "choices": [
+        { "label": "Call the vet before the night is out, so the waiting ends with your hand still resting on it.", "next_sequence": 2, "axis_loadings": { "care": 0.8 } },
+        { "label": "Keep it beside you and let it go in its own hours, here in the room it knows, because it was his.", "next_sequence": 2, "axis_loadings": { "loyalty": 0.7, "care": 0.2 } },
+        { "label": "Follow the folded note he left in the tin for exactly this, to the letter, whatever you would have done.", "next_sequence": 2, "axis_loadings": { "authority": 0.8 } },
+        { "label": "Take it home tonight and decide as things go; it is yours to answer for now, not his.", "next_sequence": 2, "axis_loadings": { "autonomy": 0.7 } }
+      ]
+    },
+    {
+      "sequence": 2,
+      "body": "The jar by the till holds the last week's coins, and more than a week's — people gave extra when the news went round. Four people kept the doors open through these last days. The coins have to be divided among them before they go tonight.",
+      "is_terminal": false,
+      "conflict_edge": "equality__proportionality",
+      "scope_variant": "group",
+      "framing_variant": "neutral",
+      "process_frame": null,
+      "is_anchor": true,
+      "anchor_id": "anchor_equality_proportion",
+      "is_exploratory": false,
+      "choices": [
+        { "label": "Split it into four equal parts, the same weight of coin to every hand.", "next_sequence": 3, "axis_loadings": { "equality": 0.8 } },
+        { "label": "Weigh it by the hours each one gave, and lay out the most to the one who did the most.", "next_sequence": 3, "axis_loadings": { "proportionality": 0.8 } },
+        { "label": "Set the largest share aside for the one who was with him longest, who stayed while others came and went.", "next_sequence": 3, "axis_loadings": { "loyalty": 0.8 } },
+        { "label": "Set the largest share aside for the one whose need is greatest, with the most waiting at home.", "next_sequence": 3, "axis_loadings": { "care": 0.8 } }
+      ]
+    },
+    {
+      "sequence": 3,
+      "body": "In the till drawer there is a letter in his hand, addressed to the daughter no one here has seen in years. It is stamped and was never sent. It tells her a thing she does not know: that the man who raised her was not the man who made her.",
+      "is_terminal": false,
+      "conflict_edge": "honesty__autonomy",
+      "scope_variant": "kin",
+      "framing_variant": "identifiable_victim",
+      "process_frame": null,
+      "is_anchor": true,
+      "anchor_id": "anchor_honesty_autonomy",
+      "is_exploratory": false,
+      "choices": [
+        { "label": "Send the letter on as it is, the whole of it, because what is true should reach her.", "next_sequence": 4, "lead_in_text": "The letter is posted now; what she makes of it is hers.", "axis_loadings": { "honesty": 0.8 } },
+        { "label": "Go to her yourself and tell her only the part that will comfort her, and keep back the rest.", "next_sequence": 4, "lead_in_text": "You have set the afternoon aside to go to her, the gentler half of it rehearsed.", "axis_loadings": { "care": 0.7, "honesty": -0.3 } },
+        { "label": "Leave it sealed in the drawer; he chose not to send it, and the choosing was his.", "next_sequence": 4, "lead_in_text": "The letter goes back in the drawer, sealed as he left it.", "axis_loadings": { "autonomy": 0.8 } },
+        { "label": "Hand it to his sister and let his own family be the ones to decide what she is told.", "next_sequence": 4, "lead_in_text": "The letter is with his sister now, hers to weigh.", "axis_loadings": { "loyalty": 0.7 } }
+      ]
+    },
+    {
+      "sequence": 4,
+      "body": "A woman you have never seen comes in at dusk. She says he owed her — a loan from a hard winter, never written down — and names a sum that is most of what is in the drawer. She is grieving too; she asks plainly. There is no record of it anywhere in his books.",
+      "is_terminal": false,
+      "conflict_edge": "proportionality__loyalty",
+      "scope_variant": "stranger",
+      "framing_variant": "identifiable_victim",
+      "process_frame": null,
+      "is_anchor": false,
+      "anchor_id": null,
+      "is_exploratory": false,
+      "choices": [
+        { "label": "Pay her the part that squares with what can be reckoned he owed, and no more than that.", "next_sequence": 5, "lead_in_text": "The drawer is lighter now by what you judged was fair.", "axis_loadings": { "proportionality": 0.7 } },
+        { "label": "Pay it in full; his word, written or not, was his word, and you stand in his place now.", "next_sequence": 5, "lead_in_text": "The drawer is most of the way empty; you paid her in full.", "axis_loadings": { "loyalty": 0.8 } },
+        { "label": "Tell her there is no record of it — and there is not — and that your hands are tied.", "next_sequence": 5, "lead_in_text": "She has gone, and the drawer sits as full as it was.", "axis_loadings": { "self_enhancement": 0.7, "honesty": -0.3 }, "is_defection": true },
+        { "label": "Pay her because she is in need and grieving, and let the question of proof go.", "next_sequence": 5, "lead_in_text": "The drawer is lighter; she left with what she needed.", "axis_loadings": { "care": 0.8 } }
+      ]
+    },
+    {
+      "sequence": 5,
+      "body": "At dusk the lawyer reads it. The shop is to be sold and the money given to a charity in a city none of you have been to. But the winter is coming hard, and the same money could keep the town fed until spring. How it is carried out falls to you.",
+      "is_terminal": true,
+      "conflict_edge": "authority__care",
+      "scope_variant": "group",
+      "framing_variant": "neutral",
+      "process_frame": null,
+      "is_anchor": false,
+      "anchor_id": null,
+      "is_exploratory": false,
+      "choices": [
+        { "label": "Carry out the will to the letter — sell it, send the money where he named, whatever the winter does.", "axis_loadings": { "authority": 0.8 }, "cni_role": "norms" },
+        { "label": "Set the paper aside and spend it on what carries the town through to spring.", "axis_loadings": { "care": 0.8 }, "cni_role": "consequences" },
+        { "label": "Settle it by your own judgement — neither his instruction nor the town's want, but what you hold to be right.", "axis_loadings": { "autonomy": 0.8 }, "cni_role": null },
+        { "label": "Don't be the one who decides; give it back to the lawyer and let the court run its course.", "axis_loadings": {}, "cni_role": "inaction" }
+      ]
+    }
+  ]
+}

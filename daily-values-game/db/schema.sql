@@ -84,6 +84,13 @@ create table choices (
   -- shared constant, de-confounded over time via re-runs in varied authored orders.
   position              smallint not null default 0,
   next_gate_id          uuid references gates(id),       -- null => leads to terminal/end
+  -- "Remembered narration": shown when a player arrives at next_gate_id BECAUSE
+  -- they took this choice (branch-and-bottleneck in prose). The dilemma text and
+  -- options stay invariant; only this connective tissue varies by path. It may
+  -- acknowledge what happened, never evaluate it (evaluation primes the next
+  -- item). NEVER set when next_gate_id is an anchor (would break invariance) —
+  -- enforced by forbid_leadin_into_anchor.
+  lead_in_text          text,
   axis_loadings         jsonb not null default '{}'::jsonb,  -- {"care": 0.7, "honesty": -0.4}
   -- v2 (framework prior-v2): the Self-enhancement / defection layer.
   is_defection          boolean not null default false,  -- the costed self-interest option
@@ -262,3 +269,22 @@ $$ language plpgsql;
 create trigger choices_no_defection_on_anchor
   before insert or update on choices
   for each row execute function forbid_defection_on_anchor();
+
+-- No remembered narration INTO an anchor. An anchor must mean the identical thing
+-- for everyone, every time; a path-dependent lead-in before it would prime the
+-- response and break invariance. (Lead-ins OUT of an anchor, into the next
+-- non-anchor beat, are fine.)
+create or replace function forbid_leadin_into_anchor() returns trigger as $$
+begin
+  if new.lead_in_text is not null and new.next_gate_id is not null and exists (
+    select 1 from gates g where g.id = new.next_gate_id and g.is_anchor
+  ) then
+    raise exception 'choice % carries a lead-in into an anchor gate — not permitted (anchors stay path-invariant)', new.id;
+  end if;
+  return new;
+end;
+$$ language plpgsql;
+
+create trigger choices_no_leadin_into_anchor
+  before insert or update on choices
+  for each row execute function forbid_leadin_into_anchor();

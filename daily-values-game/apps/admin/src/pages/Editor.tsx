@@ -58,6 +58,7 @@ function NewStory() {
             axis_loadings: parseLoadings(loadingsText[`${g.sequence}-${ci}`]),
             is_defection: c.is_defection ?? false,
             cni_role: c.cni_role ?? null,
+            lead_in_text: c.lead_in_text?.trim() ? c.lead_in_text.trim() : null,
           })),
         })),
       };
@@ -120,6 +121,9 @@ function NewStory() {
             gate={g}
             loadingsText={loadingsText}
             setLoadingsText={setLoadingsText}
+            isAnchorSequence={(seq) =>
+              gates.some((x) => x.sequence === seq && x.is_anchor)
+            }
             onChange={(patch) => setGate(i, patch)}
           />
         ))}
@@ -151,11 +155,13 @@ function GateEditor({
   onChange,
   loadingsText,
   setLoadingsText,
+  isAnchorSequence,
 }: {
   gate: GateInput;
   onChange: (patch: Partial<GateInput>) => void;
   loadingsText: Record<string, string>;
   setLoadingsText: (f: (s: Record<string, string>) => Record<string, string>) => void;
+  isAnchorSequence: (seq: number) => boolean;
 }) {
   return (
     <div className="space-y-3 rounded-xl border border-slate-800 p-4">
@@ -310,6 +316,24 @@ function GateEditor({
                   </select>
                 </label>
               </div>
+              {(() => {
+                const targetsAnchor =
+                  c.next_sequence != null && isAnchorSequence(c.next_sequence);
+                return (
+                  <textarea
+                    placeholder={
+                      targetsAnchor
+                        ? "lead-in disabled — next beat is an anchor (must stay path-invariant)"
+                        : "lead-in: what's read on the NEXT beat if this is chosen — acknowledge, don't evaluate"
+                    }
+                    disabled={targetsAnchor}
+                    value={targetsAnchor ? "" : c.lead_in_text ?? ""}
+                    onChange={(e) => setChoice({ lead_in_text: e.target.value })}
+                    rows={2}
+                    className="w-full rounded-lg border border-slate-800 bg-slate-900 px-2 py-1 text-xs italic text-slate-300 disabled:opacity-40"
+                  />
+                );
+              })()}
             </div>
           );
         })}

@@ -6,6 +6,7 @@ export interface ChoiceInput {
   axis_loadings?: Record<string, number>; // may include `self_enhancement` (v2)
   is_defection?: boolean; // v2: costed self-interest option
   cni_role?: "consequences" | "norms" | "inaction" | null; // v2: CNI route
+  lead_in_text?: string | null; // remembered narration shown on the NEXT beat (never into an anchor)
 }
 
 export interface GateInput {

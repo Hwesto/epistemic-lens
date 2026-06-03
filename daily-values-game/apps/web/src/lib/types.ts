@@ -6,6 +6,9 @@ export interface Choice {
   id: string;
   label: string;
   next_gate_id: string | null;
+  // Remembered narration shown when you arrive at next_gate having taken this
+  // choice (acknowledge, never evaluate). Null for choices into anchors / terminal.
+  lead_in_text?: string | null;
   // axis_loadings are NOT sent to the client during play — they are a measurement
   // detail and revealing them would bias the choice. They live server-side only.
 }

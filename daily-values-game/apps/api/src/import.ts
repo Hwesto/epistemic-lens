@@ -12,6 +12,7 @@ export interface StoryChoiceInput {
   axis_loadings?: Record<string, number>; // may include a `self_enhancement` key (v2)
   is_defection?: boolean; // v2: the costed self-interest option
   cni_role?: "consequences" | "norms" | "inaction" | null; // v2: CNI process route
+  lead_in_text?: string | null; // remembered narration shown on arrival at next gate (never into an anchor)
 }
 
 export interface StoryGateInput {
@@ -89,10 +90,10 @@ export async function importStory(
       const nextGateId = c.next_sequence ? gateIdBySeq.get(c.next_sequence) ?? null : null;
       await tx`
         insert into choices
-          (gate_id, label, position, next_gate_id, axis_loadings, is_defection, cni_role, framework_version_id)
+          (gate_id, label, position, next_gate_id, lead_in_text, axis_loadings, is_defection, cni_role, framework_version_id)
         values
-          (${gateId}, ${c.label}, ${i}, ${nextGateId}, ${tx.json(c.axis_loadings ?? {})},
-           ${c.is_defection ?? false}, ${c.cni_role ?? null}, ${frameworkVersionId})
+          (${gateId}, ${c.label}, ${i}, ${nextGateId}, ${c.lead_in_text ?? null},
+           ${tx.json(c.axis_loadings ?? {})}, ${c.is_defection ?? false}, ${c.cni_role ?? null}, ${frameworkVersionId})
       `;
     }
   }

@@ -17,6 +17,9 @@ export default function Today() {
   // the gate + choice the user just decided — drives the split reveal so it
   // always matches the gate that was answered (not the next one).
   const [decided, setDecided] = useState<{ gate: GateT; choice: Choice } | null>(null);
+  // remembered narration: the lead-in for the gate now on screen, set from the
+  // choice that led here (acknowledge, don't evaluate). Null on the first gate.
+  const [leadIn, setLeadIn] = useState<string | null>(null);
 
   useEffect(() => {
     api
@@ -61,6 +64,8 @@ export default function Today() {
     const nextId = decided.choice.next_gate_id;
     const next = nextId ? story.gates.find((g) => g.id === nextId) ?? null : null;
     if (next && !decided.gate.is_terminal) {
+      // carry the remembered narration from the choice into the next beat
+      setLeadIn(decided.choice.lead_in_text ?? null);
       setGate(next);
       setPhase("playing");
     } else {
@@ -91,7 +96,14 @@ export default function Today() {
         </button>
       )}
 
-      {phase === "playing" && gate && <Gate gate={gate} onDecide={handleDecide} />}
+      {phase === "playing" && gate && (
+        <>
+          {leadIn && (
+            <p className="leading-relaxed text-slate-400 italic">{leadIn}</p>
+          )}
+          <Gate gate={gate} onDecide={handleDecide} />
+        </>
+      )}
 
       {phase === "decided" && decided && (
         <div className="space-y-4">

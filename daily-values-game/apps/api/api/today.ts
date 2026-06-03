@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const gateIds = gates.map((g: any) => g.id);
   const choices = gateIds.length
     ? await sql`
-        select id, gate_id, label, next_gate_id
+        select id, gate_id, label, next_gate_id, lead_in_text
         from choices where gate_id in ${sql(gateIds)}
         order by gate_id, position
       `
