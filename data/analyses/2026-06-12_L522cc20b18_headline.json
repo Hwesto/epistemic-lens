@@ -1,0 +1,178 @@
+{
+  "story_key": "L522cc20b18",
+  "date": "2026-06-12",
+  "n_buckets": 13,
+  "n_articles": 21,
+  "tldr": "At the headline level, Pope Leo XIV's Spain visit is dominated by moral advocacy for migrants — 'human dignity has no passport,' 'all of us are migrants' — with most outlets foregrounding the Canary Islands strand over the Sagrada Familia ceremony. A secondary thread calls out European migration policy failures, while two outlets single out the Pope's warning to human traffickers with sharp eschatological language.",
+  "frames": [
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Moral duty to welcome, migrants' dignity",
+      "buckets": ["germany", "spain", "nigeria", "religious_press", "italy"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "bows to migrants' 'dignity' in Gran Canaria",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "Toda sociedad que acoge tiene deberes",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "All of us are migrants, says pope",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Religion News Service",
+          "quote": "Human dignity has no passport",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "I carry you in my heart",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "committed to healing the wounds",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Pope condemns European migration policy",
+      "buckets": ["uk", "usa", "germany", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "highlight perilous journeys of migrants",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "after criticizing global immigration policies",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "beklagt Gleichgültigkeit gegenüber Schicksal von Migranten",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Pope Leo ends Spain visit with migrant meetings",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Pope condemns human traffickers",
+      "buckets": ["vietnam_thai_my", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "warns Europe's migrant traffickers to repent or face hell",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Pope to human traffickers: Repent! Divine justice awaits you",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Spain's faith-migration politics exposed",
+      "buckets": ["qatar"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Spain's tangled politics of faith and migration",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Sagrada Familia blessing, papal crowds",
+      "buckets": ["pan_african", "brazil", "kenya"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "blesses new Sagrada Familia tower, now world's tallest",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "celebra missa e inaugura torre na Sagrada Família",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "'Joy, faith, love': giant crowd flocks to pope's Madrid mass",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.554, "n_tokens": 48},
+    {"bucket": "italy", "mean_similarity": 0.557, "n_tokens": 39},
+    {"bucket": "kenya", "mean_similarity": 0.577, "n_tokens": 36},
+    {"bucket": "germany", "mean_similarity": 0.628, "n_tokens": 64},
+    {"bucket": "nigeria", "mean_similarity": 0.649, "n_tokens": 59},
+    {"bucket": "pan_african", "mean_similarity": 0.649, "n_tokens": 73},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.657, "n_tokens": 65},
+    {"bucket": "spain", "mean_similarity": 0.663, "n_tokens": 41},
+    {"bucket": "religious_press", "mean_similarity": 0.665, "n_tokens": 443},
+    {"bucket": "usa", "mean_similarity": 0.689, "n_tokens": 67}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["canada"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "Only outlet to frame the papal visit as a political flashpoint — 'Spain's tangled politics of faith and migration' — where every other outlet treats the visit as pastoral advocacy or cultural event.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only outlet whose headline positions the Pope primarily as a policy critic ('after criticizing global immigration policies'), inverting the pastoral framing dominant elsewhere into an adversarial-advocacy frame.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only outlet to use eschatological language in the headline ('repent or face hell') for the trafficker condemnation, where other outlets use moral-appeal or neutral descriptive language.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "Headline coverage makes Pope Leo's Spain visit a moral referendum on European migration — 'human dignity has no passport' and 'all of us are migrants' crowd out the Sagrada Familia blessing, with Al Jazeera alone naming the deeper political rift.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
