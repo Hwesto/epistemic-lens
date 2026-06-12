@@ -1,0 +1,218 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-12",
+  "lineage_id": "L522cc20b18",
+  "cluster_id": 49,
+  "cluster_name": "Pope Leo XIV Spain visit centers on Canary Islands migrant advocacy",
+  "salience_score": 26.0,
+  "n_outlets": 16,
+  "n_countries": 13,
+  "n_articles": 64,
+  "event_summary": "Pope Leo XIV completed a week-long Apostolic Journey to Spain (June 8-12, 2026), visiting Madrid, Barcelona, and the Canary Islands. He blessed the completed Sagrada Familia tower in Barcelona and met migrants at Canary Islands ports, warning human traffickers to repent.",
+  "tldr": "The most striking pattern is that African outlets — Nigeria's The Punch and Vanguard — led their coverage with the Pope's universalist 'all of us are migrants' message at the same register as BBC World and Deutsche Welle, while Fox News (right/pro-administration) reported the same Canary Islands visit as the Pope 'calling for legal and safe immigration pathways after criticizing Europe's policies' — a notably neutral framing for an outlet that routinely treats migration restrictively. Al Jazeera was the only outlet to contest the visit's domestic political meaning, naming the rift between Pope Leo's progressive Catholicism and Spain's far right. The Sagrada Familia blessing — completing 144 years of construction and marking 100 years since Gaudi's death — attracted coverage primarily from Brazilian, pan-African, and Spanish press; Anglophone northern European and North American outlets overwhelmingly led with migration instead. Germany's two outlets anchored on the starkest rhetoric: the Mediterranean as 'unmarked grave' and the Atlantic as 'graveyards without gravestones.' Clerical abuse received almost no international coverage despite the Pope meeting six Spanish Church victims — appearing only in Italian wire output.",
+  "frames": [
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "human dignity and divine accountability",
+      "outlets": ["Vatican News", "Religion News Service", "Deutsche Welle English", "BBC World", "Tagesschau", "The Punch", "Vanguard"],
+      "countries": ["religious_press", "germany", "uk", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "Religion News Service",
+          "country": "religious_press",
+          "quote": "told survivors of trafficking that their dignity cannot be taken from them and warned Europe that every boat arriving on its shores poses a question about what remains of its humanity",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "He argued European leaders cannot claim human dignity while allowing the Mediterranean to become an \"unmarked grave.\"",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "the barriers that are the hardest to break down are not always made of stone",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "universal migrant solidarity",
+      "outlets": ["The Punch", "Vanguard", "Vatican News", "Religion News Service"],
+      "countries": ["nigeria", "religious_press"],
+      "evidence": [
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Pope Leo XIV addresses migrants in the Canary Islands",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Pope Leo XIV reminded migrants at the Las Raíces Center in Tenerife that he carries them in his heart and will remember them in his prayers.",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "European duty to open legal pathways",
+      "outlets": ["BBC World", "Fox News World", "Straits Times", "Deutsche Welle English"],
+      "countries": ["uk", "usa", "vietnam_thai_my", "germany"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The Pope is appealing for a humane approach and respectful welcome for migrants seeking a better life.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "calling for legal and safe immigration pathways",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "He is concluding his trip with a call for more help for migrants and action against traffickers.",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "traffickers warned of divine and civil justice",
+      "outlets": ["Straits Times", "Vatican News"],
+      "countries": ["vietnam_thai_my", "religious_press"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Pope Leo on Friday issued a stern warning to human traffickers and criminal groups who exploit desperate migrants",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "papal visit exposes Spain far-right faith rift",
+      "outlets": ["Al Jazeera English", "Fox News World"],
+      "countries": ["qatar", "usa"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "American pope's message underlines the rift between his Catholicism and that of Spain's far right.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Sagrada Familia completion and Gaudi centenary",
+      "outlets": ["AfricaNews", "Folha de São Paulo", "Standard Kenya World"],
+      "countries": ["pan_african", "brazil", "kenya"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Spain: Pope Leo XIV blesses new Sagrada Familia tower",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "agora a mais alta do mundo, com 172,5 metros de altura",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "France has the EU's largest Muslim-minority population and an active domestic debate over far-right immigration policy; no French outlet appeared in a cluster explicitly about Catholic Church pressure on European governments to accept migrants."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "Poland is deeply Catholic and has been the EU's most vocal opponent of mandatory migrant redistribution; the Pope's direct challenge to European government indifference to migrant deaths attracted no Polish coverage."
+    },
+    {
+      "country": "portugal",
+      "what_they_covered_instead": "Portugal is Spain's immediate Iberian neighbor with a strong Catholic tradition and historical connection to the Canary Islands missionary routes cited explicitly in the Pope's Tenerife address; no Portuguese outlet appeared."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Only outlet to give primary placement to the Pope's meeting with six clerical abuse victims from the Spanish Church — entirely absent from non-Italian coverage.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Ran the Pope's reconciliation message ('lay down our armour and unmask violence') as a standalone story separate from the migration angle.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to publish an analytical piece naming the domestic Spanish political fault line between Leo's progressive migration stance and Spain's far right.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Led with a six-year-old stealing the show at the Barcelona charity event — a human-interest sidebar that displaced migration as the headline angle for Canadian readers.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Ran the 500,000-strong vigil crowd (via the Bad Bunny joke) as a separate story emphasising mass turnout — the only outlet to report crowd scale as a standalone news peg.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Led with the devotional atmosphere of the Madrid mass ('Joy, faith, love') rather than the Canary Islands migration advocacy, giving Kenyan Catholic readers a spiritual rather than political story.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "Foregrounded 'Friedhofe ohne Grabsteine' (graveyards without gravestones) as the lead metaphor, with European indifference as the central charge — the starkest rhetorical register in the corpus.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Led its Spain coverage with the cockpit mid-flight visit on the Madrid-Barcelona leg — the only outlet to foreground this human-interest moment over migration.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "Published the full La Laguna address to traffickers including the 'city without walls' framing and the Braille metaphor for learning to read migrant lives — depth unavailable from any wire-service summary.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "Published the full Las Raices Center address positioning migrants as analogous to 'holy migrants and missionaries' who sailed from the Canaries to the Americas — a theological framing absent from all secular outlets.",
+      "signal_text_idx": 20
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Pope Leo XIV's Canary Islands migrant advocacy dominated international coverage of his Spain visit across 13 countries and four language zones, with the universalist 'all of us are migrants' message resonating from Nigerian independents to Singapore's establishment press. The Sagrada Familia cultural landmark and clerical abuse meetings were structurally secondary in global press weight, while France, Poland, and Portugal — the countries whose domestic politics most bear on European migration policy — were silent.",
+  "generated_at": "2026-06-12T12:05:03Z",
+  "model": "claude-sonnet-4-6"
+}
