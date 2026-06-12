@@ -1,0 +1,222 @@
+{
+  "story_key": "L605c496118",
+  "date": "2026-06-12",
+  "n_buckets": 13,
+  "n_articles": 17,
+  "tldr": "Headlines across 13 countries portray Trump's 80th birthday UFC cage fight on the White House lawn chiefly as a presidential power spectacle; a secondary strand in Spain and the UK signals bipartisan criticism, while the US progressive press and Pakistan are alone in framing the event as a symptom of sports-washing by an authoritarian leader.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's 80th birthday as power spectacle",
+      "buckets": [
+        "wire_services",
+        "mexico",
+        "vietnam_thai_my",
+        "south_africa",
+        "taiwan_hk",
+        "nigeria",
+        "opinion_magazines",
+        "uk",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Trump to celebrate 80th birthday with cage fight",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "War and Circuses",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Trump's grand sporting season begins with UFC fights",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "uk",
+          "outlet": "i News",
+          "quote": "Trump craves power at any cost. He told me so in four words",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Trump to host UFC cage fight for 80th birthday",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "'The Claw' rises: White House Octagon ready",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "US-Regierung vertieft Kooperation mit Kampfsportliga UFC",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Trump's grand sporting season begins with UFC fights",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "La Casa Blanca presenta ring de lucha para pelea de la UFC",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Bipartisan criticism of White House UFC",
+      "buckets": [
+        "spain",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "UFC fight at the White House sparks a wave of criticism",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Even Republicans think it's not 'appropriate'",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "UFC's rise as political instrument",
+      "buckets": [
+        "usa",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "Sportswashed: FIFA's Long Love Affair With Authoritarians",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "From cage fights to the White House, UFC marches",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.489,
+      "n_tokens": 219
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.619,
+      "n_tokens": 409
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.656,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.669,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.693,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.706,
+      "n_tokens": 247
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.716,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.720,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.722,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.727,
+      "n_tokens": 31
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "pan_arab"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Foreign Policy",
+      "bucket": "opinion_magazines",
+      "finding": "Only headline to deploy a classical political allegory — 'War and Circuses' invokes Juvenal's panem et circenses, framing the UFC birthday as imperial bread-and-games distraction from the Iran war. No other headline in the corpus attempts this register.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Mother Jones",
+      "bucket": "usa",
+      "finding": "Only headline to invoke 'sportswashing' and to situate the UFC event within a pattern of authoritarian rulers using FIFA and international sport for legitimacy — shifting the frame from birthday spectacle to global political phenomenon.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "i News",
+      "bucket": "uk",
+      "finding": "Only headline to frame the event as evidence of authoritarian power-craving rather than festivity or controversy — 'Trump craves power at any cost' is the most adversarial framing in the corpus and the sole first-person attributed characterisation.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "The New Arab",
+      "bucket": "pan_arab",
+      "finding": "Only headline to lead with a diplomatic story entirely — 'Syrian president Ahmed al-Sharaa invited to US mid-June' — relegating the UFC cage fight to incidental body context. The headline conveys no UFC or birthday frame at all, placing pan_arab in silences.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "ZDF Heute",
+      "bucket": "germany",
+      "finding": "Only non-English headline and the only outlet to foreground the government-industry partnership angle ('US-Regierung vertieft Kooperation mit Kampfsportliga UFC' — US government deepens cooperation with combat sports league UFC), framing the event as institutional entrenchment rather than birthday theatre.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only headline to highlight a sponsorship irony — 'MAGA's least favorite beer is all over Trump's Octagon' — drawing attention to Bud Light's sponsorship of an event associated with the political base that previously boycotted the brand.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "The headline layer frames Trump's White House UFC cage fight almost universally as a presidential power spectacle, with bipartisan disapproval visible only in Spain and the UK's Independent, and a sports-washing critique confined to US progressive and Pakistani press alone.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
