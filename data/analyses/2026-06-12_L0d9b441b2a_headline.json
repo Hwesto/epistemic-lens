@@ -1,0 +1,137 @@
+{
+  "story_key": "L0d9b441b2a",
+  "date": "2026-06-12",
+  "n_buckets": 9,
+  "n_articles": 17,
+  "tldr": "Headlines announce Xi's Pyongyang visit overwhelmingly as a bilateral diplomatic event — pledges, blueprints, and new-era consensus — while DPRK-watcher and South Korean outlets lead instead with nuclear arsenal expansion and the summit's silence on denuclearization, and Western outlets cast China and North Korea as US adversaries restoring a strategic alliance.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "summit pledge and bilateral blueprint",
+      "buckets": ["china", "taiwan_hk", "vietnam_thai_my", "kenya", "asia_pacific_regional"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Xi, Kim pledge to carry forward traditional China-DPRK",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "visit produced 'far-reaching blueprint' for ties",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Xi, Kim pledge to advance China-Korea ties in latest talks",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Kim, Xi unveil 'far-reaching blueprint' to deepen",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "Xi and Kim Agree to Strengthen 'Strategic Relationship'",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "DPRK nuclear arms vs. denuclearization silence",
+      "buckets": ["korea_north", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Kim Jong Un unveils new nuclear enrichment plant",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "Kim, Xi vow stronger North Korea-China ties, silent",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "denuclearization remains goal despite absence from Xi-Kim",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China reclaiming DPRK from Russian orbit",
+      "buckets": ["opinion_magazines", "usa"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Xi Seeks to Draw North Korea Back Into China's Orbit",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "US adversaries China, North Korea strengthening ties",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Xi must press Kim on denuclearization",
+      "buckets": ["korea_north"],
+      "evidence": [
+        {
+          "bucket": "korea_north",
+          "outlet": "Daily NK",
+          "quote": "To denuclearize North Korea, Xi must make Kim an offer",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.732,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.746,
+      "n_tokens": 100
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.757,
+      "n_tokens": 146
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.76,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.765,
+      "n_tokens": 186
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer presents the Xi-Kim summit as a triumph of restored bilateral bonds, but rival outlets in the same cycle counter with nuclear arsenal reveals and denuclearization-silence leads — the advertised diplomatic warmth and the security subtext run in direct opposition across the corpus.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
