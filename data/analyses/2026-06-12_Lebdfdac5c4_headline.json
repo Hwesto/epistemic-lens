@@ -1,0 +1,122 @@
+{
+  "story_key": "Lebdfdac5c4",
+  "date": "2026-06-12",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines across 10 countries deliver an almost uniform arrest-crime frame: China has detained US scholar Min Zin on espionage charges. Only The Independent adds a diplomatic dimension, linking the arrest to Trump's recent visit to Beijing.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "China arrests US scholar for espionage",
+      "buckets": ["qatar", "turkey", "russia_native", "japan", "south_africa", "taiwan_hk", "israel", "wire_services", "uk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "China arrests US researcher it says is suspected of 'spying'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "China says US national arrested on suspected espionage",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Argumenty i Fakty",
+          "quote": "Американского ученого арестовали в Китае",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Asahi Shimbun",
+          "quote": "中国、米国人のミャンマー研究者を拘束",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "China arrests US scholar of Myanmar on suspicion of spying",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "China detains US citizen suspected of spying",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "China confirms arrest of US citizen suspected of spying",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "China arrests US scholar of Myanmar on suspicion of spying",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "at conference for 'espionage activities'",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Beijing says US analyst detained for alleged espionage",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Arrest timed to Trump-Beijing diplomacy",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "on espionage charges just weeks after Trump trip",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "taiwan_hk", "mean_similarity": 0.697, "n_tokens": 187},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.702, "n_tokens": 149},
+    {"bucket": "russia_native", "mean_similarity": 0.73, "n_tokens": 51},
+    {"bucket": "south_africa", "mean_similarity": 0.781, "n_tokens": 30},
+    {"bucket": "uk", "mean_similarity": 0.798, "n_tokens": 83}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only outlet to contextualise the arrest against US-China diplomatic relations, linking it temporally to Trump's recent Beijing visit — framing the espionage charge as a diplomatic signal rather than a standalone law-enforcement event.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Only outlet to specify Min Zin was arrested 'at conference', adding the situational detail of his presence at a meeting — absent from all other headlines.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Asahi Shimbun",
+      "bucket": "japan",
+      "finding": "Second Asahi article in this cluster (index 4) covers an unrelated story — ex-South Korean president Yoon's 30-year sentence and North Korea drone incidents — suggesting a cluster ingestion anomaly in the japan bucket.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "Headline coverage presents the Min Zin detention as a straightforward espionage arrest with near-total framing consensus across continents; the sole outlier is The Independent's implicit suggestion that the arrest's timing vis-à-vis Trump's Beijing visit makes it a diplomatic act as much as a criminal one.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
