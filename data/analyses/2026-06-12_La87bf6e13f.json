@@ -1,0 +1,202 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-12",
+  "lineage_id": "La87bf6e13f",
+  "cluster_id": 78,
+  "cluster_name": "Bill Gates testifies to US Congress over Epstein ties",
+  "salience_score": 4.062,
+  "n_outlets": 12,
+  "n_countries": 10,
+  "n_articles": 13,
+  "event_summary": "Bill Gates testified before the US House Oversight Committee on June 11, 2026, about his past ties to convicted sex offender Jeffrey Epstein. Gates denied witnessing any criminal conduct and said Epstein used his marital infidelities to blackmail him into maintaining contact.",
+  "tldr": "Coverage of Gates's closed-door congressional testimony spread across ten countries and three languages within 24 hours, with near-uniform focus on his blackmail claim and denial of direct knowledge of Epstein's crimes. The sharpest editorial split comes from Breitbart, whose headline puts 'Victim' in the cluster title — signalling right-populist skepticism of Gates's self-portrayal as a coercion target — while every other outlet regardless of lean or geography reported the claim neutrally. Russian state broadcaster RT, which routinely uses US elite scandals for anti-Western framing, took a notably facts-only approach, foregrounding the probe's expansion and the appearance of Epstein's longtime assistant rather than any elite-impunity angle; this explains RT's position as the most embedding-isolated bucket in the cluster (mean similarity 0.741). German public broadcasters (Tagesschau, ZDF Heute) went deepest contextually, anchoring the story in the broader Epstein Missbrauchsskandal and questioning how far Gates was implicated. The Brazilian outlet alone surfaced the coercion-to-resume-contact detail: Epstein used the affair information specifically to pressure Gates to re-establish ties after Gates had begun cutting them.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "elite witness in sex-trafficking inquiry",
+      "outlets": ["BBC World", "Globe and Mail", "Malay Mail World", "News24 World", "RT", "Republic World (alt)"],
+      "countries": ["uk", "canada", "vietnam_thai_my", "south_africa", "russia", "india"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The billionaire testified to Congress about his relationship with the late convicted sex offender.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Bill Gates testified privately before the House Oversight Committee regarding his past ties to Jeffrey Epstein, stating he 'did not fully understand the extent' of Epstein's crimes and never witnessed any criminal conduct.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "News24 World",
+          "country": "south_africa",
+          "quote": "Microsoft co-founder Bill Gates denied on Wednesday that he had “victimised anyone” as he began closed-door testimony to US lawmakers over his relationship with notorious sex offender Jeffrey Epstein.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Epstein probe expands as Bill Gates and former assistant testify",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "congressional deposition and denial of culpability",
+      "outlets": ["Daily Sabah", "VnExpress English", "Tagesschau", "BBC World"],
+      "countries": ["turkey", "vietnam_thai_my", "germany", "uk"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Microsoft co-founder Bill Gates on Wednesday defended himself against questions from U.S. lawmakers regarding his past association with convicted sex offender Jeffrey Epstein, insi...",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Vor dem US-Kongress hat Microsoft-Mitgründer Gates angegeben, der Sexualstraftäter Epstein habe ihn wegen seiner Affären erpresst. Kriminelles Verhalten habe er aber sonst nie beobachtet. Der Kontakt sei ein Fehler gewesen.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "blackmail via marital infidelity",
+      "outlets": ["Breitbart", "ZDF Heute", "Republic World (alt)", "Folha de São Paulo"],
+      "countries": ["usa", "germany", "india", "brazil"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Billionaire Microsoft co-founder Bill Gates claimed Wednesday disgraced sex offender Jeffrey Epstein attempted to use information about his personal life — including his multiple marriage infidelities — to blackmail him, copies of his first closed-door testimony to the House Oversight Committee detail.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Wie tief steckt Bill Gates im Missbrauchsskandal um Jeffrey Epstein? Der US-Milliardär gibt an, Epstein habe ihn erpresst. Von dem vielfachen Missbrauch will er nichts geahnt haben.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Bill Gates, cofundador da Microsoft e filantropo bilionário, disse a um comitê do Congresso nesta quarta-feira (10) que o criminoso sexual Jeffrey Epstein explorou informações sobre seus casos extraconjugais para pressioná-lo \"a retomar contato com ele\" depois que Gates havia começado a cortar seus laços.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "House Oversight scrutiny of Epstein powerful associates",
+      "outlets": ["RT", "VnExpress English", "Daily Sabah"],
+      "countries": ["russia", "vietnam_thai_my", "turkey"],
+      "evidence": [
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Microsoft co-founder Bill Gates was set to face questioning Wednesday from U.S. lawmakers over his relationship with late sex offender Jeffrey Epstein, whose network of wealthy and powerful associates has fueled years of scrutiny and conspiracy theories.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Bill Gates rejects wrongdoing amid scrutiny over Epstein ties",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "russia",
+      "country": "russia",
+      "mean_similarity": 0.741,
+      "note": "Most isolated bucket in the cluster (RT); foregrounded the probe's institutional scope and Epstein's assistant rather than Gates's personal account, diverging from the self-defence narrative dominant elsewhere."
+    },
+    {
+      "outlet": "brazil",
+      "country": "brazil",
+      "mean_similarity": 0.795,
+      "note": "Second-most isolated (Folha de São Paulo); Portuguese-language coverage and exclusive focus on the coercion-to-resume-contact detail set it apart from the English-language denial-of-wrongdoing frame."
+    },
+    {
+      "outlet": "india",
+      "country": "india",
+      "mean_similarity": 0.800,
+      "note": "Third-most isolated (Republic World alt); led with the emotional family-impact register ('Painful For My Family'), diverging from the neutral factual framing dominant across the cluster."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "terms": ["victim"],
+      "what_it_reveals": "Pipeline-exclusive to US coverage (count 3); driven by Breitbart's scare-quote headline 'Bill Gates the Victim', which positions Gates's blackmail claim as self-serving spin — a framing absent from every other outlet."
+    },
+    {
+      "outlet": "ZDF Heute",
+      "country": "germany",
+      "terms": ["erpresst", "affären"],
+      "what_it_reveals": "German public broadcasting uses the specific terms 'erpresst' (blackmailed) and 'Affären' (affairs) as the story's anchors, foregrounding the coercion mechanism with legal-register precision absent from English-language outlets."
+    },
+    {
+      "outlet": "VnExpress English",
+      "country": "vietnam_thai_my",
+      "terms": ["face", "questioning"],
+      "what_it_reveals": "Southeast Asian English-language press foregrounds the adversarial-hearing dynamic ('face questioning'), framing Gates as someone under institutional pressure rather than a cooperating witness."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese-language or Chinese state media outlet appears in the cluster despite the story's potential utility as elite-impunity commentary; Chinese state media appear to have de-prioritised it in favour of domestic economic and bilateral trade coverage."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only outlet to contest Gates's victim narrative editorially: headline puts 'Victim' in the cluster title, framing his blackmail claim as self-serving spin rather than established fact.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Unusually neutral framing from Russian state media: foregrounded the inquiry's expansion and Epstein's longtime assistant Lesley Groff, with no anti-Western or elite-impunity editorial overlay.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "VnExpress English",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to explicitly invoke 'conspiracy theories' in its coverage, framing the hearing as part of a years-long reckoning with Epstein's elite network.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Headline led with Gates's self-described 'grave error in judgment,' emphasising personal accountability over the blackmail claim — the mea culpa angle, not the victim angle.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Sole outlet to surface the coercion-to-resume-contact mechanism: Epstein used the affair information specifically to pressure Gates back into contact after Gates had begun cutting ties.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Led with the personal-emotional register — 'Painful For My Family' — foregrounding Gates's family-impact framing, a detail absent from every other outlet's coverage.",
+      "signal_text_idx": 9
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Bill Gates's June 11 closed-door testimony generated genuine global pick-up across ten countries, with near-uniform focus on the blackmail claim and denial of direct knowledge of Epstein's crimes. The only significant editorial divergence was Breitbart's sarcastic 'Victim' headline; Russian state media's conspicuously un-editorialised coverage — and its status as the cluster's most embedding-isolated bucket — was the secondary surprise.",
+  "generated_at": "2026-06-12T12:19:43Z",
+  "model": "claude-sonnet-4-6"
+}
