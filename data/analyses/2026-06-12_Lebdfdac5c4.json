@@ -1,0 +1,264 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-12",
+  "lineage_id": "Lebdfdac5c4",
+  "cluster_id": 122,
+  "cluster_name": "China arrests US Myanmar researcher Min Zin on espionage charges",
+  "salience_score": 4.375,
+  "n_outlets": 12,
+  "n_countries": 10,
+  "n_articles": 14,
+  "event_summary": "China detained Min Zin, a U.S. citizen who co-founded the Institute for Strategy and Policy Myanmar (ISP-M), at Kunming airport on June 3, 2026, on suspicion of espionage. China’s foreign ministry confirmed the arrest on June 12 and stated the U.S. consulate in Guangzhou had been notified.",
+  "tldr": "Coverage across 12 outlets in 10 countries converged on the factual bare bones of the arrest, but a clear editorial fault line emerged: only British outlets (The Guardian, The Independent) placed the detention against Trump’s recent Beijing summit, framing it as a diplomatic friction signal absent from all other reporting. Russian state-aligned media covered the arrest neutrally as a law-enforcement item with no geopolitical context, while Hong Kong Free Press—the most isolated outlet by cluster similarity (0.697)—provided the deepest contextual reporting, linking ISP-M’s published research on China’s backing of armed factions in Myanmar’s borderlands to the likely sensitivity that drew security scrutiny. An Asahi Shimbun article about South Korea’s former President Yoon’s 30-year sentence also clustered here, an apparent HDBSCAN noise inclusion from adjacent East-Asia security coverage.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "espionage arrest and criminal compulsory measures",
+      "outlets": [
+        "Al Jazeera English",
+        "Anadolu Agency English",
+        "Argumenty i Fakty",
+        "Daily Maverick",
+        "Hong Kong Free Press",
+        "Kommersant",
+        "Malay Mail World",
+        "Reuters (via Google News)"
+      ],
+      "countries": [
+        "qatar",
+        "turkey",
+        "russia_native",
+        "south_africa",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Min Zin placed under ‘criminal measures’ and Beijing says US consulate general in Guangzhou has been notified",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "China’s foreign ministry confirmed on Friday the arrest of Min Zin, a U.S. citizen who leads a think-tank focused on Myanmar, saying the American was suspected of spying and endangering Chinese national security.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Kommersant",
+          "country": "russia_native",
+          "quote": "В Китае задержали гражданина США У Мин Зина по подозрению в шпионаже и угрозе национальной безопасности.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "national security espionage threat framing",
+      "outlets": [
+        "Hong Kong Free Press",
+        "Malay Mail World",
+        "Daily Maverick",
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "south_africa",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "Authorities are holding him “on suspicion of engaging in espionage activities that endanger China’s national security”, he said, without providing further details.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Authorities are holding him “on suspicion of engaging in espionage activities that endanger China’s national security”, he said, without providing further details.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Beijing visit as diplomatic backdrop",
+      "outlets": [
+        "The Guardian World",
+        "The Independent"
+      ],
+      "countries": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Arrest of Min Zin, who writes about Myanmar and Chinese foreign policy, comes just month after Trump visit to Beijing",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "China arrests US citizen on espionage charges just weeks after Trump trip",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-China consular notification and bilateral process",
+      "outlets": [
+        "Anadolu Agency English",
+        "Hong Kong Free Press",
+        "Jerusalem Post",
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "turkey",
+        "taiwan_hk",
+        "israel",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "Chinese authorities said the US consulate in Guangzhou had been notified of the case.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "A ministry spokesperson told a regular news conference when asked about a New York Times report that Min Zin had disappeared in Kunming in southwest China last week.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "detained US citizen’s legal status and due process",
+      "outlets": [
+        "Hong Kong Free Press",
+        "Anadolu Agency English",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "Min Zin — a founder of the Institute for Strategy and Policy Myanmar (ISP-M) — “has been subjected to criminal compulsory measures”, Chinese foreign ministry spokesman Lin Jian told a news briefing.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Min Zin—a founder of the Institute for Strategy and Policy Myanmar (ISP-M) — “has been subjected to criminal compulsory measures”, Chinese foreign ministry spokesman Lin Jian told a news briefing.",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "taiwan_hk",
+      "country": "taiwan_hk",
+      "mean_similarity": 0.697,
+      "note": "Most isolated bucket in the cluster; Hong Kong Free Press’s full-body article covers ISP-M’s Myanmar borderlands research and China’s armed-faction backing, introducing vocabulary absent from briefer wire-style items."
+    },
+    {
+      "outlet": "vietnam_thai_my",
+      "country": "vietnam_thai_my",
+      "mean_similarity": 0.702,
+      "note": "Second most isolated; Malay Mail World also carries full AFP wire text, but the Southeast Asian editorial context (Chiang Mai exile hub detail) sets it slightly apart."
+    },
+    {
+      "outlet": "russia_native",
+      "country": "russia_native",
+      "mean_similarity": 0.73,
+      "note": "Argumenty i Fakty and Kommersant use Cyrillic vocabulary with no diplomatic or political framing, creating lexical distance from the English-language majority."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "terms": ["just", "trump"],
+      "what_it_reveals": "UK outlets are the only ones to use the word ‘Trump’ in connection with the arrest, anchoring the story to the recent Beijing summit and framing the detention as a US-China diplomatic friction event rather than a standalone espionage case."
+    },
+    {
+      "outlet": "Argumenty i Fakty",
+      "country": "russia_native",
+      "terms": ["китае", "шпионаже", "ученого", "арестовали", "подозрению"],
+      "what_it_reveals": "Russian-language exclusive vocabulary (‘China’, ‘espionage’, ‘scholar’, ‘arrested’, ‘suspicion’ in Russian) reflects straightforward neutral reporting; no terms suggesting endorsement of Beijing’s action or framing this as a US intelligence operation."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "usa",
+      "what_they_covered_instead": "US domestic outlets (the NYT apparently first reported Min Zin’s disappearance) are absent from this cluster; US feeds likely covered the story but as a citizen-rights or bilateral-tensions angle that did not surface in cross-country feeds ingested here."
+    },
+    {
+      "country": "india",
+      "what_they_covered_instead": "India—a regional power directly affected by Myanmar’s civil war and China’s border influence—is absent despite being a natural stakeholder audience for ISP-M’s research on China’s Myanmar borderlands presence."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to explicitly frame the arrest as coming ‘just month after Trump visit to Beijing’, positioning the detention as a diplomatic-tension signal rather than a standalone espionage case.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Reinforces the Guardian’s Trump-timing frame in its headline (‘just weeks after Trump trip’), confirming this as a UK editorial consensus rather than a single outlier choice.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Hong Kong Free Press",
+      "country": "taiwan_hk",
+      "finding": "Provides the most granular detail: arrest date (June 3), specific location (Kunming airport), purpose (‘He went there to attend a meeting’), and explicitly links ISP-M’s publications on China’s backing of Myanmar borderland armed groups to the likely security sensitivity.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Notes that China’s confirmation was a response to a New York Times report of Min Zin’s ‘disappearance’, framing Beijing’s announcement as reactive to Western press pressure.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Describes Min Zin specifically as ‘a scholar focusing on politics of neighbouring Myanmar’, foregrounding academic identity over think-tank affiliation—a framing distinct from outlets that lead with ‘analyst’ or ‘researcher’.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Argumenty i Fakty",
+      "country": "russia_native",
+      "finding": "Russian mass-market outlet covers the arrest as a routine law-enforcement item, describing Min Zin as head of an ‘analytical center dealing with Myanmar problems’ with no diplomatic or political framing.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Asahi Shimbun",
+      "country": "japan",
+      "finding": "Contributed two articles to this cluster: one on the Min Zin arrest (corpus[3]) and a second (corpus[4]) about South Korean ex-President Yoon Suk-yeol’s 30-year prison sentence—an apparent HDBSCAN noise inclusion from adjacent East-Asia security coverage.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "China’s arrest of US Myanmar researcher Min Zin drew consistent factual coverage across 10 countries, but only UK outlets read it as a diplomatic signal tied to the Trump-Beijing summit. The story’s suppressed geopolitical framing everywhere else—including in Russia, Turkey, and Southeast Asia—indicates most of the world’s press is treating this as a criminal matter rather than a US-China confrontation.",
+  "generated_at": "2026-06-12T12:31:06Z",
+  "model": "claude-sonnet-4-6"
+}
