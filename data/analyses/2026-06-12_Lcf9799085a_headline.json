@@ -1,0 +1,184 @@
+{
+  "story_key": "Lcf9799085a",
+  "date": "2026-06-12",
+  "n_buckets": 15,
+  "n_articles": 25,
+  "tldr": "Headlines across all 15 geographic buckets lead with the punitive frame — Yoon sentenced, convicted, jailed for 30 years — but framing diverges sharply below the surface: South Korean outlets alone surface the political motive ('drone plot to declare martial law') and the defense team's protest in headline text, while Global Times (China) uniquely headlines a separate 5-year obstruction conviction, leaving its readers without the day's primary verdict.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "30-year sentence for drone incursion",
+      "buckets": [
+        "mexico",
+        "wire_services",
+        "italy",
+        "pakistan",
+        "germany",
+        "brazil",
+        "usa",
+        "state_tv_intl",
+        "china",
+        "south_korea",
+        "iraq",
+        "russia_native",
+        "vietnam_thai_my",
+        "india",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "South Korea sentences ex-president Yoon to 30 years",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "30 anni all'ex presidente Yoon per l'invio di droni",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Kommersant",
+          "quote": "приговорили к 30 годам за отправку БПЛА в Пхеньян",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Arabic",
+          "quote": "كوريا الجنوبية: السجن 30 عاما للرئيس السابق",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "china",
+          "outlet": "Global Times",
+          "quote": "sentenced to 5 years in prison over obstruction of justice",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "drone plot to manufacture martial law",
+      "buckets": [
+        "south_korea",
+        "usa",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Hankyoreh English",
+          "quote": "drone plot aimed at riling North Korea",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "Unification ministry pledges peace after Yoon convicted",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Ousted South Korean President Yoon given prison term",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "30 years over Pyongyang drone plot",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "drone incursion as military act",
+      "buckets": [
+        "south_korea",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Ordering Drone Incursions into N. Korea",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "drone infiltration case",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "drone operation against North Korea",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.757,
+      "n_tokens": 414
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.793,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.817,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.826,
+      "n_tokens": 278
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.835,
+      "n_tokens": 67
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Global Times",
+      "country": "china",
+      "finding": "The only headline in the corpus not covering the 30-year drone verdict: Global Times titled its article around a separate 5-year sentence for obstruction of justice, leaving state-adjacent Chinese readers without the day's primary conviction while all 22 other outlets headlined the drone case.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Hankyoreh English",
+      "country": "south_korea",
+      "finding": "Only headline to surface the prosecution's theory in the title itself — 'drone plot aimed at riling North Korea so he could declare martial law' — making the authoritarian-power-grab framing visible at the RSS/homepage layer where all international outlets headlined the sentence quantum alone.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "One of Yonhap's two headlines shifts entirely from the verdict to post-verdict governance: 'Unification ministry pledges peace after Yoon convicted in N. Korea drone case' is the only title in the corpus that foregrounds South Korea's institutional response rather than the sentencing itself.",
+      "signal_text_idx": 24
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "KBS's second headline is the only title in the corpus to frame the story from the defense vantage point — 'Yoon's Legal Team Protests Heavy Sentence Handed Down in Drone Infiltration Trial' — presenting a sympathetic or adversarial-legal perspective absent from every other outlet's headline choice.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "The headline layer unanimously advertises a criminal conviction story — 30 years for a drone operation — but South Korean domestic outlets alone embed the political motive, the defense protest, and the policy aftermath in their titles, creating a homepage framing gap between South Korean and international readers that the body text largely closes.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
