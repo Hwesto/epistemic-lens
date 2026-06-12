@@ -1,0 +1,210 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-12",
+  "lineage_id": "L733bf4f9f4",
+  "cluster_id": 140,
+  "cluster_name": "Multiple UK defence ministers resign over inadequate Defence Investment Plan funding",
+  "salience_score": 10.156,
+  "n_outlets": 20,
+  "n_countries": 13,
+  "n_articles": 24,
+  "event_summary": "UK Defence Secretary John Healey resigned on 11 June 2026 over the Defence Investment Plan funding shortfall; Armed Forces Minister Al Carns followed hours later, and Dan Jarvis was named as the new Defence Secretary.",
+  "tldr": "Headlines across 13 press ecosystems converge on two claims: the resignation was primarily a political blow to Starmer ('shaken to core', 'seismic crisis', 'sous pression') and the spending plan is materially inadequate ('poche risorse', 'low funding', 'underfunded and outdated'). Russia's RT uniquely diminishes the crisis to a 'spat' — the only headline in the corpus to use a dismissive register — while Fox News is the sole outlet to place the resignation explicitly within the Trump-era NATO pressure campaign.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Starmer survival crisis",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "Daily Mirror",
+        "Fox News World",
+        "France 24 Spanish",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Il Sole 24 Ore",
+        "RT",
+        "Tagesschau",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "uk",
+        "usa",
+        "state_tv_intl",
+        "canada",
+        "india",
+        "italy",
+        "russia",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "As crises mount, how long can UK's Starmer survive?",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Mirror",
+          "country": "uk",
+          "quote": "PM shaken to core after two defence ministers quit",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Starmer in 'seismic' crisis, UK defense chief quits",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "UK defense secretary quits amid spat with Starmer",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Defence spending plan falls short",
+      "outlets": [
+        "ANSA Italian (Mondo)",
+        "Daily Sabah",
+        "Defense News",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Malay Mail World",
+        "Republic World (alt)",
+        "Tagesschau",
+        "The Guardian World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "italy",
+        "turkey",
+        "usa",
+        "germany",
+        "canada",
+        "ukraine",
+        "vietnam_thai_my",
+        "india",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "ANSA Italian (Mondo)",
+          "country": "italy",
+          "quote": "si dimette, 'poche risorse per forze armate'",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "U.K. Defence Secretary John Healey quits over low funding",
+          "signal_text_idx": 23
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "UK's defence plan is underfunded and outdated",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Underfunding leaves Britain less safe",
+      "outlets": [
+        "Malay Mail World",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Starmer's spending plans leave Britain less safe",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Defence Plan Falls Short Amid Rising Global Threats",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "NATO summit / Trump pressure angle",
+      "outlets": [
+        "Fox News World"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "before high-stakes Trump NATO summit",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": {
+    "a": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "UK defense secretary quits amid spat with Starmer",
+      "signal_text_idx": 17
+    },
+    "b": {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "quote": "John Healey Announces Shock Resignation in Funding Row",
+      "signal_text_idx": 14
+    },
+    "joint_conclusion": "Russia's RT frames the resignation as a 'spat' — a dismissive, trivialising word — while Ukraine's Kyiv Post leads with 'Shock Resignation', maximising the severity. Both note the funding angle, but opposite registers ('spat' vs 'shock') betray diametrically opposed strategic interests: Moscow signals British institutional dysfunction while Kyiv alarms readers that a key military ally is weakening."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only headline to name Trump and the NATO summit, reframing a UK domestic political crisis through a Washington geopolitical lens invisible in every other outlet's title.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to use the word 'spat' in its headline, uniquely minimising what every other corpus title treats as a major political or security crisis.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only headline to use the idiom 'falls on his sword', framing the resignation as honourable self-sacrifice rather than political rupture — a register absent from all 23 other titles.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only headline to quote Al Carns calling for a 'new way of governing', surfacing a Labour leadership challenge dimension from the title alone.",
+      "signal_text_idx": 21
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Headline coverage globally frames the Healey resignation as both a political survival crisis for Starmer and a concrete defence funding failure, with near-universal convergence on the inadequacy framing across Western and non-Western press; Russia's RT stands alone in dismissing the event as a mere 'spat', while Fox News is the sole outlet to embed the story in the Trump-NATO pressure narrative from the headline itself.",
+  "generated_at": "2026-06-12T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
