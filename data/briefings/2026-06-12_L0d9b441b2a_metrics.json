@@ -1,0 +1,339 @@
+{
+  "date": "2026-06-12",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 17,
+  "buckets": [
+    "asia_pacific_regional",
+    "china",
+    "kenya",
+    "korea_north",
+    "opinion_magazines",
+    "south_korea",
+    "taiwan_hk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "china": 146,
+    "korea_north": 186,
+    "opinion_magazines": 24,
+    "usa": 33,
+    "taiwan_hk": 100,
+    "south_korea": 27,
+    "vietnam_thai_my": 29,
+    "kenya": 27,
+    "asia_pacific_regional": 46
+  },
+  "pairwise_similarity": [
+    {
+      "a": "korea_north",
+      "b": "taiwan_hk",
+      "score": 0.86
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.835
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.829
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.822
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.797
+    },
+    {
+      "a": "kenya",
+      "b": "south_korea",
+      "score": 0.794
+    },
+    {
+      "a": "korea_north",
+      "b": "vietnam_thai_my",
+      "score": 0.792
+    },
+    {
+      "a": "china",
+      "b": "korea_north",
+      "score": 0.787
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.787
+    },
+    {
+      "a": "korea_north",
+      "b": "usa",
+      "score": 0.782
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "korea_north",
+      "score": 0.771
+    },
+    {
+      "a": "kenya",
+      "b": "korea_north",
+      "score": 0.763
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "taiwan_hk",
+      "score": 0.76
+    },
+    {
+      "a": "south_korea",
+      "b": "vietnam_thai_my",
+      "score": 0.752
+    },
+    {
+      "a": "korea_north",
+      "b": "south_korea",
+      "score": 0.747
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.74
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "vietnam_thai_my",
+      "score": 0.739
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.737
+    },
+    {
+      "a": "kenya",
+      "b": "taiwan_hk",
+      "score": 0.733
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.731
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "china",
+      "score": 0.727
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "south_korea",
+      "score": 0.726
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.725
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "kenya",
+      "score": 0.723
+    },
+    {
+      "a": "south_korea",
+      "b": "usa",
+      "score": 0.723
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.717
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.706
+    },
+    {
+      "a": "china",
+      "b": "south_korea",
+      "score": 0.705
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "opinion_magazines",
+      "score": 0.672
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.643
+    },
+    {
+      "a": "china",
+      "b": "opinion_magazines",
+      "score": 0.626
+    },
+    {
+      "a": "south_korea",
+      "b": "taiwan_hk",
+      "score": 0.621
+    },
+    {
+      "a": "korea_north",
+      "b": "opinion_magazines",
+      "score": 0.614
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "south_korea",
+      "score": 0.613
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.604
+    },
+    {
+      "a": "kenya",
+      "b": "opinion_magazines",
+      "score": 0.566
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.732,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.746,
+      "n_tokens": 100
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.757,
+      "n_tokens": 146
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.76,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.765,
+      "n_tokens": 186
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.632,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.71,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.724,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.743,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "china": [
+      {
+        "term": "general",
+        "count": 7
+      },
+      {
+        "term": "secretary",
+        "count": 7
+      },
+      {
+        "term": "communist",
+        "count": 4
+      },
+      {
+        "term": "committee",
+        "count": 4
+      },
+      {
+        "term": "carry",
+        "count": 3
+      },
+      {
+        "term": "forward",
+        "count": 3
+      },
+      {
+        "term": "important",
+        "count": 3
+      },
+      {
+        "term": "consensu",
+        "count": 3
+      },
+      {
+        "term": "reached",
+        "count": 3
+      }
+    ],
+    "korea_north": [
+      {
+        "term": "watching",
+        "count": 4
+      },
+      {
+        "term": "plant",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "usa": [],
+    "taiwan_hk": [],
+    "south_korea": [
+      {
+        "term": "stronger",
+        "count": 3
+      },
+      {
+        "term": "silent",
+        "count": 3
+      },
+      {
+        "term": "herald",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "kenya": [],
+    "asia_pacific_regional": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-12T11:59:36+00:00",
+  "meta_version": "10.0.3"
+}

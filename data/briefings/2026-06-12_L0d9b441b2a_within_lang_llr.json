@@ -1,0 +1,112 @@
+{
+  "date": "2026-06-12",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 146,
+      "n_tokens_in_cohort": 448,
+      "distinctive_terms": [
+        {
+          "term": "dprk",
+          "count_in_bucket": 13,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.08904,
+          "rate_in_cohort": 0.00223,
+          "llr": 30.707,
+          "log_ratio": 3.686,
+          "p_value": 0.0
+        },
+        {
+          "term": "general",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.04795,
+          "rate_in_cohort": 0.0,
+          "llr": 19.904,
+          "log_ratio": null,
+          "p_value": 8e-06
+        },
+        {
+          "term": "secretary",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.04795,
+          "rate_in_cohort": 0.0,
+          "llr": 19.904,
+          "log_ratio": null,
+          "p_value": 8e-06
+        },
+        {
+          "term": "party",
+          "count_in_bucket": 6,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.0411,
+          "rate_in_cohort": 0.00223,
+          "llr": 11.831,
+          "log_ratio": 2.913,
+          "p_value": 0.000582
+        }
+      ]
+    },
+    "korea_north": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 186,
+      "n_tokens_in_cohort": 408,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 561,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 100,
+      "n_tokens_in_cohort": 494,
+      "distinctive_terms": []
+    },
+    "south_korea": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 567,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 565,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 567,
+      "distinctive_terms": []
+    },
+    "asia_pacific_regional": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 46,
+      "n_tokens_in_cohort": 548,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

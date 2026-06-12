@@ -1,0 +1,68 @@
+{
+  "date": "2026-06-12",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 537,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 196,
+      "n_tokens_in_cohort": 390,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 12,
+      "n_tokens_in_cohort": 574,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 214,
+      "n_tokens_in_cohort": 372,
+      "distinctive_terms": []
+    },
+    "australia_nz": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 558,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 87,
+      "n_tokens_in_cohort": 499,
+      "distinctive_terms": [
+        {
+          "term": "aged",
+          "count_in_bucket": 5,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.05747,
+          "rate_in_cohort": 0.00401,
+          "llr": 11.558,
+          "log_ratio": 2.663,
+          "p_value": 0.000674
+        }
+      ]
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
