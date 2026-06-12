@@ -1,0 +1,125 @@
+{
+  "story_key": "La90c0564cb",
+  "date": "2026-06-12",
+  "n_buckets": 9,
+  "n_articles": 30,
+  "tldr": "Headlines across Europe, Asia-Pacific, and wire services announce David Hockney's death at 88 with near-universal framing as a British cultural titan of contemporary and pop art; Le Parisien alone foregrounds his auction-record market value, and Brazil's articles supply no Hockney coverage at all.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "British pop art icon & legacy",
+      "buckets": ["wire_services", "france", "germany", "italy", "india", "israel", "australia_nz", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Celebrated British contemporary artist David Hockney",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "Il a marqué l'art contemporain de son empreinte",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Pop-Art-Künstler - Britischer Maler David Hockney",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "era il più celebre pittore contemporaneo",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "Legendary British painter David Hockney dies at 88",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "David Hockney, of the most celebrated artists",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Sydney Morning Herald",
+          "quote": "artist renowned for his pool scenes, dies aged 88",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "David Hockney, revolutionary British artist, dies aged 88",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "World's most expensive painter",
+      "buckets": ["france"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "Le Parisien",
+          "quote": "peintre « le plus cher du monde »",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Personal joy of place — Normandy life",
+      "buckets": ["france"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "Le Figaro",
+          "quote": "«Vivre ici, c'est fantastique»",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.397, "n_tokens": 160},
+    {"bucket": "israel", "mean_similarity": 0.681, "n_tokens": 214},
+    {"bucket": "uk", "mean_similarity": 0.828, "n_tokens": 87},
+    {"bucket": "italy", "mean_similarity": 0.836, "n_tokens": 43},
+    {"bucket": "wire_services", "mean_similarity": 0.84, "n_tokens": 49},
+    {"bucket": "germany", "mean_similarity": 0.845, "n_tokens": 908},
+    {"bucket": "france", "mean_similarity": 0.847, "n_tokens": 213}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["brazil"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Le Parisien",
+      "bucket": "france",
+      "finding": "Only outlet to frame Hockney's death through market value — 'le plus cher du monde' (world's most expensive painter) — turning an obituary headline into an ECONOMIC frame where every other outlet runs a purely cultural tribute.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Only outlet to use 'revolutionary' as the lead descriptor, framing Hockney's death as the end of an artistic rupture rather than the loss of a famous figure; other outlets reach for status superlatives ('greatest', 'legendary', 'most celebrated') but not transformation.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Le Figaro",
+      "bucket": "france",
+      "finding": "Only outlet to surface a personal-life angle at headline level — reprising a 2022 encounter in Normandy ('Vivre ici, c'est fantastique') — foregrounding Hockney's lived happiness and sense of place rather than artistic rank or death fact.",
+      "signal_text_idx": 19
+    }
+  ],
+  "bottom_line": "The headline layer positions Hockney's death as the loss of a British cultural titan — 'revolutionary', 'legendary', 'the most celebrated' — with Le Parisien alone surfacing the market-record angle that body-text analyses will likely expand on.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
