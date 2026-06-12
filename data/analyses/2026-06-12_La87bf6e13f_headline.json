@@ -1,0 +1,119 @@
+{
+  "story_key": "La87bf6e13f",
+  "date": "2026-06-12",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines across 10 countries frame Bill Gates' congressional testimony through two competing lenses: Epstein's blackmail of Gates (extortion/crime framing dominant in Germany, Brazil, India, USA, and Russia) and Gates' flat denial of wrongdoing before Congress (legal-accountability framing dominant in Turkey, Canada, South Africa, UK, and Southeast Asia). Sensationalist qualifiers — 'the Victim,' 'explosive testimony,' 'Painful For My Family' — are concentrated in right-populist and nationalist outlets.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Epstein's blackmail of Gates",
+      "buckets": ["usa", "india", "germany", "brazil", "russia"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Claims Epstein Used His Personal Infidelities as Blackmail",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Accuses Jeffrey Epstein Of Blackmail Over Extramarital",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Bill Gates berichtet von Erpressung durch Epstein",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Epstein usou seus casos extraconjugais contra ele",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Epstein probe expands as Bill Gates and former assistant",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Gates denies wrongdoing under oath",
+      "buckets": ["turkey", "canada", "south_africa", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Bill Gates rejects wrongdoing amid scrutiny over Epstein",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "a 'grave error in judgment,' Bill Gates says",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "News24 World",
+          "quote": "he 'never victimised anyone'",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'I never victimised anyone': Bill Gates denies wrongdoing",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "but he 'never reciprocated'",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "russia", "mean_similarity": 0.741, "n_tokens": 32},
+    {"bucket": "brazil", "mean_similarity": 0.795, "n_tokens": 53},
+    {"bucket": "india", "mean_similarity": 0.800, "n_tokens": 43},
+    {"bucket": "uk", "mean_similarity": 0.813, "n_tokens": 45},
+    {"bucket": "usa", "mean_similarity": 0.818, "n_tokens": 56},
+    {"bucket": "turkey", "mean_similarity": 0.821, "n_tokens": 31},
+    {"bucket": "germany", "mean_similarity": 0.831, "n_tokens": 62},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.846, "n_tokens": 62}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only outlet to explicitly label Gates 'the Victim' in the headline — inverting the investigative framing dominant elsewhere into a sympathy/exculpatory frame where Gates is the wronged party rather than a subject of inquiry.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to frame this as an expanding probe with multiple witnesses ('former assistant testify'), rather than centering on Gates' individual denial or Epstein's blackmail of Gates specifically.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "bucket": "india",
+      "finding": "Only outlet to add sensationalist qualifiers ('Explosive Testimony', 'Painful For My Family') absent from all other headlines, dramatising Gates' congressional account beyond straight factual reporting.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "Headline coverage splits between a crime frame (Epstein blackmailed Gates with affair secrets) and a legal-accountability frame (Gates denies wrongdoing before Congress), with populist outlets amplifying victim and drama language absent from establishment and public-broadcaster reporting.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
