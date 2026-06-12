@@ -1,0 +1,153 @@
+{
+  "story_key": "Lfddd1fe0bf",
+  "date": "2026-06-12",
+  "n_buckets": 10,
+  "n_articles": 12,
+  "tldr": "Headlines across 10 country buckets frame the 7.8 Mindanao quake overwhelmingly through rising death tolls and mass displacement, with a strong secondary strand on rescue access difficulties. AP News stands apart as the only outlet whose title foregrounds disaster-preparedness drills as a policy success rather than a casualty figure.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "mounting casualty count",
+      "buckets": ["china", "france", "turkey", "asia_pacific_regional", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Casualties mount after strong earthquake hits S Philippines",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "Le bilan du séisme aux Philippines s'alourdit à 55 morts",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "At Least 32 Dead After Earthquake Hits Southern Philippines",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "death toll climbs to 37",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "death toll climbs to 35",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "rescue access and logistics barriers",
+      "buckets": ["pan_african", "vietnam_thai_my", "philippines", "india"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "continues rescue effort after powerful Mindanao quake",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Rescuers battle rain and aftershocks in Mindanao",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Philstar",
+          "quote": "3 areas remain hard to reach",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "seeks immediate airlift of food to ease hunger",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "mass displacement of tens of thousands",
+      "buckets": ["turkey", "canada"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Philippine quake displaces 32,000",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "More than 32,000 displaced after Philippines earthquake",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "drills credited for limiting deaths",
+      "buckets": ["wire_services"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Disaster drills helped prevent more deaths",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "regional tsunami warning triggered",
+      "buckets": ["vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "triggers tsunami warnings",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "india", "mean_similarity": 0.565, "n_tokens": 33},
+    {"bucket": "wire_services", "mean_similarity": 0.642, "n_tokens": 223},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.715, "n_tokens": 204}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AP News",
+      "bucket": "wire_services",
+      "finding": "Only headline to frame the event as a policy success — disaster drills limiting the death toll — rather than a raw casualty report.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "VnExpress English",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline to foreground the regional tsunami warning triggered by the quake, a safety dimension absent from all other titles.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "bucket": "india",
+      "finding": "Only headline to lead with food access and hunger in cut-off villages rather than a death count or displacement figure.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "Headline coverage reduces the Mindanao quake to three signals — rising death tolls, rescue/access difficulties, and mass displacement — with AP News uniquely advertising a policy-preparedness success rather than a casualty number.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
