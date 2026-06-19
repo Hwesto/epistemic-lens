@@ -1,0 +1,147 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "Lb8c3a01f9d",
+  "cluster_id": 134,
+  "cluster_name": "Mexico reaches 2026 World Cup knockouts first, defeats South Korea 1-0",
+  "salience_score": 4.245,
+  "n_outlets": 14,
+  "n_countries": 8,
+  "n_articles": 26,
+  "event_summary": "Co-host Mexico beat South Korea 1-0 in Guadalajara on June 18, 2026, with Luis Romo scoring in the 50th minute after a goalkeeper error, making Mexico the first nation to secure a place in the 2026 World Cup knockout stage.",
+  "tldr": "The most notable editorial split runs between the global coverage — which anchors on Mexico's 'first team to advance' milestone — and South Korean outlets, which divide between mourning the error-driven defeat and reassuring readers that Korea remains well-positioned to qualify. The goalkeeper error is the single detail cited most consistently across all regions and political leanings, from Pakistan's Dawn ('goalkeeping clanger') to South Korea's Hankyoreh ('keeper error') and KBS World ('costly mistake'). Yonhap News was the only outlet to publish a forward-looking optimism piece post-defeat. AfricaNews uniquely led with fan street celebrations rather than match facts, centering the Mexican public's experience over the scoreline. Coverage is geographically narrow for a co-hosted World Cup — European football press and US co-host media are absent from this cluster entirely.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "host-nation milestone and national celebration",
+      "outlets": ["AFP / France 24 EN", "AfricaNews", "Dawn", "Geo News English", "Iraqi News"],
+      "countries": ["wire_services", "pan_african", "pakistan", "iraq"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Co-hosts Mexico became the first team to secure a place in the World Cup knockout stage after a 1-0 victory over South Korea at a jubilant Guadalajara Stadium on Thursday.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Thousands of jubilant Mexico supporters celebrated across the country on 18 June after their team became the first nation to secure a place in the World Cup knockout stage with a 1-0 victory over South Korea.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "South Korean team morale and resilience after defeat",
+      "outlets": ["KBS World", "Hankyoreh English", "Korea Herald (via Google News)", "Yonhap News"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "(World Cup) S. Korea coach implores players to hold heads high after loss to Mexico",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "(World Cup) S. Korea in good position to reach knockouts despite loss to Mexico",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "home-soil knockout advantage for co-host",
+      "outlets": ["Al Jazeera English", "Japan Times", "Dawn"],
+      "countries": ["qatar", "japan", "pakistan"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Luis Romo's 50th-minute goal sent Mexico into the round of 32, which they will play on home soil, too.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "The victory gave Javier Aguirre's side six points from two matches and ensured its first knockout game would be played in Mexico City on June 30.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "goalkeeper error as decisive turning point",
+      "outlets": ["KBS World", "Hankyoreh English", "AFP / France 24 EN"],
+      "countries": ["south_korea", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "World Cup Group A leader and host Mexico beat South Korea 1-0 on Thursday evening at Estadio Guadalajara in Zapopan, western Mexico, as a costly mistake proved decisive.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Hankyoreh English",
+          "country": "south_korea",
+          "quote": "[World Cup] Match 2 jinx strikes again: Korea loses to Mexico 0-1 on keeper error",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Luis Romo scored shortly after half-time, capitalising on a goalkeeping error, to seal Mexico's second straight win and confirm them as Group A winners with one match remaining.",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hankyoreh English",
+      "country": "south_korea",
+      "finding": "Only outlet to invoke a historical 'Match 2 jinx' narrative, framing Korea's defeat as part of a recurring World Cup pattern rather than an isolated result.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only outlet to publish a forward-looking optimism piece post-defeat, arguing South Korea remains well-positioned to reach the knockouts despite the Group A loss.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Only outlet to lead with street celebration coverage rather than match facts, centring the emotional experience of Mexican supporters over the sporting result.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Only outlet to anchor a specific future fixture date and venue (Mexico City, June 30) for Mexico's knockout game, providing forward-looking context absent elsewhere.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Russian state agency covered the match with strictly factual brevity — naming only the scorer, minute, and stadium — with no political or geopolitical framing.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "South Korean public broadcaster filed two separate dispatches — one on the match result and one on Group A standings implications — treating the defeat as both a sporting and a competitive-positioning story.",
+      "signal_text_idx": 10
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Mexico's 1-0 win over South Korea drew consistent global coverage anchored by the host nation's historic 'first team to advance' milestone, but the most editorially revealing split is within South Korean media itself — torn between defeat-acknowledgement and a resilience-forward narrative that Korea can still qualify. The goalkeeper error was the single most universally cited detail, crossing regional and political lines from Islamabad to Seoul.",
+  "generated_at": "2026-06-19T08:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
