@@ -1,0 +1,273 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L64dbc2025e",
+  "cluster_id": 58,
+  "cluster_name": "JNIM al-Qaeda affiliate attacks Niamey airport, 13 dead",
+  "salience_score": 3.643,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 17,
+  "event_summary": "On June 18, 2026, JNIM—the Sahel branch of al-Qaeda—attacked the Diori Hamani International Airport in Niamey, Niger, killing at least 11 soldiers and two civilians; security forces killed 22 attackers and arrested about 20 suspects before the airport resumed normal operations.",
+  "tldr": "RT Africa is the only outlet to frame the attack through Niger's junta political narrative: accusing France, Benin, and Ivory Coast of sponsoring the January assault on the same airport and crediting Russian forces with helping repel it—angles absent from every other outlet in the corpus. This is the second major jihadist raid on Diori Hamani in six months, with JNIM (al-Qaeda) claiming this June attack and Islamic State having claimed the January one, indicating two rival factions are contesting the same strategic site. The BBC's headline—'Thirty-five killed'—counts all deaths including 22 attackers, while other outlets report 13 civilians and soldiers; the framing choice materially shifts the severity signal. Coverage is concentrated in Africa-specialist and pan-African outlets; US media, French generalist press, and governments named as alleged sponsors have no voice in the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "repeated jihadist assault on strategic airport",
+      "outlets": [
+        "AfricaNews",
+        "AllAfrica",
+        "BBC Africa",
+        "BBC World",
+        "CGTN World",
+        "Daily Maverick",
+        "RFI Afrique",
+        "RT Africa",
+        "Sky News UK",
+        "South China Morning Post"
+      ],
+      "countries": [
+        "pan_african",
+        "africa_other",
+        "uk",
+        "china",
+        "south_africa",
+        "state_tv_intl",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "killed at least 11 soldiers and two civilians, officials said, months after jihadists staged a large assault on the sensitive site",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "Niger has been fighting a militant Islamist insurgency for a decade and in January suspected jihadists attacked the same airport.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "West Africa’s al Qaeda affiliate claimed responsibility on Thursday for an attack on the airport and military airbase in Niger’s capital that the government said killed 11 members of the security forces, highlighting persistent insecurity in the Sahel region.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "RFI Afrique",
+          "country": "africa_other",
+          "quote": "Le Groupe de soutien à l'islam et aux musulmans (Jnim), la branche sahélienne d'al-Qaïda, a revendiqué l'attaque.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "A group linked to al-Qaeda claimed Thursday’s attack on the airport of Niger’s capital, Niamey, that killed at least 11 soldiers and two civilians, six months after other jihadists staged a large assault on the sensitive site. Twenty-two attackers were also killed as security forces repelled the raid on the Diori Hamani International Airport in Niamey, Niger’s defence ministry said. Gunfire erupted early in the morning and rang out for hours near the airport, where a large military presence was.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "suspect hunt and militant neutralization",
+      "outlets": [
+        "AfricaNews",
+        "RT Africa"
+      ],
+      "countries": [
+        "pan_african",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Niger's security apparatus has begun a search for the attackers who attacked the airport of the capital, Niamey, on Thursday, killing at least 11 soldiers and two civilians.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Security forces stopped them before they could reach the building and later recovered heavy weapons, rocket-propelled grenade launchers, assault rifles, grenades, ammunition, radios, mobile phones and vehicles, according to the statement.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "AU continental solidarity and anti-France blame",
+      "outlets": [
+        "AllAfrica",
+        "RT Africa"
+      ],
+      "countries": [
+        "africa_other",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "Youssouf reaffirmed the AU's solidarity with Niger in combating terrorism and violent extremism, reiterating the body's commitment to preserving continental peace and security.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Niger’s transitional authorities and their allies in Burkina Faso and Mali have repeatedly accused former colonial power France of sponsoring the terrorist groups behind the escalating attacks in an attempt to destabilize their governments.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "junta anti-Western legitimacy claim via Russia",
+      "outlets": [
+        "RT Africa"
+      ],
+      "countries": [
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Niger’s transitional leader Abdourahamane Tiani accused the leaders of France, Benin and Ivory Coast of sponsoring the January assault.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Alliance of Sahel States (AES), have sought new partnerships, including with Russi",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "south_africa",
+      "country": "south_africa",
+      "mean_similarity": 0.749,
+      "note": "Most isolated bucket; Daily Maverick carries a brief Reuters-syndicated summary with regional Sahel-instability framing and minimal operational detail."
+    },
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.76,
+      "note": "UK bucket (BBC World, BBC Africa, Sky News UK) has thin text; Sky News extraction failed (ERROR status), leaving only a facility-description caption."
+    },
+    {
+      "outlet": "china",
+      "country": "china",
+      "mean_similarity": 0.766,
+      "note": "CGTN World submitted one Niger airport entry and one Nigeria/Kaduna mourners-attack entry, pulling its bucket centroid away from the Niamey core."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "terms": [
+        "mali",
+        "heavy",
+        "authorit",
+        "four",
+        "arrested",
+        "burkina",
+        "faso",
+        "including",
+        "transitional"
+      ],
+      "what_it_reveals": "Exclusive vocabulary foregrounds the AES geopolitical frame (Mali, Burkina Faso, transitional authorities) and security-response detail (heavy weapons, arrested suspects) absent from all other outlets."
+    },
+    {
+      "outlet": "RFI Afrique",
+      "country": "africa_other",
+      "terms": [
+        "soldat",
+        "deux",
+        "civil",
+        "bill",
+        "tplf",
+        "moin"
+      ],
+      "what_it_reveals": "French-language terms (soldat=soldier, deux=two, civil=civilian) encode RFI Afrique casualty precision; 'bill', 'tplf', 'moin' come from the multi-story AllAfrica aggregator entry covering Zimbabwe and Ethiopia alongside Niger."
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "terms": [
+        "nine",
+        "mourner"
+      ],
+      "what_it_reveals": "Exclusive CGTN vocabulary from the Nigeria/Kaduna mourners story: China's Africa coverage grouped two unrelated West African gunfire incidents as a single regional-violence cluster."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "Only RFI Afrique (France's Africa-targeted public service) appeared; French generalist press absent. No French government response to Niger's junta accusation of French sponsorship appears in the corpus."
+    },
+    {
+      "country": "nigeria",
+      "what_they_covered_instead": "No Nigerian outlet present; CGTN's parallel entry on the Kaduna mourners attack suggests the regional news cycle was crowded with Nigeria's own domestic violence."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Headline reads 'Thirty-five killed'—the only outlet to use that figure. The 35 plausibly aggregates 11 soldiers + 2 civilians + 22 attackers; all other outlets report 11-13 (government toll excluding attackers). The framing choice materially shifts the severity signal.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to name France, Benin, and Ivory Coast as the countries Niger's transitional leader Tiani accused of sponsoring the January attack on the same airport.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to report that Russian forces deployed in Niger helped repel the January attack and were publicly thanked by the Niger government—crediting Russia as an active security partner.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to specify the attackers' method of approach: arriving in two taxis and a van before attempting to breach the terminal.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "Only outlet to carry the formal AU continental diplomatic response: Commission Chairperson Mahmoud Ali Youssouf's condemnation and solidarity pledge with Niger against terrorism.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Daily Maverick",
+      "country": "south_africa",
+      "finding": "Only outlet to use explicit regional analytic framing, characterizing the attack as highlighting persistent insecurity in the Sahel region rather than treating it as a discrete incident.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Grouped a separate West African violence story—nine mourners killed by gunmen in Nigeria's Kaduna State—alongside the Niger airport attack, treating sub-Saharan gunfire incidents as a unified Africa violence category.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "RFI Afrique",
+      "country": "africa_other",
+      "finding": "Only French-language outlet; provided the most precise three-way casualty breakdown (11 soldiers, 2 civilians, 22 assailants killed) citing Niger's Defence Ministry provisional toll directly.",
+      "signal_text_idx": 9
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The June 18 JNIM attack is the second major jihadist assault on Niamey's Diori Hamani airport in six months—with a rival al-Qaeda faction claiming this one after Islamic State claimed January's—confirming the site as a persistently contested strategic target. RT Africa uniquely frames the attack within Niger's junta anti-France, pro-Russia legitimacy narrative, a geopolitical layer entirely absent from every other outlet covering the same event.",
+  "generated_at": "2026-06-19T08:47:00Z",
+  "model": "claude-sonnet-4-6"
+}
