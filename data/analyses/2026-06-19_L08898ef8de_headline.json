@@ -1,0 +1,132 @@
+{
+  "story_key": "L08898ef8de",
+  "date": "2026-06-19",
+  "n_buckets": 8,
+  "n_articles": 9,
+  "tldr": "Headlines universally report Mangione's lawyers dropping the psychiatric defense, but split on what to foreground: Western outlets lead with the legal mechanism (psychiatry, defense withdrawal), while wire-adjacent and Asian/African press lead with Mangione's criminal identity as 'accused CEO killer.'",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Psychiatric defense withdrawal",
+      "buckets": ["canada", "mexico", "brazil", "uk"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "won't assert a psychiatric defence in state trial",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "won't pursue psychiatric defence in stunning reversal",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "retira argumento de 'perturbación emocional'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "desiste de alegação psiquiátrica em julgamento",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "lawyers withdraw psychiatric defense in CEO murder trial",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Accused killer identity foregrounded",
+      "buckets": ["south_africa", "wire_services", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Mangione, accused CEO killer, withdraws mental health",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "accused CEO killer, withdraws mental health defense plans",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Accused CEO killer Mangione withdraws emotional",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Defense labeled 'controversial tactic'",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Defense Abandons Controversial Courtroom Tactic",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.786,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.794,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.799,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.808,
+      "n_tokens": 52
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Globe and Mail",
+      "bucket": "canada",
+      "finding": "Only headline to use 'stunning reversal' — the sole evaluative intensifier across all nine headlines, matching Canada's exclusive corpus vocab ('stunning', 'reversal').",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "Only headline to omit any reference to psychiatry or mental health, abstracting the withdrawn defense to a 'Controversial Courtroom Tactic' — the only outlet to apply a political/evaluative label rather than neutral procedural description.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Daily Maverick",
+      "bucket": "south_africa",
+      "finding": "Adds 'for now' qualifier — framing the withdrawal as provisional rather than definitive — a nuance absent from most other headlines.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The headline layer divides cleanly: a LEGALITY frame (Canada, UK, Brazil, Mexico — leading with the psychiatric defense mechanism) vs. a CRIME_PUNISHMENT frame (wire, South Africa, Singapore — leading with 'accused CEO killer'), with the US conservative Daily Wire alone injecting POLITICAL valence by labeling the defense a 'controversial tactic.'",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
