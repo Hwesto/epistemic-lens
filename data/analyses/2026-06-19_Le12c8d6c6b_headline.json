@@ -1,0 +1,223 @@
+{
+  "story_key": "Le12c8d6c6b",
+  "date": "2026-06-19",
+  "n_buckets": 19,
+  "n_articles": 39,
+  "tldr": "Headlines worldwide converge on a single event: the signing of the US-Iran Memorandum of Understanding at Versailles to end the war and reopen the Strait of Hormuz. Secondary divergence runs along economic lines (German and Indian outlets foreground oil prices and shipping risk) and political lines (US conservative outlets highlight Iran framing the deal as a victory over the US and Israel).",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Iran MOU as diplomatic milestone",
+      "buckets": [
+        "pan_african",
+        "uk",
+        "china",
+        "iran_state",
+        "iran_opposition",
+        "russia",
+        "kenya",
+        "religious_press",
+        "ukraine",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Watch: Moment Trump signs US-Iran agreement at Versailles",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Iranian, US presidents sign peace MoU digitally",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Iran, US sign Islamabad Memorandum of Understanding",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump signs memorandum of understanding with Iran",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Ceasefire, war end, nuclear 60-day clock",
+      "buckets": [
+        "turkey",
+        "vietnam_thai_my",
+        "india",
+        "usa",
+        "canada",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump, Iran's Pezeshkian ink memorandum to end Mideast war",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "deal to end Mideast war, reopen Strait of Hormuz",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "14-Point Ceasefire Agreement Ending Military Operations",
+          "signal_text_idx": 31
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "Five key issues in US-Iran nuclear talks",
+          "signal_text_idx": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Hormuz reopening & oil prices",
+      "buckets": [
+        "germany",
+        "india",
+        "egypt",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US-Iran deal: When will oil prices fall?",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Oil prices fall as supply starts moving",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Daily News Egypt",
+          "quote": "trigger oil sanctions relief and full Hormuz reopening",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Iran Deal Opens Door To Iranian Tolls In Strait Of Hormuz",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Iran frames deal as US-Israel defeat",
+      "buckets": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "deal with Trump as victory over US, Israel",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "Iran declares victory in deal with US",
+          "signal_text_idx": 34
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.561,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.642,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.653,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.663,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.667,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.669,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.706,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.707,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.709,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.711,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.726,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.768,
+      "n_tokens": 213
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.779,
+      "n_tokens": 366
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "opinion_magazines",
+    "pan_arab"
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer frames the US-Iran MOU as a historic diplomatic signing that ends the war and reopens Hormuz, with US outlets alone adding dissenting sub-layers—skepticism about durability and Iran's claim of victory over Washington and Tel Aviv.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
