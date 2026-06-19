@@ -1,0 +1,140 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L0fdef4c999",
+  "cluster_id": 63,
+  "cluster_name": "US military kills three in eastern Pacific drug boat strike",
+  "n_outlets": 10,
+  "n_countries": 10,
+  "n_articles": 10,
+  "salience_score": 3.061,
+  "event_summary": "The U.S. military struck a boat in the eastern Pacific Ocean on June 19, 2026, killing three men; the Trump administration said the vessel was involved in drug smuggling, bringing the cumulative death toll from such U.S. boat strikes to at least 211 since September 2025.",
+  "tldr": "The most striking finding is near-universal adoption of the cumulative 211-death figure across outlets from right-populist India (Republic World) to centre-left US public media (NPR), implicitly recasting a routine tactical event as an ongoing lethal campaign with a measurable body count. La Jornada stands alone in explicitly calling the strike an 'execution' and charging the target was 'accused without evidence' — the sharpest editorial departure from wire-service neutrality in the cluster. The Singapore establishment press (Straits Times) is the only pro-Western outlet to surface the human rights groups' 'extrajudicial killings' framing alongside Washington's 'narco-terrorist' characterisation, lending that critique broader legitimacy. Despite the operation occurring in Latin American waters, only one Latin American outlet (Mexico's La Jornada) appears in this cluster.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "narco-terrorist counter-narcotics campaign",
+      "outlets": ["AP News", "Al Jazeera English", "NPR World", "Republic World (alt)", "Vanguard"],
+      "countries": ["wire_services", "qatar", "usa", "india", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "The U.S. military attacked a boat accused of smuggling drugs in the eastern Pacific Ocean on Thursday, killing three people, as the Trump administration wages a monthslong campaign against alleged traffickers in Latin America.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "The attack is the latest in a series of strikes on vessels operated by 'narco-terrorists,' according to Washington.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "military enforcement against drug traffickers",
+      "outlets": ["AP News", "Globe and Mail", "Vanguard", "NPR World", "The Guardian World"],
+      "countries": ["wire_services", "canada", "nigeria", "usa", "uk"],
+      "evidence": [
+        {
+          "outlet": "Vanguard",
+          "country": "nigeria",
+          "quote": "The United States launched a strike on a suspected drug-trafficking boat in the eastern Pacific Ocean on Thursday, killing three men on board, officials said.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Latest attack brings number of people killed in boat strikes by U.S. military to at least 211",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "extrajudicial killings and due process",
+      "outlets": ["Straits Times", "La Jornada"],
+      "countries": ["vietnam_thai_my", "mexico"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "The U.S. military said on Thursday its strike on a vessel in the Eastern Pacific killed three males, marking the latest such attack that human rights groups call extrajudicial killings and Washington casts as targeting of \\\"narco-terrorists.\\\"",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "contra una embarcación señalada sin pruebas de participar en operaciones de narcotráfico en el océano Pacífico oriental, informó el Comando Sur en X junto con un video.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump administration months-long anti-narco campaign",
+      "outlets": ["NPR World", "The Guardian World", "Republic World (alt)", "AP News"],
+      "countries": ["usa", "uk", "india", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "The latest attack brings the number of people who have been killed in boat strikes by the U.S. military to at least 211 since the Trump administration began targeting those it calls \"narcoterrorists\" in early September.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "The US military attacked a boat accused of smuggling drugs in the eastern Pacific Ocean on Thursday, killing three people, as the Trump administration wages a months-long campaign against alleged traffickers in Latin America.",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "colombia",
+      "what_they_covered_instead": "No Colombian outlet appears in this cluster despite the eastern Pacific strike corridor being the primary route for Colombian drug exports and US Southern Command operations targeting Colombian-linked trafficking; Colombian domestic politics and peace process news plausibly displaced it."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "La Jornada",
+      "country": "mexico",
+      "finding": "Uniquely uses 'ejecuta'/'asesinó' (executes/murdered) and calls the vessel 'accused without evidence' ('señalada sin pruebas') — the only outlet to explicitly dispute the evidentiary basis of the strike rather than accept the smuggling allegation as given.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "The only Western-aligned establishment outlet to explicitly introduce the human rights groups' 'extrajudicial killings' characterisation in its body text, giving that critique institutional visibility beyond critical-of-West outlets.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Reports only the bare facts and the 211 cumulative count without using 'narco-terrorist' language at all — the most stripped-down neutral framing from a non-wire outlet in this cluster.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Places 'narco-terrorists' in scare quotes and attributes the label solely to Washington — the clearest signal of editorial distancing from the US justification among English-language outlets.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "N1 Serbia English",
+      "country": "balkans",
+      "finding": "Despite the 'English' outlet branding, publishes its signal_text entirely in Serbian/Bosnian ('Američka vojska napala je...'), making it the sole non-English European voice in this cluster and suggesting the outlet's English label refers to its CNN affiliate relationship rather than its output language.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A routine iteration of the Trump administration's Pacific drug-boat campaign attracted global reporting from 10 countries, with near-universal citation of the cumulative 211-death toll lending the episode a weight beyond its immediate tactical facts. La Jornada's 'execution without evidence' language and the Straits Times' introduction of the 'extrajudicial killings' frame from opposite editorial positions represent the sharpest challenge to Washington's 'narco-terrorist' counter-narrative — and the absence of any Colombian or South American voice from the cluster leaves the region most affected by these operations without representation.",
+  "generated_at": "2026-06-19T12:13:26Z",
+  "model": "claude-sonnet-4-6"
+}
