@@ -1,0 +1,184 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L84e65f3b2f",
+  "cluster_id": 33,
+  "cluster_name": "Lincoln Memorial Reflecting Pool renovation fails within two weeks",
+  "salience_score": 3.031,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 11,
+  "event_summary": "The Lincoln Memorial Reflecting Pool was renovated at a cost of $14.2–14.7 million through no-bid contracts on Trump’s order and repainted ‘American flag blue.’ Within two weeks of Trump announcing its completion, paint began peeling from the pool bottom and an algal bloom turned the water green.",
+  "tldr": "Coverage across 10 outlets in 9 countries treats the renovation as an unambiguous failure, with no outlet defending the outcome. Il Sole 24 Ore uniquely reports the project cost seven times the original estimate — the sharpest fiscal accountability claim in the corpus — and ties the failure to the approaching US 250th anniversary celebrations. El Pais captures the political dimension most directly, noting Trump spent weeks boasting about no-bid contracts before the visible deterioration exposed them. Germany’s Bild — despite its populist-right lean — gives the story the same embarrassment framing as centre-left outlets, indicating the failure reads as objectively straightforward across the political spectrum. The Atlantic delivers the most sardonic register, summarising Trump’s aspiration as ‘American-flag-blue’ and the result as ‘a swamp.’",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "taxpayer cost overrun on no-bid contracts",
+      "outlets": [
+        "El Pais English",
+        "The Independent",
+        "Il Sole 24 Ore"
+      ],
+      "countries": [
+        "spain",
+        "uk",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "The president spent weeks boasting about the no-bid contracts awarded to two companies for $14.2 million, only to have the water turn green in a matter of days",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Il Sole 24 Ore",
+          "country": "italy",
+          "quote": "La ristrutturazione della Reflecting Pool è costata 14,2 milioni di dollari, sette volte più del previsto.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "‘American flag blue’ sealant is starting to peel from the bottom of the pool after multi-million dollar, taxpayer-funded project",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential prestige project failure",
+      "outlets": [
+        "El Pais English",
+        "The Atlantic",
+        "Bild"
+      ],
+      "countries": [
+        "spain",
+        "opinion_magazines",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "The enormous fiasco of Trump’s reflecting pool at the Lincoln Memorial: from Avatar to Shrek",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Atlantic",
+          "country": "opinion_magazines",
+          "quote": "President Trump wanted an American-flag-blue Reflecting Pool. Instead, he got a swamp.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Bild",
+          "country": "germany",
+          "quote": "Millionen-Renovierung gescheitert - Jetzt schon Mängel an Trumps Prestige-Pool",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "government project execution failure",
+      "outlets": [
+        "CBC World",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Folha de São Paulo",
+        "Reuters (via Google News)"
+      ],
+      "countries": [
+        "canada",
+        "india",
+        "brazil",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "The paint on Washington's newly renovated Lincoln Memorial Reflecting ‌Pool on Thursday was peeling away from the bottom and into the algae-tinted water, less than two weeks after U.S. President Donald Trump announced the job's completion.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "‘American flag blue’ paint has turned chartreuse from an algal bloom that park service workers are struggling to address",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "O presidente dos EUA, Donald Trump, queria que o espelho d'água do Memorial Lincoln, em Washington, ficasse impecável. A fotossíntese tinha outros planos.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "national monument heritage and US anniversary backdrop",
+      "outlets": [
+        "Il Sole 24 Ore",
+        "The Atlantic"
+      ],
+      "countries": [
+        "italy",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Il Sole 24 Ore",
+          "country": "italy",
+          "quote": "le celebrazioni del 250° anniversario degli Stati Uniti si avvicinano",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Atlantic",
+          "country": "opinion_magazines",
+          "quote": "President Trump wanted an American-flag-blue Reflecting Pool. Instead, he got a swamp.",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Il Sole 24 Ore",
+      "country": "italy",
+      "finding": "Only outlet to report the renovation cost seven times the original estimate and to note the approaching US 250th anniversary as temporal context for the failure.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "Uses 'from Avatar to Shrek' as headline shorthand for the colour shift from pristine blue to murky green, and the only outlet to name no-bid contracts explicitly.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Atlantic",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to exploit the swamp inversion: Trump sought American-flag-blue but received a swamp, a politically loaded term that doubles as literal description.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only Portuguese-language outlet in the corpus; uses deadpan scientific humour (photosynthesis as antagonist) rather than political accountability framing.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Bild",
+      "country": "germany",
+      "finding": "Germany's largest populist-right tabloid gives the story a straight failure headline indistinguishable in tone from centre-left coverage, illustrating how uniformly the embarrassment reads internationally.",
+      "signal_text_idx": 0
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A $14-million Trump-ordered renovation of the Lincoln Memorial Reflecting Pool collapsed within two weeks — paint peeling, algae returning — covered uniformly as failure across 10 outlets in 9 countries with no dissenting voice. The cost-overrun angle is sharpest in Italian business press, which alone reports the project ran seven times over budget and flags the approaching US 250th anniversary as the deadline that makes the failure sting.",
+  "generated_at": "2026-06-19T12:21:37Z",
+  "model": "claude-sonnet-4-6"
+}
