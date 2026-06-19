@@ -1,0 +1,103 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L0fdef4c999",
+  "cluster_id": 63,
+  "cluster_name": "US military kills three in eastern Pacific drug boat strike",
+  "salience_score": 3.061,
+  "n_outlets": 10,
+  "n_countries": 10,
+  "n_articles": 10,
+  "event_summary": "The U.S. military struck a boat in the eastern Pacific Ocean on June 19, 2026, killing three people; Washington identified the vessel as involved in drug smuggling, bringing the cumulative death toll from such US boat strikes to at least 211 since September 2025.",
+  "tldr": "Despite body text in at least three outlets citing the cumulative 211-death toll and the Trump administration's ongoing anti-narco campaign, not a single headline names Trump, the running death count, or the campaign context — at the homepage level this is uniformly framed as an isolated incident, suppressing the editorial weight that body text carries. The cluster's ten headlines split cleanly on crime-labelling: five outlets (AP News, Al Jazeera, NPR World, Republic World, Vanguard) explicitly name 'drug' or 'smuggling' in the title, while four (Globe and Mail, Guardian, Straits Times, N1 Serbia) strip that context entirely, presenting a US military attack on an unspecified vessel. La Jornada is the only outlet to apply explicit legal-moral judgment at the headline level, using 'ejecuta' (executes) rather than 'kills' — the single title that frames the killing as a juridical act rather than a military or crime-enforcement event. The Straits Times uniquely signals institutional skepticism with 'US military says,' the only headline to foreground sourcing as a framing device rather than asserting the death count as established fact.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "drug trafficking allegation in headline",
+      "outlets": ["AP News", "Al Jazeera English", "NPR World", "Republic World (alt)", "Vanguard"],
+      "countries": ["wire_services", "qatar", "usa", "india", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "alleged drug boat kills 3 in the eastern Pacific Ocean",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "US kills 3 in strike on alleged drug smuggling boat",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US military strike, no crime context",
+      "outlets": ["Globe and Mail", "N1 Serbia English", "Straits Times", "The Guardian World"],
+      "countries": ["canada", "balkans", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "U.S. strike on boat in Pacific Ocean kills three",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "US military kills three people in boat strike in Pacific",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "extrajudicial execution — 'ejecuta' in headline",
+      "outlets": ["La Jornada"],
+      "countries": ["mexico"],
+      "evidence": [
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "Pentágono ejecuta a 3 en otro ataque a lancha",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "La Jornada",
+      "country": "mexico",
+      "finding": "Only headline to use 'ejecuta' (executes) rather than 'kills' — the single title to frame the military action as an extrajudicial act, inserting a legal-moral judgment that every other outlet's headline withholds.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only English-language outlet to omit any drug or smuggling reference from the headline, presenting a US military strike on an unspecified Pacific vessel with no stated crime rationale — more stripped down than even the AP wire in what the title conceals.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to introduce attribution hedging ('US military says three killed') at the title level, treating the death count as a claim to be sourced rather than an asserted fact — a distancing move absent from every other outlet's headline.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "N1 Serbia English",
+      "country": "balkans",
+      "finding": "Despite the outlet's 'English' branding, publishes its headline in Serbian/Bosnian ('SAD gađale plovilo u istočnom Pacifiku, ubijene tri osobe'), the sole non-English headline in a corpus that is otherwise entirely English plus one Spanish.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "At the headline layer, ten outlets divide into three registers: five name drug trafficking in the title (crime frame), four strip all crime context and report only a military strike on a vessel (security frame), and La Jornada alone uses 'ejecuta' to frame the killing as an extrajudicial act (legality frame). The Trump campaign context and the 211-death running toll that body text foregrounds are invisible across every headline, collapsing an ongoing policy campaign into a single isolated incident at the homepage level.",
+  "generated_at": "2026-06-19T12:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
