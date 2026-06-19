@@ -1,0 +1,122 @@
+{
+  "story_key": "L64dbc2025e",
+  "date": "2026-06-19",
+  "n_buckets": 7,
+  "n_articles": 14,
+  "tldr": "Headlines across all seven outlet clusters frame the June 18 Niamey airport attack as a major jihadist assault, foregrounding casualties and JNIM/al-Qaeda's claim of responsibility. RT Africa alone initially withholds Niger's name, while CGTN conflates Niger with an unrelated Nigeria shooting.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Jihadist assault on Niamey airport",
+      "buckets": ["pan_african", "africa_other", "uk", "china", "south_africa", "state_tv_intl", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Suspected jihadists stage deadly new attack on Niger airport",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Thirty-five killed as gunmen attack Niger's biggest airport",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Thirty-five killed as gunmen attack Niger's biggest airport",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Gunfire erupts near Niger capital airport",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Al Qaeda-linked militants claim attack on Niger airport",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Dozens die in Niger airport attack",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Al-Qaeda-linked militants claim deadly attack on airport",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "JNIM claim + manhunt for attackers",
+      "buckets": ["pan_african", "africa_other", "south_africa", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "search underway for attackers who killed 11 soldiers",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "Al Qaeda-Linked Militants Claim Deadly Attack On Niger",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Al Qaeda-linked militants claim attack on Niger airport",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "militants claim deadly attack on airport in Niger's capital",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "south_africa", "mean_similarity": 0.749, "n_tokens": 39},
+    {"bucket": "uk", "mean_similarity": 0.76, "n_tokens": 47},
+    {"bucket": "china", "mean_similarity": 0.766, "n_tokens": 56},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.776, "n_tokens": 417},
+    {"bucket": "pan_african", "mean_similarity": 0.825, "n_tokens": 59}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "First RT Africa headline reads 'Explosions reported at airport in African state's capital (VIDEO)' — uniquely withholds Niger's name, describing the country only as 'an African state.' No other outlet uses this anonymizing framing.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "'Gunmen kill nine mourners in northern Nigeria attack' is a distinct event in Nigeria (not Niger's Niamey airport), imported into this cluster — diluting china bucket focus and likely reflecting a Niger/Nigeria cluster-ingestion confusion.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "AllAfrica",
+      "bucket": "africa_other",
+      "finding": "'Africa: All of Africa Today - June 19, 2026' is a generic aggregator digest headline carrying no framing signal specific to the Niger airport attack.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "Headline coverage delivers a near-unanimous jihadist-attack-on-capital-airport frame; JNIM's claim of responsibility is the dominant contextual hook, with RT Africa's anonymization of Niger the lone structural outlier.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
