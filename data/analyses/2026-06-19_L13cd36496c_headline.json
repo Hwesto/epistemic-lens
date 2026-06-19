@@ -1,0 +1,175 @@
+{
+  "story_key": "L13cd36496c",
+  "date": "2026-06-19",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "tldr": "Headlines across 10 countries lead overwhelmingly with the US troop-review angle, but diverge sharply in tone: most outlets report a security policy shift while tabloids and state media amplify Hegseth's confrontational rhetoric; Mexico's La Jornada uniquely foregrounds financial coercion; Italy's ANSA alone reads the event as cooperative; and the US Daily Wire pivots entirely to Iran.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US forces under review in Europe",
+      "buckets": ["italy", "uk", "canada", "turkey", "usa", "ukraine", "india"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "review of U.S. troops deployed to NATO",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US to review forces in Europe",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "US Will Review Force Presence in Europe",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "US to withdraw forces from Europe",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "to reduce European presence",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "US will review presence in Europe",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Defense News",
+          "quote": "review of US troops in Europe, scorns some allies",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US pressures / blasts NATO allies",
+      "buckets": ["state_tv_intl", "uk", "russia", "usa", "india"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Trump aumenta la presión sobre los aliados",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "accuses Nato countries of 'free riding'",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "US secretary of war blasts 'shameful' NATO",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Hegseth scolds NATO allies — again",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Hegseth blasts NATO allies",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "US threatens to withhold NATO dues",
+      "buckets": ["mexico"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Amenaza EU con retener una parte de sus cuotas",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Free-riding burden-sharing accusation",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "accuses Nato countries of 'free riding'",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "state_tv_intl", "mean_similarity": 0.744, "n_tokens": 55},
+    {"bucket": "mexico", "mean_similarity": 0.754, "n_tokens": 42},
+    {"bucket": "india", "mean_similarity": 0.758, "n_tokens": 80},
+    {"bucket": "ukraine", "mean_similarity": 0.774, "n_tokens": 35},
+    {"bucket": "usa", "mean_similarity": 0.785, "n_tokens": 94},
+    {"bucket": "canada", "mean_similarity": 0.792, "n_tokens": 35},
+    {"bucket": "turkey", "mean_similarity": 0.802, "n_tokens": 31},
+    {"bucket": "uk", "mean_similarity": 0.804, "n_tokens": 309}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "Only outlet to pivot entirely away from the NATO troop review, leading with Iran — 'Hegseth's Deal-Or-Consequences Message To Iran' — recasting the Brussels speech as a US military deterrence signal toward Tehran rather than an alliance pressure event.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "ANSA English",
+      "bucket": "italy",
+      "finding": "Only outlet to frame the troop reduction as cooperative ('US agreeing on path with allies'), softening what the other 13 headlines present as a unilateral ultimatum or confrontation.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Times of India",
+      "bucket": "india",
+      "finding": "Only outlet to frame the troop review as a potential NATO exit at headline level — 'is this the beginning of Trump’s pulling the plug on NATO?' — treating it as possibly irreversible rather than a bargaining tactic.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "La Jornada",
+      "bucket": "mexico",
+      "finding": "Only outlet to lead with the financial coercion angle ('threatens to withhold dues to NATO'), shifting the story from military force levels to economic leverage — a framing absent from every English-language headline.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "NPR World",
+      "bucket": "usa",
+      "finding": "The word 'again' in 'Hegseth scolds NATO allies — again' editorially normalises the confrontation as a recurring pattern, framing it as unremarkable escalation where other outlets treat it as a significant policy shift.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to foreground Hegseth's word 'shameful' in the headline — amplifying NATO-fracture rhetoric without editorial context, in direct service of Moscow's interest in deepening transatlantic discord.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The headline layer presents Hegseth's Brussels speech as a military-security ultimatum — US forces under review, Europe told to self-defend — with financial coercion surfacing only in Mexico's left press and the Iran angle surfacing only in US right-wing media.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
