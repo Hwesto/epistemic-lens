@@ -1,0 +1,111 @@
+{
+  "story_key": "L84e65f3b2f",
+  "date": "2026-06-19",
+  "n_buckets": 9,
+  "n_articles": 11,
+  "tldr": "Headlines worldwide frame Trump's Lincoln Memorial Reflecting Pool renovation as a costly, embarrassing failure — pairing exact dollar figures with physical evidence of collapse (peeling paint, algae). The advertised story is presidential overreach meeting natural consequences.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Renovation cost overruns flagged",
+      "buckets": ["germany", "brazil", "canada", "italy", "uk"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Millionen-Renovierung gescheitert",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Trump investe milhões em reforma",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "just days after $14-million renovation",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "costi fuori controllo",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "renovation costs soar to $14.7M",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Trump-ordered project declared failure",
+      "buckets": ["canada", "germany", "india", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Paint already peeling after Trump-ordered spruce-up",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Jetzt schon Mängel an Trumps Prestige-Pool",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Blue material peels off after Trump-ordered renovation",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "The paint is already peeling in Trump's renovated",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump humiliated by renovation fiasco",
+      "buckets": ["spain", "italy"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "The enormous fiasco of Trump's reflecting pool",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "Trump sconfitto dalle alghe",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "spain", "mean_similarity": 0.629, "n_tokens": 31},
+    {"bucket": "uk", "mean_similarity": 0.682, "n_tokens": 32},
+    {"bucket": "italy", "mean_similarity": 0.683, "n_tokens": 40},
+    {"bucket": "india", "mean_similarity": 0.69, "n_tokens": 32},
+    {"bucket": "brazil", "mean_similarity": 0.701, "n_tokens": 43},
+    {"bucket": "canada", "mean_similarity": 0.727, "n_tokens": 109}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["opinion_magazines"],
+  "single_outlet_findings": [],
+  "bottom_line": "Headlines sell this story as Trump's multi-million-dollar vanity project undone by physics, casting a political figure as defeated by algae.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
