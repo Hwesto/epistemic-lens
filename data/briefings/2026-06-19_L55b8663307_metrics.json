@@ -1,0 +1,411 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 15,
+  "buckets": [
+    "canada",
+    "france",
+    "india",
+    "opinion_magazines",
+    "pakistan",
+    "russia",
+    "uk",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 33,
+    "france": 36,
+    "usa": 103,
+    "canada": 24,
+    "pakistan": 42,
+    "india": 105,
+    "russia": 25,
+    "vietnam_thai_my": 57,
+    "uk": 28,
+    "opinion_magazines": 15
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.825
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.791
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.766
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.761
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.718
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.718
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.715
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.708
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.696
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.68
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.677
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.654
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.648
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.647
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.642
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.637
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.63
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.624
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.623
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.616
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.611
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.606
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.582
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.571
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.569
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.564
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.563
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.548
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.528
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.508
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.487
+    },
+    {
+      "a": "pakistan",
+      "b": "russia",
+      "score": 0.482
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pakistan",
+      "score": 0.472
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.471
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.451
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.444
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.439
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.411
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.377
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.374
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.355
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.334
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.327
+    },
+    {
+      "a": "france",
+      "b": "opinion_magazines",
+      "score": 0.279
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.209
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "france",
+      "mean_similarity": 0.525,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.548,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.596,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.625,
+      "n_tokens": 103
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.646,
+      "n_tokens": 105
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.671,
+      "n_tokens": 57
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.43,
+      "n_tokens": 15
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.461,
+      "n_tokens": 25
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.563,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.566,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "world",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "blessé",
+        "count": 3
+      },
+      {
+        "term": "selon",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "player",
+        "count": 5
+      },
+      {
+        "term": "mamdani",
+        "count": 5
+      },
+      {
+        "term": "mistaken",
+        "count": 3
+      },
+      {
+        "term": "mayor",
+        "count": 3
+      },
+      {
+        "term": "mistake",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "pakistan": [
+      {
+        "term": "tyler",
+        "count": 3
+      },
+      {
+        "term": "kolek",
+        "count": 3
+      },
+      {
+        "term": "detained",
+        "count": 3
+      },
+      {
+        "term": "viral",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "suspect",
+        "count": 5
+      },
+      {
+        "term": "injured",
+        "count": 3
+      },
+      {
+        "term": "juvenile",
+        "count": 3
+      },
+      {
+        "term": "gunfire",
+        "count": 3
+      },
+      {
+        "term": "safety",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "vietnam_thai_my": [],
+    "uk": [
+      {
+        "term": "viewing",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:07+00:00",
+  "meta_version": "10.0.3"
+}

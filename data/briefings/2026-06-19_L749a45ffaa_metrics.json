@@ -1,0 +1,186 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 5,
+  "n_articles": 14,
+  "buckets": [
+    "balkans",
+    "belarus_caucasus",
+    "germany",
+    "poland_balt",
+    "russia"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "balkans": 222,
+    "belarus_caucasus": 259,
+    "germany": 159,
+    "russia": 126,
+    "poland_balt": 50
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.88
+    },
+    {
+      "a": "balkans",
+      "b": "belarus_caucasus",
+      "score": 0.873
+    },
+    {
+      "a": "poland_balt",
+      "b": "russia",
+      "score": 0.808
+    },
+    {
+      "a": "germany",
+      "b": "poland_balt",
+      "score": 0.772
+    },
+    {
+      "a": "belarus_caucasus",
+      "b": "russia",
+      "score": 0.765
+    },
+    {
+      "a": "belarus_caucasus",
+      "b": "germany",
+      "score": 0.745
+    },
+    {
+      "a": "balkans",
+      "b": "germany",
+      "score": 0.712
+    },
+    {
+      "a": "belarus_caucasus",
+      "b": "poland_balt",
+      "score": 0.707
+    },
+    {
+      "a": "balkans",
+      "b": "russia",
+      "score": 0.697
+    },
+    {
+      "a": "balkans",
+      "b": "poland_balt",
+      "score": 0.665
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.737,
+      "n_tokens": 222
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.738,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "belarus_caucasus",
+      "mean_similarity": 0.772,
+      "n_tokens": 259
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.777,
+      "n_tokens": 159
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.787,
+      "n_tokens": 126
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "balkans": [
+      {
+        "term": "including",
+        "count": 3
+      },
+      {
+        "term": "agreement",
+        "count": 3
+      }
+    ],
+    "belarus_caucasus": [
+      {
+        "term": "servic",
+        "count": 3
+      },
+      {
+        "term": "siemoniak",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "skrepezki",
+        "count": 9
+      },
+      {
+        "term": "polen",
+        "count": 6
+      },
+      {
+        "term": "nach",
+        "count": 5
+      },
+      {
+        "term": "festgenommen",
+        "count": 5
+      },
+      {
+        "term": "mord",
+        "count": 4
+      },
+      {
+        "term": "semjon",
+        "count": 4
+      },
+      {
+        "term": "schüssen",
+        "count": 4
+      },
+      {
+        "term": "politischen",
+        "count": 3
+      },
+      {
+        "term": "russischen",
+        "count": 3
+      },
+      {
+        "term": "exilkünstler",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "satirist",
+        "count": 4
+      }
+    ],
+    "poland_balt": [
+      {
+        "term": "detain",
+        "count": 4
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:26+00:00",
+  "meta_version": "10.0.3"
+}

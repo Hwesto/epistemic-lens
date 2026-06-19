@@ -1,0 +1,279 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 17,
+  "buckets": [
+    "iraq",
+    "japan",
+    "pakistan",
+    "pan_african",
+    "qatar",
+    "russia",
+    "south_korea",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 100,
+    "pakistan": 118,
+    "pan_african": 39,
+    "qatar": 30,
+    "south_korea": 194,
+    "iraq": 37,
+    "japan": 33,
+    "russia": 29
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.923
+    },
+    {
+      "a": "iraq",
+      "b": "wire_services",
+      "score": 0.857
+    },
+    {
+      "a": "pakistan",
+      "b": "south_korea",
+      "score": 0.83
+    },
+    {
+      "a": "iraq",
+      "b": "pakistan",
+      "score": 0.815
+    },
+    {
+      "a": "south_korea",
+      "b": "wire_services",
+      "score": 0.806
+    },
+    {
+      "a": "iraq",
+      "b": "pan_african",
+      "score": 0.796
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.794
+    },
+    {
+      "a": "iraq",
+      "b": "south_korea",
+      "score": 0.793
+    },
+    {
+      "a": "pakistan",
+      "b": "russia",
+      "score": 0.784
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.783
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.782
+    },
+    {
+      "a": "pakistan",
+      "b": "pan_african",
+      "score": 0.776
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.776
+    },
+    {
+      "a": "pan_african",
+      "b": "south_korea",
+      "score": 0.757
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.754
+    },
+    {
+      "a": "russia",
+      "b": "south_korea",
+      "score": 0.743
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.725
+    },
+    {
+      "a": "japan",
+      "b": "pakistan",
+      "score": 0.696
+    },
+    {
+      "a": "iraq",
+      "b": "russia",
+      "score": 0.682
+    },
+    {
+      "a": "iraq",
+      "b": "qatar",
+      "score": 0.669
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.667
+    },
+    {
+      "a": "japan",
+      "b": "south_korea",
+      "score": 0.662
+    },
+    {
+      "a": "pan_african",
+      "b": "qatar",
+      "score": 0.662
+    },
+    {
+      "a": "qatar",
+      "b": "south_korea",
+      "score": 0.652
+    },
+    {
+      "a": "iraq",
+      "b": "japan",
+      "score": 0.65
+    },
+    {
+      "a": "japan",
+      "b": "pan_african",
+      "score": 0.633
+    },
+    {
+      "a": "japan",
+      "b": "qatar",
+      "score": 0.593
+    },
+    {
+      "a": "japan",
+      "b": "russia",
+      "score": 0.558
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.645,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.704,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.725,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.749,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.752,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.803,
+      "n_tokens": 118
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.804,
+      "n_tokens": 100
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.709,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "pan_african": [
+      {
+        "term": "nation",
+        "count": 3
+      }
+    ],
+    "qatar": [],
+    "south_korea": [
+      {
+        "term": "loss",
+        "count": 6
+      },
+      {
+        "term": "costly",
+        "count": 3
+      },
+      {
+        "term": "mistake",
+        "count": 3
+      },
+      {
+        "term": "decisive",
+        "count": 3
+      },
+      {
+        "term": "position",
+        "count": 3
+      },
+      {
+        "term": "fall",
+        "count": 3
+      },
+      {
+        "term": "herald",
+        "count": 3
+      },
+      {
+        "term": "coach",
+        "count": 3
+      },
+      {
+        "term": "head",
+        "count": 3
+      }
+    ],
+    "iraq": [],
+    "japan": [],
+    "russia": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:55+00:00",
+  "meta_version": "10.0.3"
+}

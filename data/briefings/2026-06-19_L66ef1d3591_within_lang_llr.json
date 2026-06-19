@@ -1,0 +1,162 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 197,
+      "n_tokens_in_cohort": 1732,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 1905,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 284,
+      "n_tokens_in_cohort": 1645,
+      "distinctive_terms": []
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 1894,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 153,
+      "n_tokens_in_cohort": 1776,
+      "distinctive_terms": [
+        {
+          "term": "live",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03268,
+          "rate_in_cohort": 0.0,
+          "llr": 25.495,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "stand",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03922,
+          "rate_in_cohort": 0.00113,
+          "llr": 21.952,
+          "log_ratio": 3.55,
+          "p_value": 3e-06
+        },
+        {
+          "term": "byelection",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03922,
+          "rate_in_cohort": 0.00113,
+          "llr": 21.952,
+          "log_ratio": 3.55,
+          "p_value": 3e-06
+        }
+      ]
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 169,
+      "n_tokens_in_cohort": 1760,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 1907,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 293,
+      "n_tokens_in_cohort": 1636,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 40,
+      "n_tokens_in_cohort": 1889,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 292,
+      "n_tokens_in_cohort": 1637,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 228,
+      "n_tokens_in_cohort": 1701,
+      "distinctive_terms": [
+        {
+          "term": "country",
+          "count_in_bucket": 5,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.02193,
+          "rate_in_cohort": 0.00176,
+          "llr": 11.606,
+          "log_ratio": 2.52,
+          "p_value": 0.000657
+        }
+      ]
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 64,
+      "n_tokens_in_cohort": 1865,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 1904,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 48,
+      "n_tokens_in_cohort": 1881,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 1874,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

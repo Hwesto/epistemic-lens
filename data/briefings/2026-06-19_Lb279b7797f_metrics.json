@@ -1,0 +1,387 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 22,
+  "buckets": [
+    "africa_other",
+    "brazil",
+    "france",
+    "pakistan",
+    "qatar",
+    "spain",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 37,
+    "france": 187,
+    "qatar": 28,
+    "turkey": 16,
+    "africa_other": 275,
+    "brazil": 240,
+    "vietnam_thai_my": 14,
+    "pakistan": 61,
+    "spain": 22
+  },
+  "pairwise_similarity": [
+    {
+      "a": "africa_other",
+      "b": "pakistan",
+      "score": 0.91
+    },
+    {
+      "a": "africa_other",
+      "b": "wire_services",
+      "score": 0.875
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.862
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.858
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.829
+    },
+    {
+      "a": "africa_other",
+      "b": "france",
+      "score": 0.823
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.81
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.809
+    },
+    {
+      "a": "africa_other",
+      "b": "qatar",
+      "score": 0.805
+    },
+    {
+      "a": "spain",
+      "b": "wire_services",
+      "score": 0.797
+    },
+    {
+      "a": "france",
+      "b": "spain",
+      "score": 0.788
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.787
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.766
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.765
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.759
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.759
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.746
+    },
+    {
+      "a": "spain",
+      "b": "vietnam_thai_my",
+      "score": 0.697
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.694
+    },
+    {
+      "a": "spain",
+      "b": "turkey",
+      "score": 0.685
+    },
+    {
+      "a": "africa_other",
+      "b": "spain",
+      "score": 0.68
+    },
+    {
+      "a": "africa_other",
+      "b": "turkey",
+      "score": 0.667
+    },
+    {
+      "a": "pakistan",
+      "b": "spain",
+      "score": 0.657
+    },
+    {
+      "a": "qatar",
+      "b": "spain",
+      "score": 0.647
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.605
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.586
+    },
+    {
+      "a": "africa_other",
+      "b": "vietnam_thai_my",
+      "score": 0.574
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.543
+    },
+    {
+      "a": "brazil",
+      "b": "france",
+      "score": 0.458
+    },
+    {
+      "a": "brazil",
+      "b": "spain",
+      "score": 0.428
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.413
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.364
+    },
+    {
+      "a": "brazil",
+      "b": "qatar",
+      "score": 0.353
+    },
+    {
+      "a": "africa_other",
+      "b": "brazil",
+      "score": 0.34
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.319
+    },
+    {
+      "a": "brazil",
+      "b": "pakistan",
+      "score": 0.302
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.372,
+      "n_tokens": 240
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.667,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.709,
+      "n_tokens": 275
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.744,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.771,
+      "n_tokens": 187
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.646,
+      "n_tokens": 14
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.672,
+      "n_tokens": 22
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.673,
+      "n_tokens": 16
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.686,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "france": [
+      {
+        "term": "défenseur",
+        "count": 3
+      }
+    ],
+    "qatar": [],
+    "turkey": [],
+    "africa_other": [
+      {
+        "term": "justice",
+        "count": 5
+      },
+      {
+        "term": "system",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "contra",
+        "count": 8
+      },
+      {
+        "term": "integração",
+        "count": 6
+      },
+      {
+        "term": "vivo",
+        "count": 6
+      },
+      {
+        "term": "assista",
+        "count": 6
+      },
+      {
+        "term": "telejornai",
+        "count": 6
+      },
+      {
+        "term": "para",
+        "count": 5
+      },
+      {
+        "term": "segundo",
+        "count": 5
+      },
+      {
+        "term": "governo",
+        "count": 4
+      },
+      {
+        "term": "nova",
+        "count": 4
+      },
+      {
+        "term": "como",
+        "count": 4
+      },
+      {
+        "term": "alvo",
+        "count": 3
+      },
+      {
+        "term": "operação",
+        "count": 3
+      },
+      {
+        "term": "pelo",
+        "count": 3
+      },
+      {
+        "term": "brasil",
+        "count": 3
+      },
+      {
+        "term": "disputa",
+        "count": 3
+      },
+      {
+        "term": "pesquisa",
+        "count": 3
+      },
+      {
+        "term": "juiz",
+        "count": 3
+      },
+      {
+        "term": "fora",
+        "count": 3
+      },
+      {
+        "term": "divinópoli",
+        "count": 3
+      },
+      {
+        "term": "frança",
+        "count": 3
+      },
+      {
+        "term": "copa",
+        "count": 3
+      },
+      {
+        "term": "estadual",
+        "count": 3
+      },
+      {
+        "term": "público",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "pakistan": [],
+    "spain": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:49+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,309 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 11,
+  "buckets": [
+    "brazil",
+    "canada",
+    "germany",
+    "india",
+    "italy",
+    "opinion_magazines",
+    "spain",
+    "uk",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "germany": 29,
+    "canada": 109,
+    "spain": 31,
+    "brazil": 43,
+    "india": 32,
+    "italy": 40,
+    "wire_services": 24,
+    "opinion_magazines": 17,
+    "uk": 32
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.806
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.783
+    },
+    {
+      "a": "brazil",
+      "b": "italy",
+      "score": 0.779
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.778
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.758
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.757
+    },
+    {
+      "a": "italy",
+      "b": "spain",
+      "score": 0.757
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.756
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.737
+    },
+    {
+      "a": "canada",
+      "b": "spain",
+      "score": 0.726
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.716
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.712
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.705
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.7
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.689
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.68
+    },
+    {
+      "a": "brazil",
+      "b": "spain",
+      "score": 0.678
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.676
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.667
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.666
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.662
+    },
+    {
+      "a": "germany",
+      "b": "spain",
+      "score": 0.635
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.634
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.626
+    },
+    {
+      "a": "brazil",
+      "b": "opinion_magazines",
+      "score": 0.625
+    },
+    {
+      "a": "spain",
+      "b": "uk",
+      "score": 0.624
+    },
+    {
+      "a": "india",
+      "b": "spain",
+      "score": 0.619
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.578
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.575
+    },
+    {
+      "a": "spain",
+      "b": "wire_services",
+      "score": 0.558
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.551
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.546
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.54
+    },
+    {
+      "a": "italy",
+      "b": "opinion_magazines",
+      "score": 0.514
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "spain",
+      "score": 0.436
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.432
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.629,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.682,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.683,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.69,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.701,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.727,
+      "n_tokens": 109
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.531,
+      "n_tokens": 17
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.627,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.651,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "germany": [],
+    "canada": [
+      {
+        "term": "remodelled",
+        "count": 4
+      }
+    ],
+    "spain": [],
+    "brazil": [
+      {
+        "term": "espelho",
+        "count": 3
+      },
+      {
+        "term": "água",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "material",
+        "count": 3
+      }
+    ],
+    "italy": [
+      {
+        "term": "alghe",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "uk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:31+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,435 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 14,
+  "buckets": [
+    "asia_pacific_regional",
+    "france",
+    "germany",
+    "india",
+    "italy",
+    "kenya",
+    "opinion_magazines",
+    "qatar",
+    "russia",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "qatar": 21,
+    "asia_pacific_regional": 45,
+    "usa": 349,
+    "france": 52,
+    "germany": 30,
+    "italy": 36,
+    "russia": 53,
+    "kenya": 30,
+    "opinion_magazines": 24,
+    "india": 31
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.742
+    },
+    {
+      "a": "italy",
+      "b": "kenya",
+      "score": 0.722
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.676
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.644
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "qatar",
+      "score": 0.641
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.633
+    },
+    {
+      "a": "france",
+      "b": "kenya",
+      "score": 0.628
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.604
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.603
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.589
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.584
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.573
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.545
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.541
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.532
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.526
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.523
+    },
+    {
+      "a": "kenya",
+      "b": "qatar",
+      "score": 0.509
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "germany",
+      "score": 0.506
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.504
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.492
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "qatar",
+      "score": 0.475
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "kenya",
+      "score": 0.462
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "italy",
+      "score": 0.446
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.442
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.437
+    },
+    {
+      "a": "france",
+      "b": "opinion_magazines",
+      "score": 0.434
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "india",
+      "score": 0.424
+    },
+    {
+      "a": "kenya",
+      "b": "opinion_magazines",
+      "score": 0.42
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.414
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "france",
+      "score": 0.413
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.41
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "opinion_magazines",
+      "score": 0.402
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.4
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.399
+    },
+    {
+      "a": "italy",
+      "b": "qatar",
+      "score": 0.395
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.379
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.371
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.346
+    },
+    {
+      "a": "italy",
+      "b": "russia",
+      "score": 0.334
+    },
+    {
+      "a": "italy",
+      "b": "opinion_magazines",
+      "score": 0.316
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "russia",
+      "score": 0.315
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.262
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.256
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.253
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.351,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.45,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.464,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.467,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.47,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.533,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.534,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.571,
+      "n_tokens": 349
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.448,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.495,
+      "n_tokens": 21
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "qatar": [],
+    "asia_pacific_regional": [
+      {
+        "term": "strategic",
+        "count": 6
+      },
+      {
+        "term": "autonomy",
+        "count": 3
+      },
+      {
+        "term": "anxiety",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "department",
+        "count": 6
+      },
+      {
+        "term": "justice",
+        "count": 5
+      },
+      {
+        "term": "fight",
+        "count": 4
+      },
+      {
+        "term": "cybersecurity",
+        "count": 4
+      },
+      {
+        "term": "lawsuit",
+        "count": 4
+      },
+      {
+        "term": "data",
+        "count": 4
+      },
+      {
+        "term": "center",
+        "count": 4
+      },
+      {
+        "term": "matter",
+        "count": 3
+      },
+      {
+        "term": "clean",
+        "count": 3
+      },
+      {
+        "term": "memphi",
+        "count": 3
+      },
+      {
+        "term": "company",
+        "count": 3
+      }
+    ],
+    "france": [],
+    "germany": [],
+    "italy": [
+      {
+        "term": "europa",
+        "count": 3
+      },
+      {
+        "term": "dall",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "nuremberg",
+        "count": 3
+      },
+      {
+        "term": "pakistani",
+        "count": 3
+      },
+      {
+        "term": "rape",
+        "count": 3
+      },
+      {
+        "term": "gang",
+        "count": 3
+      },
+      {
+        "term": "german",
+        "count": 3
+      },
+      {
+        "term": "broadcaster",
+        "count": 3
+      }
+    ],
+    "kenya": [
+      {
+        "term": "giant",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "india": [
+      {
+        "term": "strik",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:09:00+00:00",
+  "meta_version": "10.0.3"
+}

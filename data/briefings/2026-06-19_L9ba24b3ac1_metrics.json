@@ -1,0 +1,380 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 13,
+  "buckets": [
+    "france",
+    "india",
+    "iran_state",
+    "iraq",
+    "pakistan",
+    "pan_arab",
+    "qatar",
+    "russia",
+    "russia_native",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 37,
+    "france": 77,
+    "pakistan": 57,
+    "qatar": 26,
+    "india": 53,
+    "iraq": 39,
+    "russia_native": 39,
+    "pan_arab": 96,
+    "russia": 26,
+    "iran_state": 84
+  },
+  "pairwise_similarity": [
+    {
+      "a": "iraq",
+      "b": "wire_services",
+      "score": 0.924
+    },
+    {
+      "a": "iraq",
+      "b": "pakistan",
+      "score": 0.922
+    },
+    {
+      "a": "iran_state",
+      "b": "pan_arab",
+      "score": 0.883
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.874
+    },
+    {
+      "a": "russia_native",
+      "b": "wire_services",
+      "score": 0.871
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.866
+    },
+    {
+      "a": "india",
+      "b": "iraq",
+      "score": 0.861
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.857
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.854
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.846
+    },
+    {
+      "a": "iraq",
+      "b": "russia_native",
+      "score": 0.842
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.841
+    },
+    {
+      "a": "france",
+      "b": "russia_native",
+      "score": 0.835
+    },
+    {
+      "a": "france",
+      "b": "iraq",
+      "score": 0.832
+    },
+    {
+      "a": "pakistan",
+      "b": "russia_native",
+      "score": 0.831
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.824
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.817
+    },
+    {
+      "a": "india",
+      "b": "russia_native",
+      "score": 0.815
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.807
+    },
+    {
+      "a": "iran_state",
+      "b": "iraq",
+      "score": 0.806
+    },
+    {
+      "a": "iran_state",
+      "b": "wire_services",
+      "score": 0.8
+    },
+    {
+      "a": "iraq",
+      "b": "russia",
+      "score": 0.8
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.792
+    },
+    {
+      "a": "france",
+      "b": "iran_state",
+      "score": 0.791
+    },
+    {
+      "a": "iraq",
+      "b": "qatar",
+      "score": 0.791
+    },
+    {
+      "a": "india",
+      "b": "iran_state",
+      "score": 0.783
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.782
+    },
+    {
+      "a": "iraq",
+      "b": "pan_arab",
+      "score": 0.773
+    },
+    {
+      "a": "pakistan",
+      "b": "russia",
+      "score": 0.761
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.754
+    },
+    {
+      "a": "qatar",
+      "b": "russia_native",
+      "score": 0.753
+    },
+    {
+      "a": "iran_state",
+      "b": "pakistan",
+      "score": 0.75
+    },
+    {
+      "a": "iran_state",
+      "b": "qatar",
+      "score": 0.749
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.747
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.741
+    },
+    {
+      "a": "iran_state",
+      "b": "russia_native",
+      "score": 0.738
+    },
+    {
+      "a": "pan_arab",
+      "b": "qatar",
+      "score": 0.714
+    },
+    {
+      "a": "pakistan",
+      "b": "pan_arab",
+      "score": 0.707
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.698
+    },
+    {
+      "a": "iran_state",
+      "b": "russia",
+      "score": 0.696
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia",
+      "score": 0.69
+    },
+    {
+      "a": "france",
+      "b": "pan_arab",
+      "score": 0.685
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.679
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia_native",
+      "score": 0.667
+    },
+    {
+      "a": "russia",
+      "b": "russia_native",
+      "score": 0.657
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.739,
+      "n_tokens": 96
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.777,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.779,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.798,
+      "n_tokens": 77
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.817,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.82,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.825,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.839,
+      "n_tokens": 39
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.72,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.777,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "france": [
+      {
+        "term": "plainte",
+        "count": 5
+      },
+      {
+        "term": "auprè",
+        "count": 5
+      },
+      {
+        "term": "mondial",
+        "count": 4
+      },
+      {
+        "term": "porte",
+        "count": 4
+      },
+      {
+        "term": "imposé",
+        "count": 4
+      },
+      {
+        "term": "pour",
+        "count": 3
+      },
+      {
+        "term": "raison",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "qatar": [],
+    "india": [],
+    "iraq": [],
+    "russia_native": [
+      {
+        "term": "футбола",
+        "count": 4
+      },
+      {
+        "term": "федерация",
+        "count": 3
+      },
+      {
+        "term": "жалобу",
+        "count": 3
+      }
+    ],
+    "pan_arab": [
+      {
+        "term": "hurdl",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "iran_state": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:44+00:00",
+  "meta_version": "10.0.3"
+}

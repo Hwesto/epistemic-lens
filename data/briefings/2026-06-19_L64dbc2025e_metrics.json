@@ -1,0 +1,264 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 14,
+  "buckets": [
+    "africa_other",
+    "china",
+    "pan_african",
+    "south_africa",
+    "state_tv_intl",
+    "taiwan_hk",
+    "uk"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 59,
+    "africa_other": 333,
+    "uk": 47,
+    "china": 56,
+    "south_africa": 39,
+    "state_tv_intl": 417,
+    "taiwan_hk": 59
+  },
+  "pairwise_similarity": [
+    {
+      "a": "africa_other",
+      "b": "taiwan_hk",
+      "score": 0.902
+    },
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.892
+    },
+    {
+      "a": "pan_african",
+      "b": "taiwan_hk",
+      "score": 0.891
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "taiwan_hk",
+      "score": 0.876
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.86
+    },
+    {
+      "a": "africa_other",
+      "b": "south_africa",
+      "score": 0.835
+    },
+    {
+      "a": "africa_other",
+      "b": "uk",
+      "score": 0.828
+    },
+    {
+      "a": "pan_african",
+      "b": "south_africa",
+      "score": 0.815
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.812
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.805
+    },
+    {
+      "a": "africa_other",
+      "b": "china",
+      "score": 0.8
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.793
+    },
+    {
+      "a": "south_africa",
+      "b": "taiwan_hk",
+      "score": 0.792
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.78
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.774
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.756
+    },
+    {
+      "a": "china",
+      "b": "state_tv_intl",
+      "score": 0.734
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.715
+    },
+    {
+      "a": "south_africa",
+      "b": "state_tv_intl",
+      "score": 0.713
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.671
+    },
+    {
+      "a": "china",
+      "b": "south_africa",
+      "score": 0.67
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.749,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.76,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.766,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.776,
+      "n_tokens": 417
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.825,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.842,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.853,
+      "n_tokens": 333
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [
+      {
+        "term": "search",
+        "count": 3
+      }
+    ],
+    "africa_other": [
+      {
+        "term": "bill",
+        "count": 3
+      },
+      {
+        "term": "tplf",
+        "count": 3
+      },
+      {
+        "term": "moin",
+        "count": 3
+      },
+      {
+        "term": "soldat",
+        "count": 3
+      },
+      {
+        "term": "deux",
+        "count": 3
+      },
+      {
+        "term": "civil",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "china": [
+      {
+        "term": "nine",
+        "count": 3
+      },
+      {
+        "term": "mourner",
+        "count": 3
+      }
+    ],
+    "south_africa": [],
+    "state_tv_intl": [
+      {
+        "term": "mali",
+        "count": 5
+      },
+      {
+        "term": "heavy",
+        "count": 3
+      },
+      {
+        "term": "authorit",
+        "count": 3
+      },
+      {
+        "term": "four",
+        "count": 3
+      },
+      {
+        "term": "arrested",
+        "count": 3
+      },
+      {
+        "term": "burkina",
+        "count": 3
+      },
+      {
+        "term": "faso",
+        "count": 3
+      },
+      {
+        "term": "including",
+        "count": 3
+      },
+      {
+        "term": "transitional",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-06-19T12:08:12+00:00",
+  "meta_version": "10.0.3"
+}

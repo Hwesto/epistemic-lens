@@ -1,0 +1,50 @@
+{
+  "date": "2026-06-19",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "balkans": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 222,
+      "n_tokens_in_cohort": 494,
+      "distinctive_terms": []
+    },
+    "belarus_caucasus": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 259,
+      "n_tokens_in_cohort": 457,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 59,
+      "n_tokens_in_cohort": 657,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 126,
+      "n_tokens_in_cohort": 590,
+      "distinctive_terms": []
+    },
+    "poland_balt": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 666,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
