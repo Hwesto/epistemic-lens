@@ -1,0 +1,165 @@
+{
+  "story_key": "Lb279b7797f",
+  "date": "2026-06-19",
+  "n_buckets": 9,
+  "n_articles": 22,
+  "tldr": "Headlines worldwide report in near-identical terms that PSG defender and Morocco World Cup captain Achraf Hakimi will stand trial for rape after a French appeals court confirmed the referral, while Brazil's feeds in this cluster carry entirely unrelated domestic politics and TV programming.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "rape trial confirmed against PSG star",
+      "buckets": [
+        "wire_services",
+        "france",
+        "qatar",
+        "turkey",
+        "africa_other",
+        "vietnam_thai_my",
+        "pakistan",
+        "spain"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Hakimi to be tried in France for rape",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Achraf Hakimi sera jugé pour viol",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "to stand trial on rape charge",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "to stand trial for alleged rape",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Morocco captain Hakimi to stand trial for rape",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Hakimi to stand trial on rape charge",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Hakimi to stand trial on rape charge",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "Hakimi será juzgado por violación",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "appeals court upholds trial referral",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pakistan",
+        "spain",
+        "africa_other"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "appeals court says",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "confirme la cour d'appel de Versailles",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "French court confirms Morocco and PSG player",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "La justicia francesa confirma",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "RFI Afrique",
+          "quote": "confirme la justice française",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.372,
+      "n_tokens": 240
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.667,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.709,
+      "n_tokens": 275
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.744,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.771,
+      "n_tokens": 187
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "brazil"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "bucket": "france",
+      "finding": "Only headline across the corpus to frame the case as an interruption of a brilliant career — 'Brillant avec le Maroc et le PSG, Achraf Hakimi rattrapé par un procès pour viol' — the verb rattrapé (caught up by) carries an editorial narrative of glory overtaken by scandal, absent from every other factual title.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "Sole headline to lead with 'Morocco's World Cup captain' as the primary identifier, foregrounding his active tournament role over club affiliation or nationality — a framing that emphasises present-tense stakes no other outlet chose.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "The headline layer speaks with exceptional uniformity — a footballer faces a confirmed rape trial — while Brazil's bucket contributes only unrelated domestic content, producing the cluster's sharpest thematic silence.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
