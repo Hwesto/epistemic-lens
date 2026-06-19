@@ -1,0 +1,145 @@
+{
+  "story_key": "Lb9073751bd",
+  "date": "2026-06-19",
+  "n_buckets": 10,
+  "n_articles": 14,
+  "tldr": "Headlines across the corpus overwhelmingly frame Trump's Anthropic export ban and Europe's Palantir exit as a tech-sovereignty crisis — allies are breaking from US AI dependence. US domestic headlines add a distinctive security-military layer, naming Grok's use in Iranian strikes and a cybersecurity threat, angles that international outlets leave below the fold.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "tech sovereignty: allies break from US",
+      "buckets": ["qatar", "asia_pacific_regional", "germany", "kenya", "italy", "france"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "US export ban on Anthropic's AI models further strains",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Strategic autonomy and strategic anxiety",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US curbs Anthropic AI access, raising global concerns",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "French spies drop AI giant Palantir over US overreliance",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "L'Europa comincia il distacco dall'Ai Usa",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "se débarrasser des logiciels américains",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "self-defeating US AI export policy",
+      "buckets": ["usa", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump's AI export strategy runs into Trump's export controls",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "the US government shut down Anthropic's latest Claude AI",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "AI militarized; cybersecurity at stake",
+      "buckets": ["usa", "india"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "fight with Anthropic is now a fight over cybersecurity",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Elon Musk's AI tool Grok was used in strikes against Iran",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "Grok Is More Important Than Clean Air, DOJ Says",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Musk alignment; Musk in Europe",
+      "buckets": ["usa", "russia"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "Trump's Justice Department Backs Elon Musk in Data Center",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Musk backs 'Nuremberg trials' for Pakistani rape gangs",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "russia", "mean_similarity": 0.351, "n_tokens": 53},
+    {"bucket": "asia_pacific_regional", "mean_similarity": 0.45, "n_tokens": 45},
+    {"bucket": "italy", "mean_similarity": 0.464, "n_tokens": 36},
+    {"bucket": "india", "mean_similarity": 0.467, "n_tokens": 31},
+    {"bucket": "france", "mean_similarity": 0.47, "n_tokens": 52},
+    {"bucket": "kenya", "mean_similarity": 0.533, "n_tokens": 30},
+    {"bucket": "germany", "mean_similarity": 0.534, "n_tokens": 30},
+    {"bucket": "usa", "mean_similarity": 0.571, "n_tokens": 349}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Both RT headlines cover Musk's European culture-war interventions (Nuremberg-trial call over Pakistani rape gangs; lawsuit against ZDF) — entirely absent from every other outlet. The Anthropic export ban and Palantir exit, the story's core, go uncovered.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "bucket": "india",
+      "finding": "'Elon Musk's AI tool Grok was used in strikes against Iran' is the only non-US headline to name Grok's military use explicitly, making the DOJ national-security rationale legible at headline level where European outlets leave it in the body text.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "At headline level, this story is a tech-sovereignty narrative: six international outlets frame it as allies breaking from US AI overreliance, while US domestic headlines alone surface the military-AI dimension — Grok in Iranian strikes, cybersecurity at risk — that the rest of the world buries below the fold.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
