@@ -1,0 +1,104 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L9ba24b3ac1",
+  "cluster_id": 130,
+  "cluster_name": "Iran files FIFA complaint over US World Cup travel restrictions",
+  "salience_score": 4.286,
+  "n_outlets": 13,
+  "n_countries": 10,
+  "n_articles": 13,
+  "tldr": "Headlines across all 10 buckets uniformly advertise Iran's FIFA complaint as a fairness dispute over travel restrictions, making the headline layer editorially flatter than the body pass. Only Tehran Times names the US as the restricting party in its headline, shifting the frame from procedural complaint to bilateral diplomatic dispute. RT alone departs from neutral complaint language, using the coach's 'most oppressed team' charge and the verb 'blasts' to cast the story as victimhood rather than procedural filing. The US-Israel war context surfaced by Middle East Eye in the body is entirely absent from the headline layer, including MEE's own headline.",
+  "event_summary": "Iran's football federation announced a FIFA complaint over US-imposed travel restrictions at the 2026 World Cup, where the team must enter the US one day before matches and depart the same day.",
+  "frames": [
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "complaint over unequal WC travel rules",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "ARY News English",
+        "Al Jazeera English",
+        "BFM TV",
+        "Geo News English",
+        "Hindustan Times",
+        "Iraqi News",
+        "Kommersant",
+        "Middle East Eye",
+        "RT",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "pakistan",
+        "qatar",
+        "india",
+        "iraq",
+        "russia_native",
+        "pan_arab",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Iran to lodge complaint with FIFA over World Cup travel",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Iran to lodge complaint with FIFA over World Cup 2026",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "'Most oppressed team': Iran blasts World Cup treatment",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US named as restricting power",
+      "outlets": [
+        "Tehran Times"
+      ],
+      "countries": [
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "Iran to launch complaint to FIFA over US World Cup treatment",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only headline to use charged victimhood language — 'Most oppressed team' and 'blasts' — amplifying Iran's own rhetoric in place of the neutral 'lodge complaint' phrasing used by every other outlet.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Only headline to name the US explicitly ('over US World Cup treatment'), reframing a FIFA procedural complaint as a bilateral US-Iran dispute at the headline layer alone.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The headline layer is near-uniformly FAIRNESS-framed: 12 of 13 articles present Iran's FIFA filing as a procedural complaint over unequal travel restrictions, with only Tehran Times naming the US as the imposing party and RT's 'most oppressed team' framing as the sole sensationalist departure from an otherwise wire-driven complaint consensus.",
+  "generated_at": "2026-06-19T13:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
