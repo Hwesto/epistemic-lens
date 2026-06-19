@@ -1,0 +1,63 @@
+{
+  "story_key": "Lb8c3a01f9d",
+  "date": "2026-06-19",
+  "n_buckets": 8,
+  "n_articles": 17,
+  "tldr": "Headlines overwhelmingly lead with Mexico's historic milestone as the first team to reach the 2026 World Cup knockout stage, while South Korean outlets uniquely reframe the same event as a national defeat colored by a recurring cultural 'Match 2 jinx' and resilience messaging from the national coach. The pan-African outlet alone centers fan celebrations over the scoreline.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "S. Korea jinx vs. host-nation celebration",
+      "buckets": ["south_korea", "pan_african"],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Hankyoreh English",
+          "quote": "Match 2 jinx strikes again",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Celebrations as Mexico becomes first nation",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "S. Korea resilience narrative post-defeat",
+      "buckets": ["south_korea"],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "S. Korea coach implores players to hold heads high",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "S. Korea in good position to reach knockouts",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "japan", "mean_similarity": 0.645, "n_tokens": 33},
+    {"bucket": "qatar", "mean_similarity": 0.704, "n_tokens": 30},
+    {"bucket": "pan_african", "mean_similarity": 0.725, "n_tokens": 39},
+    {"bucket": "south_korea", "mean_similarity": 0.749, "n_tokens": 194},
+    {"bucket": "iraq", "mean_similarity": 0.752, "n_tokens": 37},
+    {"bucket": "pakistan", "mean_similarity": 0.803, "n_tokens": 118},
+    {"bucket": "wire_services", "mean_similarity": 0.804, "n_tokens": 100}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["wire_services", "pakistan", "iraq", "japan", "qatar", "russia"],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage presents Mexico's knockout qualification as an uncontested historic milestone; only South Korean outlets reframe the same event as national setback, invoking a recurring cultural jinx and publishing a resilience counter-narrative.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
