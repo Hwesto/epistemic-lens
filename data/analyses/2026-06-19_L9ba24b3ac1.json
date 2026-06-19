@@ -1,0 +1,212 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L9ba24b3ac1",
+  "cluster_id": 130,
+  "cluster_name": "Iran files FIFA complaint over US World Cup travel restrictions",
+  "salience_score": 4.286,
+  "n_outlets": 13,
+  "n_countries": 10,
+  "n_articles": 14,
+  "event_summary": "Iran's football federation announced a formal FIFA complaint over US-imposed travel restrictions at the 2026 World Cup, where the team is based in Tijuana, Mexico, and limited to entering the US one day before matches with required same-day departure.",
+  "tldr": "Thirteen outlets across 10 countries covered Iran's FIFA complaint with near-uniform fairness framing, making this one of the most editorially aligned cross-regional clusters of the day. The complaint stems from a concrete logistical constraint: Iran flies from Tijuana to the US just one day before each match and must leave the same day, while they had requested two-day advance entry. Middle East Eye is the sole outlet to contextualise the sports story within the active US-Israel war against Iran, a framing layer absent from every other source. No US outlets appear in the cluster, leaving the host country's perspective — and the government imposing the visa conditions — entirely absent from international coverage.",
+  "frames": [
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "equal conditions for all participating teams",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "BFM TV",
+        "Tehran Times",
+        "Middle East Eye",
+        "Al Jazeera English",
+        "Iraqi News",
+        "Geo News English"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "iran_state",
+        "pan_arab",
+        "qatar",
+        "iraq",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "BFM TV",
+          "country": "france",
+          "quote": "La sélection iranienne dénonce des \"restrictions contraires au principe d'égalité des conditions pour toutes les équipes participantes\".",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "the federation will formally express its dissatisfaction and lodge an official complaint with FIFA through the appropriate channels.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The Iranian World Cup team will lodge a complaint with world football association FIFA over the unfair travel restrictions imposed on them during the North American tournament, Iran's football federation said Thursday.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US visa policy as sporting barrier",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Tehran Times",
+        "RT",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "france",
+        "iran_state",
+        "russia",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "La sélection iranienne va déposer une plainte auprès de la Fifa, en raison des restrictions de déplacement auxquelles elle est soumise par les États-Unis pendant le tournoi en Amérique du Nord",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "Team Melli are allowed to fly into the U.S. one day before their matches, and must leave the country on the same day under the conditions of their visas.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "complained of unfair treatment at the World Cup after visa issues and forced travel between Mexico and the US",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US-Iran military conflict backdrop",
+      "outlets": [
+        "Middle East Eye",
+        "RT"
+      ],
+      "countries": [
+        "pan_arab",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "Playing in Group G, the Iranian team started the tournament following months of uncertainty over their participation, amid the war on Iran by the US and Israel.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "match preparation disrupted by travel limits",
+      "outlets": [
+        "Middle East Eye",
+        "Hindustan Times",
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "pan_arab",
+        "india",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "The statement came after the team was forced to fly to Los Angeles just one day before their opening match against New Zealand and return to their base camp in Mexico immediately afterwards, despite having requested to arrive two days prior.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Iran wanted to fly from their base camp in Tijuana, Mexico, to the United States two days before their next match, against Belgium in Los Angeles on Sunday.",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "terms": ["plainte", "mondial", "imposé"],
+      "what_it_reveals": "French outlets anchor the story in legal-procedural vocabulary — 'plainte' (complaint/lawsuit), 'mondial' (World Cup), 'imposé' (imposed) — concentrating the equal-conditions argument in terms absent from English-language coverage."
+    },
+    {
+      "outlet": "Kommersant",
+      "country": "russia_native",
+      "terms": ["футбола", "федерация", "жалобу"],
+      "what_it_reveals": "Russian-language coverage uses organisational vocabulary — 'football', 'federation', 'complaint' — matching Kommersant's governance-dispute framing rather than a political or victimhood frame."
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "terms": ["hurdl"],
+      "what_it_reveals": "'Hurdles' (stemmed to hurdl) appears exclusively in pan_arab coverage; MEE treats travel conditions as obstacles to overcome rather than punitive restrictions, softening the adversarial framing slightly before hardening it with the 'war' reference."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears despite the US being the host country whose visa conditions the complaint directly targets; US sports media likely covered World Cup match previews and host-country logistics without surfacing the Iranian restrictions angle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Uses the coach's 'most oppressed team' quote as the headline, adopting Iran's own victimhood framing rather than the procedural complaint-filing angle used by every other outlet.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "Only outlet to contextualise the FIFA complaint within 'the war on Iran by the US and Israel', placing a sports story inside an active military conflict frame.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Most detailed account in the cluster: specifies the one-day-entry / same-day-departure visa conditions and quotes the full FFIRI statement pledging complaint through 'appropriate channels'.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Identifies the immediate trigger precisely: Iran was denied its request to fly to the US two days before the Belgium match, making clear the complaint follows a specific rejection, not a general grievance.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Kommersant",
+      "country": "russia_native",
+      "finding": "Russian-language business paper attributes its sourcing explicitly to The Guardian rather than AFP or the FFIRI directly, showing reliance on Western media rather than independent sourcing for this story.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "French-language version explicitly names the US ('par les États-Unis') as the party imposing restrictions; the English-language AFP version omits this, referring only to 'the North American tournament'.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Iran's FIFA complaint over US visa restrictions at the 2026 World Cup drew coverage from 13 outlets spanning pro-Western wire services, pan-Arab, and Russian state media, all converging on a fairness-and-equal-conditions frame drawn directly from the FFIRI statement. The story's editorial uniformity is largely wire-driven; only Middle East Eye breaks from the sports-administration framing by situating the restrictions within the active US-Israeli military campaign against Iran.",
+  "generated_at": "2026-06-19T07:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
