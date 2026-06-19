@@ -1,0 +1,149 @@
+{
+  "story_key": "L749a45ffaa",
+  "date": "2026-06-19",
+  "n_buckets": 5,
+  "n_articles": 14,
+  "tldr": "Headlines uniformly lead with the crime-and-arrest narrative — a Russian dissident artist killed, a suspect detained — while a distinct subset in the Russia and Poland/Baltics buckets explicitly label the killing a 'political murder' or 'political assassination,' and Caucasus outlets uniquely foreground the Georgian passport as the headline's operative detail, signalling suspected foreign-state involvement.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "murder-arrest news sequence",
+      "buckets": ["balkans", "belarus_caucasus", "germany", "russia", "poland_balt"],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Suspect Arrested in Killing of Russian Artist",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "belarus_caucasus",
+          "outlet": "OC Media",
+          "quote": "detained on suspicion of murdering Russian artist in Poland",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Arrest after Russian artist and Putin critic killed",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "killing of Russian satirist Semyon Skrepetsky",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "Notes from Poland",
+          "quote": "murdered Russian dissident and detains two suspects",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "political assassination hypothesis",
+      "buckets": ["russia", "poland_balt", "germany"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Shooting in Poland Likely 'Political Murder' – PM Tusk",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "Notes from Poland",
+          "quote": "evidence points to “political assassination”",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Nach Schüssen auf Kreml-Kritiker",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Georgian passport: state proxy signal",
+      "buckets": ["belarus_caucasus"],
+      "evidence": [
+        {
+          "bucket": "belarus_caucasus",
+          "outlet": "Civil Georgia",
+          "quote": "Using Georgian Passport', Poland's Tusk Says",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "belarus_caucasus",
+          "outlet": "OC Media",
+          "quote": "Suspect with Georgian passport detained",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.737,
+      "n_tokens": 222
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.738,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "belarus_caucasus",
+      "mean_similarity": 0.772,
+      "n_tokens": 259
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.777,
+      "n_tokens": 159
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.787,
+      "n_tokens": 126
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Moscow Times",
+      "bucket": "russia",
+      "finding": "Only headline to use Tusk's 'political murder' label with direct attribution and the qualifier 'Likely' — foregrounding political uncertainty rather than established criminal fact, a framing absent from all other outlets.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Notes from Poland",
+      "bucket": "poland_balt",
+      "finding": "Strongest editorial language among all headlines: 'evidence points to political assassination' — the only outlet to assert a prosecutorial-level claim in the headline before formal confirmation.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "bucket": "germany",
+      "finding": "Only headline across all 14 to ask 'Who was Semyon Skrepezki?' — a profile-angle framing that foregrounds victim identity rather than criminal event, unique to DW's German-language coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Civil Georgia",
+      "bucket": "belarus_caucasus",
+      "finding": "Headlined the Georgian passport as the operative new fact, uniquely foregrounding reputational risk for Georgian travel documents in European security contexts — a regional stake absent from all non-Caucasus headlines.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The headline layer universally frames this as a political murder case with a detained suspect, while Caucasus outlets alone lead with the Georgian passport detail — the advertised marker of alleged foreign-intelligence proxy use.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
