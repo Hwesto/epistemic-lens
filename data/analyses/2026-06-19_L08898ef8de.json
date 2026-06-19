@@ -1,0 +1,157 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-06-19",
+  "lineage_id": "L08898ef8de",
+  "cluster_id": 85,
+  "cluster_name": "Luigi Mangione lawyers withdraw psychiatric defense in New York murder trial",
+  "n_outlets": 9,
+  "n_countries": 8,
+  "n_articles": 9,
+  "salience_score": 2.204,
+  "event_summary": "Luigi Mangione's lawyers withdrew a planned psychiatric 'extreme emotional disturbance' defense at his New York murder trial for the 2024 killing of UnitedHealthcare CEO Brian Thompson, reversing a strategy signaled the previous day.",
+  "tldr": "The sharpest editorial split across nine outlets is between finality and temporariness: CBC and Globe and Mail call the move a \"stunning reversal,\" while Reuters and Daily Maverick insert \"for now,\" framing the withdrawal as a provisional tactical step. The US conservative Daily Wire is the only outlet to characterize the defense as a \"Controversial Courtroom Tactic\" — editorializing what every other outlet describes in neutral procedural language. The story attracted coverage across 8 countries in English, Spanish, and Portuguese for a single US court filing, confirming the Mangione case retains global celebrity two months before trial. The Straits Times alone mentions that Mangione also faces stalking charges alongside the murder count. O Globo's signal text is almost entirely a photo caption, contributing near-zero editorial signal to this cluster.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "murder trial defense withdrawal",
+      "outlets": [
+        "CBC World",
+        "Daily Maverick",
+        "Daily Wire",
+        "El Financiero",
+        "Globe and Mail",
+        "O Globo",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Independent"
+      ],
+      "countries": [
+        "canada",
+        "south_africa",
+        "usa",
+        "mexico",
+        "brazil",
+        "wire_services",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "In a stunning reversal, Luigi Mangione's lawyers told a judge Thursday that he will no longer be asserting a psychiatric defence at his state murder trial in the killing of UnitedHealthcare CEO Brian Thompson.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Luigi Mangione has abruptly withdrawn a psychiatric defense claiming “extreme emotional disturbance” that his attorneys seemed poised to make the centerpiece of his upcoming New York murder trial over the killing of UnitedHealthcare CEO Brian Thompson. Court filings submitted Thursday show Mangione’s legal team formally withdrew a notice indicating they planned to pursue a psychiatric-based ...",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Mangione faces charges of stalking and multiple state charges, including second-degree murder.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "psychiatric defense as courtroom mechanism",
+      "outlets": [
+        "Daily Maverick",
+        "El Financiero",
+        "Globe and Mail",
+        "The Independent"
+      ],
+      "countries": [
+        "south_africa",
+        "mexico",
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "NEW YORK, June 18 (Reuters) - Luigi Mangione, the man accused of gunning down a health insurance executive on a Manhattan sidewalk, is for now withdrawing plans to introduce evidence at trial that he was undergoing an extreme mental health crisis at the time of the alleged killing, according to a Friday court filing.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "The decision comes a day after Mangione’s team said they intended to argue that he was suffering from extreme emotional disturbance",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "Los abogados de Luigi Mangione desistieron de la intención de basar su defensa en que el joven enfrentaba en ese momento perturbación emocional.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "conservative contestation of defense legitimacy",
+      "outlets": [
+        "Daily Wire"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Luigi Mangione Defense Abandons Controversial Courtroom Tactic\n\nLuigi Mangione has abruptly withdrawn a psychiatric defense claiming “extreme emotional disturbance” that his attorneys seemed poised to make the centerpiece of his upcoming New York murder trial over the killing of UnitedHealthcare CEO Brian Thompson. Court filings submitted Thursday show Mangione’s legal team formally withdrew a notice indicating they planned to pursue a psychiatric-based ...",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "australia",
+      "what_they_covered_instead": "No Australian outlet present despite sustained Anglosphere interest in the Mangione case — likely routine editorial prioritization over a single US pretrial procedure filing."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Only outlet to label the psychiatric defense a 'Controversial Courtroom Tactic,' treating the legal strategy as politically or morally fraught rather than procedurally notable.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to mention that Mangione also faces stalking charges in addition to second-degree murder, contextualizing the case beyond the psychiatric defense story.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "Uses 'stunning reversal' — the strongest language of finality in the corpus — contrasting with Reuters and Daily Maverick's 'for now' framing that treats the withdrawal as potentially temporary.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "O Globo",
+      "country": "brazil",
+      "finding": "Signal text is almost entirely a photo caption (Mangione's December 2024 Manhattan court arrival), contributing near-zero editorial signal to the cluster.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to foreground the speed of the reversal — noting the decision came a day after the team said they intended to argue the emotional disturbance defense — making the timing itself the news.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Mangione's lawyers reversed course on the 'extreme emotional disturbance' psychiatric defense in a same-day about-face, drawing 9-outlet, 8-country, 3-language coverage of a single pretrial court filing. The key editorial divide is between outlets treating the withdrawal as a definitive 'reversal' and those (following the Reuters wire) qualifying it as provisional with 'for now,' while only the US conservative Daily Wire treats the defense itself as editorially contestable.",
+  "generated_at": "2026-06-19T12:12:33Z",
+  "model": "claude-sonnet-4-6"
+}
