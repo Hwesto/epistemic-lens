@@ -1,0 +1,164 @@
+{
+  "story_key": "L55b8663307",
+  "date": "2026-06-19",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "tldr": "Headlines split into two wholly incompatible New York stories: international outlets (France, India, Russia, Singapore) foreground the Times Square shooting in their titles, making the day a crime scene, while AFP, CBC, and The New Yorker frame the Knicks win as a cultural watershed. US conservative outlets bypass both stories to attack Mayor Zohran Mamdani by name in their headlines. VnExpress's 'smashed vehicles, littered streets' title is the cluster's most sensationalized framing — treating fan celebration as near-riot before the shooting occurred. The UK Independent's capacity-overflow angle — fans turned away, viewing areas full — fits no active frame, placing it in silences.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Times Square shooting; suspect held",
+      "buckets": ["france", "india", "russia", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Shooting triggers panic in Times Square",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Shooting In New York's Times Square Trigger Panic",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "des coups de feu tirés à Times Square, sans faire de blessé",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "New York police report gunshots in Times Square, no injuries",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Times Square shooting reports: First details on suspect",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Times Square gunfire sends bystanders scrambling to safety",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Knicks title as NYC identity moment",
+      "buckets": ["wire_services", "canada", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "World Cup? Not today: New York is celebrating the Knicks",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "The Knicks' Championship Win Transforms the City",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Knicks championship celebration",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Mayor Mamdani criticized at Knicks parade",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Mamdani's Office Makes Embarrassing Mistake For Knicks",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "Dolan Seemingly Takes Jab At Mayor Mamdani",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Knicks player wrongly detained by NYPD",
+      "buckets": ["usa", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Knicks Player Mistaken for Fan by Police, Nearly Arrested",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Tyler Kolek detained by NYPD at championship parade",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "france", "mean_similarity": 0.525, "n_tokens": 36},
+    {"bucket": "wire_services", "mean_similarity": 0.548, "n_tokens": 33},
+    {"bucket": "pakistan", "mean_similarity": 0.596, "n_tokens": 42},
+    {"bucket": "usa", "mean_similarity": 0.625, "n_tokens": 103},
+    {"bucket": "india", "mean_similarity": 0.646, "n_tokens": 105},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.671, "n_tokens": 57}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "uk"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline to use the word 'panic' as the operative noun — Russian state media converts the Times Square gunshot into an American-disorder narrative, foregrounding emotional contagion rather than the near-zero injury count.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "VnExpress English",
+      "bucket": "vietnam_thai_my",
+      "finding": "Opens with 'Smashed vehicles, littered streets' and 'chaotic celebration' — the most sensationalized title in the cluster, treating fan euphoria as near-riot hours before the Times Square shooting occurred.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "'Transforms the City' — sole headline to frame the championship win as an urban identity event rather than a sports result, a police incident, or a crime scene.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only headline focused on crowd-logistics failure: 'viewing areas hit capacity early in the morning' — an operational angle absent from every other outlet, landing the UK bucket in silences.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "bucket": "wire_services",
+      "finding": "'World Cup? Not today' is the cluster's only headline to contextualize the Knicks parade against a competing mega-event, framing basketball fandom as displacing global football coverage in New York.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "The headline layer presents three wholly separate New York stories depending on outlet: a crime scene (France, India, Russia, Singapore foregrounding the Times Square shooting), a civic and cultural triumph (AFP, CBC, The New Yorker), and a political liability for Mayor Mamdani (US conservative media) — three frames with zero overlap, illustrating the sensationalism-divergence the divergence index is built to measure.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3",
+  "generated_at": "2026-06-19T12:00:00Z"
+}
