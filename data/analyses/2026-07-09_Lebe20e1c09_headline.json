@@ -1,0 +1,170 @@
+{
+  "story_key": "Lebe20e1c09",
+  "date": "2026-07-09",
+  "n_buckets": 11,
+  "n_articles": 17,
+  "tldr": "Headlines across all eleven country-buckets lead overwhelmingly with the twin bomb blasts in Damascus during Macron's visit, while Syrian-based outlets also foreground the trip as a historic diplomatic and economic turning point for post-Assad Syria.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Bombs disrupt Macron's Damascus visit",
+      "buckets": [
+        "france",
+        "turkey",
+        "germany",
+        "brazil",
+        "usa",
+        "canada",
+        "russia",
+        "india",
+        "pan_arab",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "explosions à Damas survenues pendant la visite de Macron",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Bombenexplosionen nahe Hotel von Macron",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Bombs rock Damascus during Macron visit",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "The bombing that overshadowed Macron's historic Syria visit",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Blasts hit Damascus during Macron visit",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "France–Syria diplomatic reset underway",
+      "buckets": [
+        "turkey",
+        "germany",
+        "syria"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Damascus pivot: Macron's visit to Syria",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "visits Syria, 18 months after Assad's fall",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "syria",
+          "outlet": "Enab Baladi",
+          "quote": "First French Presidential Visit to Syria in 17 Years",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Macron pledges Syria reconstruction deal",
+      "buckets": [
+        "syria",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "syria",
+          "outlet": "Syrian Observer",
+          "quote": "Strategic Economic Renaissance at Damascus Roundtable",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "French President Vows to Help Rebuild Syria",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "syria",
+      "mean_similarity": 0.719,
+      "n_tokens": 343
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.727,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.729,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.737,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.741,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.743,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.757,
+      "n_tokens": 247
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.79,
+      "n_tokens": 76
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Republic World (alt)",
+      "bucket": "india",
+      "finding": "Only outlet to frame the bombings as an intentional 'Secret Message' to Macron (scare-quoted, followed by a question mark), converting a reported security incident into a speculative, conspiratorial framing that no other headline in the corpus adopts — while simultaneously noting Macron's reconstruction pledge, producing the most tonally polarised headline in the set.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Syrian Observer",
+      "bucket": "syria",
+      "finding": "Only headline to ignore the bombings entirely and instead frame Macron's visit through the lens of its impact on French jihadists embedded in Syria, foregrounding a counter-terrorism/foreign-fighter angle invisible in every other outlet's title.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The headline layer frames Macron's Syria trip almost entirely as a security-incident story — bombs 'rocking' Damascus dominate across 10 of 11 buckets — with only Syrian-based press simultaneously advertising the visit's diplomatic milestone and economic reconstruction promise.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
