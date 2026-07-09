@@ -1,0 +1,192 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "L006ec1dfdc",
+  "cluster_id": 154,
+  "cluster_name": "Western Europe records hottest June, thousands of heat deaths confirmed",
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 14,
+  "salience_score": 3.938,
+  "event_summary": "On 9 July 2026, EU's Copernicus confirmed Western Europe's June was the hottest on record — 20.74°C average, more than 3°C above the 1991–2020 baseline. The heatwave killed over 4,700 people in France, Belgium, Spain, and the Netherlands; Germany reported more than 5,000 additional excess deaths.",
+  "tldr": "Russia's TASS quotes an ECMWF scientist directly on how 'profoundly the climate is changing' without editorial counter-framing — notable for a state outlet frequently skeptical of Western scientific authority. Coverage divides along two axes: most outlets lead with the Copernicus temperature record, while Al Jazeera, Deutsche Welle, and Times of India foreground the death toll as the primary datum. Geo News (Pakistan) is the only outlet to include El Niño context, WMO attribution science, and named climate scientists from Imperial College London — a more substantive scientific treatment than any UK or French outlet provides. The Guardian runs two separate pieces simultaneously: a live blog tracking ongoing extremes in Spain, the UK, and Ireland, and a climate-attribution analysis that explicitly blames 'carbon pollution' — the only outlet to use morally charged language where wire services use neutral 'record temperatures'. No outlet in the cluster contests the Copernicus finding or the climate change attribution.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "excess mortality from heat",
+      "outlets": [
+        "Al Jazeera English",
+        "Deutsche Welle English",
+        "Geo News English",
+        "Reuters (via Google News)",
+        "Times of India"
+      ],
+      "countries": [
+        "qatar",
+        "germany",
+        "pakistan",
+        "wire_services",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Thousands of deaths across Europe, mostly in France, Spain and Belgium, have been linked to a June heatwave.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Several other European Union countries reported thousands of additional deaths as June 2026 officially became the hottest on record for bloc.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "National authorities reported more than 4,700 excess deaths in France, Belgium, Spain and the Netherlands during the June heatwave — with the total across other countries likely to be higher — while the intense heat also fuelled wildfires in Iberia and France and exacerbated drought conditions.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "infrastructure disruption and wildfire",
+      "outlets": [
+        "Geo News English",
+        "The Guardian World"
+      ],
+      "countries": [
+        "pakistan",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "extreme heatwave at the end of the month smashed temperature records, disrupted power supplies and shut schools",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Western Europe has been scorched by its hottest June on record, scientists have said, as the UK enters its third heatwave of the year and wildfires ravage France and Spain.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "climate change attribution science",
+      "outlets": [
+        "Geo News English",
+        "The Guardian World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "pakistan",
+        "uk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "\"The relationship between heatwaves and global warming is about as straightforward as it gets: on a hotter planet, there will be more heatwaves, and they will become more intense,\" said Joeri Rogelj, a climate scientist at Imperial College London.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Inflamed by carbon pollution, the deadly June heatwave helped push surface air temperatures for the region 3.06C above their average fr",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "human-induced climate change continues to push temperatures higher",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "daily disruption and vulnerable populations",
+      "outlets": [
+        "The Guardian World"
+      ],
+      "countries": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Irish national forecaster Met Éireann said temperatures could exceed 27C during the day with overnight temperatures staying above 15C. The agency warned of water safety issues, heat stress, and uncomfortable sleeping conditions as a result.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears in this cluster despite major wire services (Reuters, AFP) covering the story; US domestic news likely foregrounded domestic summer weather or political events rather than the EU Copernicus institutional announcement."
+    },
+    {
+      "country": "china",
+      "what_they_covered_instead": "Absent despite a Western European climate record being a globally significant scientific story; Chinese outlets may have carried the story in domestic Chinese-language feeds not captured in this cluster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Russian state media reports the EU Copernicus climate record and quotes ECMWF scientist Samantha Burgess on how 'profoundly the climate is changing' — no editorial counter-framing, no attribution to Western bias, simply restating Western scientific authority.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Times of India",
+      "country": "india",
+      "finding": "Title-only signal foregrounds Germany's 5,100 heat deaths as the lead number rather than the EU-wide record or Copernicus finding — a death-toll-first editorial choice that localises the story around a country-specific count.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Leads immediately with aggregate European deaths before any temperature-record context — the only outlet besides DW and Times of India to make mortality the primary lede rather than the scientific record.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Sole outlet to explicitly address El Niño and clarify it did not contribute to Europe's June heatwave, distinguishing global sea surface temperature drivers from regional climate attribution — a precision absent from all Western outlets in the cluster.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Double coverage: a live blog tracking Barcelona's 112-year temperature record and Ireland health warnings alongside a separate climate-attribution analysis — treating the story as both a live breaking emergency and a systemic indictment simultaneously.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "Introduces the 'heat dome' metaphor ('a high-pressure system acting like a lid on a boiling pot') as explanatory framing — a rare mechanistic explanation that most other outlets in the cluster drop in favour of raw statistics.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Leads with the precise temperature figure (20.74°C, 3°C above 1991-2020 norm) as the primary data point — a metrics-first framing that lets readers anchor to a specific measurement rather than relative superlatives.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Twelve outlets across nine countries converge on the same Copernicus finding without a single contested data point — the scientific record is now editorially uncontested even in Russian state media. The divergence is not in what happened but in what leads: temperature records for wire services and Asian outlets, body count for German and Gulf media, climate attribution for UK and Indian broadsheets.",
+  "generated_at": "2026-07-09T11:21:59Z",
+  "model": "claude-sonnet-4-6"
+}
