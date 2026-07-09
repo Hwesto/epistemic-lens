@@ -1,0 +1,205 @@
+{
+  "story_key": "L30abd07141",
+  "date": "2026-07-09",
+  "n_buckets": 9,
+  "n_articles": 16,
+  "tldr": "Headlines across eight country and wire buckets report near-unanimously that South Korea's Supreme Court upheld a seven-year prison sentence for former President Yoon Suk Yeol for obstruction of justice stemming from his 2024 martial law declaration; the China bucket's titles either cover an unrelated 2017 Park Geun-hye case or misstate Yoon's sentence as five years.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Yoon's 7-year prison term upheld",
+      "buckets": [
+        "wire_services",
+        "france",
+        "germany",
+        "brazil",
+        "state_tv_intl",
+        "south_korea",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "upholds 7-year sentence for ex-president Yoon",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "condamnation de l'ex-président Yoon à sept ans",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "upholds ex-president Yoon's 7-year sentence",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "mantém condenação de ex-presidente a 7 anos de prisão",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "ratifica la condena de 7 años contra el expresidente",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Upholds 7-Year Sentence for Ex-President Yoon",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "sentences former country's president to seven years",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Supreme Court affirms obstruction ruling",
+      "buckets": [
+        "wire_services",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Supreme Court upholds prison sentence for Yoon",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "upholds lower court ruling in ex-president Yoon's",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "upholds 7-yr prison term for ex-President Yoon",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Martial law bid anchors criminal narrative",
+      "buckets": [
+        "wire_services",
+        "south_korea",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Yoon in first martial law case",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Standoff between Law Enforcement, Ex-President Yoon",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "role in martial law disaster: Yonhap",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.738,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.752,
+      "n_tokens": 85
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.779,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.789,
+      "n_tokens": 143
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.792,
+      "n_tokens": 140
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.839,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.845,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.857,
+      "n_tokens": 159
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "china"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Global Times",
+      "bucket": "china",
+      "finding": "Reports Yoon's sentence as '5 years in prison' rather than the 7 years upheld by the Supreme Court — the only outlet to understate the sentence, likely reflecting a stale or misattributed headline that predates the final ruling.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Xinhua English",
+      "bucket": "china",
+      "finding": "Both Xinhua articles cover the 2017 detention of ex-president Park Geun-hye on corruption charges, not Yoon's 2026 Supreme Court ruling — the China bucket's Xinhua content is off-story by nine years, making china the only bucket with no on-topic headline.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "Pre-ruling headline ('Supreme Court to Rule on 2025 Standoff') was published before the decision came down, framing the event as an unresolved confrontation between law enforcement and the former president rather than a confirmed sentence — the only outlet with a pre-ruling title bundled alongside post-ruling coverage.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "bucket": "kenya",
+      "finding": "Covers a different defendant — a former justice minister sentenced to 25 years — rather than Yoon's own ruling, making Kenya's primary headline a related but distinct case from the cluster's central story.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Yonhap News",
+      "bucket": "south_korea",
+      "finding": "Second Yonhap article covers unrelated Supreme Court rulings (shaman and ex-Unification Church official prison terms), wholly separate from Yoon's obstruction case, bundled into the cluster via thematic proximity to the same court session.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "The headline layer presents near-global consensus that South Korea's Supreme Court upheld Yoon's seven-year prison sentence for obstructing his own arrest after the 2024 martial law declaration — with the notable exception of China's state media, whose Xinhua titles cover a different president from 2017 and whose Global Times title misstates the sentence at five years.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
