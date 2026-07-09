@@ -1,0 +1,117 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 1045,
+      "n_tokens_in_cohort": 1706,
+      "distinctive_terms": [
+        {
+          "term": "fifield",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0067,
+          "rate_in_cohort": 0.0,
+          "llr": 13.58,
+          "log_ratio": null,
+          "p_value": 0.000229
+        },
+        {
+          "term": "condom",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0067,
+          "rate_in_cohort": 0.0,
+          "llr": 13.58,
+          "log_ratio": null,
+          "p_value": 0.000229
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 601,
+      "n_tokens_in_cohort": 2150,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 41,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 217,
+      "n_tokens_in_cohort": 2534,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 249,
+      "n_tokens_in_cohort": 2502,
+      "distinctive_terms": [
+        {
+          "term": "israel",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0241,
+          "rate_in_cohort": 0.0,
+          "llr": 28.96,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 46,
+      "n_tokens_in_cohort": 2705,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 2721,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 67,
+      "n_tokens_in_cohort": 2684,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 213,
+      "n_tokens_in_cohort": 2538,
+      "distinctive_terms": []
+    },
+    "france": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 41,
+      "n_tokens_in_cohort": 23,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 4,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

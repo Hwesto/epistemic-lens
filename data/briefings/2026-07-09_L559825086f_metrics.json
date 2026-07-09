@@ -1,0 +1,396 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 15,
+  "buckets": [
+    "germany",
+    "india",
+    "italy",
+    "pakistan",
+    "russia",
+    "russia_native",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "italy": 194,
+    "pakistan": 12,
+    "turkey": 30,
+    "germany": 309,
+    "india": 24,
+    "russia_native": 31,
+    "wire_services": 21,
+    "vietnam_thai_my": 20,
+    "russia": 26
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "russia_native",
+      "score": 0.887
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.882
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.868
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.858
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.851
+    },
+    {
+      "a": "pakistan",
+      "b": "russia_native",
+      "score": 0.841
+    },
+    {
+      "a": "italy",
+      "b": "pakistan",
+      "score": 0.827
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.823
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.821
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.815
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.815
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.805
+    },
+    {
+      "a": "italy",
+      "b": "russia",
+      "score": 0.802
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.798
+    },
+    {
+      "a": "italy",
+      "b": "russia_native",
+      "score": 0.797
+    },
+    {
+      "a": "india",
+      "b": "russia_native",
+      "score": 0.796
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.796
+    },
+    {
+      "a": "russia_native",
+      "b": "wire_services",
+      "score": 0.791
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.785
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.781
+    },
+    {
+      "a": "italy",
+      "b": "turkey",
+      "score": 0.776
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.773
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.773
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.772
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.754
+    },
+    {
+      "a": "russia_native",
+      "b": "turkey",
+      "score": 0.753
+    },
+    {
+      "a": "russia_native",
+      "b": "vietnam_thai_my",
+      "score": 0.753
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.751
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.749
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.733
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.725
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.716
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.713
+    },
+    {
+      "a": "russia",
+      "b": "russia_native",
+      "score": 0.692
+    },
+    {
+      "a": "pakistan",
+      "b": "russia",
+      "score": 0.688
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.673
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.77,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.789,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.798,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.815,
+      "n_tokens": 309
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.743,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.755,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.785,
+      "n_tokens": 20
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.795,
+      "n_tokens": 12
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.807,
+      "n_tokens": 21
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "italy": [
+      {
+        "term": "germania",
+        "count": 10
+      },
+      {
+        "term": "alla",
+        "count": 8
+      },
+      {
+        "term": "hanno",
+        "count": 7
+      },
+      {
+        "term": "approvato",
+        "count": 6
+      },
+      {
+        "term": "vendita",
+        "count": 6
+      },
+      {
+        "term": "nella",
+        "count": 3
+      },
+      {
+        "term": "difesa",
+        "count": 3
+      },
+      {
+        "term": "stati",
+        "count": 3
+      },
+      {
+        "term": "uniti",
+        "count": 3
+      },
+      {
+        "term": "cancelliere",
+        "count": 3
+      },
+      {
+        "term": "tedesco",
+        "count": 3
+      },
+      {
+        "term": "sicurezza",
+        "count": 3
+      },
+      {
+        "term": "nostra",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "turkey": [],
+    "germany": [
+      {
+        "term": "deutschland",
+        "count": 10
+      },
+      {
+        "term": "kauft",
+        "count": 5
+      },
+      {
+        "term": "raketen",
+        "count": 5
+      },
+      {
+        "term": "einigung",
+        "count": 5
+      },
+      {
+        "term": "deal",
+        "count": 4
+      },
+      {
+        "term": "trump",
+        "count": 3
+      },
+      {
+        "term": "marschflugkörper",
+        "count": 3
+      },
+      {
+        "term": "government",
+        "count": 3
+      },
+      {
+        "term": "kanzler",
+        "count": 3
+      },
+      {
+        "term": "regierungserklärung",
+        "count": 3
+      },
+      {
+        "term": "marschflugkörpern",
+        "count": 3
+      },
+      {
+        "term": "kauf",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "russia_native": [
+      {
+        "term": "мерц",
+        "count": 3
+      },
+      {
+        "term": "германии",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "russia": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-09T11:13:10+00:00",
+  "meta_version": "10.0.3"
+}

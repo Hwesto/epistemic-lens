@@ -1,0 +1,325 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 14,
+  "buckets": [
+    "brazil",
+    "canada",
+    "colombia_ven_peru",
+    "germany",
+    "india",
+    "mexico",
+    "pan_arab",
+    "uk",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "canada": 143,
+    "germany": 35,
+    "mexico": 40,
+    "colombia_ven_peru": 43,
+    "brazil": 46,
+    "india": 74,
+    "vietnam_thai_my": 158,
+    "uk": 32,
+    "pan_arab": 23
+  },
+  "pairwise_similarity": [
+    {
+      "a": "colombia_ven_peru",
+      "b": "mexico",
+      "score": 0.919
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.908
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "vietnam_thai_my",
+      "score": 0.892
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.892
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.884
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.883
+    },
+    {
+      "a": "canada",
+      "b": "mexico",
+      "score": 0.882
+    },
+    {
+      "a": "canada",
+      "b": "colombia_ven_peru",
+      "score": 0.875
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.867
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.865
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "india",
+      "score": 0.864
+    },
+    {
+      "a": "india",
+      "b": "mexico",
+      "score": 0.857
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.848
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.842
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.838
+    },
+    {
+      "a": "mexico",
+      "b": "vietnam_thai_my",
+      "score": 0.835
+    },
+    {
+      "a": "mexico",
+      "b": "uk",
+      "score": 0.829
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "uk",
+      "score": 0.824
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.823
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.822
+    },
+    {
+      "a": "brazil",
+      "b": "colombia_ven_peru",
+      "score": 0.821
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "germany",
+      "score": 0.813
+    },
+    {
+      "a": "brazil",
+      "b": "mexico",
+      "score": 0.807
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.806
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.805
+    },
+    {
+      "a": "germany",
+      "b": "mexico",
+      "score": 0.799
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.789
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.776
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.77
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "pan_arab",
+      "score": 0.76
+    },
+    {
+      "a": "brazil",
+      "b": "pan_arab",
+      "score": 0.75
+    },
+    {
+      "a": "mexico",
+      "b": "pan_arab",
+      "score": 0.75
+    },
+    {
+      "a": "canada",
+      "b": "pan_arab",
+      "score": 0.743
+    },
+    {
+      "a": "germany",
+      "b": "pan_arab",
+      "score": 0.727
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.714
+    },
+    {
+      "a": "pan_arab",
+      "b": "uk",
+      "score": 0.682
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.792,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.812,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.816,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.835,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.844,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.846,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.851,
+      "n_tokens": 158
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.854,
+      "n_tokens": 143
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.742,
+      "n_tokens": 23
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "canada": [
+      {
+        "term": "collect",
+        "count": 3
+      },
+      {
+        "term": "year",
+        "count": 3
+      },
+      {
+        "term": "back",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "mexico": [
+      {
+        "term": "acusó",
+        "count": 3
+      }
+    ],
+    "colombia_ven_peru": [],
+    "brazil": [
+      {
+        "term": "milhõ",
+        "count": 4
+      },
+      {
+        "term": "abuso",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "vietnam_thai_my": [
+      {
+        "term": "judgment",
+        "count": 5
+      },
+      {
+        "term": "final",
+        "count": 3
+      },
+      {
+        "term": "hear",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "loss",
+        "count": 3
+      }
+    ],
+    "pan_arab": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-09T11:12:39+00:00",
+  "meta_version": "10.0.3"
+}

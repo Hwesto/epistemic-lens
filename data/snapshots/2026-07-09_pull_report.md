@@ -1,0 +1,138 @@
+# Pull Report — 2026-07-09
+
+- Total feeds: **235**
+- Total items: **6350**
+- Errored feeds: **40**
+- Stub-only feeds (>=80% stubs): **14**
+
+## Items per bucket
+- usa: 422
+- india: 415
+- germany: 374
+- uk: 270
+- china: 267
+- south_korea: 260
+- italy: 232
+- russia_native: 220
+- brazil: 211
+- opinion_magazines: 205
+- mexico: 190
+- russia: 180
+- turkey: 180
+- vietnam_thai_my: 180
+- taiwan_hk: 170
+- france: 167
+- japan: 160
+- spain: 146
+- pakistan: 142
+- israel: 121
+- iran_opposition: 120
+- canada: 113
+- argentina_chile: 110
+- ukraine: 100
+- balkans: 100
+- africa_other: 94
+- state_tv_intl: 94
+- iran_state: 90
+- wire_services: 83
+- nordic: 70
+- indonesia: 70
+- pan_arab: 70
+- asia_pacific_regional: 70
+- australia_nz: 68
+- hungary_central: 65
+- korea_north: 60
+- pan_african: 60
+- religious_press: 60
+- qatar: 50
+- south_africa: 50
+- syria: 40
+- philippines: 40
+- egypt: 30
+- kenya: 30
+- belarus_caucasus: 26
+- nigeria: 20
+- netherlands_belgium: 20
+- colombia_ven_peru: 13
+- poland_balt: 12
+- iraq: 10
+- saudi_arabia: 0
+- lebanon: 0
+- jordan: 0
+- palestine: 0
+- telegram_proxies: 0
+
+## Errored feeds
+- south_africa / News24 World — http=None err=ConnectionError: HTTPSConnectionPool(host='feeds.24.com', port=443): Max retr
+- state_tv_intl / Sputnik International — http=None err=ConnectTimeout: HTTPSConnectionPool(host='sputnikglobe.com', port=443): Max 
+- africa_other / Addis Standard Ethiopia — http=403 err=None
+- africa_other / Morocco World News — http=403 err=None
+- asia_pacific_regional / East Asia Forum — http=403 err=None
+- australia_nz / News.com.au — http=403 err=None
+- australia_nz / The Australian — http=403 err=None
+- india / News18 — http=403 err=None
+- india / News18 India — http=403 err=None
+- india / Firstpost — http=403 err=None
+- indonesia / Tempo — http=403 err=None
+- indonesia / CNN Indonesia — http=403 err=None
+- iran_state / Mehr News English (rsshub) — http=403 err=None
+- iran_state / Kayhan (rsshub) — http=403 err=None
+- jordan / Jordan Times — http=403 err=None
+- lebanon / Al-Akhbar Lebanon — http=403 err=None
+- lebanon / LBCI English — http=403 err=None
+- mexico / El Economista — http=403 err=None
+- pakistan / Express Tribune — http=403 err=None
+- palestine / Maan News English — http=403 err=None
+- pan_african / African Arguments — http=403 err=None
+- pan_arab / Middle East Monitor — http=403 err=None
+- philippines / ABS-CBN — http=403 err=None
+- poland_balt / ERR News (Estonia) — http=403 err=None
+- russia_native / Novaya Gazeta Europe — http=403 err=None
+- russia_native / RIA Novosti Telegram — http=403 err=None
+- russia_native / Mash Telegram — http=403 err=None
+- saudi_arabia / Arab News — http=403 err=None
+- saudi_arabia / Al Arabiya English — http=403 err=None
+- telegram_proxies / Readovka TG — http=403 err=None
+- telegram_proxies / Bashtanka TG (Iran-state via TG) — http=403 err=None
+- telegram_proxies / Hamshahri TG — http=403 err=None
+- uk / New Statesman — http=403 err=None
+- usa / Politico — http=403 err=None
+- wire_services / Liberation — http=403 err=None
+- india / Times Now — http=404 err=None
+- south_africa / Mail & Guardian — http=404 err=None
+- australia_nz / 9News — http=406 err=None
+- canada / Toronto Star — http=429 err=None
+- palestine / Palestine Chronicle — http=429 err=None
+
+## Slow feeds (>5s)
+- 67642ms  state_tv_intl / Sputnik International
+-  9072ms  russia / RT
+-  7684ms  south_africa / News24 World
+-  6982ms  uk / Daily Mail
+-  4677ms  netherlands_belgium / DutchNews.nl
+-  4502ms  vietnam_thai_my / Bangkok Post
+-  4483ms  netherlands_belgium / NL Times
+-  4469ms  nordic / The Local Germany
+-  4407ms  balkans / Balkan Insight
+-  4364ms  china / Sixth Tone
+-  4317ms  balkans / N1 Serbia English
+-  4210ms  poland_balt / ERR News (Estonia)
+-  4133ms  india / OpIndia
+-  4131ms  germany / ZDF Heute
+-  4103ms  italy / ANSA Italian (Mondo)
+
+## Stub-only feeds
+- france / Le Parisien — stub 100.0%
+- wire_services / Reuters (via Google News) — stub 88.0%
+- uk / Daily Mail — stub 100.0%
+- china / Global Times — stub 100.0%
+- india / ABP Live — stub 90.5%
+- south_korea / Hankyoreh English — stub 100.0%
+- japan / Asahi Shimbun — stub 100.0%
+- japan / Mainichi — stub 100.0%
+- japan / Nikkei Asia — stub 100.0%
+- japan / Mainichi (alt) — stub 100.0%
+- pakistan / ARY News English — stub 100.0%
+- russia_native / Lenta.ru — stub 100.0%
+- russia_native / RIA Novosti RU — stub 100.0%
+- taiwan_hk / Taipei Times — stub 100.0%

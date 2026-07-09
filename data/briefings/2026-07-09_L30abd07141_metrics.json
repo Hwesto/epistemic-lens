@@ -1,0 +1,415 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 16,
+  "buckets": [
+    "brazil",
+    "china",
+    "france",
+    "germany",
+    "kenya",
+    "russia",
+    "south_korea",
+    "state_tv_intl",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 159,
+    "france": 52,
+    "germany": 24,
+    "brazil": 143,
+    "state_tv_intl": 47,
+    "china": 85,
+    "south_korea": 140,
+    "kenya": 36,
+    "russia": 33
+  },
+  "pairwise_similarity": [
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.917
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.913
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.903
+    },
+    {
+      "a": "brazil",
+      "b": "france",
+      "score": 0.885
+    },
+    {
+      "a": "brazil",
+      "b": "state_tv_intl",
+      "score": 0.864
+    },
+    {
+      "a": "south_korea",
+      "b": "wire_services",
+      "score": 0.863
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.852
+    },
+    {
+      "a": "south_korea",
+      "b": "state_tv_intl",
+      "score": 0.843
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.84
+    },
+    {
+      "a": "france",
+      "b": "south_korea",
+      "score": 0.833
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.833
+    },
+    {
+      "a": "china",
+      "b": "wire_services",
+      "score": 0.829
+    },
+    {
+      "a": "brazil",
+      "b": "south_korea",
+      "score": 0.823
+    },
+    {
+      "a": "france",
+      "b": "kenya",
+      "score": 0.821
+    },
+    {
+      "a": "kenya",
+      "b": "wire_services",
+      "score": 0.821
+    },
+    {
+      "a": "germany",
+      "b": "state_tv_intl",
+      "score": 0.815
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.811
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.809
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.809
+    },
+    {
+      "a": "russia",
+      "b": "state_tv_intl",
+      "score": 0.799
+    },
+    {
+      "a": "kenya",
+      "b": "state_tv_intl",
+      "score": 0.796
+    },
+    {
+      "a": "china",
+      "b": "france",
+      "score": 0.78
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.777
+    },
+    {
+      "a": "russia",
+      "b": "south_korea",
+      "score": 0.777
+    },
+    {
+      "a": "china",
+      "b": "state_tv_intl",
+      "score": 0.769
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.762
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.754
+    },
+    {
+      "a": "germany",
+      "b": "south_korea",
+      "score": 0.747
+    },
+    {
+      "a": "china",
+      "b": "south_korea",
+      "score": 0.735
+    },
+    {
+      "a": "brazil",
+      "b": "russia",
+      "score": 0.729
+    },
+    {
+      "a": "kenya",
+      "b": "south_korea",
+      "score": 0.715
+    },
+    {
+      "a": "brazil",
+      "b": "kenya",
+      "score": 0.71
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.702
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.698
+    },
+    {
+      "a": "brazil",
+      "b": "china",
+      "score": 0.686
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.645
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.738,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.752,
+      "n_tokens": 85
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.779,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.789,
+      "n_tokens": 143
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.792,
+      "n_tokens": 140
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.839,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.845,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.857,
+      "n_tokens": 159
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.775,
+      "n_tokens": 24
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "lower",
+        "count": 3
+      },
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "cour",
+        "count": 3
+      },
+      {
+        "term": "suprême",
+        "count": 3
+      },
+      {
+        "term": "condamnation",
+        "count": 3
+      },
+      {
+        "term": "président",
+        "count": 3
+      },
+      {
+        "term": "sept",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "brazil": [
+      {
+        "term": "presidente",
+        "count": 5
+      },
+      {
+        "term": "anos",
+        "count": 5
+      },
+      {
+        "term": "corte",
+        "count": 4
+      },
+      {
+        "term": "suprema",
+        "count": 3
+      },
+      {
+        "term": "pena",
+        "count": 3
+      },
+      {
+        "term": "sete",
+        "count": 3
+      },
+      {
+        "term": "prisã",
+        "count": 3
+      },
+      {
+        "term": "decisã",
+        "count": 3
+      }
+    ],
+    "state_tv_intl": [
+      {
+        "term": "supremo",
+        "count": 3
+      },
+      {
+        "term": "corea",
+        "count": 3
+      },
+      {
+        "term": "condena",
+        "count": 3
+      },
+      {
+        "term": "años",
+        "count": 3
+      },
+      {
+        "term": "expresidente",
+        "count": 3
+      }
+    ],
+    "china": [
+      {
+        "term": "park",
+        "count": 6
+      },
+      {
+        "term": "extend",
+        "count": 3
+      },
+      {
+        "term": "detention",
+        "count": 3
+      },
+      {
+        "term": "corruption",
+        "count": 3
+      },
+      {
+        "term": "longest",
+        "count": 3
+      },
+      {
+        "term": "ever",
+        "count": 3
+      },
+      {
+        "term": "hearing",
+        "count": 3
+      },
+      {
+        "term": "warrant",
+        "count": 3
+      },
+      {
+        "term": "arrest",
+        "count": 3
+      }
+    ],
+    "south_korea": [
+      {
+        "term": "term",
+        "count": 5
+      }
+    ],
+    "kenya": [
+      {
+        "term": "minister",
+        "count": 3
+      },
+      {
+        "term": "role",
+        "count": 3
+      }
+    ],
+    "russia": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-09T11:13:04+00:00",
+  "meta_version": "10.0.3"
+}

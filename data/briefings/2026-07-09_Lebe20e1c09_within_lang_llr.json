@@ -1,0 +1,89 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 247,
+      "n_tokens_in_cohort": 607,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 822,
+      "distinctive_terms": []
+    },
+    "syria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 343,
+      "n_tokens_in_cohort": 511,
+      "distinctive_terms": [
+        {
+          "term": "post",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02041,
+          "rate_in_cohort": 0.0,
+          "llr": 12.857,
+          "log_ratio": null,
+          "p_value": 0.000336
+        }
+      ]
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 39,
+      "n_tokens_in_cohort": 815,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 76,
+      "n_tokens_in_cohort": 778,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 830,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 803,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 828,
+      "distinctive_terms": []
+    },
+    "religious_press": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 16,
+      "n_tokens_in_cohort": 838,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 4,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

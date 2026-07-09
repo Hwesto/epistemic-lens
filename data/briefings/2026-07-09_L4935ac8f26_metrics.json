@@ -1,0 +1,304 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 12,
+  "buckets": [
+    "brazil",
+    "canada",
+    "germany",
+    "india",
+    "opinion_magazines",
+    "qatar",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "qatar": 17,
+    "canada": 74,
+    "brazil": 39,
+    "vietnam_thai_my": 18,
+    "india": 30,
+    "uk": 50,
+    "germany": 32,
+    "opinion_magazines": 194,
+    "usa": 39
+  },
+  "pairwise_similarity": [
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.821
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.82
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.806
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.77
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.75
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.75
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.739
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.731
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.727
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.705
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.699
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.691
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.689
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.676
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.674
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.672
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "qatar",
+      "score": 0.666
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.664
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.657
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.625
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.624
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.615
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.61
+    },
+    {
+      "a": "brazil",
+      "b": "qatar",
+      "score": 0.603
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.593
+    },
+    {
+      "a": "brazil",
+      "b": "opinion_magazines",
+      "score": 0.554
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.551
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.55
+    },
+    {
+      "a": "canada",
+      "b": "qatar",
+      "score": 0.544
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.537
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.535
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.534
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.528
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.463
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.457
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.411
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.566,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.567,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.655,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.677,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.688,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.692,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.695,
+      "n_tokens": 74
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.607,
+      "n_tokens": 17
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.614,
+      "n_tokens": 18
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "qatar": [],
+    "canada": [
+      {
+        "term": "arrest",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "agente",
+        "count": 3
+      },
+      {
+        "term": "durante",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "india": [],
+    "uk": [],
+    "germany": [
+      {
+        "term": "einwanderungsbehörde",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "usa": [
+      {
+        "term": "lawmaker",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-09T11:13:07+00:00",
+  "meta_version": "10.0.3"
+}

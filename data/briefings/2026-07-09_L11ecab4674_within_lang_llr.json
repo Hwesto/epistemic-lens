@@ -1,0 +1,82 @@
+{
+  "date": "2026-07-09",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 143,
+      "n_tokens_in_cohort": 322,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 430,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 74,
+      "n_tokens_in_cohort": 391,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 158,
+      "n_tokens_in_cohort": 307,
+      "distinctive_terms": [
+        {
+          "term": "judgment",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03165,
+          "rate_in_cohort": 0.0,
+          "llr": 10.9,
+          "log_ratio": null,
+          "p_value": 0.000961
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 433,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 442,
+      "distinctive_terms": []
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 40,
+      "n_tokens_in_cohort": 43,
+      "distinctive_terms": []
+    },
+    "colombia_ven_peru": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 43,
+      "n_tokens_in_cohort": 40,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
