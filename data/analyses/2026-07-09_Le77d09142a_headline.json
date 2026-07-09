@@ -1,0 +1,162 @@
+{
+  "story_key": "Le77d09142a",
+  "date": "2026-07-09",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines split between two parallel tracks: the criminal sanction (ankle tag, guilty verdict, prison sentence, court-ordered monitor) and the defiant candidacy launch (run for president, cleared, path to power). Germany’s outlets alone pivot to the bilateral foreign-policy angle; Straits Times uniquely leads with polling rather than verdict or campaign.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "conviction upheld; ankle tag, sentence",
+      "buckets": ["pan_african", "turkey", "canada", "vietnam_thai_my", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "cleared to run for president but with ankle tag",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "French court upholds Le Pen conviction",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "despite rejecting court-ordered monitor",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "prison sentence could block the French far right's path",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "After guilty verdict, far-right Le Pen seeks",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "defiant candidacy; path to presidency",
+      "buckets": ["uk", "usa", "canada", "russia", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "French nationalist leader defiant after court's ruling",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "clears path for conservative presidential candidate",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Marine Le Pen will run for president",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Le Pen cleared to run for president",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "far-right Le Pen seeks French presidency",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "RN presidency — Germany bilateral angle",
+      "buckets": ["germany"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Was bedeutet das für Deutschland?",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "France's far right set to improve ties with Germany",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "polls: Le Pen could win despite verdict",
+      "buckets": ["vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Opinion polls see France's Le Pen winning 2027 election",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "judiciary cedes final verdict to voters",
+      "buckets": ["opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "the judiciary is giving French citizens the final say",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "opinion_magazines", "mean_similarity": 0.645, "n_tokens": 263},
+    {"bucket": "germany", "mean_similarity": 0.694, "n_tokens": 52},
+    {"bucket": "usa", "mean_similarity": 0.703, "n_tokens": 32},
+    {"bucket": "turkey", "mean_similarity": 0.74, "n_tokens": 32},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.78, "n_tokens": 62},
+    {"bucket": "pan_african", "mean_similarity": 0.789, "n_tokens": 41}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline in the corpus to label Le Pen a ‘conservative presidential candidate’ rather than ‘far-right’ — every other outlet uses ‘far-right’ or a neutral noun. Also frames the ruling as the court ‘clearing a path’ rather than ‘upholding a conviction,’ reversing the legal emphasis visible in all other headlines.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Politico Europe",
+      "bucket": "opinion_magazines",
+      "finding": "Headline (‘Brussels gives cows a promotion’) is entirely off-topic — it covers the EU’s livestock strategy reclassification. The Le Pen story appears only in the podcast body. Politico’s headline contributes zero Le Pen framing to the headline corpus; its body-only signal is a structural headline–body divergence case.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "Sole headline leading with electoral polling (‘Opinion polls see France’s Le Pen winning 2027 election despite guilty verdict’) rather than verdict or campaign launch — uniquely forward-looking among all corpus titles.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer delivers a near-uniform crime-plus-defiance double bill — conviction and ankle tag on one track, presidential candidacy launch on the other — with Fox News the sole outlier relabeling Le Pen ‘conservative’ and Politico Europe the only outlet whose headline is entirely disconnected from the story.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
