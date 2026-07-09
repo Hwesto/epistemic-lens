@@ -1,0 +1,192 @@
+{
+  "story_key": "L11ecab4674",
+  "date": "2026-07-09",
+  "n_buckets": 9,
+  "n_articles": 14,
+  "tldr": "Headlines across nine country buckets report in near-uniform terms that a U.S. judge ordered Donald Trump to pay E. Jean Carroll roughly $5–6.5 million following the Supreme Court's refusal to hear his appeal, framing the story as the culmination of a sexual-abuse and defamation verdict; Canadian feeds additionally carry a separate story on Trump's $2.2 billion in personal earnings during his first year back in office.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Court order enforces Carroll judgment",
+      "buckets": [
+        "canada",
+        "germany",
+        "mexico",
+        "colombia_ven_peru",
+        "brazil",
+        "india",
+        "vietnam_thai_my",
+        "uk",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "E. Jean Carroll to be paid $5-million",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Judge orders $5.8M be paid to E. Jean Carroll",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Judge's order after Supreme Court setback explained",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "sexual assault judgment becomes final",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "after series of court losses in sex-abuse case",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Judge orders Trump to pay writer $5 mn for assault",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Sex-abuse verdict demands payment",
+      "buckets": [
+        "canada",
+        "germany",
+        "mexico",
+        "colombia_ven_peru",
+        "brazil",
+        "india",
+        "vietnam_thai_my",
+        "uk",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "'It is time': Donald Trump loses bid to delay",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "mujer que acusó a Donald Trump de agresión sexual",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Trump pague US$ 5,8 milhões a escritora por abuso sexual",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "agresión sexual y difamación a la escritora E. Jean Carroll",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "jury found Trump sexually abused and defamed her",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "be paid to E. Jean Carroll in Trump sex abuse case",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Trump's $2.2B presidential earnings",
+      "buckets": [
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "How Trump made $2.2B US in his 1st year back in office",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.792,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.812,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.816,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.835,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.844,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.846,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.851,
+      "n_tokens": 158
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.854,
+      "n_tokens": 143
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only outlet to report $6.5 million rather than $5–5.8 million, likely incorporating accrued interest into the headline figure — a discrepancy absent from every other international title and potentially misleading about the base jury award amount.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "finding": "Only outlet to bundle a wholly separate story — Trump's $2.2 billion in personal earnings during his first year in office — alongside the Carroll judgment, producing a compound portrait of presidential wealth and legal liability unique to the Canadian public-broadcaster feed.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The headline layer presents near-global consensus that a court has forced Trump to pay Carroll for sexual abuse and defamation, with the Supreme Court's refusal to hear his appeal making the judgment final, while Canada's feeds uniquely add a wealth-framed sidebar on Trump's record-setting personal earnings.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
