@@ -1,0 +1,285 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "La1a0d3186f",
+  "cluster_id": 88,
+  "cluster_name": "IMF cuts 2026 global growth forecast to 3% amid Middle East war",
+  "salience_score": 4.812,
+  "n_outlets": 11,
+  "n_countries": 11,
+  "n_articles": 14,
+  "event_summary": "The IMF cut its 2026 global growth forecast to 3% in its July World Economic Outlook, down from 3.1% in April, citing risks from the war in the Middle East. The Asian Development Bank separately trimmed forecasts for Pakistan and the Philippines due to an energy shock from the same conflict.",
+  "tldr": "The IMF’s second growth downgrade of 2026 generated near-universal coverage across 11 countries, but the shared 3% headline fragmented immediately into nationally-inflected score-cards: South Korea led with its upward revision (1.9% to 2.6%) credited to AI chip demand; Argentina highlighted IMF confirmation of its own 3.5% forecast and an upcoming IMF chief visit to Buenos Aires; Italy reported only that its own numbers were unchanged. Japan stands as the most isolated bucket in the cluster (mean LaBSE similarity 0.473), driven by Nikkei Asia’s energy-shock and offshore-wind framing rather than the monetary-institution headline. Mexico is the only Spanish-language voice and exclusively deploys the war vocabulary — “guerra”, “Medio Oriente” — absent from all other outlets, while South Korea’s exclusive token set (“outlook”, “korea”, “point”, “percent”) reflects a self-referential reading of the same IMF update.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "global growth downgrade",
+      "outlets": [
+        "24 Horas",
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "KBS World",
+        "Taipei Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "mexico",
+        "wire_services",
+        "pan_african",
+        "south_korea",
+        "taiwan_hk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The IMF has cut its global growth forecast for the second time this year, flagging \"uncertainty and risks\" brought on by the war in Iran.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Global economic growth is now estimated at 3% this year, IMF said, down from 3.1% in its April forecast",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "It excepts the world economy to grow by 3 per cent, down from 3.5 per cent in 2025.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Middle East war as growth brake",
+      "outlets": [
+        "24 Horas",
+        "AFP / France 24 EN",
+        "ARY News English",
+        "KBS World",
+        "Taipei Times"
+      ],
+      "countries": [
+        "mexico",
+        "wire_services",
+        "pakistan",
+        "south_korea",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "24 Horas",
+          "country": "mexico",
+          "quote": "El FMI recortó nuevamente su previsión de crecimiento para la economía mundial en 2026, por la guerra en Medio Oriente.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "ADB cuts Pakistan’s FY2027 growth forecast to 3.7% amid ME crisis",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "IMF Revises Up S. Korea’s 2026 Growth Outlook to 2.6% as Chip Demand Offsets Mideast Crisis",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Taipei Times",
+          "country": "taiwan_hk",
+          "quote": "IMF lowers 2026 world growth forecast to 3% as Middle East risks linger",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "energy shock and supply constraints",
+      "outlets": [
+        "Nikkei Asia"
+      ],
+      "countries": [
+        "japan"
+      ],
+      "evidence": [
+        {
+          "outlet": "Nikkei Asia",
+          "country": "japan",
+          "quote": "ADB lowers Asian growth forecast as energy shock hits Philippines",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Nikkei Asia",
+          "country": "japan",
+          "quote": "Taiwan offshore wind projects face inflation headwinds",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "multilateral sovereign country assessments",
+      "outlets": [
+        "ANSA English",
+        "Buenos Aires Herald",
+        "KBS World",
+        "ARY News English"
+      ],
+      "countries": [
+        "italy",
+        "argentina_chile",
+        "south_korea",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "ANSA English",
+          "country": "italy",
+          "quote": "IMF confirms Italy GDP forecasts, +0.5% in 2026 and 2027",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Buenos Aires Herald",
+          "country": "argentina_chile",
+          "quote": "IMF confirms 3.5% growth forecast for Argentina in 2026",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "The International Monetary Fund(IMF) has significantly raised its growth outlook for South Korea this year, from one-point-nine percent to two-point-six percent.",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "japan",
+      "country": "japan",
+      "mean_similarity": 0.473,
+      "note": "Nikkei Asia’s coverage focuses on ADB energy-shock and offshore-wind inflation rather than the IMF monetary-institution headline, pulling Japan’s centroid furthest from the cluster mean."
+    },
+    {
+      "outlet": "south_korea",
+      "country": "south_korea",
+      "mean_similarity": 0.585,
+      "note": "KBS World’s two articles anchor on South Korea’s own upward revision and chip-demand narrative, diverging from the global-downgrade framing of most peers."
+    },
+    {
+      "outlet": "wire_services",
+      "country": "wire_services",
+      "mean_similarity": 0.591,
+      "note": "AFP/France 24 bundles the IMF update with Spain-US trade threats and France’s heatwave grid pressure, broadening scope beyond the cluster’s growth-forecast core."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "24 Horas",
+      "country": "mexico",
+      "terms": [
+        "guerra",
+        "mundial",
+        "crecimiento",
+        "medio",
+        "oriente"
+      ],
+      "what_it_reveals": "Mexico is the only Spanish-language outlet; its exclusive tokens are the war vocabulary of the story (“guerra” = war, “Medio Oriente” = Middle East, “mundial” = global) — the same concepts rendered in English everywhere else but invisible to the tokenizer’s cross-language matching."
+    },
+    {
+      "outlet": "ARY News English",
+      "country": "pakistan",
+      "terms": [
+        "pakistan",
+        "receiv",
+        "billion",
+        "remittanc",
+        "cuts"
+      ],
+      "what_it_reveals": "Pakistan’s exclusive vocabulary is entirely self-referential (remittances, the country name) — ARY News pivots the global growth story into a domestic economic update rather than engaging with the IMF headline."
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "terms": [
+        "outlook",
+        "korea",
+        "point",
+        "percent"
+      ],
+      "what_it_reveals": "South Korea’s broadcast vocabulary is dense with self-assessment terms (“outlook”, “korea”, percentage-point language), reflecting KBS World’s framing of the IMF update as a national score rather than a global warning."
+    },
+    {
+      "outlet": "Buenos Aires Herald",
+      "country": "argentina_chile",
+      "terms": [
+        "argentina"
+      ],
+      "what_it_reveals": "Argentina’s only exclusive token is its own name — the Buenos Aires Herald zeroes in on the country’s individual IMF forecast confirmation, treating the global downgrade as backdrop."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "Global Times reported on Beijing’s 1.94 trillion yuan defense budget announcement, with no engagement with the IMF global growth downgrade."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Global Times",
+      "country": "china",
+      "finding": "China’s sole cluster entry reports Beijing’s 1.94 trillion yuan defense budget with no mention of the IMF downgrade that anchors every other outlet; its presence here reflects vocabulary proximity, not editorial alignment.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Uses ‘West Asia risks’ rather than ‘Middle East’ — standard Indian press and government geographic convention, placing Indian coverage outside Western nomenclature defaults.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Buenos Aires Herald",
+      "country": "argentina_chile",
+      "finding": "Pivots to Argentina’s confirmed 3.5% growth forecast and IMF chief Georgieva’s upcoming visit to Buenos Aires, turning the global downgrade story into a local economic-confidence report.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Leads with South Korea’s upward revision from 1.9% to 2.6% and explicitly credits AI chip demand for ‘offsetting’ the Mideast crisis — the only outlet positioning a country as actively bucking the global slowdown.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Reports only that Italy’s GDP forecast was confirmed unchanged at +0.5%, dropping the global downgrade headline and the war context entirely.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "ARY News English",
+      "country": "pakistan",
+      "finding": "Pairs a domestic milestone ($41.6 billion in remittances) alongside the ADB’s Pakistan growth cut — presenting Pakistan as simultaneously resilient and exposed to the Middle East shock.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Nikkei Asia",
+      "country": "japan",
+      "finding": "Only outlet to foreground the supply-side energy shock mechanism: ADB downgrade driven by energy disruption hitting the Philippines, plus Taiwan offshore wind inflation headwinds — a Southeast Asian energy-sector framing distinct from the monetary-institution narrative elsewhere.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "Names ‘war in Iran’ (not ‘Middle East war’) as the explicit risk driver and bundles Spain PM’s response to Trump trade threats in the same bulletin, linking geopolitical and trade risks as co-contributors to the IMF downgrade.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The IMF’s second 2026 growth cut to 3% received wide coverage across 11 countries but immediately disaggregated into national score-cards: countries with favorable IMF revisions (South Korea, Argentina) led with their gains, while others (Italy) reported only their own unchanged numbers, and China bypassed the story entirely. The global-risk framing — war in the Middle East driving a slowdown — is universal in the text but secondary to domestic economic positioning in editorial choices.",
+  "generated_at": "2026-07-09T07:35:00Z",
+  "model": "claude-sonnet-4-6"
+}
