@@ -1,0 +1,145 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "L30abd07141",
+  "cluster_id": 112,
+  "cluster_name": "South Korea Supreme Court upholds Yoon Suk Yeol seven-year sentence",
+  "n_outlets": 13,
+  "n_countries": 9,
+  "n_articles": 21,
+  "salience_score": 5.906,
+  "event_summary": "South Korea's Supreme Court on 9 July 2026 upheld a seven-year prison sentence for former President Yoon Suk Yeol on obstruction charges from his failed 2024 martial law declaration. This was the court's first ruling among Yoon's eight criminal cases; he has been in custody since July 2025.",
+  "tldr": "Coverage across nine countries and four language zones treats the ruling as a concluded criminal matter with near-zero editorial divergence — no outlet disputed the verdict or the legitimacy of the proceedings. The deepest international account came from Folha de São Paulo, which alone documented Yoon's separate February 2026 life sentence for insurrection, the falsification of the Prime Minister's signature, and the defence plan to appeal to the Constitutional Court. Two Chinese outlets introduced notable anomalies: Global Times headlined the sentence as five years (not seven), consistent with a January 2026 lower-court verdict rather than the 9 July Supreme Court ruling, while both Xinhua items were 2017 archival articles about former President Park Geun-hye — a different South Korean president — contributing no usable signal on the current story. Kenya's Standard Media was the only non-wire outlet to divert to a related but distinct sentencing: a former justice minister handed 25 years for his role in the same martial law episode.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "presidential obstruction sentencing",
+      "outlets": ["AFP / France 24 EN", "AFP / France 24 FR", "AP News", "Deutsche Welle English", "France 24 Spanish", "KBS World", "Reuters (via Google News)", "TASS English", "Yonhap News"],
+      "countries": ["wire_services", "france", "germany", "state_tv_intl", "south_korea", "russia"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "South Korea's Supreme Court on Thursday upheld a seven-year prison sentence handed down to former president Yoon Suk Yeol o charges of obstruction and other crimes tied to his botched 2024 martial law declaration.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "The Supreme Court has upheld a seven-year prison term for former President Yoon Suk Yeol for obstructing justice by blocking investigators from arresting him in the wake of his failed martial law bid in 2024.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "It is the first verdict of the Supreme Court against Yoon Suk-yeol, who is facing a total of eight trials related to the imposition of martial law",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "appellate finality and constitutional challenge",
+      "outlets": ["Deutsche Welle English", "Reuters (via Google News)", "Yonhap News"],
+      "countries": ["germany", "wire_services", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The court dismissed Yoon's appeals, saying there ​was no misunderstanding of any legal interpretations in the rulings.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "South Korea's Supreme Court upholds lower court ruling in ex-president Yoon's obstruction case",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "martial law as claimed public-interest act",
+      "outlets": ["AFP / France 24 EN", "France 24 Spanish", "KBS World"],
+      "countries": ["wire_services", "state_tv_intl", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The disgraced former president has insisted his martial law declaration was motivated by the public interest.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "El desacreditado exmandatario ha insistido en que su declaración de ley marcial estuvo motivada por el interés público.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "failed martial law declaration",
+      "outlets": ["AP News", "Standard Kenya World"],
+      "countries": ["wire_services", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "A court sentenced a former South Korean justice minister on Monday to 25 years in prison for his role in ex-president Yoon Suk Yeol's brief and disastrous declaration of martial law in 2024.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Global Times",
+      "country": "china",
+      "finding": "Reported the sentence as five years ('S. Korea's ex-president Yoon sentenced to 5 years in prison over obstruction of justice') — the URL pattern (202601/) indicates a January 2026 lower-court verdict, not the 7-year Supreme Court ruling of 9 July. Stale content embedded into the cluster by topical similarity.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Xinhua English",
+      "country": "china",
+      "finding": "Both Xinhua items are 2017 archival articles about Park Geun-hye's detention and arrest warrant — a different former South Korean president — with no connection to Yoon's 2026 ruling. Pipeline artefact, not editorial choice.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Uniquely focused on the sentencing of a former justice minister to 25 years for his role in the martial law declaration rather than the Supreme Court's ruling on Yoon — the only outlet to foreground accountability beyond the ex-president.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "French-language edition detailed that Yoon falsified the Prime Minister's signature and failed to convene a formal cabinet meeting before declaring martial law — specifics absent from AFP's English summary (index 0), revealing editorial differentiation within the same wire.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Second Yonhap item confirms prison terms for a shaman and a former Unification Church official on the same court day — situating the Yoon ruling within a broader judicial sweep of martial law-adjacent figures.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Pre-ruling article contextualised the Supreme Court session as arriving '583 days after Yoon issued his short-lived martial law decree', foregrounding the duration of legal limbo for domestic audiences in a way no international outlet matched.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Russian state agency reported neutrally, noting Yoon faces 'a total of eight trials related to the imposition of martial law' — framing the verdict as one instalment in a longer accountability process with no visible political commentary.",
+      "signal_text_idx": 11
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "South Korea's Supreme Court ruling against Yoon Suk Yeol drew factual, editorially flat coverage across nine countries and four languages, confirming the story has left the realm of active political controversy in international press. The primary analytical signals are two Chinese outlet anomalies — Global Times citing an incorrect (earlier) sentence figure and Xinhua contributing only stale 2017 Park Geun-hye content — and a substantial depth gap between Folha de São Paulo's full-body account and the truncated wire summaries dominating the rest of the corpus.",
+  "generated_at": "2026-07-09T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
