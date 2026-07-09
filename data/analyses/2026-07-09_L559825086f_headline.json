@@ -1,0 +1,159 @@
+{
+  "story_key": "L559825086f",
+  "date": "2026-07-09",
+  "n_buckets": 9,
+  "n_articles": 15,
+  "tldr": "Headlines across all nine country buckets report Germany's acquisition of U.S. Tomahawk cruise missiles as a bilateral security deal struck at the NATO Ankara summit; the framing is nearly uniform except for German tabloid Bild, which names Trump personally and labels the missiles 'Anti-Putin-Raketen,' and Italy's La Stampa, which leads instead with the Kremlin's separate criticism of U.S. arms supplies to Ukraine.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Germany buys US Tomahawk cruise missiles",
+      "buckets": [
+        "germany",
+        "india",
+        "italy",
+        "pakistan",
+        "russia",
+        "russia_native",
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "US approves sale of Tomahawk missiles to Germany",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Deutschland kauft jetzt Anti-Putin-Raketen",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "US approves sale of Tomahawk missiles to Germany",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Kommersant",
+          "quote": "Мерц заявил о согласии США продать Германии ракеты",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Merz says Germany agreed to acquire US Tomahawk missiles",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-NATO bilateral deal at Ankara summit",
+      "buckets": [
+        "germany",
+        "italy",
+        "pakistan",
+        "russia",
+        "russia_native",
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "German chancellor announces plan to purchase US Tomahawk",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Germany agreed to buy Tomahawk missiles at NATO summit",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "Il Cremlino: gli Usa armano Kiev coi Patriot",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Merz says Germany agreed to acquire US Tomahawk missiles",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Germany, US agree at NATO summit on Berlin's purchase",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-deal, anti-Putin tabloid framing",
+      "buckets": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Tomahawk-Deal mit Trump perfekt",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.77,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.789,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.798,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.815,
+      "n_tokens": 309
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Bild",
+      "bucket": "germany",
+      "finding": "Only outlet to name Trump personally ('Tomahawk-Deal mit Trump perfekt') and brand the missiles 'Anti-Putin-Raketen,' converting a bilateral defense acquisition into a political-adversarial narrative absent from every other headline in the corpus.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "La Stampa",
+      "bucket": "italy",
+      "finding": "Only headline to depart from the Tomahawk/Germany story entirely, leading instead with the Kremlin's accusation that the U.S. arms Ukraine with Patriots while claiming to want peace — embedding the cluster's core event in the Russia-Ukraine war frame rather than NATO alliance dynamics.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "The headline layer presents near-uniform security and bilateral-deal framing of Germany's Tomahawk purchase across nine country buckets, with German tabloid Bild the lone voice to cast the deal in Trump-centric, anti-Russian terms, and Italy's La Stampa the only outlet to redirect to the Kremlin's critique of U.S. arms to Ukraine.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
