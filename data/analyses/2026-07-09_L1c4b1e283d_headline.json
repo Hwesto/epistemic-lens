@@ -1,0 +1,169 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "L1c4b1e283d",
+  "cluster_id": 81,
+  "cluster_name": "Nigel Farage triggers Clacton by-election after resigning amid financial probe",
+  "salience_score": 7.219,
+  "n_outlets": 16,
+  "n_countries": 11,
+  "n_articles": 19,
+  "tldr": "Headlines split sharply by geography: US right-wing and Russian outlets lead with Farage's anti-establishment gamble framing while UK, Canadian, pan-Arab, and Brazilian outlets foreground the financial scandal. Readers scanning only homepage titles will encounter either a political insurgent seizing democratic legitimacy or a politician resigning under a financial cloud — a wider divergence than body text sustains.",
+  "event_summary": "Reform UK leader Nigel Farage resigned as MP for Clacton on 7 July 2026, triggering a by-election he intends to contest himself, while under parliamentary investigation into a £5 million gift from a crypto billionaire and alleged undeclared benefits from a convicted fraudster.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "by-election as anti-establishment gamble",
+      "outlets": [
+        "AfricaNews",
+        "Breitbart",
+        "Daily Wire",
+        "Foreign Policy",
+        "Fox News World",
+        "Globe and Mail",
+        "RT",
+        "Standard Kenya World",
+        "Sydney Morning Herald",
+        "The Conversation",
+        "The Guardian World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "pan_african",
+        "usa",
+        "opinion_magazines",
+        "canada",
+        "russia",
+        "kenya",
+        "australia_nz",
+        "uk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "UK: Farage gambles on by-election to silence critics",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Reform UK Accuses Establishment of 'Running Scared'",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Nigel Farage steps down to force election",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Reform activists urged to switch focus from Manchester",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "resignation amid financial scandal",
+      "outlets": [
+        "Daily Mail",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "The New Arab"
+      ],
+      "countries": [
+        "uk",
+        "brazil",
+        "canada",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Farage faces fresh questions over £5m 'gift'",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Farage to resign as MP amid finance scrutiny",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "após acusações sobre suas finanças pessoais",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Farage resigns as MP amid finances scandal",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "voters blast 'weird' by-election plot",
+      "outlets": [
+        "Daily Mirror"
+      ],
+      "countries": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mirror",
+          "country": "uk",
+          "quote": "voters blast Reform leader's 'weird' by-election plot",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "kenya",
+      "what_they_covered_instead": "Standard Kenya World reported UK Prime Minister Keir Starmer's resignation — a separate UK political story unrelated to the Farage by-election."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only outlet to headline Farage's frame from the establishment's perspective — accusing rivals of 'running scared' — with no hedging qualifier, making the populist attack the news rather than the by-election itself.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Daily Mirror",
+      "country": "uk",
+      "finding": "Only headline to foreground voter reaction over electoral strategy, using 'voters blast' and the scare-quoted 'weird' — making PUBLIC_OPINION the opening register rather than POLITICAL strategy or financial scandal.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Headlines a different resignation entirely — UK Prime Minister Keir Starmer — making it the only corpus item whose title concerns neither Farage nor the Clacton by-election.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "The New Arab",
+      "country": "pan_arab",
+      "finding": "Only outlet to label Farage 'hard-right' in its headline — the most pointed ideological descriptor in the corpus; all other outlets use 'Reform UK leader' or no political label.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "At the headline layer, US right-wing and Russian outlets amplify Farage's anti-establishment gamble narrative wholesale while UK, Canadian, Brazilian, and pan-Arab outlets lead with the financial scandal — a geographic frame split sharper at the homepage level than in body text, with Australia's headline uniquely reducing the entire story to the spectacle of a comedian in a rubbish bin.",
+  "generated_at": "2026-07-09T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
