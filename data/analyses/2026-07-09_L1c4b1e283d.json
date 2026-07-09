@@ -1,0 +1,242 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "L1c4b1e283d",
+  "cluster_id": 81,
+  "cluster_name": "Nigel Farage triggers Clacton by-election after resigning amid financial probe",
+  "n_outlets": 16,
+  "n_countries": 11,
+  "n_articles": 21,
+  "salience_score": 7.219,
+  "event_summary": "Reform UK leader Nigel Farage resigned as MP for Clacton on 7 July 2026, triggering a by-election he intends to contest himself, while under parliamentary investigation into a £5 million gift from a crypto billionaire and alleged undeclared benefits from a convicted fraudster.",
+  "tldr": "The sharpest divide in this corpus is not between left and right but between outlets that lead with Farage's anti-establishment strategy and those that lead with the financial scandal — US right-wing outlets (Breitbart, Daily Wire, Fox News) and Russian state media (RT) all adopt Farage's own framing without qualification, while UK and centrist international outlets centre the financial investigation. With Labour, Conservatives, Liberal Democrats, and Greens all declining to stand candidates, Farage's only challenger is comedian Count Binface, read across the spectrum as either proof the establishment is ‘running scared’ (Breitbart) or that his ‘vanity by-election’ has ‘spectacularly backfired’ (Daily Mirror). A Kenyan outlet (Standard Kenya World) diverges entirely from the cluster, reporting that UK Prime Minister Keir Starmer — not Farage — has announced his resignation, a claim uncorroborated by any other corpus item. Brazil’s Folha de São Paulo, the only non-English outlet, frames the story as Farage accusing the establishment of ‘waging war’ against him, adding a Global South register absent elsewhere.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "by-election gamble as anti-establishment strategy",
+      "outlets": [
+        "AfricaNews",
+        "Breitbart",
+        "Daily Wire",
+        "Fox News World",
+        "Globe and Mail",
+        "RT",
+        "The Conversation",
+        "The Guardian World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "pan_african",
+        "usa",
+        "canada",
+        "russia",
+        "opinion_magazines",
+        "uk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Reform UK leader Nigel Farage has resigned as MP for Clacton, triggering a by-election he says will allow voters—not political opponents—to judge him. The move comes as he faces investigations into high-value financial donations that he insists were lawful.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Nigel Farage's Reform UK party has accused the Westminster establishment of cowering and being too scared to stand against the Brexit champion in the upcoming by-election in Clacton",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Reform UK leader Nigel Farage has resigned as MP and will contest his seat again in a bid to “stick two fingers up to the establishment”",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "Nigel Farage is triggering a by-election, appearing to be pitting people against ‘the establishment’.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "financial gifts investigation and undeclared benefits",
+      "outlets": [
+        "Daily Mail",
+        "Daily Mirror",
+        "Daily Wire",
+        "Foreign Policy",
+        "The New Arab"
+      ],
+      "countries": [
+        "uk",
+        "usa",
+        "opinion_magazines",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Farage faces fresh questions over £5m 'gift' while he mulled return to politics - as Clacton by-election battle against Count Binface kicks off",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Daily Mirror",
+          "country": "uk",
+          "quote": "Farage chose to stand down ahead of the conclusion into a £5 million gift he received from Thai-based billionaire and crypto investor Christopher Harborne.\nFresh allegations have emerged that he did not declare benefits from convicted fraudster George Cottrell.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "The Reform UK leader will run in a snap by-election after resigning on Tuesday amid mounting public scrutiny over his finances.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "parliamentary standards committee investigation",
+      "outlets": [
+        "Daily Wire",
+        "Fox News World",
+        "The Guardian World"
+      ],
+      "countries": [
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "The resignation follows weeks of scrutiny over undeclared financial support Farage received in the run-up to the 2024 general election. The Parliamentary Commissioner for Standards is currently in the process of investigating whether a ...",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Reform UK leader Nigel Farage has resigned from Parliament to force a snap by-election following an ongoing parliamentary investigation into a €5 million gift from a crypto billionaire, which Farage defended as necessary funding for his personal security.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Farage launches preemptive attack on Commons standards committee, claiming it won’t judge him fairly",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Clacton voter backlash and major-party abstention",
+      "outlets": [
+        "Daily Mirror",
+        "Sydney Morning Herald",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "uk",
+        "australia_nz",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mirror",
+          "country": "uk",
+          "quote": "Voters in Clacton slammed Nigel Farage's vanity by-election, branding him as \"wasting money\" that could set taxpayers back £200,000 all to see off a challenge from Count Binface.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Sydney Morning Herald",
+          "country": "australia_nz",
+          "quote": "Labour and the Conservative Party have mocked Farage for calling a byelection and have chosen not to stand candidates against him. Count Binface saw his chance. “I am Binevitable,” he posted.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "populist vs establishment identity politics",
+      "outlets": [
+        "Breitbart",
+        "RT",
+        "Folha de São Paulo",
+        "The Conversation"
+      ],
+      "countries": [
+        "usa",
+        "russia",
+        "brazil",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Nigel Farage, líder do partido populista Reform UK, anunciou nesta terça-feira (7) sua renúncia ao cargo de parlamentar para disputar uma nova eleição local contra \"o establishment\", que ele acusou de travar uma guerra contra ele com acusações sobre suas finanças. Leia mais (07/07/2026 - 14h40)",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "From leading the Brexit campaign to building Reform UK, Nigel Farage has repeatedly reinvented himself in British politics. As fresh controversies surround him, his political influence remains difficult to ignore. Read on...",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "kenya",
+      "what_they_covered_instead": "Standard Kenya World reported that UK Prime Minister Keir Starmer had announced his resignation — a separate UK political story uncorroborated by any other outlet in this cluster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "The only corpus item not about Farage: reports that UK Prime Minister Keir Starmer announced his resignation after less than two years in office due to policy U-turns and deep public unpopularity — a claim no other outlet in the cluster corroborates.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to include Farage's personal security justification for the £5 million gift, reporting he 'defended [it] as necessary funding for his personal security'.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to lead with 'far-right U.K. leader' as Farage's primary descriptor — a characterisation absent from US right-wing and UK right-leaning outlets.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Daily Mirror",
+      "country": "uk",
+      "finding": "Only outlet to quote a Clacton voter directly rebutting Farage's framing: 'It's to delay the investigation, point blank. So, there must be obviously some truth behind what has been claimed.'",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to report internal party mechanics: Reform activists are being redirected from the Greater Manchester mayoral by-election to Clacton via a WhatsApp message to party members.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Russian state outlet uses Farage's own combative language without editorial distance, reproducing his 'stick two fingers up to the establishment' framing verbatim.",
+      "signal_text_idx": 11
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Farage's by-election gamble split global coverage sharply: US right-wing and Russian state outlets adopted his anti-establishment framing wholesale while UK and centrist international press led with the financial scandal and parliamentary investigation. All major UK parties declined to stand candidates in Clacton, leaving comedian Count Binface as the only challenger — read on the populist right as establishment cowardice and on the centre-left as Farage's vanity project backfiring.",
+  "generated_at": "2026-07-09T11:23:06Z",
+  "model": "claude-sonnet-4-6"
+}
