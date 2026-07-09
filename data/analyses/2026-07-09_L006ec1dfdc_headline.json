@@ -1,0 +1,95 @@
+{
+  "story_key": "L006ec1dfdc",
+  "date": "2026-07-09",
+  "n_buckets": 9,
+  "n_articles": 14,
+  "tldr": "Headlines split into two editorial strategies: most outlets lead with the Copernicus temperature record ('hottest June on record / ever'), while Deutsche Welle, Reuters, and Times of India foreground Germany's 5,000+ excess deaths as the primary datum. The Guardian alone pivots to a public-health advisory, naming the UK health service and vulnerable populations in its live-blog headline.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "heat mortality and health warnings",
+      "buckets": ["germany", "wire_services", "india", "uk"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "June heat wave linked to 5,000 excess deaths",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Heatwave linked to more than 5,000 deaths in Germany",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Germany records over 5,100 heat deaths",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "UK health service urges children and elderly",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "russia", "mean_similarity": 0.64, "n_tokens": 33},
+    {"bucket": "pakistan", "mean_similarity": 0.677, "n_tokens": 209},
+    {"bucket": "uk", "mean_similarity": 0.685, "n_tokens": 129},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.728, "n_tokens": 57},
+    {"bucket": "india", "mean_similarity": 0.742, "n_tokens": 46},
+    {"bucket": "wire_services", "mean_similarity": 0.746, "n_tokens": 86}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "qatar",
+      "note": "Al Jazeera headline 'Hottest June on record in Western Europe as heatwaves hit continent' delivers the temperature record without invoking deaths or health risk — its death-toll framing appears only in the body text, not the title."
+    },
+    {
+      "bucket": "france",
+      "note": "France Info headline is a bare temperature-record announcement in French ('L'Europe occidentale a enregistré son mois de juin le plus chaud jamais observé') with no health, mortality, or policy angle visible from the title."
+    },
+    {
+      "bucket": "pakistan",
+      "note": "Geo News headline attributes the record to EU scientists but adds no health or policy framing — a factual certification headline ('say EU scientists') that conceals the body's richer climate-attribution content."
+    },
+    {
+      "bucket": "russia",
+      "note": "TASS headline cites Copernicus and uses 'hottest in history' rather than 'on record', but carries no health or mortality framing — a pure institutional record announcement."
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "note": "Bangkok Post delivers a bare record headline; Straits Times adds 'as heatwaves surge' signalling alarm but grounds no distinct codebook frame from the title alone."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Times of India",
+      "bucket": "india",
+      "finding": "'Germany records over 5,100 heat deaths as Europe reels under record-breaking summer' buries the EU-wide Copernicus finding in a subordinate clause and makes Germany's specific death count the headline lead — the only outlet to localise the story around a named country's mortality tally rather than the regional temperature measurement.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "'June 2026 in Western Europe temperatures break record as hottest in history — Copernicus' uses 'in history' rather than 'on record', a subtle hyperbole not used by any other outlet; it also places Copernicus as a dash-attribution at the end, emphasising the institutional endorser over the finding itself.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "'Barcelona registers highest temperature in 112 years as UK health service urges children and elderly to take weather seriously' is the only headline in the cluster to invoke a named health authority and name vulnerable populations, converting a climate-record story into an active public-health advisory — a framing visible nowhere else in the corpus.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "Headline coverage divides into a temperature-record majority (wires, Asia, France) and a death-toll minority (DW, Reuters, Times of India), with the Guardian uniquely pivoting to a public-health advisory — a three-way editorial split that diverges sharply from the body-text unanimity on the Copernicus finding.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
