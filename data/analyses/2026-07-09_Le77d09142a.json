@@ -1,0 +1,177 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "Le77d09142a",
+  "cluster_id": 139,
+  "cluster_name": "Le Pen embezzlement conviction upheld, 2027 presidential campaign launched",
+  "n_outlets": 13,
+  "n_countries": 10,
+  "n_articles": 13,
+  "salience_score": 4.062,
+  "event_summary": "A Paris appeals court on July 7, 2026 upheld Marine Le Pen's embezzlement conviction and reduced her election ban, leaving her eligible to run for president. Hours later, Le Pen announced her 2027 presidential candidacy and said she would appeal to France's Court of Cassation.",
+  "tldr": "Fox News is the sole outlet to describe Le Pen as a 'conservative presidential candidate' rather than 'far-right' — a labeling choice that signals U.S. right-media normalizing European nationalist figures. RT offers the most minimal coverage in the corpus, stripping all political context to a one-sentence procedural note about EU funds, consistent with Moscow's interest in Le Pen's candidacy while avoiding any visible endorsement. German outlets take a bilateral angle absent everywhere else: Deutsche Welle reports that the RN is already reaching out to Germany ahead of a potential Le Pen presidency, making this a European foreign-policy story rather than French domestic drama. Straits Times is the only outlet to lead with polling data showing Le Pen could win the 2027 election despite the conviction — a forward-looking electoral dimension the rest of the corpus omits in favour of legal and campaign narrative.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "embezzlement conviction and electronic monitoring",
+      "outlets": ["AfricaNews", "Daily Sabah", "Globe and Mail", "RT", "The New Arab"],
+      "countries": ["pan_african", "turkey", "canada", "russia", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "French far-right politician Marine Le Pen was sentenced Tuesday by a Paris appeals court to three years, with two years suspended and one year to be served under electronic monitor...",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "French court declared Le Pen guilty of embezzlement, ruled she must wear electronic bracelet",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "French politician Marine Le Pen can run for president after an appeals court cut her election ban in a case over misuse of EU funds",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "French far-right chief Marine Le Pen's political future remained uncertain Tuesday after a court cleared her to run but wearing an ankle tag, potentially hampering a campaign for next year's presidential elections when her party has its strongest chance yet of winning power.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential campaign launch and electoral contest",
+      "outlets": ["BBC World", "Fox News World", "AfricaNews", "Malay Mail World", "Straits Times"],
+      "countries": ["uk", "usa", "pan_african", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Within hours of a court of appeal confirming a guilty verdict, Marine Le Pen had already launched her presidential campaign.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Marine Le Pen's embezzlement ban was shortened to allow a 2027 presidential run, but she must wear an ankle monitor that could complicate campaigning.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "judicial-democratic balance in election eligibility",
+      "outlets": ["The Conversation", "Malay Mail World", "The New Arab"],
+      "countries": ["opinion_magazines", "vietnam_thai_my", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "she will be able to campaign without an electronic tag",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "The parliamentary RN leader in the National Assembly was also handed a 45-month ban on standing for election, 30 months of which are suspended.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "If they confirm Tuesday's judgment, Le Pen may have to wear an electronic tag for the last weeks or months of her campaign.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "polls showing Le Pen leading despite guilty verdict",
+      "outlets": ["Straits Times"],
+      "countries": ["vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Far-right leader Marine Le Pen could well win France's presidential election next year despite an appeal court this week upholding a guilty verdict for embezzlement of EU funds, two opinion polls suggest.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU and Germany bilateral implications of RN presidency",
+      "outlets": ["Deutsche Welle Deutsch", "Deutsche Welle English", "Politico Europe"],
+      "countries": ["germany", "opinion_magazines"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Her party, the RN, is already reaching out to Germany.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Politico Europe",
+          "country": "opinion_magazines",
+          "quote": "That means she can run — but under house arrest, with electronic monitoring. On the show, we unpack what Brussels makes of all this.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Frankreichs Rechtspopulistin Le Pen hält trotz des Berufungsurteils gegen sie an einer Kandidatur für die Präsidentschaftswahl fest. Ihre Chancen stehen nicht schlecht. Ihre Partei RN geht bereits auf Deutschland zu.",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Sole outlet in the corpus to call Le Pen a 'conservative presidential candidate,' avoiding the 'far-right' label used by every other outlet; also uniquely frames the ruling as the court 'clearing a path' rather than upholding a criminal conviction.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Most minimal and stripped-down coverage in the corpus: one sentence noting she can run after the court cut her election ban over EU funds. No far-right label, no campaign launch, no European implications mentioned.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Only outlet to report that Le Pen's RN party is already reaching out to Germany, making this a pre-emptive bilateral foreign-policy story absent from all other coverage.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Leads with two opinion polls showing Le Pen could win the 2027 election regardless of the verdict — a forward-looking electoral angle that Western outlets subordinate to legal and defiance narrative.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Conversation",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to report that while Le Pen's Court of Cassation appeal is pending, she will be able to campaign without an electronic tag — a procedural detail that could significantly extend her unencumbered campaign window.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to explicitly frame the ruling as a Brussels question and report EU institution reaction — what the ruling means for Europe — absent from all other coverage in the corpus.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Marine Le Pen's appeals court ruling produced a split outcome — conviction upheld, ban shortened enough to permit a 2027 run under electronic monitoring — that global media reported almost uniformly on the criminal and political tracks but diverged sharply on labeling: Fox News alone stripped the 'far-right' identifier, while RT stripped all political context entirely. The most editorially distinctive coverage comes from Germany, which treated the ruling as an imminent bilateral diplomatic challenge rather than a French domestic event.",
+  "generated_at": "2026-07-09T07:42:00Z",
+  "model": "claude-sonnet-4-6"
+}
