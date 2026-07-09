@@ -1,0 +1,228 @@
+{
+  "story_key": "L30a41a6957",
+  "date": "2026-07-09",
+  "n_buckets": 16,
+  "n_articles": 34,
+  "tldr": "Headlines across all 16 buckets identify Bonnie Tyler almost exclusively through 'Total Eclipse of the Heart', anchoring her death in pop-cultural legacy rather than medical narrative. Only four outlets (Bild, Daily Mail, Geo News, La Nación) surface the coma or surgical crisis in their titles — the health-safety framing that dominates body text is largely invisible at the homepage level.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "named by iconic song; 80s pop legacy",
+      "buckets": [
+        "wire_services",
+        "france",
+        "uk",
+        "germany",
+        "spain",
+        "brazil",
+        "india",
+        "philippines",
+        "israel",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "australia_nz",
+        "italy",
+        "state_tv_intl",
+        "pakistan",
+        "argentina_chile"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Bonnie Tyler, 80s pop legend known for Total Eclipse",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Rockstar Bonnie Tyler ist tot",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Parisien",
+          "quote": "La chanteuse Bonnie Tyler, icône des années 80",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "la voz arenosa que reinó en los ochenta",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "cantora que eternizou 'Total Eclipse of the Heart'",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "who topped the charts with epic 'Total Eclipse of the Heart'",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Giornale",
+          "quote": "Morta Bonnie Tyler, la voce di \"Total Eclipse of the Heart\"",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "La Nacion AR",
+          "quote": "lideró los rankings con Eclipse total del corazón",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "coma and surgery foregrounded in headline",
+      "buckets": [
+        "germany",
+        "uk",
+        "pakistan",
+        "argentina_chile"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Bonnie Tyler (75) gestorben - Nach Krankheit und Koma",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "after emergency surgery which left her in a coma",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "passes away at 75 after concerning health update",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "La Nacion AR",
+          "quote": "De qué murió la cantante Bonnie Tyler",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.798,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.824,
+      "n_tokens": 485
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.856,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.863,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.867,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.887,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.89,
+      "n_tokens": 135
+    },
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.892,
+      "n_tokens": 247
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.893,
+      "n_tokens": 696
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.895,
+      "n_tokens": 479
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.895,
+      "n_tokens": 291
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.899,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.918,
+      "n_tokens": 294
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "ZDF Heute",
+      "bucket": "germany",
+      "finding": "Only outlet to label Tyler a 'Rockstar' in the headline; every other outlet used 'singer,' 'Sängerin,' or 'cantora' — a genre-elevation absent from non-German press.",
+      "signal_text_idx": 32
+    },
+    {
+      "outlet": "BFM TV",
+      "bucket": "france",
+      "finding": "Only outlet to lead with a biographical question headline ('d'où lui venait cette voix rocailleuse'), framing the death as an occasion to interrogate the origin of her trademark voice rather than announce her passing.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Le Parisien",
+      "bucket": "france",
+      "finding": "One of two Le Parisien headlines uses 'icône des années 80' (80s icon) as the primary identity label — the only French title to anchor Tyler in era rather than song credential.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "La Nacion AR",
+      "bucket": "argentina_chile",
+      "finding": "Only outlet to publish a cause-of-death inquiry as a standalone headline ('De qué murió la cantante Bonnie Tyler'), treating the medical circumstances as a separate editorial unit from the death announcement.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "O Globo",
+      "bucket": "brazil",
+      "finding": "Only outlet to frame the headline as 'quem era' (who was she), shifting from death announcement to retrospective profile — a different editorial stance from all other Brazilian and global titles.",
+      "signal_text_idx": 24
+    },
+    {
+      "outlet": "El Pais",
+      "bucket": "spain",
+      "finding": "Only outlet to characterise Tyler's signature by her voice quality ('la voz arenosa') rather than naming a song — a critic's framing that foregrounds artistry over catalogue.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "At the headline layer, Bonnie Tyler's death is universally framed as the loss of a pop-cultural icon defined by a single song; the two-month medical crisis that dominated body text is suppressed to near-invisibility in titles across 12 of 16 buckets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
