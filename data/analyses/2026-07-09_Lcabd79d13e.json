@@ -1,0 +1,158 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-09",
+  "lineage_id": "Lcabd79d13e",
+  "cluster_id": 104,
+  "cluster_name": "Venezuela earthquake death toll reaches 3,811 amid frozen asset appeals",
+  "salience_score": 5.0,
+  "n_outlets": 11,
+  "n_countries": 10,
+  "n_articles": 16,
+  "event_summary": "Twin earthquakes struck Venezuela on June 24, 2026, killing 3,811 people and injuring 16,740, with La Guaira state's coast most severely affected. Venezuela's interim government is seeking release of frozen foreign assets and gold reserves held abroad to fund reconstruction.",
+  "tldr": "The most distinctive finding is Le Monde's report that Venezuela's interim president appealed directly to the King of England to unblock Venezuelan gold reserves held at the Bank of England — an angle absent from every other outlet in this cluster. Coverage splits sharply between a humanitarian death-toll frame (dominant in TASS, CGTN, Reuters, ANSA, AFP/France 24) and a financial-political frame (Straits Times, Folha de São Paulo, France 24 Spanish, Le Monde), with the latter treating the disaster as a trigger for sovereign debt and sanctions diplomacy rather than a standalone catastrophe. Brazil's Folha de São Paulo uniquely places the disaster in the post-Maduro political transition, describing Delcy Rodríguez as governing under Trump's tutelage after Maduro was captured in a US operation — a framing entirely absent from non-Brazilian outlets. Missing persons estimates reported only by Folha range between 10,000 and 50,000, with no official count acknowledged elsewhere.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "disaster response and death toll scale",
+      "outlets": ["AFP / France 24 FR", "ANSA Italian (Mondo)", "Buenos Aires Herald", "CGTN World", "Folha de São Paulo", "TASS English"],
+      "countries": ["france", "italy", "argentina_chile", "china", "brazil", "russia"],
+      "evidence": [
+        {
+          "outlet": "Buenos Aires Herald",
+          "country": "argentina_chile",
+          "quote": "rescue teams are starting to wrap up searches for survivors while families still try to recover bodies of loved ones from the rubble.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "o coordenador humanitÃ¡rio da ONU na Venezuela informou que o organismo havia iniciado a compra de 10 mil sacos para armazenamento de corpos",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "sovereign debt restructuring and earthquake losses",
+      "outlets": ["Straits Times", "Le Monde", "France 24 Spanish", "Folha de São Paulo"],
+      "countries": ["vietnam_thai_my", "france", "state_tv_intl", "brazil"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Venezuela is seeking to push through in record time one of the most complex debt restructurings ever attempted, with claims approaching $200 billion, even as the country's recovery is set back by devastating earthquakes killing thousands of people.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "Les Nations unies évaluent les pertes provoquées par les séismes à 6,7 milliards de dollars.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "frozen assets and sanctions relief diplomacy",
+      "outlets": ["Le Monde", "France 24 Spanish", "Folha de São Paulo", "Geo News English", "Reuters (via Google News)"],
+      "countries": ["france", "state_tv_intl", "brazil", "pakistan", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "académicos le piden a Estados Unidos y al FMI alivios en las sanciones a la nación.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "A lÃder interina do paÃs, Delcy RodrÃguez, pediu nesta quarta-feira (8) a liberaÃ§Ã£o de recursos venezuelanos bloqueados no exterior",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Venezuela earthquake death toll rises to 3,811 as govt seeks frozen funds",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "post-Maduro transition under US oversight",
+      "outlets": ["Folha de São Paulo"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Delcy, que assumiu o poder depois da captura do ditador NicolÃ¡s Maduro no comeÃ§o do ano em uma operaÃ§Ã£o dos Estados Unidos, lidera hoje sob tutela do governo Donald Trump.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "reconstruction planning and humanitarian aid requests",
+      "outlets": ["France 24 Spanish", "Folha de São Paulo"],
+      "countries": ["state_tv_intl", "brazil"],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Existe la posibilidad real de comprar casas prefabricadas para aliviar la crisis ocupacional que generó el doblete sísmico.",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears despite Washington's direct involvement: the US chargé d'affaires in Caracas publicly defended the Rodríguez regime's response and US-held frozen Venezuelan assets are central to the reconstruction debate."
+    },
+    {
+      "country": "united_kingdom",
+      "what_they_covered_instead": "No UK outlet appears despite Le Monde reporting that Venezuela's interim president formally appealed to the King of England to release Venezuelan gold reserves held at the Bank of England."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Le Monde",
+      "country": "france",
+      "finding": "Uniquely reports that Venezuela's interim president appealed to the King of England to release Venezuelan gold held at the Bank of England — an angle carried by no other outlet in this cluster.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Pivots from the death toll to financial risk: Venezuela is attempting to rush a ~$200 billion debt restructuring simultaneously with earthquake recovery, raising fears of a future fiscal crisis.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Places the disaster in an explicit post-Maduro transition frame: Delcy Rodríguez governs 'under the tutelage of Trump's government' after Maduro was captured in a US operation — framing absent from all non-Brazilian outlets.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Reports missing persons estimates of between 10,000 and 50,000 with no official count — a gap unreported elsewhere in the cluster.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Frames reconstruction around economic revival opportunities — prefabricated housing and hydrocarbon investment — rather than leading with casualty figures or humanitarian deficit.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Venezuela's twin-earthquake disaster (3,811 dead as of July 9) has produced a visible editorial split: neutral wire services and state broadcasters (TASS, CGTN, Reuters, ANSA) treat it as a humanitarian count story, while European and regional broadsheets layer in a second crisis — Venezuela's attempt to leverage the disaster for sanctions relief, asset unblocking, and a $200 billion debt restructuring. The gap between the mortality frame and the money frame defines the dominant analytical divide across the 11 outlets covering this story.",
+  "generated_at": "2026-07-09T07:45:00Z",
+  "model": "claude-sonnet-4-6"
+}
