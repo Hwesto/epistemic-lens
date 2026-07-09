@@ -1,0 +1,245 @@
+{
+  "story_key": "L6e56dd45fc",
+  "date": "2026-07-09",
+  "n_buckets": 12,
+  "n_articles": 37,
+  "tldr": "Headlines across all 12 buckets frame the Platner story through two interlocking lenses: the rape/assault allegation that ended his candidacy (dominant in international wire headlines) and the political crisis it created for Democrats' Senate majority hopes (dominant in US and UK analytical headlines). Israeli outlets stand apart by embedding Platner's anti-Israel identity directly in their headline — a framing absent from all other 35 titles.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Dem Senate race in chaos; party rift",
+      "buckets": ["usa", "uk", "canada", "france", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Dem support collapses",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "exposes rifts that could dampen Democrats' Senate hopes",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "says about Democratic Party's troubles",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "menace d'empêcher le parti d'emporter le Sénat",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "Platner Just Made Things Harder for Democrats",
+          "signal_text_idx": 25
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Rape/assault allegation ends candidacy",
+      "buckets": ["germany", "brazil", "india", "vietnam_thai_my", "kenya", "taiwan_hk", "uk", "canada"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Missbrauchsvorwürfe: US-Demokrat zieht Kandidatur zurück",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "deixa corrida após acusações de estupro",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Out Of US Senate Race After Rape Allegation",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Democrat accused of rape exits key US Senate race",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "push key US Senate candidate to quit over sex assault claim",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "exits key US Senate race, but denies rape allegation",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "sexual assault allegations 'all false' as he drops out",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Le Devoir",
+          "quote": "Accusé de viol, un important candidat démocrate renonce",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Platner identified by anti-Israel stance",
+      "buckets": ["israel"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "avowed Israel critic, drops out of Maine Senate race",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Times of Israel",
+          "quote": "Anti-Israel Democrat in Maine ends US Senate campaign",
+          "signal_text_idx": 35
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Trump questions credibility of accuser",
+      "buckets": ["usa", "uk"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "'A lot of people say big falsehoods'",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "it depends if you 'believe the woman'",
+          "signal_text_idx": 30
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.786,
+      "n_tokens": 213
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.792,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.794,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.817,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.829,
+      "n_tokens": 219
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.84,
+      "n_tokens": 249
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.846,
+      "n_tokens": 95
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.872,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.873,
+      "n_tokens": 601
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.879,
+      "n_tokens": 241
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.879,
+      "n_tokens": 1045
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.896,
+      "n_tokens": 306
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Times of Israel",
+      "bucket": "israel",
+      "finding": "Only headline to use 'Anti-Israel Democrat' as the primary identifier for Platner, making his foreign policy stance the lede — a framing absent from all 35 other headlines in the corpus.",
+      "signal_text_idx": 35
+    },
+    {
+      "outlet": "The Hill",
+      "bucket": "usa",
+      "finding": "Only headline to surface Trump's direct intervention on accuser credibility, quoting 'A lot of people say big falsehoods' — the presidential voice on whether to believe the rape allegation appears at headline level nowhere else.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "Only headline naming an intra-party 'Backroom Power Play', framing the Democratic establishment as an active antagonist rather than a bystander to Platner's exit.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only headline invoking Stephen King by name, converting a celebrity endorsement retraction into a culture-war story separate from the assault allegation itself.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Mother Jones",
+      "bucket": "usa",
+      "finding": "Only headline to frame the scandal as a systemic party failure ('The Democratic Party Failed Us'), assigning institutional blame in the title rather than focusing on Platner's conduct or electoral consequences.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "Daily Caller",
+      "bucket": "usa",
+      "finding": "'Platner's Nuts' is the only headline using mockery language; every other outlet — regardless of political lean — maintains neutral or analytical register in its title.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "At the headline layer, the Platner story splits cleanly into a crime-trigger frame (rape allegation) used by most international wire outlets and a political-consequence frame (Democratic Senate majority at risk, intra-party civil war) dominating US and UK analytical titles — with Israeli outlets uniquely inserting a foreign-policy identity label absent from all other 35 headlines.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
