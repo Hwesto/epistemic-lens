@@ -1,0 +1,128 @@
+{
+  "story_key": "L01b3d85b8f",
+  "date": "2026-07-09",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines across 10 countries and 3 languages name Trump’s phone call as the central fact, framing FIFA’s compliance as political capitulation, rule-bending, or institutional scandal; the headline register is sharper and more adversarial toward both FIFA and Trump than most underlying body text.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's political muscle on FIFA",
+      "buckets": ["usa", "germany", "mexico"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump threatens America’s World Cup goodwill",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "FIFA Gives Trump Exactly What He Wants",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Anruf von Trump bei FIFA löst WM-Skandal aus",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Injerencia de Trump, “punta del iceberg del deterioro",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Bending rules, undermining integrity",
+      "buckets": ["argentina_chile", "pan_african", "china"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Outrage as FIFA’s Infantino bends rules to Trump’s",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "FIFA defends Balogun ruling despite concerns",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Belgium appeals against FIFA’s Folarin Balogun ban",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Ethics probe, rules-based order",
+      "buckets": ["australia_nz", "canada", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "FIFA boss referred to Olympics ethics board",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "European lawmakers call for probe into Infantino",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "tested the limits of rules-based order",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "opinion_magazines", "mean_similarity": 0.597, "n_tokens": 31},
+    {"bucket": "canada", "mean_similarity": 0.64, "n_tokens": 38},
+    {"bucket": "australia_nz", "mean_similarity": 0.657, "n_tokens": 31},
+    {"bucket": "china", "mean_similarity": 0.663, "n_tokens": 36},
+    {"bucket": "mexico", "mean_similarity": 0.702, "n_tokens": 53}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "note": "Headline 'FIFA or \"Animal Farm\"' uses literary allusion without signaling a codebook frame from the title alone."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Tehran Times",
+      "bucket": "iran_state",
+      "finding": "'FIFA or \"Animal Farm\"' is the only headline using literary allusion rather than naming Trump or FIFA directly — the most ideologically coded register in the corpus, framing American power over sport as systemic corruption.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Intercept",
+      "bucket": "usa",
+      "finding": "'FIFA Gives Trump Exactly What He Wants' is the most assertively transactional headline — casting FIFA as agent of Trump’s will rather than as a governance body that failed.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "'Belgium appeals against FIFA’s Folarin Balogun ban decision' names no actor’s guilt — the only headline treating the ruling as a procedural matter without editorial condemnation of Trump or Infantino.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "The headline layer across 10 countries converges on a single editorial verdict — Trump intervened and FIFA complied — with charged language ('outrage', 'bends rules', 'exactly what he wants') that is sharper than most body text beneath, leaving iran_state’s literary headline as the sole title that resists codebook classification.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
