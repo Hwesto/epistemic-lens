@@ -1,0 +1,148 @@
+{
+  "story_key": "Lcabd79d13e",
+  "date": "2026-07-09",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines across 10 outlet buckets converge almost unanimously on a rising death-toll count (3,811), with a secondary strand in roughly half the outlets linking the disaster to Venezuela's government actively seeking release of frozen foreign assets. Reconstruction and political-transition angles visible in body text are invisible at the headline layer.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "rising death toll — disaster scale",
+      "buckets": ["france", "italy", "argentina_chile", "china", "brazil", "wire_services", "vietnam_thai_my", "russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Death toll from earthquake in Venezuela up to 3,811",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Venezuela quake death toll rises to nearly 3,000",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Venezuela quake death toll rises to 3,535, over 16,700 injured",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "le bilan du double séisme s'alourdit à 3 811 morts",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "sale a 3.811 il bilancio delle vittime dei terremoti",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "terremotos na Venezuela chega a 3.811, diz regime",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "frozen assets / gold reserve diplomacy",
+      "buckets": ["france", "pakistan", "wire_services", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "le déblocage de l'or du pays",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "death toll rises to 3,811 as govt seeks frozen funds",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "as government seeks frozen funds",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "death toll rises to 3,811 as government seeks frozen funds",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "swift debt deal — future crisis fears",
+      "buckets": ["vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "push for a swift debt deal raises fears of future crisis",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "post-quake reconstruction options",
+      "buckets": ["state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Venezuela busca opciones para resurgir",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.565,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.719,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.73,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.761,
+      "n_tokens": 77
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.768,
+      "n_tokens": 275
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.773,
+      "n_tokens": 75
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Venezuela's earthquake headlines reduce a multi-layered crisis to a death-count update — the toll figure anchors every front page — while reconstruction strategy, the post-Maduro political transition, and missing-persons uncertainty surface only below the fold in body text.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
