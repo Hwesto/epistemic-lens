@@ -1,0 +1,172 @@
+{
+  "story_key": "L99198483e5",
+  "date": "2026-07-16",
+  "n_buckets": 10,
+  "n_articles": 17,
+  "tldr": "Headlines across 10 countries converge on a single disaster frame: 500+ people feared dead in Rohingya boat capsizes off Myanmar, sourced exclusively to the UN. Only The Hindu breaks from the incident-reporting mold to name this a recurring tragedy of systemic displacement.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Mass drowning, 500+ dead at sea",
+      "buckets": [
+        "germany",
+        "india",
+        "israel",
+        "japan",
+        "pakistan",
+        "south_africa",
+        "taiwan_hk",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Over 500 feared dead in two suspected shipwrecks off Myanmar",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "More than 500 feared dead in capsized refugee boats",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "More than 500 feared dead after boats carrying refugees sink",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "Over 500 feared dead after boats carrying Rohingya refugees",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "over 500 feared dead after Myanmar boats capsize",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "More than 500 feared dead after reports of two shipwrecks",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Over 500 feared dead in two suspected shipwrecks off Myanmar",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "More than 500 feared dead after boats carrying refugees sink",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "More than 500 feared dead after boats carrying refugees sink",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Over 500 feared dead in two suspected shipwrecks off Myanmar",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Rohingya minority as recurring victims",
+      "buckets": [
+        "india",
+        "taiwan_hk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "The tragedy of recurring Rohingya refugee deaths",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Rohingya refugees among over 500 feared dead",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "involving Rohingya refugees since late June",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.782,
+      "n_tokens": 200
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.831,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.833,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.839,
+      "n_tokens": 129
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.857,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.859,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.868,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.884,
+      "n_tokens": 238
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Hindu Intl",
+      "bucket": "india",
+      "signal_text_idx": 15,
+      "finding": "Sole headline to frame this as a systemic pattern ('recurring tragedy') rather than a discrete incident report; all other 16 titles present only the current casualty figure."
+    }
+  ],
+  "bottom_line": "The headline layer presents a unified disaster bulletin — 500+ Rohingya dead at sea, attributed to the UN — with no outlet calling for policy response or accountability in their title.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
