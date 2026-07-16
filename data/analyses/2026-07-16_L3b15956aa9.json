@@ -1,0 +1,200 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "L3b15956aa9",
+  "cluster_id": 54,
+  "cluster_name": "Former British MP Ann Widdecombe killed in premeditated attack",
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 13,
+  "salience_score": 3.582,
+  "event_summary": "Ann Widdecombe, 78, a former British MP, was found dead at her Dartmoor home on July 10, 2026. Counter-terrorism police confirmed the attack was premeditated; a 28-year-old remains in custody on murder and terror charges, while a second man arrested was released without charge.",
+  "tldr": "The most striking pattern is how rapidly the killing was contested as a political symbol before any motive was established. Breitbart identifies Widdecombe as a 'Brexit hero' and accuses left-wing lawmakers of exploiting the death to advance social-media censorship — while Reform UK simultaneously claims that anti-fascist rhetoric about Farage constitutes 'stochastic terrorism.' Both moves reflect an effort by the UK right to frame political violence as a threat directed at them, not by them. Counter-terrorism police confirmed the attack was premeditated, and a man remains in custody on terror-linked charges — a fact that complicates Breitbart's charge that there is 'no public indication that the suspected killer was radicalised online.' International coverage is largely factual but Hindustan Times situates the murder within a broader trend of violence reshaping British political life, while SCMP pivots to a separate arrest over threats to shoot Nigel Farage, signalling that global editors see this as a story about UK political stability, not one crime.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "targeted political murder investigation",
+      "outlets": ["AP News", "Deutsche Welle English", "Fox News World", "Globe and Mail", "Taipei Times", "Folha de São Paulo"],
+      "countries": ["wire_services", "germany", "usa", "canada", "taiwan_hk", "brazil"],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "British police on Saturday released a 26-year-old man they arrested as a suspect in the killing of Ann Widdecombe, a former British member of Parliament and reality TV contestant.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Police in southwest England say they have arrested a 26-year-old man on suspicion of murdering politician Ann Widdecombe. Based on initial inquiries, they were not treating the case as terrorism or politically motivated.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "A 28-year-old man arrested on suspicion of murder and terror crimes remains in custody, motivation is still under investigation",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "A polícia antiterrorismo do Reino Unido afirmou, nesta terça-feira (14), que a ex-ministra do governo Ann Widdecombe, 78, encontrada morta em sua casa na semana passada, foi alvo de um ataque planejado.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "politician security and political violence",
+      "outlets": ["South China Morning Post", "Hindustan Times", "Globe and Mail"],
+      "countries": ["taiwan_hk", "india", "canada"],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "A man who threatened on social media in May to shoot Reform UK party leader Nigel Farage was arrested, London police said on Wednesday, as concerns grow over the security of politicians following the killing of Ann Widdecombe, a former member of parliament.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Violence is reshaping British political life\n\nThe shocking murder of Ann Widdecombe will only reinforce the trend",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "partisan exploitation of political killing",
+      "outlets": ["Breitbart", "Hindustan Times", "South China Morning Post"],
+      "countries": ["usa", "india", "taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Left-wing British politicians have already begun to seize upon the killing of Brexit hero Ann Widdecombe to push for more censorship on social media to combat \"hate\", despite no public indication that the suspected killer was radicalised online.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "The narrative that Reform UK are \"fascists\" is \"so relentless it constitutes incitement,\" the party said after the killing of Ann Widdecombe.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "social media regulation and political speech",
+      "outlets": ["Breitbart"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Left-wing British politicians have already begun to seize upon the killing of Brexit hero Ann Widdecombe to push for more censorship on social media to combat \"hate\", despite no public indication that the suspected killer was radicalised online.",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.39,
+      "note": "Most isolated bucket: both UK corpus items (The Telegraph, idx 11-12) are 2024 crime stories unrelated to Widdecombe, skewing the UK bucket far from the cluster centre."
+    },
+    {
+      "outlet": "brazil",
+      "country": "brazil",
+      "mean_similarity": 0.583,
+      "note": "Portuguese-language coverage (Folha de São Paulo) diverges from English-language cluster mean despite being thematically on-story — cross-lingual embedding distance, not editorial divergence."
+    },
+    {
+      "outlet": "wire_services",
+      "country": "wire_services",
+      "mean_similarity": 0.617,
+      "note": "AP coverage is tightly factual (release of first suspect) and slightly earlier in the news cycle than later coverage confirming terror charges, pulling it from the cluster centroid."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "usa",
+      "country": "usa",
+      "terms": ["censorship", "fascist", "leftist", "stochastic", "narrative", "blame", "hate", "online"],
+      "what_it_reveals": "Vocabulary of partisan culture-war framing: the killing becomes evidence of left-wing bad faith rather than a law-enforcement matter — language absent from all other outlets in the cluster."
+    },
+    {
+      "outlet": "brazil",
+      "country": "brazil",
+      "terms": ["polícia", "ministra", "reino", "unido"],
+      "what_it_reveals": "Portuguese-language vocabulary confirms Folha frames this as a foreign-government story ('ex-ministra do Reino Unido') rather than a political-violence story — distant from the anglophone editorial register."
+    },
+    {
+      "outlet": "taiwan_hk",
+      "country": "taiwan_hk",
+      "terms": ["shoot", "nigel", "leader"],
+      "what_it_reveals": "SCMP's exclusive focus on the Farage-shooting threat (not the Widdecombe murder itself) gives Taiwan/HK coverage a distinct threat-to-leadership angle absent from other outlets."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "No French outlet appears in this cluster despite France typically covering major British political events; French feeds appear to have foregrounded other European stories on this date."
+    },
+    {
+      "country": "australia",
+      "what_they_covered_instead": "Australia, a natural audience for UK political news given Commonwealth ties, is absent; Australian outlets likely carried the story in a separate cluster or at lower prominence."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Uniquely characterises Widdecombe as a 'Brexit hero' and frames left-wing calls for online safety regulation as exploitative censorship with no evidentiary basis — the only outlet to editorially indict political opponents within hours of the killing.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Reform UK's claim that calling the party 'fascist' constitutes 'stochastic terrorism' is reported approvingly — the only outlet to carry Reform's counter-narrative framing rather than factual police updates.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only outlet to contextualise the murder as part of a durable trend ('Violence is reshaping British political life') rather than as an isolated crime — the widest analytical frame in the corpus.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Pivots from the Widdecombe killing to a separate arrest over social-media threats to shoot Nigel Farage, treating both as symptoms of a single politician-security crisis — a linkage no other outlet makes explicitly.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only non-English outlet in the core Widdecombe coverage; leads with the counter-terrorism police confirmation of premeditation, giving Brazilian readers the procedural detail largely absent from Anglophone wire coverage at that date.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Published before the terror-crimes dimension emerged: stated police 'were not treating the case as terrorism or politically motivated' — a factual snapshot subsequently overtaken by the Globe and Mail's later report of terror-crime charges.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "ARY News English",
+      "country": "pakistan",
+      "finding": "A structurally misclassified item: coverage of an unrelated Pakistani madrasa crime ('12-year-old madrasa student, raped, killed') that was swept into this cluster by shared crime-vocabulary embedding proximity — Pakistan has no editorial engagement with the Widdecombe story.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Ann Widdecombe's murder became a political battleground within days, with UK right-populist media assigning partisan blame before police established motive, while international factual coverage focused on the premeditated-attack finding and widening politician-security concerns. The cluster's core tension is between outlets reporting an evolving criminal investigation and outlets using the killing as a ready-made symbol — a gap that will sharpen if and when a motive is publicly confirmed.",
+  "generated_at": "2026-07-16T09:57:38Z",
+  "model": "claude-sonnet-4-6"
+}
