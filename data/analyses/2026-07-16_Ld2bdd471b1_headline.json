@@ -1,0 +1,113 @@
+{
+  "story_key": "Ld2bdd471b1",
+  "date": "2026-07-16",
+  "n_buckets": 5,
+  "n_articles": 11,
+  "tldr": "Headlines across four of five coverage zones uniformly announce Argentina's comeback victory over England as a national-identity triumph and title-defence narrative; French-language outlets alone add an experiential register — fan grief and spectacle-replay — while Le Parisien contributes two titles wholly unrelated to the match.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "National title defence; nations to final",
+      "buckets": [
+        "canada",
+        "france",
+        "pakistan",
+        "state_tv_intl",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Argentina complete comeback to beat England and reach final",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "l'Argentine renverse l'Angleterre et défendra son titre",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Argentina beat England to reach World Cup final",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Arabic",
+          "quote": "منتخب الأرجنتين يلحق بإسبانيا إلى الدور النهائي",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Le Devoir",
+          "quote": "L'Argentine élimine l'Angleterre",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "English fan bitterness after defeat",
+      "buckets": [
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "l'amertume des supporters anglais après la défaite",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Relive the match; sporting spectacle",
+      "buckets": [
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "revivez le succès fou de l'Argentine face à l'Angleterre",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.723,
+      "n_tokens": 98
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.732,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.774,
+      "n_tokens": 216
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Le Parisien",
+      "bucket": "france",
+      "signal_text_idx": 9,
+      "finding": "Both Le Parisien titles in this cluster ('Sauvons la forêt française' and an ant-invasion/heatwave piece) are entirely unrelated to the World Cup semi-final, suggesting a feed-aggregation or clustering artefact; neither is assignable to any match frame."
+    }
+  ],
+  "bottom_line": "The headline layer is a unified result bulletin — Argentina's stoppage-time comeback beats England, Spain final set — with French outlets alone surfacing the emotional aftermath for fans, and Le Parisien's two off-topic titles the sole clustering anomaly.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
