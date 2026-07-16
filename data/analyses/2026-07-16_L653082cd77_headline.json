@@ -1,0 +1,166 @@
+{
+  "story_key": "L653082cd77",
+  "date": "2026-07-16",
+  "n_buckets": 17,
+  "n_articles": 28,
+  "tldr": "Headlines frame Argentina's semifinal win as both a Messi-orchestrated comeback and the latest chapter of a culturally charged rivalry: outlets from Australia, Germany, the US, and China foreground 60 years of England-Argentina antagonism in their titles, while South Asian, African, and wire-service outlets lead with Messi as decisive hero. Fan emotion — Buenos Aires celebrations and London crowd disorder — surfaces in a minority of headlines.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "60-year England-Argentina rivalry hatred",
+      "buckets": ["australia_nz", "china", "germany", "usa", "india"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "rivalry is one of the ugliest in football",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "'They hate us and we hate them'",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "add another chapter to their long-time rivalry",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "A football rivalry full of history",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Old rivals, new battle: Argentina and England clash",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Messi's emotional tribute to Maradona",
+          "signal_text_idx": 25
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "Messi-as-hero and dramatic match result",
+      "buckets": ["india", "wire_services", "vietnam_thai_my", "pakistan", "argentina_chile", "canada", "south_africa", "iraq", "africa_other", "kenya"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "Messi's Argentina Stuns England",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "'It is crazy': Argentina's Messi adds third final",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "MAGICAL MESSI: Messi-inspired Argentina rally late",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Messi inspires Argentina into second straight World Cup",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Messi magic sends Argentina into World Cup final",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "Premium Times Nigeria",
+          "quote": "Messi inspires Argentina's late fightback to sink England",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "fan celebrations and crowd disorder",
+      "buckets": ["qatar", "philippines", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Celebrations erupt in Argentina's capital",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Inquirer",
+          "quote": "Harry Kane 'gutted' after England crashes out in semis",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "London police struggle to contain raging England fans",
+          "signal_text_idx": 27
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.627,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.639,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.663,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.666,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.666,
+      "n_tokens": 58
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "iran_state",
+      "note": "IRNA's headline is a purely technical pre-match preview ('team news and predicted lineups') with no framing signal — its title is indistinguishable from a fixture-info page and contributes nothing to any of the three headline frames."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "VnExpress English",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline in the corpus to foreground London fan disorder — 'London police struggle to contain raging England fans' — placing a public-safety story at the title level absent from all other outlets.",
+      "signal_text_idx": 27
+    }
+  ],
+  "bottom_line": "The headline layer divides into two registers: a Messi-as-decisive-hero result story dominant across South Asian, African, and wire-service outlets, and a culturally charged rivalry story in outlets from Australia, Germany, the US, and China — with only VnExpress breaking from both to headline crowd disorder in London.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
