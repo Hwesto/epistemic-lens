@@ -1,0 +1,171 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "L2144a89bc9",
+  "cluster_id": 150,
+  "cluster_name": "Zelensky ousts Defence Minister Fedorov triggering wartime protests across Ukraine",
+  "salience_score": 8.082,
+  "n_outlets": 13,
+  "n_countries": 11,
+  "n_articles": 19,
+  "tldr": "Headlines across all 11 country-buckets converge on two dominant narrative choices: wartime protests erupting across Ukraine and a political government reshuffle driven by Zelensky. Protest-focused headlines dominate wire services, French, Spanish, Russian-exile, Indian, and Iran-opposition outlets, uniformly stressing Fedorov's popularity. Political framing — foregrounding the reshuffle, the Fedorov–Syrskyi command conflict, or Zelensky's agency in the dismissal — is the primary headline lens for Ukrainian, US, Singaporean, and UK outlets. The UK Guardian alone embeds a diplomatic context ('on eve of Starmer visit') in its headline; the Kyiv Post alone leads with a senior military officer's resignation in protest. The entire defense-policy substance visible in article bodies — drone programs, NATO-alignment reform, procurement overhaul, battlefield implications — is absent from the headline layer, confirming a sensationalism gap between advertised framing and reported content.",
+  "event_summary": "President Volodymyr Zelensky removed Defence Minister Mykhailo Fedorov on 15 July 2026 amid a government reshuffle that also ousted Prime Minister Svyrydenko; protests erupted across at least ten Ukrainian cities on 16 July.",
+  "frames": [
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "wartime protests demand Fedorov's reinstatement",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "BFM TV",
+        "France 24 Spanish",
+        "Meduza",
+        "RFE/RL (was Radio Farda)",
+        "The Hindu Intl",
+        "Ukrainska Pravda English"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "state_tv_intl",
+        "russia",
+        "iran_opposition",
+        "india",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Protests erupt in Ukraine as Zelensky removes defence",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Manifestations en Ukraine contre le départ du très populaire",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Estallan protestas en toda Ucrania",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Zelenskyy's Dismissal Of Defense Minister Fedorov Sparks Protests",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Protests erupt across Ukraine against removal of Defence",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Zelensky reshuffle and Fedorov–Syrskyi conflict",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Defense News",
+        "Kyiv Post",
+        "Meduza",
+        "Straits Times",
+        "The Guardian World",
+        "Ukrainska Pravda English"
+      ],
+      "countries": [
+        "france",
+        "usa",
+        "ukraine",
+        "russia",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Defense News",
+          "country": "usa",
+          "quote": "Fedorov out as Ukraine's defense minister in major",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Zelensky Removed Fedorov Over Conflict With Syrsky",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Ukrainska Pravda English",
+          "country": "ukraine",
+          "quote": "Zelenskyy could no longer tolerate ongoing conflict",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Zelenskyy dismisses Ukraine's defence minister on eve",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "military capability risk from leadership change",
+      "outlets": [
+        "Kyiv Post",
+        "Egypt Independent"
+      ],
+      "countries": [
+        "ukraine",
+        "egypt"
+      ],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Senior Air Force Commander Quits, Calls Fedorov's",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Egypt Independent",
+          "country": "egypt",
+          "quote": "Ukraine's innovative defense minister ousted",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only headline to embed a diplomatic context — 'on eve of Starmer visit' — framing the dismissal as a foreign-policy event rather than a domestic reshuffle.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Only headline to report a serving military officer's resignation in protest: Air Force Deputy Commander quitting and labelling the dismissal 'Great Evil' — the sole headline-layer signal about chain-of-command integrity.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Egypt Independent",
+      "country": "egypt",
+      "finding": "Only headline to characterise Fedorov as 'innovative', foregrounding defence-modernisation identity over the protest or political-conflict angle — the closest the headline layer gets to a CAPACITY_RESOURCES framing.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "The headline layer is split between PUBLIC_OPINION (protests, Fedorov's popularity) and POLITICAL (reshuffle, Fedorov–Syrskyi conflict) framing, with SECURITY_DEFENSE signalled only by two outlier headlines. The drone programs, NATO-alignment reform, and battlefield implications that dominate article bodies are entirely absent from headlines — the advertised story is political drama and street protest, not defence capability risk.",
+  "generated_at": "2026-07-16T10:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
