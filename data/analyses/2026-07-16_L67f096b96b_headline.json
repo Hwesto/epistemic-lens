@@ -1,0 +1,140 @@
+{
+  "story_key": "L67f096b96b",
+  "date": "2026-07-16",
+  "n_buckets": 14,
+  "n_articles": 17,
+  "tldr": "Headlines across 14 buckets split into two dominant frames: UK and anglophone wire outlets headline a TikTok investigation or compliance probe, while broader international outlets foreground the UK overnight curfew proposal and EU age-restriction deliberations as new policy actions. The sole outlier — Sixth Tone — is the only headline to challenge whether bans actually protect children.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "child social media age-gating proposals",
+      "buckets": ["canada", "china", "germany", "kenya", "qatar", "south_korea", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "UK proposes voluntary overnight social media curfew",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "EU experts urge social media restrictions for kids under 13",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Gov't Looking to Restrict Social Media Subscription",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "TikTok probe for child safety compliance",
+      "buckets": ["france", "nigeria", "opinion_magazines", "uk", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "UK investigates TikTok over child safety measures",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "TikTok under investigation in UK over child safety measures",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "UK probes TikTok's child safety measures",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "children harmed by addictive platforms",
+      "buckets": ["india", "nordic", "uk"],
+      "evidence": [
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "EU lawmakers want to turn off addictive social media features",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "'Childhood Won't Wait…': EU Chief Weighs Age Restrictions",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "TikTok fails to protect children from harmful content",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "bans alone insufficient for child safety",
+      "buckets": ["china"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "Sixth Tone",
+          "quote": "Social Media Bans Alone Won't Protect Kids",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "south_korea", "mean_similarity": 0.54, "n_tokens": 38},
+    {"bucket": "nordic", "mean_similarity": 0.567, "n_tokens": 60},
+    {"bucket": "kenya", "mean_similarity": 0.569, "n_tokens": 35},
+    {"bucket": "india", "mean_similarity": 0.599, "n_tokens": 42},
+    {"bucket": "germany", "mean_similarity": 0.614, "n_tokens": 30},
+    {"bucket": "france", "mean_similarity": 0.621, "n_tokens": 55},
+    {"bucket": "nigeria", "mean_similarity": 0.622, "n_tokens": 31},
+    {"bucket": "uk", "mean_similarity": 0.644, "n_tokens": 70},
+    {"bucket": "china", "mean_similarity": 0.66, "n_tokens": 42}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "The only headline to surface the curfew's opt-out clause ('but users can opt out'), flagging a voluntary/non-binding nature that every other curfew headline omits — most of which use 'propose' or 'impose' without qualification.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Uses 'impose' and 'latest online crackdown' rather than 'propose', rendering the UK curfew as compulsory enforcement — the most coercive headline framing in the corpus.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Only headline to deploy urgent child-welfare language ('Childhood Won't Wait…'), foregrounding emotional stakes over regulatory process.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Sixth Tone",
+      "country": "china",
+      "finding": "Sole headline to challenge the regulatory consensus: 'Bans Alone Won't Protect Kids' positions a Chinese academic counter-finding against the global crackdown wave visible in all other titles.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer frames child social media regulation as settled enforcement — TikTok under probe, curfews being imposed — with only one headline globally (Sixth Tone) questioning whether bans are the right instrument.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
