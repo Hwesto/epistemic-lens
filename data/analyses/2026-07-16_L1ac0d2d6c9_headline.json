@@ -1,0 +1,230 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "L1ac0d2d6c9",
+  "cluster_id": 82,
+  "cluster_name": "Bangkok bar fire kills over 30 in deadly blaze",
+  "salience_score": 8.082,
+  "n_outlets": 18,
+  "n_countries": 12,
+  "n_articles": 21,
+  "tldr": "Bangkok bar fire headlines across 18 outlets and 12 countries reduce, for most outlets, to an escalating death toll (27 to 33) with little else at the title layer — but the exceptions are editorially significant. BBC World is the only outlet to omit any casualty figure entirely, instead asking 'will anything ever change?' — a systemic accountability question absent from all other 20 titles. Russia's RT is the only outlet to embed '(GRAPHIC VIDEOS)' in the headline, advertising visual shock rather than reporting the event. Human grief framing ('Families claim bodies,' 'band mourns its members') is confined to Kenya, Taiwan/HK, USA, and Brazil, while Chinese state media and most Southeast Asian outlets deliver flat numerical updates with no named victims or relatives. The negligence-and-probe angle ('negligence is primary theory,' 'Probe underway') appears only in UK, Turkey, and the regional wire feed — invisible in every other region's headlines at the title layer.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Rising death toll from fire",
+      "outlets": [
+        "AfricaNews",
+        "Bangkok Post",
+        "CBC World",
+        "CGTN Politics",
+        "CGTN World",
+        "Fox News World",
+        "Globe and Mail",
+        "RT",
+        "Republic World (alt)",
+        "VnExpress English"
+      ],
+      "countries": [
+        "pan_african",
+        "vietnam_thai_my",
+        "canada",
+        "china",
+        "usa",
+        "russia",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "Fire at Bangkok pub kills 27, injures dozens, 22 critical",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Bangkok bar fire death toll rises to 32",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Massive fire rips through pub, killing at least 27",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Dozens killed in Bangkok bar blaze (GRAPHIC VIDEOS)",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Negligence probe, investigation launched",
+      "outlets": [
+        "AfricaNews",
+        "Daily Sabah",
+        "Malay Mail World",
+        "The Guardian World"
+      ],
+      "countries": [
+        "pan_african",
+        "turkey",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "police say negligence is 'primary theory'",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Probe underway after Bangkok bar fire",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Investigators comb wreckage after Bangkok bar fire",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Flowers and forensic teams at Bangkok bar",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Families grieve, band mourns its dead",
+      "outlets": [
+        "Bangkok Post",
+        "Folha de São Paulo",
+        "Hong Kong Free Press",
+        "NPR World",
+        "Standard Kenya World"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "brazil",
+        "taiwan_hk",
+        "usa",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hong Kong Free Press",
+          "country": "taiwan_hk",
+          "quote": "Families claim bodies as Bangkok fire toll rises to 30",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "band mourns its members among the 33 dead",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "familiares aguardam identificação de corpos",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Families claim bodies as Bangkok fire toll rises to 30",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Nightclub safety reform questioned",
+      "outlets": [
+        "BBC World",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "will anything ever change?",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "raises fresh concerns over nightclub safety",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "kenya",
+      "country": "kenya",
+      "mean_similarity": 0.634,
+      "note": "Standard Kenya's headline ('Families claim bodies') focuses on grief and body retrieval rather than the numerical death toll escalation that anchors every other non-UK outlet, diverging markedly from the cluster's dominant HEALTH_SAFETY counting frame."
+    },
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.682,
+      "note": "UK's two outlets split between a systemic-accountability question (BBC: 'will anything ever change?') and a legal-framing headline (Guardian: 'negligence is primary theory') — neither outlet mentions a specific casualty number in its title, unlike all other buckets."
+    },
+    {
+      "outlet": "taiwan_hk",
+      "country": "taiwan_hk",
+      "mean_similarity": 0.724,
+      "note": "HKFP mirrors Kenya's exact grief framing ('Families claim bodies') rather than the death-toll-count format used by China, Canada, Russia, and Southeast Asian outlets, producing a title that reads closer to the Kenya bucket than its regional peers."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "BBC is the only outlet across all 21 articles to omit any casualty figure from its headline, instead framing the Bangkok fire as the city's 'latest deadly blaze' and asking 'will anything ever change?' — a systemic accountability question absent from every other title in the cluster.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "RT is the only outlet to append '(GRAPHIC VIDEOS)' to its headline, advertising visual shock content as a draw — a device absent from all other 20 articles and visible at the title layer without reading any body text.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "NPR leads with the band performing at the bar ('The band playing...mourns its members among the 33 dead') — the only outlet to center named cultural-community grief rather than an aggregate death toll, making musicians the emotional lede.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Republic World uniquely foregrounds the Thai Prime Minister as the confirming authority ('Thailand PM Confirms 27 Dead In Bangkok Pub Fire'), adding a political source-attribution frame — the official government voice — that no other outlet chose to lead with at the headline level.",
+      "signal_text_idx": 16
+    }
+  ],
+  "bottom_line": "Bangkok bar fire headlines split sharply: a majority deliver a rising body count while a notable minority diverge into accountability questions (BBC), grief angles (Kenya, HK, USA, Brazil), or investigation framing (UK, Turkey) — with Russian state media RT uniquely advertising graphic video in its title. A reader scanning only headlines across this cluster encounters at least four distinct editorial priorities applied to the same event.",
+  "generated_at": "2026-07-16T10:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
