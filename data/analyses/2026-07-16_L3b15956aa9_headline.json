@@ -1,0 +1,146 @@
+{
+  "story_key": "L3b15956aa9",
+  "date": "2026-07-16",
+  "n_buckets": 9,
+  "n_articles": 13,
+  "tldr": "Headlines collectively frame the Widdecombe killing as a police-procedural story — suspect arrested, attack confirmed as targeted — while Breitbart's two titles inject a culture-war register visible nowhere else, advertising the death as a pretext for left-wing censorship and charging that anti-Farage rhetoric constitutes 'stochastic terrorism.' The headline layer telegraphs a sharper partisan split than the body-text pass.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "murder arrest and targeted-attack finding",
+      "buckets": ["wire_services", "germany", "brazil", "usa", "canada", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "killing of former politician Ann Widdecombe",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "UK police arrest murder suspect in Ann Widdecombe's death",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "assassinato de ex-ministra do Reino Unido foi premeditado",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Ann Widdecombe found dead; man arrested for murder",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "killed in a 'targeted attack,' police say",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Ann Widdecombe killed in 'targeted attack': police",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "political figures under violent threat",
+      "buckets": ["india", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Violence is reshaping British political life",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "UK police arrest man over threat to shoot Reform leader",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "right-populist partisan exploitation of killing",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Leftist Lawmakers Attempt to Blame Online 'Hate' for Killing",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Stochastic Terrorism: 'Relentless Narrative' That Farage Is",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "online hate laws and censorship debate",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Push for More Censorship",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.39,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.583,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.617,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.654,
+      "n_tokens": 133
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.658,
+      "n_tokens": 64
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "pakistan",
+      "note": "ARY News headline ('12-year-old madrasa student, ‘raped’, killed') covers an unrelated domestic Pakistani crime with no connection to the Widdecombe story — swept into the cluster by shared crime vocabulary."
+    },
+    {
+      "bucket": "uk",
+      "note": "Both Telegraph titles are 2024 archive crime stories (Hessle stabbing; Harshita Brella murder) with no editorial engagement with Widdecombe; UK bucket contributes zero on-story headline framing."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer the dominant message is procedural — a former MP killed in a targeted attack, suspect arrested — but Breitbart's two titles are the loudest signal in the corpus, advertising the killing as evidence of left-wing bad faith and censorship ambition rather than as a crime.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
