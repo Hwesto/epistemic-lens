@@ -1,0 +1,188 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "Ld2bdd471b1",
+  "cluster_id": 184,
+  "cluster_name": "Argentina beat England 2-1 to reach 2026 World Cup final",
+  "salience_score": 4.286,
+  "n_outlets": 7,
+  "n_countries": 5,
+  "n_articles": 30,
+  "event_summary": "Argentina defeated England 2-1 in the 2026 World Cup semi-final in Atlanta on July 15, overturning Anthony Gordon's opener with stoppage-time goals from Enzo Fernandez and Lautaro Martinez. Argentina meets Spain in Sunday's final at MetLife; France plays England for third on Saturday.",
+  "tldr": "Coverage is concentrated almost entirely in French-language and French-wire Arabic outlets, reflecting France's parallel stake as England's third-place opponent on Saturday. Only France Info devotes space to English supporters' emotional reaction, quoting fan bitterness verbatim — an angle absent from wire-service and international coverage. Arabic-language coverage from France 24 grounds Argentina's victory in historical record, noting it is the country's seventh World Cup final. The cluster contains two Le Parisien articles on French forest fire fundraising and a heatwave ant invasion, clear HDBSCAN artifacts with no editorial connection to the match. UK and Argentine outlets — whose coverage would be the most emotionally charged — are entirely absent from this cluster.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "national sporting identity and championship legacy",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "France 24 Arabic",
+        "France Info",
+        "Le Devoir"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "state_tv_intl",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "the defending champions fought back with goals from Enzo Fernandez and Lautaro Martinez in stoppage time.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "L'Argentine, insubmersible, s'est qualifiée en finale de la Coupe du monde en renversant l'Angleterre (2-1), mercredi, à Atlanta (Géorgie, États-Unis). Les Three Lions pensaient avoir fait le plus dur avec le but de Gordon, mais l'Albiceleste a renversé le match en moins de dix minutes.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "France 24 Arabic",
+          "country": "state_tv_intl",
+          "quote": "تأهل منتخب الأرجنتين إلى الدور النهائي لبطولة كأس العالم 2026 لكرة القدم للمرة السابعة في تاريخه، بعد فوزه على إنكلترا، مساء الأربعاء في أتلانتا، بنتيجة 2-1. وسيدافع زملاء القائد ليونيل ميسي عن لقبهم أمام إسبانيا، الأحد المقبل في ملعب \"ميتلايف\" قرب نيويورك.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "match drama and spectator experience",
+      "outlets": [
+        "AFP / France 24 EN",
+        "France Info",
+        "Le Devoir"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Argentina beat England 2-1 in a thrilling World Cup semi-final in Atlanta to book their place in the final against Spain as they chase back-to-back World Cup titles.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "Coupe du monde : revivez le succès fou de l'Argentine face à l'Angleterre en demi-finale",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "L’Argentine élimine l’Angleterre au terme d’une remontée dramatique",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "English fan bitterness after elimination",
+      "outlets": [
+        "France Info"
+      ],
+      "countries": [
+        "france"
+      ],
+      "evidence": [
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "\"Je ne sais pas pourquoi on a autant défendu\" : l'amertume des supporters anglais après la défaite contre l'Argentine en demi-finale\n\nLa finale de la Coupe du monde 2026 de football opposera dimanche l'Argentine et l'Espagne. Les coéquipiers de Lionel Messi ont éliminé mercredi l'Angleterre 2-1.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "tournament bracket and national prestige on world stage",
+      "outlets": [
+        "AFP / France 24 FR",
+        "France 24 Arabic",
+        "Le Devoir",
+        "ARY News English"
+      ],
+      "countries": [
+        "france",
+        "state_tv_intl",
+        "canada",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "La Coupe du monde a rendu son verdict pour son grand final, après 102 matches disputés. Pour les deux dernières rencontres, l'Espagne affrontera l'Argentine en finale, dimanche, tandis que la France sera opposée samedi à l'Angleterre pour la troisième place de ce Mondial 2026.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "L’Albiceleste affrontera dimanche l’Espagne en finale afin de défendre son titre de champion du monde.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "Argentina beat England to reach World Cup final",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "uk",
+      "what_they_covered_instead": "UK outlets presumably covered England's elimination from a domestic-disappointment angle — focusing on what went wrong tactically and fan grief — placing those articles in a separate English-language cluster rather than this Argentina-triumph one."
+    },
+    {
+      "country": "spain",
+      "what_they_covered_instead": "Spanish press would center their own preparation and anticipation for Sunday's final against Argentina, not Argentina's semi-final path through England."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "France Info",
+      "country": "france",
+      "finding": "Only outlet to center English supporters' emotional reaction, quoting fan bitterness verbatim ('Je ne sais pas pourquoi on a autant défendu') — a fan-psychology angle absent from wire and international coverage.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "France 24 Arabic",
+      "country": "state_tv_intl",
+      "finding": "Grounds the result in historical record: Argentina's seventh World Cup final appearance, with Messi's teammates defending their title — a milestone framing not foregrounded by French-language or English outlets.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Le Parisien",
+      "country": "france",
+      "finding": "Filed two articles entirely unrelated to the World Cup (French forest fire fundraising drive; heatwave ant invasion in Ermenonville-la-Grande) that were pulled into this cluster — apparent HDBSCAN noise from a multi-topic outlet.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "ARY News English",
+      "country": "pakistan",
+      "finding": "Minimal one-line headline coverage only, no body text extracted — the most sparse treatment in the cluster, suggesting low editorial priority for the match in the Pakistan press context.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Le Devoir",
+      "country": "canada",
+      "finding": "Quebec progressive outlet frames Argentina's win as a 'remontée dramatique' without engaging the Argentina-England historical rivalry angle, reflecting a Francophone-Canadian lens on the match as sporting spectacle rather than geopolitical contest.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "French-language and French-wire outlets dominate this cluster, amplified by France's own third-place stake against England on Saturday. The UK and Argentine presses — most invested in the result — are absent, their emotionally-charged coverage presumably sitting in separate clusters with distinct framing.",
+  "generated_at": "2026-07-16T10:23:42Z",
+  "model": "claude-sonnet-4-6"
+}
