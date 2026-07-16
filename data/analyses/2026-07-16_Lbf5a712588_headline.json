@@ -1,0 +1,120 @@
+{
+  "story_key": "Lbf5a712588",
+  "date": "2026-07-16",
+  "n_buckets": 10,
+  "n_articles": 12,
+  "tldr": "Headlines across 10 buckets converge on the economic fact of a US 25% tariff on Brazilian imports, but split on emphasis: most outlets use neutral verbs for the action, several foreground the 'unfair trade practices' justification, the Guardian uniquely leads with Brazil's condemnation, and SCMP alone frames the dispute as a Rubio–Lula political confrontation. The dominant signal is economic action with a fairness sub-narrative; political and diplomatic frames remain isolated outliers.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "US 25% tariff on Brazilian imports",
+      "buckets": ["italy", "iraq", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump imposes 25% tariffs on Brazilian goods",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "US launches new round of tariffs with 25% tax",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Usa impongono dazi del 25% su alcuni prodotti",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "unfair trade practices as tariff rationale",
+      "buckets": ["egypt", "india"],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "US announces new 25% tariffs on Brazil for 'unfair'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "citing unfair trade practices",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "escalating US-Brazil trade tensions",
+      "buckets": ["pakistan", "uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Brazil condemns US move to impose 25% tariffs next week",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Bol News",
+          "quote": "US slaps 25% tariffs on Brazilian imports",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Rubio–Lula personal political clash",
+      "buckets": ["taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "price for Lula's 'ego'",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "taiwan_hk", "mean_similarity": 0.769, "n_tokens": 55},
+    {"bucket": "usa", "mean_similarity": 0.773, "n_tokens": 53},
+    {"bucket": "egypt", "mean_similarity": 0.783, "n_tokens": 55},
+    {"bucket": "iraq", "mean_similarity": 0.815, "n_tokens": 31},
+    {"bucket": "uk", "mean_similarity": 0.823, "n_tokens": 89},
+    {"bucket": "india", "mean_similarity": 0.828, "n_tokens": 53},
+    {"bucket": "pakistan", "mean_similarity": 0.835, "n_tokens": 32}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only headline to personalize the tariff dispute through named politicians, framing it as Rubio attributing the tariffs to Lula's 'ego' — the most politically charged headline in the corpus and the only one to introduce leader-level agency.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Sole headline to lead with Brazil's reaction ('condemns') rather than the US action, repositioning the news subject from sender to recipient of the tariff — the only title to grant Brazil grammatical primacy.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Bol News",
+      "country": "pakistan",
+      "finding": "Uses 'slaps' instead of 'imposes' or 'sets', the only informal/aggressive verb in the corpus, and alone adds 'as trade tensions escalate' to foreground bilateral conflict escalation beyond the tariff announcement itself.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "The headline layer frames this as a US-initiated economic action against Brazil, with the 25% tariff figure appearing in every title, a fairness/legitimation sub-narrative ('unfair trade practices') cutting across multiple outlets, and political personalization confined to a single HK outlet.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
