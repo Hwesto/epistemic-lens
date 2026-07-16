@@ -1,0 +1,271 @@
+{
+  "story_key": "L88ca4bb048",
+  "date": "2026-07-16",
+  "n_buckets": 12,
+  "n_articles": 27,
+  "tldr": "Headlines across all 12 buckets foreground Russia's escalating missile and drone assault on Ukrainian cities — Kyiv, Sumy, Odesa, Kharkiv — with a parallel thread of Ukrainian drone counterstrikes hitting Russian territory, oil tankers, and Black Sea vessels; several headlines contextualise the attacks against the backdrop of a Ukraine-EU drone deal or an imminent NATO summit.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Mutual strikes, civilian casualties",
+      "buckets": [
+        "wire_services",
+        "pan_african",
+        "qatar",
+        "uk",
+        "vietnam_thai_my",
+        "turkey",
+        "canada",
+        "ukraine",
+        "russia",
+        "india",
+        "kenya",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "10 injured in overnight Russian missile and drone strikes",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ukraine: Six dead as Russia targets Sumy and Odesa",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Two killed in Russian missile attacks on Kyiv",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Russian attacks kill 14 as Ukraine hits Black Sea oil",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Russian missiles strike Kyiv districts, killing two",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "At least 4 killed, 7 wounded when Ukraine drone strikes",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Russian missiles strike Kyiv districts, killing two",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "2 Killed, 6 Wounded After Russian Ballistic Missiles",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "At Least 3 Killed in Ukrainian Attacks Across Russia",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Blasts Heard In Kyiv As EU Chief Visits Ukraine",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Russia launches deadly barrage on Kyiv region on eve",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Russia Shifts Its Focus to the Black Sea",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Black Sea tanker/oil attacks",
+      "buckets": [
+        "uk",
+        "russia",
+        "ukraine",
+        "canada",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Russian attacks kill 14 as Ukraine hits Black Sea oil tankers",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Ukrainian Drones Strike Russian Oil Sites and Tankers",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Ukrainian drones hit two Russian shadow fleet tankers",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Russian strike on Ukraine kills three as battle over",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Russia Shifts Its Focus to the Black Sea",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Attacks amid EU-Ukraine deal, NATO",
+      "buckets": [
+        "qatar",
+        "india",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Two killed in Russian missile attacks on Kyiv after Ukraine-EU",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Blasts Heard In Kyiv As EU Chief Visits Ukraine",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Russia launches deadly barrage on Kyiv region on eve of NATO",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Ukraine rejects 'piracy' charge",
+      "buckets": [
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "'No Piracy, Lavrov': Ukraine Expands Maritime Campaign",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.605,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.61,
+      "n_tokens": 234
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.633,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.689,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.714,
+      "n_tokens": 573
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.724,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.732,
+      "n_tokens": 137
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.733,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.741,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.745,
+      "n_tokens": 329
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.746,
+      "n_tokens": 74
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Only headline to foreground Russia's air-defense success ('down 375 drones') as the lead fact, minimising civilian harm and inverting the Ukrainian-aggressor framing dominant in Western and neutral outlets.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Ukrinform English",
+      "bucket": "ukraine",
+      "finding": "Only headline to label Russia's ballistic missile campaign 'terror' by quoting Zelensky directly — the sole outlet to deploy explicit moral/rhetorical characterisation rather than neutral strike-count reporting.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "Only headline to invoke legal language ('No Piracy, Lavrov') — rebutting Russia's characterisation of Ukraine's Black Sea drone campaign and framing the maritime fight as a matter of lawful warfare rather than criminal conduct.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer presents the Russia-Ukraine conflict as an active, intensifying aerial exchange — Russia battering Ukrainian cities with missiles and drones, Ukraine striking back at Russian territory, oil infrastructure, and Black Sea tankers — while diplomatic context (EU-Ukraine drone deal, NATO summit, EU chief's visit) surfaces only as background colour in three outlier headlines.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
