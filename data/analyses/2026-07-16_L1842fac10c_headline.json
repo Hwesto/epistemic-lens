@@ -1,0 +1,207 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "L1842fac10c",
+  "cluster_id": 77,
+  "cluster_name": "DR Congo Ebola outbreak hits 2,000 cases as response falters",
+  "salience_score": 9.092,
+  "n_outlets": 15,
+  "n_countries": 11,
+  "n_articles": 27,
+  "event_summary": "DR Congo's 17th Ebola outbreak, Bundibugyo strain, reached 2,011 confirmed cases and 754 deaths by 15 July 2026—the fastest-growing on record—while health workers struck over unpaid salaries and the US imposed travel and flight restrictions on citizens in the country.",
+  "tldr": "BBC Africa is the only outlet in the corpus to advertise the misinformation-violence nexus in a headline, foregrounding 'rumours' and 'misinformation' as drivers of attacks on health workers — a dimension invisible in every other outlet's homepage banner. The dominant headline frame across North Asia, Europe, North America, and MENA is a single data point: the 2,000-case milestone, with 'fastest-ever' or 'record-breaking' modifiers serving as the primary attention hook. Chinese (CGTN) and Russian (RT Africa) state media both selected US travel restrictions as their advertised angle, with RT's 'bars Americans from flying home' the most coercive framing versus CGTN's softer 'warns citizens against travel.' African and pan-African outlets added an operational dimension absent elsewhere: health worker strikes and UNICEF's call for 'stronger collective action' appear only in those geographic clusters' headlines. Uganda's 42-day countdown toward Ebola-free status surfaces in just two headlines (Reuters wire and Straits Times), nearly invisible at the advertised layer.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "2,000-case milestone; record outbreak",
+      "outlets": [
+        "AfricaNews",
+        "CBC World",
+        "CGTN World",
+        "Daily Sabah",
+        "RFI Afrique",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "Tagesschau",
+        "Taipei Times",
+        "Straits Times"
+      ],
+      "countries": [
+        "pan_african",
+        "canada",
+        "china",
+        "turkey",
+        "africa_other",
+        "wire_services",
+        "uk",
+        "germany",
+        "taiwan_hk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Ebola cases in Congo surpass 2,000",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Ebola outbreak in DRC becomes fastest-growing",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "Ebola outbreak deepens as officials admit",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "strikes and collective action deficit",
+      "outlets": [
+        "AfricaNews",
+        "AllAfrica",
+        "Anadolu Agency English"
+      ],
+      "countries": [
+        "pan_african",
+        "africa_other",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "More health workers strike in Ituri province",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Ebola responders protest in eastern Congo",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "Containing Ebola Requires Stronger Collective Action",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "rumours fuel health worker attacks",
+      "outlets": [
+        "BBC Africa"
+      ],
+      "countries": [
+        "africa_other"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "Ebola misinformation fuels violent attacks",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "'They said it isn't real': Ebola rumours",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US flight bans; patient evacuation",
+      "outlets": [
+        "CGTN World",
+        "RT Africa",
+        "The Guardian World"
+      ],
+      "countries": [
+        "china",
+        "state_tv_intl",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "US warns citizens against travel to DR Congo",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "US bars Americans in DR Congo from flying home",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "treatment trials launched in DRC",
+      "outlets": [
+        "RT Africa",
+        "The Guardian World"
+      ],
+      "countries": [
+        "state_tv_intl",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Ebola treatment trial begins in DR Congo",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "record-breaking Ebola treatment trial in DRC",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Only outlet to headline the misinformation-violence nexus across two consecutive titles, making the community resistance dimension surface-visible at homepage level where every other outlet placed epidemiological statistics.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Frames US travel restrictions as 'bars Americans from flying home' — the most coercive verb in any headline in the cluster — compared to CGTN's softer 'warns citizens against travel,' revealing a distinctly restrictive editorial register on the same policy.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "Only outlet to lead with a prescriptive institutional demand — UNICEF's call for 'Stronger Collective Action and a Faster Response' — making accountability framing surface-visible at the headline layer where no other outlet placed it.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "One of only two outlets (alongside Reuters wire) to headline Uganda's patient discharge — the cluster's sole positive containment story — nearly invisible in a corpus otherwise dominated by DRC catastrophe framing.",
+      "signal_text_idx": 16
+    }
+  ],
+  "bottom_line": "The headline layer of this Ebola cluster reduces to a single dominant advertised frame — '2,000 cases, fastest-ever outbreak' — replicated across 10 of 11 buckets, while BBC Africa's misinformation-violence headlines and pan-African operational coverage of health worker strikes constitute the only first-page signals of compound response failure. State-aligned Chinese and Russian outlets uniquely foregrounded US restrictive measures, with RT's 'bars Americans from flying home' the most coercive framing in the corpus and a marked departure from CGTN's softer register on the same policy.",
+  "generated_at": "2026-07-16T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
