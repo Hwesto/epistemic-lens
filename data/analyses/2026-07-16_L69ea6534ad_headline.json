@@ -1,0 +1,175 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "L69ea6534ad",
+  "cluster_id": 105,
+  "cluster_name": "Hegseth orders testosterone screening for US military members over 30",
+  "salience_score": 8.571,
+  "n_outlets": 19,
+  "n_countries": 14,
+  "n_articles": 20,
+  "tldr": "Headlines across 14 country-buckets reduce this story to a near-uniform policy-announcement register — Hegseth 'announces,' 'orders,' 'requires,' or 'unveils' a screening program — with virtually no editorial divergence at the title layer. The lone outlier is Asia Times, which is the only outlet to foreground international mockery ('mocked') and to use the alarming verb 'inject' rather than the neutral 'screen' or 'test' chosen by every other title in the corpus. A secondary medical-deficiency sub-frame ('testosterone deficiency,' 'low testosterone,' 'il giusto livello') is visible in roughly a third of outlets — BBC, SCMP, CBC, and La Stampa — framing the policy as addressing a clinical gap rather than a performance enhancement. The culture-war and virilism angle that dominates article bodies is entirely absent from the headline layer except for a single BFM TV title quoting Hegseth's 'retrouver et optimiser vos capacités naturelles' rationale, confirming a significant sensationalism gap between what is advertised and what is reported.",
+  "event_summary": "US Defense Secretary Pete Hegseth announced on 16 July 2026 that all US military service members aged 30 and older will undergo annual testosterone deficiency screening, with voluntary testing for those under 30 and optional testosterone replacement therapy if low levels are found.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Hegseth orders mandatory screening for 30+ troops",
+      "outlets": [
+        "Al Jazeera English",
+        "BBC World",
+        "BFM TV",
+        "Breitbart",
+        "CBC World",
+        "Daily Wire",
+        "El Pais",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Le Devoir",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "Sueddeutsche Zeitung",
+        "Telex Hungary",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "qatar",
+        "uk",
+        "france",
+        "usa",
+        "canada",
+        "spain",
+        "india",
+        "wire_services",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "germany",
+        "hungary_central",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Hegseth announces testosterone screening for US troops",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Hegseth Orders Annual Testosterone Screenings",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Pete Hegseth is now requiring testosterone screenings",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "Sueddeutsche Zeitung",
+          "country": "germany",
+          "quote": "Hegseth kündigt Testosteron-Test für Soldaten ab 30 an",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "El Pais",
+          "country": "spain",
+          "quote": "Hegseth anuncia tests de testosterona de los soldados",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Testosterone deficiency / low levels medical framing",
+      "outlets": [
+        "BBC World",
+        "CBC World",
+        "La Stampa",
+        "South China Morning Post",
+        "Telex Hungary"
+      ],
+      "countries": [
+        "uk",
+        "canada",
+        "italy",
+        "taiwan_hk",
+        "hungary_central"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "screening for testosterone deficiency, Hegseth says",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "plan to test US troops for low testosterone",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "plan to test troops for low testosterone",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "La Stampa",
+          "country": "italy",
+          "quote": "Serve il giusto livello di testosterone",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Global ridicule of testosterone injection plan",
+      "outlets": [
+        "Asia Times"
+      ],
+      "countries": [
+        "asia_pacific_regional"
+      ],
+      "evidence": [
+        {
+          "outlet": "Asia Times",
+          "country": "asia_pacific_regional",
+          "quote": "Hegseth mocked for plan to inject US soldiers",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Asia Times",
+      "country": "asia_pacific_regional",
+      "finding": "Asia Times is the only outlet to frame the announcement as international ridicule ('mocked') and uniquely uses the verb 'inject' rather than the neutral 'screen,' 'test,' or 'check' chosen by every other title — casting the program as performance-enhancing drug use rather than medical screening.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "CBC is the only outlet whose headline uses 'Secretary of War' rather than 'Defense Secretary' or just 'Hegseth,' embedding Trump's Pentagon rebranding directly into the title as a credentialing or delegitimising signal that all other outlets' titles avoid.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "BFM TV",
+      "country": "france",
+      "finding": "BFM TV is the only outlet to embed Hegseth's rationale ('retrouver et optimiser vos capacités naturelles') as a direct headline quote, surfacing the masculinity-and-natural-capability logic that dominates article bodies but is invisible in all other outlets' titles.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "The headline layer presents a near-uniform policy-announcement frame across 14 countries — Hegseth orders, announces, or requires testosterone screening — with only Asia Times breaking the mould by foregrounding international mockery and using the alarming word 'inject.' The virilism culture-war framing that fills article bodies leaves almost no trace at the title layer, confirming that readers scanning only headlines encounter a bureaucratic health-screening story rather than the ideologically charged masculinity initiative described inside.",
+  "generated_at": "2026-07-16T10:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
