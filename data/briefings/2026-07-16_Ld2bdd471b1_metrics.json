@@ -1,0 +1,205 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 5,
+  "n_articles": 11,
+  "buckets": [
+    "canada",
+    "france",
+    "pakistan",
+    "state_tv_intl",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 49,
+    "france": 216,
+    "pakistan": 12,
+    "state_tv_intl": 98,
+    "canada": 22
+  },
+  "pairwise_similarity": [
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.831
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.801
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.799
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.787
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.721
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.708
+    },
+    {
+      "a": "canada",
+      "b": "state_tv_intl",
+      "score": 0.683
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.655
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.642
+    },
+    {
+      "a": "pakistan",
+      "b": "state_tv_intl",
+      "score": 0.576
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.723,
+      "n_tokens": 98
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.732,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.774,
+      "n_tokens": 216
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.665,
+      "n_tokens": 12
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.708,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "back",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "coupe",
+        "count": 7
+      },
+      {
+        "term": "face",
+        "count": 6
+      },
+      {
+        "term": "pour",
+        "count": 5
+      },
+      {
+        "term": "mondial",
+        "count": 4
+      },
+      {
+        "term": "demi",
+        "count": 4
+      },
+      {
+        "term": "défendra",
+        "count": 3
+      },
+      {
+        "term": "mercredi",
+        "count": 3
+      },
+      {
+        "term": "france",
+        "count": 3
+      },
+      {
+        "term": "grand",
+        "count": 3
+      },
+      {
+        "term": "aprè",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "state_tv_intl": [
+      {
+        "term": "منتخب",
+        "count": 6
+      },
+      {
+        "term": "الأرجنتين",
+        "count": 6
+      },
+      {
+        "term": "الدور",
+        "count": 6
+      },
+      {
+        "term": "النهائي",
+        "count": 6
+      },
+      {
+        "term": "فوزه",
+        "count": 6
+      },
+      {
+        "term": "يلحق",
+        "count": 4
+      },
+      {
+        "term": "بإسبانيا",
+        "count": 4
+      },
+      {
+        "term": "العالم",
+        "count": 4
+      },
+      {
+        "term": "إنكلترا",
+        "count": 3
+      },
+      {
+        "term": "إنجلترا",
+        "count": 3
+      }
+    ],
+    "canada": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-16T09:54:54+00:00",
+  "meta_version": "10.0.3"
+}

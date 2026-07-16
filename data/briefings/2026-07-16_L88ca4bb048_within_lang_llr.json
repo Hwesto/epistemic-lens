@@ -1,0 +1,166 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 74,
+      "n_tokens_in_cohort": 1342,
+      "distinctive_terms": [
+        {
+          "term": "kyiv",
+          "count_in_bucket": 8,
+          "count_in_cohort": 28,
+          "rate_in_bucket": 0.10811,
+          "rate_in_cohort": 0.02086,
+          "llr": 12.654,
+          "log_ratio": 1.645,
+          "p_value": 0.000375
+        }
+      ]
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 1384,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 1390,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 1366,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 78,
+      "n_tokens_in_cohort": 1338,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 1363,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 137,
+      "n_tokens_in_cohort": 1279,
+      "distinctive_terms": [
+        {
+          "term": "city",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.0438,
+          "rate_in_cohort": 0.00156,
+          "llr": 19.662,
+          "log_ratio": 3.332,
+          "p_value": 9e-06
+        }
+      ]
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 329,
+      "n_tokens_in_cohort": 1087,
+      "distinctive_terms": [
+        {
+          "term": "zelensky",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01824,
+          "rate_in_cohort": 0.0,
+          "llr": 17.599,
+          "log_ratio": null,
+          "p_value": 2.7e-05
+        },
+        {
+          "term": "aerial",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0152,
+          "rate_in_cohort": 0.0,
+          "llr": 14.654,
+          "log_ratio": null,
+          "p_value": 0.000129
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 573,
+      "n_tokens_in_cohort": 843,
+      "distinctive_terms": [
+        {
+          "term": "engel",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01047,
+          "rate_in_cohort": 0.0,
+          "llr": 10.894,
+          "log_ratio": null,
+          "p_value": 0.000965
+        },
+        {
+          "term": "airfield",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01047,
+          "rate_in_cohort": 0.0,
+          "llr": 10.894,
+          "log_ratio": null,
+          "p_value": 0.000965
+        },
+        {
+          "term": "meduza",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01047,
+          "rate_in_cohort": 0.0,
+          "llr": 10.894,
+          "log_ratio": null,
+          "p_value": 0.000965
+        }
+      ]
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 1385,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 1383,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

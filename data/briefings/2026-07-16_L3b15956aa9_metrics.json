@@ -1,0 +1,363 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 13,
+  "buckets": [
+    "brazil",
+    "canada",
+    "germany",
+    "india",
+    "pakistan",
+    "taiwan_hk",
+    "uk",
+    "usa",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 52,
+    "pakistan": 10,
+    "usa": 133,
+    "germany": 29,
+    "brazil": 33,
+    "canada": 26,
+    "india": 15,
+    "taiwan_hk": 64,
+    "uk": 32
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.902
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.848
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.83
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.808
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.794
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.793
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.786
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.785
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.784
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.767
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.716
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.704
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.703
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.696
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.668
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.655
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.649
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.647
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.646
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.613
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.575
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.569
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.412
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.406
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.372
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.367
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.36
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.328
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.312
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.307
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.293
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.277
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.264
+    },
+    {
+      "a": "brazil",
+      "b": "pakistan",
+      "score": 0.251
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.202
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.169
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.39,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.583,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.617,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.654,
+      "n_tokens": 133
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.658,
+      "n_tokens": 64
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.303,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.532,
+      "n_tokens": 15
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.662,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.666,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "pakistan": [],
+    "usa": [
+      {
+        "term": "online",
+        "count": 4
+      },
+      {
+        "term": "hate",
+        "count": 4
+      },
+      {
+        "term": "push",
+        "count": 4
+      },
+      {
+        "term": "censorship",
+        "count": 4
+      },
+      {
+        "term": "relentles",
+        "count": 4
+      },
+      {
+        "term": "narrative",
+        "count": 4
+      },
+      {
+        "term": "fascist",
+        "count": 4
+      },
+      {
+        "term": "leading",
+        "count": 3
+      },
+      {
+        "term": "leftist",
+        "count": 3
+      },
+      {
+        "term": "attempt",
+        "count": 3
+      },
+      {
+        "term": "blame",
+        "count": 3
+      },
+      {
+        "term": "stochastic",
+        "count": 3
+      },
+      {
+        "term": "driving",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "brazil": [
+      {
+        "term": "polícia",
+        "count": 3
+      },
+      {
+        "term": "ministra",
+        "count": 3
+      },
+      {
+        "term": "reino",
+        "count": 3
+      },
+      {
+        "term": "unido",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "india": [],
+    "taiwan_hk": [
+      {
+        "term": "shoot",
+        "count": 4
+      },
+      {
+        "term": "leader",
+        "count": 3
+      },
+      {
+        "term": "nigel",
+        "count": 3
+      }
+    ],
+    "uk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-16T09:54:10+00:00",
+  "meta_version": "10.0.3"
+}

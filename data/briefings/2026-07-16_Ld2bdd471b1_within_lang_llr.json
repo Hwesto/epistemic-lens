@@ -1,0 +1,43 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 12,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 12,
+      "n_tokens_in_cohort": 49,
+      "distinctive_terms": []
+    },
+    "france": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 216,
+      "n_tokens_in_cohort": 22,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 216,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,923 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 17,
+  "n_articles": 28,
+  "buckets": [
+    "africa_other",
+    "argentina_chile",
+    "australia_nz",
+    "canada",
+    "china",
+    "germany",
+    "india",
+    "iran_state",
+    "iraq",
+    "kenya",
+    "pakistan",
+    "philippines",
+    "qatar",
+    "south_africa",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "australia_nz": 58,
+    "india": 131,
+    "wire_services": 139,
+    "qatar": 50,
+    "vietnam_thai_my": 133,
+    "pakistan": 146,
+    "argentina_chile": 66,
+    "canada": 29,
+    "china": 18,
+    "south_africa": 34,
+    "germany": 21,
+    "iran_state": 31,
+    "philippines": 59,
+    "iraq": 43,
+    "usa": 22,
+    "africa_other": 51,
+    "kenya": 30
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.894
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.891
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.89
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.886
+    },
+    {
+      "a": "india",
+      "b": "iraq",
+      "score": 0.873
+    },
+    {
+      "a": "iraq",
+      "b": "pakistan",
+      "score": 0.871
+    },
+    {
+      "a": "iraq",
+      "b": "wire_services",
+      "score": 0.868
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.833
+    },
+    {
+      "a": "argentina_chile",
+      "b": "pakistan",
+      "score": 0.832
+    },
+    {
+      "a": "philippines",
+      "b": "vietnam_thai_my",
+      "score": 0.824
+    },
+    {
+      "a": "australia_nz",
+      "b": "usa",
+      "score": 0.823
+    },
+    {
+      "a": "iraq",
+      "b": "south_africa",
+      "score": 0.818
+    },
+    {
+      "a": "argentina_chile",
+      "b": "wire_services",
+      "score": 0.808
+    },
+    {
+      "a": "india",
+      "b": "south_africa",
+      "score": 0.806
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.804
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.802
+    },
+    {
+      "a": "south_africa",
+      "b": "wire_services",
+      "score": 0.795
+    },
+    {
+      "a": "argentina_chile",
+      "b": "usa",
+      "score": 0.793
+    },
+    {
+      "a": "africa_other",
+      "b": "pakistan",
+      "score": 0.79
+    },
+    {
+      "a": "argentina_chile",
+      "b": "india",
+      "score": 0.788
+    },
+    {
+      "a": "canada",
+      "b": "south_africa",
+      "score": 0.787
+    },
+    {
+      "a": "argentina_chile",
+      "b": "australia_nz",
+      "score": 0.786
+    },
+    {
+      "a": "argentina_chile",
+      "b": "iran_state",
+      "score": 0.779
+    },
+    {
+      "a": "philippines",
+      "b": "wire_services",
+      "score": 0.778
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.777
+    },
+    {
+      "a": "argentina_chile",
+      "b": "iraq",
+      "score": 0.767
+    },
+    {
+      "a": "pakistan",
+      "b": "south_africa",
+      "score": 0.765
+    },
+    {
+      "a": "south_africa",
+      "b": "vietnam_thai_my",
+      "score": 0.765
+    },
+    {
+      "a": "africa_other",
+      "b": "iraq",
+      "score": 0.76
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.759
+    },
+    {
+      "a": "canada",
+      "b": "qatar",
+      "score": 0.757
+    },
+    {
+      "a": "africa_other",
+      "b": "wire_services",
+      "score": 0.755
+    },
+    {
+      "a": "kenya",
+      "b": "wire_services",
+      "score": 0.753
+    },
+    {
+      "a": "pakistan",
+      "b": "philippines",
+      "score": 0.753
+    },
+    {
+      "a": "africa_other",
+      "b": "south_africa",
+      "score": 0.752
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.752
+    },
+    {
+      "a": "africa_other",
+      "b": "india",
+      "score": 0.75
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.749
+    },
+    {
+      "a": "iraq",
+      "b": "vietnam_thai_my",
+      "score": 0.742
+    },
+    {
+      "a": "india",
+      "b": "philippines",
+      "score": 0.74
+    },
+    {
+      "a": "iran_state",
+      "b": "usa",
+      "score": 0.74
+    },
+    {
+      "a": "argentina_chile",
+      "b": "south_africa",
+      "score": 0.737
+    },
+    {
+      "a": "argentina_chile",
+      "b": "vietnam_thai_my",
+      "score": 0.736
+    },
+    {
+      "a": "argentina_chile",
+      "b": "qatar",
+      "score": 0.734
+    },
+    {
+      "a": "iran_state",
+      "b": "qatar",
+      "score": 0.717
+    },
+    {
+      "a": "germany",
+      "b": "iran_state",
+      "score": 0.716
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.715
+    },
+    {
+      "a": "argentina_chile",
+      "b": "canada",
+      "score": 0.71
+    },
+    {
+      "a": "australia_nz",
+      "b": "china",
+      "score": 0.71
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.71
+    },
+    {
+      "a": "iran_state",
+      "b": "pakistan",
+      "score": 0.71
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.71
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.707
+    },
+    {
+      "a": "argentina_chile",
+      "b": "kenya",
+      "score": 0.706
+    },
+    {
+      "a": "australia_nz",
+      "b": "kenya",
+      "score": 0.706
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.706
+    },
+    {
+      "a": "qatar",
+      "b": "south_africa",
+      "score": 0.703
+    },
+    {
+      "a": "kenya",
+      "b": "qatar",
+      "score": 0.701
+    },
+    {
+      "a": "iraq",
+      "b": "philippines",
+      "score": 0.695
+    },
+    {
+      "a": "australia_nz",
+      "b": "wire_services",
+      "score": 0.693
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.692
+    },
+    {
+      "a": "africa_other",
+      "b": "vietnam_thai_my",
+      "score": 0.69
+    },
+    {
+      "a": "australia_nz",
+      "b": "iran_state",
+      "score": 0.688
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.688
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.683
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.683
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.682
+    },
+    {
+      "a": "africa_other",
+      "b": "argentina_chile",
+      "score": 0.68
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.68
+    },
+    {
+      "a": "kenya",
+      "b": "pakistan",
+      "score": 0.676
+    },
+    {
+      "a": "philippines",
+      "b": "south_africa",
+      "score": 0.673
+    },
+    {
+      "a": "africa_other",
+      "b": "qatar",
+      "score": 0.671
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.664
+    },
+    {
+      "a": "canada",
+      "b": "iraq",
+      "score": 0.66
+    },
+    {
+      "a": "australia_nz",
+      "b": "pakistan",
+      "score": 0.659
+    },
+    {
+      "a": "africa_other",
+      "b": "usa",
+      "score": 0.658
+    },
+    {
+      "a": "africa_other",
+      "b": "canada",
+      "score": 0.656
+    },
+    {
+      "a": "australia_nz",
+      "b": "qatar",
+      "score": 0.655
+    },
+    {
+      "a": "australia_nz",
+      "b": "germany",
+      "score": 0.652
+    },
+    {
+      "a": "australia_nz",
+      "b": "vietnam_thai_my",
+      "score": 0.649
+    },
+    {
+      "a": "argentina_chile",
+      "b": "germany",
+      "score": 0.647
+    },
+    {
+      "a": "kenya",
+      "b": "south_africa",
+      "score": 0.644
+    },
+    {
+      "a": "india",
+      "b": "iran_state",
+      "score": 0.643
+    },
+    {
+      "a": "philippines",
+      "b": "qatar",
+      "score": 0.64
+    },
+    {
+      "a": "africa_other",
+      "b": "kenya",
+      "score": 0.638
+    },
+    {
+      "a": "argentina_chile",
+      "b": "china",
+      "score": 0.638
+    },
+    {
+      "a": "iran_state",
+      "b": "wire_services",
+      "score": 0.635
+    },
+    {
+      "a": "africa_other",
+      "b": "australia_nz",
+      "score": 0.631
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.631
+    },
+    {
+      "a": "argentina_chile",
+      "b": "philippines",
+      "score": 0.627
+    },
+    {
+      "a": "australia_nz",
+      "b": "canada",
+      "score": 0.626
+    },
+    {
+      "a": "canada",
+      "b": "philippines",
+      "score": 0.626
+    },
+    {
+      "a": "iraq",
+      "b": "kenya",
+      "score": 0.624
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.622
+    },
+    {
+      "a": "iraq",
+      "b": "qatar",
+      "score": 0.622
+    },
+    {
+      "a": "africa_other",
+      "b": "philippines",
+      "score": 0.618
+    },
+    {
+      "a": "iran_state",
+      "b": "kenya",
+      "score": 0.616
+    },
+    {
+      "a": "australia_nz",
+      "b": "india",
+      "score": 0.612
+    },
+    {
+      "a": "africa_other",
+      "b": "iran_state",
+      "score": 0.61
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.61
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.609
+    },
+    {
+      "a": "south_africa",
+      "b": "usa",
+      "score": 0.604
+    },
+    {
+      "a": "australia_nz",
+      "b": "south_africa",
+      "score": 0.602
+    },
+    {
+      "a": "iran_state",
+      "b": "vietnam_thai_my",
+      "score": 0.601
+    },
+    {
+      "a": "kenya",
+      "b": "philippines",
+      "score": 0.597
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.594
+    },
+    {
+      "a": "iraq",
+      "b": "usa",
+      "score": 0.592
+    },
+    {
+      "a": "australia_nz",
+      "b": "philippines",
+      "score": 0.59
+    },
+    {
+      "a": "australia_nz",
+      "b": "iraq",
+      "score": 0.578
+    },
+    {
+      "a": "iran_state",
+      "b": "south_africa",
+      "score": 0.576
+    },
+    {
+      "a": "canada",
+      "b": "iran_state",
+      "score": 0.572
+    },
+    {
+      "a": "iran_state",
+      "b": "iraq",
+      "score": 0.568
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.557
+    },
+    {
+      "a": "china",
+      "b": "wire_services",
+      "score": 0.555
+    },
+    {
+      "a": "iran_state",
+      "b": "philippines",
+      "score": 0.547
+    },
+    {
+      "a": "china",
+      "b": "pakistan",
+      "score": 0.541
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.541
+    },
+    {
+      "a": "africa_other",
+      "b": "germany",
+      "score": 0.54
+    },
+    {
+      "a": "philippines",
+      "b": "usa",
+      "score": 0.532
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.527
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.518
+    },
+    {
+      "a": "china",
+      "b": "iran_state",
+      "score": 0.51
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.5
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.494
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.489
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.484
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.481
+    },
+    {
+      "a": "china",
+      "b": "qatar",
+      "score": 0.464
+    },
+    {
+      "a": "china",
+      "b": "iraq",
+      "score": 0.462
+    },
+    {
+      "a": "germany",
+      "b": "south_africa",
+      "score": 0.462
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.46
+    },
+    {
+      "a": "africa_other",
+      "b": "china",
+      "score": 0.457
+    },
+    {
+      "a": "china",
+      "b": "south_africa",
+      "score": 0.418
+    },
+    {
+      "a": "germany",
+      "b": "philippines",
+      "score": 0.403
+    },
+    {
+      "a": "germany",
+      "b": "iraq",
+      "score": 0.398
+    },
+    {
+      "a": "china",
+      "b": "philippines",
+      "score": 0.391
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.627,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.639,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.663,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.666,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.666,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.677,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.681,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.682,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.706,
+      "n_tokens": 133
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.717,
+      "n_tokens": 131
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.736,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.742,
+      "n_tokens": 146
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.75,
+      "n_tokens": 139
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.526,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.543,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.676,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.678,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "australia_nz": [
+      {
+        "term": "hate",
+        "count": 4
+      }
+    ],
+    "india": [
+      {
+        "term": "stun",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "show",
+        "count": 3
+      },
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "qatar": [],
+    "vietnam_thai_my": [],
+    "pakistan": [
+      {
+        "term": "eyes",
+        "count": 3
+      },
+      {
+        "term": "storm",
+        "count": 3
+      }
+    ],
+    "argentina_chile": [
+      {
+        "term": "battl",
+        "count": 3
+      },
+      {
+        "term": "pitch",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "china": [
+      {
+        "term": "long",
+        "count": 3
+      }
+    ],
+    "south_africa": [],
+    "germany": [],
+    "iran_state": [
+      {
+        "term": "predicted",
+        "count": 3
+      },
+      {
+        "term": "lineup",
+        "count": 3
+      }
+    ],
+    "philippines": [
+      {
+        "term": "gutted",
+        "count": 3
+      }
+    ],
+    "iraq": [
+      {
+        "term": "magic",
+        "count": 3
+      },
+      {
+        "term": "fall",
+        "count": 3
+      },
+      {
+        "term": "short",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "rival",
+        "count": 3
+      }
+    ],
+    "africa_other": [
+      {
+        "term": "fightback",
+        "count": 3
+      }
+    ],
+    "kenya": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-16T09:54:26+00:00",
+  "meta_version": "10.0.3"
+}

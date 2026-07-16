@@ -1,0 +1,369 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 12,
+  "buckets": [
+    "egypt",
+    "india",
+    "iraq",
+    "italy",
+    "pakistan",
+    "taiwan_hk",
+    "uk",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "italy": 10,
+    "usa": 53,
+    "pakistan": 32,
+    "egypt": 55,
+    "india": 53,
+    "iraq": 31,
+    "wire_services": 21,
+    "taiwan_hk": 55,
+    "vietnam_thai_my": 20,
+    "uk": 89
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.918
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.911
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.891
+    },
+    {
+      "a": "iraq",
+      "b": "wire_services",
+      "score": 0.888
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.871
+    },
+    {
+      "a": "iraq",
+      "b": "pakistan",
+      "score": 0.867
+    },
+    {
+      "a": "egypt",
+      "b": "uk",
+      "score": 0.859
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.859
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.855
+    },
+    {
+      "a": "egypt",
+      "b": "pakistan",
+      "score": 0.848
+    },
+    {
+      "a": "egypt",
+      "b": "iraq",
+      "score": 0.844
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.843
+    },
+    {
+      "a": "iraq",
+      "b": "uk",
+      "score": 0.831
+    },
+    {
+      "a": "india",
+      "b": "iraq",
+      "score": 0.828
+    },
+    {
+      "a": "egypt",
+      "b": "taiwan_hk",
+      "score": 0.815
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.815
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.814
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.814
+    },
+    {
+      "a": "egypt",
+      "b": "usa",
+      "score": 0.812
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.804
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.798
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.794
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.787
+    },
+    {
+      "a": "egypt",
+      "b": "india",
+      "score": 0.786
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.786
+    },
+    {
+      "a": "iraq",
+      "b": "taiwan_hk",
+      "score": 0.783
+    },
+    {
+      "a": "iraq",
+      "b": "usa",
+      "score": 0.779
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.765
+    },
+    {
+      "a": "iraq",
+      "b": "vietnam_thai_my",
+      "score": 0.764
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.764
+    },
+    {
+      "a": "egypt",
+      "b": "wire_services",
+      "score": 0.763
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.755
+    },
+    {
+      "a": "iraq",
+      "b": "italy",
+      "score": 0.751
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.751
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.74
+    },
+    {
+      "a": "italy",
+      "b": "pakistan",
+      "score": 0.737
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.711
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.707
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.703
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.696
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.688
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.68
+    },
+    {
+      "a": "egypt",
+      "b": "italy",
+      "score": 0.668
+    },
+    {
+      "a": "egypt",
+      "b": "vietnam_thai_my",
+      "score": 0.654
+    },
+    {
+      "a": "italy",
+      "b": "taiwan_hk",
+      "score": 0.654
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.769,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.773,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.783,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.815,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.823,
+      "n_tokens": 89
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.828,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.835,
+      "n_tokens": 32
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.718,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.744,
+      "n_tokens": 20
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.789,
+      "n_tokens": 21
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "italy": [],
+    "usa": [],
+    "pakistan": [
+      {
+        "term": "slap",
+        "count": 3
+      },
+      {
+        "term": "tension",
+        "count": 3
+      },
+      {
+        "term": "escalate",
+        "count": 3
+      }
+    ],
+    "egypt": [
+      {
+        "term": "announc",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "iraq": [
+      {
+        "term": "unveil",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "launch",
+        "count": 3
+      },
+      {
+        "term": "round",
+        "count": 3
+      },
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "vietnam_thai_my": [],
+    "uk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-16T09:54:51+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,141 @@
+{
+  "date": "2026-07-16",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 414,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 42,
+      "n_tokens_in_cohort": 396,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 408,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 416,
+      "distinctive_terms": []
+    },
+    "south_korea": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 38,
+      "n_tokens_in_cohort": 400,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 415,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 42,
+      "n_tokens_in_cohort": 396,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 417,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 70,
+      "n_tokens_in_cohort": 368,
+      "distinctive_terms": [
+        {
+          "term": "investigation",
+          "count_in_bucket": 5,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.07143,
+          "rate_in_cohort": 0.00272,
+          "llr": 13.565,
+          "log_ratio": 3.269,
+          "p_value": 0.00023
+        }
+      ]
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 403,
+      "distinctive_terms": []
+    },
+    "nordic": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 378,
+      "distinctive_terms": [
+        {
+          "term": "lawmaker",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.0,
+          "llr": 24.393,
+          "log_ratio": null,
+          "p_value": 1e-06
+        },
+        {
+          "term": "featur",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.0,
+          "llr": 24.393,
+          "log_ratio": null,
+          "p_value": 1e-06
+        },
+        {
+          "term": "addictive",
+          "count_in_bucket": 6,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.00265,
+          "llr": 18.919,
+          "log_ratio": 3.632,
+          "p_value": 1.4e-05
+        }
+      ]
+    },
+    "nigeria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 407,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
