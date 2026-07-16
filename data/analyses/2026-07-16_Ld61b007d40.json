@@ -1,0 +1,192 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "Ld61b007d40",
+  "cluster_id": 106,
+  "cluster_name": "Ontario wildfires push Toronto to world's worst air quality",
+  "salience_score": 3.582,
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 13,
+  "event_summary": "Smoke from 148 active wildfires in northwestern Ontario blanketed Toronto on July 15–16, 2026, giving the city the worst air quality of any major city globally. Environment Canada issued health warnings as smoke drifted south, triggering alerts across the northeastern United States.",
+  "tldr": "The most striking editorial divergence is the Daily Wire's headline — '100 Million Americans Could Soon Face Smoky Skies Thanks To Canada' — which frames a cross-border environmental emergency as Canadian negligence, a stance absent from every other outlet in the cluster. Across all other outlets, the dominant treatment is a health-and-safety emergency: Environment Canada warnings, cooling centres, cancelled outdoor children's programs, and Toronto's medical officer comparing wildfire smoke to passive smoking. Al Jazeera uniquely contextualizes Toronto's ranking against Kinshasa (DR Congo) and New Delhi (India), placing a Canadian city's crisis in a global-south air quality reference frame that no Western outlet adopted. One corpus item (France Info, index 5) is a probable clustering artifact: France's public broadcaster covered the Fontainebleau forest fire in France rather than the Ontario crisis, pulled in by shared wildfire semantics.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "wildfire smoke as public health emergency",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "Al Jazeera English",
+        "Hindustan Times",
+        "Le Monde",
+        "National Post",
+        "The Guardian World",
+        "The Independent"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "qatar",
+        "india",
+        "france",
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Howard Shapiro, Toronto's Associate Medical Officer of Health, compared exposure to the smoke to passive smoking, warning that the fine particles contain a mixture of harmful chemicals capable of affecting anyone, regardless of age or underlying health.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Environment Canada has issued health warnings after sky over city turns yellow",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Residents have been warned to stay indoors to avoid both the smoke and the extreme heat",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "orange skies and disruption to daily routines",
+      "outlets": [
+        "AfricaNews",
+        "Al Jazeera English",
+        "Le Monde",
+        "N1 Serbia English",
+        "The Independent"
+      ],
+      "countries": [
+        "pan_african",
+        "qatar",
+        "france",
+        "balkans",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Despite the poor conditions, some residents continued to spend time outdoors, while others wore face masks as the smoke drifted across the city. The deteriorating air quality coincided with a heat alert, with temperatures reaching 33C, close to the record for 15 July. Authorities cancelled outdoor children's programmes and opened cooling centres",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Wildfire smoke turned skies orange over Toronto and the rest of Ontario.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "148 wildfires active with 69 uncontrolled",
+      "outlets": [
+        "AfricaNews",
+        "Le Devoir",
+        "National Post",
+        "The Guardian World"
+      ],
+      "countries": [
+        "pan_african",
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "The smoke originated from 148 active wildfires burning across northwestern Ontario, where firefighters continue to battle multiple large blazes.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "Plusieurs communautés ont été évacuées. Ce sont 69 feux qui ne sont pas maîtrisés.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "cross-border smoke spread and implied Canadian culpability",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Daily Wire",
+        "Hindustan Times"
+      ],
+      "countries": [
+        "wire_services",
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "100 Million Americans Could Soon Face Smoky Skies Thanks To Canada",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Canadian wildfire smoke pushes Toronto air quality to world's worst, reaches US",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Thick Canadian wildfire smoke has turned skies yellow over Boston and the Northeast, prompting Massachusetts to issue an air quality alert through Thursday.",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Only outlet to imply Canadian culpability via '100 Million Americans Could Soon Face Smoky Skies Thanks To Canada'; all other outlets treat the event as a shared environmental or health emergency.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Uniquely anchors Toronto's ranking against Kinshasa (DR Congo) and New Delhi (India), framing a North American crisis through a global-south lens on chronic air quality inequality.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "France Info",
+      "country": "france",
+      "finding": "Covers the Fontainebleau forest fire in France ('le combat contre les flammes continue') rather than the Ontario wildfire crisis — a likely clustering artifact on shared wildfire semantics, not Ontario coverage.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Provides the cluster's richest detail (body text): compound heat alert at 33°C, Toronto medical officer comparing smoke to passive smoking, and a specific count of 148 active fires — context absent from every summary-only outlet.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Le Devoir",
+      "country": "canada",
+      "finding": "French-language Quebec coverage foregrounds firefighting capacity — 69 fires uncontrolled, communities evacuated — rather than the air quality spectacle dominating English-language outlets.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Ontario wildfires gave Toronto the worst air quality of any major city on Earth on July 15–16, 2026, a fact reported with near-uniform factual convergence across 12 outlets in 9 countries. The sole meaningful editorial divergence is the Daily Wire framing 100 million Americans as victims of Canadian negligence — the only outlet in the cluster to cast a cross-border climate emergency as bilateral blame rather than shared disaster.",
+  "generated_at": "2026-07-16T07:40:00Z",
+  "model": "claude-sonnet-4-6"
+}
