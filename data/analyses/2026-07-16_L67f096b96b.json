@@ -1,0 +1,250 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-16",
+  "lineage_id": "L67f096b96b",
+  "cluster_id": 120,
+  "cluster_name": "UK launches TikTok probe and teen overnight social media curfew",
+  "salience_score": 7.286,
+  "n_outlets": 17,
+  "n_countries": 14,
+  "n_articles": 17,
+  "event_summary": "UK regulator Ofcom opened a formal investigation into TikTok's age verification on July 16, 2026, while the UK government proposed a voluntary overnight social media curfew for 16- and 17-year-olds. An EU expert panel separately recommended restricting children under 13 from social media platforms.",
+  "tldr": "The most striking editorial fact in this corpus is that China's state broadcaster CGTN covers the UK's Ofcom investigation into TikTok — a Chinese company — without any defense or counter-framing, treating it as routine news alongside Western outlets. Seventeen outlets across 14 country buckets treat child social media access as a straightforward governance problem requiring regulation, with near-zero dissent across ideological or geopolitical lines. The sole outlier is Sixth Tone, which cites a Chinese university report questioning whether bans alone protect children — a minority empirical challenge in an otherwise consensus-heavy corpus. Coverage reveals two simultaneous UK actions (the Ofcom TikTok probe and a voluntary overnight curfew for 16-17 year-olds) that most outlets conflate into a single crackdown, with only Globe and Mail and Malay Mail noting the curfew's opt-out provision. The EU expert panel's call for a platform-level youth mode (The Local Germany/Sweden) represents the emerging regulatory frontier beyond access bans: mandating changes to addictive product design itself.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "child social media age-gating",
+      "outlets": [
+        "Al Jazeera English",
+        "CGTN World",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "KBS World",
+        "Malay Mail World",
+        "Republic World (alt)",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "Standard Kenya World",
+        "The Guardian World",
+        "The Punch",
+        "BFM TV"
+      ],
+      "countries": [
+        "qatar",
+        "china",
+        "germany",
+        "canada",
+        "south_korea",
+        "vietnam_thai_my",
+        "india",
+        "wire_services",
+        "uk",
+        "kenya",
+        "nigeria",
+        "france"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Latest government measure aimed at curbing digital harm comes after under-16 social media ban announced last month.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "An expert panel has recommended limiting access to social media for young children across the EU. The European Commission is expected to present a proposal for legislation on the issue in the coming months.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "The government is looking to restrict subcription to YouTube and other social media platforms for users under the age of 14 to prevent excessive youth social media use.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "child harm from self-harm and addictive content",
+      "outlets": [
+        "The Guardian World",
+        "Politico Europe",
+        "The Local Germany",
+        "The Local Sweden",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "uk",
+        "opinion_magazines",
+        "nordic",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "TikTok is under formal investigation over concerns it has failed to protect children from harmful content",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Politico Europe",
+          "country": "opinion_magazines",
+          "quote": "The online safety watchdog is worried about TikTok's use of \"age inference\" to guess users' ages.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "There should be a \"youth mode\" for children on social media platforms in which addictive features and targeted advertising are turned off, EU lawmakers demanded on Tuesday.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "platform compliance with child safety law",
+      "outlets": [
+        "BFM TV",
+        "Politico Europe",
+        "The Guardian World",
+        "The Punch",
+        "Sky News UK",
+        "Reuters (via Google News)"
+      ],
+      "countries": [
+        "france",
+        "opinion_magazines",
+        "uk",
+        "nigeria",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "BFM TV",
+          "country": "france",
+          "quote": "L'Ofcom, régulateur britannique des médias et télécommunications, a ouvert une enquête afin de déterminer si Tiktok respecte ou non ses obligations légales en matière de protection des enfants face aux contenus nuisibles.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "UK regulator to probe TikTok on child safety measures",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "cross-border child social media ban wave",
+      "outlets": [
+        "Republic World (alt)",
+        "Standard Kenya World",
+        "Sixth Tone"
+      ],
+      "countries": [
+        "india",
+        "kenya",
+        "china"
+      ],
+      "evidence": [
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Australia, UK, Turkey, Indonesia and others have passed bans on kids under 16 or 15 from using platforms like TikTok, YouTube and Instagram.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Greece, France and Spain led a push last year for limiting minors' access to social media, with pressure intensifying on the EU executive to establish a bloc-wide ban like Australia did in December.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "ban efficacy and technical enforcement limits",
+      "outlets": [
+        "Sixth Tone",
+        "The Local Germany",
+        "The Local Sweden",
+        "Politico Europe"
+      ],
+      "countries": [
+        "china",
+        "nordic",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Sixth Tone",
+          "country": "china",
+          "quote": "A recent Chinese university report assesses their efficacy.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "There should be a \"youth mode\" for children on social media platforms in which addictive features and targeted advertising are turned off, EU lawmakers demanded on Tuesday.",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "australia",
+      "what_they_covered_instead": "Australia's nationwide under-16 social media ban is repeatedly cited by other outlets as the global policy model, yet no Australian outlet appears in this cluster — suggesting domestic coverage focused on implementation of their own law rather than the UK/EU wave following their lead."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Sixth Tone",
+      "country": "china",
+      "finding": "Only outlet in the corpus to challenge the regulatory consensus: cites a Chinese university report suggesting bans alone do not protect minors without supporting parental guidance and media literacy education.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "China's flagship state broadcaster covers the UK's Ofcom investigation of TikTok — a Chinese-owned platform — neutrally and without editorial defense, treating Western regulatory action as routine news.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Reports South Korea's own parallel action: the government briefed President Lee Jae Myung on plans to restrict YouTube and social media subscriptions for users under 14, showing the policy wave extends to East Asia independently.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Provides the broadest cross-country map of the policy wave — explicitly naming Australia, UK, Turkey, Indonesia, and the EU — contextualising the UK actions as one node in a global cascade rather than a standalone event.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "One of only two outlets to surface the opt-out provision in the UK curfew; the headline signals a gap most other outlets leave unstated, potentially overstating the policy's binding force.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "Focuses specifically on TikTok's use of age inference — algorithmic age estimation — as the technical mechanism under scrutiny, a precision absent from headline-level coverage.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Local Germany",
+      "country": "nordic",
+      "finding": "EU lawmakers' call for a mandatory youth mode that disables addictive features and targeted advertising represents a regulatory expansion beyond age-gating — received with no pushback in either Nordic-market The Local edition.",
+      "signal_text_idx": 14
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Across 14 country buckets and both sides of the US-China divide, child social media regulation is framed as a settled governance question requiring only implementation details, not justification. The UK's simultaneous TikTok investigation and voluntary teen overnight curfew triggered the widest international resonance, with the lone empirical pushback coming from a Chinese academic source embedded in an otherwise approving corpus.",
+  "generated_at": "2026-07-16T10:05:43Z",
+  "model": "claude-sonnet-4-6"
+}
