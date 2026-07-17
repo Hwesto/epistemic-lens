@@ -1,0 +1,272 @@
+{
+  "story_key": "Lcef8ba5518",
+  "date": "2026-07-17",
+  "n_buckets": 17,
+  "n_articles": 27,
+  "tldr": "Headlines across all 17 outlet groups almost uniformly present Trump's new DHS rule as a concrete policy action — capping foreign student visas at four years and journalist stays at 240 days (90 for Chinese nationals). A secondary thread, concentrated in Russian and Southeast Asian coverage, foregrounds China's threat of retaliatory countermeasures rather than the US policy itself.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Visa duration caps imposed by DHS",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pakistan",
+        "japan",
+        "vietnam_thai_my",
+        "turkey",
+        "brazil",
+        "state_tv_intl",
+        "canada",
+        "iran_opposition",
+        "philippines",
+        "taiwan_hk",
+        "germany",
+        "india",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Trump tightens US visa rules, limits stay",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Les États-Unis vont limiter la durée des visas",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "US to tighten visa regulations for foreign students",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Asahi Shimbun",
+          "quote": "米トランプ政権、留学生や報道ビザの滞在期間短縮",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Bangkok Post",
+          "quote": "US to tighten visa regulations for foreign students",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US to tighten visa regulations for journalists",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "EUA vão reduzir tempo de permanência de estudantes",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Arabic",
+          "quote": "واشنطن تتجه لتقييد تأشيرات الصحافيين الأجانب",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump administration to tighten visa regulations",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International FA",
+          "quote": "دولت آمریکا مدت اعتبار ویزای خبرنگاران",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Rappler",
+          "quote": "Trump tightens US visa rules for foreign students",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "US to toughen up visa regulations for Chinese",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Sueddeutsche Zeitung",
+          "quote": "USA schränken Aufenthaltszeit für Studierende",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "U.S. tightens visa regulations for international students",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Trump administration moves to change regulations",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Named-population impact on students",
+      "buckets": [
+        "south_korea",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Affecting More Than 13,000 S. Koreans",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "What It Means for 3.3 Lakh Indian Students",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "Tougher U.S. student visa rule to affect over 13,000",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China threatens countermeasures",
+      "buckets": [
+        "russia",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "China warns of countermeasures after US tightens",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "China ready to take countermeasures in case of US",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Chinese journalists face shorter cap",
+      "buckets": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Chinese reporters cut to 90 days",
+          "signal_text_idx": 23
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.558,
+      "n_tokens": 118
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.696,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.703,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.705,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.719,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.724,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.728,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.734,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.757,
+      "n_tokens": 97
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.762,
+      "n_tokens": 90
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.789,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.794,
+      "n_tokens": 107
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.81,
+      "n_tokens": 368
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Russia's state wire ignores the US policy announcement entirely in its headline, framing the story solely through China's retaliatory posture — a perspective absent from every other bucket."
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "bucket": "india",
+      "finding": "Only outlet to quantify domestic impact explicitly in the headline ('3.3 Lakh Indian Students'), shifting from policy description to personal stakes."
+    }
+  ],
+  "bottom_line": "The headline layer presents a near-unanimous policy-tightening frame — Trump's DHS imposing fixed visa caps on students and journalists — with South Korean and Indian outlets adding a domestic-impact sub-layer and Russian/SEA coverage pivoting to China's threatened countermeasures.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
