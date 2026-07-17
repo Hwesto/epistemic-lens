@@ -1,0 +1,129 @@
+{
+  "story_key": "L660118f878",
+  "date": "2026-07-17",
+  "n_buckets": 8,
+  "n_articles": 20,
+  "tldr": "Headlines across all eight outlet groups uniformly foreground the human cost of mutual strikes — missile barrages on Kyiv, Sumy, and Odesa; Ukrainian drones hitting Russia; single-day death counts of 2–13 — while a secondary thread from Foreign Policy and Kyiv Post surfaces Russia's Black Sea targeting and Ukraine's shadow-fleet campaign as a distinct economic-warfare narrative invisible in every other outlet's headline.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Mutual strikes, death counts, escalation",
+      "buckets": ["wire_services", "pan_african", "turkey", "ukraine", "russia", "kenya", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "10 injured in overnight Russian missile and drone strikes",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ukraine: Six dead as Russia targets Sumy and Odesa",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "At least 4 killed, 7 wounded when Ukraine drone strikes hit Russia",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "2 Killed, 6 Wounded After Russian Ballistic Missiles Strike Kyiv",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Russian forces launch 853 strikes on Zaporizhzhia region",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Russia strikes Kyiv for the second time in a week",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "At Least 3 Killed in Ukrainian Attacks Across Russia",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Russia launches deadly barrage on Kyiv region",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Russian and Ukrainian attacks kill at least 13",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Black Sea ports, shadow fleet, sanctions war",
+      "buckets": ["opinion_magazines", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Russia Shifts Its Focus to the Black Sea",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Ukraine Says It Hit 159 Russian Shadow Fleet Vessels in 12 Days",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "wire_services", "mean_similarity": 0.645, "n_tokens": 50},
+    {"bucket": "kenya", "mean_similarity": 0.664, "n_tokens": 33},
+    {"bucket": "pan_african", "mean_similarity": 0.685, "n_tokens": 54},
+    {"bucket": "turkey", "mean_similarity": 0.703, "n_tokens": 53},
+    {"bucket": "russia", "mean_similarity": 0.705, "n_tokens": 182},
+    {"bucket": "ukraine", "mean_similarity": 0.713, "n_tokens": 444}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "Only headline to frame the war through a strategic-economic lens — Russia targeting Black Sea trade routes — vs every other outlet's casualty-count register.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Only outlet to headline Ukraine's offensive against the Russian shadow fleet as a named 12-day campaign, making sanctions-evasion logistics the advertised story rather than civilian strikes.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Only headline to embed Russia's Kyiv barrage in the NATO summit context ('on eve of NATO summit'), adding a diplomatic-timing signal invisible in all other outlets' casualty-focused headlines.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to describe strikes on Kyiv and Odessa as targeting 'drone industry' and port infrastructure per MOD language, framing the attacks as military-industrial rather than residential/civilian.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "At the headline layer, the Russia-Ukraine war story is almost entirely a bilateral casualty ledger — how many killed, in which city, by which weapon — with Foreign Policy and Kyiv Post alone widening the register to an economic war over Black Sea shipping lanes and Russian sanctions-evading fleet operations.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
