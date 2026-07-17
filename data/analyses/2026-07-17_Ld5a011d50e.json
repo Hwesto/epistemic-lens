@@ -1,0 +1,163 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "Ld5a011d50e",
+  "cluster_id": 105,
+  "cluster_name": "Cyclospora outbreak linked to Taylor Farms lettuce at Taco Bell",
+  "salience_score": 3.184,
+  "n_outlets": 10,
+  "n_countries": 8,
+  "n_articles": 13,
+  "event_summary": "A US cyclosporiasis outbreak that began May 1 spread across 34 states; investigators identified Taylor Farms shredded iceberg lettuce supplied to Taco Bell as the likely source, prompting Taco Bell to remove the ingredient indefinitely and the FDA to open an investigation.",
+  "tldr": "Taco Bell's global brand recognition drove international pickup of a domestic US food-safety crisis that carries no cross-border disease risk. Spanish-language outlets in Mexico and Colombia led with 'diarrea explosiva' in headlines, foregrounding consumer alarm over the supply-chain or regulatory angles dominant in English coverage. The Globe and Mail's full-body extract surfaces a detail absent from most international items: the CDC has established a 'likely link' across Michigan, Ohio, West Virginia, and Kentucky, pointing to a single-source contamination event at the supplier level. India sent two outlets (Hindustan Times, Times of India) to cover the story—unusual depth from a country with no domestic exposure—further confirming that Taco Bell brand recognition, not public health proximity, determines newsworthiness globally.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "parasitic food contamination outbreak",
+      "outlets": ["BBC World", "El Financiero", "Globe and Mail", "Hindustan Times", "Reuters (via Google News)", "Straits Times", "The Hill", "The Independent", "Times of India"],
+      "countries": ["uk", "mexico", "canada", "india", "wire_services", "vietnam_thai_my", "usa"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Taco Bell removes lettuce from menu in US after links to explosive diarrhoea\n\nLettuce from one supplier is being removed indefinitely \"out of an abundance of caution\", the company says.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "The outbreak, which began on May 1, has been concentrated in Michigan, with Ohio and New York also reporting a large number of infections. Michigan health officials on Thursday reported 4,312 cases of the parasitic illness.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Taco Bell lettuce linked to cyclospora outbreak in US; over 4300 cases reported\n\nMichigan has reported the largest number of cases overall, with more than 4,300 illnesses and 102 hospitalizations.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "FDA investigation and precautionary lettuce removal",
+      "outlets": ["The Hill", "Reuters (via Google News)", "Straits Times", "Globe and Mail"],
+      "countries": ["usa", "wire_services", "vietnam_thai_my", "canada"],
+      "evidence": [
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "Taco Bell removing lettuce from some stores amid cyclosporiasis scare\n\nTaco Bell announced on Thursday that it would remove lettuce from some of its stores following reports that the Food and Drug Administration (FDA) has opened an investigation into iceberg lettuce supplied to the fast-food chain as a possible source of the cyclosporiasis outbreak in the U.S. “Based on ongoing conversations with public health officials,...",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "US authority to warn of Taco Bell lettuce in 5 states over parasite\n\nThe cyclospora parasite has sickened thousands of people in 34 states.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Taco Bell to stop using lettuce identified with cyclosporiasis outbreak - Reuters\n\nTaco Bell to stop using lettuce identified with cyclosporiasis outbreak Reuters",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "corporate brand and supply chain liability",
+      "outlets": ["El Financiero", "Hindustan Times", "Globe and Mail"],
+      "countries": ["mexico", "india", "canada"],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Taylor Farms: All about the Taco Bell lettuce supplier linked to US cyclosporiasis outbreak",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Yum Brands and Taylor Farms did not immediately respond to Reuters requests for comment.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "EU investiga un brote de Cyclospora vinculado con lechuga servida en Taco Bell. Los casos por ciclosporiasis ya alcanzan 34 estados.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "outbreak geographic scale across 34 states",
+      "outlets": ["El Financiero", "Straits Times", "Globe and Mail", "El Tiempo Colombia"],
+      "countries": ["mexico", "vietnam_thai_my", "canada", "colombia_ven_peru"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "The U.S. Centers for Disease Control and Prevention said this week it had identified a likely link among cases reported in Michigan, Ohio, West Virginia and Kentucky, suggesting many of the infections may stem from a common source, according to the report.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "US authority to warn of Taco Bell lettuce in 5 states over parasite\n\nThe cyclospora parasite has sickened thousands of people in 34 states.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "EU investiga un brote de Cyclospora vinculado con lechuga servida en Taco Bell. Los casos por ciclosporiasis ya alcanzan 34 estados.",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to report the CDC's finding of a 'likely link' among cases in Michigan, Ohio, West Virginia, and Kentucky—implying a single-source contamination event rather than distributed exposure across the 34 affected states.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only outlet to profile Taylor Farms as a corporate entity, identifying it as one of the largest fresh-cut vegetable producers in the US, headquartered in Salinas, California.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Hill",
+      "country": "usa",
+      "finding": "Only US-domestic outlet in the corpus; provides the only direct attribution of Taco Bell's public response to the FDA investigation opening, quoting corporate language about 'ongoing conversations with public health officials'.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Ran two separate pieces—one on the FDA preparing to warn consumers in 5 states, one on Taco Bell halting lettuce use—tracking the regulatory and corporate tracks independently rather than combining them as most outlets did.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "El Tiempo Colombia",
+      "country": "colombia_ven_peru",
+      "finding": "Cited 1,645 CDC-confirmed cases alongside 5,100+ cases under investigation as of May 1—figures not present in any other corpus item—suggesting access to an earlier investigative dataset preceding the Michigan surge.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Framed the story around the lettuce supplier rather than Taco Bell, headlining 'major fast food and grocery lettuce supplier'—the only outlet to foreground that Taylor Farms supplies grocery retail as well as fast food.",
+      "signal_text_idx": 11
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A US food-safety crisis involving a parasitic outbreak across 34 states received international coverage driven by Taco Bell's brand recognition rather than any cross-border public health risk. The key unreported fact—that the CDC has established a likely common source linking four Midwestern states, pointing to a single contamination event—appeared in only one outlet's full-body extract, while most international headlines led with symptom-shock language.",
+  "generated_at": "2026-07-17T10:19:20Z",
+  "model": "claude-sonnet-4-6"
+}
