@@ -1,0 +1,174 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "Lc0533118f9",
+  "cluster_id": 68,
+  "cluster_name": "Italian court convicts 32 over 2018 Genoa Morandi bridge collapse",
+  "salience_score": 3.429,
+  "n_outlets": 11,
+  "n_countries": 7,
+  "n_articles": 14,
+  "n_buckets": 7,
+  "tldr": "The headline layer presents near-unanimous crime-and-punishment framing: nine of twelve on-topic titles announce convictions and prison sentences, with 'sentenced,' 'jailed,' and 'condena' dominating across five languages. The Daily Mail uniquely foregrounds structural neglect ('not been fixed in 50 YEARS') in sensationalist all-caps, while Tagesschau is the only outlet whose headline surfaces victim ambivalence ('Gemischte Gefühle') rather than verdict outcomes alone.",
+  "event_summary": "On 16 July 2026, an Italian court in Genoa convicted 32 people and sentenced former Autostrade per l'Italia CEO Giovanni Castellucci to 12 years in prison over the 2018 collapse of the Morandi motorway bridge, which killed 43.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "executives jailed for bridge disaster",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Al Jazeera English",
+        "BBC World",
+        "Daily Mail",
+        "Deutsche Welle English",
+        "Folha de São Paulo",
+        "Sky News UK",
+        "Tagesschau",
+        "The Guardian World"
+      ],
+      "countries": [
+        "france",
+        "qatar",
+        "uk",
+        "germany",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Italian officials handed jail terms",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Top-Manager zu zwölf Jahren Haft verurteilt",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "condena ex-CEO a 12 anos de prisão",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "prison ferme pour trente-deux accusés",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "50 years of deferred bridge maintenance",
+      "outlets": [
+        "Daily Mail"
+      ],
+      "countries": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "had not been fixed in 50 YEARS, court hears",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "long-overdue corporate apology",
+      "outlets": [
+        "ANSA English"
+      ],
+      "countries": [
+        "italy"
+      ],
+      "evidence": [
+        {
+          "outlet": "ANSA English",
+          "country": "italy",
+          "quote": "Highways company ASPI finally apologizes",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "victims' mixed reaction to verdict",
+      "outlets": [
+        "Tagesschau"
+      ],
+      "countries": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Gemischte Gefühle nach Urteil gegen Top-Manager",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.563,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.592,
+      "n_tokens": 50
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "taiwan_hk",
+      "what_they_covered_instead": "The sole Taipei Times headline ('Ex-Penghu council speaker receives final 7.5-year term for graft') is an unrelated Taiwan domestic corruption case caught by sentencing-vocabulary overlap; no headline from this bucket addresses the Genoa disaster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "The only headline to foreground structural neglect rather than judicial outcome: 'had not been fixed in 50 YEARS' (all-caps in original) places blame on chronic maintenance failure rather than individual culpability — a framing absent from all international wire and broadcaster headlines.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "'Gemischte Gefühle nach Urteil gegen Top-Manager' (mixed feelings after verdict) is the only headline in the corpus to surface victim ambivalence at the homepage layer; every other outlet presents the verdict as an unambiguous outcome.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "The word 'finally' in 'Highways company ASPI finally apologizes' signals delayed moral reckoning — a contrition framing unique to the Italian wire service, absent from all international headlines that focus on punishment rather than acknowledgment.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Noise headline within cluster: 'Jeweler convicted by top court of killing robbers' — an unrelated Italian Supreme Court ruling captured by sentencing-vocabulary overlap, not about the Genoa disaster.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Taipei Times",
+      "country": "taiwan_hk",
+      "finding": "Noise headline within cluster: 'Ex-Penghu council speaker receives final 7.5-year term for graft' — a Taiwanese domestic corruption case unrelated to Genoa, captured by surface-level court-sentencing vocabulary.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The headline layer reduces eight years of legal proceedings and 43 deaths to a single dominant signal — executives sentenced — with cross-language consensus from France, Germany, Brazil, Qatar, and the UK; the only headline-layer differentiation is the Daily Mail's sensationalist '50 YEARS' structural-neglect framing and Tagesschau's uniquely empathetic 'mixed feelings' title.",
+  "generated_at": "2026-07-17T11:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
