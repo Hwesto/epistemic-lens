@@ -1,0 +1,255 @@
+{
+  "story_key": "L639f387385",
+  "date": "2026-07-17",
+  "n_buckets": 17,
+  "n_articles": 42,
+  "tldr": "Headlines across 17 countries frame Zelensky's dismissal of Defense Minister Fedorov as a wartime political crisis that sparked rare street protests; Russian-sourced titles add a distinctive counter-register, openly framing the ouster as strategic relief for Moscow.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "wartime cabinet reshuffle / power crisis",
+      "buckets": [
+        "wire_services",
+        "pan_african",
+        "asia_pacific_regional",
+        "uk",
+        "canada",
+        "turkey",
+        "usa",
+        "germany",
+        "brazil",
+        "opinion_magazines",
+        "state_tv_intl",
+        "japan",
+        "ukraine",
+        "france",
+        "russia",
+        "iran_opposition",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "of Ukraine's defence chief sparks political crisis",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Ukraine lawmakers approve Koretskyi as new PM amid protests",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Ukraine Edges Toward Political Crisis",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "Zelensky assume d'ouvrir une crise politique",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "rare wartime street protests",
+      "buckets": [
+        "pan_african",
+        "uk",
+        "canada",
+        "usa",
+        "germany",
+        "brazil",
+        "opinion_magazines",
+        "state_tv_intl",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Kyiv protesters rally after Zelenskyy sacks defence minister",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Dismissal Of Defense Minister Sparks Fury In Ukraine",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Evening protests against DM Fedorov's dismissal",
+          "signal_text_idx": 40
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "military leadership split; drones",
+      "buckets": [
+        "wire_services",
+        "usa",
+        "russia",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Bitter row splits Ukraine's military leadership",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Zelenskyy fires Ukraine's tech-savvy defense minister",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "dismissal exposes split in Ukraine's military leadership",
+          "signal_text_idx": 30
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russian bloggers celebrate dismissal",
+      "buckets": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "'Things Should Get Easier Now': Russian Military Bloggers",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Z-bloggers celebrate after Zelensky fires the defense",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.711,
+      "n_tokens": 231
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.718,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.719,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.724,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.727,
+      "n_tokens": 80
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.743,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.746,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.773,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.798,
+      "n_tokens": 102
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.803,
+      "n_tokens": 126
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.808,
+      "n_tokens": 132
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.811,
+      "n_tokens": 534
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.818,
+      "n_tokens": 79
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.822,
+      "n_tokens": 415
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.825,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.826,
+      "n_tokens": 112
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only headline to name Fedorov's specific military-strategic accomplishments (Starlink cutoff, drone surge) in the title itself, giving global audiences an immediate cue about what Ukraine may have lost before reading any body text.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Moscow Times",
+      "country": "russia",
+      "finding": "Only headline to frame the dismissal as a strategic windfall for Russia through Russian military-blogger voices, inserting adversarial celebration into the headline layer rather than reporting Ukrainian internal politics.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Only outlet to embed a Ukrainian first-person exclamation ('What A Nightmare') in the headline itself, signalling editorially charged public fury rather than neutrally reported protest.",
+      "signal_text_idx": 27
+    }
+  ],
+  "bottom_line": "At the headline layer coverage splits cleanly into a political-crisis register and a protest register, with Russian-sourced titles uniquely inserting a third register—open celebration—signalling to global audiences that Moscow considers Fedorov's removal a strategic gain before any article body is read.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
