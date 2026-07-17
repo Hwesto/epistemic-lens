@@ -1,0 +1,125 @@
+{
+  "story_key": "Lcb8485c688",
+  "date": "2026-07-17",
+  "n_buckets": 13,
+  "n_articles": 16,
+  "tldr": "Headlines across all 13 outlet groups uniformly frame this as a White House insider-trading scandal: a staffer with advance access to Trump's speech text placed prediction-market bets and was suspended or fired. Dollar amounts ($90k–$100k+) serve as the primary scandal-scale anchor, while Spanish and Portuguese outlets and Reuters foreground the regulatory-investigation dimension (CFTC probe, insider trading, información privilegiada).",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Insider speech-bets, suspended/investigated",
+      "buckets": ["usa", "uk", "germany", "mexico", "spain", "colombia_ven_peru", "brazil", "state_tv_intl", "canada", "india", "wire_services", "taiwan_hk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "investigated over alleged trades on Trump speeches",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "accused of making $100k from Trump speech bets",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Trumps Teleprompter-Mann wettete auf Präsidenten-Reden",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "apostaba sobre sus discursos y ganaba; ya fue destituido",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "acusado de apostar ilegalmente en Kalshi",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "Suspenden a funcionario de la Casa Blanca por hacer apuestas",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "investigado por suspeita de usar informação privilegiada",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "suspendido por apostar con información anticipada",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "inside knowledge to win more than $100,000 betting",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "placed on unpaid leave for betting on his speeches",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "under CFTC probe over potential insider trading",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "allegedly made US$90,000 betting on his speeches",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "suspended over betting allegations: White House",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.707, "n_tokens": 47},
+    {"bucket": "mexico", "mean_similarity": 0.728, "n_tokens": 31},
+    {"bucket": "usa", "mean_similarity": 0.73, "n_tokens": 113},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.731, "n_tokens": 58},
+    {"bucket": "colombia_ven_peru", "mean_similarity": 0.743, "n_tokens": 37},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.743, "n_tokens": 53},
+    {"bucket": "uk", "mean_similarity": 0.75, "n_tokens": 53},
+    {"bucket": "india", "mean_similarity": 0.771, "n_tokens": 56},
+    {"bucket": "spain", "mean_similarity": 0.773, "n_tokens": 32}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only headline to lead with an identity hook — 'Who is Gabriel Perez?' — framing the story as a profile of the individual rather than the act or the regulatory consequence.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Reuters (via Google News)",
+      "country": "wire_services",
+      "finding": "Only headline to name the specific regulator (CFTC) and label the alleged act as 'insider trading', shifting emphasis from the betting spectacle to the securities-law violation.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "At the headline layer, the teleprompter story is a uniform scandal-and-punishment narrative — a White House insider exploited speech access for prediction-market gain and was suspended — with the dollar amounts ($90k–$100k) as the universal hook and only Reuters adding regulatory specificity via the CFTC/insider-trading frame.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
