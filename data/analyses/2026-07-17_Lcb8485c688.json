@@ -1,0 +1,181 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "Lcb8485c688",
+  "cluster_id": 103,
+  "cluster_name": "White House teleprompter operator bet on Trump speeches via Kalshi",
+  "salience_score": 6.367,
+  "n_outlets": 16,
+  "n_countries": 13,
+  "n_articles": 16,
+  "event_summary": "Gabriel Perez, a White House teleprompter operator, was suspended after allegedly placing bets on prediction market Kalshi using advance access to President Trump's speech texts, netting approximately $90,000–$100,000. The CFTC is investigating potential insider trading.",
+  "tldr": "The most striking aspect is the speed and breadth of international pickup: 16 outlets across 13 countries and four languages covered what is essentially a mid-level White House staffing scandal within 24 hours, suggesting the story's novelty — a prediction market as a vector for political insider trading — drove global interest independent of anti-Trump editorial appetite. Bild, Germany's largest populist-right tabloid, and Spain's centre-left El País adopted nearly identical factual framing, a rare convergence across the editorial spectrum. The CFTC probe represents a landmark test of insider-trading law applied to prediction markets, raising regulatory questions that extend well beyond this individual case. A notable factual discrepancy runs through the corpus: El Tiempo Colombia reports gains of 'more than $10,000' while every other outlet reports $90,000–$100,000, pointing to a likely translation or sub-editing error in the Latin American feed. The detection mechanism, described in most detail by France 24 Spanish, reveals Kalshi itself flagged the systematic post-speech winning pattern — meaning platform self-policing, not independent regulatory surveillance, prompted the federal referral.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "political insider trading via prediction market",
+      "outlets": [
+        "Axios World", "BBC World", "Bild", "El Financiero", "El Pais",
+        "El Tiempo Colombia", "Folha de São Paulo", "France 24 Spanish",
+        "Globe and Mail", "Hindustan Times", "India Today",
+        "Reuters (via Google News)", "South China Morning Post",
+        "Straits Times", "The Hill", "The Independent"
+      ],
+      "countries": [
+        "usa", "uk", "germany", "mexico", "spain", "colombia_ven_peru",
+        "brazil", "state_tv_intl", "canada", "india", "wire_services",
+        "taiwan_hk", "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Federal regulators are investigating whether a White House teleprompter operator capitalized on his knowledge of President Trump's prepared speech text by making trades on the prediction market Kalshi, according to two sources familiar with the matter.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Gabriel Pérez apostaba sobre los temas o las palabras que mencionaría el presidente de Estados Unidos, Donald Trump, durante sus intervenciones públicas. Una plataforma de apuestas detectó una actividad sospechosa al notar que Pérez ganaba de forma sistemática después de cada discurso del mandatario. Al investigar, las autoridades descubrieron que su trabajo era operar el teleprompter de Trump, por lo que tenía acceso anticipado a los discursos que el presidente iba a leer.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Trump's teleprompter operator under CFTC probe over potential insider trading",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "CFTC jurisdiction over prediction market insider trading",
+      "outlets": ["Axios World", "Reuters (via Google News)", "Globe and Mail", "The Hill"],
+      "countries": ["usa", "wire_services", "canada"],
+      "evidence": [
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Trump's teleprompter operator under CFTC probe over potential insider trading Reuters",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The rise of prediction markets has raised concerns about insider trading, which Kalshi and federal regulators say they're well positioned to co",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Prediction market Kalshi contacted federal regulators about bets allegedly made about what the president would say in public addresses",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "White House scandal and presidential response",
+      "outlets": ["South China Morning Post", "El Financiero", "El Pais", "The Independent"],
+      "countries": ["taiwan_hk", "mexico", "spain", "uk"],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "White House Press Secretary Karoline Leavitt said the teleprompter operator was put on unpaid administrative leave on the orders of the president. Leavitt later added that he would no longer be working at the White House.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "La Casa Blanca informó que una nueva persona manejará el teleprónter del presidente Trump, que dará un discurso hoy mismo, luego del incidente de apuestas.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "prediction market regulation and insider trading gaps",
+      "outlets": ["Axios World", "Globe and Mail"],
+      "countries": ["usa", "canada"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The rise of prediction markets has raised concerns about insider trading, which Kalshi and federal regulators say they're well positioned to co",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "financial gains from politically privileged access",
+      "outlets": ["BBC World", "Straits Times", "Hindustan Times", "Folha de São Paulo"],
+      "countries": ["uk", "vietnam_thai_my", "india", "brazil"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "A White House staffer has been accused of using inside knowledge of speeches to make nearly $100,000 on Kalshi.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Gabriel Perez allegedly made more than US$100,000 (S$130,000) predicting words or phrases in Trump's speeches.",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "El Tiempo Colombia",
+      "country": "colombia_ven_peru",
+      "finding": "Reports the gain as 'more than $10,000' — a tenfold understatement vs the $90,000–$100,000 reported by all other outlets; likely a translation or sub-editing error at the Spanish-language feed.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Provides the only detailed account of Kalshi's detection method: the platform noticed Perez won systematically after every Trump speech and then referred the matter to authorities.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Uniquely quotes Trump's personal reaction — 'deeply unfortunate and frankly disgrace' — adding a presidential voice that other outlets omit or report only via the press secretary.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Reuters (via Google News)",
+      "country": "wire_services",
+      "finding": "Only outlet to name the CFTC (Commodity Futures Trading Commission) specifically as the investigating body, clarifying regulatory jurisdiction for downstream reporting.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Notes operational continuity: the White House arranged a new teleprompter operator in time for a Trump speech scheduled the same day as the suspension, signalling swift institutional response.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "First outlet to name and contextualise the operator as 'Gabriel Perez' and describe him as a 'longa data' (longtime) Trump aide, giving Portuguese-language readers a personal anchor for the scandal.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Reports the final White House statement that Perez 'would no longer be working at the White House' — upgrading the story from 'administrative leave' to confirmed permanent dismissal.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A White House teleprompter operator exploited advance access to presidential speech texts to earn up to $100,000 on prediction market Kalshi, drawing a CFTC probe that marks the first major insider-trading investigation of a politically-connected prediction market user. The story achieved unusually broad international pickup across 16 outlets in 13 countries, driven by the genuine legal novelty of applying insider-trading law to prediction markets rather than by partisan appetite.",
+  "generated_at": "2026-07-17T10:15:20Z",
+  "model": "claude-sonnet-4-6"
+}
