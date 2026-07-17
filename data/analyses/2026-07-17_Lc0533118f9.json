@@ -1,0 +1,173 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "Lc0533118f9",
+  "cluster_id": 68,
+  "cluster_name": "Italian court convicts 32 over 2018 Genoa Morandi bridge collapse",
+  "n_outlets": 11,
+  "n_countries": 7,
+  "n_articles": 16,
+  "salience_score": 3.429,
+  "event_summary": "On 16 July 2026, an Italian court in Genoa convicted 32 people and sentenced former Autostrade per l'Italia CEO Giovanni Castellucci to 12 years in prison over the 2018 collapse of the Morandi motorway bridge, which killed 43.",
+  "tldr": "The conviction of 32 defendants — including the most senior corporate executive to face an Italian infrastructure-failure verdict — drew near-uniform framing across Germany, the UK, France, Brazil, and Qatar as straightforward criminal punishment for corporate negligence, with no outlet diverging on tone or angle despite widely varying editorial leanings. The most distinctive single-outlet finding is the Daily Mail's surfacing of a court detail that the bridge went unrepaired for 50 years, a systemic-failure angle absent from all other coverage. ANSA English was alone in reporting that highways operator ASPI issued a pre-verdict corporate apology — 'The actions and choices of some left indelible wounds' — a contrition angle every other international outlet ignored. Germany's Tagesschau was the only outlet to capture victim ambivalence, noting that affected people 'see the verdict with mixed feelings,' adding an emotional layer stripped from prosecution-focused coverage elsewhere. The cluster also caught two off-topic sentencing articles (an Italian jeweler conviction and a Taiwanese graft case), reflecting minor HDBSCAN noise where surface-level court-sentencing vocabulary pulled in unrelated items.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "corporate executive jailed for infrastructure neglect",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Al Jazeera English",
+        "BBC World",
+        "Deutsche Welle English",
+        "Folha de São Paulo",
+        "Sky News UK",
+        "Tagesschau",
+        "The Guardian World"
+      ],
+      "countries": ["france", "uk", "germany", "brazil", "qatar"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The ex-head of Italy's motorway operator Giovanni Castellucci was handed a 12-year term over the 2018 bridge collapse.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The court found the former Italian highway CEO guilty of neglecting maintenance despite prior warnings and sentenced him to 12 years in prison.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "O ex-CEO de uma operadora de rodovias italiana foi condenado a 12 anos de prisão por um tribunal italiano nesta quinta-feira (16) por falhas que contribuíram para o desabamento de uma importante ponte em Gênova em 2018, que matou 43 pessoas.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "le tribunal de Gênes a reconnu coupables et a condamné jeudi à de la prison ferme 32 accusés pour leur rôle dans l'effondrement du pont Morandi en 2018",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "eight-year judicial process reaches verdict",
+      "outlets": ["AFP / France 24 FR", "BBC World", "The Guardian World"],
+      "countries": ["france", "uk"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Après quatre ans de procès et 283 audiences au tribunal de Gênes en Italie",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "More than 50 defendants have been on trial in Italy over the 2018 bridge collapse which killed 43 people.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "decades of deferred bridge maintenance",
+      "outlets": ["Daily Mail", "Deutsche Welle English"],
+      "countries": ["uk", "germany"],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Italian bridge that collapsed killing 43 in 2018 had not been fixed in 50 YEARS, court hears as motorway boss is jailed and dozens more convicted",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The court found the former Italian highway CEO guilty of neglecting maintenance despite prior warnings and sentenced him to 12 years in prison.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "corporate apology for indelible harm",
+      "outlets": ["ANSA English"],
+      "countries": ["italy"],
+      "evidence": [
+        {
+          "outlet": "ANSA English",
+          "country": "italy",
+          "quote": "The actions and choices of some left indelible wounds says CEO Arrigo Giana",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "victims' ambivalent response to verdict",
+      "outlets": ["Tagesschau"],
+      "countries": ["germany"],
+      "evidence": [
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Betroffene sehen das Urteil mit gemischten Gefühlen.",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears in the corpus; US feeds on this date focused on domestic political and economic news, leaving a major European infrastructure-accountability verdict — 43 dead, 32 convicted, senior executive jailed — without American coverage in this cluster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Highways company ASPI issued a formal pre-verdict apology; CEO Arrigo Giana stated 'The actions and choices of some left indelible wounds' — the only corporate-contrition reporting in the cluster.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Uniquely surfaced the court finding that the Morandi bridge had gone unrepaired for 50 years — a systemic-failure detail no other outlet foregrounded.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "Only outlet to report victim and survivor ambivalence: 'Betroffene sehen das Urteil mit gemischten Gefühlen' (affected people see the verdict with mixed feelings), adding a human-impact layer absent from prosecution-focused coverage elsewhere.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Alone in quantifying trial duration: four years and 283 hearings — foregrounding the procedural weight of the case rather than just the verdict outcome.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Noise article within cluster: 'Jeweler convicted by top court of killing robbers' (Mario Roggero sentenced to 14 years and 9 months) — an unrelated Italian Supreme Court ruling caught by the sentencing-vocabulary cluster signal.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Taipei Times",
+      "country": "taiwan_hk",
+      "finding": "Noise article within cluster: 'Ex-Penghu council speaker receives final 7.5-year term for graft' — a Taiwanese domestic corruption case unrelated to Genoa, captured by surface-level court-sentencing vocabulary overlap.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The Genoa Morandi bridge verdict — 32 convictions, former CEO Castellucci jailed for 12 years — generated rare cross-bloc consensus in international coverage: outlets from public broadcasters to tabloids, across five languages and seven countries, converged on the same crime-and-punishment frame with no angle divergence. The only editorially differentiated reporting came from single outlets: ANSA's coverage of ASPI's corporate apology, the Daily Mail's 50-year maintenance gap, and Tagesschau's victim-ambivalence angle — all details the international pack missed.",
+  "generated_at": "2026-07-17T10:13:26Z",
+  "model": "claude-sonnet-4-6"
+}
