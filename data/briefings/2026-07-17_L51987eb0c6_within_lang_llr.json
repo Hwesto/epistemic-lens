@@ -1,0 +1,107 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 645,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 66,
+      "n_tokens_in_cohort": 634,
+      "distinctive_terms": [
+        {
+          "term": "sole",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.09091,
+          "rate_in_cohort": 0.0,
+          "llr": 28.848,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "candidate",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.09091,
+          "rate_in_cohort": 0.0,
+          "llr": 28.848,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 94,
+      "n_tokens_in_cohort": 606,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 358,
+      "n_tokens_in_cohort": 342,
+      "distinctive_terms": [
+        {
+          "term": "starmer",
+          "count_in_bucket": 10,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02793,
+          "rate_in_cohort": 0.0,
+          "llr": 13.549,
+          "log_ratio": null,
+          "p_value": 0.000232
+        }
+      ]
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 673,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 74,
+      "n_tokens_in_cohort": 626,
+      "distinctive_terms": [
+        {
+          "term": "become",
+          "count_in_bucket": 8,
+          "count_in_cohort": 13,
+          "rate_in_bucket": 0.10811,
+          "rate_in_cohort": 0.02077,
+          "llr": 11.48,
+          "log_ratio": 1.65,
+          "p_value": 0.000703
+        }
+      ]
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 674,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

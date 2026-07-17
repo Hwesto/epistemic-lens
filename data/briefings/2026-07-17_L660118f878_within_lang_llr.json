@@ -1,0 +1,126 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 790,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 54,
+      "n_tokens_in_cohort": 786,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 787,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 444,
+      "n_tokens_in_cohort": 396,
+      "distinctive_terms": [
+        {
+          "term": "vessel",
+          "count_in_bucket": 9,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02027,
+          "rate_in_cohort": 0.0,
+          "llr": 11.563,
+          "log_ratio": null,
+          "p_value": 0.000673
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 182,
+      "n_tokens_in_cohort": 658,
+      "distinctive_terms": [
+        {
+          "term": "bodi",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03846,
+          "rate_in_cohort": 0.0,
+          "llr": 21.626,
+          "log_ratio": null,
+          "p_value": 3e-06
+        },
+        {
+          "term": "soldier",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03846,
+          "rate_in_cohort": 0.0,
+          "llr": 21.626,
+          "log_ratio": null,
+          "p_value": 3e-06
+        },
+        {
+          "term": "exchange",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03297,
+          "rate_in_cohort": 0.0,
+          "llr": 18.51,
+          "log_ratio": null,
+          "p_value": 1.7e-05
+        },
+        {
+          "term": "port",
+          "count_in_bucket": 7,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03846,
+          "rate_in_cohort": 0.00304,
+          "llr": 13.036,
+          "log_ratio": 2.538,
+          "p_value": 0.000306
+        },
+        {
+          "term": "ukrainian",
+          "count_in_bucket": 10,
+          "count_in_cohort": 6,
+          "rate_in_bucket": 0.05495,
+          "rate_in_cohort": 0.00912,
+          "llr": 12.656,
+          "log_ratio": 1.796,
+          "p_value": 0.000374
+        }
+      ]
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 807,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 816,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

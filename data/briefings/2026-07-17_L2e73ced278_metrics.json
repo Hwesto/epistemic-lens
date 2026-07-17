@@ -1,0 +1,325 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 20,
+  "buckets": [
+    "brazil",
+    "canada",
+    "china",
+    "india",
+    "spain",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 424,
+    "canada": 79,
+    "china": 94,
+    "spain": 239,
+    "brazil": 58,
+    "india": 300,
+    "vietnam_thai_my": 29,
+    "uk": 20
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.814
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.778
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.776
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.763
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.734
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.709
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.699
+    },
+    {
+      "a": "india",
+      "b": "spain",
+      "score": 0.69
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.683
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.661
+    },
+    {
+      "a": "canada",
+      "b": "spain",
+      "score": 0.642
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.626
+    },
+    {
+      "a": "brazil",
+      "b": "spain",
+      "score": 0.603
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.597
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.595
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.574
+    },
+    {
+      "a": "brazil",
+      "b": "china",
+      "score": 0.564
+    },
+    {
+      "a": "china",
+      "b": "spain",
+      "score": 0.556
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.551
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.543
+    },
+    {
+      "a": "spain",
+      "b": "vietnam_thai_my",
+      "score": 0.528
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.506
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.471
+    },
+    {
+      "a": "spain",
+      "b": "uk",
+      "score": 0.436
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.412
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.379
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.337
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.548,
+      "n_tokens": 94
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.605,
+      "n_tokens": 239
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.615,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.659,
+      "n_tokens": 300
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.685,
+      "n_tokens": 79
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.695,
+      "n_tokens": 424
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.483,
+      "n_tokens": 20
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.576,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "race",
+        "count": 6
+      },
+      {
+        "term": "platner",
+        "count": 5
+      },
+      {
+        "term": "deadly",
+        "count": 4
+      }
+    ],
+    "canada": [],
+    "china": [
+      {
+        "term": "shoot",
+        "count": 3
+      }
+    ],
+    "spain": [
+      {
+        "term": "city",
+        "count": 8
+      },
+      {
+        "term": "saco",
+        "count": 4
+      },
+      {
+        "term": "tragedy",
+        "count": 3
+      },
+      {
+        "term": "community",
+        "count": 3
+      },
+      {
+        "term": "mourning",
+        "count": 3
+      },
+      {
+        "term": "street",
+        "count": 3
+      },
+      {
+        "term": "pool",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "trânsito",
+        "count": 3
+      },
+      {
+        "term": "após",
+        "count": 3
+      },
+      {
+        "term": "dois",
+        "count": 3
+      },
+      {
+        "term": "imigrant",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "identified",
+        "count": 5
+      },
+      {
+        "term": "alleged",
+        "count": 5
+      },
+      {
+        "term": "need",
+        "count": 4
+      },
+      {
+        "term": "mental",
+        "count": 4
+      },
+      {
+        "term": "ashley",
+        "count": 4
+      },
+      {
+        "term": "troubled",
+        "count": 3
+      },
+      {
+        "term": "past",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "uk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-17T09:53:02+00:00",
+  "meta_version": "10.0.3"
+}

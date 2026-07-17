@@ -1,0 +1,353 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 19,
+  "buckets": [
+    "china",
+    "germany",
+    "india",
+    "kenya",
+    "opinion_magazines",
+    "pakistan",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pakistan": 55,
+    "china": 66,
+    "vietnam_thai_my": 94,
+    "uk": 358,
+    "usa": 27,
+    "india": 74,
+    "opinion_magazines": 105,
+    "kenya": 26,
+    "germany": 38
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.91
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.908
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.89
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.862
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.836
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.835
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.828
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.826
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.825
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.822
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.82
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.817
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.815
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.81
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.804
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.799
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.783
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.782
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.782
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pakistan",
+      "score": 0.771
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.769
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.768
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.764
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.761
+    },
+    {
+      "a": "china",
+      "b": "pakistan",
+      "score": 0.754
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.744
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.732
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.73
+    },
+    {
+      "a": "kenya",
+      "b": "uk",
+      "score": 0.72
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.719
+    },
+    {
+      "a": "kenya",
+      "b": "pakistan",
+      "score": 0.713
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.71
+    },
+    {
+      "a": "china",
+      "b": "opinion_magazines",
+      "score": 0.709
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.672
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.661
+    },
+    {
+      "a": "kenya",
+      "b": "opinion_magazines",
+      "score": 0.614
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.757,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.759,
+      "n_tokens": 105
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.777,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.787,
+      "n_tokens": 358
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.811,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.825,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.829,
+      "n_tokens": 94
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.693,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.78,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pakistan": [],
+    "china": [
+      {
+        "term": "sole",
+        "count": 6
+      },
+      {
+        "term": "candidate",
+        "count": 6
+      },
+      {
+        "term": "emerg",
+        "count": 4
+      }
+    ],
+    "vietnam_thai_my": [],
+    "uk": [
+      {
+        "term": "expected",
+        "count": 4
+      },
+      {
+        "term": "cabinet",
+        "count": 4
+      },
+      {
+        "term": "first",
+        "count": 4
+      },
+      {
+        "term": "crowned",
+        "count": 3
+      },
+      {
+        "term": "make",
+        "count": 3
+      },
+      {
+        "term": "train",
+        "count": 3
+      },
+      {
+        "term": "kyiv",
+        "count": 3
+      },
+      {
+        "term": "ukrainian",
+        "count": 3
+      },
+      {
+        "term": "rotheram",
+        "count": 3
+      },
+      {
+        "term": "guide",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "critic",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "return",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "kenya": [],
+    "germany": [
+      {
+        "term": "wird",
+        "count": 3
+      },
+      {
+        "term": "chef",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-17T09:53:06+00:00",
+  "meta_version": "10.0.3"
+}

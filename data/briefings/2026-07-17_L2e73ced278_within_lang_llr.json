@@ -1,0 +1,137 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 424,
+      "n_tokens_in_cohort": 761,
+      "distinctive_terms": [
+        {
+          "term": "race",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01415,
+          "rate_in_cohort": 0.0,
+          "llr": 12.388,
+          "log_ratio": null,
+          "p_value": 0.000432
+        }
+      ]
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 79,
+      "n_tokens_in_cohort": 1106,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 94,
+      "n_tokens_in_cohort": 1091,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 239,
+      "n_tokens_in_cohort": 946,
+      "distinctive_terms": [
+        {
+          "term": "city",
+          "count_in_bucket": 8,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03347,
+          "rate_in_cohort": 0.0,
+          "llr": 25.833,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "biddeford",
+          "count_in_bucket": 8,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03347,
+          "rate_in_cohort": 0.00211,
+          "llr": 16.7,
+          "log_ratio": 2.762,
+          "p_value": 4.4e-05
+        }
+      ]
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 300,
+      "n_tokens_in_cohort": 885,
+      "distinctive_terms": [
+        {
+          "term": "brouillette",
+          "count_in_bucket": 17,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.05667,
+          "rate_in_cohort": 0.00113,
+          "llr": 40.274,
+          "log_ratio": 3.915,
+          "p_value": 0.0
+        },
+        {
+          "term": "david",
+          "count_in_bucket": 9,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.03,
+          "rate_in_cohort": 0.00113,
+          "llr": 18.998,
+          "log_ratio": 3.279,
+          "p_value": 1.3e-05
+        },
+        {
+          "term": "identified",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01667,
+          "rate_in_cohort": 0.0,
+          "llr": 13.8,
+          "log_ratio": null,
+          "p_value": 0.000203
+        },
+        {
+          "term": "alleged",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01667,
+          "rate_in_cohort": 0.0,
+          "llr": 13.8,
+          "log_ratio": null,
+          "p_value": 0.000203
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 1156,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 20,
+      "n_tokens_in_cohort": 1165,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

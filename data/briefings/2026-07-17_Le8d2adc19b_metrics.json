@@ -1,0 +1,401 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 13,
+  "buckets": [
+    "brazil",
+    "france",
+    "india",
+    "italy",
+    "japan",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "usa",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 50,
+    "france": 119,
+    "italy": 23,
+    "turkey": 24,
+    "uk": 25,
+    "brazil": 39,
+    "india": 63,
+    "usa": 225,
+    "japan": 18,
+    "taiwan_hk": 63
+  },
+  "pairwise_similarity": [
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.883
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.874
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.837
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.819
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.819
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.814
+    },
+    {
+      "a": "france",
+      "b": "taiwan_hk",
+      "score": 0.808
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.8
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.799
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.79
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.786
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.785
+    },
+    {
+      "a": "brazil",
+      "b": "france",
+      "score": 0.779
+    },
+    {
+      "a": "brazil",
+      "b": "italy",
+      "score": 0.768
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.765
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.765
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.76
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.751
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.75
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.742
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.739
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.727
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.725
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.719
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.718
+    },
+    {
+      "a": "france",
+      "b": "japan",
+      "score": 0.714
+    },
+    {
+      "a": "italy",
+      "b": "taiwan_hk",
+      "score": 0.701
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.698
+    },
+    {
+      "a": "italy",
+      "b": "japan",
+      "score": 0.682
+    },
+    {
+      "a": "italy",
+      "b": "turkey",
+      "score": 0.678
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.677
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.674
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.673
+    },
+    {
+      "a": "japan",
+      "b": "uk",
+      "score": 0.667
+    },
+    {
+      "a": "brazil",
+      "b": "japan",
+      "score": 0.655
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.641
+    },
+    {
+      "a": "japan",
+      "b": "taiwan_hk",
+      "score": 0.628
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.626
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.619
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.613
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.603
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.552
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.548
+    },
+    {
+      "a": "japan",
+      "b": "turkey",
+      "score": 0.542
+    },
+    {
+      "a": "japan",
+      "b": "usa",
+      "score": 0.542
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.672,
+      "n_tokens": 225
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.686,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.718,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.764,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.77,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.787,
+      "n_tokens": 119
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.636,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.674,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.713,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.747,
+      "n_tokens": 25
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "france": [
+      {
+        "term": "impériale",
+        "count": 10
+      },
+      {
+        "term": "japon",
+        "count": 6
+      },
+      {
+        "term": "adopte",
+        "count": 4
+      },
+      {
+        "term": "réforme",
+        "count": 4
+      },
+      {
+        "term": "femm",
+        "count": 4
+      },
+      {
+        "term": "idée",
+        "count": 4
+      },
+      {
+        "term": "toujour",
+        "count": 4
+      },
+      {
+        "term": "exclue",
+        "count": 4
+      }
+    ],
+    "italy": [],
+    "turkey": [],
+    "uk": [],
+    "brazil": [
+      {
+        "term": "sucessão",
+        "count": 3
+      },
+      {
+        "term": "imperatriz",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "open",
+        "count": 3
+      },
+      {
+        "term": "door",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "japanese",
+        "count": 4
+      },
+      {
+        "term": "future",
+        "count": 3
+      },
+      {
+        "term": "noboru",
+        "count": 3
+      },
+      {
+        "term": "princes",
+        "count": 3
+      }
+    ],
+    "japan": [],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-17T09:54:03+00:00",
+  "meta_version": "10.0.3"
+}

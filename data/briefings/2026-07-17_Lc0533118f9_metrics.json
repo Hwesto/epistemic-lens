@@ -1,0 +1,305 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 14,
+  "buckets": [
+    "brazil",
+    "france",
+    "germany",
+    "italy",
+    "qatar",
+    "taiwan_hk",
+    "uk"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "france": 50,
+    "italy": 41,
+    "qatar": 22,
+    "uk": 159,
+    "germany": 108,
+    "brazil": 40,
+    "taiwan_hk": 14
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.88
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.868
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.864
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.809
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.776
+    },
+    {
+      "a": "brazil",
+      "b": "qatar",
+      "score": 0.768
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.743
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.728
+    },
+    {
+      "a": "brazil",
+      "b": "france",
+      "score": 0.721
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.673
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.626
+    },
+    {
+      "a": "brazil",
+      "b": "italy",
+      "score": 0.607
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.571
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.531
+    },
+    {
+      "a": "italy",
+      "b": "qatar",
+      "score": 0.529
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.375
+    },
+    {
+      "a": "italy",
+      "b": "taiwan_hk",
+      "score": 0.375
+    },
+    {
+      "a": "qatar",
+      "b": "taiwan_hk",
+      "score": 0.351
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.297
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.291
+    },
+    {
+      "a": "france",
+      "b": "taiwan_hk",
+      "score": 0.192
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.563,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.592,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.686,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.704,
+      "n_tokens": 159
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.716,
+      "n_tokens": 108
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.313,
+      "n_tokens": 14
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.616,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "france": [
+      {
+        "term": "gêne",
+        "count": 4
+      },
+      {
+        "term": "italie",
+        "count": 3
+      },
+      {
+        "term": "ferme",
+        "count": 3
+      },
+      {
+        "term": "pour",
+        "count": 3
+      },
+      {
+        "term": "accusé",
+        "count": 3
+      },
+      {
+        "term": "dans",
+        "count": 3
+      },
+      {
+        "term": "procè",
+        "count": 3
+      }
+    ],
+    "italy": [],
+    "qatar": [],
+    "uk": [
+      {
+        "term": "boss",
+        "count": 7
+      },
+      {
+        "term": "tragedy",
+        "count": 4
+      },
+      {
+        "term": "handed",
+        "count": 3
+      },
+      {
+        "term": "giovanni",
+        "count": 3
+      },
+      {
+        "term": "castellucci",
+        "count": 3
+      },
+      {
+        "term": "trial",
+        "count": 3
+      },
+      {
+        "term": "collapsed",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "genua",
+        "count": 6
+      },
+      {
+        "term": "manager",
+        "count": 4
+      },
+      {
+        "term": "jahren",
+        "count": 4
+      },
+      {
+        "term": "verurteilt",
+        "count": 4
+      },
+      {
+        "term": "zwölf",
+        "count": 3
+      },
+      {
+        "term": "nach",
+        "count": 3
+      },
+      {
+        "term": "einsturz",
+        "count": 3
+      },
+      {
+        "term": "urteil",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "anos",
+        "count": 3
+      },
+      {
+        "term": "prisão",
+        "count": 3
+      },
+      {
+        "term": "desabamento",
+        "count": 3
+      },
+      {
+        "term": "ponte",
+        "count": 3
+      },
+      {
+        "term": "matou",
+        "count": 3
+      },
+      {
+        "term": "pessoa",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-17T09:53:43+00:00",
+  "meta_version": "10.0.3"
+}

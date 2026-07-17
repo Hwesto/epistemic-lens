@@ -1,0 +1,370 @@
+{
+  "date": "2026-07-17",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 20,
+  "buckets": [
+    "kenya",
+    "opinion_magazines",
+    "pan_african",
+    "russia",
+    "turkey",
+    "ukraine",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 50,
+    "pan_african": 54,
+    "turkey": 53,
+    "opinion_magazines": 18,
+    "ukraine": 444,
+    "russia": 182,
+    "kenya": 33,
+    "vietnam_thai_my": 24
+  },
+  "pairwise_similarity": [
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.829
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.796
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.78
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.777
+    },
+    {
+      "a": "pan_african",
+      "b": "ukraine",
+      "score": 0.776
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.76
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.755
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.745
+    },
+    {
+      "a": "kenya",
+      "b": "wire_services",
+      "score": 0.743
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.734
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.725
+    },
+    {
+      "a": "kenya",
+      "b": "ukraine",
+      "score": 0.718
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.714
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.713
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.702
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.698
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.685
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.668
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.664
+    },
+    {
+      "a": "kenya",
+      "b": "pan_african",
+      "score": 0.652
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.64
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.537
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.407
+    },
+    {
+      "a": "kenya",
+      "b": "opinion_magazines",
+      "score": 0.4
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_african",
+      "score": 0.395
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "ukraine",
+      "score": 0.391
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.339
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.233
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.645,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.664,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.685,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.703,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.705,
+      "n_tokens": 182
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.713,
+      "n_tokens": 444
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.386,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.636,
+      "n_tokens": 24
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "missile",
+        "count": 4
+      }
+    ],
+    "pan_african": [
+      {
+        "term": "odesa",
+        "count": 3
+      }
+    ],
+    "turkey": [
+      {
+        "term": "when",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "ukraine": [
+      {
+        "term": "vessel",
+        "count": 9
+      },
+      {
+        "term": "kherson",
+        "count": 8
+      },
+      {
+        "term": "tanker",
+        "count": 7
+      },
+      {
+        "term": "fleet",
+        "count": 6
+      },
+      {
+        "term": "shadow",
+        "count": 5
+      },
+      {
+        "term": "brovdi",
+        "count": 5
+      },
+      {
+        "term": "operation",
+        "count": 4
+      },
+      {
+        "term": "bomb",
+        "count": 4
+      },
+      {
+        "term": "days",
+        "count": 3
+      },
+      {
+        "term": "maritime",
+        "count": 3
+      },
+      {
+        "term": "logistic",
+        "count": 3
+      },
+      {
+        "term": "used",
+        "count": 3
+      },
+      {
+        "term": "cargo",
+        "count": 3
+      },
+      {
+        "term": "azov",
+        "count": 3
+      },
+      {
+        "term": "feeder",
+        "count": 3
+      },
+      {
+        "term": "woman",
+        "count": 3
+      },
+      {
+        "term": "down",
+        "count": 3
+      },
+      {
+        "term": "zaporizhzhia",
+        "count": 3
+      },
+      {
+        "term": "past",
+        "count": 3
+      },
+      {
+        "term": "three",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "bodi",
+        "count": 7
+      },
+      {
+        "term": "soldier",
+        "count": 7
+      },
+      {
+        "term": "exchange",
+        "count": 6
+      },
+      {
+        "term": "received",
+        "count": 4
+      },
+      {
+        "term": "fallen",
+        "count": 3
+      },
+      {
+        "term": "saraliyev",
+        "count": 3
+      },
+      {
+        "term": "time",
+        "count": 3
+      },
+      {
+        "term": "odessa",
+        "count": 3
+      }
+    ],
+    "kenya": [
+      {
+        "term": "nato",
+        "count": 3
+      },
+      {
+        "term": "summit",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-17T09:53:30+00:00",
+  "meta_version": "10.0.3"
+}
