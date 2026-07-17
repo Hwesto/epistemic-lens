@@ -1,0 +1,171 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "Ldd983ee6b7",
+  "cluster_id": 113,
+  "cluster_name": "Algeria orphanage fire kills 11 including children amid heatwave",
+  "salience_score": 5.51,
+  "n_outlets": 13,
+  "n_countries": 10,
+  "n_articles": 14,
+  "n_buckets": 10,
+  "tldr": "Headlines across all 10 coverage buckets converge on a near-identical disaster frame — 11 dead at an Algerian orphanage — with minimal editorial divergence at the RSS layer. Only three distinctions surface: AfricaNews explicitly links the fire to Algeria's heatwave crisis ('as Algeria struggles in heatwave'); Sky News UK overstates casualties by calling all 11 dead 'children' where every other outlet reported children were 'among' the dead; and BBC headlines uniquely flag the president's acknowledgement. The accountability demands, institutional fire patterns, and wildfire emergency context visible in body text are invisible at the headline layer.",
+  "event_summary": "A fire broke out before dawn on 16 July 2026 at a state-run orphanage in Mohammadia, near Algiers, killing 11 people including children and injuring 19 others. Prime Minister Sifi Ghrieb visited survivors at hospitals; President Tebboune offered condolences from Berlin.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Fatal fire at children's care facility",
+      "outlets": [
+        "AFP / France 24 FR",
+        "AfricaNews",
+        "AllAfrica",
+        "BBC Africa",
+        "BBC World",
+        "CGTN World",
+        "Daily Maverick",
+        "Deutsche Welle English",
+        "RT Africa",
+        "Republic World (alt)",
+        "Sky News UK",
+        "The Hindu Intl",
+        "The New Arab"
+      ],
+      "countries": [
+        "africa_other",
+        "china",
+        "france",
+        "germany",
+        "india",
+        "pan_african",
+        "pan_arab",
+        "south_africa",
+        "state_tv_intl",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "11 morts dans l'incendie d'un orphelinat",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "Algeria: Fire at Orphanage Kills 11, Including Children",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Eleven killed in Algeria orphanage fire",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "Eleven children killed in fire at Algerian orphanage",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "State figures named in headline",
+      "outlets": [
+        "AfricaNews",
+        "BBC Africa",
+        "BBC World"
+      ],
+      "countries": [
+        "africa_other",
+        "pan_african",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Algerian prime minister visits survivors after deadly fire",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Algeria foster care home blaze - president",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Heatwave crisis as proximate context",
+      "outlets": [
+        "AfricaNews",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "india",
+        "pan_african"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Orphanage fire kills 11 as Algeria struggles in heatwave",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Fire Kills 11 With 19 Injured Amid Brutal Heatwave",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.716,
+      "n_tokens": 207
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.801,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.825,
+      "n_tokens": 225
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Sky News UK",
+      "country": "uk",
+      "finding": "Headline reads 'Eleven children killed in fire at Algerian orphanage', asserting all 11 dead were children. Every other outlet reported that children were 'among' the dead — a materially different and potentially inaccurate claim that overstates what Algerian authorities confirmed.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Only outlet to make an explicit causal link between the fire and the broader heatwave in the headline itself ('as Algeria struggles in heatwave'), contextualising the deaths within a systemic environmental emergency that all other outlets reserved for body text.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "The only headline in the corpus to lead with government response rather than the death toll ('Algerian prime minister visits survivors after deadly fire at orphanage'), foregrounding state solidarity over casualty numbers.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The headline layer delivers a uniformly disaster-framed story — 11 dead at a children's home, official source cited — with near-zero editorial variation across 10 countries; the only outliers are Sky News UK's inaccurate claim that all victims were children, and AfricaNews's lone heatwave headline that hints at the systemic wildfire emergency visible only in body text elsewhere.",
+  "generated_at": "2026-07-17T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
