@@ -1,0 +1,320 @@
+{
+  "story_key": "Lee75cecf61",
+  "date": "2026-07-17",
+  "n_buckets": 17,
+  "n_articles": 36,
+  "tldr": "Across 17 outlet buckets, headlines collectively assert that Trump made unproven accusations of Chinese election interference during a midterm-timed primetime address; a dozen international outlets anchor the headline in the contradiction with established U.S. intelligence findings, while U.S., UK, and Indian outlets foreground the '220 million voter files' breach scale and 'deep state cover-up' sub-claims.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Midterm pretext, claim revival",
+      "buckets": [
+        "pan_african",
+        "vietnam_thai_my",
+        "uk",
+        "canada",
+        "spain",
+        "usa",
+        "opinion_magazines",
+        "wire_services",
+        "germany",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "interfering in US elections ahead of midterms",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "election security at center of Republicans' midterm",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "critics fear ploy to challenge midterm results",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "revives unproven 2020 election claims",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "revive false claims of 2020 election fraud",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "new 2020 election claims disputed by critics",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "Trump Just Did More Damage to American Elections",
+          "signal_text_idx": 32
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "220M voter file breach, vulnerabilities",
+      "buckets": [
+        "india",
+        "uk",
+        "usa",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "220 Million US Voter Files In 'Largest Data Breach'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "'shocking vulnerabilities' in US election security",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Classified Documents Show Election Interference",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Also Cites North Korea Among Threats",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China denies interference claims",
+      "buckets": [
+        "russia",
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "China dismisses Trump's election meddling claim",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Beijing 'Has Never and Will Never Interfere'",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "China Refutes Trump's 2020 US Election Interference",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Claims contradict intel community",
+      "buckets": [
+        "south_africa",
+        "japan",
+        "israel",
+        "turkey",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "contradicting US intelligence findings",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "contradicting U.S. intelligence findings",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "contradicting US intelligence findings",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "contradicts US intel",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "documents question whether it meddled in elections",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Cover-up, deep state, probe",
+      "buckets": [
+        "usa",
+        "india",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "alleges 'stunning' Chinese election interference",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Orders Probe Into 2020 'Cover-Up'",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "points finger at the 'deep state'",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.743,
+      "n_tokens": 191
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.781,
+      "n_tokens": 76
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.786,
+      "n_tokens": 212
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.794,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.81,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.815,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.847,
+      "n_tokens": 195
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.849,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.853,
+      "n_tokens": 237
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.858,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.861,
+      "n_tokens": 162
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.872,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.875,
+      "n_tokens": 307
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.878,
+      "n_tokens": 329
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.886,
+      "n_tokens": 652
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.894,
+      "n_tokens": 707
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Atlantic",
+      "bucket": "opinion_magazines",
+      "finding": "Only headline to invert the threat direction: Trump—not China—cast as the agent of election damage, a framing no news outlet matched.",
+      "signal_text_idx": 32
+    },
+    {
+      "outlet": "El Pais English",
+      "bucket": "spain",
+      "finding": "Only headline to explicitly label claims 'false' and Trump's framing of China's role as an 'exaggeration'—the strongest editorial valence of any title in the corpus.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Uses all-caps '220 MILLION' and includes 'deep state' in a single headline, maximising both breach scale and conspiracy framing in ~145 characters.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "Only outlet whose headline adds North Korea as a named election threat alongside China—a Korea-salient angle invisible in all other titles.",
+      "signal_text_idx": 24
+    }
+  ],
+  "bottom_line": "At the headline layer this story is dominated by a POLITICAL frame: most titles position Trump's primetime address as a midterm pre-positioning move whose interference claims contradict established U.S. intelligence—a contradiction that international outlets headline more explicitly than U.S. ones do.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
