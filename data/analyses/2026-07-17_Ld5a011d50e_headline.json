@@ -1,0 +1,160 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "Ld5a011d50e",
+  "cluster_id": 105,
+  "cluster_name": "Cyclospora outbreak linked to Taylor Farms lettuce at Taco Bell",
+  "salience_score": 3.184,
+  "n_outlets": 10,
+  "n_countries": 8,
+  "n_articles": 13,
+  "tldr": "Headlines universally center the Taco Bell–Cyclospora link, with all 13 titles naming the chain alongside a pathogen or contamination term. UK, Mexican, and Colombian outlets amplified click appeal by foregrounding ‘explosive diarrhea’/‘diarrea explosiva’ in their titles — symptom-shock language entirely absent from wire, Canadian, and Southeast Asian headlines that chose neutral action or pathogen terms instead. The regulatory response — Taco Bell’s indefinite lettuce removal and an FDA five-state consumer warning — is the second headline theme, picked up across US, UK, wire, and Southeast Asian outlets. Indian outlets foregrounded corporate accountability: Hindustan Times profiled Taylor Farms as a named supplier entity, while Times of India used ‘probe’ and ‘under scanner’ idioms that position the story as an investigation rather than a health alert.",
+  "event_summary": "Taylor Farms shredded iceberg lettuce supplied to Taco Bell was identified as a likely source of a US cyclosporiasis outbreak spanning 34 states; Taco Bell removed the ingredient indefinitely and the FDA launched a formal investigation.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Cyclospora parasitic outbreak, US",
+      "outlets": [
+        "BBC World",
+        "El Financiero",
+        "El Tiempo Colombia",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Hill",
+        "The Independent",
+        "Times of India"
+      ],
+      "countries": [
+        "uk",
+        "mexico",
+        "colombia_ven_peru",
+        "canada",
+        "india",
+        "wire_services",
+        "vietnam_thai_my",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Taco Bell lettuce linked to cyclospora outbreak in US",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Taco Bell lettuce supplied by Taylor Farms linked to US",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Taco Bell to stop using lettuce linked to parasitic",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Lettuce removal & FDA 5-state warning",
+      "outlets": [
+        "BBC World",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Hill",
+        "Times of India"
+      ],
+      "countries": [
+        "uk",
+        "wire_services",
+        "vietnam_thai_my",
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Taco Bell removes lettuce from menu in US",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "US authority to warn of Taco Bell lettuce in 5 states",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Taco Bell to stop using lettuce identified",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Sensational symptom framing: explosive diarrhea",
+      "outlets": [
+        "BBC World",
+        "El Financiero",
+        "El Tiempo Colombia",
+        "The Independent"
+      ],
+      "countries": [
+        "uk",
+        "mexico",
+        "colombia_ven_peru"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Potential source of 'explosive diarrhea' outbreak",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "'Diarrea explosiva' en EU: ¿Qué ingrediente",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to lead with the supply chain (‘major fast food and grocery lettuce supplier’) rather than the Taco Bell brand name in the headline, reframing accountability toward Taylor Farms and surfacing that the supplier’s reach extends beyond fast food to grocery retail.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to publish two separate headlines tracking distinct regulatory events — the FDA preparing a 5-state consumer warning and Taco Bell’s lettuce halt — rather than bundling them into a single story, suggesting a more granular editorial read of the regulatory timeline.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only headline to credit the Washington Post as the upstream source in the title itself, signalling secondary reporting rather than original investigation and hedging the lettuce-link claim accordingly.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Times of India",
+      "country": "india",
+      "finding": "Only headline to use ‘probe’ and ‘under scanner’ — accountability and investigative idioms rather than health-alarm language — foregrounding corporate regulatory exposure over consumer public-health risk.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "At the headline layer HEALTH_SAFETY dominates universally — all 13 titles name Taco Bell alongside a pathogen or contamination term — but the sharpest editorial divergence is symptom-shock register: UK, Mexican, and Colombian outlets led with ‘explosive diarrhea’/‘diarrea explosiva’ to maximise alarm at the click level, a framing entirely absent from wire services, Canadian, and Southeast Asian outlets that chose neutral action or pathogen language instead.",
+  "generated_at": "2026-07-17T10:45:00Z",
+  "model": "claude-sonnet-4-6"
+}
