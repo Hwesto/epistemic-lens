@@ -1,0 +1,185 @@
+{
+  "story_key": "L2e73ced278",
+  "date": "2026-07-17",
+  "n_buckets": 8,
+  "n_articles": 20,
+  "tldr": "Headlines split sharply between two registers: fatal-encounter reporting (ICE agents shoot drivers, growing death toll, officer's violent past) and policy-reversal reporting (Trump overrides DHS suspension, traffic stops resume). India and UK outlets fixate on the individual shooter's troubled history, China leads with the bare fact of death, and The Intercept is the only outlet to surface the story's electoral dimension in a headline. Spain's El Pais alone foregrounds community grief in Biddeford.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "ICE killings, death toll, officer's violent past",
+      "buckets": ["china", "usa", "canada", "spain", "india", "uk"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "US ICE agent fatally shoots driver in Maine after similar Texas death",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Maine shooting adds to growing immigration enforcement death toll",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "What ICE Didn't Say About Its Latest Killing",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "How many people have been killed by immigration agents'",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "ICE officer in Maine shooting has history of violent behaviour",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "ICE officer who killed Johan Sebastián in Maine had troubled past",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "US Immigration Officer In Maine Shooting Has History Of Violent Behavio",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "ICE agent in Maine shooting has history of violent behavior",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "traffic stop policy reversal and reform calls",
+      "buckets": ["usa", "canada", "brazil", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump reverses ICE traffic stop suspension after Maine, Houston shootings",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "ICE Traffic Stops Are Back, But There Are Some Big Changes",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "ICE Orders an End to Vehicle Stops After Deadly Shootings",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Calls for ICE reform grow after agents kill 2 men in their cars",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "ICE won't end traffic stops, Trump says, contradicting new policy",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Trump contradiz governo e diz que ICE manterá operações de trânsito",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "ICE halts traffic stop arrests following fatal shootings",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Trump says ICE won't halt traffic stops after recent U.S. fatal shootings",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Abolish ICE as electoral mobilizer in Maine",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "Would-Be Platner Replacements in Maine Rally Around \"Abolish ICE\"",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "community grief and lasting civic wound",
+      "buckets": ["spain"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Biddeford mourns as ICE leaves its mark on yet another US city",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.548, "n_tokens": 94},
+    {"bucket": "spain", "mean_similarity": 0.605, "n_tokens": 239},
+    {"bucket": "brazil", "mean_similarity": 0.615, "n_tokens": 58},
+    {"bucket": "india", "mean_similarity": 0.659, "n_tokens": 300},
+    {"bucket": "canada", "mean_similarity": 0.685, "n_tokens": 79},
+    {"bucket": "usa", "mean_similarity": 0.695, "n_tokens": 424}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mother Jones",
+      "country": "usa",
+      "finding": "The only headline to frame ICE's own communication as the subject — 'What ICE Didn't Say About Its Latest Killing' — making institutional silence and omission the advertised story rather than the shooting itself.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "The only headline to frame resumed traffic stops as a positive procedural update ('Are Back, But There Are Some Big Changes'), reversing the dominant victim-centered register and positioning the policy resumption as reform rather than escalation.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "The only headline to foreground civic grief and place identity ('Biddeford mourns … yet another US city'), a QUALITY_OF_LIFE frame entirely absent from every other outlet in the corpus at the headline level.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Intercept",
+      "country": "usa",
+      "finding": "Only outlet to link the shootings to Maine electoral politics — 'Would-Be Platner Replacements in Maine Rally Around Abolish ICE' — surfacing the story's downstream political mobilization as the lead hook, invisible in all other headlines.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "At the headline layer, the ICE traffic-stop shootings story bifurcates into two signals — 'ICE killed men in their cars' (China, Spain, UK, and some India/US outlets) and 'Trump reversed the pause' (Brazil, Vietnam/Malaysia, Canada, and the US policy press) — with the officer's personal history of violence dominating India and UK headlines and community grief in Biddeford appearing only in Spain's El Pais.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
