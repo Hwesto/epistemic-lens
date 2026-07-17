@@ -1,0 +1,216 @@
+{
+  "story_key": "L025ab79a77",
+  "date": "2026-07-17",
+  "n_buckets": 12,
+  "n_articles": 23,
+  "tldr": "Headlines split between Argentina's dramatic semifinal comeback to face Spain in the World Cup final and a diplomatic-disciplinary firestorm over Argentine players displaying a 'Las Malvinas son Argentinas' banner: the UK government demanded FIFA investigate, Falkland Islanders called for punishment, and the Buenos Aires Herald uniquely flagged a concurrent UK warship movement near the disputed islands; a minority of outlets — Mexico, Australia, Kenya — covered only logistics or the sporting result.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "FIFA sanction & ban threat",
+      "buckets": [
+        "uk",
+        "nigeria",
+        "russia",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Argentina should be punished over World Cup row",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mirror",
+          "quote": "over FIFA's 'worst case scenario'",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "UK calls for FIFA to sanction Argentina over banner",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Argentina await FIFA decision over displaying",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Falklands poster row: FIFA to probe Messi's Argentina",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "UK-FIFA pressure; sovereignty standoff",
+      "buckets": [
+        "canada",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Why the U.K. is crying foul over Argentina's",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.K. urges FIFA to investigate Argentina",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "UK government tells FIFA to probe Argentina",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "U.K. urges FIFA to investigate Argentina",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Falklands/Malvinas as rival national identities",
+      "buckets": [
+        "uk",
+        "wire_services",
+        "pan_african",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "'Malvinas are Argentinian': World Cup holders",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Buenos Aires locals support Argentine footballers",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "jubilation in Buenos Aires and disappointment",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "England vs. Argentina: A football rivalry full of history",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "UK warship near Malvinas protested",
+      "buckets": [
+        "argentina_chile"
+      ],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "Argentina protests UK warship movement near Malvinas",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.621,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.631,
+      "n_tokens": 215
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.671,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.68,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.693,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.703,
+      "n_tokens": 76
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.767,
+      "n_tokens": 331
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.773,
+      "n_tokens": 164
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.78,
+      "n_tokens": 110
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "australia_nz",
+      "what_they_covered_instead": "Both ABC Australia headlines cover the match result and final logistics ('When is the World Cup final?' and 'England suffers heartbreaking collapse') with no reference to the Falklands banner or the ensuing political controversy."
+    },
+    {
+      "country": "mexico",
+      "what_they_covered_instead": "El Financiero's sole headline asks where to watch the final for free ('España vs. Argentina: ¿Dónde ver gratis?') — pure consumer logistics; the political and diplomatic row is entirely absent."
+    },
+    {
+      "country": "kenya",
+      "what_they_covered_instead": "Standard Kenya's headline ('England, Argentina set up World Cup showdown after quarter-final wins') is a pre-semifinal match setup piece; it predates the semi-final result and the Falklands banner controversy, leaving both absent."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mirror",
+      "bucket": "uk",
+      "signal_text_idx": 11,
+      "finding": "Only headline to frame the final through FIFA's institutional preference — 'FIFA have got the World Cup final they always wanted after painful England exit' — implying the tournament organiser desired or engineered this Spain–Argentina showdown, a meta-political insinuation invisible in every other outlet's title."
+    },
+    {
+      "outlet": "Times of India",
+      "bucket": "india",
+      "signal_text_idx": 22,
+      "finding": "Only headline to surface Messi's pushback against favouritism claims — ''Nothing was handed to Argentina' — injecting a fairness/legitimacy angle (earned victory vs. gifted outcome) that no other outlet's title raised."
+    }
+  ],
+  "bottom_line": "The headline layer foregrounds FIFA disciplinary action and UK diplomatic pressure while burying the bilateral sovereignty dimension in a single Argentine outlet's warship headline; logistics-first coverage in Mexico, Australia, and Kenya's stale match preview are the only clean silences from a political controversy otherwise visible across all other buckets.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
