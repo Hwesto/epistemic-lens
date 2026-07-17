@@ -1,0 +1,193 @@
+{
+  "story_key": "L51987eb0c6",
+  "date": "2026-07-17",
+  "n_buckets": 9,
+  "n_articles": 19,
+  "tldr": "Headlines across 16 outlets in 9 country buckets treat Andy Burnham's ascent to the Labour leadership as a settled fact — the word 'uncontested' or 'sole candidate' appears in titles from China to Kenya. The sharpest headline-layer divergences are the Daily Mail's Thatcher invocation framing Burnham as 1970s nostalgist, and Fox News's exclusive identification of him as 'the Trump critic', both frames absent from every other outlet's front page.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Uncontested succession to PM",
+      "buckets": ["china", "india", "kenya", "pakistan", "uk", "vietnam_thai_my", "opinion_magazines", "germany", "usa"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Burnham emerges as sole candidate for Britain's Labour",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "set to become UK PM after unopposed Labour leadership win",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mirror",
+          "quote": "PM-in-waiting to become Labour leader",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Andy Burnham to be made UK Labour leader on way to becoming prime",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Andy Burnham to be made UK Labour leader on way to becoming prime",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Burnham on course to become UK PM with Labour nominations",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Andy Burnham set to become UK Labour leader",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Andy Burnham wird Labour-Chef",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Who is Andy Burnham? The Trump critic set to become",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "King of the North: regional identity",
+      "buckets": ["pakistan", "india"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "'King of the North' to become UK PM",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "'King Of The North' To Become Next UK PM",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "1970s agenda vs Thatcher legacy",
+      "buckets": ["uk", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Burnham to vow to take Britain back to the 1970s",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "government will be 'unashamedly Labour' in first speech",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Andy Burnham's difficult first cabinet",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Andy Burnham's new (and old) look No. 10 takes shape",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Burnham as Trump critic — US framing",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "The Trump critic set to become the UK's next prime minister",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Hope and doubt: German ambivalence",
+      "buckets": ["germany"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Zwischen Hoffen und Zweifeln",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.757, "n_tokens": 66},
+    {"bucket": "opinion_magazines", "mean_similarity": 0.759, "n_tokens": 105},
+    {"bucket": "germany", "mean_similarity": 0.777, "n_tokens": 38},
+    {"bucket": "uk", "mean_similarity": 0.787, "n_tokens": 358},
+    {"bucket": "pakistan", "mean_similarity": 0.811, "n_tokens": 55},
+    {"bucket": "india", "mean_similarity": 0.825, "n_tokens": 74},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.829, "n_tokens": 94}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "The only headline to invoke Thatcher and the 1970s, advertising Burnham's agenda as retrograde restoration — a culture-war frame absent from every other outlet, including the UK's own centre-left titles.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "The only outlet globally to define Burnham through his opposition to Trump ('The Trump critic'), turning a UK domestic succession into a transatlantic partisan identity marker absent from every other headline.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "The sole non-English headline in the cluster; uniquely names public ambivalence via 'Zwischen Hoffen und Zweifeln' (Between hope and doubt), a more cautious register than any English-language outlet's title.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Alone among UK outlets in leading with Burnham's ideological self-identification ('unashamedly Labour'), foregrounding political character over the mechanics of succession that anchor all other UK headlines.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "The only outlet to pivot at the title level from succession to government formation ('difficult first cabinet'), surfacing structural dilemmas that the rest of the international headline layer has not yet reached.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The headline layer of this cluster collapses almost entirely to succession confirmation — Burnham becomes Labour leader and will be PM on Monday — with only three departures: the Daily Mail's Thatcher culture-war frame, Fox News's Trump-critic identity tag, and Tagesschau's 'hope and doubt' register, together the only headlines to advertise ideological contest or public doubt in a story every other outlet treats as administrative fact.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
