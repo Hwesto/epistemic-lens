@@ -1,0 +1,226 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-17",
+  "lineage_id": "L71589beb6a",
+  "cluster_id": 93,
+  "cluster_name": "Canadian wildfire smoke blankets US cities with hazardous air",
+  "salience_score": 22.684,
+  "n_outlets": 27,
+  "n_countries": 19,
+  "n_articles": 35,
+  "tldr": "Headline coverage of the Canadian wildfire smoke event is dominated, across 15 of 19 coverage buckets, by the HEALTH_SAFETY frame: words like 'chokes,' 'hazardous,' and 'worst air quality in the world' appear across wire services, public broadcasters from Germany to Australia, and Asian regional outlets alike — a striking degree of frame convergence at the headline layer. A secondary EXTERNAL_REGULATION thread breaks through in US, Canadian, and UK headlines: Republican lawmakers explicitly blame Canada for 'inaction,' with the National Post reporting that Michigan Republicans 'level threats' — language almost entirely absent from the rest of the world's headline layer. Quality-of-life disruption surfaces in Iberian, Latin American, and Singapore outlets, where the World Cup final connection elevates the story beyond a public-health bulletin, and in UK coverage of forced evacuations. Nordic coverage (The Local Sweden) is fully detached from the wildfire story, with both headlines covering domestic Swedish heatwave tips — the clearest headline-layer silence in the corpus.",
+  "event_summary": "More than 800 Canadian wildfires sent hazardous smoke blanketing Toronto, New York, Detroit, and the US Midwest and Northeast on July 15-17, 2026, prompting air quality alerts across 20+ US states and forcing Ontario to seek federal help evacuating remote communities.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "hazardous air quality crisis",
+      "outlets": [
+        "ABC Australia World",
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "AfricaNews",
+        "BBC World",
+        "Bol News",
+        "Daily Mail",
+        "Daily Maverick",
+        "El Pais English",
+        "Geo News English",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Japan Times",
+        "South China Morning Post",
+        "TASS English",
+        "Tagesschau",
+        "Taipei Times",
+        "The Guardian World",
+        "The Independent",
+        "VnExpress English"
+      ],
+      "countries": [
+        "australia_nz",
+        "wire_services",
+        "france",
+        "pan_african",
+        "uk",
+        "pakistan",
+        "south_africa",
+        "spain",
+        "canada",
+        "india",
+        "taiwan_hk",
+        "russia",
+        "germany",
+        "vietnam_thai_my",
+        "japan"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Canadian wildfire sends hazardous smoke spewing into US",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Toronto choked by wildfire smoke, records world's worst air quality",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Canada fires prompt US air quality alerts",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Bol News",
+          "country": "pakistan",
+          "quote": "Canadian wildfire smoke chokes millions across U.S.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Toronto hat derzeit schlechteste Luftqualität weltweit",
+          "signal_text_idx": 25
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Air quality plummets in 20 US states",
+          "signal_text_idx": 28
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Wildfire smoke blankets Toronto as city records world's worst",
+          "signal_text_idx": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US demands Canada manage forests",
+      "outlets": [
+        "Breitbart",
+        "Globe and Mail",
+        "National Post",
+        "The Independent"
+      ],
+      "countries": [
+        "usa",
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "'American Lungs Are Paying for Canadian Inaction'",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Michigan lawmakers press Carney on poor air quality",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "National Post",
+          "country": "canada",
+          "quote": "Midwestern Republicans blame Canada, level threats",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Michigan lawmakers demand Canada does more",
+          "signal_text_idx": 31
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "evacuations and World Cup disruption",
+      "outlets": [
+        "ABC Australia World",
+        "El Tiempo Colombia",
+        "Sky News UK",
+        "Straits Times"
+      ],
+      "countries": [
+        "australia_nz",
+        "colombia_ven_peru",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "ABC Australia World",
+          "country": "australia_nz",
+          "quote": "Spain trains in 'hazardous' air as wildfire smoke drifts",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "El Tiempo Colombia",
+          "country": "colombia_ven_peru",
+          "quote": "así está Nueva York a pocos días de la final del Mundial",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "Wildfires force thousands to evacuate",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "smoke blankets New York before World Cup final",
+          "signal_text_idx": 23
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "nordic",
+      "what_they_covered_instead": "The Local Sweden's two headlines cover domestic Swedish heatwave tips ('Five tips for how to cope with the heat') and a Friday news roundup — both entirely local and unconnected to Canadian wildfires or North American air quality at the headline level"
+    },
+    {
+      "country": "opinion_magazines",
+      "what_they_covered_instead": "The Atlantic's headline 'Canada's Forests Will Burn and Burn' frames the story as long-horizon structural inevitability — distinct from the acute health, diplomatic, or disruption frames dominating the rest of the headline corpus, and not mappable to any Boydstun frame from the title alone"
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "The only outlet in the corpus to lead with an explicit political accusation against Canada ('Canadian Inaction') in the headline itself, converting what the rest of the world frames as a health emergency into a bilateral blame story — a divergence visible at the RSS/homepage layer before any body text is read.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "The only headline to explicitly link the multi-disaster week to Trump aid cuts ('US confronts floods, heatwaves, smoky skies all at once amid Trump aid cuts'), adding a domestic US policy-accountability dimension absent from all other regional headlines covering the same events.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "The only outlet to contextualize the wildfire smoke within a compound-hazard headline ('AQI 600 in Detroit, floods in Texas, wildfires in California & Canada: What's fuelling America's weather chaos'), framing it as systemic US climate resilience failure rather than a discrete Canadian fire event.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Leads with visual spectacle ('Gripping images show wildfire haze engulfing US cities as eerie graphic reveals path of toxic air') — the only UK outlet to foreground dramatic imagery over health data at the headline level, consistent with tabloid sensationalism relative to BBC and Guardian peers.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "At the headline layer, this story reads almost universally as a public health emergency — hazardous air, choking smoke, worst-in-the-world rankings — with a politically charged US-Canada blame narrative breaking through only in American, Canadian, and UK outlets. The World Cup disruption angle provides a secondary hook for Spanish-language and Southeast Asian coverage, but the cross-border political accountability story that dominates Breitbart and the National Post is essentially invisible to the rest of the world at the homepage level.",
+  "generated_at": "2026-07-17T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
