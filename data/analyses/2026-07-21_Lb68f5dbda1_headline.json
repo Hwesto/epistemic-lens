@@ -1,0 +1,170 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-21",
+  "lineage_id": "Lb68f5dbda1",
+  "cluster_id": 132,
+  "cluster_name": "Hamas elects Khalil al-Hayya as new political bureau chief",
+  "salience_score": 5.4,
+  "n_outlets": 14,
+  "n_countries": 12,
+  "n_articles": 15,
+  "tldr": "Qatar's Al Jazeera alone frames the Hamas leadership change from the inside — foregrounding Palestinian civilian sentiment ('We just want to live') rather than the appointment itself, a humanising angle absent from every other outlet's homepage title. The Iranian-aligned bloc inverts the announcement structure: both IRNA and Middle East Eye lead with Araghchi's congratulations as the news hook, while Israel's Haaretz counters by framing the same appointment as proof Hamas remains 'in Iran's orbit after all' — opposite editorial judgements from the same event. The large majority of outlets treat the story as a clean succession headline, naming al-Hayya as political bureau chief or overall leader with no secondary framing; France Info and Hindustan Times stand out among these by asking 'who is he?' rather than announcing the fact, foregrounding profile over event. Russia's RT is the sole outlet to embed the appointment in the ongoing Gaza war ('war grinds on'), casting the succession as continuity under fire.",
+  "event_summary": "Hamas elected senior figure Khalil al-Hayya as head of its political bureau on 20 July 2026, succeeding Yahya Sinwar, who was killed by Israeli forces in Gaza in October 2024; Iranian Foreign Minister Abbas Araghchi publicly congratulated al-Hayya shortly after the announcement.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Succession: new political bureau chief named",
+      "outlets": [
+        "ANSA Italian (Mondo)",
+        "BBC World",
+        "Breitbart",
+        "Daily Sabah",
+        "France Info",
+        "Globe and Mail",
+        "IRNA English",
+        "Tehran Times",
+        "The New Arab"
+      ],
+      "countries": [
+        "italy",
+        "uk",
+        "usa",
+        "turkey",
+        "france",
+        "canada",
+        "iran_state",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Hamas names Khalil al-Hayya as new overall leader",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Hamas names top negotiator Khalil Al-Hayya as new leader",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Khalil al-Hayya named new Hamas political bureau chief",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "Hamas elects Khalil al-Hayya as new head of its political",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran orbit; Araghchi congratulates; Iran ties",
+      "outlets": [
+        "Haaretz",
+        "Hindustan Times",
+        "IRNA English",
+        "Middle East Eye"
+      ],
+      "countries": [
+        "israel",
+        "india",
+        "iran_state",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "In Iran's orbit after all: What Hamas' choice",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Survived attack, has good ties with Iran",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "Araghchi congratulates Hamas Khalil al-Haya",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "Iran's Araghchi congratulates Khalil al-Hayya",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Gaza civilians: 'we just want to live'",
+      "outlets": [
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "'We just want to live': Palestinians in Gaza react",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Gaza war grinds on; new leader mid-conflict",
+      "outlets": [
+        "RT"
+      ],
+      "countries": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Hamas names new leader as Gaza war grinds on",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "The only outlet in the corpus to frame the Hamas leadership election through Palestinian civilian sentiment at the headline level — 'We just want to live' — rather than announcing the appointment. Every other outlet names al-Hayya or the Iran angle; Al Jazeera foregrounds the exhaustion of Gaza's population, a conspicuous editorial choice that positions the election as something that happens to civilians rather than an organisational event.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "The only outlet outside the Iranian-aligned bloc to lead with Iran's geopolitical influence on Hamas — 'In Iran's orbit after all' — framing the appointment as analytical confirmation of an alignment that the appointment-only headlines of BBC, Globe and Mail, and Daily Sabah entirely suppress. The critical framing ('after all') signals scepticism of any post-Sinwar moderation narrative absent from all other titles.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The sole outlet to contextualise the leadership change within the ongoing Gaza conflict at the headline level — 'Gaza war grinds on' — framing the succession as continuity under fire rather than an organisational transition. All other outlets treat the appointment in isolation from military conditions.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "The headline layer presents Hamas naming Khalil al-Hayya as near-uniform succession news, with Iran's shadow — foregrounded critically by Haaretz, neutrally by Hindustan Times, and celebratorily by IRNA and Middle East Eye — as the only substantive secondary signal; Qatar's Al Jazeera alone breaks from the appointment frame entirely to give voice to Palestinian civilians, and Russia's RT is the sole outlet to embed the succession in the ongoing military conflict.",
+  "generated_at": "2026-07-21T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
