@@ -1,0 +1,183 @@
+{
+  "story_key": "Lead7b662a7",
+  "date": "2026-07-21",
+  "n_buckets": 13,
+  "n_articles": 22,
+  "tldr": "Across all 13 country buckets, headlines collectively portray the Cockroach Janta Party movement as a youth-led protest wave that met state repression, with police tear gas and baton charges the near-universal visual anchor. Demands for the education minister's resignation circulate most densely in South Asian and African headlines, the political threat to Modi is foregrounded in Indian domestic and diaspora outlets, and only The Conversation surfaces the structural youth unemployment driver that body-text coverage treats as the root cause.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Police crackdown injures hundreds",
+      "buckets": [
+        "asia_pacific_regional",
+        "uk",
+        "india",
+        "vietnam_thai_my",
+        "wire_services",
+        "kenya",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Indian police bash and gas youth-led 'cockroach' protesters",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Police block thousands of 'cockroach' protesters",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Young woman injured in police action on ventilator",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Indian police fire tear gas as thousands of protesters",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "will not march again because police will 'hurt youth'",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Indian police baton charge protesters marching to parliament",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Police attacks India's cockroach movement",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Education minister must resign",
+      "buckets": [
+        "pakistan",
+        "canada",
+        "vietnam_thai_my",
+        "kenya",
+        "germany",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "vows to protest until education minister resigns",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "demand resignation of education minister",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "vows relentless protest until education minister resigns",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "vows to protest until education minister resigns",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Pressuring Modi; Gandhi leads opposition",
+      "buckets": [
+        "india",
+        "canada",
+        "japan"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "Demands PM Modi, Amit Shah's Resignation",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "in challenge to Modi government",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "India protesters press on after crackdown, pressuring Modi",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Youth unemployment driving protest",
+      "buckets": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "The youth jobs crisis fuelling India's Cockroach Janta",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "india", "mean_similarity": 0.631, "n_tokens": 643},
+    {"bucket": "pakistan", "mean_similarity": 0.689, "n_tokens": 99},
+    {"bucket": "canada", "mean_similarity": 0.702, "n_tokens": 77},
+    {"bucket": "asia_pacific_regional", "mean_similarity": 0.707, "n_tokens": 56},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.729, "n_tokens": 242},
+    {"bucket": "uk", "mean_similarity": 0.741, "n_tokens": 119},
+    {"bucket": "kenya", "mean_similarity": 0.754, "n_tokens": 61}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "The only headline to use physically violent vernacular ('bash and gas') rather than procedural terms like 'baton charge', 'fire tear gas', or 'block' — the sharpest rhetorical register for police action in the corpus, notable for a pan-Asian commentary outlet rather than a wire service.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "India Today",
+      "bucket": "india",
+      "finding": "The only headline in the corpus to frame the story as a government intelligence failure ('Did govt and Delhi Police misread scale') rather than violence or demands — a distinctly self-critical domestic angle that treats the protest as a policing blunder rather than a confrontation or a movement.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "NPR World",
+      "bucket": "usa",
+      "finding": "The only headline to frame the movement through its identity arc ('started as satire but is serious about change') and label its base as 'Gen Z' — treating the CJP as a generational cultural phenomenon rather than an event-driven protest, a framing absent from every other outlet's title.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Headlines globally advertise India's Cockroach protests as a police-crackdown story, with education-minister resignation demands concentrated in South Asian and African titles, political threat-to-Modi framing in domestic and diaspora outlets, and the structural youth unemployment driver surfacing in just one headline.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
