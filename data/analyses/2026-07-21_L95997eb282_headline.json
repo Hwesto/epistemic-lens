@@ -1,0 +1,258 @@
+{
+  "story_key": "L95997eb282",
+  "date": "2026-07-21",
+  "n_buckets": 21,
+  "n_articles": 63,
+  "tldr": "Headlines across 21 press systems frame this story as a cycle of mutual military strikes—US airstrikes for the tenth consecutive night, Iranian counter-strikes across Gulf allies—layered with explicit punitive rhetoric (Trump 'vows revenge,' Iran 'will pay'). The Strait of Hormuz tanker attacks surface as the second-most visible headline hook. A narrow set of outlets (Haaretz, The New Arab, The Guardian) break from the military-action frame to foreground Pentagon casualty concealment; the diplomatic collapse and Pakistan mediation visible in body text are almost entirely absent from the headline layer.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "sustained US-Iran strikes across Gulf region",
+      "buckets": [
+        "canada",
+        "china",
+        "germany",
+        "india",
+        "iran_opposition",
+        "iran_state",
+        "israel",
+        "kenya",
+        "pakistan",
+        "pan_arab",
+        "qatar",
+        "religious_press",
+        "russia",
+        "south_africa",
+        "turkey",
+        "uk",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "US attacks Iran for 10th consecutive night",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "IRGC pounds US radar, air defense systems",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "US Completes Eighth Night of Strikes Against Iranian Military",
+          "signal_text_idx": 31
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "US and Iran exchange strikes",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "US vows revenge; Iran 'will pay' for troop deaths",
+      "buckets": [
+        "canada",
+        "germany",
+        "india",
+        "mexico",
+        "pakistan",
+        "russia",
+        "turkey",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Trump vows revenge against Iran",
+          "signal_text_idx": 48
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US looks to 'punish' Iran",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "US launches retaliatory strikes",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "'Iran Would Pay Many Times Over': Trump's Big Warning",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US launches fresh strikes as Trump vows revenge",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Hormuz tanker attacks; shipping stalled",
+      "buckets": [
+        "canada",
+        "india",
+        "kenya",
+        "pakistan",
+        "pan_arab",
+        "religious_press",
+        "south_africa",
+        "turkey",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Tanker attacked in Strait of Hormuz",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Strait Of Hormuz Shipping Stalls",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Iran shuts Strait of Hormuz",
+          "signal_text_idx": 62
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Tehran strikes tanker in the Strait of Hormuz",
+          "signal_text_idx": 58
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Tanker crew abandons vessel after reported projectile strike in Strait",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Pentagon concealment of US casualties",
+      "buckets": [
+        "israel",
+        "pan_arab",
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Pentagon concealed dozens of U.S. troop injuries",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Pentagon conceals dozens of US military casualties",
+          "signal_text_idx": 60
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Almost 100 troops injured in recent weeks, Pentagon admits",
+          "signal_text_idx": 54
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "Is an Attack on Civilians' Basic Needs",
+          "signal_text_idx": 37
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.497,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.687,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.707,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.72,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.728,
+      "n_tokens": 75
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Headline applies 'retaliatory' to Iranian strikes rather than US ones ('killed in Iranian retaliatory strikes'), inverting the aggressor/respondent framing used by virtually every other outlet.",
+      "signal_text_idx": 43
+    },
+    {
+      "outlet": "Mother Jones",
+      "country": "usa",
+      "finding": "Only US headline to lead with civilian harm: 'War's Escalation in Iran Is an Attack on Civilians' Basic Needs' — absent from every other outlet's title, including other US progressive and left-liberal feeds.",
+      "signal_text_idx": 37
+    },
+    {
+      "outlet": "Iran International EN",
+      "country": "iran_opposition",
+      "finding": "Only headline to surface the potential ground-war dimension: 'US strikes cut roads and bridges in southern Iran as ground assault talk grows' — absent from all other 62 titles.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "Only headline to report Trump threatening Iranian power plants: 'Trump resumes Iran's naval blockade, threatens strikes on power plants' — a coercive ultimatum angle omitted from Western, Gulf, and Indian headlines.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "One of the very few titles to place Houthi escalation in the headline: 'Iran targets US military assets as Houthis threaten to expand Mideast war' — giving the Houthi Saudi-port threat headline weight absent in most English-language Western press.",
+      "signal_text_idx": 49
+    }
+  ],
+  "bottom_line": "The headline layer presents this as a cycle of mutual military strikes—US retaliating for fallen troops, Iran counter-striking Gulf allies—with the Strait of Hormuz tanker attacks as the principal economic hook; the ceasefire collapse, Pakistan mediation, and civilian-harm dimensions prominent in body text are nearly invisible at the headline layer across all 21 press systems.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
