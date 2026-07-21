@@ -1,0 +1,296 @@
+{
+  "story_key": "Lfa829fae87",
+  "date": "2026-07-21",
+  "n_buckets": 21,
+  "n_articles": 50,
+  "tldr": "Across outlets on four continents, World Cup headlines split into two primary layers: a celebratory layer announcing Spain's triumph and Madrid's mass parade, and a governance-conflict layer driven by FIFA's investigation into Argentina's post-match brawl. A third politically charged layer appears in select outlets — Canada, Russia, India, and Vietnam leading with Trump's uninvited trophy-ceremony presence, while Iranian state media and The Guardian recast Spain's win as a statement of Palestinian solidarity.",
+  "frames": [
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Spain's Madrid triumph — mass celebration",
+      "buckets": ["wire_services", "france", "pan_african", "pakistan", "japan", "uk", "canada", "vietnam_thai_my", "africa_other"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "World Cup 2026: Spain return to Madrid in triumph",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Wild celebrations in Madrid after Spain seal FIFA World Cup",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "Premium Times Nigeria",
+          "quote": "'Kings of the World': Spain celebrate historic 2026 FIFA",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Spain's World Cup champions return home for royal welcome",
+          "signal_text_idx": 45
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Messi's farewell and Argentina's identity",
+      "buckets": ["australia_nz", "qatar", "canada", "pakistan", "nigeria", "argentina_chile", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "Messi leaves the World Cup stage a legend",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Argentina, minus Messi, return home after World Cup final",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Messi reflects on possible last World Cup",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "I Won't Cry for You, Argentina",
+          "signal_text_idx": 46
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "FIFA probes Argentina's post-match brawl",
+      "buckets": ["australia_nz", "pakistan", "turkey", "japan", "africa_other", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "Millions greet Spain's WC heroes as FIFA probes ugly",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "FIFA investigates on-field brawl after Spain-Argentina",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "FIFA to investigate World Cup final post-match brawl",
+          "signal_text_idx": 39
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Mainichi",
+          "quote": "FIFA、決勝後の乱闘騒動の調査開始 サッカーW杯",
+          "signal_text_idx": 32
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's trophy-ceremony intrusion",
+      "buckets": ["canada", "russia", "india", "vietnam_thai_my", "iran_state"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Boos as Trump and FIFA chief enter World Cup trophy ceremony",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump on stage for World Cup trophy presentation farce",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Spain's World Cup glory denies Trump and Bibi their dream",
+          "signal_text_idx": 42
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Trump booed as he lingers on stage while Spain lifts",
+          "signal_text_idx": 48
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Palestine solidarity through Spain's win",
+      "buckets": ["uk", "iran_state", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Gaza celebrates World Cup victory of Spanish team",
+          "signal_text_idx": 44
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Palestinians celebrate Spain's World Cup victory",
+          "signal_text_idx": 43
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "In Gaza, Spain's World Cup win brings a moment of joy",
+          "signal_text_idx": 41
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.558,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.582,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.611,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.612,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.649,
+      "n_tokens": 113
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.651,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.677,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.696,
+      "n_tokens": 88
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.701,
+      "n_tokens": 69
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.713,
+      "n_tokens": 119
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.714,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.717,
+      "n_tokens": 94
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.718,
+      "n_tokens": 80
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.719,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.722,
+      "n_tokens": 145
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.728,
+      "n_tokens": 181
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.741,
+      "n_tokens": 175
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "south_africa",
+      "note": "Daily Maverick's headline 'IN PICTURES: Tension and emotions at the 2026 FIFA World Cup' is an aggregate pictorial label; no specific frame signal is detectable from the headline alone."
+    },
+    {
+      "bucket": "germany",
+      "note": "Both Deutsche Welle headlines — 'Spain wins second World Cup after beating Argentina in final' and 'Taking stock of 2026 World Cup: Football's biggest show yet' — are a factual result announcement and a generic retrospective; neither carries a specific frame signal at headline level."
+    },
+    {
+      "bucket": "nordic",
+      "note": "Yle's headline '2.1 million people watched Yle's coverage of the World Cup final' foregrounds a domestic viewership metric; the framing is self-referential and carries no issue-frame signal detectable from the title alone."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline in the corpus to use 'farce' to describe Trump's trophy-ceremony appearance, the most overtly negative editorial word applied to that moment at headline level.",
+      "signal_text_idx": 37
+    },
+    {
+      "outlet": "Tehran Times",
+      "bucket": "iran_state",
+      "finding": "Only headline to name Netanyahu ('Bibi') alongside Trump as stakeholders disappointed by the result, explicitly fusing the US-Israel political axis into a sporting outcome at the title level.",
+      "signal_text_idx": 42
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "Only headline to adopt a critical stance toward Argentina ('I Won't Cry for You, Argentina') rather than the sympathetic or neutral framing every other outlet used for Argentina's defeat.",
+      "signal_text_idx": 46
+    },
+    {
+      "outlet": "Yle Finland English",
+      "bucket": "nordic",
+      "finding": "Only outlet to make its own domestic audience size (2.1 million viewers) the headline angle, substituting a self-referential viewership metric for any framing of the match result.",
+      "signal_text_idx": 49
+    },
+    {
+      "outlet": "Asahi Shimbun",
+      "bucket": "japan",
+      "finding": "Only headline to flag 混乱も ('some disorder/chaos') alongside the parade celebrations, surfacing disruption as a headline signal that no English-language outlet included in its title.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Headline coverage worldwide defaulted to celebration (Spain's Madrid parade) and governance (FIFA brawl probe), but sharply divergent political headlines — Trump-as-intruder in Western outlets, Trump-denying-Israel's-ally in Tehran, Gaza-as-proxy-ally in UK and Southeast Asian press — reveal editors selecting which dimension of the same event to lead with based on their outlet's political identity.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
