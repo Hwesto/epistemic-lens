@@ -1,0 +1,287 @@
+{
+  "story_key": "Lae554b96b9",
+  "date": "2026-07-21",
+  "n_buckets": 16,
+  "n_articles": 30,
+  "tldr": "Headlines from all 16 outlet buckets converge on a single register: the 50% tariff rate and commodity specifics (wine, hockey sticks, dairy, cement), with almost no factual variation. A secondary fairness strand — citing US claims of Canadian 'discrimination' — surfaces explicitly in titles from Qatar, the US, UK, Canada, and India outlets; a handful of headlines embed bilateral-relations or trade-war framing (BBC uniquely captures Carney's diplomatic response; El Pais names the USMCA context), while only Politico and CBC frame the already-signed orders as a political 'threat' rather than a fait accompli.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "50% tariff rate on Canadian goods",
+      "buckets": [
+        "india", "wire_services", "qatar", "usa", "canada", "china",
+        "south_africa", "pakistan", "germany", "spain", "japan",
+        "taiwan_hk", "vietnam_thai_my", "russia", "uk", "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "US Imposes New 50% Tariffs On Canadian Goods",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "US imposes new 50% tariffs on $20 billion worth",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "U.S. to slap 50% tariffs on Canadian goods",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Trump to hit Canada with new 50% tariff",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "US imposes additional 50% tariffs on certain Canadian goods",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "US imposes new 50% tariffs on $20 billion worth",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "US imposes new 50pc tariffs on $20bn worth of Canadian",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US imposes new 50% tariff on many Canadian goods",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Trump imposes new 50% tariffs on Canada",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "U.S. imposes new 50% tariffs on $20 billion worth",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Trump imposes 50% US tariffs on some Canadian goods",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Trump orders new 50% tariff on many Canadian goods",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "US imposes new 50% tariffs on $25.8 billion worth",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "US imposes 50% import tariffs on range of Canadian goods",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Donald Trump to impose 50% tariff on most Canadian goods",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Trump threatens 50 percent tariff hike on Canadian goods",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "US 'discrimination' claims in headlines",
+      "buckets": ["qatar", "usa", "uk", "canada", "india"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "citing discrimination",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Over 'Discrimination' of American Autos",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "claims 'discriminatory treatment' of US products",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "over 'continued discrimination'",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "over auto, dairy and alcohol disputes",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Trade war risk and USMCA context",
+      "buckets": ["uk", "spain", "india", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Carney vows to 'intensify' trade talks",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "amid USMCA trade talks",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Risks New US-Canada Trade War",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "escalating trade war",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Tariffs framed as threat/leverage",
+      "buckets": ["opinion_magazines", "canada"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Trump threatens 50 percent tariff hike on Canadian goods",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Why Trump is threatening new 50% tariffs on Canadian exports",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.771,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.785,
+      "n_tokens": 486
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.794,
+      "n_tokens": 206
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.801,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.807,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.809,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.832,
+      "n_tokens": 526
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.838,
+      "n_tokens": 320
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.847,
+      "n_tokens": 118
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.848,
+      "n_tokens": 70
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Politico Europe",
+      "bucket": "opinion_magazines",
+      "finding": "The only outlet to headline the signed executive orders as a 'threat' rather than an enacted tariff, framing a completed action as a political pressure play — the sharpest headline-level departure from the factual baseline in the corpus.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "The only headline to include Canada's diplomatic counter-response (Carney vowing to 'intensify' trade talks) as a headline-level fact rather than a body detail, making the bilateral dimension visible before the click.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "El Pais English",
+      "bucket": "spain",
+      "finding": "The only headline to name the USMCA negotiating context explicitly, framing the tariff action as part of an ongoing treaty renegotiation rather than a standalone punitive measure.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Reason",
+      "bucket": "usa",
+      "finding": "The only single-word headline in the corpus ('Tariffs'), stripping all framing, context, and attribution — the body alleges the tariffs are illegal under defunct Smoot-Hawley law, but no trace of that angle reaches the headline layer.",
+      "signal_text_idx": 20
+    }
+  ],
+  "bottom_line": "At the headline layer, the Canada tariff story is almost uniformly framed as an economic action — the 50% rate and commodity list dominate across all 16 buckets — while the legal controversy over Section 338, the diplomatic response, and the CUSMA leverage logic that animate body text remain almost entirely below the fold.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
