@@ -1,0 +1,462 @@
+{
+  "date": "2026-07-21",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 17,
+  "buckets": [
+    "balkans",
+    "brazil",
+    "canada",
+    "china",
+    "germany",
+    "hungary_central",
+    "india",
+    "israel",
+    "taiwan_hk",
+    "uk"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "balkans": 269,
+    "china": 62,
+    "germany": 130,
+    "brazil": 43,
+    "canada": 33,
+    "israel": 116,
+    "hungary_central": 211,
+    "taiwan_hk": 63,
+    "uk": 58,
+    "india": 36
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "uk",
+      "score": 0.903
+    },
+    {
+      "a": "israel",
+      "b": "taiwan_hk",
+      "score": 0.899
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.895
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.884
+    },
+    {
+      "a": "balkans",
+      "b": "germany",
+      "score": 0.877
+    },
+    {
+      "a": "canada",
+      "b": "israel",
+      "score": 0.871
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.863
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.856
+    },
+    {
+      "a": "balkans",
+      "b": "israel",
+      "score": 0.853
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.849
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.847
+    },
+    {
+      "a": "brazil",
+      "b": "israel",
+      "score": 0.846
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.845
+    },
+    {
+      "a": "china",
+      "b": "israel",
+      "score": 0.84
+    },
+    {
+      "a": "balkans",
+      "b": "taiwan_hk",
+      "score": 0.839
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.839
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.839
+    },
+    {
+      "a": "balkans",
+      "b": "brazil",
+      "score": 0.831
+    },
+    {
+      "a": "germany",
+      "b": "israel",
+      "score": 0.831
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.825
+    },
+    {
+      "a": "balkans",
+      "b": "uk",
+      "score": 0.821
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.818
+    },
+    {
+      "a": "hungary_central",
+      "b": "israel",
+      "score": 0.812
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.81
+    },
+    {
+      "a": "brazil",
+      "b": "china",
+      "score": 0.796
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.788
+    },
+    {
+      "a": "balkans",
+      "b": "india",
+      "score": 0.786
+    },
+    {
+      "a": "hungary_central",
+      "b": "uk",
+      "score": 0.784
+    },
+    {
+      "a": "hungary_central",
+      "b": "taiwan_hk",
+      "score": 0.78
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.776
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.775
+    },
+    {
+      "a": "balkans",
+      "b": "china",
+      "score": 0.774
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.773
+    },
+    {
+      "a": "balkans",
+      "b": "canada",
+      "score": 0.77
+    },
+    {
+      "a": "balkans",
+      "b": "hungary_central",
+      "score": 0.769
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.768
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.761
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.75
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.75
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.75
+    },
+    {
+      "a": "germany",
+      "b": "hungary_central",
+      "score": 0.695
+    },
+    {
+      "a": "brazil",
+      "b": "hungary_central",
+      "score": 0.685
+    },
+    {
+      "a": "hungary_central",
+      "b": "india",
+      "score": 0.684
+    },
+    {
+      "a": "canada",
+      "b": "hungary_central",
+      "score": 0.649
+    },
+    {
+      "a": "china",
+      "b": "hungary_central",
+      "score": 0.633
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.721,
+      "n_tokens": 211
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.788,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.789,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.791,
+      "n_tokens": 130
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.8,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.813,
+      "n_tokens": 269
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.817,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.819,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.82,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.86,
+      "n_tokens": 116
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "balkans": [
+      {
+        "term": "government",
+        "count": 4
+      },
+      {
+        "term": "parliament",
+        "count": 4
+      },
+      {
+        "term": "tisza",
+        "count": 3
+      },
+      {
+        "term": "constitutional",
+        "count": 3
+      },
+      {
+        "term": "odbila",
+        "count": 3
+      },
+      {
+        "term": "poziv",
+        "count": 3
+      },
+      {
+        "term": "premijera",
+        "count": 3
+      },
+      {
+        "term": "bude",
+        "count": 3
+      },
+      {
+        "term": "predsednica",
+        "count": 3
+      },
+      {
+        "term": "mađarske",
+        "count": 3
+      }
+    ],
+    "china": [
+      {
+        "term": "serve",
+        "count": 6
+      },
+      {
+        "term": "taps",
+        "count": 4
+      }
+    ],
+    "germany": [
+      {
+        "term": "ungarn",
+        "count": 9
+      },
+      {
+        "term": "seine",
+        "count": 3
+      },
+      {
+        "term": "eine",
+        "count": 3
+      },
+      {
+        "term": "юдит",
+        "count": 3
+      },
+      {
+        "term": "полгар",
+        "count": 3
+      },
+      {
+        "term": "занять",
+        "count": 3
+      },
+      {
+        "term": "президента",
+        "count": 3
+      },
+      {
+        "term": "nicht",
+        "count": 3
+      },
+      {
+        "term": "schachgroßmeisterin",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "lenda",
+        "count": 3
+      },
+      {
+        "term": "xadrez",
+        "count": 3
+      },
+      {
+        "term": "convite",
+        "count": 3
+      },
+      {
+        "term": "para",
+        "count": 3
+      },
+      {
+        "term": "presidente",
+        "count": 3
+      },
+      {
+        "term": "hungria",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "israel": [
+      {
+        "term": "jewish",
+        "count": 3
+      },
+      {
+        "term": "presidency",
+        "count": 3
+      },
+      {
+        "term": "loading",
+        "count": 3
+      }
+    ],
+    "hungary_central": [
+      {
+        "term": "republic",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "uk": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-21T10:07:10+00:00",
+  "meta_version": "10.0.3"
+}

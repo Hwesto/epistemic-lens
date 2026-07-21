@@ -1,0 +1,96 @@
+{
+  "date": "2026-07-21",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 226,
+      "n_tokens_in_cohort": 105,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 105,
+      "n_tokens_in_cohort": 226,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 93,
+      "n_tokens_in_cohort": 368,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 432,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 433,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 214,
+      "n_tokens_in_cohort": 247,
+      "distinctive_terms": [
+        {
+          "term": "garcia",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03271,
+          "rate_in_cohort": 0.0,
+          "llr": 10.869,
+          "log_ratio": null,
+          "p_value": 0.000978
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 430,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 433,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 16,
+      "n_tokens_in_cohort": 445,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 439,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

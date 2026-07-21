@@ -1,0 +1,57 @@
+{
+  "date": "2026-07-21",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 47,
+      "n_tokens_in_cohort": 264,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 171,
+      "n_tokens_in_cohort": 140,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 62,
+      "n_tokens_in_cohort": 249,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 280,
+      "distinctive_terms": []
+    },
+    "colombia_ven_peru": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 38,
+      "n_tokens_in_cohort": 62,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 62,
+      "n_tokens_in_cohort": 38,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

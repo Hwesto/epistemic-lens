@@ -1,0 +1,156 @@
+{
+  "date": "2026-07-21",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 643,
+      "n_tokens_in_cohort": 727,
+      "distinctive_terms": [
+        {
+          "term": "gandhi",
+          "count_in_bucket": 13,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02022,
+          "rate_in_cohort": 0.0,
+          "llr": 19.808,
+          "log_ratio": null,
+          "p_value": 9e-06
+        },
+        {
+          "term": "hospital",
+          "count_in_bucket": 10,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01555,
+          "rate_in_cohort": 0.0,
+          "llr": 15.212,
+          "log_ratio": null,
+          "p_value": 9.6e-05
+        },
+        {
+          "term": "sansad",
+          "count_in_bucket": 8,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01244,
+          "rate_in_cohort": 0.0,
+          "llr": 12.156,
+          "log_ratio": null,
+          "p_value": 0.000489
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 119,
+      "n_tokens_in_cohort": 1251,
+      "distinctive_terms": [
+        {
+          "term": "thousand",
+          "count_in_bucket": 8,
+          "count_in_cohort": 12,
+          "rate_in_bucket": 0.06723,
+          "rate_in_cohort": 0.00959,
+          "llr": 14.728,
+          "log_ratio": 1.947,
+          "p_value": 0.000124
+        }
+      ]
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 99,
+      "n_tokens_in_cohort": 1271,
+      "distinctive_terms": [
+        {
+          "term": "resign",
+          "count_in_bucket": 5,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.05051,
+          "rate_in_cohort": 0.00551,
+          "llr": 11.214,
+          "log_ratio": 2.216,
+          "p_value": 0.000812
+        }
+      ]
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 1342,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 77,
+      "n_tokens_in_cohort": 1293,
+      "distinctive_terms": [
+        {
+          "term": "movement",
+          "count_in_bucket": 7,
+          "count_in_cohort": 22,
+          "rate_in_bucket": 0.09091,
+          "rate_in_cohort": 0.01701,
+          "llr": 11.208,
+          "log_ratio": 1.676,
+          "p_value": 0.000814
+        }
+      ]
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 1347,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 242,
+      "n_tokens_in_cohort": 1128,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 1345,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 1343,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 61,
+      "n_tokens_in_cohort": 1309,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 1344,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
