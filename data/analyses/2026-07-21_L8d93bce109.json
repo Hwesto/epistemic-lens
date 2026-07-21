@@ -1,0 +1,182 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-21",
+  "lineage_id": "L8d93bce109",
+  "cluster_id": 159,
+  "cluster_name": "Yemen's Houthis declare naval blockade against Saudi Arabia",
+  "salience_score": 5.6,
+  "n_outlets": 17,
+  "n_countries": 14,
+  "n_articles": 20,
+  "event_summary": "On July 20, 2026, Houthi spokesman Yahya Saree declared an immediate naval blockade of Saudi Arabia, threatening to close the Bab al-Mandab Strait in retaliation for strikes on Sanaa's airport and what the Houthis called a 12-year Saudi siege of northwest Yemen.",
+  "tldr": "The corpus reveals near-universal agreement across state propaganda, independent investigative, and mainstream outlets that the Houthi blockade is primarily a global energy emergency, not a bilateral Yemen dispute. With the Strait of Hormuz already closed due to the US-Iran war, the Bab al-Mandab is the last viable Red Sea route for Gulf oil exports, and East Asian outlets (KBS World, Japan Times, Straits Times) lead on this angle with granular supply-chain specificity. Iranian state media (IRNA, Tehran Times) call the Houthis 'Yemeni armed forces' rather than rebels, legitimising the blockade as a sovereign act, while Western outlets stress Saudi condemnation and the UN's warning of 'even wider' regional conflict. No US outlet appears in the cluster, suggesting American press subordinated this Houthi escalation to the main Iran strikes narrative.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "dual-chokepoint maritime crisis",
+      "outlets": ["Asia Times", "BBC World", "Daily Maverick", "Daily Sabah", "Haaretz", "Premium Times Nigeria", "RT", "The Independent", "The New Arab"],
+      "countries": ["asia_pacific_regional", "uk", "south_africa", "turkey", "israel", "africa_other", "russia", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The Red Sea has become crucial for oil shipments from Saudi Arabia during the US-Israeli war with Iran, which has led to the effective closure of the Strait of Hormuz in the Gulf.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "The announcement of the blockade comes as the Strait of Hormuz, another key maritime chokepoint, remains closed due to the ongoing US-Iran war.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Asia Times",
+          "country": "asia_pacific_regional",
+          "quote": "Houthi rebels in Yemen on Monday announced they were imposing a maritime embargo against Saudi Arabia in yet another threat to global petroleum supplies amid the US war on Iran.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Red Sea oil route under threat",
+      "outlets": ["Globe and Mail", "Hindustan Times", "Japan Times", "KBS World", "Straits Times", "Daily Sabah"],
+      "countries": ["canada", "india", "japan", "south_korea", "vietnam_thai_my", "turkey"],
+      "evidence": [
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "More than 80 percent of the Saudi crude transported to Yanbu is purchased by South Korea, Japan and other East Asian energy importers.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "With Hormuz already disrupted, the Red Sea has become a critical alternative outlet for Gulf oil.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The blockade is also expected to hurt global markets that rely on Saudi Arabia, which produces over 10 million barrels of crude per day, for energy imports.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "reciprocal siege retaliation",
+      "outlets": ["Republic World (alt)", "The New Arab", "IRNA English", "Tehran Times", "BBC World"],
+      "countries": ["india", "pan_arab", "iran_state", "uk"],
+      "evidence": [
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "in retaliation for nearly 12 years of land, sea, and air siege imposed on Yemen",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Houthi spokesperson Yahya Saree vowed to retaliate \"to the blockade with a blockade and to respond to all escalation with escalation\".",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "citing a decade-long blockade, risking disruption to 12% of global trade amid escalating missile and drone attacks",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Saudi condemnation and UN alarm",
+      "outlets": ["Daily Sabah", "Straits Times", "Hindustan Times", "BBC World"],
+      "countries": ["turkey", "vietnam_thai_my", "india", "uk"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Stephane Dujarric, spokesman for the U.N. secretary-general, warned that the threat from the Houthis risked an \"even wider\" regional conflict.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Saudi Arabia on Monday condemned what it described as allegations by Yemen's Iran-aligned Houthis that the kingdom was besieging the Yemeni people, after the group announced it would impose a maritime blockade on Saudi Arabia.",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Houthi-Iran-US war nexus",
+      "outlets": ["Premium Times Nigeria", "Daily Maverick", "Globe and Mail", "Tehran Times"],
+      "countries": ["africa_other", "south_africa", "canada", "iran_state"],
+      "evidence": [
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "opening a potential new front against the United States in its war with Iran and raising the threat to global energy supplies and trade beyond the Gulf",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "Yemen announced on Monday it was imposing a naval blockade on Saudi Arabia, a move that opens a new front against the United States in its war on Iran and widens the threat to global oil supplies and trade beyond the Persian Gulf.",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "US military strikes on Iran — the Globe and Mail's headline at corpus[4] ('U.S. continues Iran campaign as Houthis announce Saudi blockade') frames these as two simultaneous stories, suggesting US press led with the Iran strikes rather than the Houthi escalation."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Provides the most granular supply-chain data: 7.4 million barrels per day transit Bab al-Mandab, South Korea purchases over 80% of Yanbu's Saudi crude output, and 15 South Korean tankers have already used the Red Sea route since Hormuz closed — making the potential blockade acutely personal for Seoul.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "IRNA English",
+      "country": "iran_state",
+      "finding": "Refers to the Houthis exclusively as 'Yemen's armed forces' — state-legitimising language that frames the blockade as a sovereign act rather than a militia escalation, a framing no other outlet in the corpus adopts.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only outlet to provide extended historical context for the Yemen conflict, noting that the Saudi-led bombing campaign 'was condemned by the UN and human rights organizations, worsened Yemen's humanitarian crisis and displaced millions of people' — framing the blockade as a morally justified response.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "The only outlet to cite the UN Secretary-General's warning that the Houthi blockade threatened 'even wider' regional conflict, adding an international institutional voice absent from all other coverage in the corpus.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "An Israeli outlet covers the Houthi-Saudi escalation in matter-of-fact terms with no editorialising about Israeli exposure to Houthi attacks or Red Sea shipping stakes — notable restraint given Israel's direct stake in both the Iran war and Red Sea security.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "The only outlet to cite a specific global trade disruption figure of '12% of global trade' at risk from the Bab al-Mandab closure — a claim not corroborated by any other corpus item.",
+      "signal_text_idx": 14
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Seventeen outlets across 14 country codes converge on a single alarm: the Houthi blockade of Saudi Arabia threatens to close the last viable Red Sea energy corridor at a moment when the Strait of Hormuz is already shut by the US-Iran war. East Asian importers face the starkest exposure, while Iranian state media treat the Houthi action as a legitimate sovereign response — a legitimacy framing that Western and Gulf-adjacent outlets contest without depth.",
+  "generated_at": "2026-07-21T08:15:00Z",
+  "model": "claude-sonnet-4-6"
+}
