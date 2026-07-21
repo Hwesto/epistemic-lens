@@ -1,0 +1,177 @@
+{
+  "story_key": "L1b2d961550",
+  "date": "2026-07-21",
+  "n_buckets": 10,
+  "n_articles": 17,
+  "tldr": "Headlines split into two dominant angles: roughly half foreground Polgár's chess identity — 'chess legend', 'chess queen', 'Schachlegende' — treating the story as a celebrity nomination, while the other half lead with the PM's political action ('taps', 'gambit', 'ruling party backs'). The constitutional machinery removing Orbán-aligned president Sulyok, which created the vacancy, surfaces in only two headline slots and is effectively invisible to most readers.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "PM's presidential nomination gambit",
+      "buckets": ["balkans", "china", "canada", "hungary_central", "india"],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Hungarian PM's Presidential Gambit Fails as Polgar Declines",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Hungarian PM taps chess grandmaster Judit Polgar to serve",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Hungary's Prime Minister Magyar will ask chess champion",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Hungary Today",
+          "quote": "“NO!” PM Magyar Left Red-faced after Rejection",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Hungary's ruling party backs chess legend Judit Polgar for",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "chess legend as presidential figure",
+      "buckets": ["germany", "brazil", "taiwan_hk", "uk", "israel"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Russian",
+          "quote": "Легенда шахмат Юдит Полгар отказалась занять пост",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Lenda do xadrez recusa convite para ser presidente da",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Chess champion Polgar turns down offer to be Hungary's",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Hungary's chess queen declines Péter Magyar's offer of role",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Jewish Hungarian chess legend Judit Polgár turns down PM",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "constitutional removal of Sulyok",
+      "buckets": ["germany", "balkans"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Ungarns Präsident unterschreibt Gesetz für seine Absetzung",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Hungary's Parliament Votes to Remove Orban-Appointed",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.721,
+      "n_tokens": 211
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.788,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.789,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.791,
+      "n_tokens": 130
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.8,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.813,
+      "n_tokens": 269
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.817,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.819,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.82,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.86,
+      "n_tokens": 116
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hungary Today",
+      "bucket": "hungary_central",
+      "finding": "Only outlet to use tabloid sensationalism in the headline — opening with a quoted “NO!” and describing Magyar as 'Red-faced', a tone entirely absent from every other bucket's title."
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Only outlet to foreground Polgár's Jewish identity in the headline ('Jewish Hungarian chess legend'), a dimension invisible in every other outlet's title across the corpus."
+    },
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "bucket": "germany",
+      "finding": "Only headline exclusively about the constitutional process — Sulyok signing his own dismissal law — with no mention of Polgár; DW German covers the legal precondition, not the celebrity nomination."
+    }
+  ],
+  "bottom_line": "The headline layer presents two parallel stories — a PM's political gambit that backfired, and a chess celebrity who declined a call to public life — while the constitutional removal of Sulyok that made the presidency vacant is nearly invisible at the front-page level.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
