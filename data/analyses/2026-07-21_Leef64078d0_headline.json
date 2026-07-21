@@ -1,0 +1,197 @@
+{
+  "story_key": "Leef64078d0",
+  "date": "2026-07-21",
+  "n_buckets": 12,
+  "n_articles": 19,
+  "tldr": "Headlines across 12 regional buckets converge almost uniformly on arrest-and-charge language — 'arrested,' 'presos,' 'festgenommen,' 'detained' — with rape and sex trafficking named in titles by nine outlets. Three outlets (Le Devoir, National Post, Straits Times) break the pattern by foregrounding the 'politically motivated' defense claim as the headline's announced subject rather than the criminal allegations or court appearance.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "arrest and criminal charges",
+      "buckets": ["uk", "turkey", "germany", "brazil", "usa", "canada", "vietnam_thai_my", "india", "russia", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Tate brothers appear in US court for extradition proceedings",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "acusados de estupro, são presos em Miami",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "remain behind bars for now as UK seeks extradition",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Tate brothers arrested in US",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "arrested in US on new charges of rape, trafficking",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "extradition as legal contest",
+      "buckets": ["qatar", "germany", "canada", "india", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "vow to fight extradition as they appear at court in Miami",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Tate brothers to fight extradition to UK, says lawyer",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Tate brothers fight extradition to the U.K.",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Fight Extradition To UK Over Rape, Sex Trafficking Charges",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Tate brothers to fight extradition from US to UK",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "extradition as politically motivated",
+      "buckets": ["canada", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Le Devoir",
+          "quote": "qu'il juge «motivée politiquement»",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "fight 'politically motivated' U.K. extradition, lawyer says",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "to fight 'politically motivated' UK extradition",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "manosphere identity label in headline",
+      "buckets": ["brazil", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "influenciadores da 'machosfera' acusados de estupro",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'Manosphere' influencers Andrew and Tristan Tate detained",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.769,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.777,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.805,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.815,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.818,
+      "n_tokens": 83
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.821,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.823,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.843,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.856,
+      "n_tokens": 259
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline to foreground the physical restraint of detention — 'shackled and handcuffed' — centering the coercive spectacle of state custody rather than the charges, extradition proceedings, or the political-prosecution narrative the outlet might predictably amplify."
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "bucket": "brazil",
+      "finding": "Only headline to place the manosphere cultural label ('machosfera') and the rape accusation in the same clause before naming the arrest — inverting the dominant pattern of arrest-first, charges-second, cultural context last."
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "'Remain behind bars for now' makes the detention outcome — not the arrest event or the extradition fight — the stated news peg; the USA bucket's exclusive vocabulary ('remain', 'bars') is entirely attributable to this headline choice."
+    }
+  ],
+  "bottom_line": "At the headline layer, this story is sold globally as a criminal arrest on rape and trafficking charges with extradition proceedings as the legal framing; the 'politically motivated' counter-narrative surfaces in only three titles, and RT — despite its predictable amplification angle — ran factual, charge-neutral arrest briefs.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
