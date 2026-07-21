@@ -1,0 +1,206 @@
+{
+  "story_key": "L9008de193f",
+  "date": "2026-07-21",
+  "n_buckets": 13,
+  "n_articles": 32,
+  "tldr": "Headlines across the corpus are almost uniformly locked onto the military exchange register — record Russian ballistic assaults on Kyiv and Ukraine's 400-drone retaliation on Moscow dominate the visual layer across Western, Asian, and African outlets alike. The sharpest headline divergence comes from Russia's independent exile press (Meduza, Moscow Times), which leads with Wildberries' commercial fallout — seller compensation, warehouse reopenings — making civilian economic damage the announced story rather than the air war metrics every other outlet foregrounds.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mutual air war exchange, record strikes",
+      "buckets": ["wire_services", "canada", "china", "iran_opposition", "kenya", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Russian missile and drone strikes on Kyiv",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Russian And Ukraine Exchange Overnight Strikes",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Russia pounds Kyiv with ballistic missiles",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian casualties and residential hits",
+      "buckets": ["ukraine", "turkey", "india", "russia", "canada"],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "damages high-rise residential building and injures children",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Russian missile strike on Odesa building kills 2, wounds 8",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Ukrainian and Russian strikes kill over a dozen civilians",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Wildberries commercial damage",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Wildberries warehouses killed eight people",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "no compensation for destroyed goods",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Aftermath of Ukraine's Wildberries Drone Strikes",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Zelensky dismissal amid escalation",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "protests over dismissal of defence minister",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "record-scale drone and ballistic raids",
+      "buckets": ["germany", "usa"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Russia's largest ballistic assault of war rocks Kyiv",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "one of war's biggest attacks",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.612,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.637,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.65,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.674,
+      "n_tokens": 309
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.679,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.681,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.704,
+      "n_tokens": 295
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.706,
+      "n_tokens": 438
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.724,
+      "n_tokens": 109
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.735,
+      "n_tokens": 101
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.755,
+      "n_tokens": 97
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Standard Kenya World",
+      "bucket": "kenya",
+      "finding": "Only headline to foreground Wildberries as the precipitating event — 'Kyiv hit with deadly strikes after attack on Russian e-commerce giant' — making the retaliatory causal chain explicit at the headline layer where every other outlet treats the Kyiv strikes as the primary story."
+    },
+    {
+      "outlet": "CGTN Politics",
+      "bucket": "china",
+      "finding": "'Moscow strikes 149 Ukrainian zones, Kyiv hits Russian oil depots' imposes numerical symmetry on the exchange — 149 Ukrainian zones vs. Russian oil depots — a parallel grammatical structure that presents both sides as equally initiating, a framing absent from all Western outlet headlines."
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only headline to identify foreign nationals by nationality among drone-attack casualties — 'Three Chinese nationals among 10 injured' — surfacing a diplomatic dimension (Beijing-Kyiv friction) invisible in every other title across the corpus."
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "'Drone hits apartment building in Vladimir, 209 UAVs: aftermath of Ukraine's UAV attack' is the only Russian state agency headline to foreground civilian residential damage with a specific UAV count, presenting collateral harm rather than military exchange metrics."
+    },
+    {
+      "outlet": "Globe and Mail",
+      "bucket": "canada",
+      "finding": "Only headline to link the 400-drone Moscow launch causally to Zelensky's domestic political crisis over his dismissal of the defence minister — a framing no other outlet attempted at headline level."
+    }
+  ],
+  "bottom_line": "At the headline layer, this story is sold globally as a record-breaking mutual air assault — Russia's largest ballistic barrage on Kyiv answered by Ukraine's largest drone swarm on Moscow — while the economic collapse of Wildberries' warehouse network is visible only in Russia's independent exile press headlines, effectively suppressed at the front-page level for every other geography.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
