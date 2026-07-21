@@ -1,0 +1,151 @@
+{
+  "story_key": "L8d93bce109",
+  "date": "2026-07-21",
+  "n_buckets": 14,
+  "n_articles": 20,
+  "tldr": "Headlines from all 14 country buckets announce the Houthi naval blockade of Saudi Arabia as a military escalation in the US-Iran war. A parallel set of East Asian and Western explainer titles foregrounds the global energy supply threat, while only Iranian state media and an Indian nationalist outlet lead with the 'eye for eye' retaliation framing that most Western headlines relegate to the body text.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Naval blockade: new Red Sea war front",
+      "buckets": [
+        "asia_pacific_regional",
+        "uk",
+        "south_africa",
+        "turkey",
+        "israel",
+        "russia",
+        "pan_arab",
+        "africa_other",
+        "canada",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "threatening new front in US-Iran war",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Houthis declare naval blockade of Saudi Arabia",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "amid Strait of Hormuz fighting",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "Premium Times Nigeria",
+          "quote": "US continues to attack Iran as tension expands to Red Sea",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Red Sea closure threatens energy supply",
+      "buckets": [
+        "canada",
+        "india",
+        "japan",
+        "south_korea",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "threatens global energy supplies",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Could Disrupt Crude Supply to S. Korea",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "tightens Iran's grip on global energy supply",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "tightens Iran's grip on global energy supplies",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "An eye for eye: retaliation for siege",
+      "buckets": [
+        "iran_state",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "'An Eye For An Eye': Yemen's Houthis Impose Shipping Ban",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "in response to 'oppressive siege'",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "south_korea", "mean_similarity": 0.711, "n_tokens": 189},
+    {"bucket": "africa_other", "mean_similarity": 0.725, "n_tokens": 35},
+    {"bucket": "canada", "mean_similarity": 0.73, "n_tokens": 55},
+    {"bucket": "israel", "mean_similarity": 0.73, "n_tokens": 34},
+    {"bucket": "russia", "mean_similarity": 0.732, "n_tokens": 189},
+    {"bucket": "iran_state", "mean_similarity": 0.74, "n_tokens": 71},
+    {"bucket": "turkey", "mean_similarity": 0.751, "n_tokens": 188},
+    {"bucket": "south_africa", "mean_similarity": 0.752, "n_tokens": 42},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.757, "n_tokens": 61},
+    {"bucket": "asia_pacific_regional", "mean_similarity": 0.778, "n_tokens": 48},
+    {"bucket": "uk", "mean_similarity": 0.78, "n_tokens": 218},
+    {"bucket": "india", "mean_similarity": 0.784, "n_tokens": 100}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "IRNA English",
+      "bucket": "iran_state",
+      "finding": "The title 'Yemeni armed forces declare full naval blockade against Saudi Arabia' uses 'Yemeni armed forces' rather than 'Houthis' — the only headline in the corpus to legitimise the blockade as a sovereign state act, a framing distinction visible before any reader clicks.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "KBS World",
+      "bucket": "south_korea",
+      "finding": "The only headline to name a specific national import dependency ('Crude Supply to S. Korea'), making the energy risk explicitly personal rather than abstract-global — a divergence from the generic 'global energy supplies' phrasing used by Japan Times, Straits Times, and Globe and Mail.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "bucket": "india",
+      "finding": "The only headline to foreground the Houthi rhetorical framing verbatim ('An Eye For An Eye') rather than the factual announcement, advertising the retaliatory logic on the homepage in a way that every other outlet reserves for the body text.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "Headline-layer coverage advertises the Houthi naval blockade primarily as a military escalation threatening global energy supplies, with retaliatory justice framing visible only in Iranian state and Indian right-populist titles.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
