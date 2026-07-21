@@ -1,0 +1,231 @@
+{
+  "story_key": "L2ca5b3bf14",
+  "date": "2026-07-21",
+  "n_buckets": 12,
+  "n_articles": 22,
+  "tldr": "Headlines across all 12 outlet groups frame Ismael 'El Mayo' Zambada's life sentence as a clear criminal-justice endpoint; Mexico's outlets diverge sharply by adding layers of ongoing cartel violence, US political pressure on Mexican institutions, and implicit questions about El Mayo's status as a cooperative witness — angles absent from every other national headline layer.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Life sentence for Sinaloa co-founder",
+      "buckets": [
+        "brazil",
+        "canada",
+        "germany",
+        "india",
+        "italy",
+        "mexico",
+        "spain",
+        "state_tv_intl",
+        "taiwan_hk",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "é condenado à prisão perpétua em Nova York",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "'El Mayo' sentenced to life in prison",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "sentenced to life without parole in US prison",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "'El Mayo' faces life in jail",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "ergastolo a 'El Mayo' Zambada",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "Sentencia para 'El Mayo' con aroma de testigo",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "'El Mayo' Zambada sentenced to life",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "sentenciado a cadena perpetua en Estados Unidos",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "'El Mayo' Zambada faces life in prison",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "sentenced to life in US prison",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "sentenced to life, ordered to pay $15B",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'El Mayo' Zambada awaits his fate in US court",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Cartel threat persists post-sentence",
+      "buckets": [
+        "mexico",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "La condena del Mayo enciende alertas en el noroeste",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "Cártel de Sinaloa se adjudica masacre en Zacatecas",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "No descansaremos hasta desmantelar al Cártel",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Mexikos mächtigste Drogenbosse in US-Haft",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US justice targets Mexico's political class",
+      "buckets": [
+        "mexico"
+      ],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "creció por corrupción en todos los niveles",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "EU lanza advertencia tras condena a El Mayo",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Repentance and public reckoning",
+      "buckets": [
+        "mexico"
+      ],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "De los arrepentidos... Esto dijo 'El Mayo' Zambada",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.656,
+      "n_tokens": 214
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.699,
+      "n_tokens": 226
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.706,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.74,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.741,
+      "n_tokens": 105
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.778,
+      "n_tokens": 93
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.78,
+      "n_tokens": 110
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "24 Horas",
+      "bucket": "mexico",
+      "finding": "Only headline to frame the sentence through the implicit suggestion of a protected-witness arrangement ('aroma de testigo protegido'), raising a legal-process question absent from every other outlet's headline."
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline that foregrounds the $15B financial forfeiture as a co-equal element of justice, pairing punishment with the scale of profit recovery in a way no other outlet's title does."
+    },
+    {
+      "outlet": "El Financiero",
+      "bucket": "mexico",
+      "finding": "Only outlet to headline a concurrent Sinaloa Cartel massacre ('masacre en Zacatecas'), anchoring the sentencing moment inside an ongoing cycle of cartel violence rather than presenting it as legal closure."
+    }
+  ],
+  "bottom_line": "Internationally, the headline layer treats El Mayo's life sentence as a definitive crime-and-punishment event; Mexico's domestic outlets uniquely frame it as an unresolved security and political crisis — highlighting cartel violence, US institutional pressure on Mexican politics, and unresolved questions about judicial cooperation.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
