@@ -1,0 +1,150 @@
+{
+  "story_key": "L7d5524ef6b",
+  "date": "2026-07-21",
+  "n_buckets": 9,
+  "n_articles": 17,
+  "tldr": "Headlines across nine countries uniformly frame the incident as a criminal arrest—a man taken into custody for detonating an incendiary device at a New York federal building. US conservative and UK outlets go further, labelling the suspect an 'anti-ICE extremist,' while some outlets explicitly invoke a terrorism investigation.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Arrest; suspect ID'd; device detonated",
+      "buckets": [
+        "brazil",
+        "colombia_ven_peru",
+        "france",
+        "india",
+        "italy",
+        "state_tv_intl",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "dispositivo esplosivo contro sede Fbi a Ny, un fermato",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "un homme accusé d'avoir lancé un engin incendiaire",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Suspect in Custody After Device Ignited",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "FBI arresta a hombre en Nueva York",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Homem é preso após tentar explodir edifício do ICE",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "army veteran in custody after fire set outside ICE",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Terrorism probe; attack on federal target",
+      "buckets": [
+        "usa",
+        "india",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Armed Man Triggers Terrorism Investigation",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Hombre ataca con explosivo casero un edificio del ICE",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "setting off 'incendiary device' at NYC's 26 Federal Plaza",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Anti-ICE extremist; protest motivation",
+      "buckets": [
+        "uk",
+        "usa",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "'Anti-ICE' Army veteran set fire outside Manhattan",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "ID'd As Anti-ICE 'Extremist'",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Giornale",
+          "quote": "Manifestante anti-Ice, aveva un manifesto",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "'anti-ICE' incendiary device attack in NYC",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.655,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.674,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.696,
+      "n_tokens": 47
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage universally leads with criminal arrest, but US conservative outlets' unique 'anti-ICE extremist' label and terrorism-investigation framing elevate the political and security stakes beyond what other countries' front pages suggest.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
