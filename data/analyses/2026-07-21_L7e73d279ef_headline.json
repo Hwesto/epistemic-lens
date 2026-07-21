@@ -1,0 +1,139 @@
+{
+  "story_key": "L7e73d279ef",
+  "date": "2026-07-21",
+  "n_buckets": 15,
+  "n_articles": 21,
+  "tldr": "Headlines across all 15 country-buckets reduce this episode to a single question: will New York City enforce the ICC arrest warrant against Netanyahu when he attends the UN General Assembly in September? Fourteen of the fifteen buckets anchor on the 'arrested/not arrested' frame — Trump's vow that Netanyahu will not be detained provides the common peg across Italian wire copy, Israeli broadsheets, Spanish-language dailies, and South and Southeast Asian press alike. Egypt Independent is the sole outlier, dropping arrest language entirely to frame the story as a political fight both Trump and Mamdani may quietly welcome. Le Figaro stands apart by surfacing the legal-jurisdictional question in the headline itself, asking whether the arrest bid is 'a bluff or a real legal opportunity' — a nuance almost entirely absent from other countries' front pages.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Netanyahu arrest; ICC warrant enforcement",
+      "buckets": [
+        "italy",
+        "pakistan",
+        "mexico",
+        "colombia_ven_peru",
+        "brazil",
+        "usa",
+        "israel",
+        "canada",
+        "russia",
+        "india",
+        "wire_services",
+        "vietnam_thai_my",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Netanyahu non sarà arrestato in nessuna circostanza",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "enforce 'bogus arrest warrant'",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "No chance Netanyahu will be arrested in New York",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Netanyahu could be arrested during New York visit",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "'Netanyahu Belongs in the Hague'",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Netanyahu lashes out at Zohran Mamdani over ICC arrest",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Mutual political theatre over Netanyahu",
+      "buckets": [
+        "egypt"
+      ],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Trump and Mamdani might both welcome a fight",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Bluff vs real legal jurisdiction?",
+      "buckets": [
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "Le Figaro",
+          "quote": "coup de bluff ou réelle opportunité juridique ?",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.644,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.757,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.758,
+      "n_tokens": 44
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "The only headline in the corpus to label the ICC warrant as 'bogus' — explicitly delegitimizing the arrest order at the headline layer, a framing absent from all other English and non-English titles including Israel's two outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Egypt Independent",
+      "country": "egypt",
+      "finding": "The only headline to drop arrest/warrant language entirely and frame the story as mutual political theatre, asking why both Trump and Mamdani might 'welcome a fight' — the sole political-strategy frame in the corpus.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Le Figaro",
+      "country": "france",
+      "finding": "The only headline to surface the legal-jurisdictional question explicitly, asking whether the arrest bid is 'a bluff or a real legal opportunity' — a legal-analytical framing absent from all other outlets' titles.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer is almost entirely a CRIME_PUNISHMENT story — 13 of 15 country-buckets lead with some variant of 'Netanyahu arrested/not arrested,' advertising this as a criminal-enforcement episode rather than a diplomatic or political one. Egypt Independent is the lone dissenter, reading the episode as mutual political theatre, while Le Figaro uniquely surfaces the jurisdictional question in its headline itself.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
