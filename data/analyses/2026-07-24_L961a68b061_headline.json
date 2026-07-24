@@ -1,0 +1,230 @@
+{
+  "story_key": "L961a68b061",
+  "date": "2026-07-24",
+  "n_buckets": 15,
+  "n_articles": 29,
+  "tldr": "Headlines across 15 global outlets portray a sustained Ukrainian drone campaign striking Wildberries logistics hubs near St. Petersburg, framing the attacks as military escalation while western and Canadian outlets add a second layer emphasising economic disruption to Russia's largest online retailer.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Ukrainian drone campaign escalates",
+      "buckets": [
+        "wire_services",
+        "france",
+        "qatar",
+        "turkey",
+        "uk",
+        "germany",
+        "usa",
+        "canada",
+        "iraq",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "kenya",
+        "vietnam_thai_my",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Ukraine drone attack sparks fire at Russian e-commerce",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Major fire after Ukrainian strike on St Petersburg warehouse",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "3 injured as Ukraine strikes Russia's largest online retailer",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Russia says bus strike kills 5 in border region with Ukraine",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Ukraine unleashes more than 400 drones near Moscow",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Ukraine hits 'Russia's Amazon' warehouses outside St Petersburg",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Ukraine strikes Wildberries warehouses in Russia for fourth time",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Russia Launches Major Missile, Drone Attack On Kyiv",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Kyiv hit with deadly strikes after attack on Russian e-commerce",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Warehouse of Russian online retailer Wildberries near St.Petersburg",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Ukraine drone attack hits Russia's Amazon warehouse",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Wildberries Warehouses Burn Near St. Petersburg",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Commerce disruption; Russia under strain",
+      "buckets": [
+        "uk",
+        "canada",
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Russia's businesses under strain from Ukraine's attacks",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Why Ukraine is targeting Wildberries, Russia's version of Amazon",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Why Wildberries, Russia's biggest online retailer, became a target",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "Pourquoi l'Ukraine cible des entrepôts du géant de l'e-commerce",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Sanctions accusations; punitive strikes",
+      "buckets": [
+        "iran_opposition",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Ukraine Hits Russian Retailer Wildberries' Warehouses Again Amid Accusations",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Flamingo missiles strike sanctioned factory in Kirov",
+          "signal_text_idx": 27
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.567,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.639,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.683,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.687,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.688,
+      "n_tokens": 221
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.695,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.709,
+      "n_tokens": 137
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.722,
+      "n_tokens": 94
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.738,
+      "n_tokens": 157
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.742,
+      "n_tokens": 93
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.744,
+      "n_tokens": 670
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.771,
+      "n_tokens": 254
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer this story is a military-strike narrative — Ukraine repeatedly hitting a Russian commercial landmark — with western outlets adding an economic disruption register and Ukrainian and RFE/RL headlines foregrounding the punitive 'long-range sanctions' logic against a supplier of sanctioned military components.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
