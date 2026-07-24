@@ -1,0 +1,238 @@
+{
+  "story_key": "L208ade0fa5",
+  "date": "2026-07-24",
+  "n_buckets": 17,
+  "n_articles": 34,
+  "tldr": "Headlines across 17 countries split into two dominant advertised angles: the $100/barrel oil price milestone (foregrounded by outlets from Germany, India, Pakistan, and the UK) and the US-Houthi-Iran military escalation (emphasised by wire services, Canada, and much of Asia). Trump's name appeared as the explicit headline protagonist in at least four outlets across Japan, the Philippines, and Southeast Asia, personalising the US threat in a way the headline layer makes immediately visible. The dual-chokepoint shipping risk appears explicitly only in Iran International's headline question.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "oil price shock above $100/barrel",
+      "buckets": ["wire_services", "pakistan", "usa", "germany", "israel", "india", "iraq", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Middle East: Oil surges as Gulf tensions escalate",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "triggers oil price surge above $100 a barrel",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Oil Prices Surge Back Across Dire Milestone",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Oil prices jump as Hormuz, Red Sea crises deepen",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "oil tops $100 a barrel after Houthis strike tankers",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Oil prices cross $100 as middle east conflict",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Middle East escalation triggers oil price surge",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Oil passes $100 a barrel again and shares slide",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Houthi-US-Iran military escalation",
+      "buckets": ["wire_services", "pakistan", "usa", "canada", "turkey", "germany", "israel", "india", "japan", "vietnam_thai_my", "russia", "philippines", "taiwan_hk", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "U.S. Completes 12th Night of Strikes",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "as U.S. undertakes 12th consecutive night of strikes",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "open likely new front in Iran war",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "U.S. and Iran exchange fire for 12th night in a row",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "US-Iran War explodes into new front",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Houthis attack oil tankers in Red Sea; US hits Iran",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Houthis hit two Saudi oil tankers in the Red Sea",
+          "signal_text_idx": 32
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "second vital shipping chokepoint at risk",
+      "buckets": ["iran_opposition", "pan_arab", "india"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Iran-backed Houthis closing another vital strait?",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Raising Risk of New Chokepoint in Iran War",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Iran and Houthis tighten grip on Hormuz, Red Sea",
+          "signal_text_idx": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump named as protagonist of US threat",
+      "buckets": ["wire_services", "japan", "philippines", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Trump threatens Iran and Houthi rebels",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Trump vows to punish Iran for Houthi attacks",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Rappler",
+          "quote": "Trump vows to punish Iran for Houthi attacks",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Trump vows to punish Iran and Houthis for attacks",
+          "signal_text_idx": 26
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.7,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.713,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.74,
+      "n_tokens": 147
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.752,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.771,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.775,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.785,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.8,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.814,
+      "n_tokens": 97
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.82,
+      "n_tokens": 92
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.823,
+      "n_tokens": 119
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.831,
+      "n_tokens": 192
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Across 17 countries, headline coverage reduces this multi-front military escalation to two competing hooks — oil at $100 and Trump threatening punishment — with the dual-chokepoint shipping risk surfacing explicitly only in Iran International's standalone headline question.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
