@@ -1,0 +1,221 @@
+{
+  "story_key": "L2f4aa3a389",
+  "date": "2026-07-24",
+  "n_buckets": 16,
+  "n_articles": 26,
+  "tldr": "Headlines worldwide lead with two interlocking signals: Ukraine's appointment of new commander-in-chief Mykhailo Drapatyi replacing General Syrskyi (military succession angle), and the political standoff between Zelensky and ousted defence minister Fedorov who refuses any role other than his old post. A third layer — street protests as the force that triggered the shake-up — appears in several outlets; Russian-exile media alone frames the appointment through Moscow's punitive geopolitical response.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Military succession, war implications",
+      "buckets": ["china", "germany", "usa", "qatar", "iran_opposition", "vietnam_thai_my", "india", "ukraine", "canada"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Zelenskyy names Mykhailo Drapatyi as new commander-in-chief",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Can new Ukraine army chief alter Russia war's direction?",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Exit 'The Butcher': Zelenskyy Makes Another Shakeup",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Who is Ukraine's new military chief?",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Ukraine turns to new military leadership in war with Russia",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Zelensky-Fedorov political standoff",
+      "buckets": ["wire_services", "uk", "canada", "ukraine", "asia_pacific_regional", "turkey", "opinion_magazines", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Reinstating Fedorov 'only right decision Zelensky can make'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "ousted defence minister insists on being reinstated",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "The real reasons behind Zelensky's unpopular military purge",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Fedorov Turns Down Zelensky's Offer to Become",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Ukraine war: inside the longstanding conflict between",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Public protests forced command change",
+      "buckets": ["turkey", "egypt", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Ukraine protests grow into major political challenge",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "a week of protests pushed Zelensky to bring in a younger",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Zelensky sacks army chief Syrsky after days of protests",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia's arrest-warrant counter-move",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Russia Issues Arrest Warrant for Ukraine's New Military",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Russia 'has no right to exist'",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.587,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.625,
+      "n_tokens": 208
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.649,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.666,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.678,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.684,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.707,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.712,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.723,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.731,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.735,
+      "n_tokens": 141
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.744,
+      "n_tokens": 72
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Only headline to describe the military reshuffle as a 'purge' — the sole title-level use of a term carrying authoritarian connotations that no other outlet applied to the personnel changes.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "bucket": "iran_opposition",
+      "finding": "Only headline to use the nickname 'The Butcher' for the departing general Syrskyi, surfacing a moral-accountability signal about his casualty record at the title level that other outlets reserved for body text.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Moscow Times",
+      "bucket": "russia",
+      "finding": "Only headline to foreground Russia's arrest warrant response within hours of Drapatyi's appointment, making Moscow's punitive geopolitical reaction the headline angle rather than anything about the new commander's qualifications.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Meduza",
+      "bucket": "russia",
+      "finding": "Only headline to quote Drapatyi's maximal statement that Russia 'has no right to exist,' framing the new commander through an explicit ideological-existential lens absent from every other outlet's title.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "At headline level, coverage is dominated by military succession imagery (who replaces Syrsky) and political standoff framing (Fedorov refuses to back down), while the deeper institutional civilian-military tensions visible in body-text analysis remain largely absent from titles.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
