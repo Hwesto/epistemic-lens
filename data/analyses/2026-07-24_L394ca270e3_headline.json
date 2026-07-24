@@ -1,0 +1,154 @@
+{
+  "story_key": "L394ca270e3",
+  "date": "2026-07-24",
+  "n_buckets": 10,
+  "n_articles": 22,
+  "tldr": "The headline layer presents the Manila Rubio-Lavrov encounter almost universally as a diplomacy-deadlock story — 'no quick deal,' 'new ideas needed,' 'no breakthroughs' — with a secondary security thread in Iran-focused and Southeast Asian outlets foregrounding the US-Iran war as the week's dominant shadow. The economic fallout of Hormuz closure, central to body-level reporting, is entirely absent from the headline layer.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Ukraine peace talks deadlock in Manila",
+      "buckets": ["russia", "ukraine", "canada", "usa", "india", "vietnam_thai_my", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Lavrov and U.S. Secretary of State Rubio meet",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "no quick deal, Rubio says",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Rubio says U.S. is ready to help end war in Ukraine",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "No Breakthroughs, Little Optimism As Rubio, Lavrov Meet",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "demand freedom of navigation in Hormuz strait",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Iran war and Russia arms warnings",
+      "buckets": ["iran_opposition", "kenya", "germany", "ukraine", "india", "turkey"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Rubio signals diplomacy as US-Iran war escalates",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "ASEAN calls for open straits as US-Iran war casts shadow",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Russland warnt USA vor Waffenlieferungen an die Ukraine",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russia Warns US Against Ukraine Arms Sales",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Rubio Warns Iran Will 'Pay a Very Heavy Price'",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "but strikes continue",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Anchorage plan 'dead'; Rubio vs media",
+      "buckets": ["usa", "russia"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Rubio Rebukes Media: I Cannot Do Diplomacy",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "dead Anchorage plan, renewed bilateral ties",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "clarifications regarding Rubio's remark about 'failed'",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "kenya", "mean_similarity": 0.533, "n_tokens": 213},
+    {"bucket": "usa", "mean_similarity": 0.728, "n_tokens": 257},
+    {"bucket": "ukraine", "mean_similarity": 0.74, "n_tokens": 88},
+    {"bucket": "india", "mean_similarity": 0.75, "n_tokens": 292},
+    {"bucket": "russia", "mean_similarity": 0.757, "n_tokens": 260},
+    {"bucket": "iran_opposition", "mean_similarity": 0.771, "n_tokens": 331}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "The only outlet to make the media-vs-diplomacy conflict the headline story, framing Rubio's closed-door approach as professional discipline rather than a transparency concern.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only outlet to use 'dead Anchorage plan' in a headline — an editorial verdict that the Alaska summit framework is defunct, distinct from other Russian outlets that report the meeting without evaluating its outcomes.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "The only outlet to pair explicit threat language ('Pay a Very Heavy Price') with a policy label ('Head for an Eye') in the headline, framing US-Iran policy in retaliatory terms not seen elsewhere in the cluster.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "The most explicitly pessimistic headline in the cluster — 'No Breakthroughs, Little Optimism' — setting an unambiguously negative tone that other outlets, even those reporting the same absence of progress, avoided in their titles.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "Headlines across the cluster sell the Manila meeting as managed stalemate — 'no quick deal,' 'new ideas needed,' 'no breakthroughs' — while Iran-focused and African outlets use their titles to foreground active war, revealing a gap between how Ukraine diplomacy and US-Iran escalation are packaged at the reader's first point of contact.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
