@@ -1,0 +1,274 @@
+{
+  "story_key": "L1971e469b5",
+  "date": "2026-07-24",
+  "n_buckets": 21,
+  "n_articles": 47,
+  "tldr": "Across 21 countries, headlines converge on a single economic anchor — Trump imposing 10–12.5% tariffs on 60 trading partners — but fracture on three sub-currents: Trump's deliberate agenda-persistence, partner pushback and trade-war risk, and the legal/pretext controversy behind the forced-labour justification.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Sweeping trade tariffs on 60 partners",
+      "buckets": [
+        "wire_services",
+        "qatar",
+        "turkey",
+        "uk",
+        "vietnam_thai_my",
+        "pakistan",
+        "south_africa",
+        "germany",
+        "india",
+        "taiwan_hk",
+        "south_korea",
+        "russia",
+        "japan",
+        "philippines",
+        "nigeria",
+        "ukraine",
+        "usa",
+        "canada",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Trump announces double digit tariffs on 60 countries",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "US hits dozens of countries with new wave of tariffs",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "US Levies Tariffs of up to 12.5% on 60 Countries",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Philstar",
+          "quote": "US hits Philippine exports with 12.5% tariff",
+          "signal_text_idx": 28
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump rebuilding/maintaining tariff wall",
+      "buckets": [
+        "usa",
+        "taiwan_hk",
+        "iraq",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump rebuilds trade regime with new tariffs",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "as Trump rebuilds trade agenda",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "How Trump plans to maintain his tariff wall",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "as Trump rebuilds trade agenda",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Partners push back; trade-war alarm",
+      "buckets": [
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services",
+        "australia_nz"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "China opposes unilateral US tariffs, says trade wars",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "China says it opposes new US tariffs, warns against",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "US tariff hikes linked to claims of foreign labor dismay",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "hits Australian exports to US with new higher trade tariff",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "SC-replaced tariffs; pretext disputed",
+      "buckets": [
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "replacing what Supreme Court struck down",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "over bizarre 'forced labour' claim",
+          "signal_text_idx": 42
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.66,
+      "n_tokens": 206
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.69,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.691,
+      "n_tokens": 215
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.704,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.719,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.719,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.72,
+      "n_tokens": 217
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.725,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.769,
+      "n_tokens": 75
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.777,
+      "n_tokens": 105
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.779,
+      "n_tokens": 442
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.788,
+      "n_tokens": 350
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.796,
+      "n_tokens": 319
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.799,
+      "n_tokens": 207
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.808,
+      "n_tokens": 108
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.811,
+      "n_tokens": 162
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.821,
+      "n_tokens": 214
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "NDTV World",
+      "bucket": "india",
+      "finding": "Only headline to quote the US government's moral rationale ('Correcting Human Rights Abuse') as the lead hook, foregrounding the ethics framing at title level while every other outlet either omitted it or buried it in a subordinate clause.",
+      "signal_text_idx": 24
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only outlet to editorialize against the forced-labour justification directly in the headline — calling it 'bizarre' — signalling pretext-skepticism no other title in the corpus matched.",
+      "signal_text_idx": 42
+    },
+    {
+      "outlet": "Nikkei Asia",
+      "bucket": "japan",
+      "finding": "Only headline to centre Asia's anticipatory anxiety ('Asia braces') rather than reporting the US action as a fait accompli — a regional emotional register absent from every other title.",
+      "signal_text_idx": 27
+    },
+    {
+      "outlet": "National Post",
+      "bucket": "canada",
+      "finding": "Only headline to place the new tariffs in the context of the concurrent 50% levy threat on Canadian goods ('just days after 50% levy on Canadian goods announced'), framing this as an escalating bilateral campaign rather than a multilateral trade-policy event.",
+      "signal_text_idx": 26
+    }
+  ],
+  "bottom_line": "Headline coverage globally converges on a single economic anchor — Trump levying 10–12.5% tariffs on 60 partners — but fractures on whether to frame this as Trump's deliberate agenda-persistence (US, HK, Iraq, India), a provocation triggering trade-war risk (Turkey, Southeast Asia, wire services), or a legally dubious pretext (Canada, UK).",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
