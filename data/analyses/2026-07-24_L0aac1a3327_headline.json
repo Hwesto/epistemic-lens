@@ -1,0 +1,203 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L0aac1a3327",
+  "cluster_id": 173,
+  "cluster_name": "Trump conditions US-Saudi civilian nuclear deal on Abraham Accords",
+  "salience_score": 10.781,
+  "n_outlets": 22,
+  "n_countries": 15,
+  "n_articles": 23,
+  "tldr": "The headline layer is almost entirely unified: every outlet except Qatar's Al Jazeera frames this story as Trump imposing an Israel-normalization condition on the US-Saudi nuclear deal, with no space in any headline for the Palestinian statehood counter-narrative or nuclear proliferation risks visible in body text. The main differentiation is tonal — neutral-factual registers ('contingent on,' 'subject to,' 'depends on') predominate across non-Western and establishment outlets, while wire services and several US outlets deploy dramatizing verbs ('stuns,' 'ultimatum,' 'slams brakes,' 'throws into turmoil') that sharpen the surprise-and-disruption frame at the homepage layer.",
+  "event_summary": "One day after signing a civilian nuclear cooperation agreement with Saudi Arabia, President Trump declared on July 23, 2026 that the deal requires Saudi Arabia to join the Abraham Accords and recognize Israel — a condition absent from the original announcement.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Nuclear deal contingent on Israel ties",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Axios World",
+        "BBC World",
+        "Breitbart",
+        "Daily Sabah",
+        "Folha de São Paulo",
+        "France 24 Spanish",
+        "Globe and Mail",
+        "Haaretz",
+        "Hindustan Times",
+        "Japan Times",
+        "NPR World",
+        "National Post",
+        "RT",
+        "Republic World (alt)",
+        "South China Morning Post",
+        "Straits Times",
+        "The Hill",
+        "The Hindu Intl",
+        "The New Arab"
+      ],
+      "countries": [
+        "wire_services",
+        "usa",
+        "uk",
+        "turkey",
+        "brazil",
+        "state_tv_intl",
+        "canada",
+        "israel",
+        "india",
+        "japan",
+        "russia",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Saudis must recognise Israel for nuclear deal",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Trump ties Saudi nuclear deal to Israel normalization",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Saudi nuclear deal off without Israel recognition",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's demand: disruption / ultimatum",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Daily Wire",
+        "The Hill",
+        "South China Morning Post",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "usa",
+        "taiwan_hk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Trump stuns Saudis by pinning nuclear deal",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Trump Gives Saudi Arabia Ultimatum",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "Trump slams brakes on Saudi nuclear deal",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Terms: no enrichment + normalization",
+      "outlets": [
+        "Axios World",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "bars enrichment, requires Israel normalization",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Ruling Out Domestic Enrichment",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "russia", "mean_similarity": 0.744, "n_tokens": 30},
+    {"bucket": "brazil", "mean_similarity": 0.799, "n_tokens": 44},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.807, "n_tokens": 57},
+    {"bucket": "pan_arab", "mean_similarity": 0.808, "n_tokens": 56},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.809, "n_tokens": 66},
+    {"bucket": "israel", "mean_similarity": 0.812, "n_tokens": 44},
+    {"bucket": "wire_services", "mean_similarity": 0.82, "n_tokens": 51},
+    {"bucket": "canada", "mean_similarity": 0.822, "n_tokens": 256},
+    {"bucket": "turkey", "mean_similarity": 0.824, "n_tokens": 31},
+    {"bucket": "india", "mean_similarity": 0.865, "n_tokens": 288},
+    {"bucket": "usa", "mean_similarity": 0.869, "n_tokens": 255}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "qatar",
+      "what_they_covered_instead": "Al Jazeera's sole headline ('What are the Abraham Accords?') is a pure explainer — it neither reports Trump's condition nor frames the news event, signalling that its audience is expected to be unfamiliar with the normalization framework rather than following the breaking development."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "AFP used 'stuns' — unusually dramatized language for a neutral wire service — elevating the surprise element above the factual diplomatic condition; downstream outlets picking up the wire absorb this framing choice.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Only outlet to label Trump's announcement an 'Ultimatum' — the coercive framing is stronger than any other headline in the corpus, casting the condition as a demand rather than a diplomatic linkage.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Reproduces Trump's own evaluative label ('Very Respected' Abraham Accords) inside the headline without editorial distance — the only title in the corpus to carry Trump's self-assessment as headline text rather than a clearly attributed quote.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Hill",
+      "country": "usa",
+      "finding": "'Slams brakes' is the most vivid disruption metaphor among US-establishment outlets — treating the deal as practically derailed rather than subject to ongoing negotiation, a register absent from any non-US headline.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "'Deal off without Israel recognition' is the most categorical headline in the corpus — binary and absolute where almost every other outlet used conditional language ('contingent on,' 'subject to,' 'hinges on').",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Opted for an explainer headline ('What are the Abraham Accords?') rather than reporting Trump's condition — the only outlet to treat the normalization framework itself as the news, implying its audience needs the concept explained rather than the latest development.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "At the headline layer, coverage converges on a single fact — Trump conditionally linked the Saudi nuclear deal to Israel recognition — while a fault line in verb choice separates dramatizing US and wire-service outlets ('stuns,' 'ultimatum,' 'slams brakes,' 'throws into turmoil') from neutral-factual non-Western outlets ('contingent on,' 'subject to,' 'depends on'), and the Palestinian statehood obstacle that dominates every body text is entirely absent from the headline layer.",
+  "generated_at": "2026-07-24T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
