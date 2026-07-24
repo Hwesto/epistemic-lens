@@ -1,0 +1,111 @@
+{
+  "story_key": "Lceed07cb4c",
+  "date": "2026-07-24",
+  "n_buckets": 7,
+  "n_articles": 10,
+  "tldr": "Headlines across all outlet groups frame this as a historic institutional decision — ICC member states voting on whether to remove their chief prosecutor. Most outlets lead with the vote itself; Indian outlets add a second angle, spotlighting US sanctions that blocked Khan from attending the New York proceedings.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "ICC removal vote — unprecedented procedure",
+      "buckets": ["pan_african", "qatar", "france", "vietnam_thai_my", "philippines"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "vote on fate of Chief Prosecutor Karim Khan",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "ICC prosecutor Karim Khan faces removal vote",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "décider du sort de son procureur, suspendu",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "ICC member states to decide fate of prosecutor Karim Khan",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Rappler",
+          "quote": "ICC members to vote on dismissing prosecutor Khan",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "members to vote on dismissing prosecutor Khan",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Sexual misconduct — dismissal case",
+      "buckets": ["israel", "france", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "dismissal over sexual misconduct allegations",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "usage abusif de pouvoir ou d'autorité sur son assistante",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Malaysian staffer alleges sexual assault",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US sanctions blocking Khan from proceedings",
+      "buckets": ["india"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "US sanctions keep him out of New York",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "U.S. sanctions keep him out of New York",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "india", "mean_similarity": 0.63, "n_tokens": 76},
+    {"bucket": "philippines", "mean_similarity": 0.657, "n_tokens": 196},
+    {"bucket": "israel", "mean_similarity": 0.665, "n_tokens": 204},
+    {"bucket": "france", "mean_similarity": 0.702, "n_tokens": 45},
+    {"bucket": "pan_african", "mean_similarity": 0.705, "n_tokens": 34},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.739, "n_tokens": 67}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage unanimously foregrounds the vote to remove Khan, with sexual misconduct as the stated cause; only Indian outlets additionally surface US sanctions as a geopolitical framing layer on the same event.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
