@@ -1,0 +1,180 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L737cee28d8",
+  "cluster_id": 71,
+  "cluster_name": "DRC Ebola outbreak crosses 1,000 deaths at record pace",
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 18,
+  "salience_score": 5.062,
+  "event_summary": "The DRC and Uganda Ebola outbreak surpassed 1,000 deaths as of July 23, 2026, with over 2,400 cases in DRC — the fastest fatal surge in recorded Ebola history. The WHO declared a public health emergency of international concern in May and says the epidemic is outpacing containment.",
+  "tldr": "The 1,000-death milestone draws near-uniform coverage across 10 outlets, yet the shared headline conceals sharp framing divergences beneath it. RT Africa is the only outlet to link the outbreak to geopolitics, reporting that Ebola has disrupted US-backed critical-minerals negotiations in DRC — an angle absent from all Western coverage. BBC Africa stands alone in investigating misinformation as a structural driver of the outbreak's spread, documenting mob attacks on treatment facilities that compound the toll. Al Jazeera is the only outlet to foreground ground-level health worker conditions — unpaid salaries combined with mob violence — a perspective largely invisible in Northern press. An emerging diplomatic subplot, Africa CDC urging the US to lift Uganda travel restrictions while Canada simultaneously tightens its own, is picked up primarily by pan-African and French public media, not by the US outlets directly implicated.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "fastest-ever outbreak milestone",
+      "outlets": ["AFP / France 24 FR", "AfricaNews", "Daily Sabah", "NPR World", "Sky News UK", "Foreign Policy", "The New Yorker"],
+      "countries": ["france", "pan_african", "turkey", "usa", "uk", "opinion_magazines"],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Congo's Ebola outbreak has crossed the grim 1,000-death threshold, marking the fastest fatal surge in recorded history of the virus.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The deadliest and fastest-growing Ebola outbreak on record has claimed more than 1,000 lives in the Democratic Republic of Congo, where health authorities are struggling to contain...",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The New Yorker",
+          "country": "opinion_magazines",
+          "quote": "More than twenty-four hundred people have tested positive and more than nine hundred and ninety have died, in the third-largest outbreak ever recorded.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "According to the WHO, the epidemic is “outpacing” response efforts.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "health worker hardship and system collapse",
+      "outlets": ["Al Jazeera English", "The New Yorker", "BBC Africa"],
+      "countries": ["qatar", "opinion_magazines", "africa_other"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Health workers in the DRC battle a range of obstacles, from infection risk to angry mob attacks.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The New Yorker",
+          "country": "opinion_magazines",
+          "quote": "global funding cuts have weakened the health system, and an exodus of health-care staff has deprived hospitals of experience from previous outbreaks.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "travel restriction diplomacy",
+      "outlets": ["AfricaNews", "AFP / France 24 FR", "RT Africa"],
+      "countries": ["pan_african", "france", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Africa's top public health agency is urging the United States to lift travel restrictions on Uganda, arguing the country has brought its Ebola outbreak under control.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "l'agence sanitaire de l'Union africaine appelle les États-Unis à lever les restrictions de voyage qu'elle juge inefficaces contre la propagation du virus.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Canada has imposed new entry restrictions on foreign nationals who were recently in DR Congo, citing the Ebola outbreak",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "US critical minerals deal disrupted",
+      "outlets": ["RT Africa"],
+      "countries": ["state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Ebola outbreak has reportedly disrupted negotiations linked to a US-backed critical minerals partnership Read Full Article at RT.com",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "misinformation-fueled attacks on health workers",
+      "outlets": ["BBC Africa"],
+      "countries": ["africa_other"],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "False claims about Ebola are linked to attacks on treatment facilities, assaults on health workers and disruptions to burials.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "BBC Verify looks at multiple incidents linked to misinformation during latest Ebola outbreak, which has infected more than 1,700 people and killed 580 in DR Congo since mid-May.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "China is a major investor in DRC mining and infrastructure; given the Ebola-minerals disruption angle that RT Africa surfaced, Chinese coverage of DRC minerals diplomacy or the Belt-and-Road health response would be analytically relevant but is absent from this cluster."
+    },
+    {
+      "country": "belgium",
+      "what_they_covered_instead": "Belgium has deep institutional ties to DRC health infrastructure (Institut de Médecine Tropicale d'Anvers historically central to Ebola research) yet no Belgian outlet appears; Belgian press appears to have covered domestic political news this cycle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to frame the Ebola outbreak as a geopolitical obstacle, reporting that DRC's outbreak has disrupted US-backed critical minerals negotiations — making Western strategic interests, not African lives, the primary hook.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to center unpaid DRC health workers as protagonists, citing simultaneous infection risk and mob attacks as the defining conditions of frontline response.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The New Yorker",
+      "country": "opinion_magazines",
+      "finding": "Only outlet with extended first-person medical sourcing; reveals that early patients were tested for the wrong Ebola strain, causing the critical early-detection window to be missed — explaining why the outbreak reached 1,000 cases within 40 days versus eight months in 2018.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Only outlet to run a dedicated investigation into misinformation as a structural force in the outbreak — documenting that false denial claims ('it isn't real') are directly linked to mob attacks on treatment facilities and disruptions to safe burials.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Only outlet to explicitly frame Uganda as having brought its own outbreak under control, contrasting with the DRC epicenter; this distinction matters for the travel-restrictions debate but is elided in most Western coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only Francophone coverage in the cluster; uniquely notes that clinical trials are underway in Ituri (the epicenter), offering a partial counterpoint to the prevailing 'outpaced response' narrative absent in English-language outlets.",
+      "signal_text_idx": 0
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The DRC Ebola outbreak has passed 1,000 deaths at a speed without precedent in recorded history, with WHO warning the response is being outpaced. Coverage converges on the milestone but fractures sharply on causes: Western outlets emphasize systemic health failures, RT Africa pivots to geopolitical disruption of US mineral ambitions, and BBC Africa is alone in treating misinformation and resulting mob violence as a first-order driver of the outbreak's trajectory.",
+  "generated_at": "2026-07-24T07:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
