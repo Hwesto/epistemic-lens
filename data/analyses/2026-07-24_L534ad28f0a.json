@@ -1,0 +1,152 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L534ad28f0a",
+  "cluster_id": 115,
+  "cluster_name": "DOJ drops New York Times subpoenas over Air Force One reporting",
+  "salience_score": 3.094,
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 11,
+  "event_summary": "The U.S. DOJ on July 23 withdrew subpoenas against three New York Times reporters that sought disclosure of sources for articles on security concerns with President Trump's Qatari-gifted Air Force One jet, after a federal judge called the legal approach sloppy.",
+  "tldr": "All eleven outlets across nine countries cover this as a straightforward defeat for the Trump administration under judicial pressure — no outlet defends or contextualizes the subpoenas favorably. Axios is the only outlet to flag the political timing: the withdrawal came on the eve of the White House Correspondents' Dinner, where Trump was expected to speak. Latin American Spanish-language outlets (El Tiempo Colombia, El Sol de Mexico) explicitly label the subpoenas an attempt to intimidate journalists, a characterization absent from English-language coverage. The Globe and Mail alone characterizes the retreat as the U.S. government 'admitting legal errors,' while Brazil's Folha de São Paulo uses the politically charged 'recua' (backs down) rather than the neutral 'withdraws' used elsewhere.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "press source protection and First Amendment",
+      "outlets": ["CBC World", "Globe and Mail", "The Independent", "The Hindu Intl", "Straits Times", "Axios World"],
+      "countries": ["canada", "uk", "india", "vietnam_thai_my", "usa"],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Criticized by a federal judge for sloppy legal work, the U.S. government on Thursday withdrew subpoenas that would have compelled three New York Times reporters to testify about their sources for articles about U.S. President Donald Trump's Qatari-gifted Air Force One jet.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "‘Subpoenas are the last step, not the first step, but the last step,’ the judge declared, referencing rules designed to safeguard First Amendment rights",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "The newspaper had challenged the government requests for phone records of reporters and grand jury testimony as an attempt to \"intimidate\" the press and filed a motion to have them quashed",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "U.S. government attorneys retreat in face of vigorous legal opposition and stern reprimand from judge",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "administration retreat from media confrontation",
+      "outlets": ["Axios World", "Folha de São Paulo", "Globe and Mail"],
+      "countries": ["usa", "brazil", "canada"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The Trump administration backed down in its battle with the media on the eve of the rescheduled White House Correspondents' Association Dinner, where the president is expected to speak.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Governo Trump recua e retira intimações a jornalistas do New York Times",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "journalist intimidation and press freedom",
+      "outlets": ["El Tiempo Colombia", "El Sol de Mexico", "The Hindu Intl"],
+      "countries": ["colombia_ven_peru", "mexico", "india"],
+      "evidence": [
+        {
+          "outlet": "El Tiempo Colombia",
+          "country": "colombia_ven_peru",
+          "quote": "El diario catalogó las citaciones ante un gran jurado federal como un intento de intimidar a sus periodistas.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "El Sol de Mexico",
+          "country": "mexico",
+          "quote": "Los reporteros indicaron que habían sido citados para saber cuáles fueron las fuentes que les informaron sobre la fallas de seguridad del nuevo avión de Trump, entregado por el Gobierno de Qatar",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Qatari jet security concerns as underlying story",
+      "outlets": ["Deutsche Welle English", "CBC World", "Folha de São Paulo", "Straits Times"],
+      "countries": ["germany", "canada", "brazil", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The White House had targeted journalists from The New York Times for their reporting on security concerns with a Qatari-donated Air Force One plane.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "The Justice Department said that it would withdraw the subpoenas that sought phone records and grand jury testimony from New York Times journalists.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "O Departamento de Justiça dos Estados Unidos retirou nesta quinta-feira (23) as intimações que buscavam registros telefônicos de jornalistas do The New York Times que haviam reportado sobre as capacidades de segurança do novo avião Air Force One do presidente Donald Trump, doado pelo Qatar.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Only outlet to contextualize the withdrawal's timing: the DOJ backed down on the eve of the White House Correspondents' Association Dinner, where Trump was expected to speak, implying deliberate political calculation.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Uniquely frames the withdrawal as the U.S. government 'admitting legal errors' — stronger concessive language than any other outlet's 'withdraws' or 'drops.'",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Tiempo Colombia",
+      "country": "colombia_ven_peru",
+      "finding": "Explicitly characterizes the subpoenas as 'un intento de intimidar a sus periodistas' (an attempt to intimidate journalists) — the strongest editorial judgment in the corpus.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to quote the judge's First Amendment warning verbatim: 'Subpoenas are the last step, not the first step, but the last step.'",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Uses 'recua' (retreats/backs down) in the headline — the only outlet to encode political defeat in the verb choice rather than administrative neutrality.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Eleven outlets across nine countries — spanning English, Spanish, and Portuguese — uniformly cover the DOJ's withdrawal of NYT subpoenas as a defeat for the Trump administration driven by judicial rebuke, with no outlet offering a sympathetic reading of the government's position. Latin American press adds an explicit press-intimidation framing that English-language outlets leave implicit, while the Canadian and UK press lean hardest on the legal procedural failure.",
+  "generated_at": "2026-07-24T08:10:00Z",
+  "model": "claude-sonnet-4-6"
+}
