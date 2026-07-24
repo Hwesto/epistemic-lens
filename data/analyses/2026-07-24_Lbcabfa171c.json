@@ -1,0 +1,139 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "Lbcabfa171c",
+  "cluster_id": 27,
+  "cluster_name": "Australian World Cup footballer Volpato tests positive for cocaine",
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 10,
+  "salience_score": 2.812,
+  "event_summary": "NSW police stopped Australian World Cup footballer Cristian Volpato, 22, for speeding on Sydney's Anzac Bridge at around 1:10 a.m. on July 24, 2026; a roadside drug test returned a positive result for cocaine. He received a speeding infringement notice and a six-month driver's license suspension.",
+  "tldr": "Wire-driven pick-up brought this Sydney police incident to nine countries within hours, reaching outlets in Iraq, Nigeria, Hungary, and Singapore that rarely cover Australian domestic sport. One of ten cluster items — The Telegraph (UK) — is a noise artifact: an unrelated 2025 article about a celebrity rape arrest, suggesting HDBSCAN caught keyword overlap ('star', 'police') rather than editorial affinity. Italy's La Stampa treated Volpato primarily as Sassuolo's trequartista and uniquely noted that confirmatory tests were still pending, while the remaining outlets relied on the same NSW Police statement distributed via AP. Football Australia and the players' union issued near-identical supportive holding statements — unnamed in reference to the player — that several outlets reproduced verbatim, making institutional crisis management as visible as the underlying incident.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "police drug test allegation and traffic offence",
+      "outlets": ["ABC Australia World", "AP News", "Channel News Asia", "Daily Maverick", "Daily Mirror", "Iraqi News", "La Stampa", "Telex Hungary", "The Punch"],
+      "countries": ["australia_nz", "wire_services", "vietnam_thai_my", "south_africa", "uk", "iraq", "italy", "hungary_central", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "ABC Australia World",
+          "country": "australia_nz",
+          "quote": "Police say they stopped the 22-year-old in a BMW Coupe about 1am today and allege he was travelling 109 kilometres per hour on the Anzac Bridge.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "He was subjected to a roadside drug test which returned a positive result for cocaine, police said in a statement on Friday.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "The man was issued an infringement notice for speeding and had his international driver's license suspended for six months. Police were continuing inquiries.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "cocaine roadside test and drug use by public figure",
+      "outlets": ["AP News", "Channel News Asia", "Daily Maverick", "La Stampa", "The Punch"],
+      "countries": ["wire_services", "vietnam_thai_my", "south_africa", "italy", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Australia forward Cristian Volpato tested positive for cocaine during a roadside test after being stopped for speeding in Sydney on Friday, local media reported.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "La Stampa",
+          "country": "italy",
+          "quote": "Il primo test salivare ha dato esito positivo, ora si attendono gli esami di conferma",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "governing body and union crisis management",
+      "outlets": ["Channel News Asia", "Daily Maverick"],
+      "countries": ["vietnam_thai_my", "south_africa"],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "\"We have been in contact with the player and continue to monitor the matter and support the player throughout this process,\" an FA spokesperson said in a statement, without naming the player.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "Governing body Football Australia (FA) said it was aware of the allegations against one of its players.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "dual-nationality allegiance switch Italy to Australia",
+      "outlets": ["AP News", "Channel News Asia", "Daily Maverick", "La Stampa"],
+      "countries": ["wire_services", "vietnam_thai_my", "south_africa", "italy"],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Volpato plays in Italy's Serie A for Sassuolo and represented Italy at junior levels before switching allegiance to Australia ahead of this year's World Cup.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "La Stampa",
+          "country": "italy",
+          "quote": "Il trequartista del Sassuolo fermato mentre viaggiava oltre il limite di velocità.",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Telegraph",
+      "country": "uk",
+      "finding": "The only cluster item unrelated to Volpato: a 2025 article about a Strictly Come Dancing celebrity arrested on suspicion of rape — a likely HDBSCAN noise inclusion on shared keywords ('star', 'police').",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "La Stampa",
+      "country": "italy",
+      "finding": "Only outlet to mention that the first salivary test result still awaits confirmatory testing ('ora si attendono gli esami di conferma'), introducing procedural uncertainty absent from all Anglophone coverage.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Iraqi News",
+      "country": "iraq",
+      "finding": "An Iraqi-English outlet covering an Australian domestic police incident, illustrating the global amplification that World Cup participation provides even to players with modest international profiles.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Punch",
+      "country": "nigeria",
+      "finding": "Framed the incident as an ongoing investigation rather than a settled finding — headline reads 'Australian footballer faces cocaine test probe' — emphasising investigative uncertainty.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Telex Hungary",
+      "country": "hungary_central",
+      "finding": "Hungarian-language headline led with World Cup participation as the sole editorial hook for selecting this story, confirming that tournament profile drove pick-up in a country with no direct stake in Australian football.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Volpato's cocaine allegation achieved rapid global wire distribution because World Cup participation raised his profile beyond Australian domestic football — outlets in Iraq, Nigeria, Hungary, and Singapore all treated it as legitimate international sports news. The cluster contains one clear HDBSCAN noise artifact (The Telegraph's unrelated Strictly article), while Italy's La Stampa stood apart by framing Volpato as a Sassuolo Serie A player and noting that confirmatory tests were still pending.",
+  "generated_at": "2026-07-24T07:45:00Z",
+  "model": "claude-sonnet-4-6"
+}
