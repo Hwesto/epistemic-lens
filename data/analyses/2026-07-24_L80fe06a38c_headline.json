@@ -1,0 +1,136 @@
+{
+  "story_key": "L80fe06a38c",
+  "date": "2026-07-24",
+  "n_buckets": 7,
+  "n_articles": 12,
+  "tldr": "Headlines globally reduce the story to a single legal act — a court ordering SK Group's chairman to pay his ex-wife $640–644 million — with the record-scale dollar amount the only secondary signal visible at title level. The slush-fund political backstory, AI-sector asset rationale, and spousal-contribution equity argument that dominate body coverage are entirely absent from titles.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Court-ordered marital asset division",
+      "buckets": ["wire_services", "uk", "vietnam_thai_my", "iraq", "south_korea", "taiwan_hk", "japan"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "ordered to pay $640 million in divorce case",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Tech titan ordered to pay ex-wife $644m",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "court orders SK chairman Chey to pay US$644 million",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "South Korean tycoon ordered to pay $644m in divorce",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Appeals Court Orders SK's Chey to Pay Ex-Wife",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "ordered to pay ex-wife US$644 million in record",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "Ex-wife of SK chief wins South Korean record",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Record-magnitude divorce financial award",
+      "buckets": ["wire_services", "japan", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "court orders SK Chairman Chey to pay record $640 mln",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Nikkei Asia",
+          "quote": "South Korean record $643mn divorce settlement",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "record divorce case",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.805,
+      "n_tokens": 216
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.814,
+      "n_tokens": 297
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.836,
+      "n_tokens": 65
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.837,
+      "n_tokens": 199
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.875,
+      "n_tokens": 235
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "Only headline to anonymise the subject as 'Tech titan' rather than naming SK Group or Chairman Chey — positioning this as a celebrity wealth story rather than a corporate-governance or legal event.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Nikkei Asia",
+      "bucket": "japan",
+      "finding": "Only headline framed from the ex-wife's perspective ('Ex-wife of SK chief wins'), inverting the payer-subject framing universal elsewhere and foregrounding the ruling as her judicial victory rather than his court penalty.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline to embed the cultural label 'divorce of the century' directly in the title, surfacing the national-media spectacle framing that every other outlet confined to body text.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "Headline coverage strips the story to its legal core — a court ordering the SK chairman to pay his ex-wife — with financial scale the only embellishment visible in titles, while the political dynasty context, AI-sector valuation rationale, and gender-equity subtext that run through body coverage remain entirely invisible above the fold.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
