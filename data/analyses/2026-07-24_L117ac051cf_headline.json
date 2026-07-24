@@ -1,0 +1,204 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L117ac051cf",
+  "cluster_id": 82,
+  "cluster_name": "West Bank shooting kills four Palestinians and one Israeli near Nablus",
+  "salience_score": 3.167,
+  "n_outlets": 12,
+  "n_countries": 8,
+  "n_articles": 17,
+  "tldr": "The headline layer of this cluster tells a fractured story about the same violent event: wire services and Asian outlets use symmetrical casualty language ('four Palestinians and one Israeli'), but the framing diverges sharply by editorial lean. Jerusalem Post is the only outlet to label the Palestinian actor a 'terrorist' and foreground IDF retribution, while Anadolu Agency inverts the construction entirely by calling the Israeli side 'occupiers' — two mutually exclusive perpetrator-victim framings of the same incident. Pan-Arab and religious-press headlines widen the scope beyond the shooting to a broader humanitarian catastrophe: hunger, miscarriages, and continuous civilian deaths under a nine-month ceasefire appear as standalone headline angles absent from wire and Israeli press. Haaretz's opinion headline — attributing moral complicity to Israeli families who 'refuse to know' — is the only title in the corpus to address individual conscience rather than the violence itself.",
+  "event_summary": "A shooting incident near Nablus in the Israeli-occupied West Bank on July 24, 2026 killed four Palestinians and one Israeli; related coverage includes an Israeli airstrike in Gaza and an ongoing settler displacement campaign targeting Palestinian families.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "armed attack and retaliation in occupied West Bank",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AP News",
+        "Al Jazeera English",
+        "Haaretz",
+        "Hindustan Times",
+        "Straits Times"
+      ],
+      "countries": [
+        "wire_services",
+        "qatar",
+        "israel",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Four Palestinians and one Israeli killed in occupied West Bank shooting",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Israel bombs Gaza after displacement orders, kills two Palestinians",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Israeli strike, West Bank violence kill five Palestinians, officials say",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "terrorist label vs settler-attack label",
+      "outlets": [
+        "Jerusalem Post",
+        "Middle East Eye"
+      ],
+      "countries": [
+        "israel",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "IDF kills terrorist who fatally shot one Israeli, wounded four others",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "Four Palestinians killed in settler attack",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Israeli occupiers; illegal settler displacement",
+      "outlets": [
+        "Anadolu Agency English",
+        "The New Arab"
+      ],
+      "countries": [
+        "turkey",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "1 Israeli occupier killed, 3 injured in shooting near Nablus, West Bank",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "4 Palestinians killed in Israeli army, occupiers attack near West Bank’s Nablus",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "How Israeli settlers displaced families in West Bank's Jalud",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "hunger crisis, miscarriages, civilian toll under ceasefire",
+      "outlets": [
+        "Daily Sabah",
+        "The New Arab",
+        "Vatican News"
+      ],
+      "countries": [
+        "turkey",
+        "pan_arab",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Gaza hunger crisis eases, but aid cuts threaten renewed surge",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Medical officials in Gaza warn of massive rise in miscarriages",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Gaza civilians continue to be killed 9 months into ceasefire",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "complicity, civilian sacrifice, moral accountability",
+      "outlets": [
+        "Haaretz",
+        "Vatican News"
+      ],
+      "countries": [
+        "israel",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Behind every Israeli who bombs and burns is a mother or wife who refuses to know",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Civilians continue to bear brunt of Gaza conflict",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "The only headline in the corpus to apply the label 'terrorist' to the Palestinian actor and foreground IDF retribution ('IDF kills terrorist who fatally shot…'), while all other outlets describe the same event with neutral casualty language or attribute the killing to 'settlers' or 'the Israeli army'. This construction makes punishment the headline story rather than Palestinian deaths.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Both Anadolu headlines describe the Israeli side as 'occupiers' in headline position — the only outlet to apply this legal-political designation rather than nationality or military role, making the illegality of Israel's West Bank presence the default framing rather than a qualifier.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "The only headline in the corpus to invoke individual moral complicity among Israeli civilians, framing the story as an accountability question about 'a mother or wife who refuses to know' — an opinion register entirely absent from all other outlets, which address the violence as an external event rather than a moral condition of Israeli society.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The New Arab",
+      "country": "pan_arab",
+      "finding": "The only outlet to surface Gaza's reproductive health crisis as a standalone headline ('Medical officials in Gaza warn of massive rise in miscarriages'), pivoting entirely from the West Bank shooting to a long-term public health story — the widest thematic expansion from the cluster's core event visible at headline level.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "At the headline layer, the West Bank shooting produces mutually exclusive perpetrator-victim constructions that wire-service symmetry conceals: Jerusalem Post calls the Palestinian actor a 'terrorist' while Anadolu Agency calls Israelis 'occupiers', and these two framings never appear in the same outlet family. Meanwhile, pan-Arab and religious-press headlines advertise a slower-burning humanitarian catastrophe — hunger, miscarriages, and nine months of civilian deaths under a nominal ceasefire — that Israeli and wire-service headlines suppress entirely.",
+  "generated_at": "2026-07-24T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
