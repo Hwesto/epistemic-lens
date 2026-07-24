@@ -1,0 +1,177 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "Lceed07cb4c",
+  "cluster_id": 45,
+  "cluster_name": "ICC member states vote to remove Chief Prosecutor Karim Khan",
+  "salience_score": 2.188,
+  "n_outlets": 9,
+  "n_countries": 7,
+  "n_articles": 10,
+  "event_summary": "ICC member states gathered at UN headquarters in New York on July 24 to vote by secret ballot on whether to permanently remove Chief Prosecutor Karim Khan, who has been suspended since June after a junior staff member accused him of sexual misconduct.",
+  "tldr": "The ICC removal vote draws near-identical factual reporting across seven countries, but outlets diverge on which contextual frame matters more: the sexual misconduct allegations or surrounding geopolitical pressures. Jerusalem Post devotes the most column space to the Gaza arrest warrants, warning that Khan's removal could be read as political retaliation for seeking warrants against Israeli officials. Le Monde foregrounds US attacks on the ICC as the vote's primary backdrop. Malay Mail World is the only outlet to name the accuser's nationality as Malaysian, adding a Southeast Asian dimension absent elsewhere. Rappler, based in the Philippines, uniquely situates Rubio's 'lunatics and crazies' remarks within his Manila visit, turning a global story into a local one.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "ICC removal proceedings",
+      "outlets": [
+        "Al Jazeera English",
+        "Jerusalem Post",
+        "Rappler",
+        "Straits Times",
+        "AfricaNews"
+      ],
+      "countries": [
+        "qatar",
+        "israel",
+        "philippines",
+        "vietnam_thai_my",
+        "pan_african"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "ICC's 125 member states will vote by secret ballot Friday on the fate of Khan, who faces sexual misconduct allegations.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "Khan, 56, denies any wrongdoing and his lawyers have called the decision by the court's governing body that led to Friday's vote unlawful, procedurally unfair and unsupported by evidence.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "sexual misconduct allegations against prosecutor",
+      "outlets": [
+        "Malay Mail World",
+        "The Hindu Intl",
+        "Straits Times",
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "india",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "ICC member states to decide fate of prosecutor Karim Khan after Malaysian staffer alleges sexual assault",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "British barrister Karim Khan has been accused of sexual misconduct with a female aide",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US sanctions and Gaza war crimes warrants",
+      "outlets": [
+        "Jerusalem Post",
+        "Rappler",
+        "Hindustan Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "israel",
+        "philippines",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Fate of ICC chief prosecutor heads to unprecedented vote as US sanctions keep him out of New York",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "The vote comes amid renewed US criticism of the war crimes court which Washington sees as a threat to its sovereignty.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Rappler",
+          "country": "philippines",
+          "quote": "The vote comes amid renewed US criticism of the war crimes court which Washington sees as a threat to its sovereignty.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "ICC institutional credibility under US pressure",
+      "outlets": [
+        "Le Monde",
+        "AfricaNews",
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "france",
+        "pan_african",
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "Dans un contexte d’attaques américaines contre la Cour pénale internationale, les Etats membres de la juridiction votent, vendredi 24 juillet, pour ou contre la révocation de Karim Khan.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Diplomats from around the world are gathering at United Nations headquarters in New York on Friday, to decide whether to permanently remove from office the embattled chief prosecutor of the International Criminal Court.",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Rappler",
+      "country": "philippines",
+      "finding": "Uniquely situates Rubio's 'lunatics and crazies' remarks as made during a visit to the Philippines on July 23, giving Philippine readers a local anchor for an otherwise distant story.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Only outlet to specify that US sanctions cover 11 ICC judges and prosecutors, and to frame Khan's potential dismissal explicitly as a political test tied to the Gaza arrest warrants against Netanyahu and Gallant.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Le Monde",
+      "country": "france",
+      "finding": "Reports France's decision to vote for removal, but contextualizes it within US pressure on the ICC rather than as an endorsement of the misconduct finding — distancing Paris from alignment with Washington.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Alone among all outlets names the accuser as a Malaysian staffer, giving Southeast Asian readership a direct national stake in the ICC proceedings.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Cluster contains one off-topic article (corpus index 3) about a US Senate committee postponing a CDC director nominee vote — unrelated to the ICC story and likely a clustering artifact.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "ICC member states voted on July 24 on whether to permanently remove Chief Prosecutor Karim Khan over sexual misconduct allegations that his lawyers called procedurally unlawful, while US sanctions prevented Khan himself from attending the New York hearing. Global coverage split along two axes — misconduct versus geopolitics — with Southeast Asian outlets foregrounding the Malaysian accuser's identity, Israeli press emphasizing the Gaza arrest warrants context, and French press placing the vote inside a pattern of US pressure on the court.",
+  "generated_at": "2026-07-24T07:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
