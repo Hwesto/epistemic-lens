@@ -1,0 +1,199 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L117ac051cf",
+  "cluster_id": 82,
+  "cluster_name": "Shooting near Nablus kills four Palestinians and one Israeli",
+  "n_outlets": 12,
+  "n_countries": 8,
+  "n_articles": 19,
+  "salience_score": 3.167,
+  "event_summary": "A shooting near the Havat Gilad settlement southwest of Nablus in the northern West Bank killed four Palestinians and one Israeli on Friday, July 24. Israeli Prime Minister Netanyahu held an emergency meeting with the Defense Minister and IDF Chief of Staff to discuss the response.",
+  "tldr": "Wire services and Israeli press name the same West Bank shooting but assign causation through opposite frames: Jerusalem Post calls the Palestinian 'a terrorist' who attacked 'hikers,' while Anadolu Agency and Middle East Eye lead with four Palestinians dead in a 'settler attack.' The sharpest cross-bloc convergence comes from Haaretz and Al Jazeera — an Israeli left-liberal outlet and a Qatari pan-Arab outlet — both documenting ongoing Palestinian casualties and characterising the nine-month-old ceasefire as actively violated by Israeli forces. The New Arab surfaces a distinct Gaza thread — nearly 4,000 miscarriages recorded in the Strip in the first half of 2026 — that situates the shooting within a broader pattern of humanitarian deterioration. Vatican News, the only religious outlet, counts a family of six killed in an airstrike as evidence that civilians continue to bear the brunt of conflict despite the ceasefire. No outlet from the United States or Egypt appears in this cluster despite their direct roles in brokering and bordering the conflict zone.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "counter-terrorism manhunt",
+      "outlets": ["Jerusalem Post", "AFP / France 24 EN", "AP News"],
+      "countries": ["israel", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "The IDF conducted a manhunt for the terrorist, locating and killing him after the shooting incident.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Violence between Israeli settlers and troops and Palestinians has risen sharply in the occupied Palestinian territory since the start of the Gaza war.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "settler attack on civilian town",
+      "outlets": ["Middle East Eye", "The New Arab", "Anadolu Agency English"],
+      "countries": ["pan_arab", "turkey"],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "At least four Palestinians were killed after settlers fired live ammunition in the West Bank town of Tell, south west of Nablus. According to local reports, several others were injured, including three critically wounded.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "\"More than 50 armed settlers gathered during the latest attack on the Al-Tubasi family to force them from their homes, while the occupation army watched...\"",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "occupation and illegal settlements",
+      "outlets": ["Anadolu Agency English", "The New Arab"],
+      "countries": ["turkey", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Palestinians seized weapon of security officer at illegal Havat Gilad settlement in occupied West Bank and opened fire on occupiers, reports Israeli media",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "\"More than 50 armed settlers gathered during the latest attack on the Al-Tubasi family to force them from their homes, while the occupation army watched...\"",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Gaza famine and reproductive harm",
+      "outlets": ["The New Arab", "Daily Sabah", "Vatican News"],
+      "countries": ["pan_arab", "turkey", "religious_press"],
+      "evidence": [
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Nearly 4,000 miscarriages were recorded in the Gaza Strip during the first half of this year, according to Palestinian health officials.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The humanitarian situation in Gaza has improved since famine conditions were declared in parts of the territory last year, but millions remain trapped in a deep food crisis, with a...",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "moral complicity and cumulative civilian toll",
+      "outlets": ["Haaretz", "Vatican News"],
+      "countries": ["israel", "religious_press"],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Settlers have wounded 689 Palestinians in the West Bank since January; the Israeli army has killed 1,123 in Gaza since the \"cease-fire.\" The silence of Israeli mothers and wives is a historical contribution",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Intensifying attacks by the Israeli military have killed and injured dozens of Palestinians in the last week.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "ceasefire violations and UN alarm",
+      "outlets": ["Al Jazeera English", "Vatican News"],
+      "countries": ["qatar", "religious_press"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Humanitarian situation in Gaza is 'desperate', UN official says, as Israeli violations of 'ceasefire' intensify.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "A family of six is killed in an Israeli airstrike on Tuesday in the latest of continuing deadly attacks on the Strip since a U.S.-backed ceasefire was agreed more than nine months ago.",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "quote": "Settlers have wounded 689 Palestinians in the West Bank since January; the Israeli army has killed 1,123 in Gaza since the \"cease-fire.\" The silence of Israeli mothers and wives is a historical contribution",
+      "signal_text_idx": 7
+    },
+    "b": {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "quote": "Humanitarian situation in Gaza is 'desperate', UN official says, as Israeli violations of 'ceasefire' intensify.",
+      "signal_text_idx": 2
+    },
+    "joint_conclusion": "An Israeli left-liberal outlet and a Qatari pan-Arab outlet — normally on opposite sides of this conflict's media fault line — converge on the same verdict: the nine-month-old ceasefire is being systematically violated by Israeli forces at scale. Their agreement is notable precisely because it crosses what is ordinarily the sharpest divide in coverage of Israeli-Palestinian violence."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Only outlet to identify the Israeli victim by name (Benayahu Mellet, 32) and report that Netanyahu, Defense Minister Katz, and IDF Chief of Staff Zamir held an emergency meeting to discuss the 'recurring terror threat in West Bank.'",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "Only Israeli outlet to publish an opinion piece calling for moral accountability of Israeli civilian society, citing 689 Palestinians wounded by settlers since January and 1,123 killed in Gaza since the ceasefire began.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The New Arab",
+      "country": "pan_arab",
+      "finding": "Only outlet to report Gaza miscarriage data: nearly 4,000 miscarriages recorded in the first half of 2026, linking reproductive harm directly to conflict conditions.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Sole outlet to label Israeli victims as 'occupiers' and the settlement as 'illegal' in headlines, inverting the victimhood framing used by all other outlets including other pan-Arab press.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "Only outlet to report the settler raid on a West Bank village as a reprisal narrative — settlers 'called for revenge after saying Palestinians had earlier attacked a Jewish shepherd and set a fire' — providing chain-of-events context absent from all other outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "Only religious outlet in the cluster; uniquely frames Gaza civilian deaths as occurring '9 months into ceasefire,' positioning the duration as evidence of a failed or nominal peace agreement.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "Only outlet to headline the Palestinian deaths exclusively without referencing the Israeli death, framing the incident entirely as a settler attack rather than a mutual-casualty event.",
+      "signal_text_idx": 10
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Coverage of the July 24 West Bank shooting splits on a single question of attribution: Israeli and wire outlets emphasise an Israeli killed while countering a 'terrorist,' while pan-Arab and Turkish outlets lead with four Palestinians dead in a 'settler attack.' The most striking signal is the Haaretz-Al Jazeera convergence — an Israeli publication and a Qatari pan-Arab outlet both document systematic Israeli military action during a nominally operative ceasefire, arriving at the same verdict from opposite sides of the conflict's media landscape.",
+  "generated_at": "2026-07-24T10:04:17Z",
+  "model": "claude-sonnet-4-6"
+}
