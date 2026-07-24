@@ -1,0 +1,181 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L59b6dfc984",
+  "cluster_id": 121,
+  "cluster_name": null,
+  "salience_score": 4.0,
+  "n_outlets": 13,
+  "n_articles": 15,
+  "n_buckets": 12,
+  "tldr": "The headline layer frames this story almost entirely as a constitutional war-powers dispute — whether Congress can legally constrain Trump's Iran military campaign — with the House-passes/Senate-rejects split forming the structural spine of most titles. A secondary political frame highlights the partisan crack (four GOP defectors, named by Pakistani outlets). Two buckets (Ukraine, UK) land their headlines on entirely different stories — Russia sanctions and US tariffs respectively — making them orthogonal to the cluster's core event at the homepage layer.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "War powers: Congress vs. executive",
+      "outlets": [
+        "Axios World",
+        "Daily Sabah",
+        "Dawn",
+        "Geo News English",
+        "Globe and Mail",
+        "Haaretz",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The New Arab"
+      ],
+      "countries": [
+        "usa",
+        "turkey",
+        "pakistan",
+        "canada",
+        "israel",
+        "wire_services",
+        "vietnam_thai_my",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "US House votes to curb Trump's Iran war powers",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "US House votes to curb Trump's Iran war powers but Senate backs president",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Congress votes on Trump's Iran war powers as House, Senate split",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "GOP crack; symbolic rebuke of Trump",
+      "outlets": [
+        "Axios World",
+        "Geo News English",
+        "RT",
+        "Reuters (via Google News)",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "usa",
+        "pakistan",
+        "russia",
+        "wire_services",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "House rebukes Trump's war in Iran",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Who are 4 Republicans who voted to end Iran War?",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "...as some Republicans defect",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Conflict escalation context",
+      "outlets": [
+        "Haaretz"
+      ],
+      "countries": [
+        "israel"
+      ],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "...halt military action in Iran as the conflict escalates",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia sanctions linked to Iran bill",
+      "outlets": [
+        "Ukrainska Pravda English"
+      ],
+      "countries": [
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "Ukrainska Pravda English",
+          "country": "ukraine",
+          "quote": "US Senate vote on new Russia sanctions bill",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "ukraine", "mean_similarity": 0.618, "n_tokens": 35},
+    {"bucket": "uk", "mean_similarity": 0.669, "n_tokens": 57},
+    {"bucket": "israel", "mean_similarity": 0.685, "n_tokens": 46},
+    {"bucket": "india", "mean_similarity": 0.692, "n_tokens": 35},
+    {"bucket": "usa", "mean_similarity": 0.71, "n_tokens": 56},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.755, "n_tokens": 45},
+    {"bucket": "wire_services", "mean_similarity": 0.765, "n_tokens": 54},
+    {"bucket": "pakistan", "mean_similarity": 0.784, "n_tokens": 138}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "uk",
+      "what_they_covered_instead": "The Guardian's live-blog headline leads with a tariffs story ('Democrats criticize Trump's new tariffs as end-run around the supreme court and Congress'), entirely bypassing the Iran war-powers vote that is the cluster's core event; readers scanning the homepage see tariff politics, not the congressional rebuke of the Iran campaign."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "'House rebukes Trump's war in Iran' is the only headline to personalize the conflict as Trump's war rather than US military action, and 'rebukes' carries a stronger editorial charge than the neutral 'votes to curb' or 'approves measure' used by every other outlet — the most loaded framing in the corpus.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "'Congress fails to restrict Trump's Iran war powers' is the sole headline to foreground the Senate defeat rather than the House passage, inverting the lede of every other outlet and framing the episode as a net win for Trump rather than a bipartisan rebuke.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "The only headline to embed a real-time escalation clause ('as the conflict escalates') alongside the procedural vote, signalling to Israeli readers that the congressional action occurs against a worsening military backdrop — a framing absent from all other national outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "The live-blog format surfaces a tariff headline rather than the Iran war-powers vote, making the UK headline layer the only one in the corpus entirely disconnected from the cluster's core event; the Iran vote appears only inside the body text of the live blog.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "At the headline layer this story is a constitutional war-powers dispute: most outlets worldwide report the House-passed/Senate-blocked split in neutral procedural terms, with a secondary partisan hook (Republican defectors) most visible in US and South Asian outlets, while Russia's RT inverts the frame to a congressional failure and the UK's Guardian headline misses the story entirely.",
+  "generated_at": "2026-07-24T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
