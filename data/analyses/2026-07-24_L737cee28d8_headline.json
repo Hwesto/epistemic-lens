@@ -1,0 +1,150 @@
+{
+  "story_key": "L737cee28d8",
+  "date": "2026-07-24",
+  "n_buckets": 9,
+  "n_articles": 14,
+  "tldr": "Headlines across 9 country buckets converge on the 1,000-death milestone as the defining anchor for the DRC/Uganda Ebola outbreak; BBC Africa pivots to misinformation driving attacks on health workers, Al Jazeera foregrounds unpaid worker hardship, and RT Africa uniquely reframes the crisis as a geopolitical obstacle to the US minerals deal.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "1,000-death milestone; outbreak severity",
+      "buckets": ["france", "pan_african", "turkey", "usa", "uk", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "le bilan dépasse désormais les 1 000 morts",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ebola death toll in DRC and Uganda has surpassed 1,000",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Ebola outbreak tops 1,000 deaths as containment",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Ebola death toll in DR Congo surpasses 1,000",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "More than 1,000 people killed in Ebola outbreak",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "The Race to Contain the Fastest-Ever Ebola Outbreak",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Worker hardship & misinformation attacks",
+      "buckets": ["qatar", "africa_other"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "'There's no salary': DRC health workers tell of hardship",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Ebola misinformation fuels violent attacks on health workers",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Travel restrictions imposed or contested",
+      "buckets": ["pan_african", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Africa CDC urges U.S. to lift Uganda Ebola travel",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Canada bars foreign travelers over Ebola outbreak",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Ebola disrupts US-DRC minerals deal",
+      "buckets": ["state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "US minerals push hits Ebola roadblock in DR Congo",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.602,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.643,
+      "n_tokens": 230
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.664,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.702,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.729,
+      "n_tokens": 80
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "Only outlet to reframe the Ebola crisis as a geopolitical obstacle — foregrounding disruption to the US-backed critical minerals deal rather than the humanitarian death toll or public-health response.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "Only headline to foreground a named physician's voice and open-ended temporal uncertainty ('No One Knows When It Will End') rather than a statistical milestone, humanizing the emergency in a register absent from every other outlet.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Headline coverage locks onto the 1,000-death milestone as the universal anchor, but fractures between humanizing the response failure (worker hardship, misinformation attacks) and geopolitical or travel-policy instrumentalization of the crisis.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
