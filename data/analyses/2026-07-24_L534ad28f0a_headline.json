@@ -1,0 +1,173 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-24",
+  "lineage_id": "L534ad28f0a",
+  "cluster_id": 115,
+  "cluster_name": "DOJ drops New York Times subpoenas over Air Force One reporting",
+  "salience_score": 3.094,
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 11,
+  "n_buckets": 9,
+  "tldr": "All eleven headlines across nine country buckets treat the story as a factual withdrawal of subpoenas, with no outlet framing the government's position favorably. The main differentiation is actor labeling: English-language institutional outlets name the DOJ or Justice Department, while German, Canadian (Globe and Mail), and all three Latin American outlets name the Trump administration or Gobierno/Governo de Trump explicitly — and Brazil's Folha de São Paulo alone encodes political defeat in the verb, using 'recua' (backs down) rather than the neutral 'withdraws' or 'drops' used everywhere else.",
+  "event_summary": "The U.S. DOJ on July 23 withdrew subpoenas against three New York Times reporters that sought disclosure of sources for articles on security concerns with President Trump's Qatari-gifted Air Force One jet, after a federal judge called the legal approach sloppy.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Subpoenas withdrawn under judicial pressure",
+      "outlets": [
+        "Axios World",
+        "CBC World",
+        "Deutsche Welle English",
+        "El Sol de Mexico",
+        "El Tiempo Colombia",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Straits Times",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "brazil",
+        "canada",
+        "colombia_ven_peru",
+        "germany",
+        "india",
+        "mexico",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "after judge calls it 'sloppy legal work'",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "after admitting legal errors",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "compelling 3 NYT reporters to identify sources",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "DOJ drops New York Times subpoenas",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump admin named as political actor backing down",
+      "outlets": [
+        "Deutsche Welle English",
+        "El Sol de Mexico",
+        "El Tiempo Colombia",
+        "Folha de São Paulo",
+        "Globe and Mail"
+      ],
+      "countries": [
+        "brazil",
+        "canada",
+        "colombia_ven_peru",
+        "germany",
+        "mexico"
+      ],
+      "evidence": [
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Governo Trump recua e retira intimações",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Trump administration withdraws subpoenas",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Trump administration drops New York Times subpoenas",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Air Force One security flaws as named context",
+      "outlets": [
+        "El Tiempo Colombia"
+      ],
+      "countries": [
+        "colombia_ven_peru"
+      ],
+      "evidence": [
+        {
+          "outlet": "El Tiempo Colombia",
+          "country": "colombia_ven_peru",
+          "quote": "fallas en sistemas de seguridad del avión",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "mexico", "mean_similarity": 0.745, "n_tokens": 36},
+    {"bucket": "usa", "mean_similarity": 0.754, "n_tokens": 49},
+    {"bucket": "colombia_ven_peru", "mean_similarity": 0.774, "n_tokens": 39},
+    {"bucket": "brazil", "mean_similarity": 0.787, "n_tokens": 47},
+    {"bucket": "canada", "mean_similarity": 0.803, "n_tokens": 65},
+    {"bucket": "india", "mean_similarity": 0.805, "n_tokens": 53}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only headline to use a politically evaluative verb — 'recua' (backs down/retreats) — rather than the neutral 'withdraws' or 'drops' used by every other outlet, encoding political defeat directly in the verb choice.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Unique phrase 'after admitting legal errors' characterizes the withdrawal as a confessed procedural failure rather than a discretionary choice — the strongest concessive framing in any English-language headline.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only headline to foreground the judge's rebuke as the explicit cause ('after judge calls it sloppy legal work'), making the judicial assessment — not the DOJ's own decision — the subject of the headline.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "El Tiempo Colombia",
+      "country": "colombia_ven_peru",
+      "finding": "Only headline in the corpus to surface the underlying security concern, explicitly naming 'fallas en sistemas de seguridad del avión presidencial' — all other outlets reduce the original reporting to 'Air Force One' or 'Trump plane,' stripping the security angle.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "Only headline to describe the subpoenas' purpose as 'compelling 3 NYT reporters to identify sources,' naming the journalist source-protection concern as the stated object of the legal action rather than just the topic of the underlying reporting.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "Headline coverage delivers a uniform verdict — the subpoenas were dropped — while actor labeling splits the corpus: institutional outlets in the US, India, and Southeast Asia name the DOJ or Justice Department, signaling a procedural event, while Latin American and German outlets name Trump or the Trump administration, signaling a political retreat; only Brazil's Folha encodes that retreat in its verb, and only Colombia's El Tiempo surfaces the Air Force One security concern that motivated the original reporting.",
+  "generated_at": "2026-07-24T10:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
