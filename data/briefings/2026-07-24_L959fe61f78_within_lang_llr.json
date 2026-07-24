@@ -1,0 +1,110 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 39,
+      "n_tokens_in_cohort": 655,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 10,
+      "n_tokens_in_cohort": 684,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 62,
+      "n_tokens_in_cohort": 632,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 661,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 669,
+      "distinctive_terms": []
+    },
+    "egypt": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 88,
+      "n_tokens_in_cohort": 606,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 210,
+      "n_tokens_in_cohort": 484,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 626,
+      "distinctive_terms": [
+        {
+          "term": "southern",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.08824,
+          "rate_in_cohort": 0.0,
+          "llr": 28.369,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 59,
+      "n_tokens_in_cohort": 635,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 18,
+      "n_tokens_in_cohort": 676,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 634,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 672,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

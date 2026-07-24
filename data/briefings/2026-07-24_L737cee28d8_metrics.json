@@ -1,0 +1,373 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 14,
+  "buckets": [
+    "africa_other",
+    "france",
+    "opinion_magazines",
+    "pan_african",
+    "qatar",
+    "state_tv_intl",
+    "turkey",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "france": 80,
+    "pan_african": 50,
+    "qatar": 21,
+    "africa_other": 50,
+    "turkey": 29,
+    "opinion_magazines": 230,
+    "usa": 24,
+    "state_tv_intl": 49,
+    "uk": 15
+  },
+  "pairwise_similarity": [
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.89
+    },
+    {
+      "a": "france",
+      "b": "pan_african",
+      "score": 0.867
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.817
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.815
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.803
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.752
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.749
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.748
+    },
+    {
+      "a": "africa_other",
+      "b": "turkey",
+      "score": 0.741
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.74
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.719
+    },
+    {
+      "a": "france",
+      "b": "opinion_magazines",
+      "score": 0.717
+    },
+    {
+      "a": "africa_other",
+      "b": "uk",
+      "score": 0.709
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.691
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_african",
+      "score": 0.69
+    },
+    {
+      "a": "africa_other",
+      "b": "qatar",
+      "score": 0.685
+    },
+    {
+      "a": "africa_other",
+      "b": "opinion_magazines",
+      "score": 0.671
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.654
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.651
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.643
+    },
+    {
+      "a": "africa_other",
+      "b": "france",
+      "score": 0.642
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.636
+    },
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.632
+    },
+    {
+      "a": "africa_other",
+      "b": "usa",
+      "score": 0.628
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "turkey",
+      "score": 0.624
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.623
+    },
+    {
+      "a": "qatar",
+      "b": "state_tv_intl",
+      "score": 0.621
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.615
+    },
+    {
+      "a": "pan_african",
+      "b": "qatar",
+      "score": 0.603
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.6
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.596
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.582
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.578
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "qatar",
+      "score": 0.573
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.515
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "state_tv_intl",
+      "score": 0.506
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.602,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.643,
+      "n_tokens": 230
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.664,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.702,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.729,
+      "n_tokens": 80
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.616,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.664,
+      "n_tokens": 15
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.707,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.755,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "france": [
+      {
+        "term": "ouganda",
+        "count": 5
+      },
+      {
+        "term": "mort",
+        "count": 5
+      },
+      {
+        "term": "bilan",
+        "count": 3
+      },
+      {
+        "term": "selon",
+        "count": 3
+      },
+      {
+        "term": "épidémie",
+        "count": 3
+      },
+      {
+        "term": "plus",
+        "count": 3
+      }
+    ],
+    "pan_african": [
+      {
+        "term": "africa",
+        "count": 3
+      },
+      {
+        "term": "lift",
+        "count": 3
+      },
+      {
+        "term": "travel",
+        "count": 3
+      }
+    ],
+    "qatar": [],
+    "africa_other": [
+      {
+        "term": "fuel",
+        "count": 4
+      },
+      {
+        "term": "misinformation",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "opinion_magazines": [
+      {
+        "term": "sebushishe",
+        "count": 5
+      },
+      {
+        "term": "ever",
+        "count": 3
+      },
+      {
+        "term": "response",
+        "count": 3
+      },
+      {
+        "term": "emergency",
+        "count": 3
+      },
+      {
+        "term": "hundred",
+        "count": 3
+      },
+      {
+        "term": "care",
+        "count": 3
+      },
+      {
+        "term": "with",
+        "count": 3
+      },
+      {
+        "term": "patient",
+        "count": 3
+      }
+    ],
+    "usa": [],
+    "state_tv_intl": [
+      {
+        "term": "mineral",
+        "count": 3
+      },
+      {
+        "term": "canada",
+        "count": 3
+      },
+      {
+        "term": "foreign",
+        "count": 3
+      }
+    ],
+    "uk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-24T09:59:24+00:00",
+  "meta_version": "10.0.3"
+}

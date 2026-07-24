@@ -1,0 +1,294 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 10,
+  "buckets": [
+    "australia_nz",
+    "hungary_central",
+    "iraq",
+    "italy",
+    "nigeria",
+    "south_africa",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "australia_nz": 22,
+    "wire_services": 80,
+    "vietnam_thai_my": 112,
+    "south_africa": 94,
+    "uk": 43,
+    "iraq": 33,
+    "italy": 39,
+    "hungary_central": 20,
+    "nigeria": 32
+  },
+  "pairwise_similarity": [
+    {
+      "a": "south_africa",
+      "b": "vietnam_thai_my",
+      "score": 0.951
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.867
+    },
+    {
+      "a": "south_africa",
+      "b": "wire_services",
+      "score": 0.836
+    },
+    {
+      "a": "iraq",
+      "b": "nigeria",
+      "score": 0.816
+    },
+    {
+      "a": "hungary_central",
+      "b": "nigeria",
+      "score": 0.742
+    },
+    {
+      "a": "iraq",
+      "b": "wire_services",
+      "score": 0.691
+    },
+    {
+      "a": "nigeria",
+      "b": "vietnam_thai_my",
+      "score": 0.688
+    },
+    {
+      "a": "nigeria",
+      "b": "wire_services",
+      "score": 0.679
+    },
+    {
+      "a": "iraq",
+      "b": "vietnam_thai_my",
+      "score": 0.671
+    },
+    {
+      "a": "hungary_central",
+      "b": "iraq",
+      "score": 0.645
+    },
+    {
+      "a": "italy",
+      "b": "nigeria",
+      "score": 0.644
+    },
+    {
+      "a": "iraq",
+      "b": "uk",
+      "score": 0.642
+    },
+    {
+      "a": "hungary_central",
+      "b": "wire_services",
+      "score": 0.631
+    },
+    {
+      "a": "iraq",
+      "b": "south_africa",
+      "score": 0.619
+    },
+    {
+      "a": "australia_nz",
+      "b": "wire_services",
+      "score": 0.595
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.593
+    },
+    {
+      "a": "nigeria",
+      "b": "uk",
+      "score": 0.59
+    },
+    {
+      "a": "hungary_central",
+      "b": "vietnam_thai_my",
+      "score": 0.583
+    },
+    {
+      "a": "australia_nz",
+      "b": "vietnam_thai_my",
+      "score": 0.578
+    },
+    {
+      "a": "nigeria",
+      "b": "south_africa",
+      "score": 0.577
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.566
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.565
+    },
+    {
+      "a": "australia_nz",
+      "b": "south_africa",
+      "score": 0.55
+    },
+    {
+      "a": "iraq",
+      "b": "italy",
+      "score": 0.549
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.537
+    },
+    {
+      "a": "hungary_central",
+      "b": "italy",
+      "score": 0.529
+    },
+    {
+      "a": "hungary_central",
+      "b": "uk",
+      "score": 0.528
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.523
+    },
+    {
+      "a": "italy",
+      "b": "south_africa",
+      "score": 0.503
+    },
+    {
+      "a": "hungary_central",
+      "b": "south_africa",
+      "score": 0.493
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.479
+    },
+    {
+      "a": "australia_nz",
+      "b": "italy",
+      "score": 0.458
+    },
+    {
+      "a": "australia_nz",
+      "b": "iraq",
+      "score": 0.448
+    },
+    {
+      "a": "australia_nz",
+      "b": "uk",
+      "score": 0.427
+    },
+    {
+      "a": "australia_nz",
+      "b": "hungary_central",
+      "score": 0.372
+    },
+    {
+      "a": "australia_nz",
+      "b": "nigeria",
+      "score": 0.371
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.537,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.551,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.626,
+      "n_tokens": 94
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.635,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.638,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.678,
+      "n_tokens": 112
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.679,
+      "n_tokens": 80
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.475,
+      "n_tokens": 22
+    },
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.565,
+      "n_tokens": 20
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "australia_nz": [],
+    "wire_services": [],
+    "vietnam_thai_my": [],
+    "south_africa": [],
+    "uk": [],
+    "iraq": [],
+    "italy": [
+      {
+        "term": "positivo",
+        "count": 3
+      }
+    ],
+    "hungary_central": [],
+    "nigeria": [
+      {
+        "term": "face",
+        "count": 3
+      },
+      {
+        "term": "probe",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-24T09:59:39+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,399 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 22,
+  "buckets": [
+    "canada",
+    "germany",
+    "india",
+    "iran_opposition",
+    "kenya",
+    "russia",
+    "turkey",
+    "ukraine",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 257,
+    "turkey": 28,
+    "germany": 28,
+    "canada": 29,
+    "iran_opposition": 331,
+    "ukraine": 88,
+    "vietnam_thai_my": 28,
+    "russia": 260,
+    "india": 292,
+    "kenya": 213
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.895
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.894
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.89
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.887
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.884
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.869
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.867
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.866
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.853
+    },
+    {
+      "a": "iran_opposition",
+      "b": "usa",
+      "score": 0.847
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.832
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.813
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.801
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.794
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.792
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.773
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.77
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.769
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.769
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.761
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.754
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.745
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.74
+    },
+    {
+      "a": "germany",
+      "b": "iran_opposition",
+      "score": 0.74
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.725
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.666
+    },
+    {
+      "a": "iran_opposition",
+      "b": "kenya",
+      "score": 0.656
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.655
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.643
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.601
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.591
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.574
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.558
+    },
+    {
+      "a": "kenya",
+      "b": "ukraine",
+      "score": 0.53
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.526
+    },
+    {
+      "a": "iran_opposition",
+      "b": "vietnam_thai_my",
+      "score": 0.411
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.41
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.403
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.401
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.369
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.364
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.36
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.349
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.343
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.29
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.533,
+      "n_tokens": 213
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.728,
+      "n_tokens": 257
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.74,
+      "n_tokens": 88
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.75,
+      "n_tokens": 292
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.757,
+      "n_tokens": 260
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.771,
+      "n_tokens": 331
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.39,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.648,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.658,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.698,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "rebuk",
+        "count": 3
+      },
+      {
+        "term": "media",
+        "count": 3
+      },
+      {
+        "term": "cannot",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "germany": [],
+    "canada": [],
+    "iran_opposition": [
+      {
+        "term": "security",
+        "count": 4
+      },
+      {
+        "term": "threat",
+        "count": 3
+      }
+    ],
+    "ukraine": [
+      {
+        "term": "shift",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "russia": [
+      {
+        "term": "discus",
+        "count": 5
+      },
+      {
+        "term": "anchorage",
+        "count": 5
+      }
+    ],
+    "india": [
+      {
+        "term": "heavy",
+        "count": 3
+      },
+      {
+        "term": "policy",
+        "count": 3
+      },
+      {
+        "term": "face",
+        "count": 3
+      },
+      {
+        "term": "disaster",
+        "count": 3
+      }
+    ],
+    "kenya": [
+      {
+        "term": "week",
+        "count": 3
+      },
+      {
+        "term": "communique",
+        "count": 3
+      },
+      {
+        "term": "code",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-24T09:59:14+00:00",
+  "meta_version": "10.0.3"
+}

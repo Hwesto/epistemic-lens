@@ -1,0 +1,176 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 93,
+      "n_tokens_in_cohort": 1659,
+      "distinctive_terms": [
+        {
+          "term": "near",
+          "count_in_bucket": 6,
+          "count_in_cohort": 14,
+          "rate_in_bucket": 0.06452,
+          "rate_in_cohort": 0.00844,
+          "llr": 12.609,
+          "log_ratio": 2.034,
+          "p_value": 0.000384
+        },
+        {
+          "term": "warehouse",
+          "count_in_bucket": 7,
+          "count_in_cohort": 23,
+          "rate_in_bucket": 0.07527,
+          "rate_in_cohort": 0.01386,
+          "llr": 11.36,
+          "log_ratio": 1.692,
+          "p_value": 0.000751
+        }
+      ]
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 1730,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 1728,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 254,
+      "n_tokens_in_cohort": 1498,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 34,
+      "n_tokens_in_cohort": 1718,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 1726,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 62,
+      "n_tokens_in_cohort": 1690,
+      "distinctive_terms": []
+    },
+    "iraq": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 221,
+      "n_tokens_in_cohort": 1531,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 137,
+      "n_tokens_in_cohort": 1615,
+      "distinctive_terms": [
+        {
+          "term": "flamingo",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0438,
+          "rate_in_cohort": 0.0,
+          "llr": 30.829,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 670,
+      "n_tokens_in_cohort": 1082,
+      "distinctive_terms": [
+        {
+          "term": "utkina",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.00896,
+          "rate_in_cohort": 0.0,
+          "llr": 11.568,
+          "log_ratio": null,
+          "p_value": 0.000671
+        },
+        {
+          "term": "zavod",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.00896,
+          "rate_in_cohort": 0.0,
+          "llr": 11.568,
+          "log_ratio": null,
+          "p_value": 0.000671
+        },
+        {
+          "term": "video",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.00896,
+          "rate_in_cohort": 0.0,
+          "llr": 11.568,
+          "log_ratio": null,
+          "p_value": 0.000671
+        }
+      ]
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 94,
+      "n_tokens_in_cohort": 1658,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 1720,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 43,
+      "n_tokens_in_cohort": 1709,
+      "distinctive_terms": []
+    },
+    "nigeria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 40,
+      "n_tokens_in_cohort": 1712,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 195,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 65,
+      "n_tokens_in_cohort": 179,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 218,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 191,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 222,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 215,
+      "distinctive_terms": []
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 36,
+      "n_tokens_in_cohort": 39,
+      "distinctive_terms": []
+    },
+    "colombia_ven_peru": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 39,
+      "n_tokens_in_cohort": 36,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

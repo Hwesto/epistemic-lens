@@ -1,0 +1,86 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 188,
+      "distinctive_terms": [
+        {
+          "term": "uganda",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.0,
+          "llr": 16.014,
+          "log_ratio": null,
+          "p_value": 6.3e-05
+        }
+      ]
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 217,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 188,
+      "distinctive_terms": [
+        {
+          "term": "attack",
+          "count_in_bucket": 5,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.00532,
+          "llr": 11.038,
+          "log_ratio": 2.934,
+          "p_value": 0.000893
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 209,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 214,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 189,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 15,
+      "n_tokens_in_cohort": 223,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,324 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 17,
+  "buckets": [
+    "india",
+    "israel",
+    "pan_arab",
+    "qatar",
+    "religious_press",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 88,
+    "qatar": 22,
+    "turkey": 95,
+    "israel": 280,
+    "india": 29,
+    "pan_arab": 80,
+    "vietnam_thai_my": 64,
+    "religious_press": 47
+  },
+  "pairwise_similarity": [
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.883
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.837
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.81
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.81
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.8
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "score": 0.775
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.766
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.761
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.761
+    },
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.738
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.736
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "score": 0.724
+    },
+    {
+      "a": "religious_press",
+      "b": "turkey",
+      "score": 0.71
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.704
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.702
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.702
+    },
+    {
+      "a": "pan_arab",
+      "b": "religious_press",
+      "score": 0.672
+    },
+    {
+      "a": "qatar",
+      "b": "religious_press",
+      "score": 0.667
+    },
+    {
+      "a": "religious_press",
+      "b": "wire_services",
+      "score": 0.627
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.606
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.6
+    },
+    {
+      "a": "pan_arab",
+      "b": "qatar",
+      "score": 0.582
+    },
+    {
+      "a": "israel",
+      "b": "religious_press",
+      "score": 0.578
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.573
+    },
+    {
+      "a": "religious_press",
+      "b": "vietnam_thai_my",
+      "score": 0.569
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.566
+    },
+    {
+      "a": "india",
+      "b": "religious_press",
+      "score": 0.56
+    },
+    {
+      "a": "israel",
+      "b": "qatar",
+      "score": 0.542
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.626,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.667,
+      "n_tokens": 280
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.723,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.728,
+      "n_tokens": 80
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.751,
+      "n_tokens": 88
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.754,
+      "n_tokens": 95
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.605,
+      "n_tokens": 22
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.678,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "qatar": [],
+    "turkey": [
+      {
+        "term": "occupier",
+        "count": 6
+      },
+      {
+        "term": "crisi",
+        "count": 3
+      }
+    ],
+    "israel": [
+      {
+        "term": "wound",
+        "count": 6
+      },
+      {
+        "term": "response",
+        "count": 4
+      },
+      {
+        "term": "squad",
+        "count": 4
+      },
+      {
+        "term": "paramedic",
+        "count": 4
+      },
+      {
+        "term": "raid",
+        "count": 3
+      },
+      {
+        "term": "member",
+        "count": 3
+      },
+      {
+        "term": "mother",
+        "count": 3
+      },
+      {
+        "term": "wife",
+        "count": 3
+      },
+      {
+        "term": "terrorist",
+        "count": 3
+      },
+      {
+        "term": "farm",
+        "count": 3
+      },
+      {
+        "term": "emergency",
+        "count": 3
+      },
+      {
+        "term": "approximately",
+        "count": 3
+      },
+      {
+        "term": "gunshot",
+        "count": 3
+      },
+      {
+        "term": "suffered",
+        "count": 3
+      },
+      {
+        "term": "evacuated",
+        "count": 3
+      },
+      {
+        "term": "hospital",
+        "count": 3
+      },
+      {
+        "term": "minister",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "pan_arab": [
+      {
+        "term": "miscarriag",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "religious_press": [
+      {
+        "term": "civilian",
+        "count": 4
+      },
+      {
+        "term": "continue",
+        "count": 4
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-24T09:58:53+00:00",
+  "meta_version": "10.0.3"
+}

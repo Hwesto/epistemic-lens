@@ -1,0 +1,231 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 12,
+  "buckets": [
+    "iraq",
+    "japan",
+    "south_korea",
+    "taiwan_hk",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 199,
+    "uk": 21,
+    "vietnam_thai_my": 235,
+    "iraq": 216,
+    "south_korea": 297,
+    "japan": 16,
+    "taiwan_hk": 65
+  },
+  "pairwise_similarity": [
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.934
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.923
+    },
+    {
+      "a": "iraq",
+      "b": "vietnam_thai_my",
+      "score": 0.921
+    },
+    {
+      "a": "iraq",
+      "b": "taiwan_hk",
+      "score": 0.895
+    },
+    {
+      "a": "south_korea",
+      "b": "vietnam_thai_my",
+      "score": 0.893
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.886
+    },
+    {
+      "a": "south_korea",
+      "b": "wire_services",
+      "score": 0.884
+    },
+    {
+      "a": "iraq",
+      "b": "wire_services",
+      "score": 0.866
+    },
+    {
+      "a": "south_korea",
+      "b": "taiwan_hk",
+      "score": 0.866
+    },
+    {
+      "a": "iraq",
+      "b": "south_korea",
+      "score": 0.841
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.795
+    },
+    {
+      "a": "japan",
+      "b": "vietnam_thai_my",
+      "score": 0.784
+    },
+    {
+      "a": "japan",
+      "b": "uk",
+      "score": 0.767
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.738
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.733
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.717
+    },
+    {
+      "a": "japan",
+      "b": "taiwan_hk",
+      "score": 0.709
+    },
+    {
+      "a": "iraq",
+      "b": "uk",
+      "score": 0.707
+    },
+    {
+      "a": "japan",
+      "b": "south_korea",
+      "score": 0.702
+    },
+    {
+      "a": "south_korea",
+      "b": "uk",
+      "score": 0.697
+    },
+    {
+      "a": "iraq",
+      "b": "japan",
+      "score": 0.602
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.805,
+      "n_tokens": 216
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.814,
+      "n_tokens": 297
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.836,
+      "n_tokens": 65
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.837,
+      "n_tokens": 199
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.875,
+      "n_tokens": 235
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.716,
+      "n_tokens": 16
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.737,
+      "n_tokens": 21
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "vietnam_thai_my": [],
+    "iraq": [],
+    "south_korea": [
+      {
+        "term": "yonhap",
+        "count": 4
+      },
+      {
+        "term": "chair",
+        "count": 3
+      },
+      {
+        "term": "herald",
+        "count": 3
+      },
+      {
+        "term": "summary",
+        "count": 3
+      },
+      {
+        "term": "http",
+        "count": 3
+      },
+      {
+        "term": "view",
+        "count": 3
+      },
+      {
+        "term": "section",
+        "count": 3
+      },
+      {
+        "term": "stock",
+        "count": 3
+      },
+      {
+        "term": "visit",
+        "count": 3
+      }
+    ],
+    "japan": [],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-24T09:59:28+00:00",
+  "meta_version": "10.0.3"
+}

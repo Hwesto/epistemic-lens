@@ -1,0 +1,244 @@
+{
+  "date": "2026-07-24",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 10,
+  "buckets": [
+    "france",
+    "india",
+    "israel",
+    "pan_african",
+    "philippines",
+    "qatar",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 34,
+    "qatar": 26,
+    "india": 76,
+    "israel": 204,
+    "france": 45,
+    "vietnam_thai_my": 67,
+    "philippines": 196
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "philippines",
+      "score": 0.972
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.859
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.824
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.816
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.764
+    },
+    {
+      "a": "pan_african",
+      "b": "qatar",
+      "score": 0.739
+    },
+    {
+      "a": "france",
+      "b": "pan_african",
+      "score": 0.73
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.709
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.673
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.666
+    },
+    {
+      "a": "philippines",
+      "b": "vietnam_thai_my",
+      "score": 0.662
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.639
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.635
+    },
+    {
+      "a": "israel",
+      "b": "pan_african",
+      "score": 0.628
+    },
+    {
+      "a": "france",
+      "b": "israel",
+      "score": 0.614
+    },
+    {
+      "a": "pan_african",
+      "b": "philippines",
+      "score": 0.61
+    },
+    {
+      "a": "france",
+      "b": "philippines",
+      "score": 0.607
+    },
+    {
+      "a": "israel",
+      "b": "qatar",
+      "score": 0.583
+    },
+    {
+      "a": "philippines",
+      "b": "qatar",
+      "score": 0.562
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.559
+    },
+    {
+      "a": "india",
+      "b": "philippines",
+      "score": 0.532
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.63,
+      "n_tokens": 76
+    },
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.657,
+      "n_tokens": 196
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.665,
+      "n_tokens": 204
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.702,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.705,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.739,
+      "n_tokens": 67
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.696,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [],
+    "qatar": [
+      {
+        "term": "face",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "head",
+        "count": 5
+      },
+      {
+        "term": "unprecedented",
+        "count": 5
+      },
+      {
+        "term": "keep",
+        "count": 5
+      },
+      {
+        "term": "senate",
+        "count": 3
+      },
+      {
+        "term": "committee",
+        "count": 3
+      },
+      {
+        "term": "postpon",
+        "count": 3
+      },
+      {
+        "term": "advance",
+        "count": 3
+      },
+      {
+        "term": "director",
+        "count": 3
+      },
+      {
+        "term": "nominee",
+        "count": 3
+      }
+    ],
+    "israel": [],
+    "france": [
+      {
+        "term": "etat",
+        "count": 3
+      },
+      {
+        "term": "membr",
+        "count": 3
+      },
+      {
+        "term": "pour",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "philippines": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-24T09:59:43+00:00",
+  "meta_version": "10.0.3"
+}
