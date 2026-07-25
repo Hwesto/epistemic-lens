@@ -1,0 +1,241 @@
+{
+  "date": "2026-07-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 13,
+  "buckets": [
+    "canada",
+    "china",
+    "iran_opposition",
+    "russia",
+    "turkey",
+    "ukraine",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 76,
+    "china": 28,
+    "turkey": 28,
+    "canada": 29,
+    "iran_opposition": 145,
+    "ukraine": 42,
+    "russia": 98
+  },
+  "pairwise_similarity": [
+    {
+      "a": "china",
+      "b": "iran_opposition",
+      "score": 0.893
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.888
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.878
+    },
+    {
+      "a": "iran_opposition",
+      "b": "usa",
+      "score": 0.866
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.859
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.854
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.844
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.839
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.824
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.816
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.815
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.809
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.807
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.786
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.773
+    },
+    {
+      "a": "china",
+      "b": "ukraine",
+      "score": 0.77
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.767
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.75
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.738
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.725
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.723
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.79,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.818,
+      "n_tokens": 98
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.833,
+      "n_tokens": 76
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.853,
+      "n_tokens": 145
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.763,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.798,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.819,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "detail",
+        "count": 4
+      },
+      {
+        "term": "rebuk",
+        "count": 3
+      },
+      {
+        "term": "media",
+        "count": 3
+      },
+      {
+        "term": "cannot",
+        "count": 3
+      }
+    ],
+    "china": [
+      {
+        "term": "willing",
+        "count": 3
+      },
+      {
+        "term": "negotiate",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "canada": [],
+    "iran_opposition": [
+      {
+        "term": "shipping",
+        "count": 3
+      },
+      {
+        "term": "weaken",
+        "count": 3
+      },
+      {
+        "term": "commitment",
+        "count": 3
+      },
+      {
+        "term": "asia",
+        "count": 3
+      }
+    ],
+    "ukraine": [],
+    "russia": [
+      {
+        "term": "discus",
+        "count": 3
+      },
+      {
+        "term": "bilateral",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-25T09:37:37+00:00",
+  "meta_version": "10.0.3"
+}

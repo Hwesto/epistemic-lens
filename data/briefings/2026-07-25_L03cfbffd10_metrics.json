@@ -1,0 +1,277 @@
+{
+  "date": "2026-07-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 5,
+  "n_articles": 13,
+  "buckets": [
+    "korea_north",
+    "south_korea",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "vietnam_thai_my": 40,
+    "usa": 20,
+    "south_korea": 413,
+    "korea_north": 105,
+    "wire_services": 63
+  },
+  "pairwise_similarity": [
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.913
+    },
+    {
+      "a": "south_korea",
+      "b": "wire_services",
+      "score": 0.8
+    },
+    {
+      "a": "south_korea",
+      "b": "vietnam_thai_my",
+      "score": 0.741
+    },
+    {
+      "a": "korea_north",
+      "b": "south_korea",
+      "score": 0.618
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.522
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.474
+    },
+    {
+      "a": "south_korea",
+      "b": "usa",
+      "score": 0.463
+    },
+    {
+      "a": "korea_north",
+      "b": "wire_services",
+      "score": 0.338
+    },
+    {
+      "a": "korea_north",
+      "b": "vietnam_thai_my",
+      "score": 0.303
+    },
+    {
+      "a": "korea_north",
+      "b": "usa",
+      "score": 0.234
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.373,
+      "n_tokens": 105
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.608,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.643,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.655,
+      "n_tokens": 413
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.423,
+      "n_tokens": 20
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "vietnam_thai_my": [],
+    "usa": [],
+    "south_korea": [
+      {
+        "term": "global",
+        "count": 13
+      },
+      {
+        "term": "francisco",
+        "count": 10
+      },
+      {
+        "term": "meeting",
+        "count": 7
+      },
+      {
+        "term": "supply",
+        "count": 7
+      },
+      {
+        "term": "chief",
+        "count": 6
+      },
+      {
+        "term": "herald",
+        "count": 6
+      },
+      {
+        "term": "firm",
+        "count": 6
+      },
+      {
+        "term": "project",
+        "count": 6
+      },
+      {
+        "term": "investment",
+        "count": 6
+      },
+      {
+        "term": "semiconductor",
+        "count": 5
+      },
+      {
+        "term": "including",
+        "count": 4
+      },
+      {
+        "term": "openai",
+        "count": 4
+      },
+      {
+        "term": "megaproject",
+        "count": 4
+      },
+      {
+        "term": "push",
+        "count": 4
+      },
+      {
+        "term": "brazil",
+        "count": 3
+      },
+      {
+        "term": "chile",
+        "count": 3
+      },
+      {
+        "term": "argentina",
+        "count": 3
+      },
+      {
+        "term": "germany",
+        "count": 3
+      },
+      {
+        "term": "friday",
+        "count": 3
+      },
+      {
+        "term": "meet",
+        "count": 3
+      },
+      {
+        "term": "ceos",
+        "count": 3
+      },
+      {
+        "term": "pres",
+        "count": 3
+      },
+      {
+        "term": "presidential",
+        "count": 3
+      },
+      {
+        "term": "yong",
+        "count": 3
+      },
+      {
+        "term": "layer",
+        "count": 3
+      },
+      {
+        "term": "outgrow",
+        "count": 3
+      },
+      {
+        "term": "alone",
+        "count": 3
+      },
+      {
+        "term": "cooperation",
+        "count": 3
+      },
+      {
+        "term": "worth",
+        "count": 3
+      },
+      {
+        "term": "production",
+        "count": 3
+      },
+      {
+        "term": "lead",
+        "count": 3
+      },
+      {
+        "term": "chain",
+        "count": 3
+      }
+    ],
+    "korea_north": [
+      {
+        "term": "north",
+        "count": 6
+      },
+      {
+        "term": "mongolia",
+        "count": 4
+      },
+      {
+        "term": "play",
+        "count": 3
+      },
+      {
+        "term": "dialogue",
+        "count": 3
+      },
+      {
+        "term": "peace",
+        "count": 3
+      },
+      {
+        "term": "recognizing",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 6
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-25T09:36:37+00:00",
+  "meta_version": "10.0.3"
+}

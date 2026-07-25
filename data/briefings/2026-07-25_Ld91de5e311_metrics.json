@@ -1,0 +1,366 @@
+{
+  "date": "2026-07-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 15,
+  "buckets": [
+    "france",
+    "india",
+    "pakistan",
+    "pan_arab",
+    "qatar",
+    "state_tv_intl",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 55,
+    "france": 83,
+    "pakistan": 24,
+    "qatar": 25,
+    "turkey": 297,
+    "state_tv_intl": 53,
+    "vietnam_thai_my": 251,
+    "pan_arab": 86,
+    "india": 26
+  },
+  "pairwise_similarity": [
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.939
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.915
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.9
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.9
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.897
+    },
+    {
+      "a": "france",
+      "b": "pan_arab",
+      "score": 0.89
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.888
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.881
+    },
+    {
+      "a": "pan_arab",
+      "b": "state_tv_intl",
+      "score": 0.873
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.871
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.868
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.865
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "vietnam_thai_my",
+      "score": 0.861
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.859
+    },
+    {
+      "a": "pan_arab",
+      "b": "qatar",
+      "score": 0.851
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.85
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.847
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.839
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "turkey",
+      "score": 0.827
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.824
+    },
+    {
+      "a": "pakistan",
+      "b": "state_tv_intl",
+      "score": 0.823
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.823
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.817
+    },
+    {
+      "a": "qatar",
+      "b": "state_tv_intl",
+      "score": 0.817
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.812
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.798
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.796
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.785
+    },
+    {
+      "a": "pakistan",
+      "b": "pan_arab",
+      "score": 0.783
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.782
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.775
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.772
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.771
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.749
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.715
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.698
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.808,
+      "n_tokens": 297
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.841,
+      "n_tokens": 251
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.853,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.858,
+      "n_tokens": 83
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.858,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.869,
+      "n_tokens": 55
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.795,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.804,
+      "n_tokens": 25
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.805,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "visite",
+        "count": 6
+      },
+      {
+        "term": "syrie",
+        "count": 6
+      },
+      {
+        "term": "première",
+        "count": 5
+      },
+      {
+        "term": "chef",
+        "count": 4
+      },
+      {
+        "term": "depui",
+        "count": 4
+      },
+      {
+        "term": "secrétaire",
+        "count": 3
+      },
+      {
+        "term": "général",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "qatar": [],
+    "turkey": [
+      {
+        "term": "landmark",
+        "count": 4
+      },
+      {
+        "term": "ahmad",
+        "count": 3
+      },
+      {
+        "term": "capital",
+        "count": 3
+      }
+    ],
+    "state_tv_intl": [
+      {
+        "term": "للأمم",
+        "count": 4
+      },
+      {
+        "term": "المتحدة",
+        "count": 4
+      },
+      {
+        "term": "سوريا",
+        "count": 3
+      },
+      {
+        "term": "غوتيريس",
+        "count": 3
+      },
+      {
+        "term": "الحرب",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [
+      {
+        "term": "society",
+        "count": 3
+      },
+      {
+        "term": "zone",
+        "count": 3
+      }
+    ],
+    "pan_arab": [
+      {
+        "term": "back",
+        "count": 4
+      },
+      {
+        "term": "post",
+        "count": 4
+      }
+    ],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-07-25T09:37:34+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,168 @@
+{
+  "date": "2026-07-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 463,
+      "n_tokens_in_cohort": 719,
+      "distinctive_terms": [
+        {
+          "term": "pradhan",
+          "count_in_bucket": 29,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.06263,
+          "rate_in_cohort": 0.00556,
+          "llr": 34.908,
+          "log_ratio": 2.421,
+          "p_value": 0.0
+        },
+        {
+          "term": "dharmendra",
+          "count_in_bucket": 21,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.04536,
+          "rate_in_cohort": 0.00556,
+          "llr": 21.814,
+          "log_ratio": 2.098,
+          "p_value": 3e-06
+        },
+        {
+          "term": "rahul",
+          "count_in_bucket": 12,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.02592,
+          "rate_in_cohort": 0.00139,
+          "llr": 16.609,
+          "log_ratio": 2.925,
+          "p_value": 4.6e-05
+        },
+        {
+          "term": "union",
+          "count_in_bucket": 8,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01728,
+          "rate_in_cohort": 0.0,
+          "llr": 15.081,
+          "log_ratio": null,
+          "p_value": 0.000103
+        },
+        {
+          "term": "neet",
+          "count_in_bucket": 11,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.02376,
+          "rate_in_cohort": 0.00139,
+          "llr": 14.872,
+          "log_ratio": 2.838,
+          "p_value": 0.000115
+        }
+      ]
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 74,
+      "n_tokens_in_cohort": 1108,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 189,
+      "n_tokens_in_cohort": 993,
+      "distinctive_terms": [
+        {
+          "term": "parliament",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02646,
+          "rate_in_cohort": 0.0,
+          "llr": 18.444,
+          "log_ratio": null,
+          "p_value": 1.7e-05
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 66,
+      "n_tokens_in_cohort": 1116,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 1155,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 1160,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 42,
+      "n_tokens_in_cohort": 1140,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 66,
+      "n_tokens_in_cohort": 1116,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 1113,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 41,
+      "n_tokens_in_cohort": 1141,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 1151,
+      "distinctive_terms": []
+    },
+    "asia_pacific_regional": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 62,
+      "n_tokens_in_cohort": 1120,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 1152,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

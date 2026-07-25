@@ -1,0 +1,124 @@
+{
+  "date": "2026-07-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 201,
+      "n_tokens_in_cohort": 532,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 40,
+      "n_tokens_in_cohort": 693,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 701,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 707,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 712,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 705,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 88,
+      "n_tokens_in_cohort": 645,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 86,
+      "n_tokens_in_cohort": 647,
+      "distinctive_terms": [
+        {
+          "term": "army",
+          "count_in_bucket": 5,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.05814,
+          "rate_in_cohort": 0.00155,
+          "llr": 16.52,
+          "log_ratio": 3.627,
+          "p_value": 4.8e-05
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 106,
+      "n_tokens_in_cohort": 627,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 72,
+      "n_tokens_in_cohort": 661,
+      "distinctive_terms": [
+        {
+          "term": "general",
+          "count_in_bucket": 5,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.06944,
+          "rate_in_cohort": 0.00605,
+          "llr": 11.935,
+          "log_ratio": 2.44,
+          "p_value": 0.000551
+        },
+        {
+          "term": "zelenskyy",
+          "count_in_bucket": 6,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.08333,
+          "rate_in_cohort": 0.01059,
+          "llr": 11.705,
+          "log_ratio": 2.063,
+          "p_value": 0.000623
+        }
+      ]
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 700,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
