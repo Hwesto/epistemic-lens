@@ -1,0 +1,157 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-25",
+  "lineage_id": "Le439ac8b89",
+  "cluster_id": 173,
+  "cluster_name": "Rubio meets Lavrov at ASEAN summit, no Ukraine peace breakthrough",
+  "salience_score": 2.283,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 15,
+  "event_summary": "US Secretary of State Marco Rubio met Russian Foreign Minister Sergey Lavrov at the ASEAN summit in Manila on July 23, 2026; the talks produced no visible progress toward ending Russia's war in Ukraine, with Rubio saying new proposals would be needed after previous approaches failed.",
+  "tldr": "The most striking feature of this corpus is the simultaneous US military escalation against Iran alongside maintained diplomatic openness — Iran International reports the US intensified its campaign after the first confirmed American combat deaths while Rubio still claimed readiness to negotiate with Tehran. On Ukraine, every outlet from Kyiv Post to NPR converges on 'no quick deal,' with RFE/RL adding that fresh proposals are required after prior peace frameworks were rejected by both sides. RT is the sole outlet naming a specific failed plan — the 'dead Anchorage plan' — a detail absent from all other coverage. The entire cluster is in English across seven countries, suggesting this story is circulating predominantly through English-language international press rather than domestic media in the most directly affected states.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US diplomatic posture at ASEAN",
+      "outlets": ["CGTN Politics", "Globe and Mail", "Moscow Times", "NPR World", "RFE/RL (was Radio Farda)", "Breitbart"],
+      "countries": ["china", "canada", "russia", "usa", "iran_opposition"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "The United States remains willing to negotiate an end to the US-Iran conflict, US Secretary of State Marco Rubio said on Wednesday during a meeting with Southeast Asian foreign ministers in Manila.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Russian Foreign Minister Sergey Lavrov and US Secretary of State Marco Rubio held talks in Manila, Philippines",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "parallel war and diplomacy with Iran",
+      "outlets": ["Iran International EN", "Daily Sabah", "RFE/RL (was Radio Farda)"],
+      "countries": ["iran_opposition", "turkey"],
+      "evidence": [
+        {
+          "outlet": "Iran International EN",
+          "country": "iran_opposition",
+          "quote": "The United States intensified its military campaign against Iran after the first confirmed American combat deaths of the conflict, while Secretary of State Marco Rubio insisted Washington remained open to diplomacy with Tehran.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "U.S. Secretary of State Marco Rubio said Wednesday that the U.S. remains open to ending the Iran crisis through talks, but accused Tehran of stalling as the conflict threatens glob...",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "failed peace frameworks, new proposals needed",
+      "outlets": ["RFE/RL (was Radio Farda)", "Kyiv Post", "NPR World", "Globe and Mail"],
+      "countries": ["iran_opposition", "ukraine", "usa", "canada"],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Rubio said Washington may need new proposals after previous approaches failed to win acceptance from both Kyiv and Moscow.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "US Secretary of State Marco Rubio said following talks with Russian Foreign Minister Sergei Lavrov that the United States remains prepared to help broker an end to Russia's war in Ukraine but that fresh proposals would be needed after previous peace ideas failed.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "media secrecy and Trump mandate framing",
+      "outlets": ["Breitbart", "Moscow Times", "NPR World"],
+      "countries": ["usa", "russia"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Secretary of State Marco Rubio refused Thursday to disclose what he discussed in a closed-door meeting with Russian Foreign Minister Sergey Lavrov, telling reporters in Manila that diplomacy collapses when its details are aired at a microphone.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Rubio said President Donald Trump had made clear that the United States was prepared to help facilitate an end to a \"senseless war\" if the opportunity arose.",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": {
+    "a": {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "quote": "The United States remains willing to negotiate an end to the US-Iran conflict, US Secretary of State Marco Rubio said on Wednesday during a meeting with Southeast Asian foreign ministers in Manila.",
+      "signal_text_idx": 1
+    },
+    "b": {
+      "outlet": "Iran International EN",
+      "country": "iran_opposition",
+      "quote": "US Secretary of State Marco Rubio said on Wednesday that Iran was under severe economic and military pressure but the United States would continue targeting its ability to attack commercial shipping while remaining open to a negotiated solution.",
+      "signal_text_idx": 4
+    },
+    "joint_conclusion": "Chinese state media (which backs Iranian diplomatic standing) and Saudi-linked anti-regime opposition both affirm that the US remains open to Iran negotiations — converging on the same diplomatic-opening message from opposed geopolitical interests, each for its own strategic reasons."
+  },
+  "silences": [
+    {
+      "country": "israel",
+      "what_they_covered_instead": "Israel has direct security stakes in any US-Iran settlement but contributed no items to this cluster; Israeli outlets likely covered the Iran conflict through a homeland-security lens rather than the Manila ASEAN diplomatic circuit."
+    },
+    {
+      "country": "germany",
+      "what_they_covered_instead": "Germany and EU partners are significant stakeholders in Ukraine peace terms but are absent from this cluster, likely folding the Rubio-Lavrov meeting into broader ceasefire coverage rather than treating Manila as the primary angle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only outlet to name a specific failed negotiation framework — the 'dead Anchorage plan' — and to frame the meeting as producing renewed bilateral US-Russia ties, a characterisation absent from all Western coverage.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Uniquely foregrounds Rubio's rebuke of journalists for asking about the closed-door session, casting diplomatic secrecy as a professional necessity rather than a transparency concern.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "The only outlet covering Rubio's reassurance to Southeast Asian partners that US engagement on Iran and Ukraine would not dilute Washington's regional Asia commitment — placing Manila in a broader strategic pivot context.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Uses skeptical framing ('claims,' 'stalling') toward Rubio's peace overtures, positioning Turkey as a doubter of US diplomatic sincerity while acknowledging the ongoing strikes against Iran.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Frames the talks as a US 'shift' in Ukraine diplomacy, emphasising that previous American approaches failed to win acceptance from both parties — the sharpest Ukrainian-perspective framing in the corpus.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The Rubio-Lavrov Manila talks produced no Ukraine peace breakthrough and yielded only a commitment to develop new proposals after prior frameworks collapsed. The cluster's defining tension is the US simultaneously escalating militarily against Iran while Rubio publicly maintains diplomatic openness — a dual-track posture reported identically by Chinese state media and Saudi-linked anti-Iranian opposition despite their opposed strategic interests.",
+  "generated_at": "2026-07-25T10:06:55Z",
+  "model": "claude-sonnet-4-6"
+}
