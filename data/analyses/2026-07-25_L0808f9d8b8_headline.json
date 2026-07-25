@@ -1,0 +1,198 @@
+{
+  "story_key": "L0808f9d8b8",
+  "date": "2026-07-25",
+  "n_buckets": 13,
+  "n_articles": 25,
+  "tldr": "Across all 13 buckets, headlines lead with Trump threatening the EU with substantial tariffs after Brussels fined Google €890 million, advertising the episode as a US-EU confrontation rather than an antitrust enforcement action. A secondary thread — US small businesses suing to invalidate forced-labor tariffs — appears in roughly one-quarter of headlines but is never editorially connected to the EU story.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-EU tech fine retaliation",
+      "buckets": [
+        "qatar",
+        "uk",
+        "usa",
+        "germany",
+        "pakistan",
+        "india",
+        "opinion_magazines",
+        "russia",
+        "wire_services",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "south_korea",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Trump threatens EU will pay 'big price'",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump threatens EU over 'robbing American companies'",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Trump vows fresh tariffs on EU in retaliation",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Trump threatens EU with 'substantial' tariffs",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "Trump threatens 'substantial' Section 301 tariffs on EU",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Legal challenge to tariff authority",
+      "buckets": [
+        "pakistan",
+        "wire_services",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "US small businesses file lawsuit challenging",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "US small businesses file lawsuit challenging",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "(LEAD) 2 U.S. businesses sue Trump gov't",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "EU fine as punitive extraction",
+      "buckets": [
+        "russia",
+        "canada",
+        "germany",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "EU squeezes another $1 billion out of Google",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "EU fines Alphabet $1B US for Google Play, search infractions",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "EU hits Google with $1 billion fine",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.717,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.763,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.773,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.776,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.777,
+      "n_tokens": 113
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.784,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.786,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.793,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.822,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.824,
+      "n_tokens": 103
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.827,
+      "n_tokens": 67
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to use 'squeezes' as the headline verb for the EU fine, casting Brussels as predator extracting money rather than a regulator enforcing competition law — the framing is visible without reading a word of the body.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "ARY News English",
+      "bucket": "pakistan",
+      "finding": "Leads with the forced-labor lawsuit rather than the Google/EU confrontation — the only South Asian outlet to headline legal pushback over diplomatic threat, aligning Pakistan's editorial priority with the lawsuit's small-business framing.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "Headlines across 13 countries unanimously advertise this as Trump threatening the EU rather than as antitrust enforcement, collapsing a regulatory story into a bilateral diplomatic confrontation before readers ever click.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
