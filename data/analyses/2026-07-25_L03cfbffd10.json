@@ -1,0 +1,188 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-25",
+  "lineage_id": "L03cfbffd10",
+  "cluster_id": 122,
+  "cluster_name": "South Korean chipmakers sign $950 billion AI deals with US tech",
+  "salience_score": 3.804,
+  "n_outlets": 7,
+  "n_countries": 5,
+  "n_articles": 35,
+  "event_summary": "South Korean President Lee Jae Myung met with Nvidia CEO Jensen Huang and OpenAI CEO Sam Altman in San Francisco on July 24, 2026, where South Korean conglomerates SK Group and Samsung announced cooperation agreements totaling $950 billion with US tech firms.",
+  "tldr": "The most striking element is the \"San Francisco AI Declaration\" issued by President Lee, explicitly claiming South Korea's place as an \"irreplaceable, core nation in the AI supply chain\" — a geopolitical framing that South Korean and regional outlets treat as a diplomatic milestone but is entirely absent from US coverage. The lone US outlet in the cluster, the conservative Daily Caller, strips geopolitical context entirely and reframes the announcement through Trump's claim that AI data center investments will make power bills \"actually come down.\" NK News diverges furthest from the cluster core, covering Lee's overseas tour exclusively through the inter-Korean lens — Lee urging Mongolia to facilitate DPRK dialogue — with no mention of the semiconductor deals. The $950 billion headline aggregates a $750 billion SK Group semiconductor supply commitment, a $10 billion Naver-Nvidia AI factory deal, and joint 5-gigawatt data center investments, a scale that South Korean outlets frame as a structural realignment of global AI supply chains toward Seoul.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "mega-deal semiconductor investment",
+      "outlets": ["Channel News Asia", "Reuters (via Google News)", "Yonhap News", "Korea Herald (via Google News)"],
+      "countries": ["vietnam_thai_my", "wire_services", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "South Korea's SK Hynix, Samsung Elec sign $950 billion partnership with US big tech",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "South Korean conglomerates and global tech giants, including Nvidia Corp., agreed Friday to pursue a series of cooperation projects that together are worth US$950 billion, a senior presidential official said.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Samsung, SK Hynix to announce major chip deals with US tech companies, Seoul says",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "AI supply chain sovereignty",
+      "outlets": ["Yonhap News", "KBS World", "Korea Herald (via Google News)", "Channel News Asia"],
+      "countries": ["south_korea", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "\"South Korea will make a leap forward to become an irreplaceable, core nation in the AI supply chain,\" Lee said under what his office called the \"San Francisco AI Declaration.\"",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "contracts with global big techs that are expected to be signed during President Lee Jae Myung's U.S. trip will demonstrate a possible concrete realization of Seoul's planned megaprojects in chips and AI.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Korea Herald (via Google News)",
+          "country": "south_korea",
+          "quote": "Nvidia chief says will announce $500 bln partnership with SK Group in meeting with Lee",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential tech diplomacy tour",
+      "outlets": ["KBS World", "Yonhap News", "NK News"],
+      "countries": ["south_korea", "korea_north"],
+      "evidence": [
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "President Lee Jae Myung on Friday embarked on an eleven-day overseas trip, making stops in San Francisco, Brazil, Chile, Argentina and Germany. Lee will first land in San Francisco on Friday local time and meet with global big tech CEOs, including Nvidia CEO Jensen Huang, OpenAI CEO Sam Altman, Broadcom CEO ...[more...]",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "(LEAD) Lee meets OpenAI, Nvidia CEOs, calls for greater roles in S. Korea's AI investment projects\n\nSAN FRANCISCO, July 24 (Yonhap) -- South Korean President Lee Jae Myung met with...",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "AI memory chip supply expansion",
+      "outlets": ["Korea Herald (via Google News)", "Yonhap News"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Korea Herald (via Google News)",
+          "country": "south_korea",
+          "quote": "Samsung, SK hynix push new memory layer as AI outgrows HBM alone",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "South Korean firms and global tech companies also agreed to pursue joint investment in large-scale AI data centers with a combined capacity of 5 gigawatts and 2 million graphics processing units (GPUs)",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "consumer energy cost relief",
+      "outlets": ["Daily Caller"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "Daily Caller",
+          "country": "usa",
+          "quote": "Trump Says AI Data Centers Pledge Will Make Power Bills ‘Actually Come Down’",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "terms": ["north", "mongolia", "dialogue", "peace"],
+      "what_it_reveals": "NK News is the only outlet whose vocabulary is anchored in inter-Korean diplomacy rather than semiconductor deals; 'mongolia' and 'dialogue' appear exclusively in korea_north coverage, reflecting Lee's push to use third-party intermediaries for DPRK engagement."
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "terms": ["semiconductor", "megaproject", "supply", "chain", "investment"],
+      "what_it_reveals": "South Korean outlets (especially Yonhap with its full body text) concentrate the cluster's supply-chain vocabulary; 'megaproject' and 'chain' appear only in south_korea coverage, grounding the $950 billion headline in Seoul's pre-existing industrial policy agenda."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Japan's chipmakers compete directly with Samsung and SK Hynix in advanced memory; no Japanese outlet appears in this cluster despite Japan's direct stake in how a $950 billion US-Korea AI chip partnership reshapes regional semiconductor market share."
+    },
+    {
+      "country": "china",
+      "what_they_covered_instead": "A US-South Korea partnership explicitly aimed at cementing non-Chinese AI supply chains is a strategic signal for Beijing; Chinese outlets are absent from the cluster, suggesting either editorial non-coverage or feed-level absence today."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "finding": "The only US non-wire outlet in the cluster; foregrounds Trump and domestic electricity prices, stripping all geopolitical supply-chain context from the Nvidia-SK Group announcement.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "finding": "Covers Lee's San Francisco trip entirely through the inter-Korean lens: Lee's call on Mongolia to facilitate DPRK dialogue and his peace pledge at a North Korean defector ceremony — neither article mentions the semiconductor deals.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "finding": "Second NK News item covers Lee's vow to \"establish lasting peace on the Korean Peninsula\" at a Ministry of Unification defector ceremony — the only coverage in the cluster that links Lee's presidency to an explicitly humanitarian-diplomatic agenda.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Korea Herald (via Google News)",
+      "country": "south_korea",
+      "finding": "Sole outlet to cover the technical product angle: Samsung and SK Hynix advancing a new memory layer architecture as AI workloads outgrow HBM alone — a supply-side story distinct from the headline deal figures.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only outlet with full extracted body text; uniquely surfaces the 'San Francisco AI Declaration,' the Naver-Nvidia $10 billion AI factory deal, and the Brookfield infrastructure supply partnership — details absent from all title- and summary-only coverage.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Channel News Asia",
+      "country": "vietnam_thai_my",
+      "finding": "Singapore's state-aligned regional broadcaster covered both the Nvidia/SK Group data center initiative and the broader Samsung/SK Hynix $950 billion partnership — the only Southeast Asian outlet in the cluster, signalling regional concern about the reshaping of Asian semiconductor supply chains.",
+      "signal_text_idx": 0
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "South Korean chipmakers and conglomerates signed $950 billion in AI semiconductor cooperation deals with US tech firms in San Francisco on July 24, 2026, with President Lee issuing a \"San Francisco AI Declaration\" claiming South Korea's place as an irreplaceable AI supply chain hub. South Korean and regional outlets treat the announcement as a diplomatic-industrial landmark; the sole US outlet reframes it as a domestic energy-cost story via Trump, and the DPRK-watcher outlet covers Lee's trip entirely through an inter-Korean diplomacy lens, leaving the semiconductor deals unmentioned.",
+  "generated_at": "2026-07-25T09:42:09Z",
+  "model": "claude-sonnet-4-6"
+}
