@@ -1,0 +1,180 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-25",
+  "lineage_id": "L03cfbffd10",
+  "cluster_id": 122,
+  "cluster_name": "South Korea, US tech firms announce $950 billion AI chip deals",
+  "salience_score": 3.804,
+  "n_outlets": 7,
+  "n_countries": 5,
+  "n_articles": 13,
+  "tldr": "The headline layer divides sharply by editorial orbit: five outlets in Singapore, South Korea, and wire services lead uniformly on dollar scale ($500B or $950B), while the sole US headline reframes the story as Trump promising lower American power bills, eliding the South Korean presidential context entirely. NK News bypasses the tech deals altogether, covering Lee's same overseas trip exclusively through the lens of inter-Korean peace dialogue and Mongolia's diplomatic role, making the $950B semiconductor story invisible at the homepage level. Within South Korean coverage, KBS frames the story as a presidential tour while Korea Herald surfaces a distinct capacity-constraint angle ('AI outgrows HBM alone') absent from any other outlet's headline. Across the corpus, the economic dollar-figure frame dominates 8 of 13 headlines, but the political and diplomatic sub-frames show how different audiences are sold different aspects of the same event.",
+  "event_summary": "South Korean President Lee Jae Myung met US tech leaders in San Francisco on July 24, 2026, where SK Group and Samsung signed $950 billion in AI chip and data center cooperation agreements with Nvidia, OpenAI, and other US firms.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "dollar-volume deals dominate headline layer",
+      "outlets": [
+        "Channel News Asia",
+        "Daily Caller",
+        "Korea Herald (via Google News)",
+        "Reuters (via Google News)",
+        "Yonhap News"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "usa",
+        "south_korea",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Nvidia, SK Group unveil $500 billion-plus AI data centers",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "SK Hynix, Samsung Elec sign $950 billion partnership",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Caller",
+          "country": "usa",
+          "quote": "AI Data Centers Pledge Will Make Power Bills",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Nvidia, SK Group unveil $500 billion-plus AI data centers",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "global tech firms agree on US$950 bln cooperation projects",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential tour and Trump claim as political leads",
+      "outlets": [
+        "Daily Caller",
+        "KBS World",
+        "Yonhap News"
+      ],
+      "countries": [
+        "usa",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Caller",
+          "country": "usa",
+          "quote": "Trump Says AI Data Centers Pledge Will Make Power Bills",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "Lee Embarks on 11-Day Tour of San Francisco, Brazil, Chile",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "Megaproject-Linked Deals with Global Big Techs to be Forged",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "Lee meets OpenAI, Nvidia CEOs, calls for greater roles",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "AI memory capacity limits and data center buildout",
+      "outlets": [
+        "Korea Herald (via Google News)"
+      ],
+      "countries": [
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "outlet": "Korea Herald (via Google News)",
+          "country": "south_korea",
+          "quote": "Samsung, SK hynix push new memory layer as AI outgrows HBM",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "inter-Korean dialogue and defector diplomacy",
+      "outlets": [
+        "NK News"
+      ],
+      "countries": [
+        "korea_north"
+      ],
+      "evidence": [
+        {
+          "outlet": "NK News",
+          "country": "korea_north",
+          "quote": "Lee calls on Mongolia to play greater role in spurring",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "NK News",
+          "country": "korea_north",
+          "quote": "Lee calls for peace in event recognizing North Korean",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "mean_similarity": 0.373,
+      "note": "Only outlet covering inter-Korean diplomacy angle; all others focus on tech deals"
+    },
+    {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "mean_similarity": 0.423,
+      "note": "Excluded from isolation calculation (n_tokens=20 < threshold=30); only US outlet, Trump-plus-power-bills framing unique in corpus"
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "finding": "The only US outlet in the corpus leads with Trump's name and a consumer-electricity-cost promise, transforming what all other headlines present as a South Korean industrial megadeal into a domestic US political story about lower power bills. The Korean presidential dimension is entirely absent from its headline.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "finding": "The only outlet to bypass the tech deals entirely. Both NK News headlines cover Lee's overseas trip exclusively through an inter-Korean peace lens — Mongolia dialogue and North Korean defectors — making the $950B semiconductor partnership invisible at the headline layer, a stark divergence from every other outlet in the corpus.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "At the headline layer, dollar-volume framing ($500B–$950B) dominates 8 of 13 articles across Singapore, wire services, and South Korean outlets, while the sole US headline reframes the same event as a Trump power-bill promise and NK News covers only inter-Korean peace diplomacy — three entirely distinct stories advertised from the same day's events.",
+  "generated_at": "2026-07-25T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
