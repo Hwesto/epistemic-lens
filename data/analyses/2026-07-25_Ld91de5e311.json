@@ -1,0 +1,159 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-25",
+  "lineage_id": "Ld91de5e311",
+  "cluster_id": 51,
+  "cluster_name": "Guterres makes first UN chief visit to Damascus since 2009",
+  "n_outlets": 14,
+  "n_countries": 9,
+  "n_articles": 15,
+  "salience_score": 4.402,
+  "event_summary": "UN Secretary-General Antonio Guterres arrived in Damascus on July 25, 2026 for a three-day visit, the first by a UN chief since Ban Ki-moon in 2009; he met Syrian President Ahmad al-Sharaa at the People's Palace and urged international support for Syria's transition.",
+  "tldr": "The most striking divergence is The New Arab's lone framing of the visit as a 'test' for the UN given 'ongoing humanitarian challenges and Israeli attacks', while 13 other outlets treat it as an unambiguous diplomatic milestone. Al Jazeera quietly embeds the scale of the reversal in a single clause: al-Sharaa 'was under UN Security Council sanctions until last year'. Only French-language outlets contextualise the visit within the final days of Guterres's mandate, casting it as a legacy trip rather than a strategic deployment. Turkish outlets (Anadolu Agency, Daily Sabah) carry the most detailed English-language reporting, uniquely framing the visit as upgrading Syria from 'crisis management led by special envoys to direct engagement at the highest levels of the United Nations'.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "post-Assad diplomatic rehabilitation",
+      "outlets": [
+        "AFP / France 24 EN", "AFP / France 24 FR", "Al Jazeera English",
+        "Anadolu Agency English", "Daily Sabah", "France 24 Arabic",
+        "France Info", "Malay Mail World", "Middle East Eye", "Straits Times",
+        "The New Arab", "ARY News English", "Reuters (via Google News)", "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services", "france", "qatar", "turkey", "state_tv_intl",
+        "vietnam_thai_my", "pan_arab", "pakistan", "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "The UN chief will meet Syrian President Ahmed al-Sharaa, who was under UN Security Council sanctions until last year.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The visit signals a new phase in relations between the United Nations and Syria following the end of the country's civil war and reflects renewed international engagement with the transitional government. It also elevates discussions on Syria's future from crisis management led by special envoys to direct engagement at the highest levels of the United Nations.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "inclusive reconstruction appeal",
+      "outlets": [
+        "Daily Sabah", "Malay Mail World", "AFP / France 24 EN",
+        "France Info", "AFP / France 24 FR", "Middle East Eye"
+      ],
+      "countries": ["turkey", "vietnam_thai_my", "wire_services", "france", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Guterres “will emphasise that the opportunity now is not only to recover from conflict, but also to lay the foundations for a future for Syria that will be more stable, more inclusive and more prosperous for all Syrians”, his spokesman Stephane Dujarric said ahead of the visit.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "he is expected to reaffirm support for the multi-confessional country's efforts to rebuild after more than a decade of bloody civil war.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Israeli presence in Golan buffer zone",
+      "outlets": ["Malay Mail World", "The New Arab", "The Hindu Intl"],
+      "countries": ["vietnam_thai_my", "pan_arab", "india"],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "After Assad’s overthrow, Israel sent troops into the UN-patrolled buffer zone that separated Israeli and Syrian forces on the Golan, and has carried out strikes and repeated incursions deeper into Syrian territory.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Guterres's first visit to post-Assad Syria will test the UN's ability to back a fragile transition amid ongoing humanitarian challenges and Israeli attacks",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "end-of-mandate legacy diplomacy",
+      "outlets": ["AFP / France 24 FR", "France Info", "Al Jazeera English", "Daily Sabah", "Middle East Eye"],
+      "countries": ["france", "qatar", "turkey", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Cette première visite en Syrie d'Antonio Guterres intervient peu de temps avant la fin de son deuxième et dernier mandat à la tête de l'ONU.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "It also elevates discussions on Syria's future from crisis management led by special envoys to direct engagement at the highest levels of the United Nations.",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "russia",
+      "what_they_covered_instead": "No Russian outlet appears in this cluster despite Russia being Assad's primary external military backer throughout the civil war — direct UN Secretary-General engagement with post-Assad Syria is editorially inconvenient for Moscow's narrative."
+    },
+    {
+      "country": "israel",
+      "what_they_covered_instead": "No Israeli outlet appears despite Israeli military forces remaining in Syria's Golan buffer zone — a detail that appears in Malay Mail and The New Arab coverage but goes unexamined by any outlet with an Israeli editorial perspective."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to foreground al-Sharaa's recent history as a sanctioned individual, embedding the diplomatic reversal as a factual aside rather than a headline.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The New Arab",
+      "country": "pan_arab",
+      "finding": "Sole outlet framing the visit as a 'test' for the UN and the only one to name 'Israeli attacks' as part of the challenge facing Syria's transition.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only outlet to note the visit falls near the end of Guterres's second and final term as UN Secretary-General.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only outlet to report that Guterres is expected to address Syria's new Parliament on July 27.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Most detailed coverage of the Golan Heights dimension: reports that Guterres will visit the UN peacekeeping force stationed there since 1974, and describes ongoing Israeli incursions into Syrian territory post-Assad.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to report that Guterres toured Damascus's Old City and visited the Umayyad Mosque on his first day, and provides the most explicit framing of the visit as upgrading UN-Syria engagement to Secretary-General level.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Guterres's Damascus visit marks a threshold moment: the UN has shifted from special-envoy crisis management to Secretary-General-level engagement with post-Assad Syria, effectively conferring high-level institutional legitimacy on the new government. The near-unanimous positive coverage across nine countries obscures a single dissenting note from The New Arab, which alone names 'Israeli attacks' as an active complication the visit must navigate.",
+  "generated_at": "2026-07-25T10:06:16Z",
+  "model": "claude-sonnet-4-6"
+}
