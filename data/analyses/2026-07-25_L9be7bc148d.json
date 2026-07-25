@@ -1,0 +1,281 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-25",
+  "lineage_id": "L9be7bc148d",
+  "cluster_id": 127,
+  "cluster_name": "Trump attends rescheduled White House Correspondents Dinner after April shooting",
+  "salience_score": 9.739,
+  "n_outlets": 25,
+  "n_countries": 14,
+  "n_articles": 32,
+  "event_summary": "Donald Trump attended the rescheduled White House Correspondents' Dinner at the Waldorf Astoria on July 24, 2026, three months after a gunman disrupted the original April event. Trump's hour-long speech mocked journalists and rivals and included a 'Trump 2028' hat joke about a third term.",
+  "tldr": "The sharpest divergence in this corpus is between US right-wing outlets celebrating an 'explosive return' and UK and Egyptian outlets independently concluding the speech was a flat, rambling bomb — Egypt Independent being the only non-Western outlet to frame that failure as an inadvertent demonstration of US First Amendment norms. South China Morning Post is the only outlet to link the dinner explicitly to the ongoing Iran war as geopolitical backdrop. TASS provides the most detailed constitutional gloss, citing the 22nd Amendment and Steve Bannon's prior third-term statements, treating the 2028 joke as carrying a more serious undercurrent than Western outlets acknowledge. Security architecture — venue relocation, QR-code ticketing, reduced capacity — consumed significant coverage bandwidth across multiple countries, often displacing substantive coverage of the speech content. Bol News is the only outlet to extract Trump's Iran-specific foreign-policy remarks from within the entertainment frame.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-press antagonism and 2028 term trolling",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Al Jazeera English",
+        "Anadolu Agency English",
+        "BBC World",
+        "Breitbart",
+        "Channel News Asia",
+        "Daily Mail",
+        "Deutsche Welle English",
+        "Geo News English",
+        "Globe and Mail",
+        "Malay Mail World",
+        "NDTV World",
+        "Republic World (alt)",
+        "The Guardian World",
+        "The Hill"
+      ],
+      "countries": [
+        "wire_services",
+        "qatar",
+        "turkey",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "canada",
+        "germany",
+        "pakistan",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Trump notably joked about running for a third presidential term in 2028, which is barred under the US Constitution.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Trump put out a few zingers, including one that mocked Health and Human Services Secretary Robert F Kennedy Jr.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "A day after the Trump administration abandoned, for now, an extraordinary bid to subpoena reporters over their coverage, the US president attended the rescheduled White",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "heightened security after April shooting",
+      "outlets": [
+        "Breitbart",
+        "Daily Wire",
+        "Daily Sabah",
+        "Malay Mail World",
+        "Globe and Mail",
+        "South China Morning Post"
+      ],
+      "countries": [
+        "usa",
+        "turkey",
+        "vietnam_thai_my",
+        "canada",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Jiang said that guests will have unique QR codes and photo ID to gain entry through ticketing.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The dinner has since been relocated to the Waldorf Astoria and will be held under heightened security.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "nearly three months after prosecutors say an armed California man attempted to assassinate President Donald Trump and other administration officials during the annual event",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "22nd Amendment constitutional bar on third term",
+      "outlets": [
+        "AFP / France 24 EN",
+        "TASS English",
+        "Sydney Morning Herald"
+      ],
+      "countries": [
+        "wire_services",
+        "russia",
+        "australia_nz"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Trump notably joked about running for a third presidential term in 2028, which is barred under the US Constitution.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "The 22nd Amendment to the US Constitution, ratified in 1951, limits presidents to two terms in office. Nevertheless, the current US president has repeatedly raised the possibility of seeking a third term. Former senior presidential strategist Steve Bannon also spoke about such prospects in the fall of last year.",
+          "signal_text_idx": 25
+        },
+        {
+          "outlet": "Sydney Morning Herald",
+          "country": "australia_nz",
+          "quote": "Donald Trump has announced he will run for president again, in a move that would breach the constitution.",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Cole Allen assassination attempt prosecution",
+      "outlets": [
+        "Breitbart",
+        "Daily Sabah",
+        "Daily Wire"
+      ],
+      "countries": [
+        "usa",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Allen allegedly wrote a manifesto in which he detailed an intention to target officials in the Trump administration.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The suspect, Cole Allen, pleaded not guilty in May to multiple charges, including attempting to assassinate the president.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "First Amendment and US press freedom as democratic norm",
+      "outlets": [
+        "BBC World",
+        "Egypt Independent",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "uk",
+        "egypt",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The event celebrated press freedom after the first dinner was cancelled by a shooting in April.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Egypt Independent",
+          "country": "egypt",
+          "quote": "And boring is one thing Trump never, ever wants to be.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "We will not be intimidated. We refuse to let an act of violence have the final word",
+          "signal_text_idx": 29
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese state outlet appears in the cluster despite the constitutional-norm dimension, which Chinese state media typically uses to illustrate US democratic dysfunction; likely covered other trade or geopolitical stories instead."
+    },
+    {
+      "country": "israel",
+      "what_they_covered_instead": "Absent despite Bol News reporting Trump's Iran remarks at the dinner; Israeli media would have direct interest in any US-Iran signals but apparently covered the Iran conflict through other angles."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to place the dinner explicitly against the backdrop of the war against Iran that Trump started with Israel, linking a domestic US media event to active geopolitical conflict.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "Bol News",
+      "country": "pakistan",
+      "finding": "Only outlet to report the substance of Trump's Iran remarks at the dinner — that the US remained locked and loaded while diplomatic talks continued — a foreign-policy signal buried inside the entertainment frame by all other outlets.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Notes that the Trump administration had abandoned, for now, an extraordinary bid to subpoena reporters over their coverage just one day before the dinner — press-freedom context absent from all other coverage.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Egypt Independent",
+      "country": "egypt",
+      "finding": "Provides the most critical assessment in the corpus, calling the speech boring and a bomb, and is the only non-Western outlet to frame the media's right to mock a sitting president as a distinguishing American democratic norm.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Treats the 2028 joke with the most serious constitutional framing of any outlet, citing the 22nd Amendment and noting Steve Bannon's prior statements about a third term, implying the joke carries genuine political intent.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only outlet to report Melania Trump's absence from the dinner, attributing it to rising threats against her family — a personal-security angle ignored by all other corpus members.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to name and honor Secret Service officer Victor Gonzales — shot in April and credited with stopping the attack — as a dinner honoree, providing the human story behind the security narrative.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Notes that some of Trump's comments flirted with racism — a right-leaning Indian outlet making a racial-register critique absent from US right-wing and most Western coverage.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Reports that even Republicans looked stunned in the stone-faced ballroom — the only outlet to cite cross-partisan discomfort with the speech from within the room.",
+      "signal_text_idx": 30
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Frames Trump as roasting a room of Trump derangement syndrome sufferers with positive audience reaction — the inverse of UK and Egyptian coverage of the same event.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Global coverage of the rescheduled White House Correspondents' Dinner splits cleanly along editorial lean: US right-wing outlets hail a triumphant return while UK and Egyptian outlets call the speech a flat, rambling failure — with Egypt Independent uniquely noting that the media's freedom to mock the president is itself the most significant demonstration of the evening. The 2028 constitutional-limit jokes received the most serious legal treatment from TASS and AFP, while the Iran foreign-policy signal Trump embedded in the speech went almost entirely unreported outside Pakistani and Hong Kong coverage.",
+  "generated_at": "2026-07-25T07:42:00Z",
+  "model": "claude-sonnet-4-6"
+}
