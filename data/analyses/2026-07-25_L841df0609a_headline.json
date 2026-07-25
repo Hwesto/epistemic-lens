@@ -1,0 +1,204 @@
+{
+  "story_key": "L841df0609a",
+  "date": "2026-07-25",
+  "n_buckets": 14,
+  "n_articles": 23,
+  "tldr": "Most headlines frame the story as a political crisis: Zelensky 'bowing to pressure' after an 'unpopular military purge,' with Ukrainian and regional outlets counting protest days and demanding Fedorov's return. A secondary track across Western and Asian factual outlets treats the story as a personnel announcement — profiling new commander Drapatyi — while Russian state media alone frames the appointment as proof of a war prolonged at terrible human cost.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Purge triggers political crisis",
+      "buckets": ["asia_pacific_regional", "uk", "canada", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Politicians vs generals: Ukraine's long, hidden war within",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Zelensky tries to fix crisis over removal of defence",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Ousted Ukraine defence minister rejects Zelensky's offer",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Ukrainians back ousted defence minister",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Protests force wartime reversal",
+      "buckets": ["ukraine", "opinion_magazines", "turkey"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Ukraine's Cardboard Maidan Shows That the People",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "'You Messed Up – Fix It': Kyiv Protesters Demand",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Zelenskyy bows to pressure to reshuffle Ukraine",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "New commander profile; military shakeup",
+      "buckets": ["iran_opposition", "usa", "germany", "china", "france"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Exit 'The Butcher': Zelenskyy Makes Another Shakeup",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Defense News",
+          "quote": "Who is Mykhailo Drapatyi? 'The Flying BMP'",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Who is Ukraine's new military chief?",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Zelenskyy names Mykhailo Drapatyi as new commander-in-chief",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "Héros du Donbass, réformateur, “source d’espoir”",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Arrest warrant; allied outreach",
+      "buckets": ["russia", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Russia Issues Arrest Warrant for Ukraine's New",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Italy defence minister offers ousted Ukraine counterpart",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.566,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.62,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.636,
+      "n_tokens": 201
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.637,
+      "n_tokens": 88
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.674,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.681,
+      "n_tokens": 439
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.697,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.7,
+      "n_tokens": 260
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.707,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.737,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.742,
+      "n_tokens": 72
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "The only headline using dehumanizing propaganda framing: 'Ukraine has a new butcher-in-chief – all the better to feed Ukrainians to the grinder' frames the appointment as continuity of a losing, costly war — absent from every other outlet including independent Russian press.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Foreign Policy",
+      "bucket": "opinion_magazines",
+      "finding": "'Ukraine's Cardboard Maidan Shows That the People Still Matter' is the only headline that labels the protest phenomenon and draws a Maidan parallel, framing popular pressure as democratic wartime accountability rather than political disruption.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Kyiv Post",
+      "bucket": "ukraine",
+      "finding": "The only outlet using day-count headlines ('Day Nine,' 'Eighth Day') to frame the protests as a sustained, escalating timeline — reinforcing the sense of an unresolved, ongoing political standoff.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "At the headline layer, Ukraine's military shake-up reads primarily as a political accountability crisis — Zelensky bowing to protest pressure after an 'unpopular purge' — while most factual and international outlets quietly profile the incoming commander, and Russian state media alone frames the reshuffle as proof of a war prolonged at terrible human cost.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
