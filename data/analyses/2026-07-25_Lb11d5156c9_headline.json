@@ -1,0 +1,199 @@
+{
+  "story_key": "Lb11d5156c9",
+  "date": "2026-07-25",
+  "n_buckets": 13,
+  "n_articles": 20,
+  "tldr": "Headlines across all 13 buckets treat Karim Khan's removal as a misconduct-driven dismissal, splitting between outlets that foreground the sexual allegations in the title and those that foreground the member-state vote mechanism; only two Asian outlets (Malay Mail, The Hindu) inject geopolitical framing — the Netanyahu warrant and U.S. sanctions — context absent from every other bucket's headline.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Sexual misconduct triggers dismissal",
+      "buckets": [
+        "canada",
+        "india",
+        "opinion_magazines",
+        "taiwan_hk",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "over sexual misconduct allegations",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "ICC top prosecutor removed over sexual misconduct",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "fire chief prosecutor over sexual misconduct claims",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Karim Khan Sacked Over Sexual Misconduct Allegations",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "ICC prosecutor Karim Khan removed over 'serious misconduct'",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "ICC member-state vote to oust prosecutor",
+      "buckets": [
+        "germany",
+        "iraq",
+        "pakistan",
+        "pan_african",
+        "pan_arab",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "ICC oversight body to vote on fate of Chief Prosecutor",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "ICC members vote to dismiss Karim Khan",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "ICC votes to dismiss Chief Prosecutor Karim Khan",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "ICC member states vote to remove chief prosecutor Karim Khan",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "ICC members vote to dismiss embattled prosecutor Karim Khan",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "ICC members vote to dismiss prosecutor Karim Khan",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US sanctions & Netanyahu warrant as context",
+      "buckets": [
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "unprecedented vote as U.S. sanctions keep him out",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "ICC prosecutor who sought Netanyahu warrant, voted out",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.727,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.801,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.821,
+      "n_tokens": 96
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.827,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.833,
+      "n_tokens": 249
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.843,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.843,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.851,
+      "n_tokens": 83
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.858,
+      "n_tokens": 55
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "The only headline to connect Khan's removal explicitly to the Netanyahu arrest warrant — framing the dismissal through a Middle East politics lens that no other outlet invokes at the title level.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "bucket": "india",
+      "finding": "The only headline to mention U.S. sanctions as a constraining factor, introducing the geopolitical dimension (Khan barred from attending his own hearing) that the body text of other outlets buries well below the fold.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "The only outlet to publish a profile/explainer headline ('Who is Karim Khan, the barrister at the centre of the ICC's internal crisis?') instead of a news-event headline, foregrounding institutional identity over the removal verdict.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "At the headline layer, this story is split between a misconduct-dismissal frame (Western wire and anglophone outlets) and an institutional-vote frame (Asian and Global South outlets), with only two headlines surfacing the geopolitical stakes — U.S. sanctions and the Netanyahu warrant — that body coverage develops at length.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
