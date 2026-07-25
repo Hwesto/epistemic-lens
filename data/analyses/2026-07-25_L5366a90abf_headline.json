@@ -1,0 +1,171 @@
+{
+  "story_key": "L5366a90abf",
+  "date": "2026-07-25",
+  "n_buckets": 12,
+  "n_articles": 24,
+  "tldr": "Headlines across all twelve outlet groups foreground either the fact of the US-Saudi nuclear deal or Trump's Abraham Accords condition; the normalization demand dominates, appearing as the lead headline frame in nine of twelve buckets. Proliferation risk surfaces as a distinct headline claim only in opinion-driven and Southeast Asian and Arab outlets.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's Abraham Accords normalization demand",
+      "buckets": ["qatar", "usa", "turkey", "canada", "israel", "vietnam_thai_my", "russia", "india", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Trump says 'it's time' for Saudi Arabia to normalise",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "requires Israel normalization",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump ties Saudi nuclear deal to Israel normalization",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump adds condition to Saudi nuclear deal",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "nuclear deal conditioned on normalizing relations with Israel",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "won't proceed unless Saudis join Abraham Accords",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "US-Saudi nuke deal depends on recognizing Israel",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Conditional on Joining Abraham Accords",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "no Saudi nuclear deal if no Israel normalisation",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "US-Saudi civilian nuclear pact signed",
+      "buckets": ["pan_african", "canada", "china", "turkey", "opinion_magazines", "india"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "sign new nuclear agreement paving way for kingdom",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "U.S., Saudi Arabia sign nuclear co-operation agreement",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "US plans to announce nuclear agreement with Saudi Arabia",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump reportedly greenlights US-Saudi Arabia nuclear pact",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Trump Approves Nuclear Deal With Saudi Arabia",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "U.S. announces civilian nuclear deal with Saudi Arabia",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear proliferation / arms race risk",
+      "buckets": ["opinion_magazines", "vietnam_thai_my", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Triggering a Middle East Nuclear Arms Race",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "sparks proliferation fears in Gulf",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "sparks proliferation concerns",
+          "signal_text_idx": 23
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.718, "n_tokens": 35},
+    {"bucket": "opinion_magazines", "mean_similarity": 0.727, "n_tokens": 44},
+    {"bucket": "pan_african", "mean_similarity": 0.728, "n_tokens": 32},
+    {"bucket": "pan_arab", "mean_similarity": 0.762, "n_tokens": 203},
+    {"bucket": "usa", "mean_similarity": 0.767, "n_tokens": 89},
+    {"bucket": "russia", "mean_similarity": 0.776, "n_tokens": 66},
+    {"bucket": "india", "mean_similarity": 0.785, "n_tokens": 169},
+    {"bucket": "israel", "mean_similarity": 0.785, "n_tokens": 79},
+    {"bucket": "turkey", "mean_similarity": 0.802, "n_tokens": 60},
+    {"bucket": "canada", "mean_similarity": 0.806, "n_tokens": 81},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.812, "n_tokens": 62}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "bucket": "usa",
+      "outlet": "Fox News World",
+      "finding": "Uniquely reframes the story as a question of whether Israel is 'isolated', pivoting entirely from the nuclear deal architecture or the normalization demand to Israeli diplomatic standing — the only headline in the cluster that makes Israel's geopolitical perception, not Trump's condition, the focal subject.",
+      "signal_text_idx": 9
+    },
+    {
+      "bucket": "israel",
+      "outlet": "Haaretz",
+      "finding": "Only headline to suggest Trump's normalization demand could bring Palestinian statehood back into play, inverting the dominant framing that the condition obstructs the deal by presenting it as a possible Palestinian political opportunity.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Headline coverage collapses this multi-layered nuclear and diplomatic story into a single focal claim — Trump's Abraham Accords condition — with proliferation alarm surfacing only where editorial framing already leans critical of US Middle East policy.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
