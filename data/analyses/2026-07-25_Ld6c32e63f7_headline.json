@@ -1,0 +1,252 @@
+{
+  "story_key": "Ld6c32e63f7",
+  "date": "2026-07-25",
+  "n_buckets": 12,
+  "n_articles": 21,
+  "tldr": "Headlines across all 12 country buckets lead with security and military framing — deadly clashes, IDF operations, funerals — with near-universal convergence on the basic casualty count. The agency attribution fractures sharply: Jerusalem Post's 'terror shooting' inverts the perpetrator logic found in pan-Arab and Turkish headlines characterizing settler actions as raids, arson, and 'pogroms.'",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "IDF escalation, deadly West Bank clashes",
+      "buckets": [
+        "wire_services",
+        "qatar",
+        "uk",
+        "canada",
+        "egypt",
+        "israel",
+        "india",
+        "russia",
+        "iran_state",
+        "religious_press",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Deadly clashes in the occupied West Bank",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "four Palestinians killed in deadly West Bank shooting",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Four Palestinians and two Israelis killed in West Bank",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Deadly clash near West Bank village kills 4",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Israel prepares major military operation in West Bank",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "IDF set to launch West Bank offensive after deadly",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israeli forces conduct widespread raids across Jenin",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Four Palestinians killed in occupied West Bank",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Israeli military kills four Palestinians after settler",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Israel strikes Hamas targets in Gaza Strip — IDF",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Gaza civilians continue to be killed 9 months into ceasefire",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Settler raids, arson, mass detentions",
+      "buckets": [
+        "turkey",
+        "israel",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Israeli settlers raid West Bank village and shoot at",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "two Israelis killed in terror shooting amid clashes",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Israeli army detains at least 70 Palestinians across",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israeli settlers set fire to Palestinian-owned land",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "The New Arab",
+          "quote": "Fears for Palestinians after settlers kill 4 in West",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu orders crackdown, new outposts",
+      "buckets": [
+        "israel",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Netanyahu orders West Bank crackdown",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Israel PM Orders New West Bank Outposts After Deadly",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "UN condemns settler violence as pogroms",
+      "buckets": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "attacks in occupied West Bank civilians 'pogroms'",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.551,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.692,
+      "n_tokens": 212
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.694,
+      "n_tokens": 161
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.728,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.73,
+      "n_tokens": 75
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.738,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.742,
+      "n_tokens": 114
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.763,
+      "n_tokens": 176
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Jerusalem Post",
+      "bucket": "israel",
+      "finding": "Only headline to use the term 'terror shooting,' assigning a terrorism label to the Palestinian actor — all other outlets describe the same event as a 'clash,' 'shooting,' or 'confrontation' without applying criminal-law categorization.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "bucket": "turkey",
+      "finding": "Only headline to carry the UN Special Rapporteur's 'pogroms' characterization, introducing an international-law accountability frame in the title that appears in several body texts but is suppressed from almost every other outlet's front-page heading.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The New Arab",
+      "bucket": "pan_arab",
+      "finding": "Only headline to foreground Palestinian fear ('Fears for Palestinians') as the primary emotional register rather than a symmetrical casualty count, attributing agency unambiguously to 'settlers' as killers.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Only outlet to pivot the headline entirely away from the West Bank settler confrontation, instead covering Israeli strikes on Hamas in Gaza — redirecting readers to a different conflict theater and erasing the settler-violence story from the headline.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "NDTV World",
+      "bucket": "india",
+      "finding": "Only outlet to headline Netanyahu's order to establish new settler outposts as the lead consequence of the clash, surfacing the territorial-expansion dimension that Israeli and Western outlets buried or omitted from above-the-fold presentation.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "At headline level this is a security-escalation story everywhere, with the consequential frame divergence — who bears criminal responsibility — detectable only through specific lexical choices: 'terror shooting' (Jerusalem Post) versus 'settlers raid / kill / set fire' (pan-Arab, Turkish, and Israeli liberal outlets), a distinction most readers absorb as background noise rather than contested framing.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
