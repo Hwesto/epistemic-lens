@@ -1,0 +1,149 @@
+{
+  "story_key": "Le439ac8b89",
+  "date": "2026-07-25",
+  "n_buckets": 7,
+  "n_articles": 13,
+  "tldr": "Headlines across all seven buckets frame the Rubio-Lavrov ASEAN summit as a dual-track US foreign policy moment: cautious Ukraine peace engagement with explicit 'no quick deal' caveats, paired with continued Iran strikes and open-door negotiation rhetoric. Iranian-opposition and Turkish outlets foreground the military-diplomatic split; Russian and Ukrainian outlets anchor on the Ukraine stalemate.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Rubio-Lavrov: peace open, no quick deal",
+      "buckets": [
+        "canada",
+        "china",
+        "iran_opposition",
+        "russia",
+        "turkey",
+        "ukraine",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "help end Ukraine's 'senseless war' but no quick deal",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "US still willing to negotiate over Iran crisis",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "signals diplomacy as US-Iran war escalates",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Remains Committed to Ukraine Peace Talks",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "still open to Iran negotiations, but strikes continue",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Rubio Signals Shift in US Ukraine Diplomacy",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "ready to help end war in Ukraine but no quick deal",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Iran strikes; war frames diplomacy talks",
+      "buckets": [
+        "iran_opposition",
+        "russia",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "US will strike Iran shipping threats",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Iran, Russia Crises Won't Weaken US Commitment To Asia",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Ukraine war, dead Anchorage plan",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "but strikes continue",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.79,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.818,
+      "n_tokens": 98
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.833,
+      "n_tokens": 76
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.853,
+      "n_tokens": 145
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "The only outlet to make Rubio's media rebuke the headline — centering on press access to diplomatic details rather than the substance of the Lavrov meeting or Ukraine/Iran policy outcomes.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "bucket": "iran_opposition",
+      "finding": "The only outlet to headline explicit pessimism — 'No Breakthroughs, Little Optimism' — while every other bucket framed the Lavrov talks in neutral procedural or cautiously optimistic terms.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "The only outlet to reference the 'dead Anchorage plan' in the headline, surfacing a specific failed bilateral initiative not named elsewhere and reframing the meeting as US-Russia normalization rather than Ukraine peace mediation.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "Headline coverage packages Rubio's ASEAN tour as guarded dual-track US foreign policy: cautious Ukraine peace engagement with no deal imminent, and simultaneous Iran strikes paired with open-door negotiation rhetoric.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
