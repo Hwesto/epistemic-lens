@@ -1,0 +1,246 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-07-25",
+  "lineage_id": "Ld6c32e63f7",
+  "cluster_id": 74,
+  "cluster_name": "Deadly West Bank settler confrontation near Nablus triggers Israeli military operation",
+  "n_outlets": 16,
+  "n_countries": 12,
+  "n_articles": 26,
+  "salience_score": 6.783,
+  "event_summary": "On 25 July 2026, Israeli settlers on an unauthorized incursion near the village of Tell, southwest of Nablus, clashed with Palestinian residents, leaving four Palestinians and two Israeli soldiers dead; Netanyahu ordered a wide-scale West Bank military operation in response.",
+  "tldr": "The most striking divergence across 16 outlets in 12 countries is the labeling of the same event: Jerusalem Post describes a 'terror shooting' targeting Israeli soldiers, while Anadolu Agency carries the UN Special Rapporteur's characterization of the West Bank attacks as 'pogroms against defenseless civilians' — two labels assigning opposite victim-perpetrator relationships to the same confrontation. Netanyahu's retaliatory move to authorize new settler outposts — arguably the most consequential long-term escalation — was reported by Indian outlet NDTV but largely absent from Israeli and Western press, which focused on the military operation announcement. TASS sidesteps the West Bank confrontation almost entirely, instead covering Israeli airstrikes on Hamas in Gaza, redirecting the narrative to a different conflict theater. Vatican News similarly anchors the week's violence in Gaza's nine-month humanitarian crisis rather than the West Bank settler clash. Western mainstream outlets (CBC, Globe and Mail, AFP) converge with pan-Arab press in foregrounding escalating settler violence as the structural context — a notable editorial alignment across otherwise divergent publication cultures.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "IDF counterterror escalation",
+      "outlets": ["AFP / France 24 EN", "BBC World", "CBC World", "Jerusalem Post", "The Hindu Intl", "NDTV World"],
+      "countries": ["wire_services", "uk", "canada", "israel", "india"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Israeli Prime Minister Benjamin Netanyahu has vowed to respond with",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "Netanyahu orders West Bank crackdown after two Israelis killed in terror shooting amid clashes",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Two other Israelis and four more Palestinians were wounded, health officials said",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "settler pogroms vs. terror-attack labeling",
+      "outlets": ["Anadolu Agency English", "Middle East Eye", "Jerusalem Post", "Tehran Times"],
+      "countries": ["turkey", "pan_arab", "israel", "iran_state"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Four Palestinians were killed on Friday in an attack by Israeli occupiers and Israeli forces on the town of Tell, according to the Palestinian Health Ministry.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "Netanyahu orders West Bank crackdown after two Israelis killed in terror shooting amid clashes",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Israeli army detains at least 70 Palestinians across West Bank, 8 injured in attack by occupiers",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "contested settler-vs-civilian victim narrative",
+      "outlets": ["BBC World", "The New Arab", "Tehran Times", "AFP / France 24 EN", "CBC World", "Globe and Mail"],
+      "countries": ["uk", "pan_arab", "iran_state", "wire_services", "canada"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Palestinians say villagers came under attack by settlers, while the Israeli military says a Palestinian stole a weapon and opened fire on hikers.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The New Arab",
+          "country": "pan_arab",
+          "quote": "Israeli settlers killed four Palestinians in the occupied West Bank village of Tell as soldiers looked on and extremist ministers called for more violence",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "Israeli settlers and troops killed four Palestinians during an attack on a village in the occupied West Bank on Friday, during which a soldier and a settler were also shot dead.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Four Palestinians and two Israeli soldiers were killed near a Palestinian village on Friday in a confrontation that added to a growing toll over recent weeks as Israeli settler violence has intensified against Palestinians in the occupied West Bank.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "UN rapporteur arms embargo and international law",
+      "outlets": ["Anadolu Agency English"],
+      "countries": ["turkey"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "calling for an immediate arms embargo and a halt to trade with Israel.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Albanese said, adding that such measures are required under international law.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "new outposts and village demolitions as retaliatory policy",
+      "outlets": ["NDTV World", "Egypt Independent"],
+      "countries": ["india", "egypt"],
+      "evidence": [
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Israeli Prime Minister Benjamin Netanyahu ordered the establishment of new settler outposts in the occupied West Bank on Friday, in a retaliatory move after a confrontation left two Israelis and four Palestinians dead.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Egypt Independent",
+          "country": "egypt",
+          "quote": "Far-right Finance Minister Bezalel Smotrich called for the demolition of Palestinian villages in the area in response to the killings.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "civilian harm under nine-month nominal ceasefire",
+      "outlets": ["Vatican News", "Al Jazeera English"],
+      "countries": ["religious_press", "qatar"],
+      "evidence": [
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "A family of six is killed in an Israeli airstrike on Tuesday in the latest of continuing deadly attacks on the Strip since a U.S.-backed ceasefire was agreed more than nine months ago.",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Intensifying attacks by the Israeli military have killed and injured dozens of Palestinians in the last week.",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "terms": ["terror"],
+      "what_it_reveals": "Only outlet in the corpus to apply terrorism-law vocabulary to the Palestinian-Israeli confrontation, framing the same incident that other outlets describe as a settler clash as a 'terror shooting'."
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "terms": ["occupier", "albanese"],
+      "what_it_reveals": "'Occupiers' as agent noun replaces 'settlers' used by Western outlets, asserting legal-status framing; 'Albanese' (the UN Special Rapporteur) appears only here, making the international-accountability angle exclusive to Turkish state media."
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "terms": ["outpost"],
+      "what_it_reveals": "Only outlet to foreground Netanyahu's order to establish new settler outposts as a retaliatory measure, surfacing the territorial-expansion dimension absent from Western and Israeli headline coverage."
+    },
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "terms": ["hama"],
+      "what_it_reveals": "Exclusive use of Hamas-related vocabulary signals TASS redirecting the story to the Gaza/Hamas ceasefire theater rather than the West Bank settler confrontation."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears in this cluster despite the US being Israel's primary arms supplier and guarantor of the Gaza ceasefire; US press likely grouped coverage under ceasefire-violation framing rather than the West Bank settler-violence angle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Covers Israeli airstrikes on Hamas in Gaza as a ceasefire violation rather than the West Bank settler confrontation — the only outlet in the cluster to redirect the story entirely to a different conflict theater.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Only outlet to prominently report Netanyahu's order to establish new settler outposts as a retaliatory measure — a territorial-expansion dimension underreported in Israeli and Western outlets.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "The New Arab",
+      "country": "pan_arab",
+      "finding": "'Soldiers looked on' — uniquely emphasizes IDF passivity during settler killings, distinguishing between settler agency and military complicity rather than treating them as a single actor.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Egypt Independent",
+      "country": "egypt",
+      "finding": "Only outlet to describe the video evidence showing armed settlers forcing Palestinians from the area, and to report Smotrich's explicit call for Palestinian village demolitions verbatim.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "A July 23 item pre-dates the main confrontation and documents a prior settler raid on the Tubasi family home under a two-week siege — providing a pattern-of-violence prelude that no other outlet includes.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Only outlet to carry the UN Special Rapporteur's arms-embargo and halt-trade demand, placing the event within an international-law accountability frame entirely absent from Western or Israeli coverage.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "Provides the most granular operational detail on the Jenin raids — naming 14 specific towns and villages stormed by Israeli forces overnight, a logistical scope invisible in headline-level coverage.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "Both Vatican News items pivot to Gaza rather than the West Bank confrontation, embedding the week's violence in a nine-month ceasefire-failure narrative and foregrounding family-level civilian casualties.",
+      "signal_text_idx": 19
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Coverage of the 25 July West Bank confrontation fractures sharply along political-geographic lines: Israeli right-wing media labels it a 'terror shooting' demanding security escalation, while pan-Arab, Iranian, and Turkish outlets emphasize settler aggression against Palestinian civilians, with the UN Special Rapporteur's 'pogroms' characterization gaining traction outside Western and Israeli outlets. Netanyahu's retaliatory order to build new settler outposts — the most consequential long-term policy response — received far less international coverage than the military operation announcement, suggesting a systematic gap in how expansionary settler policy is tracked when it follows an acute-violence news cycle.",
+  "generated_at": "2026-07-25T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
