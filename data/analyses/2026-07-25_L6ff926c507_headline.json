@@ -1,0 +1,112 @@
+{
+  "story_key": "L6ff926c507",
+  "date": "2026-07-25",
+  "n_buckets": 10,
+  "n_articles": 13,
+  "tldr": "Headlines across ten outlet-country buckets converge on the court-ordered pause of the Paramount-Warner Bros. Discovery merger: most lead with the legal mechanism—antitrust suit, restraining order, or judge's ruling—while Mexican, Indonesian, and Russian business outlets foreground the financial cost and June 2027 deadline.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Antitrust suit stays merger",
+      "buckets": ["pakistan", "qatar", "south_africa", "germany", "canada", "wire_services", "usa"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "amid antitrust lawsuits",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Judge Restraining Order Delays Paramount-Warner Bros.",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "deal paused through 17 August, judge rules",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "amid lawsuit",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "while judge considers challenge from states",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "while case plays out",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "while court case plays out",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Merger freeze, financial timeline",
+      "buckets": ["mexico", "russia_native", "indonesia", "usa"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "pausa para fusión… hasta junio del 2027",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Kommersant",
+          "quote": "отложить слияние с Warner Bros. почти на год",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Tribunnews",
+          "quote": "Paramount Skydance Terancam Rugi 1,7 Miliar Dolar AS",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "One Of Hollywood's Biggest Deals Just Hit A Wall",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "russia_native", "mean_similarity": 0.715, "n_tokens": 31},
+    {"bucket": "south_africa", "mean_similarity": 0.721, "n_tokens": 30},
+    {"bucket": "canada", "mean_similarity": 0.744, "n_tokens": 30},
+    {"bucket": "germany", "mean_similarity": 0.77, "n_tokens": 33},
+    {"bucket": "indonesia", "mean_similarity": 0.773, "n_tokens": 300},
+    {"bucket": "mexico", "mean_similarity": 0.773, "n_tokens": 60},
+    {"bucket": "usa", "mean_similarity": 0.799, "n_tokens": 284}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "bucket": "usa",
+      "outlet": "Daily Wire",
+      "finding": "The only headline in the cluster to omit any legal or financial specifics, substituting dramatic metaphor ('Just Hit A Wall') for the factual mechanism — no mention of antitrust suit, judge, or deal value.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "The headline layer frames the merger delay as a legal-regulatory event, with the antitrust suit and judicial order dominating across anglophone outlets, while financial stakes ($1.7 bn penalty, June 2027 freeze) surface mainly in non-Anglophone business press.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
