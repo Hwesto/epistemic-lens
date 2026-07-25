@@ -1,0 +1,249 @@
+{
+  "story_key": "L73452944fd",
+  "date": "2026-07-25",
+  "n_buckets": 15,
+  "n_articles": 34,
+  "tldr": "Headlines worldwide lead with an exchange of lethal strikes — Russia's missile attack on a drone exhibition near Kyiv (10 killed) and Ukraine's expanding drone campaign against Wildberries warehouses across Russia — with western outlets adding a secondary thread asking why Ukraine is targeting Russia's largest online retailer, and wire services foregrounding the economic fallout for Russian small merchants.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Bilateral escalating drone/missile strikes",
+      "buckets": [
+        "wire_services",
+        "pan_african",
+        "turkey",
+        "uk",
+        "germany",
+        "india",
+        "iran_opposition",
+        "kenya",
+        "russia",
+        "taiwan_hk",
+        "ukraine",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Russian strikes kill 10 in Kyiv region",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ukrainian drone strike ignites major blaze",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Russia, Ukraine exchange overnight strikes killing 3",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Ten killed in Russian attack on drone exhibition",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Russia hits drone demonstration near Kyiv, killing 10",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Russian missile strike kills 10 at Ukrainian defence event",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Russian And Ukraine Exchange Overnight Strikes",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Kyiv hit with deadly strikes after attack on Russian",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Russian air defenses down 328 Ukrainian drones overnight",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Russian attack kills 10 after Zelensky hosts US firm",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Unmanned Systems Forces strike six Wildberries warehouses",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Ukraine unleashes more than 400 drones near Moscow",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Wildberries merchant losses, economic damage",
+      "buckets": [
+        "wire_services",
+        "canada",
+        "russia",
+        "belarus_caucasus"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Russian entrepreneurs see stock go up in flames",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Wildberries is the Amazon of Russia. Ukraine is trying",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Wildberries Freezes Loan Repayments for Merchants",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "belarus_caucasus",
+          "outlet": "OC Media",
+          "quote": "Armenian sellers suffer losses after Ukraine strikes",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Why Ukraine targets Wildberries supply chain",
+      "buckets": [
+        "brazil",
+        "canada",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Por que a Ucrânia tem atacado a 'Amazon russa'",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Why Ukraine is targeting Wildberries, Russia's version",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Ukraine Hits Russian Retailer Wildberries' Warehouses Again",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.606,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.623,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.629,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.635,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.671,
+      "n_tokens": 80
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.678,
+      "n_tokens": 82
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.68,
+      "n_tokens": 275
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.681,
+      "n_tokens": 235
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.714,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.717,
+      "n_tokens": 261
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.732,
+      "n_tokens": 386
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only headline to name Putin personally as the actor ('Putin launches'), personalizing responsibility for the strike — every other outlet attributes the attack to 'Russia' or 'Russian forces/strikes.'",
+      "signal_text_idx": 29
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only western outlet to frame Ukraine as the primary aggressor ('unleashes') and to characterize scale with 'one of war's biggest attacks', while all other US and allied titles lead with the Russian strike on Kyiv.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "South China Morning Post",
+      "bucket": "taiwan_hk",
+      "finding": "Only headline to link the Russian strike explicitly to Zelensky's meeting with a US defense contractor (Raytheon/Patriot), implying strategic provocation rather than treating the attack as a standalone military event.",
+      "signal_text_idx": 25
+    }
+  ],
+  "bottom_line": "Headline coverage reduces this cluster to a security-strike binary — mutual drone and missile escalation — with Canada, Brazil, and RFE/RL standing out as the only outlets asking *why* Ukraine is hitting Wildberries, while economic losses for Russian merchants appear only in wire services and exiled Russian press, and the human toll for Ukrainian civilians is largely absent above the fold.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
