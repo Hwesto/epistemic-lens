@@ -1,0 +1,145 @@
+{
+  "story_key": "Ld91de5e311",
+  "date": "2026-07-25",
+  "n_buckets": 9,
+  "n_articles": 15,
+  "tldr": "Headlines across all nine buckets converge on a single milestone: this is the first UN chief visit to Syria since before the civil war. Virtually all outlets frame the visit as a historic threshold in international re-engagement with post-Assad Syria, with only two outlets — Malay Mail and Daily Sabah — adding a prescriptive dimension by foregrounding Guterres's call for global support.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "UN re-engagement: historic Syria visit",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pakistan",
+        "qatar",
+        "state_tv_intl",
+        "india",
+        "pan_arab",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "first UN secretary-general visit since before civil war",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "first official visit by a UN chief in 17 years",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "la première visite d'un chef de l'ONU depuis 2009",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "first UN chief to visit Syria since before 2011 war",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Post-Assad transition: UN endorsement",
+      "buckets": [
+        "pan_arab",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "likely to back post-Assad transition",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "meets Syrian president during landmark Damascus visit",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Appeal for international support to rebuild",
+      "buckets": [
+        "vietnam_thai_my",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'UN stands with Syria': Sec-gen Guterres calls for help",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Guterres calls for global support on landmark Syria trip",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.808,
+      "n_tokens": 297
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.841,
+      "n_tokens": 251
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.853,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.858,
+      "n_tokens": 83
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.858,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.869,
+      "n_tokens": 55
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Middle East Eye",
+      "bucket": "pan_arab",
+      "finding": "The only outlet whose headline frames the visit in explicitly political terms — 'likely to back post-Assad transition' — rather than as a neutral diplomatic milestone, signalling intent rather than mere occurrence.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "The only headline to lead with Guterres's solidarity declaration and pivot to a reconstruction frame ('calls for help as country rebuilds after war'), departing from the milestone framing dominant in every other bucket.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "Headline coverage is unusually unanimous: the 'first visit since before the civil war' milestone crowds out almost every other angle, with only two outlets departing to foreground Guterres's active call for international support or the political stakes of post-Assad transition endorsement.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
