@@ -1,0 +1,115 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L97a8b62fb2",
+  "cluster_id": 79,
+  "cluster_name": "Michigan Democratic Senate primary pits El-Sayed against AIPAC-backed Stevens",
+  "salience_score": 3.734,
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 13,
+  "event_summary": "Michigan Democrats voted Tuesday in a Senate primary between progressive Abdul El-Sayed and establishment-backed Haley Stevens, with AIPAC spending roughly $30 million backing Stevens. The winner faces Republican Mike Rogers in November for the seat being vacated by Senator Gary Peters.",
+  "tldr": "The headline layer for this cluster is almost unanimously a POLITICAL frame: eight of thirteen titles invoke intra-Democratic divisions, the party-direction test, or the electoral face-off — making this the dominant frame visible before any click. The most striking headline divergence is The Intercept's explicit naming of Islamophobia, advertising discrimination as the story rather than party mechanics, a framing absent from every other title in the corpus. Breitbart is the only outlet to frame the campaign's final hours through a social event (pool party, influencer association), signalling candidate affiliations rather than any policy or party dynamic. The Guardian's headline leads with Trump and Max Miller, reducing Michigan to a subordinate live-blog note — the UK outlet is effectively absent from this story at the headline layer.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "intra-Democratic split and party direction",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "Al Jazeera English",
+        "Axios World",
+        "Breitbart",
+        "Haaretz",
+        "Standard Kenya World",
+        "The New Yorker"
+      ],
+      "countries": ["wire_services", "france", "qatar", "usa", "israel", "kenya", "opinion_magazines"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Divided Democrats face a moment of truth",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "les divisions des démocrates sur Israël",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Michigan primary puts Democratic divide on the ballot",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The New Yorker",
+          "country": "opinion_magazines",
+          "quote": "What Does It Even Mean to Be a Moderate?",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Islamophobic attacks on Muslim candidate",
+      "outlets": ["The Intercept"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "The Intercept",
+          "country": "usa",
+          "quote": "Abdul El-Sayed Faces Islamophobic Attacks From GOP",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Muslim faith as progressive political motivation",
+      "outlets": ["Religion News Service"],
+      "countries": ["religious_press"],
+      "evidence": [
+        {
+          "outlet": "Religion News Service",
+          "country": "religious_press",
+          "quote": "some cite religion as a motivating factor",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "uk",
+      "what_they_covered_instead": "The Guardian's headline leads with Trump's refusal to call for Rep. Max Miller's resignation over abuse allegations — Michigan appears only as an upcoming story note inside a live-blog entry, entirely absent from the advertised headline."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Intercept",
+      "country": "usa",
+      "finding": "Only headline in the corpus to name 'Islamophobic' attacks directly, making the discrimination frame visible before any click — a more confrontational advertised framing than any other outlet, including other progressive ones.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only outlet to frame the election-eve campaign through a social event (pool party with Hasan Piker) rather than any policy claim or party-direction argument — positions the candidate's influencer circle as the defining headline story.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Religion News Service",
+      "country": "religious_press",
+      "finding": "Only headline to surface religion as a source of progressive political motivation rather than as electoral identity politics or an attack vector — a frame invisible in every other title in the corpus.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "At the headline layer, the Michigan Democratic Senate primary is advertised almost exclusively as a test of the Democratic Party's internal direction — the intra-party divide frame is the only thing most readers see before clicking. The Intercept's headline breaks sharply from this consensus by naming Islamophobia as the lead, making discrimination rather than party mechanics the advertised story, while The Guardian's UK lead on Trump and Max Miller leaves Michigan invisible at the homepage level.",
+  "generated_at": "2026-08-04T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
