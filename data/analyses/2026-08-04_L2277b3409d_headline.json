@@ -1,0 +1,207 @@
+{
+  "story_key": "L2277b3409d",
+  "date": "2026-08-04",
+  "n_buckets": 9,
+  "n_articles": 15,
+  "tldr": "Headlines across all nine buckets compress Greece's multi-day wildfire crisis into two dominant signals: fatal casualties (especially the midair helicopter collision near Athens on August 3 that killed two crew) and a response stretched past four consecutive days against wind-driven fires that won't yield. Canada, India, and China extend the frame outward to a pan-European or global wildfire emergency; all other outlets stay tightly on the Greek domestic front.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "firefighter deaths; helicopter crash kills",
+      "buckets": [
+        "wire_services",
+        "balkans",
+        "canada",
+        "germany",
+        "india",
+        "russia",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Greece's wildfires claim lives as firefighters struggle",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Two Greek Firefighters Die Battling Wildfire on Crete",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "2 killed after helicopters battling Greece wildfires collide",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Crete wildfires cause evacuations and firefighter deaths",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Water-dropping planes fight Greece wildfire after 2 die in crash",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Helicopters collide while battling wildfires (VIDEOS)",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "2 firefighting helicopters collide midair near Athens",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "fourth-day fight; situation out of control",
+      "buckets": [
+        "wire_services",
+        "balkans",
+        "canada",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "\"The situation is out of control\": Greek firefighters battle",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Wildfires in Greece Blaze for Fourth Day",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Greek firefighters battle wildfire west of Athens as strong winds fuel flames",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Greece's fight against wildfire turns somber after choppers collide",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Greek crews fight wildfire northwest of Athens for fourth day",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Greece front of Europe-wide wildfire emergency",
+      "buckets": [
+        "canada",
+        "china",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "as Europe continues to battle widespread flames",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "wildfires sweep Europe, US",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "as Europe's wildfire emergency rages",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.647,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.667,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.708,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.734,
+      "n_tokens": 77
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.745,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.779,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.801,
+      "n_tokens": 135
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 EN",
+      "bucket": "wire_services",
+      "finding": "The only headline to embed a direct quote from the crisis — '\"The situation is out of control\"' — surfacing the desperation of front-line responders at the homepage level, a register absent from all other outlet titles.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "The only headline to link Greece's fires to US wildfires in the same title ('wildfires sweep Europe, US'), positioning the event as a global rather than exclusively European emergency — a framing divergence from all other outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Daily Sabah",
+      "bucket": "turkey",
+      "finding": "The only headline to use emotional mood language ('turns somber') rather than a factual statement of deaths, foregrounding collective grief over the operational fact of the crash — a tone absent from every other title.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "finding": "The only headline to frame the wildfire crisis as a climate-weather story ('hot, dry summer maintains its grip on Europe'), connecting the disaster to a broader seasonal pattern not named in any other outlet's title.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "At the headline layer, Greece's wildfire emergency is a story of death and exhaustion: firefighters dying while fighting fires entering their fourth consecutive day, with the midair helicopter collision near Athens serving as the universal news hook across all nine buckets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
