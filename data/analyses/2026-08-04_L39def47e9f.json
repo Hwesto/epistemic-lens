@@ -1,0 +1,256 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L39def47e9f",
+  "cluster_id": 77,
+  "cluster_name": "Suu Kyi makes first confirmed outside contact since 2021 Myanmar coup",
+  "n_outlets": 16,
+  "n_countries": 12,
+  "n_articles": 16,
+  "salience_score": 6.128,
+  "event_summary": "On August 3, 2026, Suu Kyi met ICRC representative Arnaud de Baecque in Naypyidaw — Myanmar's military government released photographs confirming the contact. Suu Kyi, 81, has been detained since the February 2021 coup that ousted her elected civilian government.",
+  "tldr": "This is Suu Kyi's first confirmed contact with any outside official in roughly 2.5 years — and globally the story landed as a welfare check rather than a diplomatic event. Health and condition concern dominates 15 of 16 outlets, from wire services and Western broadsheets to South Asian and Southeast Asian press, making this one of the most frame-uniform clusters in the dataset. The lone outlier is CGTN: it presents the meeting as a routine ICRC appointment, using her bureaucratic former title 'State Counsellor' and sourcing the claim to the Presidential Press and Information Bureau — framing that implicitly normalises the junta's authority to grant or deny access. NPR carves out the only human-interest departure, centering son Kim Aris's reaction ('a reason to hope') rather than the political detention or health uncertainty that anchors every other report.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "welfare uncertainty — detained political prisoner",
+      "outlets": [
+        "AFP / France 24 EN",
+        "BBC World",
+        "Daily Maverick",
+        "Dawn",
+        "Deutsche Welle Deutsch",
+        "Folha de São Paulo",
+        "France 24 Spanish",
+        "Globe and Mail",
+        "Malay Mail World",
+        "NDTV World",
+        "NPR World",
+        "Sky News UK",
+        "Tagesschau",
+        "The Guardian World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "uk",
+        "south_africa",
+        "pakistan",
+        "germany",
+        "brazil",
+        "state_tv_intl",
+        "canada",
+        "vietnam_thai_my",
+        "india",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "her location and condition have been largely unknown to international officials and the public",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "following years of questions over the health and well-being of the 81-year-old",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Wie es ihr geht, ist nicht bekannt",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Meeting follows years of questions over wellbeing of detained former leader, who was ousted by coup in 2021",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "arbitrary detention after coup-ousted civilian government",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Dawn",
+        "France 24 Spanish",
+        "Globe and Mail",
+        "NDTV World",
+        "NPR World",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "pakistan",
+        "state_tv_intl",
+        "canada",
+        "india",
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "Suu Kyi has been in detention since February 2021, when an elected civilian government led by her was ousted",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "detenida desde el golpe militar de febrero de 2021",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Suu Kyi has not been publicly seen since she was detained in 2021, when the army seized power from her elected government",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "ICRC humanitarian access brokered through junta",
+      "outlets": [
+        "AFP / France 24 EN",
+        "CGTN World",
+        "Folha de São Paulo",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "china",
+        "brazil",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Arnaud de Baecque, resident representative of the International Committee of the Red Cross to Myanmar, met with former State Counsellor Aung San Suu Kyi in Myanmar on Monday morning, according to the country's Presidential Press and Information Bureau.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Red Cross visits Aung San Suu Kyi after Myanmar military pushed to prove she is alive",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "em meio a crescentes preocupações com a saúde da laureada com o Nobel da Paz que está presa",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "elected civilian government vs military coup authority",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Dawn",
+        "France 24 Spanish",
+        "NDTV World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "pakistan",
+        "state_tv_intl",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "taken into detention in early 2021, when a military coup ousted her elected civilian government",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Aung San Suu Kyi se reúne con la Cruz Roja por primera vez desde el golpe militar de 2021",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Myanmar's detained ex-leader Aung San Suu Kyi met with an ICRC official Monday, in her first known contact with the outside world since the 2021 coup",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "family reaction and public hope",
+      "outlets": [
+        "NPR World"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Kim Aris, son of Aung San Suu Kyi, told NPR that photographs of his mother meeting a foreign official gave him \"a reason to hope\" for the first time since the military coup that ousted her in 2021.",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "indonesia",
+      "what_they_covered_instead": "Indonesia (past ASEAN chair, architect of the Five-Point Consensus on Myanmar) is absent from the cluster despite being the ASEAN member with the highest formal diplomatic stake in Suu Kyi's status; likely covered domestic or regional economic items."
+    },
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Japan is Myanmar's largest bilateral ODA donor and has maintained cautious diplomatic engagement with the junta; its absence from this cluster suggests Japanese editors chose to lead with other Asia-Pacific news."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Only outlet to center the story on family reaction, quoting son Kim Aris directly — uniquely humanising angle in an otherwise uniformly institutional corpus.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Only outlet to source the meeting exclusively to Myanmar's Presidential Press and Information Bureau and to use the title 'State Counsellor', lending the junta's framing uncontested authority.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to state that the Myanmar military was 'pushed to prove she is alive' — the sharpest adversarial framing in the corpus, absent from all other English-language outlets.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "Explicitly ends its report with 'Wie es ihr geht, ist nicht bekannt' (How she is doing is not known), underlining residual uncertainty even after the photos were released.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only Portuguese-language outlet and only one to emphasise the five-year detention timeline ('presa há cinco anos') as the headline framing rather than the rarity of the contact.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Fifteen of sixteen outlets across twelve countries converged on a single health-and-welfare frame, making this cluster unusually homogeneous — the junta's staged photograph achieved its intended global reassurance story. CGTN is the sole outlier by register: it runs the same facts through a bureaucratic-legitimising lens that tacitly endorses junta control over humanitarian access.",
+  "generated_at": "2026-08-04T10:47:34Z",
+  "model": "claude-sonnet-4-6"
+}
