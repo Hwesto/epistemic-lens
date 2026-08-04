@@ -1,0 +1,190 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L251856c454",
+  "cluster_id": 91,
+  "cluster_name": "Danube drought forces shutdown of Romania and Hungary nuclear plants",
+  "salience_score": 2.904,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 13,
+  "event_summary": "Record-low Danube levels driven by a severe European heatwave forced Hungary's Paks nuclear plant offline and Romania's Cernavoda to shut two reactors; Romania's military blasted rocks to restore cooling-water flow, and both governments urged citizens to cut electricity use.",
+  "tldr": "The headline layer is almost uniformly locked on a single register: Danube drought forcing nuclear plant shutdowns. Eight of ten outlets lead with some variant of this capacity-collapse frame, making CAPACITY_RESOURCES the dominant and near-exclusive advertised story at the homepage level. Russia's RT is the most conspicuous outlier — one of its two headlines erases the energy story entirely, foregrounding sunken Nazi warships and mammoth bones revealed by the receding river, while its second casts the crisis in spectacle language ('Heatwave burning Europe triggers nuclear powerdown') without naming Hungary or Romania at all. Hungary Today's two headlines uniquely inject partisan content at the title level: one headlines Slovak diplomatic solidarity during an 'Unprecedented Energy Crisis', and the other — from a body-level extraction — politicises the crisis around PM Magyar's anti-Rosatom history, a framing completely absent from every other outlet's title.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Danube drought shutting nuclear capacity",
+      "outlets": [
+        "ANSA Italian (Mondo)",
+        "Deutsche Welle English",
+        "Malay Mail World",
+        "Straits Times",
+        "The Guardian World"
+      ],
+      "countries": [
+        "italy",
+        "germany",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Dry Danube River threatens nuclear power in Romania, Hungary",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Hungary to shut sole nuclear plant for first time on Sunday",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Record-low Danube forces shutdown of nuclear plant",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Romania blasts rocks to reroute cooling Danube water",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "ANSA Italian (Mondo)",
+          "country": "italy",
+          "quote": "Romania l'esercito fa saltare roccia nel Danubio",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Hungary comes ‘within millimetres’ of shutting down",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "energy emergency brink across Europe",
+      "outlets": [
+        "Sky News UK",
+        "RT"
+      ],
+      "countries": [
+        "uk",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "European countries on brink of energy emergency",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Heatwave burning Europe triggers nuclear powerdown",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "drought strains rivers and agriculture",
+      "outlets": [
+        "Balkan Insight",
+        "BBC World"
+      ],
+      "countries": [
+        "balkans",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Romania’s Farmers Feel the Heat as River Danube Dries Up",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Rhine falls to record low levels as drought strains",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Slovak PM pledges regional solidarity",
+      "outlets": [
+        "Hungary Today"
+      ],
+      "countries": [
+        "hungary_central"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hungary Today",
+          "country": "hungary_central",
+          "quote": "Slovak PM Pledges Help During Hungary’s",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "Nazi warships revealed by receding river",
+      "outlets": [
+        "RT"
+      ],
+      "countries": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Sunken Nazi warships resurface in Europe amid record heatwave",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "One of RT's two headlines ('Sunken Nazi warships resurface in Europe amid record heatwave') erases the nuclear energy-security story entirely, foregrounding historical artefacts over the plant shutdowns covered by every other outlet — the starkest headline-layer editorial divergence in the cluster.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Hungary Today",
+      "country": "hungary_central",
+      "finding": "The only outlet to make a domestic political angle headline-visible at title level: 'Péter Magyar Ridiculed in Russian Media for his Attacks on Rosatom Amid the Ongoing Energy Crisis' frames the drought emergency as an indictment of the new PM's anti-Russian-nuclear history — an angle entirely absent from all other outlet titles.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only headline to use the dramatic near-miss framing — 'within millimetres' of shutting down — signalling how close Hungary came to a total blackout, a rhetorical intensity not matched by any other title in the corpus.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Balkan Insight",
+      "country": "balkans",
+      "finding": "Only title to foreground agricultural impacts ('Romania's Farmers Feel the Heat') rather than nuclear infrastructure, making the rural economic dimension headline-visible where all other outlets reduce the story to the energy-plant angle.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "At the headline layer, the Danube drought story is almost uniformly reduced to one frame — nuclear plant shutdowns caused by cooling-water collapse — across eight of ten outlets, but Russia's RT is the decisive outlier, leading with WWII shipwrecks surfacing from the riverbed rather than any energy-security angle, while Hungary Today's titles convert the infrastructure emergency into partisan commentary on PM Magyar's anti-Rosatom history, a divergence in advertised framing that is invisible from body text alone.",
+  "generated_at": "2026-08-04T11:45:00Z",
+  "model": "claude-haiku-4-5"
+}
