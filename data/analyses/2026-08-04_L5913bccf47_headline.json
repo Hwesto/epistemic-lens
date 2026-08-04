@@ -1,0 +1,156 @@
+{
+  "story_key": "L5913bccf47",
+  "date": "2026-08-04",
+  "n_buckets": 22,
+  "n_articles": 38,
+  "tldr": "Headlines from virtually every region deploy Trump's 'last chance before decapitation' formulation verbatim, making the military-threat register the most uniform headline layer in this corpus. A secondary cluster — led by Egyptian, Turkish, Canadian, and pan-Arab outlets — foregrounds the diplomatic contradiction (Iran flatly denying talks Trump insists are ongoing) rather than the threat itself. Iran state media alone opts out of both registers entirely, presenting a routine bilateral Oman–Iran Hormuz shipping negotiation with no reference to decapitation, strikes, or US talks.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Trump 'decapitation' ultimatum; war escalation",
+      "buckets": ["wire_services", "pakistan", "qatar", "usa", "south_africa", "egypt", "india", "iraq", "italy", "south_korea", "vietnam_thai_my", "taiwan_hk", "australia_nz", "uk", "iran_opposition", "russia"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Iran's 'last chance' to make deal before 'decapitation'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Tehran slams US blockade as Trump warns of 'last chance'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "'Last Chance Before Decapitation': Trump Warns Iran",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Tehran claims Trump could ignite World War III",
+          "signal_text_idx": 37
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Tehran denies talks; US-Iran impasse",
+      "buckets": ["egypt", "turkey", "opinion_magazines", "canada", "israel", "pan_arab", "usa"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Iran refutes Trump's fresh negotiations claim",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Iran Denies Peace Talks After the United States Cancels",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Iran denies Trump's claims of talks after U.S.",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Iran's foreign minister denies talks with US",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran-Oman bilateral Hormuz corridor",
+      "buckets": ["iran_state"],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Talks with Oman on Strait of Hormuz bilateral",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Tehran, Muscat negotiating temporary Hormuz shipping",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Hormuz crisis cuts oil flows to a tenth",
+      "buckets": ["iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Aramco sidesteps Hormuz as Iran crisis cuts flows to a tenth",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.538,
+      "n_tokens": 87
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.665,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.712,
+      "n_tokens": 218
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.717,
+      "n_tokens": 424
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.733,
+      "n_tokens": 32
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "The only outlet in the corpus to lead with Trump's cancellation of strikes ('Trump cancels planned attack on Iran'), casting the US as the de-escalating party rather than the issuer of ultimatums — the inverse angle of every other headline, which foregrounds 'last chance' or 'decapitation.'",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "The only outlet to surface the parallel military-planning track: US Central Command soliciting 'creative, unconventional ways' to punish Iran — a headline framing that contradicts the peace-talk narrative dominant across all other titles and absent from any other outlet's homepage.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "The only outlet to lead with the energy-market dimension ('Aramco sidesteps Hormuz as Iran crisis cuts flows to a tenth'), foregrounding global supply disruption rather than the diplomatic-military standoff — a frame absent from every other title in the corpus.",
+      "signal_text_idx": 20
+    }
+  ],
+  "bottom_line": "At the headline layer, the US-Iran standoff is flattened almost universally to Trump's 'last chance before decapitation' formulation; the diplomatic contradiction (Iran denying talks) surfaces as a secondary frame across Egyptian, Turkish, Canadian, and pan-Arab outlets, while Iran state media alone defects from both narratives to present a routine bilateral Hormuz shipping negotiation.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
