@@ -1,0 +1,154 @@
+{
+  "story_key": "L0b4d155b09",
+  "date": "2026-08-04",
+  "n_buckets": 6,
+  "n_articles": 14,
+  "tldr": "Headlines across all six buckets converge on the intra-GOP confirmation fight over Todd Blanche's AG nomination, with the rescission of the 'anti-weaponization fund' as the resolution mechanism. UK outlets alone depart from this transactional frame to foreground critics' claims that the deal is legally hollow and easily reversed.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "GOP nomination fight; holdouts dealt with",
+      "buckets": [
+        "usa",
+        "canada",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump says he's open to delaying Blanche nomination",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "Todd Blanche Reaches Deal With GOP Holdouts",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "GOP senators will vote to advance Acting U.S. Attorney General Blanche's nomination",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump says may drop attorney general nomination amid Congress standoff",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Former Trump personal lawyer Todd Blanche looks set to become next US attorney general",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Fund formally rescinded to clear path",
+      "buckets": [
+        "canada",
+        "india",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Todd Blanche rescinds 'anti-weaponization' fund",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Blanche Formally Rescinds 'Anti-Weaponization' Fund",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Todd Blanche rescinds 'anti-weaponization fund'",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Deal's legal enforceability disputed",
+      "buckets": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "'Completely hollow': critics denounce Blanche deal",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "deal to end Trump's 'weaponization' fund is 'laughably flimsy'",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.686,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.726,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.763,
+      "n_tokens": 92
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.79,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.798,
+      "n_tokens": 434
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "The only outlet to identify Blanche as 'Former Trump personal lawyer' in the headline itself, anchoring the story in political loyalty rather than the institutional confirmation process — a framing absent from every other bucket.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "NPR World",
+      "bucket": "usa",
+      "finding": "The only outlet to bundle the Blanche fund rescission with a separate Iran story ('Trump calls off striking Iran') in a single headline, collapsing two distinct stories into one title — a newsletter-format choice that dilutes the confirmation-fight frame dominant across all other US outlets.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "The only outlet to use the phrase 'Trump slush fund' in the headline, applying a charged characterization that no other outlet — including the Independent — adopted, and foregrounding critics' voices ('Completely hollow') ahead of the factual rescission event.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "The headline layer frames the Blanche confirmation as a resolved political deal story — GOP holdouts capitulate, fund is rescinded, vote proceeds — with UK outlets as the only dissenters, whose titles emphasize Democratic and legal-expert doubts about whether the agreement is enforceable.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
