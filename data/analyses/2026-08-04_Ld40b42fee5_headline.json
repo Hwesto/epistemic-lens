@@ -1,0 +1,156 @@
+{
+  "story_key": "Ld40b42fee5",
+  "date": "2026-08-04",
+  "n_buckets": 6,
+  "n_articles": 12,
+  "tldr": "Headlines across the six-country corpus frame this as a health emergency anchored by body counts and unprecedented official warnings: international outlets (Turkey, Germany, Pakistan, Malaysia) lead with South Korea's 16 heat deaths and a 122-year temperature record, while South Korean domestic outlets foreground the escalating warning system — Seoul's first-ever citywide highest-level heat alert — and President Lee's declaration of a national disaster. Italy's concurrent heatwave (23 of 27 major cities on red alert) appears only via ANSA, unconnected to the South Korea coverage.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Deaths and record-breaking heat danger",
+      "buckets": ["turkey", "germany", "pakistan", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Heat wave death toll in South Korea rises to 16",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "South Korea: 16 dead amid record heat wave",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "hottest temperature in 122 years at 42.5°C",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "South Korea's deadly summer: 16 perished in extreme heat",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Unprecedented alert levels deployed",
+      "buckets": ["italy", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "23 of Italy's 27 major cities to be on heatwave red alert",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "First Heat Wave Emergency Warnings to Be Issued Tuesday",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Seoul Metro Area on Alert as Scorching Heat Wave Spreads",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "Serious heat warning issued for Seoul for 1st time",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Presidential disaster declaration",
+      "buckets": ["germany", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "President Lee urges action",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "President Lee calls heat wave a national disaster",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Industrial electricity tariff revision",
+      "buckets": ["south_korea"],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "Climate ministry to revise industrial electricity bills",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.642,
+      "n_tokens": 222
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.652,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.659,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.684,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.745,
+      "n_tokens": 93
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "ANSA English",
+      "bucket": "italy",
+      "finding": "The only outlet covering Italy's fourth heatwave of 2026 rather than South Korea's — 23 of 27 major cities on red alert — making the Italy bucket an entirely self-contained national emergency rather than a lens on the South Korea story; no outlet in the corpus synthesizes the two concurrent crises at the headline layer.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Yonhap News",
+      "bucket": "south_korea",
+      "finding": "Only headline in the corpus to frame the heatwave through an economic-regulatory lens — industrial electricity bill revision — absent from all international outlets and all other domestic Korean headlines, which focus exclusively on alerts and fatalities.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Korea Herald (via Google News)",
+      "bucket": "south_korea",
+      "finding": "Only headline to introduce a compound weather risk — an approaching typhoon — as a source of uncertainty about the prolonged heat wave, adding a forecasting dimension absent from all other domestic and international headlines in the corpus.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "At the headline layer, international outlets uniformly lead with South Korea's 16 heat deaths and a 122-year temperature record while domestic outlets foreground the first-ever citywide Seoul warning and a presidential disaster declaration — a clean inside-out split with no outlet crossing both registers.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
