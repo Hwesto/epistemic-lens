@@ -1,0 +1,298 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L1e4ba233fc",
+  "cluster_id": 160,
+  "cluster_name": "Three wildfires destroy 700 buildings and displace 65,000 in Spokane",
+  "n_outlets": 22,
+  "n_countries": 16,
+  "n_articles": 31,
+  "salience_score": 15.83,
+  "event_summary": "Three wildfires burned through Spokane, Washington beginning August 1, 2026, destroying at least 700 structures and forcing 65,000 residents to evacuate; authorities arrested Aaron F. Farinacci, 37, on suspicion of arson in connection with the largest blaze, the Old Trails Fire.",
+  "tldr": "The arson arrest immediately became the primary international news hook — even RT (Russian state propaganda) and CGTN (Chinese state media) ran the story straight without anti-American framing, suggesting the disaster's scale left no room for adversarial spin. Kenya's Standard Media filed the most forensically detailed account in the corpus, including the suspect's prior manslaughter conviction, the $1 million bond, and the specific evidence of matches and a butane lighter — outpacing most Western outlets on evidentiary granularity despite geographic distance. India's Hindustan Times was the sole outlet to lead with a celebrity angle — reality TV personality Spencer Pratt's warning — and to explicitly report Governor Ferguson's call with Trump, positioning the event as a political test alongside a natural disaster. Al Jazeera and The Independent both ran structural explainers on why the fires spread so fast, emphasising drought, extreme heat, and wind without attributing fault to policy failure. With 22 outlets across 16 countries converging in near-identical factual terms, divergence is limited to tone and emphasis rather than facts.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "arson arrest as international news anchor",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AP News",
+        "Anadolu Agency English",
+        "BBC World",
+        "CBC World",
+        "Daily Mail",
+        "Daily Maverick",
+        "Standard Kenya World",
+        "Tagesschau",
+        "The Independent"
+      ],
+      "countries": [
+        "wire_services",
+        "turkey",
+        "uk",
+        "canada",
+        "south_africa",
+        "kenya",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Police in Washington state have arrested a 37-year-old man on suspicion of starting a fire that has burned through more than 3,200 hectares of forest in the state's second city Spokane.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "was arrested Monday and charged with setting one of the devastating wildfires that have destroyed hundreds of homes and other structures",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Aaron F. Farinacci, 37, was arrested and booked on suspicion of first degree arson in connection with the Old Trails Fire, the largest of three blazes burning around Spokane.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "displacement and residential loss",
+      "outlets": [
+        "AFP / France 24 EN",
+        "CBC World",
+        "Daily Maverick",
+        "France Info",
+        "Globe and Mail",
+        "Japan Times",
+        "Le Devoir",
+        "Straits Times",
+        "The Atlantic"
+      ],
+      "countries": [
+        "wire_services",
+        "canada",
+        "south_africa",
+        "france",
+        "japan",
+        "vietnam_thai_my",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Firefighters made progress against several blazes Monday after wildfires driven by drought, extreme heat and strong winds tore through Washington state's second-largest city, destroying up to 1,100 structures and prompting what officials called the worst natural disaster in Spokane's history.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "\"There's nothing to save,\" Miriam Sim, 76, said Monday as she and her husband, Daniel Sim, surveyed the ruins of the home where they had lived since 2005.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "Les dégâts des feux dans le nord-ouest des États-Unis comparables à «une zone de guerre»",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "firefighting capacity stretched across Western US",
+      "outlets": [
+        "Globe and Mail",
+        "Daily Wire",
+        "Standard Kenya World",
+        "Reuters (via Google News)"
+      ],
+      "countries": [
+        "canada",
+        "usa",
+        "kenya",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Fires are among dozens across the Western U.S. that are stretching federal, state and local agencies",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "More than 1,000 firefighters are scrambling to contain the massive wildfires that have burned hundreds of structures in Spokane County, Washington, and forced tens of thousands of people to evacuate their homes over the weekend.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "wildfire smoke and regional air quality",
+      "outlets": [
+        "Hindustan Times",
+        "Japan Times"
+      ],
+      "countries": [
+        "india",
+        "japan"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Smoke from the Spokane wildfires has spread across several western states, prompting dangerous air quality alerts. Here is the list.",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "Dozens of major wildfires have been burning across the drought-parched U.S. Pacific Northwest for weeks, degrading air quality across a wide region.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "federal-state disaster politics and government distrust",
+      "outlets": [
+        "Hindustan Times"
+      ],
+      "countries": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Washington faces devastating wildfires, with 60,000 people ordered to evacuate. Guv Ferguson discussed the destruction with Trump.",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "kenya",
+      "country": "kenya",
+      "mean_similarity": 0.55,
+      "note": "Most isolated bucket by a wide margin. Standard Kenya World carries a long body-text article with forensic arrest detail (bond amount, prior conviction, evidence of matches and lighter) that is semantically far from the short summaries dominating the rest of the corpus."
+    },
+    {
+      "outlet": "india",
+      "country": "india",
+      "mean_similarity": 0.701,
+      "note": "Hindustan Times' celebrity-warning and Trump-Ferguson angle pushes it away from the factual disaster core shared by most other outlets."
+    },
+    {
+      "outlet": "china",
+      "country": "china",
+      "mean_similarity": 0.731,
+      "note": "CGTN World files a brief factual summary relaying CNN reports; thin coverage with no climate or policy commentary distinguishes it from deeper Western accounts."
+    },
+    {
+      "outlet": "south_africa",
+      "country": "south_africa",
+      "mean_similarity": 0.744,
+      "note": "Daily Maverick wire-relay article with Reuters dateline; coverage is accurate but minimally adapted for a South African readership."
+    },
+    {
+      "outlet": "france",
+      "country": "france",
+      "mean_similarity": 0.754,
+      "note": "France Info emphasises human evacuation scale ('dizaines de milliers de personnes') over the arson arrest angle that anchors English-language coverage."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "terms": ["wüten", "häuser", "waldbrände", "festgenommen", "hunderte"],
+      "what_it_reveals": "German vocabulary foregrounds ongoing violence — 'wüten' (to rage/ravage) appears twice — alongside 'festgenommen' (arrested/detained), giving equal visual weight to the arrest as to the fires. Language reflects conflict framing applied to a natural disaster."
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "terms": ["warning", "stat"],
+      "what_it_reveals": "Exclusive use of 'warning' (from Spencer Pratt's celebrity admonition) signals a tabloid-adjacent angle absent everywhere else in the corpus; 'stat' reflects focus on state-level political response."
+    },
+    {
+      "outlet": "France Info",
+      "country": "france",
+      "terms": ["incend"],
+      "what_it_reveals": "Stems from 'incendies' — French standard term for fires/wildfires. Not editorially distinctive in itself, but its exclusivity confirms France Info is the sole French-language domestic broadcaster covering the story."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only outlet to lead with a celebrity angle — reality TV personality Spencer Pratt's warning 'Don't expect govt to...' — alongside reporting Trump's call with Governor Ferguson; positions the disaster as a political credibility test.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Le Devoir",
+      "country": "canada",
+      "finding": "Quebec progressive daily is the only outlet to invoke war-zone imagery — 'comparable à une zone de guerre' — elevating the moral register beyond disaster reporting into humanitarian crisis framing.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Files the corpus's most detailed forensic account of the arrest: suspect held on $1 million bond, prior Arizona manslaughter conviction noted, specific evidence (waterproof matches, butane lighter) and the witness tip described step-by-step — more granular than any Western outlet.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Only outlet to foreground the suspect's prior criminal record in the headline itself — 'convicted felon arrested' — emphasising character over the disaster event.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Ran a structural explainer — 'Why are the Washington wildfires so severe? Spokane fires explained' — focusing on drought, heat, and wind as systemic causes, the only outlet to devote a full piece to causal analysis rather than breaking news.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Covers as a straight disaster story with no anti-US editorial commentary or political framing — notable given the outlet's standard adversarial register on US domestic failures.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Attributes its sourcing explicitly to CNN ('according to CNN reports'), the only outlet in the cluster to cite a US commercial rival as its primary source, signalling thin independent coverage.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Situates the Spokane fires within a weeks-long Pacific Northwest drought-wildfire pattern affecting air quality across the wider region — the longest temporal horizon of any outlet in the corpus.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "The Atlantic",
+      "country": "opinion_magazines",
+      "finding": "Publishes a photo essay ('Photos: Wildfires Burn Through Spokane Neighborhoods') as its sole contribution — visual/photojournalism angle without adding any analytical frame.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Both Globe and Mail articles explicitly note that fires are 'stretching federal, state and local agencies to breaking point' across the Western US — the only outlet to frame Spokane as symptomatic of a systemic national capacity problem rather than a local disaster.",
+      "signal_text_idx": 15
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Spokane's wildfires drew immediate convergent coverage across 22 outlets in 16 countries, unified almost entirely by the arson arrest as the news peg and factual disaster scale. The only notable divergence is India's celebrity-political angle and Kenya's granular forensic reporting; the story is otherwise treated as a straight natural disaster with a criminal element, with no partisan or East-West fracture visible in the corpus.",
+  "generated_at": "2026-08-04T10:41:58Z",
+  "model": "claude-sonnet-4-6"
+}
