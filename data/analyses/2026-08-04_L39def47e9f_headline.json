@@ -1,0 +1,167 @@
+{
+  "story_key": "L39def47e9f",
+  "date": "2026-08-04",
+  "n_buckets": 12,
+  "n_articles": 16,
+  "tldr": "Headlines split between two dominant registers: health-and-proof-of-life (UK, Germany, Brazil, Canada) and political-coup context (AFP, France 24 Spanish, NDTV, and most outlets using 'detained' to signal political imprisonment). NPR (USA) is the sole outlet to pivot to a human-emotional frame ('give her family hope'), while CGTN (China) is the sole outlet to strip all political and health framing, using Suu Kyi's official pre-coup title and presenting the ICRC visit as a neutral diplomatic event.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Proof of life; well-being concerns",
+      "buckets": ["uk", "brazil", "canada", "germany"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "appears healthy in first confirmed outside contact",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Myanmar military pushed to prove she is alive",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "em meio a preocupações com sua saúde",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "after concerns of her well-being",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Seltene Bilder von Aung San Suu Kyi",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Erstmals seit fünf Jahren Bilder",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "2021 coup detention; military power",
+      "buckets": ["wire_services", "state_tv_intl", "india", "south_africa", "pakistan", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Ousted leader Suu Kyi makes rare appearance",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "por primera vez desde el golpe militar de 2021",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "In Rare Contact Since 2021 Coup",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Myanmar says detained former leader Aung San Suu Kyi",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Myanmar's detained former leader Aung San Suu Kyi",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Detained Suu Kyi meets Red Cross official in Myanmar",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Family hope amid five-year isolation",
+      "buckets": ["usa", "uk"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "ex-Myanmar leader Aung San Suu Kyi give her family hope",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "detained former leader Aung San Suu Kyi gives update",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.645,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.685,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.757,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.764,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.764,
+      "n_tokens": 47
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["china"],
+  "single_outlet_findings": [
+    {
+      "outlet": "NPR World",
+      "bucket": "usa",
+      "finding": "The only outlet to foreground the family-hope angle in the headline itself ('give her family hope'), pivoting entirely away from the health-concern or political-coup frames dominant elsewhere — a human-emotional register absent from every other title in the corpus.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "The only outlet to use Suu Kyi's official pre-coup title 'former State Counsellor' without any 'detained', 'ousted', or coup framing, presenting the ICRC visit as a neutral bilateral meeting rather than a humanitarian access event or proof-of-life moment — and the reason the china bucket goes to silences.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "The only outlet to frame the visit as a response to external pressure ('Myanmar military pushed to prove she is alive'), implying international accountability and coercion of the junta rather than a health-confirmation or humanitarian-access story — the starkest adversarial headline in the corpus.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "At the headline layer, coverage splits between a health-and-isolation register (UK, Germany, Brazil, Canada) and a political-coup register (AFP, France 24 Spanish, NDTV); China's diplomatic neutrality and NPR's family-hope pivot are the sharpest headline-layer departures from this two-pole consensus.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
