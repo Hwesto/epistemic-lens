@@ -1,0 +1,218 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L99c9126513",
+  "cluster_id": 112,
+  "cluster_name": "25 US states sue Trump administration over Section 301 forced-labour tariffs",
+  "salience_score": 4.596,
+  "n_outlets": 17,
+  "n_countries": 12,
+  "n_articles": 18,
+  "event_summary": "Twenty-five Democratic-led US states filed a lawsuit on August 4, 2026, challenging the Trump administration's Section 301 tariffs of 10–12.5% on 60 trading partners on the ground that those countries fail to combat forced labour.",
+  "tldr": "The headline layer for this story is unusually monothematic: all 17 outlets across all 12 country buckets lead with the legal action (‘sue’, ‘challenge’, ‘block’), leaving no outlet to foreground the economic impact or the forced-labour humanitarian rationale at the homepage layer. The sharpest divergence is register, not topic: nine outlets explicitly embed the Democratic party label in the headline text (converting a constitutional dispute into a partisan conflict), while eight — including AFP, BBC, DW, and El Pais — describe the same action without any partisan marker. Indian outlets alone inject charged economic framing at the title level: NDTV quotes the attorney general’s ‘Illegally Raise Taxes’ as the headline lead, and Republic World appends ‘Call It Illegal Tax Hike’ — a register found nowhere else in the international headline corpus. CGTN is the sole outlet naming the statutory mechanism (‘Section 301’) in the headline, mirroring Beijing’s consistent preference for technical-regulatory framing over US partisan narrative.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "states sue, challenge, block — legal action",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Al Jazeera English",
+        "BBC World",
+        "CGTN World",
+        "Deutsche Welle English",
+        "El Pais English",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Iraqi News",
+        "Malay Mail World",
+        "NDTV World",
+        "Politico Europe",
+        "Republic World (alt)",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "The Independent"
+      ],
+      "countries": [
+        "wire_services",
+        "qatar",
+        "uk",
+        "china",
+        "germany",
+        "spain",
+        "canada",
+        "india",
+        "iraq",
+        "vietnam_thai_my",
+        "opinion_magazines",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "25 US states sue Trump administration over sweeping",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Trump administration sued by 25 states over new tariffs",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "US states sue to block Trump tariffs impacting dozens",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "\"Illegally Raise Taxes\": 25 US States Sue Trump",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Democratic label explicit in headline",
+      "outlets": [
+        "Globe and Mail",
+        "Hindustan Times",
+        "Iraqi News",
+        "Malay Mail World",
+        "Politico Europe",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times"
+      ],
+      "countries": [
+        "canada",
+        "india",
+        "iraq",
+        "vietnam_thai_my",
+        "opinion_magazines",
+        "wire_services",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "25 Democratic-led U.S. states challenge Trump’s latest",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Iraqi News",
+          "country": "iraq",
+          "quote": "Democratic-led US states sue in latest challenge",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Politico Europe",
+          "country": "opinion_magazines",
+          "quote": "Democratic-led states sue to block Trump’s latest",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "illegal tax hike framing",
+      "outlets": [
+        "NDTV World",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "\"Illegally Raise Taxes\": 25 US States Sue Trump",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Call It Illegal Tax Hike",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "global scope — dozens or 60 countries named",
+      "outlets": [
+        "BBC World",
+        "Hindustan Times",
+        "South China Morning Post"
+      ],
+      "countries": [
+        "uk",
+        "india",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Trump tariffs impacting dozens of countries",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Trump's India tariff faces legal challenge",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "sue Trump over latest round of global tariffs",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Only headline in the corpus to embed the attorney general's direct quote ('Illegally Raise Taxes') as the headline lead — making the legal accusation, not the lawsuit action, the primary reader takeaway at the RSS layer.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Only outlet naming the statutory mechanism ('Section 301') in the headline rather than partisan framing or the lawsuit action — Chinese state media consistently foregrounds legal infrastructure over US political conflict.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only headline naming India directly ('Trump's India tariff'), converting a US constitutional dispute into a bilateral story and making Indian audience interests the primary news hook.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet using the list format ('Full list: The 25 states...') — makes the membership of the coalition the primary unit of information rather than the lawsuit outcome or legal argument.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Most amplified headline of the corpus: pairs the global scope ('60 Countries') with an explicit charge ('Illegal Tax Hike') — the only headline combining geographic maximalism with charged economic characterisation.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "At the headline layer, this story achieves near-total global convergence on a single framing register — legal challenge — with no outlet worldwide leading on economic impact or the forced-labour humanitarian rationale. The only consequential divergence is whether headlines foreground partisan identity (Democratic label present in 9 of 17 headlines) or stay actor-neutral; Indian outlets stand apart as the only voices injecting charged economic language ('Illegal Tax Hike') at the title level.",
+  "generated_at": "2026-08-04T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
