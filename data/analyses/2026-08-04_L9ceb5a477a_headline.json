@@ -1,0 +1,157 @@
+{
+  "story_key": "L9ceb5a477a",
+  "date": "2026-08-04",
+  "n_buckets": 8,
+  "n_articles": 11,
+  "tldr": "Headlines across eight countries uniformly announced the Twin Falls In-N-Out shooting as a lethal public-safety event, but US conservative coverage (Daily Wire) recast the identical incident as a civilian-hero self-defense vindication story, The Independent (UK) led with victim humanization, and RT (Russia) deployed sensationalist 'chaotic shootout' language — all divergences invisible until the headline layer is isolated.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mass shooting kills three at fast-food venue",
+      "buckets": ["china", "canada", "vietnam_thai_my", "russia", "india"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "At least 3 killed, 2 wounded in shooting at US Idaho",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Shooting at In-N-Out restaurant in Idaho leaves three dead",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Chaotic shootout outside US burger joint kills three",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "US fast‑food restaurant shooting leaves three dead",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Three Dead After Shooting at Fast Food Restaurant",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "gunman named; false ID misinformation warned",
+      "buckets": ["usa", "india"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "In-N-Out Gunman Identified After Drive-Thru Massacre",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Man falsely accused of being Twin Falls In-N-Out shooter",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "armed civilian hero; gun self-defense valorized",
+      "buckets": ["usa", "spain"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Civilian Hero Who Fired At In-N-Out Gunman",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Jordan Salinas, the man who confronted the Idaho shooter",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "victim humanization; hero bystander profiled",
+      "buckets": ["uk", "india"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "murdered in mass shooting was working her first ever job",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "hero Twin Falls victim came 'face-to-face' with gunman",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.562,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.653,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.673,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.72,
+      "n_tokens": 275
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "The only outlet to place the word 'Hero' in the headline itself, advertising the event as a self-defense vindication story before the reader clicks — a framing choice absent from every international headline.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The only outlet to foreground victim humanization in the headline ('was working her first ever job'), centering human cost rather than the mechanics or perpetrator of the shooting.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only outlet to use 'chaotic shootout' and 'burger joint' with '(VIDEOS)' appended — a sensationalist register implying mutual armed exchange from the start, absent from all other coverage.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "The only outlet to headline the false-identification misinformation angle (Amer Mandzic), surfacing a secondary social-harm story entirely invisible in every other outlet's headline coverage.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "At the headline layer, six of eight country buckets reported the Idaho shooting as a factual public-safety event; only Daily Wire's headlines recast it as civilian-hero self-defense vindication, marking the sharpest ideological divergence in this cluster's headline-vs-body framing.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
