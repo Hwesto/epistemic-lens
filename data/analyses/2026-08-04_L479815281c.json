@@ -1,0 +1,155 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L479815281c",
+  "cluster_id": 110,
+  "cluster_name": "Michigan reports first two deaths in US Cyclospora outbreak",
+  "n_outlets": 14,
+  "n_countries": 11,
+  "n_articles": 16,
+  "salience_score": 5.617,
+  "event_summary": "Two people died in Michigan from Cyclospora on August 4, 2026, the first US fatalities in a multistate outbreak of over 18,000 cases ongoing since May. Both victims had significant underlying health conditions.",
+  "tldr": "RT (Russian state media) provided the most detailed account in this 14-outlet corpus, naming Taco Bell and supplier Taylor Farms de Mexico as the CDC-identified source — while US centrist outlet Axios simultaneously reported that 'federal authorities still don't know for certain where it's coming from,' a striking informational divergence. The HEALTH_SAFETY frame dominates globally, with near-identical death-plus-underlying-conditions messaging from Canada to Pakistan to Singapore. The outbreak's record scale — 18,000+ cases, nearly four times the previous 2019 record of 4,700 — was foregrounded only by RT and Globe and Mail, suggesting most international coverage underplayed the systemic public health failure. El Sol de Mexico covered the Michigan deaths without any reference to Taylor Farms de Mexico, the Mexican supplier the CDC had implicated, the most notable editorial omission in the corpus.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "first fatalities in record parasitic outbreak",
+      "outlets": [
+        "Axios World", "BBC World", "Bol News", "CBC World", "Daily Wire",
+        "El Sol de Mexico", "France Info", "Globe and Mail", "Hindustan Times",
+        "RT", "Reuters (via Google News)", "South China Morning Post",
+        "Straits Times", "The Independent"
+      ],
+      "countries": [
+        "usa", "uk", "pakistan", "canada", "mexico", "france", "india",
+        "russia", "wire_services", "taiwan_hk", "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Two people have died in the Cyclospora outbreak in Michigan, state health officials announced Monday, the first deaths confirmed in the U.S. related to the microscopic parasite. The Michigan Department of Health and Human Services said both people had underlying health conditions that may have been impacted by the intestinal illness and dehydration.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The illness caused by parasitic infection that spreads through contaminated food or water is not generally life-threatening, health officials say.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "Deux personnes sont mortes dans l'Etat du Michigan après avoir contracté la cyclosporose. Les Etats-Unis sont en proie à une épidémie de cette infection intestinale, généralement non mortelle.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "CDC overwhelmed by record-scale outbreak",
+      "outlets": ["Axios World", "Globe and Mail", "RT"],
+      "countries": ["usa", "canada", "russia"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Weeks into the national crisis that's sickened thousands of people, federal authorities still don't know for certain where it's coming from or why.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "CDC is aware of more than 18,000 confirmed or suspected cases in current surge",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "The outbreak, which began in early May, has become the largest ever recorded in the country, with more than 18,000 confirmed or suspected cases, according to the latest figures from the Centers for Disease Control and Prevention (CDC). The actual number of infections is believed to be much higher because many cases remain undiagnosed. The outbreak has already far surpassed the previous record of around 4,700 cases, set in 2019.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "supply chain recall and source identification",
+      "outlets": ["RT", "Bol News", "Hindustan Times"],
+      "countries": ["russia", "pakistan", "india"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "The agency said the supplier implicated in the outbreak, Taylor Farms de Mexico, had removed all iceberg lettuce from the US market.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Bol News",
+          "country": "pakistan",
+          "quote": "Deaths highlight need to identify source of outbreak and prevent more people from becoming sick.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Cyclospora outbreak: 2 people die in Michigan; know symptoms, how to stay safe and more",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Mexican food supply chain implicated in US outbreak",
+      "outlets": ["RT"],
+      "countries": ["russia"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "The parasite is endemic to Mexico and other tropical and subtropical countries. There is no evidence that it can spread directly from person to person.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to name Taco Bell as the source restaurant chain and Taylor Farms de Mexico as the CDC-implicated supplier, while also establishing that the outbreak has surpassed the 2019 US record of 4,700 cases — the most complete epidemiological and supply-chain account in the corpus.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Only outlet to foreground the CDC's investigative failure — 'federal authorities still don't know for certain where it's coming from or why' — leading with regulatory uncertainty rather than the death count.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Headlines the story as 'The Lettuce Outbreak Just Took A Deadly Turn' — the only outlet to use sensational language emphasising the food-supply vector over the pathogen or the death count.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Covers the Michigan deaths entirely through the health-and-underlying-conditions angle with no mention of Taylor Farms de Mexico or Mexico's role as the source country for the parasite and the implicated supplier.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "France Info",
+      "country": "france",
+      "finding": "Uses the headline term 'diarrhées explosives' and notes the illness is 'généralement non mortelle' — framing the deaths as surprising given the ordinarily non-fatal nature of the infection.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Fourteen outlets across 11 countries converged on a near-identical HEALTH_SAFETY message: two deaths in Michigan, underlying conditions, not generally fatal. The significant outlier is RT, which provided the only comprehensive supply chain account naming Taco Bell and Taylor Farms de Mexico, while El Sol de Mexico simultaneously avoided any mention of Mexico's role as the implicated source country.",
+  "generated_at": "2026-08-04T10:51:24Z",
+  "model": "claude-sonnet-4-6"
+}
