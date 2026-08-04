@@ -1,0 +1,134 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L9ceb5a477a",
+  "cluster_id": 86,
+  "cluster_name": "Gunman kills three at In-N-Out Burger in Twin Falls Idaho",
+  "n_outlets": 9,
+  "n_countries": 8,
+  "n_articles": 14,
+  "salience_score": 2.383,
+  "event_summary": "On August 2, 2026, gunman Chad Williams (24) opened fire at an In-N-Out Burger in Twin Falls, Idaho, killing three people and wounding at least two before dying by a self-inflicted gunshot wound. Armed civilian Jordan Salinas and an off-duty trooper returned fire and helped subdue him.",
+  "tldr": "Nine outlets across eight countries covered this US mass shooting, but framing split sharply along ideological lines: the lone US conservative outlet (Daily Wire) recast the event as a self-defense vindication story celebrating an armed civilian 'hero,' while every international outlet — from CGTN to Malay Mail to RT — ran wire-style factual briefs without gun-rights subtext. The sharpest divergence was not East–West but between the US domestic framing of guns-as-protection and every other country's framing of guns-as-hazard. Only Hindustan Times (India) covered a distinct secondary story: the rapid spread of false identification of innocent community member Amer Mandzic on social media, and the police warning of legal consequences for harassment. RT's characterization of the scene as a 'chaotic shootout' at a 'burger joint' employed a sensationalist register absent from all other coverage. The Independent (UK) was the only outlet to center victim humanization, reporting that one murdered employee was working her first-ever job.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mass shooting at public fast-food venue",
+      "outlets": ["CGTN World", "Globe and Mail", "Malay Mail World", "RT", "Republic World"],
+      "countries": ["china", "canada", "vietnam_thai_my", "russia", "india"],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "At least three people were killed, and at least two others were injured in a shooting at an In-N-Out restaurant in Twin Falls, in the northwestern US state of Idaho, on Saturday, local officials said.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "A shooting at an In-N-Out Burger in southern Idaho resulted in multiple deaths and injuries. The shooter is also deceased, but their identity and motive are still unknown. Eyewitnesses reported chaotic scenes with gunfire and people fleeing for safety.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "shooter identified; motive probe; misinformation charges",
+      "outlets": ["Daily Wire", "Globe and Mail", "El Pais English", "Republic World", "Hindustan Times"],
+      "countries": ["usa", "canada", "spain", "india"],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Twin Falls Police on Sunday identified the lone suspect as 24-year-old Chad Williams, who authorities say took his own life after opening fire at ...",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Threats, harassment, or intimidation directed toward Mr. Mandzic or his family as a result of this false information may result in legal charges.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "armed civilian as hero; gun self-defense culture",
+      "outlets": ["Daily Wire", "El Pais English"],
+      "countries": ["usa", "spain"],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "The civilian hero who shot back at the Idaho In-N-Out gunman Chad Williams was identified over the weekend after using his self-defense training that he underwent after witnessing another mass shooting five years ago. Jordan Salinas, 35, exited his vehicle and began returning fire on Williams when he spotted the gunman after seeing a crowd of ...",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "Authorities confirmed that the armed citizen and an off-duty state trooper helped subdue the attacker, while the investigation continues in the absence of a motive behind the massacre",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "victim humanization and community harm",
+      "outlets": ["The Independent", "Hindustan Times"],
+      "countries": ["uk", "india"],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "In-N-Out employee murdered in mass shooting was working her first ever job, family say",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "a bystander who was shot while engaging with the gunman during a shooting at an In-N-Out in Twin Falls, Idaho.",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "The only outlet to label the armed civilian a 'civilian hero,' linking his self-defense training explicitly to a prior mass shooting he witnessed five years earlier — a narrative framing guns as preparatory self-protection, visible nowhere in international coverage.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "The only outlet to report the false online identification of Amer Mandzic and the police statement warning the public that harassment 'may result in legal charges' — a misinformation-and-community-harm angle entirely absent from other coverage.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Described the event as a 'chaotic shootout outside US burger joint' with '(VIDEOS)' in the headline — the only outlet to use 'shootout' (implying mutual exchange of fire from the start) and to tag the story for video spectacle, employing a sensationalist register foreign to all other coverage.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The only outlet to center victim humanization: reported that a murdered In-N-Out employee was working her first-ever job and 'fell in love' with it before being killed — a human-cost angle absent from all domestic and international coverage.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Captured early-hours investigative uncertainty, noting the shooter's identity and motive were still unknown at time of filing — reflecting the timeline before Chad Williams was officially identified.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "International coverage of the Twin Falls In-N-Out shooting was dominated by neutral wire-style reports across eight countries, while the lone US conservative outlet recast the identical events as a self-defense vindication story. The most analytically distinctive coverage came from Hindustan Times (India), which alone surfaced the social media false-identification crisis — a secondary story about misinformation and community harm that will likely outlast the initial shooting in public discourse.",
+  "generated_at": "2026-08-04T11:01:37Z",
+  "model": "claude-sonnet-4-6"
+}
