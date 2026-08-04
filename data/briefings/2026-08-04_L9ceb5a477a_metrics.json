@@ -1,0 +1,335 @@
+{
+  "date": "2026-08-04",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 11,
+  "buckets": [
+    "canada",
+    "china",
+    "india",
+    "russia",
+    "spain",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "china": 21,
+    "usa": 91,
+    "spain": 31,
+    "canada": 27,
+    "india": 275,
+    "vietnam_thai_my": 30,
+    "russia": 27,
+    "uk": 23
+  },
+  "pairwise_similarity": [
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.834
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.812
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.804
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.799
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.789
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.787
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.755
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.749
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.736
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.733
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.714
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.698
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.661
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.647
+    },
+    {
+      "a": "india",
+      "b": "spain",
+      "score": 0.634
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.633
+    },
+    {
+      "a": "canada",
+      "b": "spain",
+      "score": 0.622
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.62
+    },
+    {
+      "a": "china",
+      "b": "spain",
+      "score": 0.575
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.558
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.548
+    },
+    {
+      "a": "russia",
+      "b": "spain",
+      "score": 0.526
+    },
+    {
+      "a": "spain",
+      "b": "vietnam_thai_my",
+      "score": 0.509
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.503
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.498
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.497
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.489
+    },
+    {
+      "a": "spain",
+      "b": "uk",
+      "score": 0.369
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.562,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.653,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.673,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.72,
+      "n_tokens": 275
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.495,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.67,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.689,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.709,
+      "n_tokens": 21
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "china": [],
+    "usa": [
+      {
+        "term": "civilian",
+        "count": 3
+      },
+      {
+        "term": "defense",
+        "count": 3
+      },
+      {
+        "term": "training",
+        "count": 3
+      }
+    ],
+    "spain": [],
+    "canada": [],
+    "india": [
+      {
+        "term": "mandzic",
+        "count": 8
+      },
+      {
+        "term": "incident",
+        "count": 6
+      },
+      {
+        "term": "amer",
+        "count": 5
+      },
+      {
+        "term": "falsely",
+        "count": 5
+      },
+      {
+        "term": "pres",
+        "count": 5
+      },
+      {
+        "term": "involved",
+        "count": 5
+      },
+      {
+        "term": "accused",
+        "count": 4
+      },
+      {
+        "term": "identifying",
+        "count": 4
+      },
+      {
+        "term": "face",
+        "count": 4
+      },
+      {
+        "term": "threat",
+        "count": 3
+      },
+      {
+        "term": "harassment",
+        "count": 3
+      },
+      {
+        "term": "issued",
+        "count": 3
+      },
+      {
+        "term": "media",
+        "count": 3
+      },
+      {
+        "term": "department",
+        "count": 3
+      },
+      {
+        "term": "false",
+        "count": 3
+      },
+      {
+        "term": "individual",
+        "count": 3
+      },
+      {
+        "term": "information",
+        "count": 3
+      },
+      {
+        "term": "austin",
+        "count": 3
+      },
+      {
+        "term": "scott",
+        "count": 3
+      },
+      {
+        "term": "givesendgo",
+        "count": 3
+      },
+      {
+        "term": "southern",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "russia": [],
+    "uk": [
+      {
+        "term": "employee",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-04T10:36:32+00:00",
+  "meta_version": "10.0.3"
+}

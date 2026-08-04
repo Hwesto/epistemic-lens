@@ -1,0 +1,213 @@
+{
+  "date": "2026-08-04",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 6,
+  "n_articles": 12,
+  "buckets": [
+    "germany",
+    "italy",
+    "pakistan",
+    "south_korea",
+    "turkey",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "italy": 19,
+    "turkey": 30,
+    "germany": 222,
+    "pakistan": 39,
+    "south_korea": 194,
+    "vietnam_thai_my": 93
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.824
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.799
+    },
+    {
+      "a": "south_korea",
+      "b": "vietnam_thai_my",
+      "score": 0.786
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.734
+    },
+    {
+      "a": "germany",
+      "b": "south_korea",
+      "score": 0.7
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.673
+    },
+    {
+      "a": "south_korea",
+      "b": "turkey",
+      "score": 0.67
+    },
+    {
+      "a": "pakistan",
+      "b": "south_korea",
+      "score": 0.655
+    },
+    {
+      "a": "italy",
+      "b": "turkey",
+      "score": 0.641
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.623
+    },
+    {
+      "a": "italy",
+      "b": "south_korea",
+      "score": 0.608
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.584
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.579
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.51
+    },
+    {
+      "a": "italy",
+      "b": "pakistan",
+      "score": 0.484
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.642,
+      "n_tokens": 222
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.652,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.659,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.684,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.745,
+      "n_tokens": 93
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.566,
+      "n_tokens": 19
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "italy": [],
+    "turkey": [],
+    "germany": [
+      {
+        "term": "called",
+        "count": 3
+      },
+      {
+        "term": "country",
+        "count": 3
+      },
+      {
+        "term": "becoming",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "south_korea": [
+      {
+        "term": "herald",
+        "count": 6
+      },
+      {
+        "term": "emergency",
+        "count": 3
+      },
+      {
+        "term": "province",
+        "count": 3
+      },
+      {
+        "term": "metro",
+        "count": 3
+      },
+      {
+        "term": "scorching",
+        "count": 3
+      },
+      {
+        "term": "spread",
+        "count": 3
+      },
+      {
+        "term": "call",
+        "count": 3
+      },
+      {
+        "term": "disaster",
+        "count": 3
+      },
+      {
+        "term": "brac",
+        "count": 3
+      },
+      {
+        "term": "prolonged",
+        "count": 3
+      },
+      {
+        "term": "typhoon",
+        "count": 3
+      },
+      {
+        "term": "uncertainty",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-04T10:36:47+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,219 @@
+{
+  "date": "2026-08-04",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 6,
+  "n_articles": 14,
+  "buckets": [
+    "canada",
+    "india",
+    "turkey",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 434,
+    "canada": 86,
+    "turkey": 33,
+    "india": 28,
+    "vietnam_thai_my": 34,
+    "uk": 92
+  },
+  "pairwise_similarity": [
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.868
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.862
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.834
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.81
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.806
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.765
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.76
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.736
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.735
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.729
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.704
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.694
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.674
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.532
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.528
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.686,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.726,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.763,
+      "n_tokens": 92
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.79,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.798,
+      "n_tokens": 434
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.653,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "iran",
+        "count": 8
+      },
+      {
+        "term": "thom",
+        "count": 4
+      },
+      {
+        "term": "pave",
+        "count": 4
+      },
+      {
+        "term": "john",
+        "count": 3
+      },
+      {
+        "term": "fight",
+        "count": 3
+      },
+      {
+        "term": "reach",
+        "count": 3
+      },
+      {
+        "term": "billion",
+        "count": 3
+      },
+      {
+        "term": "back",
+        "count": 3
+      },
+      {
+        "term": "first",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "turkey": [
+      {
+        "term": "standoff",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "vietnam_thai_my": [
+      {
+        "term": "former",
+        "count": 3
+      },
+      {
+        "term": "personal",
+        "count": 3
+      },
+      {
+        "term": "lawyer",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "democrat",
+        "count": 4
+      },
+      {
+        "term": "slush",
+        "count": 3
+      },
+      {
+        "term": "expert",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-04T10:35:29+00:00",
+  "meta_version": "10.0.3"
+}

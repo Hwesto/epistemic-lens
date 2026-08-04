@@ -1,0 +1,327 @@
+{
+  "date": "2026-08-04",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 16,
+  "buckets": [
+    "australia_nz",
+    "canada",
+    "germany",
+    "india",
+    "opinion_magazines",
+    "pan_african",
+    "south_africa",
+    "uk",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "australia_nz": 36,
+    "pan_african": 68,
+    "uk": 28,
+    "canada": 99,
+    "vietnam_thai_my": 34,
+    "south_africa": 45,
+    "germany": 180,
+    "india": 38,
+    "opinion_magazines": 13
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.898
+    },
+    {
+      "a": "australia_nz",
+      "b": "canada",
+      "score": 0.897
+    },
+    {
+      "a": "australia_nz",
+      "b": "pan_african",
+      "score": 0.894
+    },
+    {
+      "a": "australia_nz",
+      "b": "germany",
+      "score": 0.881
+    },
+    {
+      "a": "germany",
+      "b": "pan_african",
+      "score": 0.881
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.875
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.836
+    },
+    {
+      "a": "canada",
+      "b": "south_africa",
+      "score": 0.833
+    },
+    {
+      "a": "germany",
+      "b": "south_africa",
+      "score": 0.833
+    },
+    {
+      "a": "india",
+      "b": "south_africa",
+      "score": 0.815
+    },
+    {
+      "a": "australia_nz",
+      "b": "south_africa",
+      "score": 0.812
+    },
+    {
+      "a": "australia_nz",
+      "b": "india",
+      "score": 0.804
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.803
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.802
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.795
+    },
+    {
+      "a": "pan_african",
+      "b": "south_africa",
+      "score": 0.795
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.787
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.782
+    },
+    {
+      "a": "australia_nz",
+      "b": "uk",
+      "score": 0.781
+    },
+    {
+      "a": "australia_nz",
+      "b": "vietnam_thai_my",
+      "score": 0.77
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.754
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.75
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.744
+    },
+    {
+      "a": "south_africa",
+      "b": "vietnam_thai_my",
+      "score": 0.744
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.741
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.719
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.708
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.686
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_african",
+      "score": 0.586
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.578
+    },
+    {
+      "a": "australia_nz",
+      "b": "opinion_magazines",
+      "score": 0.577
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.576
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "south_africa",
+      "score": 0.574
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.46
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.455
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.72,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.763,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.764,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.798,
+      "n_tokens": 99
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.802,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.803,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.823,
+      "n_tokens": 180
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.561,
+      "n_tokens": 13
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.721,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "australia_nz": [],
+    "pan_african": [
+      {
+        "term": "english",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "opponent",
+        "count": 3
+      },
+      {
+        "term": "operation",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "vietnam_thai_my": [],
+    "south_africa": [],
+    "germany": [
+      {
+        "term": "investoren",
+        "count": 5
+      },
+      {
+        "term": "nach",
+        "count": 4
+      },
+      {
+        "term": "investorenpläne",
+        "count": 3
+      },
+      {
+        "term": "germany",
+        "count": 3
+      },
+      {
+        "term": "happen",
+        "count": 3
+      },
+      {
+        "term": "droht",
+        "count": 3
+      },
+      {
+        "term": "rechtlichen",
+        "count": 3
+      },
+      {
+        "term": "schritten",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "opinion_magazines": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-04T10:36:01+00:00",
+  "meta_version": "10.0.3"
+}

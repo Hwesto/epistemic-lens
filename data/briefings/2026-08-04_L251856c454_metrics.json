@@ -1,0 +1,227 @@
+{
+  "date": "2026-08-04",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 13,
+  "buckets": [
+    "balkans",
+    "germany",
+    "hungary_central",
+    "italy",
+    "russia",
+    "uk",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "italy": 26,
+    "uk": 119,
+    "balkans": 28,
+    "germany": 72,
+    "hungary_central": 272,
+    "vietnam_thai_my": 56,
+    "russia": 60
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.807
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.777
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.776
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.77
+    },
+    {
+      "a": "germany",
+      "b": "hungary_central",
+      "score": 0.714
+    },
+    {
+      "a": "hungary_central",
+      "b": "uk",
+      "score": 0.712
+    },
+    {
+      "a": "balkans",
+      "b": "uk",
+      "score": 0.702
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.692
+    },
+    {
+      "a": "hungary_central",
+      "b": "vietnam_thai_my",
+      "score": 0.666
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.659
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.637
+    },
+    {
+      "a": "balkans",
+      "b": "russia",
+      "score": 0.636
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.607
+    },
+    {
+      "a": "balkans",
+      "b": "germany",
+      "score": 0.598
+    },
+    {
+      "a": "balkans",
+      "b": "vietnam_thai_my",
+      "score": 0.587
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.585
+    },
+    {
+      "a": "balkans",
+      "b": "italy",
+      "score": 0.583
+    },
+    {
+      "a": "italy",
+      "b": "russia",
+      "score": 0.569
+    },
+    {
+      "a": "hungary_central",
+      "b": "russia",
+      "score": 0.487
+    },
+    {
+      "a": "hungary_central",
+      "b": "italy",
+      "score": 0.427
+    },
+    {
+      "a": "balkans",
+      "b": "hungary_central",
+      "score": 0.406
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "hungary_central",
+      "mean_similarity": 0.569,
+      "n_tokens": 272
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.619,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.683,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.704,
+      "n_tokens": 72
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.72,
+      "n_tokens": 119
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.585,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.586,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "italy": [],
+    "uk": [
+      {
+        "term": "drought",
+        "count": 4
+      },
+      {
+        "term": "millimetr",
+        "count": 3
+      }
+    ],
+    "balkans": [],
+    "germany": [],
+    "hungary_central": [
+      {
+        "term": "slovak",
+        "count": 5
+      },
+      {
+        "term": "russian",
+        "count": 4
+      },
+      {
+        "term": "method",
+        "count": 3
+      },
+      {
+        "term": "where",
+        "count": 3
+      },
+      {
+        "term": "pledg",
+        "count": 3
+      },
+      {
+        "term": "help",
+        "count": 3
+      },
+      {
+        "term": "unprecedented",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "russia": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-04T10:35:49+00:00",
+  "meta_version": "10.0.3"
+}
