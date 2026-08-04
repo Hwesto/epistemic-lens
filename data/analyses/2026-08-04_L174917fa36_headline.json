@@ -1,0 +1,223 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L174917fa36",
+  "cluster_id": 167,
+  "cluster_name": "Hamas agrees to disarm under Trump plan as Israel raises objections",
+  "salience_score": 9.532,
+  "n_outlets": 20,
+  "n_countries": 16,
+  "n_articles": 25,
+  "tldr": "Headlines split across two dominant registers that map cleanly onto geopolitics: outlets in China, Russia, Iran, and Qatar lead with kill counts and Israeli strikes as the week's primary fact, while Western, Turkish, and pan-Arab outlets foreground the Netanyahu-Trump political friction over deal terms. The sequencing impasse — disarmament preconditions withdrawal — surfaces as a distinct third register in Israeli, Qatari, pan-African, and Hong Kong headlines, making the structural deadlock visible at the homepage layer. Tehran Times is the only outlet whose headline assigns explicit motive to Israeli strikes ('to quash Hamas's disarmament plan'), a causal claim absent even in pan-Arab coverage. Egypt Independent is the only outlet making Netanyahu's silence the headline event itself, framing the absence of a statement as deliberate political action.",
+  "event_summary": "Hamas agreed on July 31 to disarm and transfer weapons to a Palestinian governing committee under Trump's Board of Peace roadmap; Israel raised security concerns and continued airstrikes that killed dozens of Palestinians in the days following.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes continuing through deal announcement",
+      "outlets": [
+        "Al Jazeera English",
+        "CGTN Politics",
+        "CGTN World",
+        "Malay Mail World",
+        "RT",
+        "Tehran Times"
+      ],
+      "countries": [
+        "qatar",
+        "china",
+        "vietnam_thai_my",
+        "russia",
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Israel kills dozens in Gaza after Hamas disarmament deal",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Israeli strikes kill 18 in Gaza as truce talks remain",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Israel strikes Gaza hours after Trump announces",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "Israel intensifies Gaza killings to quash",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu-Trump friction over deal acceptance",
+      "outlets": [
+        "Axios World",
+        "CBC World",
+        "Daily Sabah",
+        "Egypt Independent",
+        "Globe and Mail",
+        "Middle East Eye",
+        "NPR World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "usa",
+        "canada",
+        "turkey",
+        "egypt",
+        "pan_arab",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "Netanyahu says he has ‘disagreements’ with Trump",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Egypt Independent",
+          "country": "egypt",
+          "quote": "Silence from Netanyahu and a weekend of deadly strikes",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Israel says it has 'serious security concerns'",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "regarding Hamas deal, strikes on Gaza continue",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "disarmament preconditions withdrawal",
+      "outlets": [
+        "AfricaNews",
+        "Al Jazeera English",
+        "Haaretz",
+        "South China Morning Post",
+        "The Conversation"
+      ],
+      "countries": [
+        "pan_african",
+        "qatar",
+        "israel",
+        "taiwan_hk",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Hamas agrees to completely disarm in plan",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "no Israeli withdrawal from Gaza before Hamas disarms",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Israel to start Gaza withdrawal only after Hamas disarmed",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Gaza withdrawal on Hamas disarmament",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US Board reassures Israel on sequencing",
+      "outlets": [
+        "Dawn",
+        "Malay Mail World",
+        "Straits Times"
+      ],
+      "countries": [
+        "pakistan",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "Board of Peace reassures Israel after Tel Aviv's objections",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Trump board reassures Israel after objections",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Board of Peace reassures Israel after objections",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Only headline in the corpus to assign explicit motive to Israeli strikes — 'to quash Hamas's disarmament plan' — treating the strikes as deliberate sabotage of the deal rather than parallel operations; this causal framing is absent even in pan-Arab outlets.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Egypt Independent",
+      "country": "egypt",
+      "finding": "Only headline making Netanyahu's three-day public silence the news event itself, framing the absence of a statement as a deliberate political act rather than a secondary detail; all other outlets headline the security concerns he eventually communicated.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "'Truce talks remain deadlocked' is the most sceptical headline characterisation by any non-hostile outlet on Aug 3 — directly contradicting deal-progress claims issued by the Board of Peace that same week.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline foregrounding the Gazan civilian perspective — 'Gazans say Trump's touting of plan jars with grim reality' — a lived-experience register absent from all 24 other headlines in the corpus.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "The Conversation",
+      "country": "opinion_magazines",
+      "finding": "Only headline casting doubt on the deal's viability via direct question — 'will Hamas actually disarm in Gaza?' — making scepticism about implementation surface-visible at the RSS/homepage layer.",
+      "signal_text_idx": 22
+    }
+  ],
+  "bottom_line": "At the headline layer, the corpus splits into two nearly equal halves: outlets in China, Russia, Iran, and Qatar lead with Israeli kill counts as the week's defining fact, while Western and pan-Arab outlets lead with Netanyahu-Trump political friction — with the sequencing deadlock (disarmament before withdrawal) most plainly stated in Israeli, Qatari, pan-African, and Hong Kong headlines.",
+  "generated_at": "2026-08-04T11:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
