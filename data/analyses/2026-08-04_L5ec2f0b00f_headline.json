@@ -1,0 +1,194 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L5ec2f0b00f",
+  "cluster_id": 175,
+  "cluster_name": "Ukraine drone campaign strikes Wildberries warehouses across Russia",
+  "salience_score": 9.479,
+  "n_outlets": 17,
+  "n_countries": 11,
+  "n_articles": 23,
+  "event_summary": "Ukrainian drones struck Wildberries warehouses near Moscow, St. Petersburg, and Tver on August 4, killing at least five people and injuring ten. Ukraine has targeted the e-commerce giant since July 18, claiming its warehouses supply drone components to Russia's military.",
+  "tldr": "Headlines across all eleven outlet buckets lead with drone-strike kill counts and warehouse fires, making SECURITY_DEFENSE the near-universal advertised frame at the homepage level. Only two outlets break from this register at the title level: Meduza (exiled Russian press) makes the economic dimension headline-visible by naming 215–280 billion rubles in seller losses, while The Independent deploys the ‘Russian Amazon’ consumer metaphor to signal Wildberries’ civilian-commercial character. RFE/RL is the sole outlet whose headline surfaces a policy frame, tying the strikes to Zelenskyy’s demand for faster Patriot deliveries. Kyiv Post is unique in framing Ukraine’s campaign as capacity degradation at the title level — naming a drone-development university and logistics hubs as targets — while Daily Sabah inverts the cluster’s dominant framing direction entirely, leading with Russia’s missile attack on Kyiv.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Drone strikes: kill counts and fires",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Anadolu Agency English",
+        "BBC World",
+        "Daily Sabah",
+        "Deutsche Welle English",
+        "France Info",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Moscow Times",
+        "RFE/RL (was Radio Farda)",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Independent",
+        "Times of India",
+        "Ukrainska Pravda English",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "wire_services",
+        "turkey",
+        "uk",
+        "germany",
+        "france",
+        "canada",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Ukrainian drone strikes on Russia kill at least six",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Drone strike kills at least 5 in Russia's Moscow region",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Five dead in Moscow region as Ukraine continues",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Ukraine drone strikes kill five near Moscow, Russia says",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Times of India",
+          "country": "india",
+          "quote": "Russia downs 320 drones: Six killed, warehouses damaged",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Commercial disruption; 'Russian Amazon'",
+      "outlets": [
+        "Meduza",
+        "The Independent"
+      ],
+      "countries": [
+        "russia",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "Forbes Russia: Wildberries sellers' losses from",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Kyiv's bombardment of 'Russian Amazon'",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Ukraine targets R&D + logistics capacity",
+      "outlets": [
+        "Kyiv Post"
+      ],
+      "countries": [
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Ukraine Strikes Russian Drone Development University",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Ukraine Strikes Wildberries Hubs Near Moscow, St. Petersburg",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Zelenskyy urges faster Patriot delivery",
+      "outlets": [
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Zelenskyy Urges Faster Patriot Deliveries",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "The only title in the cluster to foreground Russia's offensive strike on Kyiv ('Russia launches massive missile, drone attack on Kyiv, 9 dead') rather than Ukraine's Wildberries campaign, inverting the cluster's dominant framing direction at homepage level.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "The only headline to quantify the financial scale of the campaign in rubles ('Forbes Russia: Wildberries sellers’ losses… estimated at 215–280 billion rubles'), making the economic dimension of the crisis headline-visible where every other outlet reduces the story to military action.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "The only title to explicitly flag evidentiary uncertainty about Ukraine’s justification for targeting Wildberries — 'Ukraine says online retail giant Wildberries helps supply Russia’s military. Meduza examines the evidence.' — surfacing the legitimacy dispute at homepage level.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Times of India",
+      "country": "india",
+      "finding": "The only title to lead with Russia’s air-defense performance ('Russia downs 320 drones') rather than Ukraine’s strike operation, framing Russia as the active defensive agent and subordinating the kill count to the air-defense achievement.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The only outlet to deploy the ‘Russian Amazon’ consumer metaphor in its headline, making Wildberries’ civilian-commercial identity — and the dual-use tension at the heart of the story — explicitly homepage-visible.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "The only outlet to name a Russian drone-development university as a strike target in its headline, expanding the headline-visible scope of Ukraine’s campaign beyond commercial logistics to military R&D infrastructure.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "The headline layer compresses a multi-dimensional story into a near-uniform SECURITY_DEFENSE register — kill counts and warehouse fires dominate homepage framing across all eleven outlet buckets — while the economic fallout, the legitimacy dispute over targeting a civilian retailer, and Ukraine’s capacity-degradation rationale remain almost entirely headline-invisible, surfaced only by Meduza’s rubles figure and The Independent’s ‘Russian Amazon’ label.",
+  "generated_at": "2026-08-04T11:29:06Z",
+  "model": "claude-haiku-4-5"
+}
