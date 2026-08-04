@@ -1,0 +1,201 @@
+{
+  "story_key": "L5107a4c65d",
+  "date": "2026-08-04",
+  "n_buckets": 9,
+  "n_articles": 16,
+  "tldr": "Across all nine buckets, headlines frame the FIFA crisis as a political implosion: Infantino's failed bid to sell World Cup equity to private investors has triggered a no-confidence revolt, with UEFA and major federations threatening legal action, withdrawing re-election support, and warning of 'non co-operation' unless he steps down.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "no-confidence; Infantino's job at stake",
+      "buckets": [
+        "australia_nz",
+        "pan_african",
+        "uk",
+        "vietnam_thai_my",
+        "south_africa",
+        "india",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "scrambles for FIFA presidency support",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "UEFA declares no confidence in FIFA leadership",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Infantino opponents threaten 'non co-operation'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Infantino fights to hold onto power after FIFA stake",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Infantino facing job battle over botched World Cup",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Infantino seeks Trump's help amid pressure to resign",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "What happens next for Infantino and FIFA?",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "UEFA threatens lawsuits; evidence hold",
+      "buckets": [
+        "australia_nz",
+        "canada",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "Infantino could face UEFA lawsuit",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "UEFA warns FIFA of legal action",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "UEFA droht FIFA-Boss Infantino mit rechtlichen Schritten",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "failed World Cup equity privatisation",
+      "buckets": [
+        "canada",
+        "vietnam_thai_my",
+        "south_africa",
+        "germany",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "failed World Cup equity plan",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "FIFA stake sale fiasco",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "botched World Cup sale plan",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Private Investoren für die WM: Geht die FIFA zu weit?",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "The World Cup Is Not for Sale",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.72,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.763,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.764,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.798,
+      "n_tokens": 99
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.802,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.803,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.823,
+      "n_tokens": 180
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "The only headline to name Trump as Infantino's potential political ally, importing US presidential politics into what all other outlets frame as a purely football-governance crisis.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "The only headline to take a normative stance ('The World Cup Is Not for Sale') rather than reporting events — editorially framing commodification as categorically wrong, a register absent from every news-outlet title.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Daily Maverick",
+      "bucket": "south_africa",
+      "finding": "The only headline to deploy all-caps typography ('NO CONFIDENCE') as a standalone lede before the colon, amplifying urgency through typographic register that no other outlet's title uses.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "At the headline layer, FIFA's crisis is framed as a political power struggle — Infantino's presidency in jeopardy — with the failed commercial sale treated as the trigger and UEFA's legal threats as the mechanism, while the normative question of World Cup commodification is confined to a single opinion outlet.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
