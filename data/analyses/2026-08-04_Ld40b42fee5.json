@@ -1,0 +1,164 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "Ld40b42fee5",
+  "cluster_id": 121,
+  "cluster_name": "South Korea record heatwave kills 16 with Seoul-wide alert",
+  "salience_score": 2.298,
+  "n_outlets": 8,
+  "n_countries": 6,
+  "n_articles": 18,
+  "event_summary": "South Korea hit 42.5°C in Yangsan on August 2, its highest temperature in 122 years, as 16 people died and 2,025 suffered heat illnesses between May 15 and August 2. On August 4, Seoul received its first-ever citywide highest-level heatwave alert and President Lee declared a national disaster.",
+  "tldr": "South Korea's record-breaking heatwave draws near-uniform health-crisis framing across six countries, with virtually no contrarian coverage on severity. The sharpest editorial divergence is domestic-vs-international: South Korean outlets (KBS World, Yonhap, Korea Herald) lead on administrative warnings and political response, while international outlets (Deutsche Welle, Malay Mail) more explicitly invoke climate change as the systemic driver. A second, quieter story is embedded in the same cluster: Italy's fourth heatwave of 2026, with 23 of 27 major cities on red alert, appears only via ANSA — treated as a separate national event with no cross-continent synthesis. South Korea's Climate Ministry announcement of industrial electricity bill revisions, covered only by Yonhap, is the sole economic-regulatory angle and is entirely absent from international coverage.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "mass heat casualties and life-threatening public warnings",
+      "outlets": ["Anadolu Agency English", "Deutsche Welle English", "Geo News English", "KBS World", "Korea Herald (via Google News)", "Malay Mail World", "Yonhap News"],
+      "countries": ["turkey", "germany", "pakistan", "south_korea", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Between May 15 and and August 2 a total of 2,025 people have suffered heat-related illnesses, of which 16 people have died, a ministry statement said.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Heat wave death toll in South Korea rises to 16 as extreme temperatures persist",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "“Extreme, life-threatening heat is forecast,” the weather agency said in a statement today.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "national crisis system overhaul and heat governance",
+      "outlets": ["Deutsche Welle English", "Korea Herald (via Google News)", "Yonhap News"],
+      "countries": ["germany", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "\"We need to make efforts for a fundamental overhaul of the national crisis system, since this extreme weather is becoming normal,\" President Lee said at a cabinet meeting, where he urged officials to accelerate measures to protect the daily lives of people.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "Climate ministry to revise industrial electricity bills\n\nSEOUL, Aug. 4 (Yonhap) -- The Ministry of Climate, Energy and Environment said T...",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "AC demand strain and cooling center deployment",
+      "outlets": ["Deutsche Welle English"],
+      "countries": ["germany"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "He also called for inspections of power systems as demand for air conditioning rises.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The city has also designated about 4,000 public facilities as cooling centers.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential declaration of national disaster",
+      "outlets": ["Korea Herald (via Google News)", "Deutsche Welle English"],
+      "countries": ["south_korea", "germany"],
+      "evidence": [
+        {
+          "outlet": "Korea Herald (via Google News)",
+          "country": "south_korea",
+          "quote": "All of Seoul under highest heat alert, as President Lee calls heat wave a national disaster - The Korea Herald\n\nAll of Seoul under highest heat alert, as President Lee calls heat wave a national disaster The Korea Herald",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "President Lee Jae Myung called on officials to take prompt action as extreme weather conditions became \"normal.\" Authorities extended their first-ever heat wave warning for all of Seoul on Tuesday.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Seoul metro daily disruption for 25M residents",
+      "outlets": ["Deutsche Welle English", "Malay Mail World", "KBS World"],
+      "countries": ["germany", "vietnam_thai_my", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "While Seoul has a population of 9.6 million people, the wider metropolitan area is home to more than 25 million residents, which is about half of the country's population.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "The whole of Seoul was under the highest-level “severe heatwave warning” alert today, with temperatures forecast to soar again close to 40 degrees Celsius.",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Deutsche Welle reports Japan simultaneously experienced 'cruelly hot days' with three lions dying at Tokyo's Tama Zoo from suspected heatstroke, yet no Japanese outlet appears in this cluster — suggesting Japanese coverage treated their domestic heat crisis as a separate story rather than part of a regional pattern."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Only outlet covering Italy's simultaneous heatwave — the fourth of 2026, with 23 of 27 major cities on red alert. Its presence in the same cluster as South Korea's crisis suggests embedding proximity, but no cross-country synthesis appears in any outlet.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only outlet reporting the Climate Ministry's move to revise industrial electricity billing amid heatwave-driven demand spikes — an economic regulatory angle entirely absent from all international coverage.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Korea Herald (via Google News)",
+      "country": "south_korea",
+      "finding": "Only outlet flagging a potential typhoon as introducing uncertainty into the prolonged heat wave forecast, adding a compound weather-risk angle not picked up by any other outlet.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Only outlet to explicitly invoke climate science ('Scientists have warned that extreme weather events like heat waves are becoming increasingly frequent and more intense as a result of climate change') and the only outlet to mention Japan's simultaneous heat crisis in the same article.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Leads with the record-temperature angle (42.5°C, highest since 1904) rather than the death toll, foregrounding the climate-record milestone over the human casualty count — the only non-Korean outlet to take this angle.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "South Korea's August 2026 heatwave — a 122-year temperature record, 16 deaths, and the country's first-ever Seoul-wide highest-level alert — is covered with near-consensus health-crisis framing across six countries, leaving almost no analytical divergence in the corpus. The key editorial gap is between domestic outlets that foreground administrative and political response and international outlets that embed the event in a climate-change frame, while Italy's concurrent fourth heatwave of the year sits in the same cluster unconnected, a symptom of global heat events being narrated as separate national stories.",
+  "generated_at": "2026-08-04T07:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
