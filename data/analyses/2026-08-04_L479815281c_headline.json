@@ -1,0 +1,83 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L479815281c",
+  "cluster_id": 110,
+  "cluster_name": "Michigan reports first two deaths in US Cyclospora outbreak",
+  "salience_score": 5.617,
+  "n_outlets": 14,
+  "n_countries": 11,
+  "n_articles": 16,
+  "tldr": "The headline layer is overwhelmingly locked on a single HEALTH_SAFETY milestone framing — first US deaths in the cyclospora outbreak — with near-identical wording across all 11 geographic buckets. The one substantive headline divergence is tonal rather than factual: BBC World, France Info, The Independent, and one Hindustan Times article all use vivid symptom language ('explosive diarrhoea / diarrhées explosives / explosive diarrhea'), while wire-service and neutral outlets favour 'cyclosporiasis' or 'diarrhea-causing parasite.' Daily Wire abandons pathogen-first framing entirely, naming the story by food vector ('lettuce outbreak') and using dramatising language ('deadly turn'). The record-breaking scale of the outbreak (18,000+ cases), the CDC's investigative uncertainty, and Taylor Farms de Mexico's supply-chain role — all prominent in body text — are completely invisible in every homepage headline.",
+  "event_summary": "Two people died in Michigan from Cyclospora on August 4, 2026, the first US fatalities in a multistate outbreak of over 18,000 cases ongoing since May.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "first deaths; diarrhea/parasite outbreak milestone",
+      "outlets": [
+        "Axios World", "BBC World", "Bol News", "CBC World", "Daily Wire",
+        "El Sol de Mexico", "France Info", "Globe and Mail", "Hindustan Times",
+        "RT", "Reuters (via Google News)", "South China Morning Post",
+        "Straits Times", "The Independent"
+      ],
+      "countries": [
+        "usa", "uk", "pakistan", "canada", "mexico", "france", "india",
+        "russia", "wire_services", "taiwan_hk", "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Cyclospora outbreak causes first two deaths",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "US reports first two deaths linked to 'explosive diarrhoea'",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "épidémie de \"diarrhées explosives\" fait deux premiers morts",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "reader advisory: symptoms and prevention",
+      "outlets": ["Hindustan Times"],
+      "countries": ["india"],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "know symptoms, how to stay safe and more",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "The only headline to name the food vector ('The Lettuce Outbreak') rather than the pathogen or the Michigan milestone, and to use dramatising language ('Just Took A Deadly Turn') — converting the epidemiological story into a food-crisis narrative at homepage level.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "The only outlet to surface a reader-advisory angle in the headline itself ('know symptoms, how to stay safe and more'), adding a POLICY_PRESCRIPTION register to the milestone framing that no other headline in the corpus signals.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "At the headline layer, all 11 geographic buckets converge on a single HEALTH_SAFETY milestone — first deaths in the cyclospora outbreak — with variation confined to whether outlets used visceral symptom language ('explosive diarrhea/diarrhoea') or neutral clinical terms ('cyclosporiasis'). The record-breaking outbreak scale, the CDC's investigative uncertainty, and the implicated Mexican food supplier — all prominent in body text — are entirely absent from every homepage headline.",
+  "generated_at": "2026-08-04T11:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
