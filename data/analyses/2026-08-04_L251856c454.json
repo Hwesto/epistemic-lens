@@ -1,0 +1,218 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L251856c454",
+  "cluster_id": 91,
+  "cluster_name": "Danube drought forces shutdown of Romania and Hungary nuclear plants",
+  "salience_score": 2.904,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 13,
+  "event_summary": "Record-low Danube levels driven by a severe European heatwave forced Hungary's Paks nuclear plant offline and Romania's Cernavoda to shut two reactors; Romania's military blasted rocks to restore cooling-water flow, and both governments urged citizens to cut electricity use.",
+  "tldr": "Hungary Today (Pro-Fidesz) seized on the crisis to amplify Russian state-media mockery of newly elected Prime Minister Péter Magyar, whose pre-election attacks on Rosatom now sit awkwardly against his managing an emergency at the Russian-built Paks plant. Russia's RT conspicuously sidestepped the energy-security story entirely, instead leading with sunken Nazi warships and mammoth bones revealed by the receding Danube — the only outlet in the cluster to avoid the nuclear-shutdown angle. Western and regional outlets (BBC, Deutsche Welle, Guardian, Sky News, Balkan Insight, Straits Times) uniformly covered the event as an acute energy-infrastructure emergency, with Balkan Insight the sole voice to name climate change and historic mismanagement as twin root causes. Slovak PM Robert Fico's immediate solidarity pledge — reported only by Hungary Today — signals early diplomatic ripple effects across Central Europe.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "cooling-water scarcity at nuclear plants",
+      "outlets": [
+        "Deutsche Welle English",
+        "Hungary Today",
+        "The Guardian World",
+        "Sky News UK",
+        "Straits Times",
+        "Malay Mail World",
+        "ANSA Italian (Mondo)"
+      ],
+      "countries": ["germany", "hungary_central", "uk", "vietnam_thai_my", "italy"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Hungary's Paks nuclear power plant was operating at about 10% of capacity because of a lack of cooling river water. In Romania, the military blew up a rock outcrop in a bid to improve water flow to the Cernavoda plant.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Hungary Today",
+          "country": "hungary_central",
+          "quote": "Energy officials simply have no other choice, as the water level of the Danube—whose waters are used as a natural coolant—has dropped to critically low levels.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "PM Péter Magyar says country nearly forced into decision as extreme heat and low water levels in Danube pose challenges in region",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "nuclear infrastructure emergency",
+      "outlets": [
+        "Sky News UK",
+        "Deutsche Welle English",
+        "Malay Mail World",
+        "ANSA Italian (Mondo)",
+        "Straits Times"
+      ],
+      "countries": ["uk", "germany", "vietnam_thai_my", "italy"],
+      "evidence": [
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "European countries on brink of energy emergency amid record-low water and heatwaves",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Record-low water levels on the Danube forced the Paks plant offline, leaving Hungary facing a potential power crunch. In neighboring Serbia, energy production at two hydroelectric plants has also been reduced.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "ANSA Italian (Mondo)",
+          "country": "italy",
+          "quote": "Romania l'esercito fa saltare roccia nel Danubio per l'acqua alla centrale nucleare\n\nDopo che la siccità ha costretto a spegnere il reattore 1 dell'impianto di Cernavoda",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "transport and electricity output losses",
+      "outlets": ["BBC World", "Balkan Insight", "Hungary Today"],
+      "countries": ["uk", "balkans", "hungary_central"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Low water levels in the Rhine, Danube and Po have curtailed the transport of goods and reduced electricity output.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Record-low water levels in the river – blamed on climate change and historic mismanagement – are affecting agriculture, shipping and energy production.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hungary Today",
+          "country": "hungary_central",
+          "quote": "The head of state is urging his fellow citizens to voluntarily minimize consumption.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Magyar anti-Rosatom stance vs. energy crisis",
+      "outlets": ["Hungary Today", "The Guardian World"],
+      "countries": ["hungary_central", "uk"],
+      "evidence": [
+        {
+          "outlet": "Hungary Today",
+          "country": "hungary_central",
+          "quote": "Modernizing the Russian-built plant is very expensive indeed, but it is dwarfed by the consequences of not having it, writes the Russian outlet, Ria Novosti.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "the water levels started rising again as of this morning",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "regional solidarity and Russian media framing",
+      "outlets": ["Hungary Today", "RT"],
+      "countries": ["hungary_central", "russia"],
+      "evidence": [
+        {
+          "outlet": "Hungary Today",
+          "country": "hungary_central",
+          "quote": "Robert Fico is closely following recent events in Hungary and immediately met with officials from the Slovak energy sector",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "A severe heatwave in Europe has driven Rhine and Danube to record lows, cutting power output and disrupting key supply routes",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "historical artefacts revealed by receding water",
+      "outlets": ["RT"],
+      "countries": ["russia"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Water levels in the Danube River have reached record lows, revealing relics of the past ranging from shipwrecks to mammoth bones",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "France operates Europe's largest nuclear fleet and faced analogous river-cooling constraints in 2022; no French outlet appears in this cluster despite the direct relevance."
+    },
+    {
+      "country": "austria",
+      "what_they_covered_instead": "Austria is a Danube riparian state and a vocal opponent of nuclear power in Central Europe; its absence from coverage of a Danube-caused nuclear emergency is editorially notable."
+    },
+    {
+      "country": "serbia",
+      "what_they_covered_instead": "Deutsche Welle noted reduced hydroelectric production at two Serbian plants, but no Serbian outlet covered the regional energy crisis."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hungary Today",
+      "country": "hungary_central",
+      "finding": "Only outlet to relay Ria Novosti mockery of PM Magyar's pre-election anti-Rosatom stance, framing the energy crisis as vindication of the former Orban government's Russian nuclear deals.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to sidestep the nuclear energy-security story entirely, leading instead with sunken Nazi warships and mammoth bones revealed by the receding Danube.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Balkan Insight",
+      "country": "balkans",
+      "finding": "Only outlet to explicitly name both climate change and historic mismanagement as causes of the Danube's record lows, and the only one to foreground agricultural impacts alongside energy.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Hungary Today",
+      "country": "hungary_central",
+      "finding": "Only outlet to cover Slovak PM Robert Fico's immediate solidarity pledge and meetings with Slovak energy officials in response to Hungary's declared energy emergency.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Hungary Today",
+      "country": "hungary_central",
+      "finding": "Sole source to quantify the outage as a loss of 40% of Hungary's generation capacity (2,000 MWh) from shutdown of four VVER-440 reactors.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to report PM Magyar's statement that the Paks plant was just millimetres away from shutdown and that the country faced its most difficult and critical night.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A severe European heatwave drove the Danube to record lows, triggering nuclear plant shutdowns in both Hungary and Romania and compelling Romania's military to blast rocks to restore reactor cooling water. The sharpest editorial divergence ran within the cluster rather than between blocs: Hungary's pro-government press weaponized the crisis against PM Magyar's anti-Russian-nuclear history while Russia's RT buried the energy story beneath artefacts emerging from the riverbed.",
+  "generated_at": "2026-08-04T10:40:34Z",
+  "model": "claude-sonnet-4-6"
+}
