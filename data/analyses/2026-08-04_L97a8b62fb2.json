@@ -1,0 +1,186 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-04",
+  "lineage_id": "L97a8b62fb2",
+  "cluster_id": 79,
+  "cluster_name": "Michigan Democratic Senate primary pits El-Sayed against AIPAC-backed Stevens",
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 13,
+  "salience_score": 3.734,
+  "event_summary": "Michigan Democrats voted Tuesday in a Senate primary between progressive Abdul El-Sayed and establishment-backed Haley Stevens, with AIPAC spending roughly $30 million to back Stevens. The winner faces Republican Mike Rogers in November for the seat being vacated by Senator Gary Peters.",
+  "tldr": "The most striking feature of this US state primary is its international footprint: outlets from Israel, France, Kenya, Qatar, and the UK all tracked the Michigan Democratic Senate race, drawn almost entirely by the Israel-Gaza subtext embedded in the AIPAC-vs-El-Sayed contest. AIPAC's approximately $30 million investment — described as the largest-ever in a Democratic congressional primary — functions as the cluster's organizing fact, cited across outlets from wire services to The Intercept to Breitbart. Haaretz, an Israeli outlet, reports that Tuesday's races could surface four additional candidates calling Israel's Gaza actions genocide and demanding an end to US aid, treating Michigan as the leading edge of a broader US political shift. Breitbart and The Intercept both cite the same AIPAC spending figure but embed it in entirely opposite narratives: Breitbart focuses on the pool-party-and-streamer optics of El-Sayed's campaign close, while The Intercept frames the spending as the engine of Islamophobic attack advertising.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "progressive vs establishment proxy war",
+      "outlets": [
+        "Axios World",
+        "Standard Kenya World",
+        "Al Jazeera English",
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "The Guardian World",
+        "The New Yorker",
+        "Breitbart"
+      ],
+      "countries": ["usa", "kenya", "qatar", "wire_services", "france", "uk", "opinion_magazines"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "A win by Abdul El-Sayed in the swing state would turbocharge the party's left flank and validate establishment fears about the party's direction.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "US Democrats vote Tuesday in their marquee primary in Michigan, choosing between a left-wing insurgent and an establishment-backed congresswoman in a contest that has become a proxy war over Israel, electability and the future of the national party.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The New Yorker",
+          "country": "opinion_magazines",
+          "quote": "The Michigan Senate primary has turned into a referendum on a word that has never had a fixed meaning.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "AIPAC record spending reshaping Democratic primary",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "The Intercept",
+        "Haaretz",
+        "Standard Kenya World",
+        "Breitbart"
+      ],
+      "countries": ["wire_services", "france", "usa", "israel", "kenya"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "pro-Israel lobby AIPAC spending some $30 million on the race",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Intercept",
+          "country": "usa",
+          "quote": "AIPAC has spent nearly $30 million against the Michigan Democratic Senate candidate, fueling ads that paint him as a terrorist sympathizer.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Tuesday's races in Michigan and Missouri could find four more candidates who believe Israel's actions in Gaza were a genocide and call for an end to US aid to Israel",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Medicare for All, ICE abolition, Israel aid conditionality",
+      "outlets": ["Breitbart", "Standard Kenya World"],
+      "countries": ["usa", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "The former Wayne County health director has run on abolishing Immigration and Customs Enforcement and passing Medicare for All.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Haley Stevens, a four-term lawmaker from the Detroit suburbs, has built her campaign around experience, manufacturing and electability.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Muslim faith as progressive political motivation",
+      "outlets": ["Religion News Service"],
+      "countries": ["religious_press"],
+      "evidence": [
+        {
+          "outlet": "Religion News Service",
+          "country": "religious_press",
+          "quote": "Though there was no shortage of levity, a sense of urgency filled the Detroit meeting room as Abdul El-Sayed, a former gubernatorial candidate who is running as a Democrat for the U.S. Senate in Michigan, began speaking about how his Muslim faith informs his progressive views.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Islamophobic attack ads against Muslim candidate",
+      "outlets": ["The Intercept"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "The Intercept",
+          "country": "usa",
+          "quote": "AIPAC has spent nearly $30 million against the Michigan Democratic Senate candidate, fueling ads that paint him as a terrorist sympathizer.",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "germany",
+      "what_they_covered_instead": "German transatlantic-focused outlets are absent despite sustained German civil-society debate about AIPAC's influence in US elections; German press likely covered EU political developments or the Gaza conflict directly."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only outlet to frame the campaign's final hours through the pool party and Hasan Piker's attendance, casting El-Sayed's progressive coalition as a liability rather than an asset heading into November.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Religion News Service",
+      "country": "religious_press",
+      "finding": "Only outlet to foreground El-Sayed's Muslim faith as the motivating force behind his progressive platform, treating the primary as a story about religion-informed politics rather than party factionalism or PAC spending.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "An Israeli outlet documenting the emergence of four additional US candidates across Michigan and Missouri who call Israel's Gaza actions genocide and demand an end to US aid, treating Michigan as the leading edge of a broader US political realignment on Israel policy.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The New Yorker",
+      "country": "opinion_magazines",
+      "finding": "Frames the entire race as a philosophical referendum on the definition of 'moderate' in the Democratic Party, elevating the contest from electoral horse-race to conceptual terrain about party identity.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only French-language outlet in the cluster; positions the race for European readers as fundamentally about intra-party divisions on Israel rather than a contest over progressive vs establishment dynamics.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Minimalist framing — 'a Democratic Senate primary that could reshape the party' — avoids the Israel and AIPAC dimension entirely, noteworthy given Al Jazeera's sustained editorial focus on Gaza elsewhere in its coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Michigan primary mentioned only as an upcoming story within a live blog led by Trump's refusal to call for Rep. Max Miller's resignation over abuse allegations, subordinating the primary to Trump-era Republican political drama.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A US state Senate primary has drawn coverage from nine countries primarily because a record $30 million AIPAC intervention fused party-direction, pro-Israel foreign policy influence, and Muslim-American identity politics into a single race. International press — from Israeli Haaretz to Kenyan Standard to French AFP — treats Michigan as a leading indicator of whether organized pro-Israel money can contain the Democratic Party's leftward drift on Gaza policy.",
+  "generated_at": "2026-08-04T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
