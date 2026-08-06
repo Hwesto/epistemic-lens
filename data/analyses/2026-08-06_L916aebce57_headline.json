@@ -1,0 +1,93 @@
+{
+  "story_key": "L916aebce57",
+  "date": "2026-08-06",
+  "n_buckets": 4,
+  "n_articles": 11,
+  "tldr": "Headline coverage fragments across four unrelated stories in the Spanish-language press: the on-camera murder of Mexican influencer César Gastélum, a SpaceX Falcon 9 upper stage crashing into the Moon, a cyclosporiasis health alert in Mexico, and the Argentine ruling coalition's failure to advance land legislation.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Influencer killed on livestream",
+      "buckets": ["mexico", "colombia_ven_peru"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "¿Qué le pasó a César Gastélum?",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "influencer asesinado mientras transmitía en vivo en México",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "SpaceX debris craters the Moon",
+      "buckets": ["spain"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "ABC.es",
+          "quote": "cohete de Elon Musk impactase contra su superficie",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "cohete perdido de Elon Musk: sonda coreana capta el cráter",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Cyclosporiasis cases confirmed in Mexico",
+      "buckets": ["mexico"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "Secretaría de Salud confirma 33 casos de ciclosporiasis",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Argentine government loses land chapter",
+      "buckets": ["argentina_chile"],
+      "evidence": [
+        {
+          "bucket": "argentina_chile",
+          "outlet": "La Nacion AR",
+          "quote": "El Gobierno se quedó sin el capítulo de tierras",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "colombia_ven_peru", "mean_similarity": 0.466, "n_tokens": 39},
+    {"bucket": "spain", "mean_similarity": 0.485, "n_tokens": 151},
+    {"bucket": "argentina_chile", "mean_similarity": 0.514, "n_tokens": 81},
+    {"bucket": "mexico", "mean_similarity": 0.564, "n_tokens": 104}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "bucket": "mexico",
+      "outlet": "El Financiero",
+      "finding": "Instead of naming the murder directly, the headline leads with a mystery question and a verbatim fear quote from viewers ('Esos chavalos me dan miedo'), burying the homicide in tabloid narrative — the only outlet to omit 'asesinado' or any equivalent from its title.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The headline layer of this cluster advertises no coherent story: Spanish outlets foreground a Moon-cratering space accident, Mexican outlets split between an on-camera murder and a disease alert, and Argentine press leads with a political defeat — four unrelated stories cohabiting a single cluster.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
