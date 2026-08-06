@@ -1,0 +1,173 @@
+{
+  "story_key": "L591d018221",
+  "date": "2026-08-06",
+  "n_buckets": 11,
+  "n_articles": 15,
+  "tldr": "Headlines across 11 country-buckets universally foreground Israel's retaliatory airstrikes on southern Lebanon and the deaths of two Israeli soldiers; Germany and Israeli outlets add a distinct legal framing foregrounding Hezbollah's ceasefire violation as justification, while wire services, Singapore/Vietnam, and India keep U.S.-mediated Rome talks in the headline as a contrasting backdrop to the violence.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "IDF strikes & cross-border fatalities",
+      "buckets": ["china", "pakistan", "turkey", "uk", "pan_arab", "russia"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "IDF begins targeted strikes in southern Lebanon",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Two Israeli soldiers killed in Lebanon",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "2 Israeli soldiers killed in explosive device blast",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Israel strikes south Lebanon after two soldiers killed",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israeli army escalates strikes in south Lebanon",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israel carries out heaviest bombardment of Lebanon",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Hezbollah ceasefire violation cited",
+      "buckets": ["germany", "israel"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "accuses Hezbollah of 'blatant' ceasefire violation",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "IDF cites Hezbollah cease-fire violation",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "in retaliation for Hezbollah ceasefire violations",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-mediated Rome talks concurrent",
+      "buckets": ["wire_services", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "talks continue in Rome",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "talks continue in Rome",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "amid ongoing talks in Rome",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "360K Lebanese still displaced",
+      "buckets": ["israel"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "More than 360,000 Lebanese remain displaced",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.657,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.696,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.714,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.728,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.733,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.76,
+      "n_tokens": 111
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline in the corpus to frame the strikes using an intensity superlative — 'heaviest bombardment of Lebanon since June truce' — foregrounding scale and historical comparison rather than the soldier-death trigger or ceasefire-violation legal rationale used by all other outlets.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Only outlet to devote a standalone headline to civilian displacement — '360,000 Lebanese remain displaced' — absent from all international outlets including UK liberal broadsheets, making the humanitarian scope of the conflict invisible at the headline layer except within Israeli domestic coverage.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "The only headline to adopt IDF-attributed language ('targeted strikes') without naming any trigger — no soldier deaths, no ceasefire violation, no diplomatic context — presenting the operation as an unprovoked opening action rather than a retaliation.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "At the headline layer, the dominant advertised story is Israeli retaliatory strikes following soldier deaths, with the Rome peace talks appearing as a pointed ironic counterpoint rather than a main narrative — a juxtaposition that recurs across wire services, Singapore, and India but is absent from the more militarily-focused UK, pan-Arab, and Russian headlines.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
