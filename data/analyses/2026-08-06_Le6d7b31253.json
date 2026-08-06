@@ -1,0 +1,190 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "Le6d7b31253",
+  "cluster_id": 66,
+  "cluster_name": "Nigeria rescues 308 kidnap victims in joint security operation",
+  "salience_score": 2.681,
+  "n_outlets": 11,
+  "n_countries": 7,
+  "n_articles": 12,
+  "event_summary": "Nigerian security forces rescued 308 people abducted in Kwara and Niger states in what President Tinubu called the country's largest single-day rescue operation. Those freed included 163 villagers seized in a February attack on the Woro community in Kwara State.",
+  "tldr": "International wire services and UK outlets converge on the record scale — '308 freed, largest ever single-day rescue' — while Nigerian domestic press focuses on partisan credit-claiming. BBC Africa is the only outlet to attribute the Woro attack to Boko Haram, cite Amnesty International's documentation of victims found bound with throats slit, and note the jihadists' demand that villagers renounce the Nigerian government and constitution. Vanguard alone reports the rescue concluded a six-month operation led by the Office of the National Security Adviser, framing it as an extended intelligence effort rather than a single dramatic event. Concerns about kidnapping violence spreading beyond Nigeria's traditional northern conflict zones into north-central and southern areas appear in AllAfrica and BBC Africa but are absent from international wire leads.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "joint counter-kidnapping operation",
+      "outlets": ["AFP / France 24 EN", "AFP / France 24 FR", "AP News", "AfricaNews", "AllAfrica", "BBC Africa", "BBC World", "Straits Times", "The Independent", "Vanguard"],
+      "countries": ["wire_services", "france", "pan_african", "africa_other", "uk", "vietnam_thai_my", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Nigerian authorities announced the rescue of 308 people abducted by armed groups, including 163 villagers seized during a deadly attack earlier this year, calling it the country's largest single-day hostage rescue operation.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "The victims were rescued from the Kainji Lake National Park in Niger State in an operation involving the military, police, intelligence unit and the National Counter-Terrorism Centre.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "government credit-claiming",
+      "outlets": ["AP News", "AllAfrica", "BBC World", "The Punch"],
+      "countries": ["wire_services", "africa_other", "uk", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "President Bola Tinubu has hailed the rescue of 308 Nigerians abducted in separate attacks in Kwara and Niger states, describing the operation as evidence of growing synergy among the country's security agencies.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Kano APC chieftain hails Tinubu over rescue of 176 Kwara abductees",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "jihadist abduction and atrocity",
+      "outlets": ["BBC Africa"],
+      "countries": ["africa_other"],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "The armed jihadists wanted residents of the village of Woro in Kwara State to renounce the Nigerian government and its constitution and instead follow their teachings, effectively attempting to impose a parallel system of rule and government in the area.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "Amnesty International said many of the dead had been found with their hands and feet tied - some had had their throats slit, others had been shot dead.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "insecurity spreading beyond traditional zones",
+      "outlets": ["AllAfrica", "BBC Africa"],
+      "countries": ["africa_other"],
+      "evidence": [
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "The rescue comes amid growing concerns over the spread of kidnappings and militant violence beyond Nigeria's traditional conflict zones.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "The series of abductions, including attacks in parts of north-central and southern Nigeria, has raised fresh concerns that insecurity is spreading beyond the country's traditional conflict zones.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "six-month intelligence-led operation",
+      "outlets": ["Vanguard", "AP News"],
+      "countries": ["nigeria", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "Vanguard",
+          "country": "nigeria",
+          "quote": "Troops conducting a special operation led by the Office of the National Security Adviser (ONSA) have rescued 308 kidnap victims abducted about six months ago from communities in Kwara and Niger.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "Those rescued include 163 people abducted from Woro community in Kaiama area of Kwara state in February",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.695,
+      "note": "UK coverage (BBC World, The Independent) most isolated from cluster centroid — summaries drawn from wire copy produce lower LaBSE alignment despite covering the same rescue."
+    },
+    {
+      "outlet": "nigeria",
+      "country": "nigeria",
+      "mean_similarity": 0.698,
+      "note": "Nigerian domestic press second-most isolated — The Punch anchors on partisan political praise and a Kwara-only victim count; Vanguard uniquely foregrounds the six-month ONSA-led operation."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "africa_other",
+      "country": "africa_other",
+      "terms": ["jihadist", "military"],
+      "what_it_reveals": "Africa-coverage outlets introduce ideological framing ('jihadist') and institutional vocabulary ('military') absent from wire-service summaries, which describe the Woro attackers only as 'armed groups'."
+    },
+    {
+      "outlet": "nigeria",
+      "country": "nigeria",
+      "terms": ["kano", "chieftain", "troop", "forest"],
+      "what_it_reveals": "Nigerian domestic press uses partisan political vocabulary ('kano', 'chieftain') and operational geography ('troop', 'forest') absent from all international reporting — framing the rescue as both a political win and a military campaign in terrain."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Only outlet to attribute the Woro attack to Boko Haram and cite Amnesty International's documentation of victims found bound with hands and feet tied, some with throats slit or shot dead.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Vanguard",
+      "country": "nigeria",
+      "finding": "Only outlet to report the rescue concluded a six-month operation led by the Office of the National Security Adviser — framing it as an extended intelligence effort, not a single-day breakthrough.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Punch",
+      "country": "nigeria",
+      "finding": "Only outlet to frame the story through partisan praise from an APC chieftain; uniquely cites 176 Kwara abductees rather than the 308 total across both states.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Provides context that 44 pupils and teachers seized in a school attack in Oyo State were freed weeks earlier after 50+ days in captivity, situating this rescue in a pattern of recent large-scale abductions across new regions.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only French-language outlet covering this story, distributing the rescue news to Francophone African and European audiences through France 24's Africa desk.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "bottom_line": "The rescue of 308 kidnap victims is covered factually across international wires and BBC, but the ideological dimension — Boko Haram's demand that villagers renounce the Nigerian government — surfaces only in BBC Africa, while domestic Nigerian press focuses on political credit. The gap between wire-service framing (institutional achievement) and BBC Africa's framing (jihadist coercion, Amnesty-documented atrocity) represents the story's most underreported dimension in global coverage.",
+  "generated_at": "2026-08-06T10:47:26Z",
+  "model": "claude-sonnet-4-6"
+}
