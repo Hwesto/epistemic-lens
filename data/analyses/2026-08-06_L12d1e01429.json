@@ -1,0 +1,223 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "L12d1e01429",
+  "cluster_id": 57,
+  "cluster_name": "US jalapeño salmonella outbreak and Michoacan avocado import halt",
+  "salience_score": 3.16,
+  "n_outlets": 9,
+  "n_countries": 9,
+  "n_articles": 11,
+  "event_summary": "On August 6, 2026, the CDC linked a salmonella outbreak sickening 345 people across 27 US states to Mexican jalapeños from Coast Citrus Distributors; the US separately halted avocado export inspections in Mexico's Michoacan state citing a cartel security threat to US inspectors.",
+  "tldr": "The cluster bundles three simultaneous US food-safety crises all traced to Mexican supply chains — jalapeño-linked salmonella (345 sick, 27 states), an avocado import halt driven by cartel violence in Michoacan, and Cyclospora deaths from recalled iceberg lettuce — yet international outlets almost uniformly covered only the salmonella thread. Canada, Turkey, India, and Singapore each reported the jalapeño outbreak but made no mention of the avocado suspension. RT is the single outlet to ignore the jalapeño story entirely, focusing instead on the two Cyclospora deaths in Michigan. The avocado halt appeared only in The Independent and wire services, with The Independent framing it as a cartel territorial story rather than a food safety or trade policy matter. No Mexican outlet appears in a cluster where both crises originate on Mexican territory and directly implicate Mexican agriculture and security.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "multi-pathogen food supply crisis",
+      "outlets": [
+        "Anadolu Agency English",
+        "CBC World",
+        "Hindustan Times",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Hill",
+        "RT"
+      ],
+      "countries": [
+        "turkey",
+        "canada",
+        "india",
+        "wire_services",
+        "vietnam_thai_my",
+        "usa",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Authorities are probing a salmonella outbreak linked to jalapenos that has sickened 345 people in 27 states, the US Centers for Disease Control and Prevention (CDC) said in a statement on Wednesday.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Jalapeno-linked salmonella outbreak sickens hundreds across 27 U.S. states",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Michigan has confirmed the first two deaths linked to a nationwide outbreak of the diarrhea-inducing Cyclospora parasite",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "The Food and Drug Administration on Wednesday expanded its investigation into a Cyclospora outbreak linked to recalled iceberg lettuce, after the first two deaths associated with the outbreak were confirmed.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "regulatory response and restaurant recalls",
+      "outlets": [
+        "Anadolu Agency English",
+        "CBC World",
+        "The Hill"
+      ],
+      "countries": [
+        "turkey",
+        "canada",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "The CDC said that the jalapenos were supplied by California-based Coast Citrus Distributors and sourced from Mexico. They were served at Chipotle, Qdoba and other restaurants.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "A Salmonella outbreak that has sickened 345 people across 27 states has been linked to jalapeño peppers, the Centers for Disease Control and Prevention (CDC) reported Wednesday. Traceback information found that the affected jalapeños came from Sinaloa, Mexico, and were distributed by Coast Citrus Distributors.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "cartel threat to US inspection operations",
+      "outlets": [
+        "France 24 Spanish",
+        "Reuters (via Google News)",
+        "The Independent"
+      ],
+      "countries": [
+        "state_tv_intl",
+        "wire_services",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "US halts avocado export inspections in Mexico's Michoacan over security alert",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Estados Unidos suspendió temporalmente los envíos de aguacate procedentes de Michoacán, principal productor mexicano, tras una alerta de seguridad que afecta a los inspectores estadounidenses.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "avocado supply chain disruption",
+      "outlets": [
+        "France 24 Spanish",
+        "Reuters (via Google News)"
+      ],
+      "countries": [
+        "state_tv_intl",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "La decisión vuelve a poner bajo presión una industria clave para México, golpeada por extorsiones y violencia del crimen organizado.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "US halts avocado export inspections in Mexico's Michoacan over security alert",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Mexico trade and inspection authority",
+      "outlets": [
+        "Reuters (via Google News)",
+        "France 24 Spanish"
+      ],
+      "countries": [
+        "wire_services",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "US halts avocado export inspections in Mexico's Michoacan over security alert",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Estados Unidos suspende importaciones de aguacate de Michoacán por amenaza de violencia",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "mexico",
+      "what_they_covered_instead": "No Mexican outlet appears in the corpus despite both crises originating on Mexican territory: the jalapeño salmonella source in Sinaloa and the Michoacan avocado halt directly implicate Mexican agriculture and cartel security."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to cover the Cyclospora parasite deaths rather than the jalapeño outbreak, centering US mortality with sensationalist framing and omitting the dominant supply-chain story entirely.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Framed the Michoacan avocado suspension as a cartel territorial story rather than a food safety or trade policy decision, uniquely invoking 'cartel stronghold' language.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Only Spanish-language outlet in the cluster; covered exclusively the Michoacan avocado suspension emphasizing extorsiones and crimen organizado — absent from all English-language reporting.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Hill",
+      "country": "usa",
+      "finding": "Only outlet to publish two separate stories — the jalapeño salmonella and the Cyclospora/lettuce deaths — surfacing the concurrent multi-pathogen picture invisible in international coverage.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Singapore outlet specifically named the Coast Citrus Distributors recall — the only non-US outlet to identify the distributor and frame the story through the supply-chain recall lens.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "bottom_line": "Nine outlets across nine countries flagged concurrent US food-safety crises tied to Mexican supply chains, but coverage fractured sharply by angle: most international press reported only the jalapeño salmonella outbreak while the Michoacan cartel-driven avocado halt was picked up only by UK and wire-service outlets. Russia's RT ignored the dominant story entirely to spotlight Cyclospora deaths, illustrating how the same supply-chain vulnerability becomes radically different editorial products across political contexts.",
+  "generated_at": "2026-08-06T10:25:02Z",
+  "model": "claude-sonnet-4-6"
+}
