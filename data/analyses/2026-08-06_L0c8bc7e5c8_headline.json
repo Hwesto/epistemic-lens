@@ -1,0 +1,223 @@
+{
+  "story_key": "L0c8bc7e5c8",
+  "date": "2026-08-06",
+  "n_buckets": 17,
+  "n_articles": 30,
+  "tldr": "Headlines across 17 country buckets frame the Ceuta mass-crossing primarily as a European policy governance failure demanding tougher EU-wide rules, a geopolitical blame contest between Spain and Morocco, and a security emergency requiring physical barriers and military deployment; misinformation as a proximate trigger and the human cost of missing and displaced migrants register only at the margins of headline-layer coverage.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "EU tightens migration rules after Ceuta",
+      "buckets": ["pan_african", "china", "germany", "mexico", "poland_balt", "wire_services", "india", "nordic", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "EU ministers seek tougher migration response",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "Notes from Poland",
+          "quote": "Poland calls for EU to deny residence to migrants",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Ceuta: EU calls borders a 'shared European responsibility'",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Finnish minister: Spain has 'completely failed'",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Enviará la UE ayuda a España para reforzar la frontera",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Border militarization and threat register",
+      "buckets": ["pan_african", "turkey", "usa", "poland_balt"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ceuta on edge and trying to recover after deadly mass",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Spain erects floating barrier in Ceuta after deadly",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Islamist groups reportedly seek to exploit border crisis",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "migrant surge sparks military deployment",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "ERR News (Estonia)",
+          "quote": "downplay fears of wider migration after Ceuta incident",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Spain-Morocco geopolitical blame contest",
+      "buckets": ["africa_other", "vietnam_thai_my", "russia", "state_tv_intl", "nordic", "canada"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "What triggered the mass migrant crossings into Ceuta?",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'Warning to Spain': Did Morocco deliberately trigger",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "How geopolitical tensions drove the Ceuta migrant invasion",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Spain and Morocco trade blame over deadly Ceuta crisis",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "EU nations patch things up after Ceuta migration discord",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Misinformation as proximate trigger",
+      "buckets": ["germany", "canada", "uk"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Did misleading claims about Spain's migration law trigger",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "False social media posts about Spain's border sparked",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "How misinformation and a hardened immigration policy",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Missing and displaced: the human toll",
+      "buckets": ["uk", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Hundreds in Morocco gather near Ceuta border",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Church in Morocco assists migrants returning from Ceuta",
+          "signal_text_idx": 28
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.61,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.64,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.641,
+      "n_tokens": 253
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.681,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.682,
+      "n_tokens": 51
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only outlet to use 'invasion' to describe the migrant crossings in a headline ('Ceuta migrant invasion'), recasting a humanitarian emergency as a territorial incursion — language absent from every other outlet's headline coverage.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "The only outlet to foreground Islamist groups 'seeking to exploit' the crisis in a headline, adding a terrorism/extremism dimension that does not appear in any other outlet's headline framing.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "ERR News (Estonia)",
+      "country": "poland_balt",
+      "finding": "The only outlet to actively counter-frame the crisis as not representing wider migration risk, with experts 'downplaying fears' — the sole calming register amid near-universal alarm in other headlines.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "The only outlet to headline the Church's charitable response on the Moroccan side of the border, centering humanitarian solidarity rather than border control or political blame.",
+      "signal_text_idx": 28
+    }
+  ],
+  "bottom_line": "At the headline layer, EU policy toughening and Spain-Morocco geopolitical blame dominate across nearly all 17 buckets, while Russia's RT uniquely deploys 'invasion' language and Fox News alone foregrounds Islamist exploitation — the sharpest ideological divergences detectable from titles alone.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
