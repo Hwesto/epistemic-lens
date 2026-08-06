@@ -1,0 +1,174 @@
+{
+  "story_key": "L69b643e3c5",
+  "date": "2026-08-06",
+  "n_buckets": 17,
+  "n_articles": 39,
+  "tldr": "Headlines across all 17 buckets default to the progressive-versus-establishment frame, but a distinct secondary layer — naming AIPAC outright at the headline level — separates Russia, pan-Arab, Iranian state, and Intercept coverage from the rest. France 24 Spanish and the Jerusalem Post uniquely foreground identity (Muslim doctor; Jewish Democratic reckoning) rather than the party-direction contest.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "progressive insurgency defeats establishment",
+      "buckets": ["wire_services", "italy", "canada", "turkey", "germany", "spain", "state_tv_intl", "israel", "taiwan_hk", "uk", "usa", "india", "vietnam_thai_my", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "US: Progressive Democrat El-Sayed wins key Michigan primary",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Abdul El-Sayed wins Michigan's Democratic Senate primary",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Left turn in Michigan: Tuesday's primary takeaways",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US: Abdul El-Sayed wins contentious Michigan Senate primary",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "AIPAC foreign-lobby spending named as axis",
+      "buckets": ["russia", "pan_arab", "iran_state", "usa"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israel critic wins US Senate primary despite record AIPAC",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "After Michigan upset, Aipac looks to back Republican",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Abdul El-Sayed defeats AIPAC-backed rival in Michigan",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Intercept",
+          "quote": "Abdul El-Sayed Beats the Democratic Establishment and AIPAC",
+          "signal_text_idx": 36
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Muslim identity and Jewish Democratic reckoning",
+      "buckets": ["state_tv_intl", "israel"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Análisis: médico musulmán gana primarias demócratas",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Abdul El-Sayed's narrow Michigan win sets up a reckoning",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "polling failure and progressive electability doubt",
+      "buckets": ["usa", "uk", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "Polls Showed Abdul El-Sayed Would Crush Haley Stevens",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Abdul El-Sayed narrowly won in Michigan",
+          "signal_text_idx": 34
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "The Electability of Abdul El-Sayed",
+          "signal_text_idx": 38
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.627,
+      "n_tokens": 221
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.707,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.714,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.745,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.763,
+      "n_tokens": 225
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only headline to deploy 'extremist' and 'Muslim Brotherhood' in a single title, invoking security and criminal-threat language absent from every other outlet in the corpus at the headline layer.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "Only headline foregrounding post-primary party unification ('Establishment Dems Fall In Line') rather than the primary result itself — the only outlet to make the establishment's rapid rally the headline story.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "La Stampa",
+      "bucket": "italy",
+      "finding": "Only headline framing El-Sayed's win as a symptom of dual-populism dynamics ('gli opposti populismi') rather than a progressive-vs-establishment contest — a structural interpretation absent from all Anglophone headlines.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Only headline posing a prescriptive lesson-drawing question ('What the Democrats must learn') rather than reporting the result — signals editorial concern about Democratic strategy rather than factual coverage of the primary outcome.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "At the headline layer, AIPAC is named outright by three geopolitically opposed non-Western outlets (RT, Middle East Eye, Tehran Times) and The Intercept, establishing foreign-lobby money as a rival axis to the universal progressive-vs-establishment frame that dominates every other bucket.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
