@@ -1,0 +1,224 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "L09029b38f5",
+  "cluster_id": 144,
+  "cluster_name": "Explosive drone found near Ukrainian aircraft at Leipzig Airport",
+  "n_outlets": 18,
+  "n_countries": 12,
+  "n_articles": 22,
+  "salience_score": 8.426,
+  "event_summary": "German authorities on August 5 discovered an explosive drone near a Ukrainian cargo aircraft at Leipzig/Halle Airport, defused it, and closed both runways for roughly two hours; a second flying object then collided with a DHL cargo aircraft that had aborted landing, causing minor damage.",
+  "tldr": "The most striking pattern is near-total cross-bloc adoption of German Interior Minister Dobrindt's 'professional hybrid threat scenario' language — right-populist, centrist, and centre-left outlets all parroted the same official framing without challenge. The sharpest divergence falls on attribution: The Guardian explicitly stated 'initial evidence points firmly towards a Russian-orchestrated plot' while Meduza (Russia-exiled) described only 'a drone of unknown origin,' and Ukrainian outlets (Kyiv Post, Ukrainska Pravda) were more restrained than UK liberal media despite having the highest stake in the answer. Germany's AfD-aligned Junge Freiheit was the only outlet to flag that NATO investigators ('Ermittler der Nato') were called to the scene — a detail that in domestic German political terms highlights NATO's operational footprint on German soil. RFE/RL was the only outlet to connect Leipzig to the November 2024 DHL crash near Vilnius, framing the incident as one node in an escalating pattern of hybrid attacks on European air-freight infrastructure.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "hybrid attack on aviation infrastructure",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Deutsche Welle English",
+        "Fox News World",
+        "NPR World",
+        "RFE/RL (was Radio Farda)",
+        "The Guardian World",
+        "The Independent",
+        "The Local Germany",
+        "Ukrainska Pravda English",
+        "Kyiv Post",
+        "Globe and Mail",
+        "Daily Sabah",
+        "BBC World"
+      ],
+      "countries": [
+        "wire_services",
+        "germany",
+        "usa",
+        "iran_opposition",
+        "uk",
+        "nordic",
+        "ukraine",
+        "canada",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The interior minister describes a new dimension of threat to Germany.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Germany's Interior Minister Dobrindt, who cut his summer break short to deal with the Leipzig Airport situation, said the incident was being treated as a \"hybrid attack scenario.\"",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "That the drone was carrying explosives \"is a new quality of danger,\" German Interior Minister Alexander Dobrindt told reporters at the airport after interrupting his vacation to travel to the scene.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "German Interior Minister Alexander Dobrindt cut his summer break short and returned to the country to address the incident. He said the armed drone found was a hybrid attack which opened a \"new level of danger.\"",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia-state hybrid campaign attribution",
+      "outlets": [
+        "AFP / France 24 EN",
+        "The Guardian World",
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "wire_services",
+        "uk",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "A Russian connection is being suggested.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Though the identity of the culprits is unknown, the initial evidence points firmly towards a Russian-orchestrated plot.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "German authorities are investigating two \"very serious security incidents\" at the Leipzig/Halle airport that temporarily suspended and diverted flights, raising suspicions of Russian involvement following similar incidents in recent years.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "counterterrorism investigation and sabotage probe",
+      "outlets": [
+        "Globe and Mail",
+        "Kyiv Post"
+      ],
+      "countries": [
+        "canada",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Germany opens counterterrorism investigation after explosive drone closes airport",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Police have not ruled out sabotage.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "NATO-Ukraine logistics hub exposure",
+      "outlets": [
+        "Al Jazeera English",
+        "Fox News World",
+        "The Local Germany"
+      ],
+      "countries": [
+        "qatar",
+        "usa",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Explosive-laden drone found at German airport hosting Ukrainian fleet",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "Leipzig-Halle Airport is strategically important, serving military transport operations for Germany and its NATO allies",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "The discovery temporarily shut down both runways at the major European freight hub and forced several flights to divert to other airports, according to The Associated Press.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "The only outlet to explicitly assert Russian attribution ahead of confirmed investigation findings: 'the initial evidence points firmly towards a Russian-orchestrated plot.'",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Russia-exiled independent outlet describes the drone as 'of unknown origin' with no attribution speculation — the most restrained framing in the corpus and a stark contrast to UK liberal coverage.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to name the Ukrainian cargo plane's patriotic slogan ('Be Brave Like Kherson') — anchoring the story in explicit pro-Ukraine symbolism and foregrounding the NATO-logistics dimension.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Only outlet to link Leipzig to the November 2024 DHL cargo crash near Vilnius, constructing a narrative of escalating Russian hybrid attacks on European air-freight systems.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Junge Freiheit",
+      "country": "germany",
+      "finding": "AfD-aligned outlet uniquely highlights that NATO investigators ('Ermittler der Nato') were called to the scene, emphasising NATO's operational presence at what is framed as a German domestic security incident.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Headlines the airport as 'hosting Ukrainian fleet' — the only outlet to foreground the airport's Ukrainian military function so prominently in its title, framing the target in military rather than commercial terms.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Emphasises that Minister Dobrindt cut his summer holiday short to travel to the scene — personalising the government response and signalling how seriously Berlin treated the incident.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50.0,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "bottom_line": "The Leipzig drone incident generated rare cross-bloc consensus on threat severity — right-populist to centre-left, German to Ukrainian to American outlets all absorbed official 'hybrid attack' language — while fracturing sharply on attribution, with UK liberal media naming Russia and Ukrainian and Russia-exiled outlets remaining more cautious. The incident's strategic weight is amplified by Leipzig/Halle's dual function as Europe's largest DHL freight hub and a basing airport for Ukrainian military Antonov aircraft, making it an unusually high-value target in an escalating pattern of suspected Russian infrastructure sabotage.",
+  "generated_at": "2026-08-06T06:45:00Z",
+  "model": "claude-sonnet-4-6"
+}
