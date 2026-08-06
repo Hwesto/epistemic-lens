@@ -1,0 +1,138 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "La04411277e",
+  "cluster_id": 153,
+  "cluster_name": "North Korea fires ballistic missile; Japan confirms fall outside EEZ",
+  "salience_score": 3.447,
+  "n_outlets": 7,
+  "n_countries": 2,
+  "n_articles": 11,
+  "event_summary": "North Korea launched a possible ballistic missile on August 6, 2026, which Japan's Defense Ministry confirmed fell outside Japan's exclusive economic zone. South Korea's prime minister called for drone, AI, and cyber attack scenarios to be added to the ongoing Ulchi civil defense exercises.",
+  "tldr": "Japan's three outlets (Asahi, Mainichi, NHK) plus Yonhap Korean uniformly headline the North Korean missile launch using near-identical Defense Ministry EEZ language, making the threat-detection frame the pre-click reality for Japanese and Korean wire readers. South Korean flagship newspapers Chosun Ilbo and Hankyoreh carry zero missile-related headlines, instead advertising heat-wave baseball cancellations, a rare liver disease guidebook, and an aviation conversion story — leaving the security event entirely invisible to their readers before the click.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "NK missile; MoD EEZ status language",
+      "outlets": ["Asahi Shimbun", "Mainichi", "NHK Japanese", "Yonhap Korean"],
+      "countries": ["japan", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Asahi Shimbun",
+          "country": "japan",
+          "quote": "北朝鮮が弾道ミサイル発射か 防衛省関係者「EEZ外に落下」",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Mainichi",
+          "country": "japan",
+          "quote": "北朝鮮の弾道ミサイルの可能性あるもの、EEZ外落下か 防衛省",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "NHK Japanese",
+          "country": "japan",
+          "quote": "北朝鮮から弾道ミサイルの可能性あるもの発射 EEZ外に落下か",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Yonhap Korean",
+          "country": "south_korea",
+          "quote": "日 \"北, 탄도미사일 가능성 물체 발사…日EEZ 밖 낙하한듯\"(종합)",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "PM: drone/AI/cyber in Ulchi scenarios",
+      "outlets": ["Yonhap News"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "PM calls for drone, AI, cyber attacks in Ulchi exercise",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Heatwave suspends KBO; rare liver disease",
+      "outlets": ["Chosun Ilbo (alt)", "Hankyoreh English"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Chosun Ilbo (alt)",
+          "country": "south_korea",
+          "quote": "프로야구 '폭염 방학' 돌입했다 ... 주말 3연전도 모두 취소",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hankyoreh English",
+          "country": "south_korea",
+          "quote": "[치유와 동행] 희귀 간질환 'PFIC' 정보 한 눈에...",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Police officer leaks DUI probe data",
+      "outlets": ["Yonhap Korean"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Yonhap Korean",
+          "country": "south_korea",
+          "quote": "현직 경찰관 '음주 뺑소니' 수사정보 피의자 지인에 유출 의혹",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.596,
+      "n_tokens": 65
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only headline to name the Ulchi civil defense exercise alongside drone, AI, and cyber attack scenarios — the sole outlet connecting South Korea's defensive policy modernization to the day's security context at the pre-click level.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Chosun Ilbo (alt)",
+      "country": "south_korea",
+      "finding": "South Korea's largest conservative daily ran both available signal items on KBO baseball cancellations due to extreme heat, with zero missile-launch coverage at the headline level despite being in the same cluster.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Hankyoreh English",
+      "country": "south_korea",
+      "finding": "South Korea's leading progressive outlet headlined a rare liver disease (PFIC) patient guidebook and a Boeing 777 cargo conversion — the only outlet with zero security framing at the headline level; the Boeing 777 headline (idx 4) fits no codebook frame from its title alone.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "At the headline layer, the North Korean missile launch is advertised uniformly by Japan's three outlets and Yonhap Korean through near-verbatim Defense Ministry EEZ language, while Chosun Ilbo and Hankyoreh — South Korea's largest newspapers — present readers with heat-wave sports disruptions and domestic health or aviation stories, making the security event invisible in their pre-click framing.",
+  "generated_at": "2026-08-06T12:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
