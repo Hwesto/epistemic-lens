@@ -1,0 +1,142 @@
+{
+  "story_key": "Le6d7b31253",
+  "date": "2026-08-06",
+  "n_buckets": 7,
+  "n_articles": 12,
+  "tldr": "Headlines across 7 outlet clusters assert that Nigerian security forces conducted the country's largest single-day rescue, freeing over 300 kidnapping victims in a joint military-police operation; domestic Nigerian outlets and AP add a political credit-claiming layer centred on President Tinubu.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Record joint rescue op frees 300+ abductees",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pan_african",
+        "africa_other",
+        "uk",
+        "vietnam_thai_my",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "rescues more than 300 kidnapping victims in major operation",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "plus de 300 victimes d'enlèvement ont été libérées",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "More than 300 kidnapping victims rescued in major operation",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Nigerian security forces rescue more than 300 abductees",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Nigerian security forces rescue more than 300 abductees",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Nigerian forces rescue 308 kidnap victims, presidency says",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "Vanguard",
+          "quote": "Troops rescue 308 kidnap victims after six-month operation",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Tinubu takes credit; ruling-party praise",
+      "buckets": [
+        "wire_services",
+        "africa_other",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Nigerian president hails 'largest ever' single-day rescue",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "Tinubu Applauds Rescue of 308 Kwara, Niger Kidnap Victims",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "APC chieftain hails Tinubu over rescue of 176 abductees",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.695,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.698,
+      "n_tokens": 82
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.753,
+      "n_tokens": 442
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.76,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.788,
+      "n_tokens": 97
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Punch",
+      "country": "nigeria",
+      "finding": "Only headline to frame the rescue through an explicitly partisan lens — 'Kano APC chieftain hails Tinubu' — converting a national security story into ruling-party credit-claiming; also uniquely reports 176 abductees rather than the full 308 figure cited by every other outlet.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Vanguard",
+      "country": "nigeria",
+      "finding": "Only headline to foreground the duration of the effort ('six-month operation in Kwara, Niger forests'), reframing the story from a sudden breakthrough to the conclusion of a protracted campaign.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The headline layer delivers a near-uniform security-success narrative — Nigerian forces freed 300+ abductees in a record single-day operation — while Nigerian domestic press and AP overlay political credit for President Tinubu and his ruling party.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
