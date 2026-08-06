@@ -1,0 +1,119 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "L12d1e01429",
+  "cluster_id": 57,
+  "cluster_name": "Salmonella jalapeño outbreak and US avocado inspection halt in Michoacán",
+  "salience_score": 3.16,
+  "n_outlets": 9,
+  "n_countries": 9,
+  "n_articles": 11,
+  "tldr": "The headline layer of this cluster splits across two US-Mexico food-safety stories: eight of eleven titles frame a salmonella outbreak traced to Mexican jalapeños in a uniform HEALTH_SAFETY register, while three advertise the US suspension of avocado inspections in Michoacán through a SECURITY_DEFENSE frame tied to cartel violence. The most striking divergence is RT's pivot away from both dominant stories to lead with 'diarrhea-inducing parasite' deaths — sensationalized framing of an unrelated Cyclospora outbreak that appears nowhere else in the corpus. The Independent advertises the avocado suspension as a 'cartel stronghold' threat to US food security, the most alarmist phrasing in the corpus; Reuters covers the identical event with neutral 'security alert' language. Several outlets — Hindustan Times, Straits Times, one Reuters article — converge on near-identical phrasing ('Mexican jalapenos tied to Salmonella outbreak'), producing a bloc of minimal frame differentiation that makes this cluster's international jalapeño coverage unusually homogeneous at the headline layer.",
+  "event_summary": "US authorities linked a salmonella outbreak sickening 345 people across 27 states to Mexican jalapeños, with Chipotle and Qdoba removing them from menus; the US also suspended avocado export inspections in Michoacán following a security threat against US personnel.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Multi-state foodborne salmonella outbreak",
+      "outlets": [
+        "Anadolu Agency English",
+        "CBC World",
+        "Hindustan Times",
+        "RT",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Hill"
+      ],
+      "countries": ["turkey", "canada", "india", "russia", "wire_services", "vietnam_thai_my", "usa"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Salmonella outbreak tied to jalapenos spreads",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "salmonella outbreak sickens hundreds across 27 U.S. states",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "First US deaths linked to diarrhea-inducing parasite",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "CDC warns of Salmonella outbreak linked to jalapeños",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Cartel violence halts US-Mexico avocado trade",
+      "outlets": [
+        "France 24 Spanish",
+        "Reuters (via Google News)",
+        "The Independent"
+      ],
+      "countries": ["state_tv_intl", "wire_services", "uk"],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "por amenaza de violencia",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "US halts avocado export inspections in Mexico's Michoacan",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "A cartel stronghold just put America's avocado supply",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "russia",
+      "what_they_covered_instead": "RT's headline leads with confirmed US deaths from a 'diarrhea-inducing parasite' (Cyclospora), a story entirely absent from every other title in the corpus; the cluster-dominant jalapeño salmonella story does not appear in RT's headline at all."
+    }
+  ],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only headline to pivot entirely to a different outbreak — Cyclospora parasite deaths framed as 'diarrhea-inducing' — rather than the cluster-dominant jalapeño salmonella story, advertising maximum alarm with a story invisible in all other titles.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only headline to frame the Michoacán avocado suspension as a cartel threat to US food security ('A cartel stronghold just put America's avocado supply at risk'), the most alarmist language in the corpus for an event Reuters covers as a neutral 'security alert.'",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "At the headline layer, the jalapeño salmonella story dominates in a uniform HEALTH_SAFETY frame across seven outlets from six countries, producing unusually homogeneous international coverage with several outlets using near-identical phrasing. The avocado sub-story generates the sharpest headline divergence: The Independent frames it as a cartel threat to US food security while Reuters uses neutral regulatory language for the same event. RT stands entirely apart from the cluster by advertising a Cyclospora parasite death toll instead of either dominant story, a headline that would mislead a reader about what this cluster actually covers.",
+  "generated_at": "2026-08-06T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
