@@ -1,0 +1,124 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "La04411277e",
+  "cluster_id": 153,
+  "cluster_name": "North Korea fires ballistic missile; Japan confirms fall outside EEZ",
+  "n_outlets": 7,
+  "n_countries": 2,
+  "n_articles": 54,
+  "salience_score": 3.447,
+  "event_summary": "North Korea launched a possible ballistic missile on August 6, 2026, which Japan's Defense Ministry confirmed fell outside Japan's exclusive economic zone. South Korea's prime minister called for drone, AI, and cyber attack scenarios to be added to the ongoing Ulchi civil defense exercises.",
+  "tldr": "The most striking finding is that South Korea's two largest newspapers — conservative Chosun Ilbo and progressive Hankyoreh — both entirely ignored the North Korean missile launch in their available signal items, instead running baseball heat-wave cancellations and domestic health and aviation stories. Japan's three outlets (Asahi, Mainichi, NHK) anchored uniformly on Defense Ministry EEZ status language, indicating a coordinated government notification drove press coverage. South Korea's Yonhap wire bridged the two events, publishing the Japan Defense Ministry statement in Korean (idx 9) while its English arm separately covered Ulchi exercise modernization calling for drone, AI, and cyber scenarios (idx 10). This two-country, seven-outlet cluster shows wire services carrying the security story across both countries and languages while flagship Korean papers exercised editorial discretion toward domestic civilian concerns.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "North Korea ballistic missile EEZ surveillance",
+      "outlets": ["Asahi Shimbun", "Mainichi", "NHK Japanese", "Yonhap Korean", "Yonhap News"],
+      "countries": ["japan", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Asahi Shimbun",
+          "country": "japan",
+          "quote": "北朝鮮が弾道ミサイル発射か 防衛省関係者「EEZ外に落下」",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "NHK Japanese",
+          "country": "japan",
+          "quote": "北朝鮮から弾道ミサイルの可能性あるもの発射 EEZ外に落下か\n\n防衛省によりますと、6日午後、北朝鮮から弾道ミサイルの可能性のあるものが発射されたということです。防衛省は日本のEEZ＝排他的経済水域への飛来は現時点で確認されていないとしています。",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Yonhap Korean",
+          "country": "south_korea",
+          "quote": "日 \"北, 탄도미사일 가능성 물체 발사…日EEZ 밖 낙하한듯\"(종합)\n\n(도쿄=연합뉴스) 이도연 특파원 = 일본 방위성은 6일 북한이 탄도미사일 가능성이 있는 물체를 발사했으며, 이 물체가 일본의 배타적경제수역(EE...",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Ulchi exercise modernization for drones and cyber",
+      "outlets": ["Yonhap News"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "PM calls for drone, AI, cyber attacks in Ulchi exercise scenarios\n\nSEOUL, Aug. 6 (Yonhap) -- This year's Ulchi civil defense exercise should reflec...",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "extreme heat wave suspends outdoor sports",
+      "outlets": ["Chosun Ilbo (alt)"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Chosun Ilbo (alt)",
+          "country": "south_korea",
+          "quote": "[오피셜] 주말도 야구 취소다! → 11일부터 7시 플레이볼\n\n[스포츠조선 한동훈 기자] 미친 폭염에 야구가 멈췄다. 한국야구위원회(KBO)는 6일 긴급 실행위원회를 열고 전례 없는 더위 기간 대책을 논의했다. KBO리그는 10일까지 경기를 취소했다. 11일부터 재개하며 경기 개시 시간은 오후 7시로 밀렸다. 이는 9월 6일 경기까지 적용된다. 한반도가 이례적인 더위로 앓는 가운데 KBO리그도 안전을 먼저 생각했다.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "police officer investigation leak",
+      "outlets": ["Yonhap Korean"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Yonhap Korean",
+          "country": "south_korea",
+          "quote": "현직 경찰관 '음주 뺑소니' 수사정보 피의자 지인에 유출 의혹(종합2보)\n\n(대구=연합뉴스) 박세진 기자 = 현직 경찰관 음주운전·뺑소니 사건을 수사 중인 경찰이 수사 정보가 피의자 지인에게 유출된 정황을 확인하고 강제...",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only outlet to explicitly link the Ulchi civil defense exercise to modern threat scenarios (drone, AI, cyber), connecting South Korea's defensive posture to the day's security context.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "NHK Japanese",
+      "country": "japan",
+      "finding": "Only corpus item to provide procedural detail: Japan's Defense Ministry confirmed on the afternoon of August 6 that the object had not entered Japan's EEZ as of that time.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Chosun Ilbo (alt)",
+      "country": "south_korea",
+      "finding": "South Korea's largest conservative daily ran both available signal items on KBO baseball cancellations due to record heat, with no missile-launch coverage in the cluster.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Hankyoreh English",
+      "country": "south_korea",
+      "finding": "South Korea's leading progressive outlet ran a rare liver disease (PFIC) patient guidebook and a Boeing 777 cargo conversion story — no security coverage despite the missile launch.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "bottom_line": "Japan's press unified behind Defense Ministry EEZ language on the North Korean missile launch, while South Korean flagship outlets in this cluster covered baseball heat-wave suspensions and domestic stories rather than the launch. Wire services (Yonhap) carried the security story across both countries and languages, and also surfaced the parallel Ulchi exercise modernization call — situating the missile launch within South Korea's broader defensive evolution toward drone, AI, and cyber threat scenarios.",
+  "generated_at": "2026-08-06T10:34:50Z",
+  "model": "claude-sonnet-4-6"
+}
