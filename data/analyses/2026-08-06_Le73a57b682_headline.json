@@ -1,0 +1,197 @@
+{
+  "story_key": "Le73a57b682",
+  "date": "2026-08-06",
+  "n_buckets": 13,
+  "n_articles": 24,
+  "tldr": "The headline layer across 13 country buckets frames the DR Congo Ebola outbreak almost unanimously through a severity-and-mortality lens — 'fastest-spreading,' 'deadliest-yet,' 'cases doubled' — establishing a record-crisis register before any click. A strong secondary stream from wire services, CGTN, India Today, and Malay Mail foregrounds the capacity-failure angle (outbreak 'outpacing' response, WHO 'pleading' for more aid), while Egypt Independent and AP News alone make unpaid wages the headline story, casting response collapse as a labour crisis rather than a resource gap. Africa-focused outlets (AllAfrica, BBC Africa) carry two angles invisible elsewhere: the Uganda-versus-DRC comparison on outbreak control strategies and a misinformation-to-violence link against health workers. Canada's Globe and Mail is the only outlet to break the uniform alarm register with a vaccine-trial clearance headline.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Fastest-spreading, deadliest outbreak",
+      "buckets": ["pan_african", "canada", "state_tv_intl", "uk", "germany", "russia"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Congo Ebola outbreak turns deadliest yet",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Ebola kills more than 1,700 in eastern Congo",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Over 1,700 dead from world's fastest-spreading Ebola",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "DR Congo facing largest ever Ebola outbreak – WHO",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Ebola outbreak accelerates",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Ebola cases doubled in some hotspots in DR Congo",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Response outpaced; WHO pleads for aid",
+      "buckets": ["wire_services", "china", "india", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Ebola outbreak outpaces response as health workers strike",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "WHO pleads for more support to tackle Ebola outbreak",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "Congo Ebola response hit as unpaid health workers protest",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Ebola outbreak in DR Congo outpacing response",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Unpaid wages trigger frontline collapse",
+      "buckets": ["egypt", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Unpaid wages and deadly risk",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "health workers protest lack of payment",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Uganda 42-day rule; vaccine trial",
+      "buckets": ["africa_other", "canada", "france"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "Has Uganda Changed the Ebola Rulebook?",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "WHO Defends Uganda's Early Declaration",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Health Canada gives Moderna vaccine trial clearance",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "le chef de l'OMS appelle à \"intensifier\" la riposte",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Misinformation attacks; Kinshasa spread",
+      "buckets": ["africa_other", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Ebola misinformation fuels violent attacks on health workers",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "RFI Afrique",
+          "quote": "bateau avec une suspicion d'Ebola intercepté",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Congo intercepts passenger boat near Kinshasa",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "egypt", "mean_similarity": 0.585, "n_tokens": 67},
+    {"bucket": "canada", "mean_similarity": 0.702, "n_tokens": 50},
+    {"bucket": "germany", "mean_similarity": 0.711, "n_tokens": 30},
+    {"bucket": "wire_services", "mean_similarity": 0.712, "n_tokens": 214},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.722, "n_tokens": 37}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Egypt Independent",
+      "country": "egypt",
+      "finding": "The only outlet to frame the story through individual economic precarity — coupling 'unpaid wages' with 'deadly risk' in the headline and centering a named frontline nurse — the sole pre-click framing that charges the response collapse to labour exploitation rather than logistics or funding gaps.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "The only outlet in the corpus to headline the misinformation-to-violence causal link, naming misinformation as the direct driver of attacks on health workers — an angle entirely absent from every other bucket's title-layer coverage.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "The only outlet to publish a forward-looking positive-register headline (Moderna vaccine trial clearance by Health Canada), introducing a scientific-response counter-narrative absent from every other title in the corpus and invisible to readers not clicking through.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "The only outlet to carry both the Uganda early-declaration defence and the 42-day-rule re-examination angle — policy-and-protocol questions entirely absent from non-African headlines, where the story is framed exclusively as a DRC emergency rather than a global surveillance methodology debate.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "At the headline layer, the DR Congo Ebola outbreak is universally advertised as a historic record — fastest-spreading, deadliest-ever — while a second, more damning frame renders the response as systemically broken: the outbreak 'outpaces' efforts, the WHO 'pleads,' and health workers abandon posts over unpaid wages, shifting the pre-click moral charge from the virus to the institutions tasked with containing it.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
