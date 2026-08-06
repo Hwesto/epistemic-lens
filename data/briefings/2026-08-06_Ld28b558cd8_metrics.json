@@ -1,0 +1,261 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 13,
+  "buckets": [
+    "germany",
+    "india",
+    "kenya",
+    "qatar",
+    "russia",
+    "turkey",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "qatar": 228,
+    "uk": 108,
+    "turkey": 63,
+    "germany": 24,
+    "india": 99,
+    "usa": 203,
+    "russia": 29,
+    "kenya": 25
+  },
+  "pairwise_similarity": [
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.873
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.869
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.815
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.814
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.807
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.802
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.79
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.777
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.768
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.766
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.764
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.734
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.725
+    },
+    {
+      "a": "kenya",
+      "b": "uk",
+      "score": 0.712
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.701
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.693
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.689
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.688
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.683
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.661
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.659
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.654
+    },
+    {
+      "a": "kenya",
+      "b": "qatar",
+      "score": 0.65
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.627
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.615
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.592
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.563
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.561
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.694,
+      "n_tokens": 203
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.704,
+      "n_tokens": 99
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.749,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.763,
+      "n_tokens": 228
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.767,
+      "n_tokens": 108
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.63,
+      "n_tokens": 25
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.681,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.739,
+      "n_tokens": 24
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "qatar": [
+      {
+        "term": "list",
+        "count": 5
+      },
+      {
+        "term": "shakib",
+        "count": 4
+      }
+    ],
+    "uk": [],
+    "turkey": [
+      {
+        "term": "lifted",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "india": [
+      {
+        "term": "genocider",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "riaz",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "make",
+        "count": 3
+      }
+    ],
+    "kenya": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-06T10:21:27+00:00",
+  "meta_version": "10.0.3"
+}

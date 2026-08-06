@@ -1,0 +1,977 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 17,
+  "n_articles": 39,
+  "buckets": [
+    "canada",
+    "germany",
+    "india",
+    "iran_state",
+    "israel",
+    "italy",
+    "opinion_magazines",
+    "pan_arab",
+    "russia",
+    "spain",
+    "state_tv_intl",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 87,
+    "italy": 97,
+    "usa": 680,
+    "canada": 153,
+    "turkey": 29,
+    "germany": 29,
+    "spain": 225,
+    "state_tv_intl": 106,
+    "israel": 110,
+    "pan_arab": 60,
+    "india": 30,
+    "russia": 221,
+    "taiwan_hk": 60,
+    "vietnam_thai_my": 21,
+    "iran_state": 40,
+    "uk": 86,
+    "opinion_magazines": 50
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.927
+    },
+    {
+      "a": "israel",
+      "b": "usa",
+      "score": 0.912
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.911
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.903
+    },
+    {
+      "a": "canada",
+      "b": "israel",
+      "score": 0.9
+    },
+    {
+      "a": "italy",
+      "b": "turkey",
+      "score": 0.9
+    },
+    {
+      "a": "canada",
+      "b": "iran_state",
+      "score": 0.899
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.894
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.891
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.886
+    },
+    {
+      "a": "germany",
+      "b": "iran_state",
+      "score": 0.886
+    },
+    {
+      "a": "iran_state",
+      "b": "turkey",
+      "score": 0.884
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "score": 0.884
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.88
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.879
+    },
+    {
+      "a": "israel",
+      "b": "uk",
+      "score": 0.877
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.877
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.875
+    },
+    {
+      "a": "iran_state",
+      "b": "usa",
+      "score": 0.874
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.873
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.873
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.873
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.869
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.868
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.867
+    },
+    {
+      "a": "iran_state",
+      "b": "israel",
+      "score": 0.865
+    },
+    {
+      "a": "iran_state",
+      "b": "wire_services",
+      "score": 0.865
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.862
+    },
+    {
+      "a": "canada",
+      "b": "state_tv_intl",
+      "score": 0.859
+    },
+    {
+      "a": "israel",
+      "b": "italy",
+      "score": 0.858
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.854
+    },
+    {
+      "a": "israel",
+      "b": "state_tv_intl",
+      "score": 0.853
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.852
+    },
+    {
+      "a": "italy",
+      "b": "state_tv_intl",
+      "score": 0.852
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.852
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "score": 0.851
+    },
+    {
+      "a": "spain",
+      "b": "taiwan_hk",
+      "score": 0.851
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.85
+    },
+    {
+      "a": "iran_state",
+      "b": "italy",
+      "score": 0.848
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.845
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.839
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "taiwan_hk",
+      "score": 0.838
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.834
+    },
+    {
+      "a": "israel",
+      "b": "taiwan_hk",
+      "score": 0.834
+    },
+    {
+      "a": "iran_state",
+      "b": "taiwan_hk",
+      "score": 0.829
+    },
+    {
+      "a": "india",
+      "b": "iran_state",
+      "score": 0.827
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.826
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.823
+    },
+    {
+      "a": "germany",
+      "b": "israel",
+      "score": 0.823
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.822
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.821
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.82
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.819
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "turkey",
+      "score": 0.818
+    },
+    {
+      "a": "iran_state",
+      "b": "state_tv_intl",
+      "score": 0.816
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.815
+    },
+    {
+      "a": "spain",
+      "b": "wire_services",
+      "score": 0.814
+    },
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.812
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.812
+    },
+    {
+      "a": "canada",
+      "b": "spain",
+      "score": 0.811
+    },
+    {
+      "a": "pan_arab",
+      "b": "usa",
+      "score": 0.809
+    },
+    {
+      "a": "israel",
+      "b": "spain",
+      "score": 0.808
+    },
+    {
+      "a": "italy",
+      "b": "taiwan_hk",
+      "score": 0.807
+    },
+    {
+      "a": "iran_state",
+      "b": "uk",
+      "score": 0.801
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "russia",
+      "b": "spain",
+      "score": 0.798
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.797
+    },
+    {
+      "a": "iran_state",
+      "b": "spain",
+      "score": 0.797
+    },
+    {
+      "a": "spain",
+      "b": "state_tv_intl",
+      "score": 0.794
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.792
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.792
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.792
+    },
+    {
+      "a": "italy",
+      "b": "opinion_magazines",
+      "score": 0.785
+    },
+    {
+      "a": "spain",
+      "b": "uk",
+      "score": 0.778
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.773
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.773
+    },
+    {
+      "a": "germany",
+      "b": "state_tv_intl",
+      "score": 0.771
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.771
+    },
+    {
+      "a": "pan_arab",
+      "b": "taiwan_hk",
+      "score": 0.77
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.77
+    },
+    {
+      "a": "spain",
+      "b": "turkey",
+      "score": 0.766
+    },
+    {
+      "a": "iran_state",
+      "b": "pan_arab",
+      "score": 0.762
+    },
+    {
+      "a": "pan_arab",
+      "b": "state_tv_intl",
+      "score": 0.761
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.758
+    },
+    {
+      "a": "pan_arab",
+      "b": "uk",
+      "score": 0.745
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.745
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.744
+    },
+    {
+      "a": "germany",
+      "b": "spain",
+      "score": 0.743
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.741
+    },
+    {
+      "a": "iran_state",
+      "b": "opinion_magazines",
+      "score": 0.741
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.741
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.739
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.736
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.733
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.732
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.73
+    },
+    {
+      "a": "pan_arab",
+      "b": "spain",
+      "score": 0.73
+    },
+    {
+      "a": "italy",
+      "b": "spain",
+      "score": 0.729
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.729
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.724
+    },
+    {
+      "a": "israel",
+      "b": "opinion_magazines",
+      "score": 0.721
+    },
+    {
+      "a": "italy",
+      "b": "pan_arab",
+      "score": 0.721
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.718
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.717
+    },
+    {
+      "a": "canada",
+      "b": "pan_arab",
+      "score": 0.71
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "state_tv_intl",
+      "score": 0.71
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.709
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.698
+    },
+    {
+      "a": "pan_arab",
+      "b": "russia",
+      "score": 0.695
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.685
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "score": 0.682
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.682
+    },
+    {
+      "a": "india",
+      "b": "spain",
+      "score": 0.677
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.674
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.669
+    },
+    {
+      "a": "iran_state",
+      "b": "russia",
+      "score": 0.667
+    },
+    {
+      "a": "india",
+      "b": "pan_arab",
+      "score": 0.663
+    },
+    {
+      "a": "iran_state",
+      "b": "vietnam_thai_my",
+      "score": 0.663
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.663
+    },
+    {
+      "a": "germany",
+      "b": "pan_arab",
+      "score": 0.662
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "vietnam_thai_my",
+      "score": 0.659
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.659
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.647
+    },
+    {
+      "a": "russia",
+      "b": "state_tv_intl",
+      "score": 0.636
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "spain",
+      "score": 0.633
+    },
+    {
+      "a": "spain",
+      "b": "vietnam_thai_my",
+      "score": 0.606
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.605
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.595
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.588
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.584
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.581
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_arab",
+      "score": 0.567
+    },
+    {
+      "a": "italy",
+      "b": "russia",
+      "score": 0.563
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.523
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.475
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.432
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.627,
+      "n_tokens": 221
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.707,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.714,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.745,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.763,
+      "n_tokens": 225
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.791,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.792,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.797,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.808,
+      "n_tokens": 97
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.814,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.826,
+      "n_tokens": 110
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.831,
+      "n_tokens": 87
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.836,
+      "n_tokens": 153
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.836,
+      "n_tokens": 680
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.667,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.787,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.808,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "italy": [
+      {
+        "term": "primarie",
+        "count": 6
+      },
+      {
+        "term": "vinto",
+        "count": 5
+      },
+      {
+        "term": "senato",
+        "count": 3
+      },
+      {
+        "term": "democratiche",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "chait",
+        "count": 5
+      },
+      {
+        "term": "biggest",
+        "count": 4
+      },
+      {
+        "term": "extremist",
+        "count": 4
+      },
+      {
+        "term": "empty",
+        "count": 4
+      },
+      {
+        "term": "prison",
+        "count": 4
+      },
+      {
+        "term": "brotherhood",
+        "count": 4
+      },
+      {
+        "term": "endorsed",
+        "count": 4
+      },
+      {
+        "term": "beat",
+        "count": 4
+      },
+      {
+        "term": "post",
+        "count": 3
+      },
+      {
+        "term": "appeared",
+        "count": 3
+      },
+      {
+        "term": "nominee",
+        "count": 3
+      },
+      {
+        "term": "point",
+        "count": 3
+      },
+      {
+        "term": "clas",
+        "count": 3
+      },
+      {
+        "term": "momentum",
+        "count": 3
+      },
+      {
+        "term": "lose",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "progressiste",
+        "count": 3
+      },
+      {
+        "term": "démocrate",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "germany": [],
+    "spain": [],
+    "state_tv_intl": [
+      {
+        "term": "para",
+        "count": 6
+      },
+      {
+        "term": "senado",
+        "count": 5
+      },
+      {
+        "term": "eleccion",
+        "count": 4
+      },
+      {
+        "term": "demócrata",
+        "count": 4
+      },
+      {
+        "term": "triunfo",
+        "count": 3
+      },
+      {
+        "term": "noviembre",
+        "count": 3
+      },
+      {
+        "term": "estado",
+        "count": 3
+      },
+      {
+        "term": "médico",
+        "count": 3
+      }
+    ],
+    "israel": [],
+    "pan_arab": [],
+    "india": [],
+    "russia": [
+      {
+        "term": "hate",
+        "count": 5
+      },
+      {
+        "term": "doesn",
+        "count": 3
+      },
+      {
+        "term": "love",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "vietnam_thai_my": [],
+    "iran_state": [],
+    "uk": [],
+    "opinion_magazines": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-06T10:20:46+00:00",
+  "meta_version": "10.0.3"
+}

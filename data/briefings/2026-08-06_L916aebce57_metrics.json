@@ -1,0 +1,127 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 4,
+  "n_articles": 11,
+  "buckets": [
+    "argentina_chile",
+    "colombia_ven_peru",
+    "mexico",
+    "spain"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "spain": 151,
+    "mexico": 104,
+    "colombia_ven_peru": 39,
+    "argentina_chile": 81
+  },
+  "pairwise_similarity": [
+    {
+      "a": "argentina_chile",
+      "b": "mexico",
+      "score": 0.584
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "mexico",
+      "score": 0.563
+    },
+    {
+      "a": "mexico",
+      "b": "spain",
+      "score": 0.544
+    },
+    {
+      "a": "argentina_chile",
+      "b": "spain",
+      "score": 0.518
+    },
+    {
+      "a": "argentina_chile",
+      "b": "colombia_ven_peru",
+      "score": 0.441
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "spain",
+      "score": 0.394
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.466,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.485,
+      "n_tokens": 151
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.514,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.564,
+      "n_tokens": 104
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "spain": [
+      {
+        "term": "contra",
+        "count": 6
+      },
+      {
+        "term": "luna",
+        "count": 5
+      },
+      {
+        "term": "cohete",
+        "count": 5
+      },
+      {
+        "term": "elon",
+        "count": 4
+      },
+      {
+        "term": "musk",
+        "count": 4
+      },
+      {
+        "term": "chocó",
+        "count": 3
+      }
+    ],
+    "mexico": [
+      {
+        "term": "caso",
+        "count": 3
+      },
+      {
+        "term": "error",
+        "count": 3
+      },
+      {
+        "term": "propuesta",
+        "count": 3
+      }
+    ],
+    "colombia_ven_peru": [],
+    "argentina_chile": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-06T10:20:50+00:00",
+  "meta_version": "10.0.3"
+}

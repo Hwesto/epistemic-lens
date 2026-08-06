@@ -1,0 +1,89 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 40,
+      "n_tokens_in_cohort": 705,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 91,
+      "n_tokens_in_cohort": 654,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 111,
+      "n_tokens_in_cohort": 634,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 42,
+      "n_tokens_in_cohort": 703,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 241,
+      "n_tokens_in_cohort": 504,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 95,
+      "n_tokens_in_cohort": 650,
+      "distinctive_terms": [
+        {
+          "term": "palestinian",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.06316,
+          "rate_in_cohort": 0.0,
+          "llr": 25.053,
+          "log_ratio": null,
+          "p_value": 1e-06
+        }
+      ]
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 72,
+      "n_tokens_in_cohort": 673,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 717,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 9,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 720,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,67 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 2,
+  "n_articles": 11,
+  "buckets": [
+    "japan",
+    "south_korea"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "japan": 22,
+    "south_korea": 65
+  },
+  "pairwise_similarity": [
+    {
+      "a": "japan",
+      "b": "south_korea",
+      "score": 0.596
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.596,
+      "n_tokens": 65
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.596,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "japan": [
+      {
+        "term": "北朝鮮から弾道ミサイルの可能性あるもの発射",
+        "count": 4
+      }
+    ],
+    "south_korea": [
+      {
+        "term": "탄도미사일",
+        "count": 3
+      },
+      {
+        "term": "ulchi",
+        "count": 3
+      },
+      {
+        "term": "exercise",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-06T10:20:58+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,54 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "spain": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 151,
+      "n_tokens_in_cohort": 224,
+      "distinctive_terms": [
+        {
+          "term": "contra",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03974,
+          "rate_in_cohort": 0.0,
+          "llr": 11.061,
+          "log_ratio": null,
+          "p_value": 0.000882
+        }
+      ]
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 104,
+      "n_tokens_in_cohort": 271,
+      "distinctive_terms": []
+    },
+    "colombia_ven_peru": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 39,
+      "n_tokens_in_cohort": 336,
+      "distinctive_terms": []
+    },
+    "argentina_chile": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_tokens_in_bucket": 81,
+      "n_tokens_in_cohort": 294,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

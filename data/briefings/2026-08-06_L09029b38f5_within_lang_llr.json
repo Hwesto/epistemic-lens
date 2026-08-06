@@ -1,0 +1,143 @@
+{
+  "date": "2026-08-06",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 1490,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 1513,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 208,
+      "n_tokens_in_cohort": 1334,
+      "distinctive_terms": [
+        {
+          "term": "mark",
+          "count_in_bucket": 6,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.02885,
+          "rate_in_cohort": 0.00225,
+          "llr": 13.581,
+          "log_ratio": 2.552,
+          "p_value": 0.000229
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 1510,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 1511,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 447,
+      "n_tokens_in_cohort": 1095,
+      "distinctive_terms": [
+        {
+          "term": "quality",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01119,
+          "rate_in_cohort": 0.0,
+          "llr": 12.423,
+          "log_ratio": null,
+          "p_value": 0.000424
+        }
+      ]
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 1517,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 56,
+      "n_tokens_in_cohort": 1486,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 159,
+      "n_tokens_in_cohort": 1383,
+      "distinctive_terms": [
+        {
+          "term": "laden",
+          "count_in_bucket": 5,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.03145,
+          "rate_in_cohort": 0.00289,
+          "llr": 11.342,
+          "log_ratio": 2.386,
+          "p_value": 0.000758
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 1509,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 221,
+      "n_tokens_in_cohort": 1321,
+      "distinctive_terms": []
+    },
+    "nordic": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 249,
+      "n_tokens_in_cohort": 1293,
+      "distinctive_terms": [
+        {
+          "term": "berlin",
+          "count_in_bucket": 7,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.02811,
+          "rate_in_cohort": 0.00077,
+          "llr": 20.009,
+          "log_ratio": 3.593,
+          "p_value": 8e-06
+        }
+      ]
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
