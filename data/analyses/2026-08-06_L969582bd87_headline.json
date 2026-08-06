@@ -1,0 +1,177 @@
+{
+  "story_key": "L969582bd87",
+  "date": "2026-08-06",
+  "n_buckets": 10,
+  "n_articles": 14,
+  "tldr": "Headlines across 10 countries treat this primarily as Trump forcefully denying munitions shortages and threatening leakers with jail — a denial-and-intimidation story rather than a capacity-deficit story. The internal Trump-Hegseth confrontation emerges as a distinct second angle in Israeli and UK coverage, while French-language headlines uniquely foreground the shortage itself as the active question rather than Trump's response.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "US munitions shortage vs. Trump's denial",
+      "buckets": ["turkey", "france", "india", "japan", "israel", "ukraine", "pan_arab", "vietnam_thai_my", "nigeria"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "US has 'massive' munitions stockpiles",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "commencent-ils à manquer de missiles?",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Donald Trump denies US munitions shortage",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Donald Trump unaware of US munitions shortage",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Trump Dismisses Reports of Munitions Shortages",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Trump slams reports on munition shortages",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Trump denies US munitions shortage",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "Vanguard",
+          "quote": "US has 'massive amounts' – Trump dismisses",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Leakers threatened with jail sentences",
+      "buckets": ["turkey", "india", "japan", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "warns of jail for 'leakers'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "warns 'leakers' of jail time",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "warns 'leakers' of jail time",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "warns 'leakers' of jail time",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Hegseth Camp David confrontation",
+      "buckets": ["israel", "uk"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Trump, Hegseth clash over missile shortage",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Camp David clash with Hegseth - report",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Trump confronted Hegseth at Camp David",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "france",
+      "mean_similarity": 0.708,
+      "n_tokens": 158
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.718,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.734,
+      "n_tokens": 230
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.755,
+      "n_tokens": 199
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.768,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.77,
+      "n_tokens": 182
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.79,
+      "n_tokens": 206
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "BFM TV",
+      "bucket": "france",
+      "finding": "Only headline to pose the shortage as an open interrogative ('commencent-ils à manquer de missiles?') rather than stating Trump's denial — uniquely positions the shortage as an unresolved factual question rather than a claim Trump rebuts.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "bucket": "israel",
+      "finding": "Only headline to assert Trump was 'unaware' of the shortage ('Donald Trump unaware of US munitions shortage') — an epistemic framing that implies information failure rather than deliberate denial, diverging from every other outlet's 'denies'/'dismisses' language.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "The headline layer reduces this story to two beats: Trump denying shortages and threatening leakers with jail, with the politically charged Trump-Hegseth confrontation surfacing only in Israeli and UK coverage.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
