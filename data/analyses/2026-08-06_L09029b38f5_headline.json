@@ -1,0 +1,184 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "L09029b38f5",
+  "cluster_id": 144,
+  "cluster_name": "Germany finds explosive drone at Leipzig Airport near Ukrainian aircraft",
+  "salience_score": 8.426,
+  "n_outlets": 18,
+  "n_countries": 12,
+  "n_articles": 22,
+  "event_summary": "A drone carrying explosives was discovered near a Ukrainian cargo plane at Germany's Leipzig/Halle Airport on 5 August 2026, forcing a two-hour runway closure and flight diversions; a second object collided with a freight aircraft mid-air. Germany's interior minister called it a 'new level of danger' and a 'hybrid attack scenario.'",
+  "tldr": "The headline layer of this 22-article cluster is dominated almost unanimously by a SECURITY_DEFENSE escalation frame: virtually every title echoes the minister's 'new level of danger' or 'hybrid threat' language, making official threat-escalation rhetoric the pre-click frame across 12 national media markets. Three sub-streams are visible — a factual-discovery tone (AFP, BBC, Meduza, The Hindu), an official-escalation tone (DW, NPR, Hindustan Times, Kyiv Post, Guardian news piece), and an explicit geopolitical/war-linkage tone (Fox naming NATO, Al Jazeera naming the Ukrainian fleet, The Independent labelling this 'Ukraine-Russia war latest'). The Guardian is the only outlet to run a standalone opinion headline framing the story as 'a dangerous escalation for Europe', elevating it from a German security incident to a continental concern. Daily Sabah is alone in using the word 'briefly' to describe the airport closure, the only diminishing qualifier in the entire corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "New hybrid threat level; escalation warning",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Al Jazeera English",
+        "BBC World",
+        "Daily Sabah",
+        "Deutsche Welle English",
+        "Fox News World",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Junge Freiheit",
+        "Kyiv Post",
+        "Meduza",
+        "NPR World",
+        "RFE/RL (was Radio Farda)",
+        "The Guardian World",
+        "The Hindu Intl",
+        "The Independent",
+        "The Local Germany",
+        "Ukrainska Pravda English"
+      ],
+      "countries": [
+        "wire_services",
+        "qatar",
+        "uk",
+        "turkey",
+        "germany",
+        "usa",
+        "canada",
+        "india",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Leipzig explosive drone 'new level of danger' — Minister",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "marks a dangerous escalation for Europe",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "official sees 'new quality' of threat",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Ukrainska Pravda English",
+          "country": "ukraine",
+          "quote": "incident marks new hybrid threat scenario",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Counterterrorism probe; professional operation",
+      "outlets": [
+        "Globe and Mail",
+        "RFE/RL (was Radio Farda)",
+        "The Independent"
+      ],
+      "countries": [
+        "canada",
+        "iran_opposition",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Germany opens counterterrorism investigation",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Germany Probes 'Hybrid Attack' At Leipzig Airport",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "was ‘work of professionals’, says Germany",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia-Ukraine war geopolitical linkage",
+      "outlets": [
+        "Al Jazeera English",
+        "Fox News World",
+        "The Independent",
+        "Ukrainska Pravda English"
+      ],
+      "countries": [
+        "qatar",
+        "usa",
+        "uk",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Ukraine-Russia war latest: Drone found with bombs",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "serving NATO, Ukraine flights",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "at German airport hosting Ukrainian fleet",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to publish a standalone opinion headline framing the event as 'a dangerous escalation for Europe' — the only title in the corpus to name 'Europe' explicitly, elevating the story from a German security incident to a continent-level concern before any click.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only headline in the corpus to name 'NATO' alongside 'Ukraine flights', framing Leipzig as a strategic military hub rather than a civilian cargo facility — the most explicitly geopolitical-military pre-click framing of any outlet.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only headline to use 'briefly' ('briefly shuts Leipzig airport'), introducing the sole diminishing qualifier in the corpus; every other outlet omits duration language or foregrounds the 'new danger' framing instead.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "At the headline layer, the Leipzig explosive-drone incident is advertised virtually unanimously as a security escalation — the minister's 'new level of danger' framing is the pre-click message across all 12 national markets — with a geopolitical sub-narrative (Russia-Ukraine war, NATO framing) carried by Al Jazeera, Fox, The Independent, and Ukrainska Pravda, and a counterterrorism/investigation sub-frame visible in Canada, RFE/RL, and The Independent. The headline layer amplifies official escalation rhetoric more uniformly than body text typically does, leaving almost no space for sceptical or contextualising framing before the click.",
+  "generated_at": "2026-08-06T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
