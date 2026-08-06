@@ -1,0 +1,167 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-06",
+  "lineage_id": "L916aebce57",
+  "cluster_id": 139,
+  "cluster_name": "Mexican influencer César Gastélum shot dead during live stream",
+  "n_outlets": 7,
+  "n_countries": 4,
+  "n_articles": 31,
+  "salience_score": 2.638,
+  "event_summary": "Mexican content creator César Gastélum was fatally shot during a live stream while working as a food delivery driver; President Claudia Sheinbaum confirmed that authorities are investigating to identify those responsible.",
+  "tldr": "The cluster's dominant thread is the murder of Mexican influencer César Gastélum, which travelled across borders: Mexico's business press treated it as a crime story while Colombia's El Tiempo amplified the grief of the creator community. The most striking secondary thread is the SpaceX Falcon 9 upper-stage Moon impact, where Spain's Conservative ABC.es and Centre-left El País converge on near-identical scientific-significance framing — a rare left-right lockstep that illustrates how space science escapes editorial tribalism. Argentina's Milei government losing its flagship land-reform chapter appears exclusively in La Nación AR and is invisible to every other Spanish-language outlet in the cluster. A Mexico-US cyclosporiasis surveillance story surfaced by El Sol de México is likewise absent from the regional press, pointing to the uneven diffusion of public-health alerts through Spanish-language media networks.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "influencer killed during live stream",
+      "outlets": ["El Financiero", "El Tiempo Colombia"],
+      "countries": ["mexico", "colombia_ven_peru"],
+      "evidence": [
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "Las autoridades analizan el homicidio del creador de contenido César Gastélum, ocurrido durante un stream en el que trabajaba como repartidor. La presidenta Claudia Sheinbaum confirmó que continúan las investigaciones para identificar a los responsables.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "El Tiempo Colombia",
+          "country": "colombia_ven_peru",
+          "quote": "Alejandro Fierro dedicó un conmovedor mensaje a César Gastélum, influencer asesinado mientras transmitía en vivo en México: 'No te lo merecías'",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "space debris and future mission rethink",
+      "outlets": ["ABC.es", "El Pais"],
+      "countries": ["spain"],
+      "evidence": [
+        {
+          "outlet": "ABC.es",
+          "country": "spain",
+          "quote": "resultaba especialmente interesante para la comunidad científica, que lo consideraba una oportunidad excepcional para comprobar lo que pasa cuando una pieza de tecnología terrestre impacta contra nuestro satélite",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "El Pais",
+          "country": "spain",
+          "quote": "El impacto del Falcon 9, que ha despertado el interés de las agencias espaciales y los astrónomos aficionados, obliga a repensar el lanzamiento de futuras misiones espaciales",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Argentine land reform legislative defeat",
+      "outlets": ["La Nacion AR"],
+      "countries": ["argentina_chile"],
+      "evidence": [
+        {
+          "outlet": "La Nacion AR",
+          "country": "argentina_chile",
+          "quote": "los aliados dijeron que el timing libertario no fue el correcto; el Presidente viaja dos días al exterior",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "cyclosporiasis cross-border surveillance",
+      "outlets": ["El Sol de Mexico"],
+      "countries": ["mexico"],
+      "evidence": [
+        {
+          "outlet": "El Sol de Mexico",
+          "country": "mexico",
+          "quote": "Aunque las autoridades descartaron un brote en el país, reforzaron la vigilancia epidemiológica y mantienen coordinación con instancias nacionales e internacionales para investigar posibles vínculos con casos detectados en Estados Unidos",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "creator community grief and solidarity",
+      "outlets": ["El Tiempo Colombia"],
+      "countries": ["colombia_ven_peru"],
+      "evidence": [
+        {
+          "outlet": "El Tiempo Colombia",
+          "country": "colombia_ven_peru",
+          "quote": "El creador de contenido les habló a sus seguidores acerca del dolor que atraviesa tras la muerte inesperada de su amigo.",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "ABC.es",
+      "country": "spain",
+      "quote": "resultaba especialmente interesante para la comunidad científica, que lo consideraba una oportunidad excepcional para comprobar lo que pasa cuando una pieza de tecnología terrestre impacta contra nuestro satélite",
+      "signal_text_idx": 0
+    },
+    "b": {
+      "outlet": "El Pais",
+      "country": "spain",
+      "quote": "El impacto del Falcon 9, que ha despertado el interés de las agencias espaciales y los astrónomos aficionados, obliga a repensar el lanzamiento de futuras misiones espaciales",
+      "signal_text_idx": 4
+    },
+    "joint_conclusion": "Spain's Conservative establishment ABC.es and Centre-left flagship El País reach near-identical conclusions about the Falcon 9 Moon impact: both treat it as a scientifically significant opportunity rather than a liability or a SpaceX governance failure, demonstrating that space-science coverage can produce cross-ideological editorial consensus in the Spanish press."
+  },
+  "silences": [
+    {
+      "country": "colombia_ven_peru",
+      "what_they_covered_instead": "Colombian outlet covered the Gastélum tribute angle exclusively and did not pick up the Falcon 9 Moon impact, the Argentine land-reform defeat, or the cyclosporiasis health alert."
+    },
+    {
+      "country": "argentina_chile",
+      "what_they_covered_instead": "Argentine outlets focused on domestic land-reform politics and lifestyle nostalgia, ignoring the Gastélum murder that dominated Mexican and Colombian coverage."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Headline captures Gastélum's last live words — 'No, la moto... Esos chavalos me dan miedo' — providing the only contemporaneous audio-witness angle in the cluster; no other outlet quoted him directly.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Only outlet to flag a cross-border cyclosporiasis outbreak and cite coordination with US health authorities — a public-health scoop absent from every other outlet in this cluster.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Only outlet to cover FIFA's admission of errors in its World Cup privatization proposal, a football-governance story absent from Spain's press despite direct European stakes.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "La Nacion AR",
+      "country": "argentina_chile",
+      "finding": "Exclusively covers Milei government's failure to advance its land-reform chapter, attributing the defeat to the opposition's 'extranjerización' (foreign land-grab) campaign — domestic political coverage invisible to every other outlet in the cluster.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "La Nacion AR",
+      "country": "argentina_chile",
+      "finding": "Runs a nostalgia feature on the legendary Mar del Plata public pools — entirely disconnected from the cluster's news threads, suggesting a lifestyle editorial slot carried into this semantic neighbourhood by shared Spanish-language embedding proximity.",
+      "signal_text_idx": 10
+    }
+  ],
+  "coverage_caveats": [
+    {
+      "country": "south_africa",
+      "alert_type": "structural_silence",
+      "now": 0,
+      "avg7": 50,
+      "drop_pct": 100.0,
+      "reason": "bucket carried 0 items today (rolling 7-day avg 50.0). Feeds 403'd / timed out / returned empty. Treat absence as structural, not editorial."
+    }
+  ],
+  "bottom_line": "The murder of Mexican influencer César Gastélum during a live stream is the event pulling cross-border Latin American attention, with grief spreading faster through creator networks than institutional crime coverage. Spain's left-right press converges on the Falcon 9 Moon impact as a scientific opportunity, while Argentina's land-reform defeat and Mexico's cyclosporiasis alert remain siloed in single outlets — visible inside those countries, invisible to the rest of the Spanish-language cluster.",
+  "generated_at": "2026-08-06T10:33:05Z",
+  "model": "claude-sonnet-4-6"
+}
