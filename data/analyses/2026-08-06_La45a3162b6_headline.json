@@ -1,0 +1,192 @@
+{
+  "story_key": "La45a3162b6",
+  "date": "2026-08-06",
+  "n_buckets": 11,
+  "n_articles": 19,
+  "tldr": "Headlines across 11 outlet clusters assert that Iran's President Pezeshkian has publicly admitted communicating with Supreme Leader Mojtaba Khamenei is 'very difficult,' driving widespread speculation about leadership coherence; opposition and US-aligned outlets add a clandestine dimension, reporting a secret meeting in darkness.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Leader absent, president scrambling",
+      "buckets": [
+        "wire_services",
+        "france",
+        "turkey",
+        "state_tv_intl",
+        "pakistan",
+        "india",
+        "iran_opposition",
+        "israel",
+        "uk",
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "contact with supreme leader is 'very difficult'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Khamenei warns Pezeshkian next resignation will be accepted",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "met Mojtaba Khamenei in the back seat of a car",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Amid Reports Of Rift, Iran's President's Big Claim",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Iran president admits interaction with supreme leader",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "to address nation in televised interview series",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Wartime command vacuum at the top",
+      "buckets": [
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Met New Supreme Leader In Total Darkness",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Currently 'Very Difficult' as Hormuz Deal Nears",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Iranian President on Mojtaba Khamenei amid war with US",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Tehran signals stability, backs Palestine",
+      "buckets": [
+        "turkey",
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Tehran seeks regional stability, not escalation",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Iran supports Palestinian leaders' decisions in negotiations",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Pezeshkian reaffirms Palestine as Muslim's top priority",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.657,
+      "n_tokens": 95
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.73,
+      "n_tokens": 111
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.733,
+      "n_tokens": 72
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.785,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.794,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.815,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.816,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.817,
+      "n_tokens": 241
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.825,
+      "n_tokens": 231
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Only headline to frame the Khamenei encounter as a spy-thriller scene—'In Total Darkness, Wondered If It Was Really Him'—transforming a political opacity story into a narrative of physical mystery about the leader's very identity.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only headline to link leadership inaccessibility to the Hormuz Deal timeline ('as Hormuz Deal Nears'), converting the domestic political crisis into a strategic-economic stakes story.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Iran International EN",
+      "country": "iran_opposition",
+      "finding": "Only outlet to lead with Khamenei's direct threat to accept Pezeshkian's resignation—the most confrontational framing of the leader-president rift from any source in the corpus.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The headline layer presents a near-consensus framing of Iranian state dysfunction—an absent, inaccessible supreme leader and a president who can barely reach him—while US right-wing outlets add a sensational clandestine dimension and Iranian state media deflects entirely to Palestinian solidarity.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
