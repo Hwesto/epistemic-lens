@@ -1,0 +1,202 @@
+{
+  "story_key": "L1545b12547",
+  "date": "2026-08-19",
+  "n_buckets": 9,
+  "n_articles": 20,
+  "tldr": "Headlines across 9 outlet clusters present Hichilema's 60% reelection as the dominant fact, while a significant minority — RT Africa, BBC Africa, and Globe and Mail — foreground election-night gunfire, threats against the opposition, and armed insurrection charges that most other headlines omit entirely.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Hichilema wins second term",
+      "buckets": [
+        "pan_african",
+        "africa_other",
+        "china",
+        "canada",
+        "france",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Zambia's Hichilema wins re-election with 60% of vote",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "RFI Afrique",
+          "quote": "Hichilema réélu avec 60% des voix",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Zambia's Hichilema wins second term",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Zambia's Hichilema secures second term",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "Hichilema, réélu, son principal adversaire conteste",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Hichilema re-elected for second term",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "election-night gunfight and insurrection",
+      "buckets": [
+        "africa_other",
+        "state_tv_intl",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Zambian president reelected amid gunfight chaos",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "main rival in hiding over alleged threats",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Zambia arrests top opposition members",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "result contested, rule of law invoked",
+      "buckets": [
+        "pan_african",
+        "africa_other",
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "The Africa Report",
+          "quote": "Zambia's election was flawed and may need to be rerun",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "Bishops Call for Transparency",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "son principal adversaire conteste le résultat",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "copper economy and growth pledge",
+      "buckets": [
+        "turkey",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "pledges economic growth after reelection victory",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Zambia voters weigh Hichilema's economic record",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "france",
+      "mean_similarity": 0.678,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.679,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.691,
+      "n_tokens": 232
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.699,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.778,
+      "n_tokens": 99
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.795,
+      "n_tokens": 130
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.802,
+      "n_tokens": 317
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only headline to reduce the election-night security operation to 'gunfight chaos' — the most sensational framing in the corpus and the only one to place violent disorder in the headline rather than the body.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "The Africa Report",
+      "country": "pan_african",
+      "finding": "Only headline to declare the election 'flawed' and raise the possibility of a rerun — language far beyond any other outlet's headline, including those that covered the contested result.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "One of two CGTN outlets to foreground Beijing's congratulations as the primary Zambia story, replacing election controversy with diplomatic optics at the homepage level — no other non-Chinese outlet chose this angle.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "The headline layer presents Hichilema's 60% reelection as settled fact across most of the world's press, but three outlets — RT Africa, BBC Africa, and Globe and Mail — break ranks with headlines foregrounding gunfight chaos, a rival in hiding, and mass opposition arrests that the remaining six outlet clusters mention nowhere in their titles.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
