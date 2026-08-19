@@ -1,0 +1,251 @@
+{
+  "story_key": "L554fffa12b",
+  "date": "2026-08-19",
+  "n_buckets": 17,
+  "n_articles": 37,
+  "tldr": "Headline coverage overwhelmingly frames the story as a bilateral strike exchange — casualty counts and drone tallies dominate homepages across every region. Russia's threat against the UK for supplying drones is the clearest secondary signal, visible in Chinese state, Taiwanese, Russian exiled, and Western policy-press titles; North Korean military dependency appears in a distinct cluster of DPRK-watching and Ukrainian outlets.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "bilateral drone/missile strike casualties",
+      "buckets": ["canada", "china", "turkey", "germany", "russia", "usa", "iran_opposition", "india", "kenya", "uk", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Russian missile attack in Kharkiv kills at least 10",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Russia, Ukraine Trade Major Overnight Air Attacks, At Least 11 Killed",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Ukraine Launches One of Its Largest Aerial Attacks of the War",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Russian barrage on Ukraine kills 9, wounds dozens",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia threatens UK over drone supplies",
+      "buckets": ["china", "opinion_magazines", "russia", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Russia warns Britain of 'consequences' for supplying drones",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Russian Threats Won't Stop the U.K.'s Drone Deliveries",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Moscow says Britain will 'have to answer'",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Russia threatens UK for supplying drones to Kyiv",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "North Korean troops and missiles for Russia",
+      "buckets": ["asia_pacific_regional", "germany", "korea_north", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Russia can't fight Ukraine without North Korea's help",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Ukraine blames North Korean missiles for killing 7",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Will North Korean forces bolster Russia's Ukraine war?",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russia to Free Up Manpower by Replacing Border Troops With North Korean Soldiers",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "drone strike at Zaporizhzhia nuclear plant",
+      "buckets": ["russia", "vietnam_thai_my", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Drone Attack Near Zaporizhzhia Nuclear Plant Kills One, IAEA Says",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "IAEA: drone exploded at Zaporizhzhia nuclear plant bus stop",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "IAEA learns of drone explosion at bus stop",
+          "signal_text_idx": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Wildberries losses from deep strikes",
+      "buckets": ["usa", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "wiping billions from Putin-linked CEO",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Wildberries Warehouses Suffer Billions in Losses",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "civilian deaths on both sides framing",
+      "buckets": ["religious_press"],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Cross‑border strikes kill civilians in Russia and Ukraine",
+          "signal_text_idx": 36
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.492,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.501,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.564,
+      "n_tokens": 234
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.623,
+      "n_tokens": 103
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.639,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.649,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.658,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.676,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.679,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.683,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.685,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.694,
+      "n_tokens": 319
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.698,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.711,
+      "n_tokens": 548
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "France is a drone and SCALP missile supplier to Ukraine but contributed no items to this cluster."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "Poland, the primary NATO logistics hub for Ukraine weapon flows, is absent despite direct relevance."
+    },
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Japan monitors North Korean arms exports closely; the DPRK missile angle is directly relevant yet no Japanese outlet appears."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage advertises this story almost entirely as a casualty-count bilateral strike exchange; the UK-Russia confrontation over drone supplies is the only policy angle prominent enough to reach homepage titles, while the Zaporizhzhia nuclear plant incident and North Korean missile attribution register only in specialist or regional outlets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
