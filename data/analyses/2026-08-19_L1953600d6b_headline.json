@@ -1,0 +1,214 @@
+{
+  "story_key": "L1953600d6b",
+  "date": "2026-08-19",
+  "n_buckets": 12,
+  "n_articles": 17,
+  "tldr": "Headlines across 12 outlet clusters frame the Flores earthquake almost entirely through its escalating death toll and the gap between survivor needs and aid delivery; Indonesian state media projects government competence while the Malay Mail’s ‘We’re on our own’ captures abandonment, and Vatican News alone registers Catholic-community disruption on Flores.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Rising death toll, mass casualties",
+      "buckets": ["china", "turkey", "russia", "india", "uk", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Death toll from Indonesia's Flores earthquake rises to 47",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Massive 7.7 earthquake kills 38, triggers landslides",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "earthquake kills at least 68 people",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Killing at Least 47 and Toppling Buildings",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "earthquake off Indonesia kills at least five",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "Powerful quake off Indonesia kills 20, sparks mass evacuations",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Aid need vs. rescue gap",
+      "buckets": ["indonesia", "canada", "vietnam_thai_my", "qatar"],
+      "evidence": [
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "25 tons of aid to NTT earthquake victims",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "seven kitchens for 31,000 NTT earthquake evacuees",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Thousands await aid after Indonesia earthquake",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "plead for aid as 12,800 remain displaced",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Indonesia's quake zone, desperate for help",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Displacement, daily disruption",
+      "buckets": ["wire_services", "canada", "religious_press"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Businesses reopen after eastern Indonesia earthquake displaced",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Thousands remain displaced days after deadly earthquake",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Education disrupted for over 8,000 children after earthquake",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Emergency declaration, state coordination",
+      "buckets": ["vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Indonesia declares emergency till Aug 28",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Catholic community identity on Flores",
+      "buckets": ["religious_press"],
+      "evidence": [
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Catholic festival cancelled",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "indonesia",
+      "mean_similarity": 0.604,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.625,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.676,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.692,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.694,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.702,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.71,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.758,
+      "n_tokens": 57
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to carry direct survivor voice — ‘We’re on our own’ — as a front-matter quote, contrasting sharply with Indonesian state media’s aid-mobilisation framing and making abandonment the lead claim rather than a secondary detail.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "Only headline to name the cancellation of a Catholic festival, foregrounding religious-community identity on Flores; the second Vatican News headline uniquely surfaces children’s education disruption, citing Save the Children — both angles absent from all secular coverage.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Sky News UK",
+      "country": "uk",
+      "finding": "Only outlet to lead with the aftershock count (‘Nearly 1,600 aftershocks’) as the defining metric of ongoing seismic danger, rather than the primary death toll that anchors every other headline.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Earliest item in the cluster: headline reports only five deaths and foregrounds tsunami waves; the tsunami angle disappears entirely from subsequent coverage as the warning was lifted, making this headline uniquely time-stamped to the first hour.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "The headline layer of Flores earthquake coverage is dominated by escalating casualty counts and unmet aid needs, with Indonesian state media projecting government competence while the Malay Mail’s survivor-voice headline signals abandonment — Vatican News alone registers the Catholic-community dimension constitutive of Flores’s identity.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
