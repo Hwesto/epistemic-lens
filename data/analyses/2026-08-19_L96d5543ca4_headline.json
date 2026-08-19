@@ -1,0 +1,172 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-19",
+  "lineage_id": "L96d5543ca4",
+  "cluster_id": 147,
+  "cluster_name": "US sanctions ICC president Tomoko Akane and senior trial lawyer",
+  "salience_score": 4.776,
+  "n_outlets": 18,
+  "n_countries": 13,
+  "n_articles": 18,
+  "tldr": "Eleven of 18 headlines reduce this story to neutral factual statements of US sanctions on ICC officials; European and wire outlets inject escalation language that the neutral majority suppresses — DW, NL Times, and Reuters all use 'latest escalation' or 'latest attack on court' in the title itself, characterizing the action as one step in a campaign rather than a discrete event. Japan Times stands alone in framing the sanctions as an alliance-loyalty test ('testing Tokyo's support for global court'), a geopolitical subtext absent from every other headline. The ICC's 'rule of law' rebuttal surfaces in only two headlines (AFP and NDTV), while Standard Kenya World pivots entirely to a different story: domestic US legal challenge to Trump's ICC sanctions. No headline in the corpus mentions Gaza, Netanyahu, or the 2024 arrest warrants that the body text identifies as the proximate trigger for US pressure on the court.",
+  "event_summary": "On August 18, 2026, the US sanctioned ICC President Tomoko Akane of Japan and trial lawyer Abdoulaye Seye of Senegal, adding them to the Treasury's Specially Designated Nationals List; Japan called the move 'extremely regrettable.'",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US attack/escalation campaign on ICC",
+      "outlets": [
+        "Al Jazeera English",
+        "AllAfrica",
+        "CGTN World",
+        "Daily Maverick",
+        "Deutsche Welle English",
+        "Hindustan Times",
+        "NL Times",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "qatar",
+        "africa_other",
+        "china",
+        "south_africa",
+        "germany",
+        "india",
+        "netherlands_belgium",
+        "wire_services",
+        "taiwan_hk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "senior lawyer in latest escalation",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "NL Times",
+          "country": "netherlands_belgium",
+          "quote": "latest attack on court in The Hague",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "senior trial lawyer in latest attack on court",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "rule of law rebuttal / legal challenge",
+      "outlets": [
+        "AFP / France 24 EN",
+        "NDTV World",
+        "Standard Kenya World"
+      ],
+      "countries": [
+        "wire_services",
+        "india",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "sanctions on top court members 'undermine rule of law'",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "US Sanctions \"Undermine The Rule Of Law\", Says World Court",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "US rights groups sue Trump over ICC sanctions",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump campaign, Tokyo alliance dilemma",
+      "outlets": [
+        "Anadolu Agency English",
+        "Japan Times",
+        "Malay Mail World",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "turkey",
+        "japan",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "testing Tokyo's support for global court",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Tokyo calls US sanctions on Japanese chief of ICC",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Trump Administration's Campaign Against Court",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "over claims of 'politicised' court",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Only headline in the corpus to frame the sanctions as a bilateral loyalty test for Tokyo — 'testing Tokyo's support for global court' — foregrounding the Japan-US alliance dimension that every other title ignores.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "The only headline to pivot entirely away from the sanctions action itself, leading instead with domestic US legal counter-action: 'US rights groups sue Trump over ICC sanctions.'",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "NL Times",
+      "country": "netherlands_belgium",
+      "finding": "Host-nation editorial signal: 'latest attack on court in The Hague' — the only title to name the ICC's physical location, framing the sanctions as an attack on a court embedded in Dutch territory.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Uniquely leads with the ICC's rebuttal rather than the US action, placing the rule-of-law language before any mention of sanctioned individuals — the only Indian headline to foreground the institutional counter-claim.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer is dominated by neutral factual reporting of US sanctions on ICC officials, with European and wire outlets adding 'latest escalation' and 'latest attack' language that signals an ongoing campaign. Japan Times is the sole outlet to foreground the Japan-US alliance dimension in its title, and Standard Kenya World uniquely pivots the headline to domestic US legal counter-action — the only title that does not lead with the sanctions themselves. Gaza, Netanyahu, and the ICC arrest warrants that body text cites as the trigger are invisible at the headline layer across all 18 outlets.",
+  "generated_at": "2026-08-19T09:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
