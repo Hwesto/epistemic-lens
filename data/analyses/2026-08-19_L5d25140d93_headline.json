@@ -1,0 +1,171 @@
+{
+  "story_key": "L5d25140d93",
+  "date": "2026-08-19",
+  "n_buckets": 12,
+  "n_articles": 19,
+  "tldr": "Headlines across 12 outlet clusters uniformly report the Kolkata hotel fire as a death-toll event — nine dead, six injured — but diverge sharply on victim identity: Indian outlets lead with 'Bangladeshi nationals killed' while international wire services and European titles stay nationality-neutral; two English-language Asian outlets (Malay Mail, SCMP) are the only headlines to name a suspected cause (AC explosion), surfacing an infrastructure angle visible nowhere else above the fold.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "fatal hotel fire, nine dead",
+      "buckets": [
+        "balkans",
+        "germany",
+        "india",
+        "italy",
+        "nigeria",
+        "pakistan",
+        "qatar",
+        "russia_native",
+        "taiwan_hk",
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Hotel blaze in India's West Bengal kills 9 and injures 6",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "AC explosion suspected as nine die in latest India hotel fire",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "9 killed in Indian budget hotel fire after suspected air-con",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Nine die in India hotel fire",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "9 killed in eastern India hotel fire",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Bangladeshi/foreign victim identity headlined",
+      "buckets": [
+        "india",
+        "russia_native"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "9 Bangladeshi Nationals Killed In Massive Kolkata Hotel Fire",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "9 Bangladeshi nationals killed in massive fire at Kolkata",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Kommersant",
+          "quote": "Девять иностранцев погибли при пожаре в отеле",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.736,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.756,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.758,
+      "n_tokens": 101
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.759,
+      "n_tokens": 193
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.768,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.776,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.777,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.794,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.809,
+      "n_tokens": 348
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.816,
+      "n_tokens": 78
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to name a suspected physical cause ('AC explosion') and label the event 'latest India hotel fire disaster' — framing it as a recurring pattern rather than an isolated incident, a systemic signal absent from all other titles above the fold.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Leads headline with 'budget hotel' and 'air-con explosion' — foregrounding the venue's socioeconomic class and infrastructure failure, while Indian domestic headlines foreground victim nationality instead.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Kommersant",
+      "country": "russia_native",
+      "finding": "Only non-Indian outlet to flag victim identity in the headline, but uses the generic 'nine foreigners' (иностранцев) rather than 'Bangladeshi nationals' — preserving the outsider angle while erasing national specificity.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "ARY News English",
+      "country": "pakistan",
+      "finding": "One of two ARY News headlines in this cluster is entirely off-topic (a Karachi police encounter with alleged dacoits at index 2), confirming cluster noise from a broad domestic Pakistan feed pull alongside the on-topic hotel-fire item.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "The headline layer reduces this tragedy almost universally to a death count, but the sharpest editorial choice — whether to name the victims as Bangladeshis or leave them nationality-neutral — divides Indian domestic outlets from the international press at the very first line of coverage.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
