@@ -1,0 +1,952 @@
+{
+  "date": "2026-08-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 17,
+  "n_articles": 37,
+  "buckets": [
+    "asia_pacific_regional",
+    "canada",
+    "china",
+    "germany",
+    "india",
+    "iran_opposition",
+    "kenya",
+    "korea_north",
+    "opinion_magazines",
+    "religious_press",
+    "russia",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "ukraine",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "asia_pacific_regional": 59,
+    "canada": 58,
+    "china": 66,
+    "turkey": 54,
+    "germany": 61,
+    "opinion_magazines": 234,
+    "usa": 56,
+    "ukraine": 319,
+    "russia": 548,
+    "korea_north": 103,
+    "iran_opposition": 68,
+    "india": 67,
+    "kenya": 53,
+    "vietnam_thai_my": 33,
+    "taiwan_hk": 10,
+    "uk": 24,
+    "religious_press": 24
+  },
+  "pairwise_similarity": [
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.876
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.842
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.842
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.829
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.815
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.809
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.808
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.805
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.805
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.804
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.802
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.797
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.795
+    },
+    {
+      "a": "iran_opposition",
+      "b": "usa",
+      "score": 0.788
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.786
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.782
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.774
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.769
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.764
+    },
+    {
+      "a": "iran_opposition",
+      "b": "kenya",
+      "score": 0.763
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.762
+    },
+    {
+      "a": "kenya",
+      "b": "religious_press",
+      "score": 0.756
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.752
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.742
+    },
+    {
+      "a": "korea_north",
+      "b": "russia",
+      "score": 0.741
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.739
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.734
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.734
+    },
+    {
+      "a": "korea_north",
+      "b": "ukraine",
+      "score": 0.733
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.733
+    },
+    {
+      "a": "kenya",
+      "b": "ukraine",
+      "score": 0.731
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.727
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.727
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "korea_north",
+      "score": 0.722
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.721
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.72
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.711
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.709
+    },
+    {
+      "a": "korea_north",
+      "b": "turkey",
+      "score": 0.708
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.708
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.707
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.701
+    },
+    {
+      "a": "iran_opposition",
+      "b": "korea_north",
+      "score": 0.697
+    },
+    {
+      "a": "religious_press",
+      "b": "turkey",
+      "score": 0.695
+    },
+    {
+      "a": "china",
+      "b": "opinion_magazines",
+      "score": 0.69
+    },
+    {
+      "a": "iran_opposition",
+      "b": "religious_press",
+      "score": 0.69
+    },
+    {
+      "a": "china",
+      "b": "iran_opposition",
+      "score": 0.689
+    },
+    {
+      "a": "kenya",
+      "b": "korea_north",
+      "score": 0.687
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.686
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "germany",
+      "score": 0.681
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.681
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.678
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.676
+    },
+    {
+      "a": "canada",
+      "b": "religious_press",
+      "score": 0.67
+    },
+    {
+      "a": "canada",
+      "b": "korea_north",
+      "score": 0.664
+    },
+    {
+      "a": "religious_press",
+      "b": "ukraine",
+      "score": 0.662
+    },
+    {
+      "a": "india",
+      "b": "korea_north",
+      "score": 0.661
+    },
+    {
+      "a": "germany",
+      "b": "iran_opposition",
+      "score": 0.656
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.655
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.653
+    },
+    {
+      "a": "china",
+      "b": "ukraine",
+      "score": 0.653
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.652
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.638
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.637
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.636
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.633
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.632
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.631
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.629
+    },
+    {
+      "a": "india",
+      "b": "religious_press",
+      "score": 0.626
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.623
+    },
+    {
+      "a": "germany",
+      "b": "korea_north",
+      "score": 0.619
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.619
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "opinion_magazines",
+      "score": 0.617
+    },
+    {
+      "a": "korea_north",
+      "b": "usa",
+      "score": 0.617
+    },
+    {
+      "a": "korea_north",
+      "b": "opinion_magazines",
+      "score": 0.608
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.606
+    },
+    {
+      "a": "religious_press",
+      "b": "usa",
+      "score": 0.606
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.602
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.597
+    },
+    {
+      "a": "religious_press",
+      "b": "russia",
+      "score": 0.597
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "ukraine",
+      "score": 0.592
+    },
+    {
+      "a": "kenya",
+      "b": "uk",
+      "score": 0.583
+    },
+    {
+      "a": "china",
+      "b": "religious_press",
+      "score": 0.582
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.581
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.578
+    },
+    {
+      "a": "korea_north",
+      "b": "religious_press",
+      "score": 0.577
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.576
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.575
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.572
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.571
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.567
+    },
+    {
+      "a": "iran_opposition",
+      "b": "opinion_magazines",
+      "score": 0.566
+    },
+    {
+      "a": "kenya",
+      "b": "taiwan_hk",
+      "score": 0.562
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "ukraine",
+      "score": 0.561
+    },
+    {
+      "a": "china",
+      "b": "korea_north",
+      "score": 0.561
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "russia",
+      "score": 0.56
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.557
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.554
+    },
+    {
+      "a": "iran_opposition",
+      "b": "uk",
+      "score": 0.546
+    },
+    {
+      "a": "iran_opposition",
+      "b": "vietnam_thai_my",
+      "score": 0.546
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.543
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.542
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.538
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "turkey",
+      "score": 0.536
+    },
+    {
+      "a": "germany",
+      "b": "religious_press",
+      "score": 0.535
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "kenya",
+      "score": 0.53
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.53
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "ukraine",
+      "score": 0.528
+    },
+    {
+      "a": "kenya",
+      "b": "opinion_magazines",
+      "score": 0.526
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.524
+    },
+    {
+      "a": "korea_north",
+      "b": "vietnam_thai_my",
+      "score": 0.505
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.504
+    },
+    {
+      "a": "iran_opposition",
+      "b": "taiwan_hk",
+      "score": 0.503
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.499
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.492
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "india",
+      "score": 0.489
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.481
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "iran_opposition",
+      "score": 0.476
+    },
+    {
+      "a": "religious_press",
+      "b": "uk",
+      "score": 0.476
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.474
+    },
+    {
+      "a": "religious_press",
+      "b": "vietnam_thai_my",
+      "score": 0.468
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "canada",
+      "score": 0.459
+    },
+    {
+      "a": "korea_north",
+      "b": "taiwan_hk",
+      "score": 0.445
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "china",
+      "score": 0.433
+    },
+    {
+      "a": "korea_north",
+      "b": "uk",
+      "score": 0.43
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "uk",
+      "score": 0.415
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.414
+    },
+    {
+      "a": "religious_press",
+      "b": "taiwan_hk",
+      "score": 0.411
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.405
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "religious_press",
+      "score": 0.397
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "taiwan_hk",
+      "score": 0.396
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.391
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.383
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "religious_press",
+      "score": 0.356
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "vietnam_thai_my",
+      "score": 0.298
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.492,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.501,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.564,
+      "n_tokens": 234
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.623,
+      "n_tokens": 103
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.639,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.649,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.658,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.676,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.679,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.683,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.685,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.694,
+      "n_tokens": 319
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.698,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.711,
+      "n_tokens": 548
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.547,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.558,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.569,
+      "n_tokens": 24
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "asia_pacific_regional": [
+      {
+        "term": "grow",
+        "count": 3
+      },
+      {
+        "term": "stronger",
+        "count": 3
+      },
+      {
+        "term": "ponder",
+        "count": 3
+      },
+      {
+        "term": "fading",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "china": [
+      {
+        "term": "warn",
+        "count": 6
+      },
+      {
+        "term": "surge",
+        "count": 3
+      }
+    ],
+    "turkey": [
+      {
+        "term": "exchange",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "opinion_magazines": [
+      {
+        "term": "threat",
+        "count": 4
+      },
+      {
+        "term": "effort",
+        "count": 3
+      },
+      {
+        "term": "retaliation",
+        "count": 3
+      }
+    ],
+    "usa": [],
+    "ukraine": [
+      {
+        "term": "occupied",
+        "count": 5
+      },
+      {
+        "term": "soldier",
+        "count": 4
+      },
+      {
+        "term": "banderole",
+        "count": 4
+      },
+      {
+        "term": "fire",
+        "count": 3
+      },
+      {
+        "term": "defence",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "answer",
+        "count": 3
+      },
+      {
+        "term": "made",
+        "count": 3
+      },
+      {
+        "term": "hitting",
+        "count": 3
+      },
+      {
+        "term": "package",
+        "count": 3
+      },
+      {
+        "term": "director",
+        "count": 3
+      },
+      {
+        "term": "work",
+        "count": 3
+      },
+      {
+        "term": "battlegroup",
+        "count": 3
+      },
+      {
+        "term": "center",
+        "count": 3
+      }
+    ],
+    "korea_north": [],
+    "iran_opposition": [
+      {
+        "term": "tatarstan",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "kenya": [
+      {
+        "term": "dozen",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "taiwan_hk": [],
+    "uk": [],
+    "religious_press": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-19T08:19:32+00:00",
+  "meta_version": "10.0.3"
+}

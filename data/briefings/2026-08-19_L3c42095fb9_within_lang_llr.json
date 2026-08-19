@@ -1,0 +1,114 @@
+{
+  "date": "2026-08-19",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 45,
+      "n_tokens_in_cohort": 707,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 154,
+      "n_tokens_in_cohort": 598,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 73,
+      "n_tokens_in_cohort": 679,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 684,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 692,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 98,
+      "n_tokens_in_cohort": 654,
+      "distinctive_terms": [
+        {
+          "term": "push",
+          "count_in_bucket": 5,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.05102,
+          "rate_in_cohort": 0.00306,
+          "llr": 12.761,
+          "log_ratio": 2.814,
+          "p_value": 0.000354
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 700,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 700,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 725,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 684,
+      "distinctive_terms": [
+        {
+          "term": "meet",
+          "count_in_bucket": 5,
+          "count_in_cohort": 5,
+          "rate_in_bucket": 0.07353,
+          "rate_in_cohort": 0.00731,
+          "llr": 11.397,
+          "log_ratio": 2.308,
+          "p_value": 0.000736
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 697,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

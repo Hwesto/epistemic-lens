@@ -1,0 +1,353 @@
+{
+  "date": "2026-08-19",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 20,
+  "buckets": [
+    "africa_other",
+    "canada",
+    "china",
+    "france",
+    "india",
+    "kenya",
+    "pan_african",
+    "state_tv_intl",
+    "turkey"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 130,
+    "africa_other": 317,
+    "turkey": 28,
+    "china": 99,
+    "canada": 52,
+    "france": 40,
+    "state_tv_intl": 232,
+    "kenya": 30,
+    "india": 28
+  },
+  "pairwise_similarity": [
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.91
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.867
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.854
+    },
+    {
+      "a": "africa_other",
+      "b": "china",
+      "score": 0.853
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.849
+    },
+    {
+      "a": "africa_other",
+      "b": "india",
+      "score": 0.846
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.816
+    },
+    {
+      "a": "kenya",
+      "b": "pan_african",
+      "score": 0.8
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.781
+    },
+    {
+      "a": "africa_other",
+      "b": "france",
+      "score": 0.772
+    },
+    {
+      "a": "africa_other",
+      "b": "kenya",
+      "score": 0.757
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.75
+    },
+    {
+      "a": "africa_other",
+      "b": "canada",
+      "score": 0.749
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.748
+    },
+    {
+      "a": "china",
+      "b": "france",
+      "score": 0.746
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.741
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.738
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.733
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.729
+    },
+    {
+      "a": "france",
+      "b": "pan_african",
+      "score": 0.725
+    },
+    {
+      "a": "africa_other",
+      "b": "turkey",
+      "score": 0.711
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.7
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.7
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.695
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.695
+    },
+    {
+      "a": "china",
+      "b": "state_tv_intl",
+      "score": 0.69
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.69
+    },
+    {
+      "a": "canada",
+      "b": "state_tv_intl",
+      "score": 0.684
+    },
+    {
+      "a": "kenya",
+      "b": "state_tv_intl",
+      "score": 0.676
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.663
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.622
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "turkey",
+      "score": 0.608
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.588
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.571
+    },
+    {
+      "a": "france",
+      "b": "kenya",
+      "score": 0.56
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.559
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "france",
+      "mean_similarity": 0.678,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.679,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.691,
+      "n_tokens": 232
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.699,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.778,
+      "n_tokens": 99
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.795,
+      "n_tokens": 130
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.802,
+      "n_tokens": 317
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.667,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.756,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [
+      {
+        "term": "lead",
+        "count": 3
+      },
+      {
+        "term": "cattle",
+        "count": 3
+      }
+    ],
+    "africa_other": [
+      {
+        "term": "threat",
+        "count": 4
+      },
+      {
+        "term": "hiding",
+        "count": 3
+      },
+      {
+        "term": "evidence",
+        "count": 3
+      },
+      {
+        "term": "place",
+        "count": 3
+      },
+      {
+        "term": "avec",
+        "count": 3
+      },
+      {
+        "term": "voix",
+        "count": 3
+      },
+      {
+        "term": "électorale",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "china": [
+      {
+        "term": "congratulat",
+        "count": 6
+      },
+      {
+        "term": "incumbent",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "france": [
+      {
+        "term": "principal",
+        "count": 3
+      }
+    ],
+    "state_tv_intl": [
+      {
+        "term": "reelected",
+        "count": 3
+      },
+      {
+        "term": "militia",
+        "count": 3
+      },
+      {
+        "term": "kafwaya",
+        "count": 3
+      },
+      {
+        "term": "polling",
+        "count": 3
+      },
+      {
+        "term": "dispute",
+        "count": 3
+      }
+    ],
+    "kenya": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-19T08:19:17+00:00",
+  "meta_version": "10.0.3"
+}

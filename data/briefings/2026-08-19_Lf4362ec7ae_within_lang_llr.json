@@ -1,0 +1,124 @@
+{
+  "date": "2026-08-19",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 86,
+      "n_tokens_in_cohort": 810,
+      "distinctive_terms": [
+        {
+          "term": "kill",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.06977,
+          "rate_in_cohort": 0.00247,
+          "llr": 19.891,
+          "log_ratio": 3.341,
+          "p_value": 8e-06
+        },
+        {
+          "term": "philippine",
+          "count_in_bucket": 7,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.0814,
+          "rate_in_cohort": 0.00864,
+          "llr": 15.242,
+          "log_ratio": 2.243,
+          "p_value": 9.5e-05
+        },
+        {
+          "term": "attack",
+          "count_in_bucket": 6,
+          "count_in_cohort": 5,
+          "rate_in_bucket": 0.06977,
+          "rate_in_cohort": 0.00617,
+          "llr": 14.298,
+          "log_ratio": 2.425,
+          "p_value": 0.000156
+        }
+      ]
+    },
+    "iraq": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 864,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 872,
+      "distinctive_terms": []
+    },
+    "philippines": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 409,
+      "n_tokens_in_cohort": 487,
+      "distinctive_terms": [
+        {
+          "term": "angara",
+          "count_in_bucket": 10,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02445,
+          "rate_in_cohort": 0.0,
+          "llr": 15.819,
+          "log_ratio": null,
+          "p_value": 7e-05
+        }
+      ]
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 66,
+      "n_tokens_in_cohort": 830,
+      "distinctive_terms": [
+        {
+          "term": "mayor",
+          "count_in_bucket": 7,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.10606,
+          "rate_in_cohort": 0.00241,
+          "llr": 27.972,
+          "log_ratio": 3.785,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 78,
+      "n_tokens_in_cohort": 818,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 191,
+      "n_tokens_in_cohort": 705,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 10,
+      "n_tokens_in_cohort": 886,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
