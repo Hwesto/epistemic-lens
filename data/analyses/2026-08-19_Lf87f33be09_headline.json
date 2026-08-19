@@ -1,0 +1,156 @@
+{
+  "story_key": "Lf87f33be09",
+  "date": "2026-08-19",
+  "n_buckets": 14,
+  "n_articles": 19,
+  "tldr": "Headlines across all 14 country buckets frame the Meta trial as a landmark legal event, splitting between prosecution-side language—'hooked children,' 'intentionally addicting children,' 'harm young people'—and Meta's categorical denials. Financial stakes ($200B or $1.4T) break into headlines only for Pakistani and Russian outlets, while European and Commonwealth mastheads favour the child-harm register. The headline layer is dominated by LEGALITY cues; the HEALTH_SAFETY signal is strong in six buckets but surface-level compared to the body-text detail.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "landmark trial, corp denies state claims",
+      "buckets": ["australia_nz", "canada", "germany", "india", "japan", "pakistan", "philippines", "qatar", "russia", "south_africa", "spain", "taiwan_hk", "uk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Trial begins that could force Meta to change",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Meta rejects claims it sought to hook children",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Rappler",
+          "quote": "Meta rejects claims it sought to hook children",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Meta accused of targeting children to boost",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Meta rejects allegations it sought to hook children",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Sydney Morning Herald",
+          "quote": "Pivotal trial under way in US for Meta platforms",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "children hooked and harmed by platforms",
+      "buckets": ["canada", "germany", "india", "japan", "spain", "uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Meta hooked children on Facebook and Instagram",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "exploiting, intentionally addicting children",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Meta hooked children, prosecutors say",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "They knew their platforms could harm young people",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Meta hooked children and misled public: prosecutors",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Meta hooked children and misled public: prosecutors",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "$200B-$1.4T penalty in headline",
+      "buckets": ["pakistan", "russia"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Meta on trial: 29 states seek $200B",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Zuckerbeg's Meta in $1.4 trillion addiction showdown",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "spain", "mean_similarity": 0.677, "n_tokens": 217},
+    {"bucket": "south_africa", "mean_similarity": 0.735, "n_tokens": 42},
+    {"bucket": "uk", "mean_similarity": 0.736, "n_tokens": 218},
+    {"bucket": "philippines", "mean_similarity": 0.77, "n_tokens": 35},
+    {"bucket": "germany", "mean_similarity": 0.772, "n_tokens": 35},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.779, "n_tokens": 62},
+    {"bucket": "pakistan", "mean_similarity": 0.78, "n_tokens": 82},
+    {"bucket": "canada", "mean_similarity": 0.809, "n_tokens": 577}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to lead with '$1.4 trillion' rather than the $200B figure and to use 'showdown' language — a spectacle register absent from every other masthead.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "Only outlet to use 'Decisive' in the headline and embed a direct accusation quote ('They knew their platforms could harm young people'), lending an explicitly verdict-anticipating tone.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to lead with the bereaved parents angle ('Bereaved parents speak out'), foregrounding human grief rather than trial events or Meta's denial.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Sydney Morning Herald",
+      "country": "australia_nz",
+      "finding": "Most minimal headline of any outlet: 'Pivotal trial under way in US for Meta platforms' — no allegation, no dollar figure, no child-harm signal.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "The headline layer frames the Meta trial as a landmark legal confrontation across all 14 country buckets, with prosecution-side 'hooked children' language dominating six mastheads and financial penalty stakes appearing only in Pakistani and Russian headlines.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
