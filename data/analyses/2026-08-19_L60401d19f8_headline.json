@@ -1,0 +1,170 @@
+{
+  "story_key": "L60401d19f8",
+  "date": "2026-08-19",
+  "n_buckets": 12,
+  "n_articles": 21,
+  "tldr": "Headlines across 12 country buckets report Israeli airstrikes on Syria's Abu al-Duhur airbase through two dominant frames: Israel's security-threat justification (blocking Turkish troop deployment) and a multinational condemnation chorus. A smaller set of headlines foreground US-Netanyahu political friction, while the Straits Times alone leads with the deconfliction diplomacy that followed.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Turkish deployment as strike trigger",
+      "buckets": ["pan_african", "turkey", "israel", "pan_arab", "india", "russia", "iran_state"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Israel strikes Syrian airbase",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Turkey was about to deploy troops at targeted Syrian airbase",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Syria strike risked scrambling Turkish jets",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Syria acceptance of Turkish troops posed a 'threat'",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Targeted Syria Air Base To Block Turkish Troops Deployment",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Syria allowed Turkish troops onto airbase near Aleppo",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Israel strikes Syrian airfield, warning Ankara",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Multinational condemnation of strikes",
+      "buckets": ["turkey", "uk", "germany", "israel", "iran_state", "syria"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Pakistan 'strongly' condemns Israeli attacks on Syria",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "US condemns 'unnecessary escalation'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Syria, US condemn Israeli strikes on military base",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "U.S. envoy to Syria condemns Israeli strikes",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "Arab, Islamic nations slam fresh Israeli aggression",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "syria",
+          "outlet": "Syrian Observer",
+          "quote": "Syria Condemns Israeli Strikes on Idlib Airbase",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu justification vs. US tension",
+      "buckets": ["usa", "pan_arab", "india"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "U.S. frustration with Bibi grows",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Netanyahu seeks to justify Syria strikes",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "'Allegations Lack Seriousness': Turkiye Denies",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "US-led deconfliction mechanism",
+      "buckets": ["vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "US working on deconfliction mechanism",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "iran_state", "mean_similarity": 0.689, "n_tokens": 73},
+    {"bucket": "syria", "mean_similarity": 0.712, "n_tokens": 205},
+    {"bucket": "usa", "mean_similarity": 0.731, "n_tokens": 58}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "The only headline to name US political frustration with Netanyahu by his nickname ('Bibi'), converting a security event into a US-Israel domestic-political story at the title layer where every other outlet foregrounded the strike or condemnation.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "The only headline to characterise Syria's restraint as 'appeasement' — a pejorative framing absent from all other outlets — and to describe the strike as 'warning Ankara' rather than striking a military airbase, uniquely foregrounding an adversarial editorial angle.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "The only headline to lead with the US-brokered deconfliction mechanism rather than the strike itself or its condemnation, advertising the diplomatic aftermath as the story before any reader clicks.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "At the headline layer this is a dual-frame story — Israel's security rationale and a multinational condemnation chorus — but three outliers reveal divergent editorial priorities: Axios frames it as a US political rupture with Netanyahu, Tehran Times characterises Syria's restraint as 'appeasement', and the Straits Times alone leads with the deconfliction diplomacy rather than the military incident.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
