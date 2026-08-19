@@ -1,0 +1,218 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-19",
+  "lineage_id": "L96d5543ca4",
+  "cluster_id": 147,
+  "cluster_name": "US sanctions ICC president Tomoko Akane and senior trial lawyer",
+  "n_outlets": 18,
+  "n_countries": 13,
+  "n_articles": 18,
+  "salience_score": 4.776,
+  "event_summary": "On August 18, 2026, the US sanctioned ICC President Tomoko Akane of Japan and trial lawyer Abdoulaye Seye of Senegal, adding them to the Treasury's Specially Designated Nationals List. Japan called the move 'extremely regrettable.'",
+  "tldr": "The most striking pattern is that China's state broadcaster (CGTN) and Germany's public broadcaster (DW) — outlets from geopolitically opposed blocs, one inside the ICC system and one outside — converge on identical 'campaign/escalation' language to characterize the US sanctions, suggesting no ideological fault line defends the Trump administration's position in this corpus. Japan Times is the only outlet to frame this as a Japan-US alliance dilemma rather than an ICC institutional story, reflecting the unique position of a US treaty ally whose national now leads a sanctioned court. African and rights-focused outlets (AllAfrica via HRW, Standard Kenya World) surface the dimension absent elsewhere: US rights groups have sued Trump, arguing the sanctions block war crime victims from accessing justice. The Anadolu Agency's partial extraction uniquely anchors the sanctions explicitly to the ICC's November 2024 arrest warrants for Netanyahu and Gallant — context most other outlets omit.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US escalation campaign against ICC",
+      "outlets": [
+        "CGTN World",
+        "Deutsche Welle English",
+        "South China Morning Post",
+        "Reuters (via Google News)",
+        "Daily Maverick",
+        "Al Jazeera English",
+        "NL Times",
+        "Anadolu Agency English"
+      ],
+      "countries": [
+        "china",
+        "germany",
+        "taiwan_hk",
+        "wire_services",
+        "south_africa",
+        "qatar",
+        "netherlands_belgium",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Washington stepped up its campaign against the Hague-based tribunal.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "The US is not a member of the court.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "NL Times",
+          "country": "netherlands_belgium",
+          "quote": "The United States has imposed sanctions against two more employees of the International Criminal Court (ICC) in The Hague.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "rule of law and ICC jurisdiction",
+      "outlets": [
+        "AFP / France 24 EN",
+        "NDTV World",
+        "Straits Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The US on Tuesday imposed sanctions against two top members of the International Criminal Court (ICC) which the court said \"undermine the rule of law\".",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "The ICC condemned the move, saying in a statement that the measures undermine the rule of law.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "These individuals have directly engaged in efforts by the ICC to investigate, arrest, detain, or prosecute officials whose government has not consented to ICC jurisdiction, U.S. Secretary of State Marco Rubio said in a statement",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump ICC campaign, US ally dilemma",
+      "outlets": [
+        "Japan Times",
+        "Republic World (alt)",
+        "Malay Mail World",
+        "NDTV World"
+      ],
+      "countries": [
+        "japan",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "The move by the administration of U.S. President Donald Trump presents a dilemma for Tokyo, a strong backer of multilateral groupings and a key American ally.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "the US administration said the action was taken as part of its campaign against what it described as the \"politicised\" and \"unaccountable\" nature of the ICC.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Earlier Tuesday, the US imposed sanctions against ICC President Tomoko Akane of Japan as part of its campaign against the body it accuses of being \"politicised.\"",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "war crime victims blocked from justice",
+      "outlets": [
+        "Standard Kenya World",
+        "AllAfrica"
+      ],
+      "countries": [
+        "kenya",
+        "africa_other"
+      ],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Rights groups on Tuesday sued US President Donald Trump over his sanctions targeting the International Criminal Court, saying the measures block victims of war crimes from pursuing justice.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "The United States government on August 18, 2026, designated two additional International Criminal Court (ICC) officials for sanctions under an executive order issued by President Donald Trump in February 2025, Human Rights Watch said today.",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "CGTN World",
+      "country": "china",
+      "quote": "Washington stepped up its campaign against the Hague-based tribunal.",
+      "signal_text_idx": 4
+    },
+    "b": {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "quote": "The US has announced it will impose additional sanctions on members of the International Criminal Court. The ICC said the latest US move against it \"undermines the rule of law.\"",
+      "signal_text_idx": 6
+    },
+    "joint_conclusion": "China's state broadcaster — from a country outside the ICC and typically critical of Western-led institutions — and Germany's public broadcaster — from a US ally and ICC state party — both characterize the US action as an escalatory campaign against the court. The US critique of the ICC draws no visible ideological fault line: neither geopolitical alignment with Washington nor traditional opposition to it produces a voice that defends the sanctions in this corpus."
+  },
+  "silences": [
+    {
+      "country": "israel",
+      "what_they_covered_instead": "No Israeli feed in this corpus despite Netanyahu's ICC arrest warrants being the stated trigger for US pressure on the court; Israeli domestic framing of the sanctions is entirely absent."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Only outlet to frame the sanctions as a bilateral Japan-US loyalty test rather than a global ICC governance story, noting Tokyo is 'a strong backer of multilateral groupings and a key American ally.'",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Only outlet to cover the domestic US legal counter-move: rights groups filing suit against Trump on grounds that the sanctions 'block victims of war crimes from pursuing justice.'",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Only outlet (partial body extraction) to explicitly link the current sanctions to the ICC's November 2024 arrest warrants for Netanyahu and Gallant, establishing the causal chain most others omit.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "Via HRW sourcing, names Abdoulaye Seye as Senegalese — the only outlet to highlight the sanctioned trial lawyer's African nationality, grounding the story in an African-representation frame.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "NL Times",
+      "country": "netherlands_belgium",
+      "finding": "Host-nation framing: describes the sanctions as 'the latest attack on court in The Hague,' treating the ICC's physical location in the Netherlands as editorially salient.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "India's right-populist outlet reproduces Rubio's 'politicised' and 'unaccountable' language without editorial distance — the closest this corpus comes to a sympathetic relay of the US justification.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "US sanctions on the ICC's Japanese president and Senegalese trial lawyer produced a rare cross-bloc consensus: Chinese state media and European public broadcasters alike described the action as an escalatory campaign against the court, with the ICC's own 'rule of law' language echoed from wire services to Asian broadcasters. The sanctions place Japan in a structurally exposed position — a treaty ally whose own national now heads a court Washington is actively pressuring — and that dilemma received almost no coverage outside Japan itself.",
+  "generated_at": "2026-08-19T08:36:20Z",
+  "model": "claude-sonnet-4-6"
+}
