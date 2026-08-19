@@ -1,0 +1,133 @@
+{
+  "story_key": "L3c42095fb9",
+  "date": "2026-08-19",
+  "n_buckets": 12,
+  "n_articles": 21,
+  "tldr": "Headlines across 12 country buckets unanimously frame the Kushner shuttle as a double failure — no deal with Hamas in Cairo, no breakthrough with Netanyahu in Jerusalem — but the advertised sub-story diverges sharply: Fox News converts stalemate into a 'stark ultimatum' suggesting US resolve, wire services and the Straits Times pivot to the Israeli airstrike the following day, and Turkey's Daily Sabah is alone in headlining Hamas's counter-narrative that Israel, not Hamas, is the obstacle to a deal.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "stalled Gaza peace plan: no breakthrough",
+      "buckets": ["pan_african", "usa", "china", "turkey", "brazil", "canada", "vietnam_thai_my", "russia", "india", "kenya", "uk"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "seeks to revive Gaza peace as Netanyahu resists",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "talks make no breakthrough on stalled Gaza deal",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "no firm commitments on Gaza peace plan",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Hamas reiterates Gaza deal commitment, blames Israel",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes continue; disarm-or-war ultimatum",
+      "buckets": ["usa", "wire_services", "vietnam_thai_my", "china"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Disarm or Israel gets US backing to 'finish the job'",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Israel kills six in Gaza on day after Kushner meeting",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Israel kills six in Gaza on day after Kushner meeting",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Israel strikes Gaza",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US sets disarmament timelines for both parties",
+      "buckets": ["russia", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "US issues Hamas Gaza construction ultimatum",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Kushner puts 30-day timeline on Hamas disarmament push",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Urged Netanyahu to 'Not Create Obstacles' to Gaza",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "uk", "mean_similarity": 0.713, "n_tokens": 55},
+    {"bucket": "india", "mean_similarity": 0.729, "n_tokens": 52},
+    {"bucket": "pan_african", "mean_similarity": 0.731, "n_tokens": 45}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "The only headline to convert diplomatic failure into an ultimatum narrative — pairing 'stark ultimatum' with 'finish the job' — advertising the same stalemate as US resolve rather than breakdown.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "The only headline to foreground Hamas's counter-narrative in the title itself, making Israel the stalling party — an attribution entirely absent from every other outlet's title layer.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only headline to lead with the reconstruction angle ('US issues Hamas Gaza construction ultimatum'), making US economic leverage over Gaza visible at the title layer where all others focused on disarmament talks.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "The only headline to pair ongoing Israeli strikes explicitly with Kushner's diplomatic visit in the title itself, foregrounding the simultaneous bombing-while-negotiating contradiction before any click.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "At the headline layer the Kushner shuttle is universally a story of failed diplomacy, but the pre-click reason for failure is packaged differently by political lean: US right-wing media advertise strength and an ultimatum, wire services and Asian outlets show the airstrike that followed the talks, and Turkey's Daily Sabah makes Israel the named obstacle — three incompatible narratives built from the same underlying events.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
