@@ -1,0 +1,123 @@
+{
+  "story_key": "L9f292601f5",
+  "date": "2026-08-19",
+  "n_buckets": 16,
+  "n_articles": 26,
+  "tldr": "Headlines across 26 outlets uniformly cast Fedorov's call as a direct political challenge to Zelensky — the 'sacked/ousted/axed' label dominates, framing wartime elections as unprecedented personal confrontation rather than democratic reform advocacy. A handful of Ukrainian and US-funded outlets alone add a governance-crisis dimension absent from most wire and Western headline coverage.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Ousted minister challenges Zelensky",
+      "buckets": [
+        "balkans",
+        "brazil",
+        "canada",
+        "colombia_ven_peru",
+        "france",
+        "india",
+        "iran_opposition",
+        "opinion_magazines",
+        "qatar",
+        "russia",
+        "state_tv_intl",
+        "turkey",
+        "uk",
+        "ukraine",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "demands elections in challenge to Zelenskyy",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "challenges Zelensky and calls for wartime elections",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Says Putin Shouldn't Set the Timeline",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "elections can't wait for peace",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Calls For Wartime Vote",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Polls: Fedorov ahead of Zelensky",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "polls saying he would beat Zelensky",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Governance crisis framing",
+      "buckets": ["ukraine", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "warns of \"systemic governance crisis\"",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Warns Trust In Ukraine's Government Is At Risk",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.709, "n_tokens": 45},
+    {"bucket": "iran_opposition", "mean_similarity": 0.721, "n_tokens": 208},
+    {"bucket": "qatar", "mean_similarity": 0.748, "n_tokens": 223},
+    {"bucket": "colombia_ven_peru", "mean_similarity": 0.751, "n_tokens": 41},
+    {"bucket": "balkans", "mean_similarity": 0.755, "n_tokens": 43},
+    {"bucket": "russia", "mean_similarity": 0.763, "n_tokens": 53},
+    {"bucket": "turkey", "mean_similarity": 0.767, "n_tokens": 159},
+    {"bucket": "wire_services", "mean_similarity": 0.778, "n_tokens": 77},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.796, "n_tokens": 58},
+    {"bucket": "india", "mean_similarity": 0.798, "n_tokens": 63},
+    {"bucket": "ukraine", "mean_similarity": 0.831, "n_tokens": 157},
+    {"bucket": "france", "mean_similarity": 0.837, "n_tokens": 147},
+    {"bucket": "uk", "mean_similarity": 0.837, "n_tokens": 324}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Sole headline to introduce poll numbers showing Fedorov ahead of Zelensky, adding an electoral horse-race dimension absent from all other coverage."
+    }
+  ],
+  "bottom_line": "Headline coverage worldwide frames Fedorov's call as a political confrontation with Zelensky, not a democratic reform argument — the 'ousted/sacked/axed' label anchors the story as personal rivalry rather than constitutional debate.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
