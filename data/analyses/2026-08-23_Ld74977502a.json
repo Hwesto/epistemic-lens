@@ -1,0 +1,208 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "Ld74977502a",
+  "cluster_id": 123,
+  "cluster_name": "18-year-old attacks Fagersta school with sword, kills teenager",
+  "salience_score": 7.347,
+  "n_outlets": 15,
+  "n_countries": 12,
+  "n_articles": 20,
+  "event_summary": "An 18-year-old man attacked students with a sword at a high school in Fagersta, Sweden, on 21 August 2026, killing a 17-year-old girl and wounding three others before police detained him. Swedish police then launched an investigation into online networks linked to the suspect.",
+  "tldr": "The only outlet to explicitly link the attacker to the glorification of past school massacres was Germany's Tagesschau — anglophone coverage across 13 outlets treated the online-network probe as a police-investigation story without naming the radicalization sub-text. Global pickup was unusually wide for a single-country crime story, reaching 15 outlets across 12 country-groups, with Southeast Asian and South Asian outlets (Straits Times, Malay Mail, ARY News, SCMP) matching European coverage depth. US media is absent from the corpus despite school violence being a live political issue there, while the TikTok social-media angle was amplified from Singapore to Pakistan. The attack fell on the school's first day back from summer break — a detail surfaced only by Malay Mail — and both Sweden's prime minister and opposition leader visited the school on Saturday morning.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "police investigation and suspect detention",
+      "outlets": [
+        "AFP / France 24 FR",
+        "BBC World",
+        "Daily Sabah",
+        "Folha de São Paulo",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "South China Morning Post",
+        "Tagesschau",
+        "Telex Hungary",
+        "The Guardian World",
+        "The Local Sweden",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "france",
+        "uk",
+        "turkey",
+        "brazil",
+        "wire_services",
+        "taiwan_hk",
+        "germany",
+        "hungary_central",
+        "nordic",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Two boys aged 12 and 17 were also injured, while an 18-year-old suspect has been detained.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Ein Mensch starb, drei weitere wurden verletzt. Die Polizei nahm den mutmaßlichen Täter fest.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "The police investigation is proceeding at full speed",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "online networks promoting school violence",
+      "outlets": [
+        "ARY News English",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "Tagesschau",
+        "The Local Sweden"
+      ],
+      "countries": [
+        "pakistan",
+        "wire_services",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "germany",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Swedish police are investigating whether an 18-year-old man who attacked students at a high school with a sword on Friday, killing one, was involved in online communities promoting school violence, a police source said.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "A photo on a TikTok account showed a sword that investigators say may have belonged to the suspect.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Der Täter soll frühere Schulmassaker verherrlicht haben.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "community grief and student trauma",
+      "outlets": [
+        "Tagesschau",
+        "The Guardian World",
+        "The Local Sweden"
+      ],
+      "countries": [
+        "germany",
+        "uk",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Trauer und Fassungslosigkeit nach Schwertangriff in Schweden",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "It's terrible to think that someone you sat at the same table with, someone you talked to, is suddenly dead.",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "political leadership response",
+      "outlets": [
+        "Globe and Mail",
+        "The Local Sweden"
+      ],
+      "countries": [
+        "canada",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Motive behind the attack not currently known, says Swedish prime minister",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "Flowers and candles were left outside the Brinell school in Fagersta where Prime Minister Ulf Kristersson and opposition leader Magdalena Andersson went on Saturday morning to honour the dead student and three wounded victims.",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears in the corpus. School attacks are a perennial political flashpoint in US media; their absence on a story with a clear school-violence-and-online-radicalization angle is notable, suggesting the story did not break into US wire rotations on this cycle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to emphasise the attack fell 'on first day back' from summer break, adding a back-to-school context that sharpens the sense of rupture for readers.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "Sole outlet to report that the suspect is believed to have glorified past school massacres, introducing a radicalization frame absent from all anglophone coverage.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to hedge the TikTok evidence with 'investigators say may have belonged to the suspect' — preserving epistemic caution that other outlets dropped.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to foreground the Swedish PM's voice on motive directly in the headline, giving the story a political-leadership cast others did not.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to report that police shot the suspect before detaining him, a detail about police use of force absent from other coverage.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The Local Sweden",
+      "country": "nordic",
+      "finding": "Only outlet with on-the-ground depth: student witness quotes, police chief name, 80 interviews completed with nearly 450 staff and students yet to be questioned, and two addresses searched.",
+      "signal_text_idx": 17
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Coverage of the Fagersta sword attack converged globally on a factual crime-and-investigation frame within 48 hours, with the police probe into online networks serving as the main hook for non-European outlets from Singapore to Pakistan. The sharpest divergence came from German public broadcaster Tagesschau, which alone introduced a radicalization angle by reporting the suspect glorified past school massacres — a framing gap that illustrates how the same factual event can carry different moral weight depending on editorial tradition.",
+  "generated_at": "2026-08-23T08:33:04Z",
+  "model": "claude-sonnet-4-6"
+}
