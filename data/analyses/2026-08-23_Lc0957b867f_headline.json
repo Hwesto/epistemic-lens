@@ -1,0 +1,138 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "Lc0957b867f",
+  "cluster_id": 154,
+  "cluster_name": "US judge strikes down Trump's 75-country immigrant visa ban",
+  "salience_score": 7.347,
+  "n_outlets": 20,
+  "n_countries": 12,
+  "n_articles": 20,
+  "tldr": "Headlines across all 20 outlets converge on a single juridical act — the judge striking down or annulling the ban — making LEGALITY the only frame visible at the homepage layer, an unusually tight consensus across 12 countries and 6 languages. The phrase 'contrary to law' appears verbatim in two independent English-language headlines (AFP/France24 EN, Hindustan Times), signalling that the ruling's operative language itself became the preferred lead across editorial cultures. The sole departure is Geo News English's 'Trump suffers another legal blow,' which reframes the ruling as a cumulative political defeat — a frame detectable from the title alone, without reading a word of the body. Country-specific localization ('including Pakistan', 'incluindo o Brasil') is visible in headlines from Dawn and Folha de São Paulo, showing that regional stakes were foregrounded at the RSS/homepage layer in those markets. Mother Jones's body text uniquely invoked eugenicist history and white-nationalist ideology, but its headline is indistinguishable from wire-service reporting, meaning that morality frame is entirely suppressed at the title layer.",
+  "event_summary": "On August 21, 2026, US District Judge Jeannette Vargas in Manhattan struck down a Trump administration policy suspending immigrant visa processing for nationals of 75 countries, ruling it exceeded Secretary of State Marco Rubio's statutory authority.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "judge strikes down visa ban as unlawful",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "ANSA Italian (Mondo)",
+        "Bangkok Post",
+        "Bol News",
+        "Dawn",
+        "Deutsche Welle Russian",
+        "Folha de São Paulo",
+        "France 24 Spanish",
+        "Hindustan Times",
+        "Il Sole 24 Ore",
+        "Le Devoir",
+        "Malay Mail World",
+        "Mother Jones",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Hindu Intl",
+        "The Independent",
+        "VnExpress English"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "italy",
+        "vietnam_thai_my",
+        "pakistan",
+        "germany",
+        "brazil",
+        "state_tv_intl",
+        "india",
+        "canada",
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "'Contrary to law': US judge strikes down Trump's",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Deutsche Welle Russian",
+          "country": "germany",
+          "quote": "В США суд отменил решение о приостановке",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Justiça dos EUA derruba restrição de vistos",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "ruling Rubio exceeded his authority",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's cumulative legal defeats",
+      "outlets": [
+        "Geo News English"
+      ],
+      "countries": [
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Trump suffers another legal blow as judge strikes",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Only headline to frame the ruling as a political defeat — 'Trump suffers another legal blow' — treating this as a cumulative setback rather than an isolated legal event. This framing is visible from the title alone, making Geo News the clearest headline-layer outlier in the corpus.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only English-language headline to name Rubio explicitly and frame the story around executive overreach ('ruling Rubio exceeded his authority'), rather than leading with the judicial act. Shifts attribution to a named official in a way no other title does.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Dawn",
+      "country": "pakistan",
+      "finding": "Only headline to include 'including Pakistan' explicitly, localizing the ruling at the title layer for a Pakistani readership — a country-specific signal detectable without reading the body.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only Portuguese-language headline to name Brazil explicitly ('incluindo o Brasil'), mirroring Dawn's Pakistani localization strategy — both identify national stakes in the title itself.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Mother Jones",
+      "country": "usa",
+      "finding": "Headline is indistinguishable from wire-service framing ('Federal Judge Strikes Down Trump's 75-Country Visa Ban'), despite body text uniquely invoking eugenicist history and white-nationalist ideology — the divergence between this outlet's headline and body framing is the largest in the corpus.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "At the headline layer, 19 of 20 outlets reduce this story to a single juridical frame — a court striking down a ban — with no trace of the moral, historical, or fairness dimensions visible in body text. The sole exception is Geo News, whose title alone signals a political-defeat narrative; every other editorial distinction in this corpus, including Mother Jones's eugenicist critique, is invisible until a reader clicks through.",
+  "generated_at": "2026-08-23T00:00:00Z",
+  "model": "claude-haiku-4-5"
+}
