@@ -1,0 +1,126 @@
+{
+  "date": "2026-08-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 2,
+  "n_articles": 9,
+  "buckets": [
+    "brazil",
+    "canada"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "brazil": 246,
+    "canada": 10
+  },
+  "pairwise_similarity": [
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.535
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.535,
+      "n_tokens": 246
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.535,
+      "n_tokens": 10
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "brazil": [
+      {
+        "term": "para",
+        "count": 12
+      },
+      {
+        "term": "mais",
+        "count": 8
+      },
+      {
+        "term": "brasileiro",
+        "count": 6
+      },
+      {
+        "term": "trump",
+        "count": 6
+      },
+      {
+        "term": "impacto",
+        "count": 5
+      },
+      {
+        "term": "país",
+        "count": 5
+      },
+      {
+        "term": "como",
+        "count": 4
+      },
+      {
+        "term": "governo",
+        "count": 4
+      },
+      {
+        "term": "melhor",
+        "count": 4
+      },
+      {
+        "term": "cada",
+        "count": 3
+      },
+      {
+        "term": "joven",
+        "count": 3
+      },
+      {
+        "term": "ansiedade",
+        "count": 3
+      },
+      {
+        "term": "isso",
+        "count": 3
+      },
+      {
+        "term": "telefonema",
+        "count": 3
+      },
+      {
+        "term": "google",
+        "count": 3
+      },
+      {
+        "term": "umidificador",
+        "count": 3
+      },
+      {
+        "term": "evento",
+        "count": 3
+      },
+      {
+        "term": "mercado",
+        "count": 3
+      },
+      {
+        "term": "ilegal",
+        "count": 3
+      }
+    ],
+    "canada": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-23T08:09:37+00:00",
+  "meta_version": "10.0.3"
+}

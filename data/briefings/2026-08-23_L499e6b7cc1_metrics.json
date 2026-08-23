@@ -1,0 +1,337 @@
+{
+  "date": "2026-08-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 10,
+  "buckets": [
+    "egypt",
+    "france",
+    "india",
+    "russia",
+    "state_tv_intl",
+    "taiwan_hk",
+    "uk",
+    "usa",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "france": 46,
+    "usa": 93,
+    "uk": 23,
+    "egypt": 181,
+    "state_tv_intl": 44,
+    "russia": 18,
+    "wire_services": 21,
+    "taiwan_hk": 6,
+    "india": 37
+  },
+  "pairwise_similarity": [
+    {
+      "a": "egypt",
+      "b": "usa",
+      "score": 0.884
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.861
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.847
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.844
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.824
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.818
+    },
+    {
+      "a": "egypt",
+      "b": "uk",
+      "score": 0.816
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.814
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.813
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.808
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.796
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.795
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.79
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.787
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.783
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.778
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.765
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.759
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.759
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.759
+    },
+    {
+      "a": "russia",
+      "b": "state_tv_intl",
+      "score": 0.755
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.743
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.74
+    },
+    {
+      "a": "egypt",
+      "b": "india",
+      "score": 0.739
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.736
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "taiwan_hk",
+      "score": 0.725
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.721
+    },
+    {
+      "a": "egypt",
+      "b": "france",
+      "score": 0.712
+    },
+    {
+      "a": "egypt",
+      "b": "state_tv_intl",
+      "score": 0.703
+    },
+    {
+      "a": "france",
+      "b": "taiwan_hk",
+      "score": 0.702
+    },
+    {
+      "a": "egypt",
+      "b": "russia",
+      "score": 0.653
+    },
+    {
+      "a": "egypt",
+      "b": "wire_services",
+      "score": 0.64
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.633
+    },
+    {
+      "a": "egypt",
+      "b": "taiwan_hk",
+      "score": 0.565
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.714,
+      "n_tokens": 181
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.75,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.768,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.77,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.822,
+      "n_tokens": 93
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.709,
+      "n_tokens": 6
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.772,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.775,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.785,
+      "n_tokens": 23
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "france": [
+      {
+        "term": "état",
+        "count": 3
+      },
+      {
+        "term": "unis",
+        "count": 3
+      },
+      {
+        "term": "pour",
+        "count": 3
+      },
+      {
+        "term": "dollar",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "suit",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "egypt": [
+      {
+        "term": "case",
+        "count": 3
+      },
+      {
+        "term": "coppa",
+        "count": 3
+      }
+    ],
+    "state_tv_intl": [
+      {
+        "term": "تسوية",
+        "count": 3
+      },
+      {
+        "term": "مليون",
+        "count": 3
+      },
+      {
+        "term": "دولار",
+        "count": 3
+      },
+      {
+        "term": "قضية",
+        "count": 3
+      },
+      {
+        "term": "الأطفال",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-23T08:09:10+00:00",
+  "meta_version": "10.0.3"
+}

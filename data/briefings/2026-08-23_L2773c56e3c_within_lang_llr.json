@@ -1,0 +1,142 @@
+{
+  "date": "2026-08-23",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 87,
+      "n_tokens_in_cohort": 832,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 850,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 253,
+      "n_tokens_in_cohort": 666,
+      "distinctive_terms": [
+        {
+          "term": "worker",
+          "count_in_bucket": 7,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.02767,
+          "rate_in_cohort": 0.0015,
+          "llr": 12.801,
+          "log_ratio": 2.914,
+          "p_value": 0.000346
+        }
+      ]
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 34,
+      "n_tokens_in_cohort": 885,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 32,
+      "n_tokens_in_cohort": 887,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 867,
+      "distinctive_terms": []
+    },
+    "korea_north": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 868,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 867,
+      "distinctive_terms": [
+        {
+          "term": "travel",
+          "count_in_bucket": 6,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.11538,
+          "rate_in_cohort": 0.00461,
+          "llr": 22.1,
+          "log_ratio": 3.219,
+          "p_value": 3e-06
+        }
+      ]
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 204,
+      "n_tokens_in_cohort": 715,
+      "distinctive_terms": [
+        {
+          "term": "group",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.02451,
+          "rate_in_cohort": 0.0,
+          "llr": 15.148,
+          "log_ratio": null,
+          "p_value": 9.9e-05
+        },
+        {
+          "term": "strain",
+          "count_in_bucket": 6,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.02941,
+          "rate_in_cohort": 0.0014,
+          "llr": 12.949,
+          "log_ratio": 3.046,
+          "p_value": 0.00032
+        }
+      ]
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 12,
+      "n_tokens_in_cohort": 907,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 869,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 896,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 4,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

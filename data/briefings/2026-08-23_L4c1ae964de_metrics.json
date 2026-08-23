@@ -1,0 +1,254 @@
+{
+  "date": "2026-08-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 12,
+  "buckets": [
+    "germany",
+    "india",
+    "israel",
+    "pakistan",
+    "taiwan_hk",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pakistan": 120,
+    "turkey": 23,
+    "vietnam_thai_my": 212,
+    "india": 32,
+    "germany": 23,
+    "israel": 41,
+    "wire_services": 30,
+    "taiwan_hk": 63
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "taiwan_hk",
+      "score": 0.858
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.837
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.837
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.817
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.813
+    },
+    {
+      "a": "israel",
+      "b": "pakistan",
+      "score": 0.803
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.792
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.792
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.788
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.78
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.767
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.767
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.752
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.751
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "score": 0.745
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.73
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.729
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.716
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.692
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.69
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.688
+    },
+    {
+      "a": "germany",
+      "b": "israel",
+      "score": 0.669
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.642
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.615
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.607
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.592
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "score": 0.588
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.588
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.628,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.733,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.739,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.742,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.753,
+      "n_tokens": 212
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.799,
+      "n_tokens": 120
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.719,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.727,
+      "n_tokens": 23
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pakistan": [],
+    "turkey": [],
+    "vietnam_thai_my": [
+      {
+        "term": "aircraft",
+        "count": 4
+      },
+      {
+        "term": "area",
+        "count": 4
+      },
+      {
+        "term": "headed",
+        "count": 3
+      },
+      {
+        "term": "twenty",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "germany": [],
+    "israel": [],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-23T08:09:14+00:00",
+  "meta_version": "10.0.3"
+}
