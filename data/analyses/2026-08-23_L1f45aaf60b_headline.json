@@ -1,0 +1,133 @@
+{
+  "story_key": "L1f45aaf60b",
+  "date": "2026-08-23",
+  "n_buckets": 9,
+  "n_articles": 14,
+  "tldr": "Headlines across 14 outlets converge on one action: Macron pledges interceptor missiles to Ukraine following Russian strikes. Only The Independent's headline adds a second story — Putin pulling Russia's ambassador from London — alongside the missile pledge; the coalition summit, production licences, and casualty framing visible in body text leave no trace at the headline layer.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "interceptor missile delivery to Ukraine",
+      "buckets": ["mexico", "wire_services", "italy", "france", "ukraine", "opinion_magazines", "iran_opposition", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "deliver interceptor missiles to Ukraine after fresh wave",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Pledges Delivery Of French Air Interceptors",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "accelerate air defence deliveries to Ukraine",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "Macron anuncia envío de misiles interceptores",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "l'envoi de nouveaux missiles intercepteurs à l'Ukraine",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Macron Confirms Delivery of Interceptor Missiles",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Macron to deliver missile interceptors to Kyiv",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "France to ramp up Ukraine support, says Macron",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "horror at Russian civilian targeting",
+      "buckets": ["italy"],
+      "evidence": [
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "orrore per raid russi in Ucraina",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "bilateral deal and diplomatic rupture",
+      "buckets": ["ukraine", "uk"],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Zelensky, Macron Agree on Missile Supplies",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "faster aid deliveries and diplomacy",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "as Putin pulls ambassador from UK",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.662,
+      "n_tokens": 216
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.682,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.682,
+      "n_tokens": 231
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only headline to juxtapose the interceptor pledge with Putin pulling Russia's ambassador from London, framing the missile announcement as part of a simultaneous Russian diplomatic rupture with the UK — a narrative not signalled in any other outlet's title.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The headline layer collapses a multi-dimensional commitment into a single transfer announcement: 8 of 9 buckets advertise only missile deliveries, erasing the coalition summit, production licences, and casualty moral framing that body text develops — with The Independent alone using its headline to run a second story about Russia severing ties with London.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
