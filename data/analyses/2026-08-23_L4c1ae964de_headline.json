@@ -1,0 +1,130 @@
+{
+  "story_key": "L4c1ae964de",
+  "date": "2026-08-23",
+  "n_buckets": 8,
+  "n_articles": 12,
+  "tldr": "Headlines across all eight country buckets frame the MV Ocean Winner sinking as an acute safety crisis — 22 crew missing, two rescued — with every outlet maintaining a factual rescue register; South China Morning Post and Dainik Bhaskar are the only mastheads to foreground the Chinese nationality of those on board, introducing a quiet external-relations dimension absent from other headlines.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Crew lives at risk in maritime sinking",
+      "buckets": ["germany", "india", "israel", "pakistan", "taiwan_hk", "turkey", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Two rescued after bulk carrier sinks off India",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "24 on board sinks off Indian coast, 2 rescued",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Cargo vessel sinks off Indian coast",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "22 crew missing after bulk carrier sinks",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Twenty-two crew missing after Singapore-bound bulk",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Cargo Ship With 24 Crew Members Sinks Off Odisha",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "India rescues 2 Chinese nationals from sunken cargo",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "India's Coast Guard/Navy SAR response",
+      "buckets": ["india", "israel", "pakistan", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Dainik Bhaskar",
+          "quote": "इंडियन कोस्ट गार्ड-नेवी ने रेस्क्यू ऑपरेशन शुरू किया",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "India launches rescue operation as bulk carrier sinks",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Indian Coast Guard, Navy continue search for 22 crew",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "India launches rescue operation as bulk carrier sinks",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Chinese nationals rescued by India",
+      "buckets": ["india", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Dainik Bhaskar",
+          "quote": "ओडिशा के पास चीनी क्रू वाला जहाज डूबा",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "India rescues 2 Chinese nationals from sunken cargo",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "wire_services", "mean_similarity": 0.628, "n_tokens": 30},
+    {"bucket": "india", "mean_similarity": 0.733, "n_tokens": 32},
+    {"bucket": "israel", "mean_similarity": 0.739, "n_tokens": 41},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.742, "n_tokens": 63},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.753, "n_tokens": 212},
+    {"bucket": "pakistan", "mean_similarity": 0.799, "n_tokens": 120}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to foreground Chinese nationality in the headline ('India rescues 2 Chinese nationals'), framing India's response as a bilateral India-China event rather than a generic maritime rescue; no other English masthead names the victims' nationality.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "The headline layer presents a uniform safety-crisis register — sinking, missing crew, rescue launches — with SCMP the sole outlier to inject a national-identity dimension by specifying 'Chinese nationals' in the lede.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
