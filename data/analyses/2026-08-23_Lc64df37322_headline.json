@@ -1,0 +1,153 @@
+{
+  "story_key": "Lc64df37322",
+  "date": "2026-08-23",
+  "n_buckets": 10,
+  "n_articles": 17,
+  "tldr": "Headlines worldwide anchor on the human toll — 20 to 37 injured — and the Tokyo/eastern Japan geography, with a secondary thread of alert systems and aftershock warnings. Spanish-language outlets uniquely foreground the absence of a tsunami threat as a safety reassurance.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Injury count leads: 20–37 hurt",
+      "buckets": [
+        "india",
+        "turkey",
+        "vietnam_thai_my",
+        "mexico",
+        "spain",
+        "colombia_ven_peru",
+        "japan",
+        "france",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "Over 20 Injured As 5.9-Magnitude Earthquake Jolts Tokyo",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "injuring over 20 people",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "5.9 magnitude earthquake hits Japan, dozens injured",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Strong Kanto quake injures dozens",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "faisant plus de 30 blessés dans la région de Tokyo",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "no hay alerta de tsunami",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "feridos passam de 30",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Alerts, warnings & train disruptions",
+      "buckets": [
+        "india",
+        "pakistan",
+        "japan",
+        "mexico"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "Trains Delayed",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Bol News",
+          "quote": "triggers alerts across Japan",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "triggering warnings of similar shaking over next week",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "alertan por otro posible temblor moderado",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.766,
+      "n_tokens": 146
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.793,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.797,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.803,
+      "n_tokens": 178
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.811,
+      "n_tokens": 151
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.812,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.816,
+      "n_tokens": 229
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.833,
+      "n_tokens": 118
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage universally anchors on the injury toll and Tokyo geography; no outlet uses the headline layer to make political, economic, or security claims.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
