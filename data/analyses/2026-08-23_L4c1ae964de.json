@@ -1,0 +1,142 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "L4c1ae964de",
+  "cluster_id": 85,
+  "cluster_name": "Bulk carrier MV Ocean Winner sinks off eastern India",
+  "salience_score": 2.939,
+  "n_outlets": 12,
+  "n_countries": 8,
+  "n_articles": 12,
+  "event_summary": "Panama-flagged bulk carrier MV Ocean Winner sank off India's Odisha coast on August 23, 2026, while carrying iron ore from Paradip port to Singapore. Of 24 crew (20 Chinese, 3 Myanmar, 1 Bangladeshi), two were rescued from life rafts; 22 remain missing.",
+  "tldr": "Despite 20 of 24 crew being Chinese nationals, no mainland Chinese state media outlet appears in this 12-outlet corpus — the sharpest editorial gap in the story. South China Morning Post (HK) is the sole Chinese-affiliated outlet and uniquely headlines the India-China dimension, while Indian Hindi outlet Dainik Bhaskar leads with 'ship with Chinese crew sinks near Odisha' — both foreground nationality over the maritime accident itself. Coverage is disproportionately Pakistani (3 of 12 outlets), reflecting strong wire pickup across South Asian desks. The vessel reportedly sank within eight minutes of developing a list, and India's maritime director general acknowledged diminishing survival chances as the search entered its second day.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "maritime SAR operation",
+      "outlets": ["ARY News English", "Anadolu Agency English", "Channel News Asia", "Dainik Bhaskar", "Dawn", "Deutsche Welle English", "Geo News English", "Jerusalem Post", "Malay Mail World", "NDTV World", "Reuters (via Google News)", "South China Morning Post"],
+      "countries": ["pakistan", "turkey", "vietnam_thai_my", "india", "germany", "israel", "wire_services", "taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Rescuers searched on Sunday (Aug 23) for 22 people missing after a merchant vessel sank off India's eastern coast, the navy said.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "The two rescued Chinese seafarers said the vessel developed a list on Friday and sank within eight minutes, forcing crew to abandon ship, the director general of India's Maritime Administration said.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Indian navy and coast guard SAR deployment",
+      "outlets": ["Anadolu Agency English", "Channel News Asia", "Dawn", "Malay Mail World", "NDTV World"],
+      "countries": ["turkey", "vietnam_thai_my", "pakistan", "india"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "3 ships to conduct surface searches for remaining crew members, say officials",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "\"The aircraft located life rafts in the area\", and coordinated with a nearby vessel, MT Aisopos, to collect two of the crew from liferafts, the navy said.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "flag-state jurisdiction and multinational crew",
+      "outlets": ["Dawn", "Deutsche Welle English", "South China Morning Post"],
+      "countries": ["pakistan", "germany", "taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "The vessel had 24 crew on board, including 20 Chinese nationals, three Myanmar nationals and one Bangladeshi, according to Commandant Amit Uniyal, a spokesperson for the Coast Guard.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The Panama‑flagged Ocean Winner reportedly had a crew of 24, at least two of whom appear to have been rescued. The ship is thought to have been carrying iron ore from India to Singapore.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "India-China bilateral rescue optic",
+      "outlets": ["South China Morning Post", "Dainik Bhaskar"],
+      "countries": ["taiwan_hk", "india"],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "India rescues 2 Chinese nationals from sunken cargo ship, searches for others",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Dainik Bhaskar",
+          "country": "india",
+          "quote": "ओडिशा के पास चीनी क्रू वाला जहाज डूबा:24 लोग सवार थे; इंडियन कोस्ट गार्ड-नेवी ने रेस्क्यू ऑपरेशन शुरू किया",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "Mainland Chinese state media (Xinhua, CGTN) absent from corpus despite 20 of 24 crew being Chinese nationals; press appears to have covered other domestic and international stories rather than foregrounding Chinese maritime workers in distress under Indian rescue."
+    },
+    {
+      "country": "myanmar",
+      "what_they_covered_instead": "No Myanmar outlet present despite three crew members being Myanmar nationals; Burmese state and independent media do not appear to have picked up the story."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to headline the India-China bilateral dimension ('India rescues 2 Chinese nationals') and to name Shyam Jagannathan, director general of India's Maritime Administration, who acknowledged diminishing survival chances — absent from all other corpus entries.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Only outlet to lead with the eight-minute sinking timeline in bullet format from rescued crew testimony ('Panama-flagged cargo ship sank within eight minutes'), making the rapid catastrophe immediately legible to readers.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Channel News Asia",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to name the nearby rescue vessel MT Aisopos that collected survivors from life rafts, and to pinpoint the distress alert position as 700 km east of Visakhapatnam.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Dawn",
+      "country": "pakistan",
+      "finding": "Names Coast Guard spokesperson Commandant Amit Uniyal and identifies Sri Vijaya Puram (formerly Port Blair) as the departure point for rescue vessels — logistical detail absent from wire summaries.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Dainik Bhaskar",
+      "country": "india",
+      "finding": "Sole Hindi-language coverage; specifies the ship departed Odisha on the previous Friday and was carrying iron ore — cargo and timeline details that sharpen understanding of the accident sequence.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The sinking of the MV Ocean Winner with 22 crew still missing underscores India's SAR reach in the Bay of Bengal, but the near-total absence of mainland Chinese state media — despite 20 Chinese nationals aboard — is the corpus's sharpest editorial gap. Where Chinese-affiliated coverage does appear (SCMP), it foregrounds the India-China bilateral dimension; the rest of the world press treats this as a straightforward maritime disaster.",
+  "generated_at": "2026-08-23T10:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
