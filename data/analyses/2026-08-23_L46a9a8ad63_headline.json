@@ -1,0 +1,177 @@
+{
+  "story_key": "L46a9a8ad63",
+  "date": "2026-08-23",
+  "n_buckets": 10,
+  "n_articles": 14,
+  "tldr": "Across all 10 regional headline sets, the dominant advertised story is Spain enacting emergency sheltering and relocation policy in response to the Ceuta surge; Russian state-media headlines are the only ones to pivot to enforcement and sovereignty, and German coverage alone names child-protection risk in its headline.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Spain emergency shelter & relocation",
+      "buckets": ["pan_african", "turkey", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Spain moves hundreds of migrants from Ceuta beach",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Spain to build temporary shelters to ease Ceuta migrant",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Spain moves to house 1,800 migrants in Ceuta after mass",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Spain to allow 500 children in Ceuta to go to mainland",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Border enforcement failures & arrests",
+      "buckets": ["usa", "russia", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Ceuta residents believe government isn't doing enough",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Spanish region demands answers after migrants land",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "French police storm beach to stop migrant Channel crossing",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Morocco arrests hundreds of migrants near Ceuta",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Migrant deaths, burials, limbo",
+      "buckets": ["pan_african", "canada"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ceuta authorities bury migrants who died in border rush",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Ceuta begins burials for migrants who died attempting",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Thousands of migrants in Ceuta remain in limbo",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Unaccompanied minors at risk of abuse",
+      "buckets": ["germany"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Minors living alone on Ceuta's streets at risk of abuse",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Morocco sovereignty claim & triggers",
+      "buckets": ["africa_other", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "What triggered the mass migrant crossings into Ceuta?",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Spain rejects Morocco's claim to sovereignty over enclaves",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.498,
+      "n_tokens": 65
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.604,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.680,
+      "n_tokens": 51
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Only headline to frame Spain's children policy as an 'immigration U-turn', signalling a reversal invisible to readers of all other outlets.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "Only headline to name child abuse as an explicit risk, surfacing the protection-failure angle that every other outlet's headline omits.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline to leave Ceuta entirely, reporting a French Channel-crossing interception — giving RT readers a pan-European border-crisis frame no other headline provides.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "Only headline to foreground Morocco's sovereignty claim over Ceuta and Melilla, elevating a diplomatic dispute that no other outlet's headline mentions.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "Headline coverage sells the Ceuta crisis as a Spanish policy story — shelters built, children relocated — while Russian state-media headlines alone pivot to enforcement and sovereignty, and the deaths that body-text coverage treats as central appear only in pan-African and Canadian outlet titles.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
