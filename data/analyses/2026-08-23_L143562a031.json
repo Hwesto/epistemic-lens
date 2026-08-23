@@ -1,0 +1,236 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "L143562a031",
+  "cluster_id": 54,
+  "cluster_name": "Pakistan briefly transfers Imran Khan to hospital, returns him to jail",
+  "n_outlets": 9,
+  "n_countries": 7,
+  "n_articles": 20,
+  "salience_score": 2.857,
+  "event_summary": "Pakistan’s Supreme Court ordered jailed ex-PM Imran Khan moved to hospital on August 18; he was briefly taken to PIMS on August 20–21 but returned to jail within hours. The government challenged the order on jurisdictional grounds; his party and sister filed contempt petitions.",
+  "tldr": "The Pakistani government simultaneously complied with and contested the same Supreme Court order: it took Imran Khan briefly to state-run PIMS rather than the court-ordered Shifa International Hospital, then returned him to jail, while filing a review petition arguing the SC exceeded its constitutional jurisdiction. The Diplomat is the only outlet to frame the episode as a political gesture rather than a legal or health crisis, noting that ‘lowering political temperatures and exploring limited dialogue have become a priority for the Pakistani government.’ Khan’s sister, granted her first visit in nine months per a separate SC directive, alleged torture and isolation and filed a contempt petition of her own. The cardiac CTA machine at PIMS was non-functional, meaning the medical examination the court ordered could not be completed. Coverage was entirely in English across seven countries, yet no US or Chinese outlet covered Pakistan’s most prominent political prisoner despite both countries’ deep stakes in Pakistani stability.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "constitutional jurisdiction dispute over SC hospital order",
+      "outlets": [
+        "Dawn",
+        "Geo News English",
+        "The Hindu Intl",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "pakistan",
+        "india",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "The Islamabad chief commissioner on Saturday approached the Supreme Court (SC), seeking an early hearing of the government’s review petition challenging the SC’s Aug 18 order to shift incarcerated PTI founder Imran Khan to Shifa International Hospital.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Court order challenged on grounds of constitutional jurisdiction. Federal govt says SC order exceeded jurisdiction in review petition.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "The Supreme Court had ordered that Imran Khan be kept in the hospital till the next hearing on Sept. 16; however, he was taken to the state-run PIMS in Islamabad during the night of August 20-21 for medical examination and treatment before being returned to Adiala Jail",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "deteriorating health and blocked medical access",
+      "outlets": [
+        "The Guardian World",
+        "The Hindu Intl",
+        "Dawn",
+        "Malay Mail World",
+        "Daily Sabah",
+        "Republic World (alt)"
+      ],
+      "countries": [
+        "uk",
+        "india",
+        "pakistan",
+        "vietnam_thai_my",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Pakistan’s jailed former prime minister Imran Khan was briefly taken to a hospital in the country’s capital on supreme court orders after weeks of uproar about his deteriorating health.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Jailed former Prime Minister Imran Khan’s sister on Friday (August 21) alleged that her brother was being tortured and subjected to isolation in prison, as she detailed his deteriorating health and ongoing treatment for a retinal haemorrhage.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "Prime Minister Shehbaz Sharif on Saturday took notice of the non-functional computed tomography angiography (CTA) machine at the cardiology department of the Pakistan Institute of Medical Sciences (Pims), after former premier Imran Khan was brought to the hospital for a medical check-up.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "government political temperature-lowering gesture",
+      "outlets": [
+        "The Diplomat",
+        "Geo News English"
+      ],
+      "countries": [
+        "asia_pacific_regional",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Diplomat",
+          "country": "asia_pacific_regional",
+          "quote": "Lowering political temperatures and exploring limited dialogue have become a priority for the Pakistani government.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "What is happening to Imran Khan? This question has reverberated in the minds of politically inclined people across the country this week. It has set off a cascade of rumours on social...",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "prolonged imprisonment following political ousting",
+      "outlets": [
+        "Republic World (alt)",
+        "RT",
+        "The Guardian World"
+      ],
+      "countries": [
+        "india",
+        "russia",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "The Supreme Court of Pakistan ordered former Prime Minister Imran Khan to be moved to a hospital from jail due to health concerns. He has been imprisoned since August 2023 and faces multiple cases following his ousting in 2022.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Former Pakistani PM Imran Khan has been moved back to jail after a brief visit to an Islamabad hospital under heavy security early Friday",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "pakistan",
+      "country": "pakistan",
+      "mean_similarity": 0.722,
+      "note": "Most isolated bucket in the cluster: domestic Pakistani outlets foreground the legal jurisdiction dispute and the broken CTA machine story — procedural details absent from all foreign coverage."
+    },
+    {
+      "outlet": "india",
+      "country": "india",
+      "mean_similarity": 0.801,
+      "note": "Indian outlets carry the strongest humanitarian register, foregrounding the sister’s torture allegations and family-access angle that other foreign outlets minimise."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Dawn",
+      "country": "pakistan",
+      "terms": [
+        "commissioner",
+        "shehbaz",
+        "machine",
+        "cardiology",
+        "functional"
+      ],
+      "what_it_reveals": "Pakistan-sourced outlets are the only ones tracking the procedural mechanics: the chief commissioner’s legal challenge, PM Shehbaz’s response, and the broken cardiac equipment story."
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "terms": [
+        "sister",
+        "tortured"
+      ],
+      "what_it_reveals": "India is the only country whose exclusive vocabulary includes ‘tortured’ — making Indian press the sole framer of this story as a prisoner-mistreatment case rather than a legal or political dispute."
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "terms": [
+        "uproar",
+        "hour"
+      ],
+      "what_it_reveals": "‘Uproar’ establishes public pressure as the proximate cause; ‘hour’ foregrounds the brevity of the hospital stay — a timeline-accountability framing absent from all other outlets."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet present despite significant US strategic and aid interests in Pakistani stability; US press likely prioritised domestic political and economic stories."
+    },
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese outlet present despite China’s CPEC investment and declared all-weather partnership with Pakistan; Chinese state media typically avoids internal Pakistani political turmoil that could complicate bilateral optics."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Poses ‘A revolution from above?’ as the organising question for the week — the only outlet to suggest the hospital episode may be part of a wider political restructuring rather than a discrete legal dispute.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Diplomat",
+      "country": "asia_pacific_regional",
+      "finding": "Frames the hospital transfer as a government confidence-building move ahead of political dialogue — the only analytical rather than news-report entry in the corpus.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Dawn",
+      "country": "pakistan",
+      "finding": "Exclusively reports that the CTA cardiac machine at PIMS was non-functional, meaning the examination the court ordered could not be completed — a detail absent from all other outlets.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Khan’s sister alleges torture and isolation even as a separate SC bench simultaneously ordered weekly family visits — a contradiction that only Indian press surfaces explicitly.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Briefest coverage in the cluster — no mention of the jurisdiction dispute, contempt petitions, health deterioration, or the government’s non-compliance with the specific hospital ordered.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The Pakistani government took Imran Khan to a different hospital than the Supreme Court specified and returned him to jail within hours, while simultaneously filing a review petition challenging the court’s jurisdictional authority — prompting contempt petitions from both his party and sister. The Diplomat’s analysis stands alone in reading the episode as a political de-escalation gesture, suggesting nascent government willingness to explore dialogue with the PTI.",
+  "generated_at": "2026-08-23T06:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
