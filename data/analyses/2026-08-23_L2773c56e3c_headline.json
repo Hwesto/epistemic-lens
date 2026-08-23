@@ -1,0 +1,150 @@
+{
+  "story_key": "L2773c56e3c",
+  "date": "2026-08-23",
+  "n_buckets": 15,
+  "n_articles": 21,
+  "tldr": "Ebola headlines universally advertise a DRC outbreak growing 'exponentially', with half the corpus foregrounding vaccine delivery as a race against runaway spread. A secondary securitization layer—M23 movement controls, North Korean entry bans, and RT Africa's 'Ebola infection plot' framing—appears in a minority of outlets and is invisible in mainstream Western coverage.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Exponential spread, record death toll",
+      "buckets": ["wire_services", "france", "pan_african", "africa_other", "canada", "turkey", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Ebola epidemic in DR Congo is spreading 18 times faster",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "DRC Ebola outbreak growing 'exponentially,' UN warns",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Ebola spreading exponentially in Congo as death toll tops",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "now deadliest in country's history",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Vaccine doses delivered to DRC",
+      "buckets": ["wire_services", "africa_other", "china", "turkey", "germany", "mexico", "kenya", "taiwan_hk", "india"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "DR Congo receives Ebola vaccines in face of 'exponential'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Ebola vaccine trial to start in DR Congo as warning issued",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "WHO, Africa CDC welcome allocation of Ebola vaccines to DRC",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Ebola-hit DR Congo gets 70,000 doses of Ervebo vaccine: WHO",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Travel bans & rebel movement controls",
+      "buckets": ["pan_african", "state_tv_intl", "korea_north"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "DRC: M23 tightens movement controls as Ebola outbreak",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "North Korea imposes Ebola-related travel restrictions",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Rebels restrict travel in DR Congo over 'Ebola infection",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Ebola outbreak: Is the US panicking with new travel bans?",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Misinformation-driven worker attacks",
+      "buckets": ["africa_other"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Ebola misinformation fuels violent attacks on health workers",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "korea_north", "mean_similarity": 0.514, "n_tokens": 51},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.668, "n_tokens": 52},
+    {"bucket": "china", "mean_similarity": 0.676, "n_tokens": 32},
+    {"bucket": "kenya", "mean_similarity": 0.677, "n_tokens": 204},
+    {"bucket": "germany", "mean_similarity": 0.682, "n_tokens": 31},
+    {"bucket": "uk", "mean_similarity": 0.685, "n_tokens": 50},
+    {"bucket": "mexico", "mean_similarity": 0.693, "n_tokens": 30},
+    {"bucket": "france", "mean_similarity": 0.713, "n_tokens": 47},
+    {"bucket": "canada", "mean_similarity": 0.723, "n_tokens": 34},
+    {"bucket": "pan_african", "mean_similarity": 0.731, "n_tokens": 69},
+    {"bucket": "africa_other", "mean_similarity": 0.749, "n_tokens": 253},
+    {"bucket": "wire_services", "mean_similarity": 0.771, "n_tokens": 87},
+    {"bucket": "turkey", "mean_similarity": 0.78, "n_tokens": 52}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "The only headline to advertise the M23 rebel claim of a Kinshasa 'Ebola infection plot', treating a conspiracy allegation as a straight news peg.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "The only headline to frame US travel-ban tightening as 'panicking', deploying the word against US policy while no other outlet's title addresses the US response at all.",
+      "signal_text_idx": 16
+    }
+  ],
+  "bottom_line": "Headline coverage presents the DRC Ebola crisis as a two-register story—catastrophic scale ('deadliest in history', '18 times faster') paired with vaccine delivery—while RT Africa alone injects a conspiracy framing ('Ebola infection plot') that is invisible in every other outlet's title.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
