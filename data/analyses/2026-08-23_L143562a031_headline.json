@@ -1,0 +1,130 @@
+{
+  "story_key": "L143562a031",
+  "date": "2026-08-23",
+  "n_buckets": 7,
+  "n_articles": 14,
+  "tldr": "Headlines across all seven country buckets frame Imran Khan's hospital transfer primarily as a legal contest — court orders issued, contempt petitions filed, and the government challenging Supreme Court jurisdiction — while Indian and UK mastheads add a health-deterioration register ('uproar over health', 'tortured, isolated') and two Pakistani/regional outlets inject an explicitly political lens questioning the motives behind the transfer.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "SC orders contested, contempt filed",
+      "buckets": ["turkey", "pakistan", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "files contempt petition over hospital transfer",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "moved to hospital after court order",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "seeks early hearing of review petition",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "moved to hospital on Supreme Court order",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Supreme Court Orders Former PM Imran Khan",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "sister files contempt plea over violation",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Health neglect and torture claims",
+      "buckets": ["russia", "uk", "india", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "non-functional CTA machine at PIMS cardiology dept",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "moved back to jail after medical checkup",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "allowed brief hospital visit after uproar over health",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Imran Khan 'tortured, isolated' in jail: sister",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Political motives behind transfer",
+      "buckets": ["asia_pacific_regional", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "A revolution from above?",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "Why Has Pakistan's Jailed Former PM Imran Khan",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "pakistan", "mean_similarity": 0.722, "n_tokens": 202},
+    {"bucket": "india", "mean_similarity": 0.801, "n_tokens": 158},
+    {"bucket": "uk", "mean_similarity": 0.805, "n_tokens": 60},
+    {"bucket": "russia", "mean_similarity": 0.812, "n_tokens": 32},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.814, "n_tokens": 31},
+    {"bucket": "turkey", "mean_similarity": 0.84, "n_tokens": 66}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Only outlet to use insurrectionary framing ('A revolution from above?'), treating the transfer as a political rupture rather than a legal or medical event.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only outlet to headline the word 'tortured', escalating to an explicit human-rights-abuse register that no other masthead adopts.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The headline layer frames Imran Khan's hospital transfer as a legal battle over Supreme Court jurisdiction, with contempt and counter-petitions dominating six of seven buckets, while Indian and Pakistani outlets layer in health-abuse and political-conspiracy registers absent from other mastheads.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
