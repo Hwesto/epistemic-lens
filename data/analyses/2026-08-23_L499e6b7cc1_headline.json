@@ -1,0 +1,119 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "L499e6b7cc1",
+  "cluster_id": 144,
+  "cluster_name": "TikTok settles US DOJ children's privacy case for $400 million",
+  "salience_score": 2.755,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 10,
+  "tldr": "Headlines across all nine source-countries converge on a $400 million legal settlement framed as a resolved legal obligation, with the financial magnitude providing the lead hook in most outlets. RT (Russia) is the sole divergence: its headline 'TikTok dodges US trial over children's data' reframes an agreed settlement as evasion of accountability — the only outlet treating the outcome as avoidance rather than penalty. BBC's 'one of largest child privacy settlements' is the only comparative that signals financial scale explicitly, while Taipei Times reduces the story to pure payment obligation. The Arabic-language France 24 uses a compulsion verb (تُلزم / obliges) where every English outlet uses agreement verbs (agrees, reaches, settles), assigning a more coercive framing to US authority.",
+  "event_summary": "TikTok and ByteDance settled a US DOJ children's privacy lawsuit on 22 August 2026 for $400 million, one of the largest COPPA penalties on record; no admission of wrongdoing.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "DOJ settlement resolves COPPA suit",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Axios World",
+        "BBC World",
+        "Breitbart",
+        "Egypt Independent",
+        "France 24 Arabic",
+        "Reuters (via Google News)",
+        "Taipei Times",
+        "The Hindu Intl"
+      ],
+      "countries": ["france", "usa", "uk", "egypt", "state_tv_intl", "wire_services", "taiwan_hk", "india"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "DOJ, TikTok settle for $400 million in children's privacy suit",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Egypt Independent",
+          "country": "egypt",
+          "quote": "Justice Department reaches $400 million settlement",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "settlement with U.S. Justice Department over children's privacy",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "$400M flagged as record financial penalty",
+      "outlets": ["BBC World", "AFP / France 24 FR", "Taipei Times", "Reuters (via Google News)"],
+      "countries": ["uk", "france", "taiwan_hk", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "TikTok to pay $400m to US in one of largest",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "TikTok solde des poursuites aux États-Unis",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Taipei Times",
+          "country": "taiwan_hk",
+          "quote": "TikTok to pay US$400m in privacy lawsuit",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Violations and trial evasion",
+      "outlets": ["RT", "Breitbart", "France 24 Arabic"],
+      "countries": ["russia", "usa", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "TikTok dodges US trial over children's data",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Settlement over Child Privacy Violations",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "France 24 Arabic",
+          "country": "state_tv_intl",
+          "quote": "في قضية انتهاك خصوصية الأطفال",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet whose headline frames the outcome as evasion ('dodges US trial') rather than payment or settlement — an adversarial framing that inverts the dominant narrative of legal accountability visible from titles alone.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "Headline coverage treats the TikTok–DOJ settlement as a settled legal-financial fact, with the $400M figure as the near-universal lead hook; RT alone reframes the outcome as TikTok evading a trial, the one framing divergence detectable from titles alone.",
+  "generated_at": "2026-08-23T09:00:00Z",
+  "model": "claude-haiku-4-5"
+}
