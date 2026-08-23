@@ -1,0 +1,205 @@
+{
+  "story_key": "L74916f3f50",
+  "date": "2026-08-23",
+  "n_buckets": 16,
+  "n_articles": 33,
+  "tldr": "Across all 16 regional headline sets, the story is dual-tracked: Israel struck Syria's Abu al-Duhur airbase and conducted follow-on strikes (SECURITY_DEFENSE dominant in most outlets), while Turkey counter-escalated with a genocide charge and Interpol arrest warrant for Netanyahu (CRIME_PUNISHMENT salient in wire services and Mexican coverage). Only Israeli outlets' titles expose a third angle invisible elsewhere: the strikes as Netanyahu's calculated election-era crisis manufacturing.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Israel-Syria strikes, Turkey clash risk",
+      "buckets": [
+        "wire_services",
+        "pakistan",
+        "qatar",
+        "turkey",
+        "usa",
+        "vietnam_thai_my",
+        "taiwan_hk",
+        "syria",
+        "iran_state",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Envoy says Israel did not give the US notice before strikes",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Israel strike in Syria nearly triggers clash with Türkiye",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Israel-Turkey tensions rise after Netanyahu orders strikes",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Israel escalates strikes and ground raids across Syria",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "syria",
+          "outlet": "Syrian Observer",
+          "quote": "How Israel Is Expanding Its Red Lines in Syria",
+          "signal_text_idx": 30
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Turkey's genocide charge & Interpol warrant",
+      "buckets": [
+        "wire_services",
+        "mexico",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Turkey accuses Netanyahu of 'genocide'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Turkey to seek Interpol notice for Netanyahu in Gaza flotilla case",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Turquía emite orden de arresto contra Netanyahu",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Netanyahu Interpol request",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu election politics, US-Israel rift",
+      "buckets": [
+        "israel",
+        "usa",
+        "russia",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Netanyahu's need for constant security crises",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Israel defends strike on Syria as U.S. frustration",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Netanyahu brands Erdogan 'antisemitic dictator'",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Erdogan colto con le mani nel barattolo dei biscotti",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Sovereignty violations, intl law breach",
+      "buckets": [
+        "uk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "violation of international law",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Rejects 'Infringement of Sovereignty'",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "'Allegations Lack Seriousness': Turkiye Denies Israel's Claims",
+          "signal_text_idx": 22
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.515,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "syria",
+      "mean_similarity": 0.607,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.617,
+      "n_tokens": 37
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Only headline to frame the Syria strikes as Netanyahu engineering 'constant security crises' for electoral purposes — an explicit political-motive attribution absent from every other outlet's title, which present the strikes as security or diplomatic events.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Tehran Times",
+      "bucket": "iran_state",
+      "finding": "Only headline to describe 'ground raids' alongside airstrikes, implying a broad multi-domain Israeli military campaign across Syria — a significant scope escalation relative to all other outlets, which confine their headlines to the single Abu al-Duhur airbase strike.",
+      "signal_text_idx": 32
+    },
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline to foreground Turkey as a 'NATO power' being 'put on notice' — the sole title to flag Turkey's alliance membership as a dimension of the confrontation, an angle no other outlet's headline surfaces.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Syrian Observer",
+      "bucket": "syria",
+      "finding": "Only headline to frame the strike as deliberate red-line expansion ('Expanding Its Red Lines in Syria') rather than a reactive security measure, presenting Israeli strikes as a strategic pattern rather than an isolated event.",
+      "signal_text_idx": 30
+    }
+  ],
+  "bottom_line": "At the headline layer, the story is framed as a simultaneous military escalation and legal confrontation — Israel striking Syria and Turkey responding with an Interpol arrest warrant — while only Haaretz titles expose the domestic political calculation that body-text coverage across other outlets discusses at length.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
