@@ -1,0 +1,176 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "L1f45aaf60b",
+  "cluster_id": 174,
+  "cluster_name": "Macron pledges interceptor missiles to Ukraine after Kryvyi Rih mall strike",
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 14,
+  "salience_score": 3.857,
+  "event_summary": "On August 22, 2026, Emmanuel Macron announced France would send new interceptor missiles to Ukraine after a two-hour call with President Zelensky, triggered by a Russian double strike on a shopping mall in Kryvyi Rih that killed 16 civilians and wounded 130.",
+  "tldr": "All 11 outlets lead with the interceptor pledge, but only RFE/RL and the Kyiv Post surface the deeper commitments: France advancing SAMP/T system deployment, licensing Ukraine to manufacture interceptors and SCALP cruise missiles domestically, and calling a Coalition of the Willing summit for August 24 in Kyiv co-hosted by UK Prime Minister Burnham and German Chancellor Merz. Spanish-language and Southeast Asian outlets treat this as a discrete aid announcement; European and Ukrainian outlets frame it as coordinated Coalition-building acceleration. The UK bucket is the most isolated from the cluster centroid (mean similarity 0.662), reflecting The Independent uniquely adding Putin simultaneously withdrawing Russia's ambassador from London — situating Macron's pledge within broader Russian diplomatic escalation against Western capitals. Germany, whose chancellor is explicitly named as co-hosting the Aug. 24 meeting, is entirely absent from this cluster.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "air-defense shortage and missile resupply",
+      "outlets": ["AFP / France 24 EN", "24 Horas", "ANSA Italian (Mondo)", "France Info", "Kyiv Post", "Reuters (via Google News)", "Straits Times", "The Independent", "Ukrainska Pravda English", "RFE/RL (was Radio Farda)"],
+      "countries": ["wire_services", "mexico", "italy", "france", "ukraine", "vietnam_thai_my", "uk", "iran_opposition"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "French President Emmanuel Macron announced Paris would deliver new interceptor missiles to Ukraine, whose air defences are running short after the latest round of deadly Russian attacks.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Ukraine is awaiting delivery of a new European system which should be capable of downing ballistic missiles.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "French leader Emmanuel Macron vowed to accelerate delivery of new air interceptor missiles to Kyiv following devastating Russian attacks on a Ukrainian city and a call with President Volodymyr Zelenskyy.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Coalition of the Willing summit and ceasefire pressure",
+      "outlets": ["Kyiv Post", "RFE/RL (was Radio Farda)", "Politico Europe", "Ukrainska Pravda English"],
+      "countries": ["ukraine", "iran_opposition", "opinion_magazines"],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Macron stated the delivery aligns with previous Anti-Missile Coalition commitments and urged other nations to join the effort ahead of the Coalition of the Willing meeting on Aug. 24.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Macron, in his X post on August 22, also said Ukrainian allies in the so-called Coalition of the Willing -- an initiative led by Paris and London -- will meet on August 24 to explore ways to ramp up pressure on Moscow to halt its full-invasion of Ukraine that began in February 2022 and has cost tens of thousands of lives on both sides.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "missile production licenses and SAMP/T deployment",
+      "outlets": ["Kyiv Post", "RFE/RL (was Radio Farda)"],
+      "countries": ["ukraine", "iran_opposition"],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "agreeing to accelerate the supply of advanced French military equipment and missiles",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Macron said Paris would advance the deployment of the new SAMP/T system to Ukraine and license Kyiv to manufacture the interceptor missiles, as well as the SCALP long-range cruise missile and other weapons.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "horror at civilian targeting driving aid escalation",
+      "outlets": ["ANSA Italian (Mondo)", "RFE/RL (was Radio Farda)", "Politico Europe", "The Independent"],
+      "countries": ["italy", "iran_opposition", "opinion_magazines", "uk"],
+      "evidence": [
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "\"I spoke with President Zelenskyy in the aftermath of the double Russian strike in broad daylight against a shopping center in Kryviy Rih, which caused numerous civilian casualties, and I expressed our horror and deep sorrow,\" Macron wrote on Twitter.",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.662,
+      "note": "The Independent (UK) is the most isolated bucket — it alone adds Putin withdrawing the Russian ambassador from London alongside the interceptor pledge, pulling its embedding significantly away from the cluster centroid."
+    },
+    {
+      "outlet": "france",
+      "country": "france",
+      "mean_similarity": 0.682,
+      "note": "France Info covers the home country's own announcement in brief French-language text with no coalition or licensing detail, producing lower cross-cluster similarity despite being on-topic."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "terms": ["putin", "ambassador", "pandora"],
+      "what_it_reveals": "UK press uniquely foregrounds Putin withdrawing the Russian ambassador from London and his 'Pandora's box' statement — embedding the missile pledge in a broader story of Russian diplomatic rupture with Western capitals."
+    },
+    {
+      "outlet": "Ukrainska Pravda English",
+      "country": "ukraine",
+      "terms": ["production", "licens"],
+      "what_it_reveals": "Ukrainian outlets are the only non-wire sources to foreground production licensing as a distinct commitment — treating Macron's pledge as an industrial policy arrangement rather than a one-off hardware transfer."
+    },
+    {
+      "outlet": "24 Horas",
+      "country": "mexico",
+      "terms": ["envío", "misil", "ucrania"],
+      "what_it_reveals": "Spanish-language coverage is confined to supply-centric vocabulary — shipment, missile, Ukraine — with no coalition or licensing terminology, reflecting a straight transfer narrative without strategic context."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "germany",
+      "what_they_covered_instead": "German Chancellor Merz is explicitly named as co-hosting the Coalition of the Willing summit in Kyiv on August 24, yet no German outlet appears in this cluster — notable given Germany is a central actor in the event the cluster reports."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "Poland, a frontline NATO ally and major logistics hub for Western arms into Ukraine, is absent from coverage of a French-Ukrainian missile supply announcement that directly affects the aid pipeline it hosts."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Only outlet to name the specific weapons systems involved — SAMP/T interceptor and SCALP cruise missile — and to report that France will license Ukraine to manufacture them domestically, making it the sole source for the industrial dimension of the commitment.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Alone surfaces Putin withdrawing Russia's ambassador from London (Andrey Kelin, who vacated the post July 21) alongside the interceptor story, linking Macron's missile pledge to simultaneous Russian diplomatic escalation against a Western capital.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Specifies that Macron committed to help Ukraine secure Patriot missiles from third-country partners and that the leaders discussed 2026-2027 defence funding — a budget-planning horizon not mentioned by any other outlet.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Reports that ahead of the August 24 Coalition of the Willing meeting Macron urged other nations to join the interceptor effort — framing the bilateral pledge as a multilateral coalition-building call rather than a bilateral commitment.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to lead with the specific Kryvyi Rih casualty count (16 killed, 130 injured) in the same paragraph as the missile pledge, directly anchoring the aid escalation to the attack's human cost.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The interceptor announcement is uniformly covered, but the strategic depth — SAMP/T deployment, production licensing, Coalition of the Willing summit — surfaces only in Ukrainian and US Congress-funded reporting, while Latin American and Southeast Asian outlets register the headline without the architecture behind it. The UK bucket's high isolation and exclusive Putin/ambassador vocabulary reveal that The Independent used the same news peg to run a distinct story about Russia severing ties with London — a framing gap no other outlet in the cluster exploited.",
+  "generated_at": "2026-08-23T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
