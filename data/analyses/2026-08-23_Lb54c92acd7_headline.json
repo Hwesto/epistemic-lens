@@ -1,0 +1,101 @@
+{
+  "story_key": "Lb54c92acd7",
+  "date": "2026-08-23",
+  "n_buckets": 2,
+  "n_articles": 9,
+  "tldr": "Brazilian headlines lead with the electoral stakes of the Lula-Trump phone call and a public-health alarm about youth anxiety medication replacing alcohol, while remaining titles scatter across consumer lifestyle, emigration, and an illegal-market forum with no shared frame — and the sole Canadian headline is too cryptic to frame from its title alone.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Lula-Trump call framed as election event",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "Como o governo brasileiro vê o telefonema com Trump",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Trump não consegue dominar a linguagem da política",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Youth trading alcohol for anxiety meds",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "jovens trocam o álcool por remédios de ansiedade",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "AI student savings & illegal market costs",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Carta Capital",
+          "quote": "Google AI grátis para estudantes: quanto economiza",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "impactos do mercado ilegal na economia e na segurança",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Brazilian emigration destinations ranked",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "países mais procurados por brasileiros para morar?",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.535, "n_tokens": 246}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "canada",
+      "what_they_covered_instead": "Le Devoir's sole headline ('Des mots qui cognent') conveys no frame from the title alone; body text reveals it covers Quebec party election slogans, a domestic story unrelated to the cluster's Brazil-US political core."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Folha de São Paulo",
+      "bucket": "brazil",
+      "finding": "The only headline to frame the Trump-Lula exchange as Trump's failure to 'master' Brazilian political language — inverting the diplomatic story into a critique of American political literacy that no other outlet's title approaches.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "G1 Globo",
+      "bucket": "brazil",
+      "finding": "Contributes a bare TV broadcast listing with zero narrative content — the only corpus item whose headline carries no framing signal of any kind.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "At headline level the cluster's political core — the Lula-Trump call read through Brazilian elections — is visible and leads, but roughly a third of titles carry no thematic connection to it, confirming a weakly bounded cluster whose headline layer is more fragmented than the body-text analysis suggests.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
