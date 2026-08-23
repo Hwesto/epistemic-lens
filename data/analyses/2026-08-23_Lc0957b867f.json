@@ -1,0 +1,199 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "Lc0957b867f",
+  "cluster_id": 154,
+  "cluster_name": "US judge strikes down Trump's 75-country immigrant visa ban",
+  "salience_score": 7.347,
+  "n_outlets": 20,
+  "n_countries": 12,
+  "n_articles": 20,
+  "event_summary": "On August 21, 2026, US District Judge Jeannette Vargas in Manhattan struck down a Trump administration policy suspending immigrant visa processing for nationals of 75 countries, ruling it exceeded Secretary of State Marco Rubio's statutory authority.",
+  "tldr": "The most striking pattern is near-total convergence of 20 outlets across 12 countries on the legality verdict — every outlet regardless of lean leads with the judicial ruling rather than the policy's underlying rationale. The single clear outlier is the progressive US outlet Mother Jones, which extends well beyond the ruling to invoke eugenicist history and a white nationalist worldview framing absent from all other coverage, including other left-leaning outlets. Pakistani outlets (three, spanning establishment, commercial, and populist leans) each specifically name Pakistan as an affected country, mirroring localization seen in Brazilian and Thai/Malaysian outlets. The government retains appeal rights, and no outlet notes any indication of whether an appeal is planned.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "judicial limits on executive immigration authority",
+      "outlets": [
+        "AFP / France 24 EN", "AFP / France 24 FR", "ANSA Italian (Mondo)",
+        "Bangkok Post", "Bol News", "Dawn", "Deutsche Welle Russian",
+        "Folha de São Paulo", "France 24 Spanish", "Geo News English",
+        "Hindustan Times", "Il Sole 24 Ore", "Le Devoir", "Malay Mail World",
+        "Mother Jones", "Reuters (via Google News)", "Straits Times",
+        "The Hindu Intl", "The Independent", "VnExpress English"
+      ],
+      "countries": [
+        "wire_services", "france", "italy", "vietnam_thai_my", "pakistan",
+        "germany", "brazil", "state_tv_intl", "india", "canada",
+        "usa", "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Bol News",
+          "country": "pakistan",
+          "quote": "The judge said the policy, introduced in January, was unlawful and could not be used to halt immigrant visa.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Deutsche Welle Russian",
+          "country": "germany",
+          "quote": "Визовая политика, предусматривающая запрет на выдачу виз лицам, имеющим определенное гражданство, противоречит закону, постановила судья окружного суда в Нью-Йорке Джаннетт Варгас.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Une mesure qui a été déclarée, vendredi, illégale par la juge américaine Jeannette Vargas du tribunal de New York.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "Jeannette Vargas du tribunal de New York a statué que la mesure était «contraire à la loi».",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump administration cumulative legal defeat",
+      "outlets": ["Geo News English", "Mother Jones"],
+      "countries": ["pakistan", "usa"],
+      "evidence": [
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Trump suffers another legal blow as judge strikes down 75-country visa ban",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Mother Jones",
+          "country": "usa",
+          "quote": "As president, especially in his second term, Donald Trump has brought eugenicist immigration policy roaring back.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "nationality-based discrimination and family separation",
+      "outlets": ["Mother Jones", "The Independent", "VnExpress English"],
+      "countries": ["usa", "uk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Two nonprofit organizations and 11 individuals, including six whose family members had been refused visas, challenged the policy",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Rights groups say the crackdown has violated free speech and due process rights and has created an unsafe environment, particularly for ethnic minorities, who have raised concerns about racial profiling.",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "eugenicist roots of public charge doctrine",
+      "outlets": ["Mother Jones"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "Mother Jones",
+          "country": "usa",
+          "quote": "As president, especially in his second term, Donald Trump has brought eugenicist immigration policy roaring back.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "scope of 75-country suspension and affected populations",
+      "outlets": ["Hindustan Times", "Folha de São Paulo", "Bangkok Post"],
+      "countries": ["india", "brazil", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "The ban was for nationals of 75 countries, including Afghanistan, Brazil, Egypt, Iran, Iraq, and Yemen, who wish to settle in the United States indefinitely.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "A juíza federal Jeannette Vargas, de Nova York, anulou nesta sexta-feira (21) a moratória da emissão de vistos para residência permanente nos Estados Unidos. A restrição estava em vigor desde o dia 21 de janeiro e atingia cidadãos do Brasil e de outros 74 países.",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese-origin outlet appears in this cluster despite China being a major source of US visa applicants; Chinese feeds in the system appear to have covered other stories."
+    },
+    {
+      "country": "middle_east",
+      "what_they_covered_instead": "No Middle Eastern outlets appear despite Egypt, Yemen, and Iraq being explicitly named as affected countries in the ruling; Middle East feeds in the system appear to have covered other stories."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mother Jones",
+      "country": "usa",
+      "finding": "Only outlet to invoke eugenicist history and characterize the policy roots as white nationalist — a moral-historical frame entirely absent from all other 19 outlets including other left-leaning coverage.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Headline leads with 'Trump suffers another legal blow' — the most politically charged framing in the corpus, treating the ruling as a cumulative political defeat rather than an isolated legal event.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Il Sole 24 Ore",
+      "country": "italy",
+      "finding": "Only outlet to quantify the policy scope as blocking almost 40% of world countries, giving the ruling a global-scale dimension absent from other reporting.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Dawn",
+      "country": "pakistan",
+      "finding": "Named Pakistan in the headline and provided the most detailed statutory analysis among non-US outlets, quoting the exact legal authority question under the INA.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Bangkok Post",
+      "country": "vietnam_thai_my",
+      "finding": "Named Thailand specifically in the lead paragraph, localizing a US court ruling for a Thai audience — mirroring nationality-specific framing in Pakistani and Brazilian outlets.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "VnExpress English",
+      "country": "vietnam_thai_my",
+      "finding": "Provided the most detailed legal analysis, quoting the ruling's operative language verbatim and enumerating affected regions across Latin America, Balkans, South Asia, Africa, Middle East, and the Caribbean.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to focus on the plaintiffs — nonprofit organizations and individuals including six whose family members had been refused visas — grounding the legal story in individual human stakes.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Deutsche Welle Russian",
+      "country": "germany",
+      "finding": "Sole Russian-language outlet in the cluster; signals relevance to Russian-speaking diaspora communities in countries on the 75-country list.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A US federal judge ruled Trump's January 2026 immigrant visa suspension unlawful on August 21, finding it violated federal immigration law and exceeded Secretary Rubio's statutory authority — a verdict covered almost identically across 20 outlets in 12 countries. The sole editorial outlier was progressive US outlet Mother Jones, which alone extended the ruling into a broader critique of eugenicist immigration ideology; every other outlet confined itself to the legal facts.",
+  "generated_at": "2026-08-23T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
