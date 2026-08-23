@@ -1,0 +1,220 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "Lc64df37322",
+  "cluster_id": 167,
+  "cluster_name": "Magnitude 5.9 earthquake strikes Kanto region near Tokyo, 37 injured",
+  "salience_score": 5.204,
+  "n_outlets": 16,
+  "n_countries": 10,
+  "n_articles": 17,
+  "event_summary": "A magnitude 5.9 earthquake struck southern Ibaraki Prefecture, Japan at 2:00 am on August 23, 2026, shaking the Kanto region including central Tokyo. At least 37 people were injured; no tsunami warning was issued and nuclear facilities including Fukushima Daiichi reported no abnormalities.",
+  "tldr": "A moderate sub-6.0 earthquake near Tokyo generated unusually broad global media pickup across 10 countries and 4 languages — a reach more typical of major disasters — underscoring Tokyo's disproportionate weight in global news attention. Sixteen outlets spanning Turkish state media, French broadsheets, Indian commercial dailies, and Southeast Asian regionals converged almost entirely on health-safety and infrastructure-disruption framing with no measurable editorial divergence, one of the more uniform cross-country clusters in the dataset. French outlet Le Parisien is the sole voice to signal continuity, titling the piece 'un nouveau séisme' ('a new earthquake'), implicitly placing this event within a series; English-language outlets treat the quake as an isolated event. A quiet scientific tension runs beneath the consensus: Japan's Meteorological Agency measured the quake at magnitude 5.9 while the U.S. Geological Survey estimated 5.8 — a discrepancy noted only by El Financiero (Mexico) and Malay Mail. Only Japan Times provides seismic-scale granularity using Japan's seven-point intensity system, a technical register entirely absent from foreign reporting.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "injuries, aftershock warnings, nuclear-plant safety",
+      "outlets": [
+        "ABP Live",
+        "Anadolu Agency English",
+        "Bol News",
+        "Channel News Asia",
+        "El Financiero",
+        "El Pais",
+        "El Tiempo Colombia",
+        "Hindustan Times",
+        "Japan Times",
+        "Le Monde",
+        "Le Parisien",
+        "Malay Mail World",
+        "NDTV World",
+        "O Globo",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "india",
+        "turkey",
+        "pakistan",
+        "vietnam_thai_my",
+        "mexico",
+        "spain",
+        "colombia_ven_peru",
+        "japan",
+        "france",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "More than 20 people were injured, including a young man and a woman in her 70s in Saitama, north of Tokyo, as well as nine people in Kanagawa and four in Chiba prefectures.\nSeveral train services were delayed following the quake, while some trains ran at reduced speeds.\nSome express services operated by Tobu Railway remained halted.\nAn intensity of lower 5 was also recorded in parts of Saitama and Chiba prefectures and central Tokyo.\nNo abnormalities were detected at the Tokai No. 2 nuclear power plant in Ibaraki prefecture or the disaster-stricken Fukushima Daiichi nuclear plant and the nearby Fukushima Daini plant in northeastern Japan.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Bol News",
+          "country": "pakistan",
+          "quote": "At least 37 people were injured across several prefectures, according to reports, with most injuries described as minor. Some people were hurt after being startled awake and falling or colliding with furniture. One elderly woman in Yokohama suffered a serious hip injury.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "The weather agency warned of an increased risk of landslides in the area as the quake could have loosened soil in the region, which was lashed by torrential downpours yesterday.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "les autorités ont mis en garde contre un risque accru de glissements de terrain et de fortes répliques dans les prochains jours",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "transport disruption and infrastructure",
+      "outlets": [
+        "ABP Live",
+        "Channel News Asia",
+        "El Financiero",
+        "Hindustan Times",
+        "Malay Mail World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "india",
+        "vietnam_thai_my",
+        "mexico",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "outlet": "ABP Live",
+          "country": "india",
+          "quote": "Over 20 Injured As 5.9-Magnitude Earthquake Jolts Tokyo, Eastern Japan; Trains Delayed",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "The late-night quake disrupted regional train services in Tokyo on Sunday morning, according to East Japan Railway Company.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "The quake caused delays to express trains serving Tokyo and Narita Airport and other local trains serving northeastern regions, but Shinkansen bullet trains were running normally, their operator East Japan Railway Company said.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "nighttime disruption to urban residents",
+      "outlets": [
+        "El Financiero",
+        "Malay Mail World",
+        "Bol News"
+      ],
+      "countries": [
+        "mexico",
+        "vietnam_thai_my",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "La mayoría resultaron heridas cuando se cayeron o se golpearon contra muebles o puertas al ser sorprendidos por el sismo mientras dormían y se levantaron de la cama en pánico, dijeron autoridades.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "The worst case was that of a woman in her 80s in Yokohama, south of Tokyo, who tried to leave her bed after the quake but fell and hurt her hip, according to the local government and media reports.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "government task force and meteorological guidance",
+      "outlets": [
+        "Anadolu Agency English",
+        "El Financiero",
+        "Bol News"
+      ],
+      "countries": [
+        "turkey",
+        "mexico",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Prime Minister Sanae Takaichi instructed officials to ascertain the extent of the damage from the quake and provide timely information to the public.\nThe weather agency urged the public to remain alert for an earthquake registering lower 5 on the seismic intensity scale over the next week, especially during the next two to three days.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "El gobierno estableció un grupo de trabajo para evaluar el alcance de los posibles daños, indicó en X la primera ministra Sanae Takaichi.\nLa Agencia Meteorológica de Japón instó a los residentes en el área a tener precaución ante otro posible sismo moderado durante aproximadamente una semana.",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Le Parisien",
+      "country": "france",
+      "finding": "Titles the event 'un nouveau séisme' (a new earthquake), the only outlet to frame this as part of a continuing series of Japanese seismic events rather than an isolated quake.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "The only outlet to flag the magnitude discrepancy between Japan's Meteorological Agency (5.9) and the U.S. Geological Survey (5.8).",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Bol News",
+      "country": "pakistan",
+      "finding": "Uniquely promotes the Japan Tourism Agency safety tips app for earthquake and tsunami alerts, adding a practical travel-safety angle absent from all other coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Notes that authorities are investigating whether a ruptured water main in the capital was quake-related — an infrastructure detail not picked up by other outlets.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Le Monde",
+      "country": "france",
+      "finding": "The only French-language outlet to include the landslide risk warning, noting that the quake may have destabilised soil already saturated by torrential rain the previous day.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "The only wire to name Prime Minister Sanae Takaichi explicitly and quote her direct instruction to officials, adding political accountability framing absent from most coverage.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Places the event in recent seismic context by referencing last month's magnitude 7.1 Kumamoto quake that killed 38 people — contextualising this as part of an active seismic period.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A magnitude 5.9 earthquake struck near Tokyo on August 23, injuring at least 37 people and disrupting Kanto-area train services, with no tsunami warning and no nuclear plant abnormalities detected. Sixteen outlets across 10 countries and 4 languages converged almost entirely on health-safety and infrastructure-disruption framing with negligible editorial divergence, making this one of the most uniform cross-country clusters observed — a reflection both of the event's relatively unambiguous character and of Tokyo's gravitational pull on global news attention.",
+  "generated_at": "2026-08-23T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
