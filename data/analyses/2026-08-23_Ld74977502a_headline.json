@@ -1,0 +1,202 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-23",
+  "lineage_id": "Ld74977502a",
+  "cluster_id": 123,
+  "cluster_name": "18-year-old attacks Fagersta school with sword, kills teenager",
+  "salience_score": 7.347,
+  "n_outlets": 15,
+  "n_countries": 12,
+  "n_articles": 19,
+  "n_buckets": 12,
+  "tldr": "Headlines universally lead with the raw crime facts — sword, school, one dead, three hurt, attacker detained — with a clear secondary wave (five headlines across four outlets) foregrounding the police probe into online networks. The victim's age and gender ('17-year-old girl') are named explicitly in UK, Nordic, and Hungarian titles while most other outlets use the gender-neutral 'one dead' or 'one killed'. Germany's Tagesschau is the only outlet whose first headline abandons crime facts entirely for a grief register ('Trauer und Fassungslosigkeit'), a tonal divergence invisible in every other bucket at the title layer.",
+  "event_summary": "An 18-year-old man attacked students with a sword at a high school in Fagersta, Sweden, on 21 August 2026, killing a 17-year-old girl and wounding three others before police detained him. Swedish police subsequently launched an investigation into online communities linked to the suspect.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "sword attack, casualties, arrest",
+      "buckets": [
+        "brazil",
+        "canada",
+        "france",
+        "germany",
+        "hungary_central",
+        "nordic",
+        "pakistan",
+        "taiwan_hk",
+        "turkey",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "dans un lycée en Suède fait un mort et trois blessés",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Girl, 17, killed in Swedish sword attack, police say",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "At least 3 injured in sword attack at Swedish high school",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "One killed, three injured when man attacks Swedish school",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Ein Toter nach Schwertangriff an schwedischer Schule",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Telex Hungary",
+          "quote": "17 éves lány halt meg a pénteki svédországi kardos",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Several injured in sword attack at Swedish school",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "online networks probe, school lockdown",
+      "buckets": [
+        "pakistan",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Sweden probes online networks after teenage girl killed",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Swedish police probe online networks after teenage girl",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "killed 1 at Sweden high school prompts social media probe",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Swedish police probe online networks after teenage girl",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Sword attack puts Swedish school on lockdown",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "community grief, school year disrupted",
+      "buckets": [
+        "germany",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Trauer und Fassungslosigkeit nach Schwertangriff in Schweden",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "attack at Swedish high school on first day back",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.719,
+      "n_tokens": 222
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.736,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.747,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.75,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.75,
+      "n_tokens": 66
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Tagesschau",
+      "bucket": "germany",
+      "finding": "Only headline to abandon crime facts entirely in favour of a grief register — 'Trauer und Fassungslosigkeit' (grief and disbelief) — making Germany's public broadcaster the sole outlet whose first title is unclassifiable as CRIME_PUNISHMENT at the headline layer. This tonal departure is invisible in all anglophone, francophone, and lusophone titles.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline to include 'on first day back' — contextualising the attack as a back-to-school rupture in a way no other title does. This detail is visible at the RSS/homepage layer only for Malay Mail readers; readers of all other outlets would not encounter it until clicking through.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Sky News UK",
+      "bucket": "uk",
+      "finding": "Only headline to place scare quotes around the victim's fate — \"'17-year-old girl killed'\" — signalling editorial uncertainty about the death at time of publication, while BBC World and The Guardian stated the killing as confirmed fact in their contemporaneous titles.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline to use 'lockdown' terminology — 'Sword attack puts Swedish school on lockdown' — importing a characteristically American school-safety register into a European attack story, a framing choice absent from all European and wire-service titles.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "At the headline layer, all 12 country-buckets reduce the Fagersta attack to a crime-and-arrest story; the radicalization sub-text that Tagesschau introduced in its body text (suspect glorified past massacres) is entirely suppressed in every title, making it undetectable to any reader who did not click through. The secondary online-networks probe frame travels globally in five headlines from four outlets, reaching Singapore, Hong Kong, and Pakistan, but carries none of the ideological specificity visible in the bodies.",
+  "generated_at": "2026-08-23T00:00:00Z",
+  "model": "claude-haiku-4-5"
+}
