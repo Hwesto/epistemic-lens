@@ -1,0 +1,166 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "La8a92f26c7",
+  "cluster_id": 92,
+  "cluster_name": "Nevada Hawk wildfire threatens Reno, forces mass evacuations",
+  "salience_score": 4.898,
+  "n_outlets": 15,
+  "n_countries": 10,
+  "n_articles": 16,
+  "event_summary": "The Hawk Fire ignited near Reno, Nevada on August 23–24, 2026, driven by strong winds and burning over 15,000 acres. Up to 90,000 residents faced evacuation orders or warnings at peak. The fire was human-caused and reached ~27% containment by August 25 after destroying homes in northwest Reno.",
+  "tldr": "Headlines across nine of ten country buckets render the Reno wildfire as a mass-evacuation safety crisis, converging on ‘forces to flee,’ ‘threatens Reno,’ and evacuation counts as the organising facts. Two outlets — Globe and Mail and RT — alone foreground human causation in the headline itself, while BBC World is the sole outlet to anchor the story in a survivor’s voice. The ANSA Italy article is a different event (severe weather in Bergamo) and the Hindustan Times piece covers an unrelated Oklahoma fire, leaving the Italy bucket entirely outside the Nevada story at headline level.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Mass evacuation, city under fire threat",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "Aaj Tak (alt)",
+        "BBC World",
+        "CBC World",
+        "Globe and Mail",
+        "Inquirer",
+        "Malay Mail World",
+        "RT",
+        "Tagesschau",
+        "The Guardian World",
+        "The Hindu Intl",
+        "ZDF Heute"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "india",
+        "uk",
+        "canada",
+        "philippines",
+        "vietnam_thai_my",
+        "russia",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Nevada wildfire forces tens of thousands to evacuate",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Fast-moving wildfire threatens Reno, Nevada, forcing thousands",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Inquirer",
+          "country": "philippines",
+          "quote": "More than 40,000 evacuate as wildfire nears Reno",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Flammen bei Reno - Zehntausende müssen fliehen",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Fast-moving wildfire amid shifting winds threatens Reno",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Fear and homelessness: lived displacement",
+      "outlets": [
+        "BBC World",
+        "Aaj Tak (alt)"
+      ],
+      "countries": [
+        "uk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "'Scared to death': Thousands evacuate Nevada homes",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Aaj Tak (alt)",
+          "country": "india",
+          "quote": "जंगल राख, 24 हजार लोग बेघर",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Human causation flagged as headline fact",
+      "outlets": [
+        "Globe and Mail",
+        "RT"
+      ],
+      "countries": [
+        "canada",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Wildfire started by humans approaches Reno, Nevada",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Human-caused wildfire forces 42,000 to flee in Nevada",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    "italy"
+  ],
+  "coverage_caveats": [
+    "ANSA English (italy) covers a separate severe-weather event near Bergamo, not the Nevada fire; the italy bucket is effectively absent from the Reno story at headline level.",
+    "Hindustan Times (india) covers an unrelated wildfire in Velma, Oklahoma (Stephens County); the india bucket still participates via Aaj Tak and The Hindu Intl, which both cover Reno."
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "Only headline globally to lead with a survivor’s direct quote (‘Scared to death’), anchoring the story in lived emotional experience rather than evacuation statistics — a humanising choice absent from every other outlet’s title.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "One of only two titles globally to name human causation explicitly (‘started by humans’), foregrounding moral accountability in a headline most other outlets use solely to convey scale and movement.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only headline to pair the human-causation label with a specific victim count and a ‘(VIDEOS)’ proof-of-disaster tag, amplifying the blame angle through sensationalising visual evidence claims not found in any Western outlet’s title.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only headline across all 16 articles to foreground containment progress (27%), shifting from crisis/threat framing to emergency-response capability — a dimension entirely absent from every other outlet’s title.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "At the headline layer the Reno wildfire story is almost universally rendered as a factual mass-evacuation crisis — evacuation counts and ‘threatens Reno’ language dominate globally — while the human-causation angle appears in only two titles (Globe and Mail, RT), the lived fear of evacuees in only one (BBC), and the fire’s partial containment in only one (Guardian), meaning readers scanning headlines worldwide receive a consistently alarm-oriented emergency frame while moral-accountability, human-interest, and response-effectiveness dimensions remain almost entirely below the fold.",
+  "generated_at": "2026-08-25T09:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
