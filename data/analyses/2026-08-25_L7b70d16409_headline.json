@@ -1,0 +1,173 @@
+{
+  "story_key": "L7b70d16409",
+  "date": "2026-08-25",
+  "n_buckets": 13,
+  "n_articles": 18,
+  "tldr": "Headlines across 12 of 13 country-buckets converge on a single security claim — Iran tried to assassinate one of Netanyahu's sons — rendered with near-identical phrasing across four languages. Iraq alone rejects the threat-frame entirely, contextualising the Israel-Iran war as Netanyahu's long-sought strategic objective whose payoff now looks uncertain.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Iran assassination attempt on Netanyahu's son",
+      "buckets": [
+        "india",
+        "wire_services",
+        "france",
+        "qatar",
+        "usa",
+        "brazil",
+        "state_tv_intl",
+        "pakistan",
+        "israel",
+        "russia",
+        "taiwan_hk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Iran tried to assassinate one of his sons",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "'Iran tried to assassinate one of my sons,' Netanyahu",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Iran Tried to 'Murder' One of His Sons",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Netanyahu claims 'Iran tried to murder one of my sons'",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Netanyahu afirma que Irã tentou matar um de seus filhos",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Netanyahu says Iran tried to kill one of his sons",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu's Iran war: uncertain strategic payoff",
+      "buckets": [
+        "iraq"
+      ],
+      "evidence": [
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Netanyahu got his Iran war, but maybe not his desired result",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "US economic campaign collapses Iran",
+      "buckets": [
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "Le Parisien",
+          "quote": "« L'Iran s'effondre » : Donald Trump lance",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "france",
+      "mean_similarity": 0.649,
+      "n_tokens": 98
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.658,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.759,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.783,
+      "n_tokens": 204
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.784,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.808,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.816,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.816,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.82,
+      "n_tokens": 257
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.849,
+      "n_tokens": 59
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Le Parisien",
+      "country": "france",
+      "finding": "One Le Parisien headline (idx 12) is entirely off-topic — covering Trump's proposed $100,000 US tech visa — and entered the cluster via feed proximity rather than story relevance. The second Le Parisien headline (idx 13) anchors the ECONOMIC frame on Iran's economic collapse under US sanctions.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Iraqi News",
+      "country": "iraq",
+      "finding": "The only outlet to reject the assassination-claim frame entirely. The headline reframes the war as Netanyahu's long-sought strategic objective while questioning whether it achieved his desired outcome — a retrospective political assessment absent from every other title in the corpus.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "ABP Live",
+      "country": "india",
+      "finding": "Uses 'Makes Massive Claim' — the only English-language headline to introduce explicit epistemic skepticism about Netanyahu's statement, signalling political rather than purely security framing. All other outlets report the claim neutrally ('says', 'reveals') or use distancing quotes ('claims').",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "The headline layer presents this story almost universally as a live security-threat narrative — Iran targeting Netanyahu's family — while suppressing the electoral timing context (an October election imminent) that body-text coverage foregrounds.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
