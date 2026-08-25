@@ -1,0 +1,172 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "L8017972aa7",
+  "cluster_id": 147,
+  "cluster_name": "Trump halves US-South Korea drills while courting Kim Jong Un summit",
+  "salience_score": 8.541,
+  "n_outlets": 14,
+  "n_countries": 9,
+  "n_articles": 19,
+  "n_buckets": 9,
+  "event_summary": "Trump ordered US-South Korea joint exercises halved and canceled the Ssangyong marine drill, both citing Iranian war force constraints. He posted old photos with Kim Jong Un signaling a summit; Pyongyang fired 10 short-range ballistic missiles in reply.",
+  "tldr": "At the headline layer the story fractures along two axes: the security axis (drill cuts and cancellations dominate Defense News, NK News, The Hindu, and Korea Herald), and the diplomatic axis (Trump courting Kim for a summit dominates Daily Sabah, Deutsche Welle, KBS, and The Diplomat). The body-layer depth — North Korea's missile volley, Trump's 'denuclearization of Iran' verbal slip, and the deliberate omission of 'denuclearization' from official readouts — is almost entirely invisible at the RSS/homepage layer; only Yonhap surfaces the readout controversy in its title.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US drill cuts over Iran war strain",
+      "buckets": ["usa", "korea_north", "india", "south_korea"],
+      "outlets": [
+        "Defense News",
+        "NK News",
+        "The Hindu Intl",
+        "Korea Herald (via Google News)"
+      ],
+      "countries": ["usa", "korea_north", "india", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Defense News",
+          "quote": "US cancels joint marine drills with South Korea",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "US-South Korea cuts military exercise length by half",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "South Korea says U.S. cancels joint marine drill",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "S. Korea, US halve UFS exercise after Trump calls",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump courts Kim — summit overture",
+      "buckets": ["turkey", "germany", "south_korea", "asia_pacific_regional"],
+      "outlets": [
+        "Daily Sabah",
+        "Deutsche Welle Deutsch",
+        "KBS World",
+        "The Diplomat"
+      ],
+      "countries": ["turkey", "germany", "south_korea", "asia_pacific_regional"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump courts Kim Jong Un as North Korea keeps talks",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Treffen zwischen Trump und Kim in naher Zukunft?",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Trump Posts Old Photos with Kim Jong-un on Truth Social",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "Trump Suddenly Wants a Summit With Kim Jong Un.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Kim's multipolar leverage and alliance coordination",
+      "buckets": ["spain", "taiwan_hk", "turkey", "south_korea"],
+      "outlets": [
+        "El Pais English",
+        "South China Morning Post",
+        "Anadolu Agency English",
+        "Yonhap News"
+      ],
+      "countries": ["spain", "taiwan_hk", "turkey", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Kim Jong-un, the leader Trump seeks out, Putin relies on",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "South Korea pledges to help Trump revive talks",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "US, South Korea agree to closely cooperate",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "S. Korea, U.S. remain committed to N.K. denuclearization",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "spain", "mean_similarity": 0.601, "n_tokens": 35},
+    {"bucket": "usa", "mean_similarity": 0.7, "n_tokens": 248},
+    {"bucket": "korea_north", "mean_similarity": 0.711, "n_tokens": 106},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.712, "n_tokens": 71},
+    {"bucket": "asia_pacific_regional", "mean_similarity": 0.724, "n_tokens": 55},
+    {"bucket": "turkey", "mean_similarity": 0.751, "n_tokens": 66},
+    {"bucket": "south_korea", "mean_similarity": 0.758, "n_tokens": 318}
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "The only headline to frame Kim Jong Un as a simultaneous object of desire for three great powers — naming Trump, Putin, and Xi in a single title — a structural multipolar lens absent from all 18 other titles in the corpus.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "The only outlet to surface the denuclearization-omission controversy at the headline level, naming 'omission from call readouts' as the explicit news hook rather than the cooperation-pledge formulation used by every other South Korean title.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "The Diplomat",
+      "country": "asia_pacific_regional",
+      "finding": "The only headline in the corpus to adopt an interrogative 'Why Now?' register, treating Trump's outreach as a puzzle requiring explanation rather than a diplomatic event to be reported — the only analytical-frame title among 19.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "finding": "The only headline linking Korean-theater force-availability shortfalls to concurrent US tanker withdrawals from Bulgaria, importing a European-theater angle that no other outlet's title carries.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "The headline layer splits cleanly between drill-cut alarmism (Defense News, NK News, India, Korea Herald) and summit-diplomacy theater (Daily Sabah, DW, KBS, The Diplomat), suppressing the body-layer depth — North Korea's missile response, Trump's Iran-denuclearization verbal slip, and the deliberate omission of 'denuclearization' from official readouts — almost entirely from the RSS/homepage layer.",
+  "generated_at": "2026-08-25T00:00:00Z",
+  "model": "claude-haiku-4-5"
+}
