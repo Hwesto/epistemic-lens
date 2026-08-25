@@ -1,0 +1,174 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "L814a22047f",
+  "cluster_id": 74,
+  "cluster_name": "Indonesia forest fires spread haze as Prabowo orders permit revocations",
+  "salience_score": 4.571,
+  "n_outlets": 9,
+  "n_countries": 7,
+  "n_articles": 32,
+  "event_summary": "Indonesian President Prabowo ordered permit revocations for firms linked to forest burning on August 24, as fires covering about 85,000 hectares in Sumatra and Kalimantan sent haze to Malaysia and Singapore. Police arrested 72 people suspected of setting fires to clear plantation land.",
+  "tldr": "The sharpest editorial gap is China's state media (CGTN): while every other outlet covers Prabowo's enforcement response to the fire crisis, CGTN covers only his welcome of Chinese investment, with no mention of the fires burning 85,000 hectares across Kalimantan and Sumatra. The cluster otherwise splits between an enforcement narrative — arrests, permit revocations — dominant in Western and Indian outlets, and a transboundary haze narrative dominant in regional Southeast Asian outlets directly exposed to Malaysia and Singapore's air quality consequences. South China Morning Post's skeptical headline 'can Indonesia make land burners pay?' surfaces a long-running accountability failure that Indonesian state media's orderly response framing conspicuously omits. The Guardian alone anchors the fires in a super El Niño climate frame, a structural driver absent from all other coverage.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "arson arrests and corporate permit revocations",
+      "outlets": ["Globe and Mail", "The Hindu Intl", "Channel News Asia", "South China Morning Post", "Antara English"],
+      "countries": ["canada", "india", "vietnam_thai_my", "taiwan_hk", "indonesia"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Indonesian police arrest 72 people suspected of starting forest and peatland fires\n\nMost of the suspects were accused of deliberately burning land to clear areas for plantations at lower cost, officials say",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Indonesia President Prabowo Subianto on Monday (Aug 24) ordered the revocation of business permits of firms suspected of ordering forest and land burning.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "The arson suspects were being investigated in connection with 89 forest and land fire cases across five provinces on the island of Borneo and four on Sumatra, said Mohammad Irhamni, director of special crimes at the National Police's Criminal Investigation Agency",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "coordinated firefighting and enforcement orders",
+      "outlets": ["Antara English", "Channel News Asia", "Malay Mail World"],
+      "countries": ["indonesia", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Antara English",
+          "country": "indonesia",
+          "quote": "Govt calls for swift action on forest and land fires, firm enforcement\n\nPresidential Chief of Staff General (Ret.) Dudung Abdurachman said President Prabowo Subianto has ordered a swift, ...",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "The Indonesian government is also doing satellite-based hotspot monitoring, deploying helicopters for water bombing and conducting weather modification operations to encourage rainfall in fire-affected areas.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Indonesia deploys hundreds of troops to fight Borneo fires\n\nPALANGKARAYA, Aug 23 — Indonesia is deploying an additional 1,500 soldiers to Borneo, an official said yesterday,...",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "regional haze as public health crisis",
+      "outlets": ["The Guardian World", "Channel News Asia"],
+      "countries": ["uk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "fires have ravaged tens of thousands of acres, with suffocating smoke reaching Malaysia and putting Singapore on alert",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "The order came as haze from fires in Indonesia spread to neighbouring countries including Malaysia and Singapore.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "transboundary haze and Jakarta's accountability test",
+      "outlets": ["South China Morning Post", "Channel News Asia"],
+      "countries": ["taiwan_hk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "As massive forest and land fires burn across parts of Indonesia, sending haze towards neighbouring Malaysia, President Prabowo Subianto has vowed firm action against big corporations found responsible – reviving a long-running test of whether Jakarta can punish those behind the blazes and finally break the cycle.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "haze from fires in Indonesia spread to neighbouring countries including Malaysia and Singapore",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "investment diplomacy vs. plantation arson economics",
+      "outlets": ["CGTN Politics", "CGTN World", "Globe and Mail"],
+      "countries": ["china", "canada"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "Indonesia welcomes more Chinese enterprises to invest and do business in the country, will continue to provide a sound business environment for Chinese companies, and opposes any ill-intentioned instigation and hype, Indonesian President Prabowo Subianto has said.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Most of the suspects were accused of deliberately burning land to clear areas for plantations at lower cost, officials say",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "australia",
+      "what_they_covered_instead": "Australia, a close neighbor historically engaged with Indonesian fire diplomacy under the ASEAN haze agreements, is absent from this cluster — likely focused on domestic news rather than the regional air quality story."
+    },
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No US outlet appears in the cluster despite US media's broad Southeast Asia environmental coverage; American feeds were likely dominated by domestic political news on this date."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "CGTN covers Prabowo welcoming Chinese investment with zero mention of the forest fires — the only outlet in the cluster that does not report the fire emergency, revealing a systematic editorial decision to foreground the bilateral economic relationship.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "The only outlet to embed the fires in a super El Niño climate frame, humanizing the story through a resident who says each breath feels 'like smoking a cigarette' — a lived-experience angle absent from all other coverage.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "The only outlet to apply institutional skepticism — 'can Indonesia make land burners pay?' — framing Prabowo's vows as part of a 'long-running test' of enforcement capacity Jakarta has repeatedly failed.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Surfaces the plantation-clearing motive explicitly: most arson suspects burned land to clear it for plantations at lower cost — connecting criminal enforcement to the structural agricultural economics driving repeat fires.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Antara English",
+      "country": "indonesia",
+      "finding": "Indonesian state news presents an orderly top-down response narrative — presidential orders, special teams, priority sites — with no transboundary haze or regional diplomatic dimension that dominates neighboring-country coverage.",
+      "signal_text_idx": 0
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Indonesia's forest fire crisis drew strong cross-regional coverage on Prabowo's enforcement response — arrests, permit revocations, military deployment — but the framing fractures along a single fault line: regional outlets (Channel News Asia, Malay Mail, SCMP) lead on transboundary haze and accountability history, while Indonesian state media projects orderly presidential control. China's state media stood entirely apart, covering Prabowo's investment welcome with no mention of the fires — the cluster's clearest editorial omission.",
+  "generated_at": "2026-08-25T07:45:00Z",
+  "model": "claude-sonnet-4-6"
+}
