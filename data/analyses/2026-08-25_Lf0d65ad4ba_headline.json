@@ -1,0 +1,123 @@
+{
+  "story_key": "Lf0d65ad4ba",
+  "date": "2026-08-25",
+  "n_buckets": 10,
+  "n_articles": 20,
+  "tldr": "Headlines worldwide frame this as a straightforward policy proposal — the Trump administration permanently codifying a $103,265 H-1B visa fee. Indian outlets stand apart by recentering every headline on the disproportionate impact on Indian workers and aspirants, while Japan Times and Geo News foreground the court-defeat context that explains why the administration chose a new regulatory vehicle.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Admin proposes permanent $103K H-1B fee",
+      "buckets": ["canada", "india", "pakistan", "taiwan_hk", "turkey", "uk", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "US to impose more than $100,000 fee for H-1B worker visas",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump administration moves to increase H-1B visa fee",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Trump moves to make $100,000 fee for H-1B worker visas",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "US proposes permanent $103,265 fee on H-1B visas for skilled",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Indians face disproportionate H-1B burden",
+      "buckets": ["india"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "For Indians in the US, two new $100,000 walls may be coming",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "OpIndia",
+          "quote": "Why Indians could be hit hard",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "How will it impact Indians",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "New rule routes around court defeat",
+      "buckets": ["japan", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "new $100,000 H-1B visa fee after defeat in court",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "proposes $103,265 H-1B visa fee despite court defeat",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.682,
+      "n_tokens": 182
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.764,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.791,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.818,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.856,
+      "n_tokens": 541
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.873,
+      "n_tokens": 307
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer the story is almost universally framed as a routine policy proposal, with the key divergence being Indian outlets' consistent shift to an impact-on-Indians lens and two outlets explicitly naming the court defeat the new rule is designed to work around.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
