@@ -1,0 +1,164 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "L6daaf86b96",
+  "cluster_id": 180,
+  "cluster_name": "US removes Syria from State Sponsors of Terrorism list",
+  "salience_score": 5.306,
+  "n_outlets": 14,
+  "n_countries": 13,
+  "n_articles": 20,
+  "event_summary": "The US on August 24, 2026 removed Syria from its State Sponsors of Terrorism list, ending a designation held since 1979, and revoked HTS's designation as a global terrorist organization; the Treasury announced corresponding sanctions relief.",
+  "tldr": "At the headline layer, the story compresses almost universally into a single neutral administrative statement — 'US removes Syria from the state sponsors of terrorism list' — stripping all the body-layer complexity about al-Qaeda links, HTS counter-terrorism credentials, congressional mechanics, and the 47-year history of the designation. Three outlets break from the neutral register: Fox News uniquely frames the action as 'Trump admin clears investment hurdle,' the only title to attribute political agency to the administration; Reuters and one Straits Times headline import 'lifting major investment obstacle,' anchoring the action in economic consequence rather than diplomatic fact; and Standard Kenya World plus a second Straits Times headline elevate al-Sharaa's 'shakes off dark stain' metaphor to headline prominence — the only cultural-identity framing visible at the RSS layer. The SECURITY_DEFENSE frame dominant in body text (HTS background, Syria's CT commitments, Iran-aligned groups) is entirely absent from all 17 titles.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US delists Syria — diplomatic normalization",
+      "outlets": [
+        "Al Jazeera English",
+        "BBC World",
+        "Anadolu Agency English",
+        "Dawn",
+        "Enab Baladi",
+        "Middle East Eye",
+        "South China Morning Post",
+        "TASS English",
+        "The Hindu Intl",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "qatar",
+        "uk",
+        "turkey",
+        "pakistan",
+        "syria",
+        "pan_arab",
+        "taiwan_hk",
+        "russia",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "US removes Syria from 'state sponsor of terrorism' list",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "state sponsor of terrorism list in major diplomatic shift",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "opens door to 'brighter future'",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "US revokes Syria's designation as State Sponsor of Terrorism",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "lifting the investment obstacle",
+      "outlets": [
+        "Fox News World",
+        "Reuters (via Google News)",
+        "Straits Times"
+      ],
+      "countries": [
+        "usa",
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Trump admin clears investment hurdle",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "lifting major investment obstacle",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "lifting major investment obstacle",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Syria sheds 'dark stain' — national rebirth",
+      "outlets": [
+        "Standard Kenya World",
+        "Straits Times"
+      ],
+      "countries": [
+        "kenya",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "President says Syria 'shakes off dark stain'",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "President says Syria 'shakes off dark stain'",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "iran",
+      "what_they_covered_instead": "Iran is absent from headline coverage despite Secretary Rubio explicitly naming Iran-aligned groups as a threat Syria committed to counter; no Iranian outlet appears in this cluster at title or body level."
+    },
+    {
+      "country": "israel",
+      "what_they_covered_instead": "Israel, with acute security stakes in Syria's HTS-led government, is absent from headline coverage entirely, suggesting Israeli outlets either did not cover the story or ran it outside the cluster window."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "The only outlet to frame the delisting as a named Trump administration achievement in the headline itself ('Trump admin clears investment hurdle'), making both a POLITICAL attribution and an ECONOMIC framing that every other outlet's title withholds; all 13 other outlets name the US generically or not at all.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to append 'major diplomatic shift' to the standard removal formula, signalling historical significance at the headline level that all other neutral-register outlets leave to body text.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Uniquely foregrounds Turkey's envoy rather than the US actor, framing the removal as opening 'a brighter future' — the most optimistic and Turkey-centric register in the headline corpus.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "The headline layer of this cluster is strikingly homogeneous: twelve of fourteen outlets deliver a neutral administrative fact with no attribution beyond 'US,' suppressing the al-Qaeda backstory, investment mechanics, and Trump political framing that body text sustains; only Fox News names the administration and frames the move as an economic win, and only the East African and Southeast Asian titles import al-Sharaa's 'shakes off dark stain' metaphor to the homepage.",
+  "generated_at": "2026-08-25T00:00:00Z",
+  "model": "claude-haiku-4-5"
+}
