@@ -1,0 +1,96 @@
+{
+  "story_key": "Le27a613509",
+  "date": "2026-08-25",
+  "n_buckets": 6,
+  "n_articles": 15,
+  "tldr": "Headlines in Mexico, the US, and international outlets frame the Sinaloa governor crisis through Rubén Rocha Moya's US drug indictment and his abortive 48-hour return to office, with Sheinbaum's curt public distancing adding a political dimension; Argentine and Spanish outlets ignore the episode entirely.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "US drug indictment sidelines governor",
+      "buckets": ["usa", "state_tv_intl", "mexico"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Mexican governor facing US drug charges",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "gobernador de Sinaloa acusado por EE. UU.",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "Mexico News Daily",
+          "quote": "Sinaloa Governor Rubén Rocha Moya returned to office for only 48 hours",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Sheinbaum distances from Rocha",
+      "buckets": ["mexico", "italy"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "'Qué necesidad de regresar': Sheinbaum",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "Teorías conspiradoras",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "'imprudente il ritorno del governatore di Sinaloa'",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.363,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.367,
+      "n_tokens": 96
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.583,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.612,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.631,
+      "n_tokens": 253
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "argentina_chile",
+    "spain"
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage casts the Sinaloa governorship crisis as a US-driven criminal accountability story, with the governor's 48-hour return as the dramatic hook and Sheinbaum's distancing as the political colour.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
