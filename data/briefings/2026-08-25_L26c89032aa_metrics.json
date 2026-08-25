@@ -1,0 +1,275 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 12,
+  "buckets": [
+    "africa_other",
+    "china",
+    "germany",
+    "india",
+    "pan_african",
+    "state_tv_intl",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 240,
+    "africa_other": 19,
+    "usa": 70,
+    "china": 27,
+    "state_tv_intl": 19,
+    "india": 60,
+    "uk": 81,
+    "germany": 33
+  },
+  "pairwise_similarity": [
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.864
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.854
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.852
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.844
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.826
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.775
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.775
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.771
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.769
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.767
+    },
+    {
+      "a": "africa_other",
+      "b": "china",
+      "score": 0.764
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.758
+    },
+    {
+      "a": "africa_other",
+      "b": "usa",
+      "score": 0.714
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.714
+    },
+    {
+      "a": "germany",
+      "b": "pan_african",
+      "score": 0.709
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.709
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.707
+    },
+    {
+      "a": "africa_other",
+      "b": "germany",
+      "score": 0.694
+    },
+    {
+      "a": "africa_other",
+      "b": "uk",
+      "score": 0.673
+    },
+    {
+      "a": "africa_other",
+      "b": "india",
+      "score": 0.584
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.577
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.576
+    },
+    {
+      "a": "germany",
+      "b": "state_tv_intl",
+      "score": 0.556
+    },
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.509
+    },
+    {
+      "a": "china",
+      "b": "state_tv_intl",
+      "score": 0.495
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.488
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.453
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.333
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.67,
+      "n_tokens": 240
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.689,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.731,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.752,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.758,
+      "n_tokens": 70
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.497,
+      "n_tokens": 19
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.61,
+      "n_tokens": 19
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.753,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [
+      {
+        "term": "disaster",
+        "count": 3
+      },
+      {
+        "term": "international",
+        "count": 3
+      },
+      {
+        "term": "august",
+        "count": 3
+      },
+      {
+        "term": "trade",
+        "count": 3
+      }
+    ],
+    "africa_other": [],
+    "usa": [
+      {
+        "term": "garbage",
+        "count": 7
+      },
+      {
+        "term": "killing",
+        "count": 3
+      },
+      {
+        "term": "survivor",
+        "count": 3
+      }
+    ],
+    "china": [],
+    "state_tv_intl": [],
+    "india": [],
+    "uk": [],
+    "germany": [
+      {
+        "term": "abrutschen",
+        "count": 3
+      },
+      {
+        "term": "einer",
+        "count": 3
+      },
+      {
+        "term": "mülldeponie",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:18:09+00:00",
+  "meta_version": "10.0.3"
+}

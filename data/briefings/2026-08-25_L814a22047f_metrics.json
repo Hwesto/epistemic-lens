@@ -1,0 +1,261 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 10,
+  "buckets": [
+    "canada",
+    "china",
+    "india",
+    "indonesia",
+    "taiwan_hk",
+    "uk",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "indonesia": 60,
+    "china": 68,
+    "vietnam_thai_my": 238,
+    "canada": 26,
+    "taiwan_hk": 54,
+    "uk": 50,
+    "india": 39
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.753
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.691
+    },
+    {
+      "a": "indonesia",
+      "b": "vietnam_thai_my",
+      "score": 0.652
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.628
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.622
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.615
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.6
+    },
+    {
+      "a": "india",
+      "b": "indonesia",
+      "score": 0.554
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.536
+    },
+    {
+      "a": "canada",
+      "b": "indonesia",
+      "score": 0.516
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.514
+    },
+    {
+      "a": "indonesia",
+      "b": "taiwan_hk",
+      "score": 0.512
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.51
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.489
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.478
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.446
+    },
+    {
+      "a": "indonesia",
+      "b": "uk",
+      "score": 0.414
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.409
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.406
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.389
+    },
+    {
+      "a": "china",
+      "b": "indonesia",
+      "score": 0.384
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.44,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.495,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "indonesia",
+      "mean_similarity": 0.505,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.55,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.557,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.619,
+      "n_tokens": 238
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.539,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "indonesia": [
+      {
+        "term": "team",
+        "count": 3
+      },
+      {
+        "term": "three",
+        "count": 3
+      },
+      {
+        "term": "priority",
+        "count": 3
+      },
+      {
+        "term": "swift",
+        "count": 3
+      }
+    ],
+    "china": [
+      {
+        "term": "chinese",
+        "count": 8
+      },
+      {
+        "term": "welcom",
+        "count": 6
+      },
+      {
+        "term": "investment",
+        "count": 4
+      },
+      {
+        "term": "business",
+        "count": 4
+      }
+    ],
+    "vietnam_thai_my": [
+      {
+        "term": "hotspot",
+        "count": 5
+      },
+      {
+        "term": "permit",
+        "count": 4
+      },
+      {
+        "term": "government",
+        "count": 4
+      },
+      {
+        "term": "order",
+        "count": 3
+      },
+      {
+        "term": "monday",
+        "count": 3
+      },
+      {
+        "term": "water",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "taiwan_hk": [],
+    "uk": [
+      {
+        "term": "like",
+        "count": 3
+      },
+      {
+        "term": "smoking",
+        "count": 3
+      },
+      {
+        "term": "cigarette",
+        "count": 3
+      }
+    ],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:18:40+00:00",
+  "meta_version": "10.0.3"
+}

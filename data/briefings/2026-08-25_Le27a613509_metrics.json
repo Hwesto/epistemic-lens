@@ -1,0 +1,234 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 6,
+  "n_articles": 15,
+  "buckets": [
+    "argentina_chile",
+    "italy",
+    "mexico",
+    "spain",
+    "state_tv_intl",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "mexico": 253,
+    "italy": 18,
+    "spain": 96,
+    "usa": 36,
+    "state_tv_intl": 56,
+    "argentina_chile": 84
+  },
+  "pairwise_similarity": [
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.83
+    },
+    {
+      "a": "mexico",
+      "b": "state_tv_intl",
+      "score": 0.81
+    },
+    {
+      "a": "italy",
+      "b": "state_tv_intl",
+      "score": 0.789
+    },
+    {
+      "a": "mexico",
+      "b": "usa",
+      "score": 0.761
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.713
+    },
+    {
+      "a": "italy",
+      "b": "mexico",
+      "score": 0.658
+    },
+    {
+      "a": "mexico",
+      "b": "spain",
+      "score": 0.469
+    },
+    {
+      "a": "argentina_chile",
+      "b": "spain",
+      "score": 0.461
+    },
+    {
+      "a": "argentina_chile",
+      "b": "mexico",
+      "score": 0.458
+    },
+    {
+      "a": "argentina_chile",
+      "b": "state_tv_intl",
+      "score": 0.337
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.334
+    },
+    {
+      "a": "spain",
+      "b": "state_tv_intl",
+      "score": 0.296
+    },
+    {
+      "a": "argentina_chile",
+      "b": "italy",
+      "score": 0.283
+    },
+    {
+      "a": "argentina_chile",
+      "b": "usa",
+      "score": 0.277
+    },
+    {
+      "a": "italy",
+      "b": "spain",
+      "score": 0.276
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.363,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.367,
+      "n_tokens": 96
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.583,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.612,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.631,
+      "n_tokens": 253
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.544,
+      "n_tokens": 18
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "mexico": [
+      {
+        "term": "sobre",
+        "count": 4
+      },
+      {
+        "term": "cattle",
+        "count": 4
+      },
+      {
+        "term": "monday",
+        "count": 4
+      },
+      {
+        "term": "returned",
+        "count": 4
+      },
+      {
+        "term": "decisión",
+        "count": 3
+      },
+      {
+        "term": "trade",
+        "count": 3
+      },
+      {
+        "term": "with",
+        "count": 3
+      },
+      {
+        "term": "reopen",
+        "count": 3
+      },
+      {
+        "term": "weigh",
+        "count": 3
+      },
+      {
+        "term": "statu",
+        "count": 3
+      },
+      {
+        "term": "mañanera",
+        "count": 3
+      },
+      {
+        "term": "recapped",
+        "count": 3
+      },
+      {
+        "term": "hour",
+        "count": 3
+      }
+    ],
+    "italy": [],
+    "spain": [
+      {
+        "term": "cómo",
+        "count": 4
+      }
+    ],
+    "usa": [],
+    "state_tv_intl": [],
+    "argentina_chile": [
+      {
+        "term": "popstar",
+        "count": 4
+      },
+      {
+        "term": "debutó",
+        "count": 3
+      },
+      {
+        "term": "jurado",
+        "count": 3
+      },
+      {
+        "term": "junto",
+        "count": 3
+      },
+      {
+        "term": "alfombra",
+        "count": 3
+      },
+      {
+        "term": "roja",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:18:50+00:00",
+  "meta_version": "10.0.3"
+}

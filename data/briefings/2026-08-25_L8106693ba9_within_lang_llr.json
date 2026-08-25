@@ -1,0 +1,152 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 67,
+      "n_tokens_in_cohort": 1115,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 1160,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 532,
+      "n_tokens_in_cohort": 650,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 189,
+      "n_tokens_in_cohort": 993,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 20,
+      "n_tokens_in_cohort": 1162,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 1113,
+      "distinctive_terms": [
+        {
+          "term": "revocation",
+          "count_in_bucket": 9,
+          "count_in_cohort": 28,
+          "rate_in_bucket": 0.13043,
+          "rate_in_cohort": 0.02516,
+          "llr": 14.218,
+          "log_ratio": 1.646,
+          "p_value": 0.000163
+        }
+      ]
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 1158,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 82,
+      "n_tokens_in_cohort": 1100,
+      "distinctive_terms": [
+        {
+          "term": "judge",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.07317,
+          "rate_in_cohort": 0.00182,
+          "llr": 23.709,
+          "log_ratio": 3.695,
+          "p_value": 1e-06
+        },
+        {
+          "term": "down",
+          "count_in_bucket": 6,
+          "count_in_cohort": 5,
+          "rate_in_bucket": 0.07317,
+          "rate_in_cohort": 0.00455,
+          "llr": 17.95,
+          "log_ratio": 2.779,
+          "p_value": 2.3e-05
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 1159,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 1132,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 67,
+      "n_tokens_in_cohort": 1115,
+      "distinctive_terms": []
+    },
+    "nigeria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 37,
+      "n_tokens_in_cohort": 1145,
+      "distinctive_terms": []
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 3,
+      "n_tokens_in_bucket": 57,
+      "n_tokens_in_cohort": 73,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 3,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 106,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 3,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 81,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 4,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

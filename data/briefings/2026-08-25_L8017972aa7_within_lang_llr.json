@@ -1,0 +1,93 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 66,
+      "n_tokens_in_cohort": 847,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 248,
+      "n_tokens_in_cohort": 665,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 878,
+      "distinctive_terms": []
+    },
+    "south_korea": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 318,
+      "n_tokens_in_cohort": 595,
+      "distinctive_terms": [
+        {
+          "term": "herald",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01887,
+          "rate_in_cohort": 0.0,
+          "llr": 12.731,
+          "log_ratio": null,
+          "p_value": 0.00036
+        }
+      ]
+    },
+    "korea_north": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 106,
+      "n_tokens_in_cohort": 807,
+      "distinctive_terms": [
+        {
+          "term": "military",
+          "count_in_bucket": 8,
+          "count_in_cohort": 9,
+          "rate_in_bucket": 0.07547,
+          "rate_in_cohort": 0.01115,
+          "llr": 13.568,
+          "log_ratio": 1.912,
+          "p_value": 0.00023
+        }
+      ]
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 71,
+      "n_tokens_in_cohort": 842,
+      "distinctive_terms": []
+    },
+    "asia_pacific_regional": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 858,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 8,
+      "n_tokens_in_bucket": 14,
+      "n_tokens_in_cohort": 899,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

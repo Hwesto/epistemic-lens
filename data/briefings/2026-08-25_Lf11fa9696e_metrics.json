@@ -1,0 +1,322 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 17,
+  "buckets": [
+    "china",
+    "india",
+    "israel",
+    "russia",
+    "syria",
+    "turkey",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 157,
+    "turkey": 110,
+    "china": 37,
+    "syria": 163,
+    "israel": 37,
+    "vietnam_thai_my": 29,
+    "russia": 48,
+    "india": 34
+  },
+  "pairwise_similarity": [
+    {
+      "a": "israel",
+      "b": "usa",
+      "score": 0.834
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.806
+    },
+    {
+      "a": "syria",
+      "b": "turkey",
+      "score": 0.802
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.781
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.776
+    },
+    {
+      "a": "russia",
+      "b": "syria",
+      "score": 0.774
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.77
+    },
+    {
+      "a": "syria",
+      "b": "usa",
+      "score": 0.747
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.745
+    },
+    {
+      "a": "india",
+      "b": "israel",
+      "score": 0.723
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "score": 0.718
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.708
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.706
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.703
+    },
+    {
+      "a": "india",
+      "b": "syria",
+      "score": 0.697
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.69
+    },
+    {
+      "a": "syria",
+      "b": "vietnam_thai_my",
+      "score": 0.669
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.665
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.658
+    },
+    {
+      "a": "israel",
+      "b": "russia",
+      "score": 0.653
+    },
+    {
+      "a": "israel",
+      "b": "syria",
+      "score": 0.649
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.643
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.632
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.615
+    },
+    {
+      "a": "china",
+      "b": "syria",
+      "score": 0.592
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.556
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.553
+    },
+    {
+      "a": "china",
+      "b": "israel",
+      "score": 0.552
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.6,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.68,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.694,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "syria",
+      "mean_similarity": 0.704,
+      "n_tokens": 163
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.709,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.742,
+      "n_tokens": 157
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.748,
+      "n_tokens": 110
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.672,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "axio",
+        "count": 3
+      }
+    ],
+    "turkey": [
+      {
+        "term": "attack",
+        "count": 3
+      }
+    ],
+    "china": [
+      {
+        "term": "interpol",
+        "count": 3
+      },
+      {
+        "term": "request",
+        "count": 3
+      }
+    ],
+    "syria": [
+      {
+        "term": "post",
+        "count": 5
+      },
+      {
+        "term": "appeared",
+        "count": 4
+      },
+      {
+        "term": "first",
+        "count": 4
+      },
+      {
+        "term": "joining",
+        "count": 4
+      },
+      {
+        "term": "mecca",
+        "count": 4
+      },
+      {
+        "term": "agreement",
+        "count": 4
+      },
+      {
+        "term": "dispute",
+        "count": 4
+      },
+      {
+        "term": "talk",
+        "count": 3
+      },
+      {
+        "term": "resume",
+        "count": 3
+      },
+      {
+        "term": "stand",
+        "count": 3
+      },
+      {
+        "term": "consider",
+        "count": 3
+      },
+      {
+        "term": "line",
+        "count": 3
+      },
+      {
+        "term": "expos",
+        "count": 3
+      },
+      {
+        "term": "wider",
+        "count": 3
+      },
+      {
+        "term": "rearmament",
+        "count": 3
+      }
+    ],
+    "israel": [],
+    "vietnam_thai_my": [
+      {
+        "term": "fresh",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "warn",
+        "count": 3
+      }
+    ],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:19:00+00:00",
+  "meta_version": "10.0.3"
+}

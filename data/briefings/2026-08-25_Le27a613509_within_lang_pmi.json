@@ -1,0 +1,157 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "mexico": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 2,
+      "n_bigrams_in_bucket": 105,
+      "n_bigrams_in_cohort": 35,
+      "associations": []
+    },
+    "spain": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 92,
+      "n_bigrams_in_cohort": 279,
+      "associations": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 55,
+      "n_bigrams_in_cohort": 316,
+      "associations": [
+        {
+          "bigram": [
+            "gobernador",
+            "sinaloa"
+          ],
+          "count_in_bucket": 3,
+          "count_in_cohort": 1,
+          "log_odds": 2.649,
+          "z_score": 2.71,
+          "lift": 17.24,
+          "rate_in_bucket": 0.054545,
+          "rate_in_cohort": 0.003165
+        },
+        {
+          "bigram": [
+            "sheinbaum",
+            "reacciona"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.395,
+          "z_score": 2.19,
+          "lift": null,
+          "rate_in_bucket": 0.036364,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "reacciona",
+            "caso"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.395,
+          "z_score": 2.19,
+          "lift": null,
+          "rate_in_bucket": 0.036364,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "caso",
+            "rubén"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.395,
+          "z_score": 2.19,
+          "lift": null,
+          "rate_in_bucket": 0.036364,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "rocha",
+            "gobernador"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.395,
+          "z_score": 2.19,
+          "lift": null,
+          "rate_in_bucket": 0.036364,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "sinaloa",
+            "acusado"
+          ],
+          "count_in_bucket": 2,
+          "count_in_cohort": 0,
+          "log_odds": 3.395,
+          "z_score": 2.19,
+          "lift": null,
+          "rate_in_bucket": 0.036364,
+          "rate_in_cohort": 0.0
+        },
+        {
+          "bigram": [
+            "rubén",
+            "rocha"
+          ],
+          "count_in_bucket": 3,
+          "count_in_cohort": 4,
+          "log_odds": 1.54,
+          "z_score": 2.16,
+          "lift": 4.31,
+          "rate_in_bucket": 0.054545,
+          "rate_in_cohort": 0.012658
+        }
+      ]
+    },
+    "argentina_chile": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 4,
+      "n_bigrams_in_bucket": 82,
+      "n_bigrams_in_cohort": 289,
+      "associations": [
+        {
+          "bigram": [
+            "alfombra",
+            "roja"
+          ],
+          "count_in_bucket": 3,
+          "count_in_cohort": 0,
+          "log_odds": 3.243,
+          "z_score": 2.14,
+          "lift": null,
+          "rate_in_bucket": 0.036585,
+          "rate_in_cohort": 0.0
+        }
+      ]
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 2,
+      "n_bigrams_in_bucket": 35,
+      "n_bigrams_in_cohort": 105,
+      "associations": []
+    }
+  },
+  "n_languages": 3,
+  "method": "log_odds_with_jeffreys_prior",
+  "params": {
+    "min_count": 2,
+    "z_threshold": 1.96,
+    "top_k": 25,
+    "smoothing_alpha": 0.5
+  },
+  "meta_version": "10.0.3"
+}

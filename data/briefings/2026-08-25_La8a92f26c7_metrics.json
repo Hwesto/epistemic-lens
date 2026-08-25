@@ -1,0 +1,381 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 16,
+  "buckets": [
+    "canada",
+    "france",
+    "germany",
+    "india",
+    "italy",
+    "philippines",
+    "russia",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 45,
+    "france": 52,
+    "italy": 12,
+    "india": 74,
+    "uk": 74,
+    "canada": 88,
+    "philippines": 49,
+    "vietnam_thai_my": 26,
+    "russia": 27,
+    "germany": 59
+  },
+  "pairwise_similarity": [
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.88
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.861
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.846
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.844
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.842
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.84
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.813
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.81
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.807
+    },
+    {
+      "a": "philippines",
+      "b": "wire_services",
+      "score": 0.806
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.804
+    },
+    {
+      "a": "philippines",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.796
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.773
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.769
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.768
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.768
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.767
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.761
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.754
+    },
+    {
+      "a": "france",
+      "b": "philippines",
+      "score": 0.75
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.746
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.746
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.739
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.731
+    },
+    {
+      "a": "philippines",
+      "b": "russia",
+      "score": 0.73
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.725
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.723
+    },
+    {
+      "a": "philippines",
+      "b": "vietnam_thai_my",
+      "score": 0.722
+    },
+    {
+      "a": "canada",
+      "b": "philippines",
+      "score": 0.717
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.716
+    },
+    {
+      "a": "india",
+      "b": "philippines",
+      "score": 0.712
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.707
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.696
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.694
+    },
+    {
+      "a": "germany",
+      "b": "philippines",
+      "score": 0.672
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.441
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.44
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.435
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.426
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.423
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.415
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.398
+    },
+    {
+      "a": "italy",
+      "b": "russia",
+      "score": 0.395
+    },
+    {
+      "a": "italy",
+      "b": "philippines",
+      "score": 0.382
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.697,
+      "n_tokens": 74
+    },
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.699,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.726,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.73,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.75,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.763,
+      "n_tokens": 88
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.763,
+      "n_tokens": 74
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.417,
+      "n_tokens": 12
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.709,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.722,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "france": [
+      {
+        "term": "dans",
+        "count": 3
+      },
+      {
+        "term": "dizain",
+        "count": 3
+      },
+      {
+        "term": "millier",
+        "count": 3
+      },
+      {
+        "term": "personn",
+        "count": 3
+      },
+      {
+        "term": "évacuer",
+        "count": 3
+      }
+    ],
+    "italy": [],
+    "india": [],
+    "uk": [
+      {
+        "term": "contained",
+        "count": 3
+      },
+      {
+        "term": "warning",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "approach",
+        "count": 4
+      }
+    ],
+    "philippines": [],
+    "vietnam_thai_my": [],
+    "russia": [],
+    "germany": [
+      {
+        "term": "zehntausende",
+        "count": 4
+      },
+      {
+        "term": "bundesstaat",
+        "count": 3
+      },
+      {
+        "term": "menschen",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:18:47+00:00",
+  "meta_version": "10.0.3"
+}

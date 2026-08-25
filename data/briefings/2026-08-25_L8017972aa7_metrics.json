@@ -1,0 +1,361 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 19,
+  "buckets": [
+    "asia_pacific_regional",
+    "germany",
+    "india",
+    "korea_north",
+    "south_korea",
+    "spain",
+    "taiwan_hk",
+    "turkey",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "turkey": 66,
+    "usa": 248,
+    "germany": 28,
+    "spain": 35,
+    "south_korea": 318,
+    "korea_north": 106,
+    "taiwan_hk": 71,
+    "asia_pacific_regional": 55,
+    "india": 14
+  },
+  "pairwise_similarity": [
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.85
+    },
+    {
+      "a": "south_korea",
+      "b": "turkey",
+      "score": 0.845
+    },
+    {
+      "a": "korea_north",
+      "b": "usa",
+      "score": 0.838
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "turkey",
+      "score": 0.827
+    },
+    {
+      "a": "korea_north",
+      "b": "south_korea",
+      "score": 0.825
+    },
+    {
+      "a": "south_korea",
+      "b": "taiwan_hk",
+      "score": 0.824
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.805
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "south_korea",
+      "score": 0.8
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "germany",
+      "score": 0.799
+    },
+    {
+      "a": "south_korea",
+      "b": "usa",
+      "score": 0.797
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.755
+    },
+    {
+      "a": "korea_north",
+      "b": "taiwan_hk",
+      "score": 0.755
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "taiwan_hk",
+      "score": 0.748
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "korea_north",
+      "score": 0.73
+    },
+    {
+      "a": "korea_north",
+      "b": "turkey",
+      "score": 0.72
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.714
+    },
+    {
+      "a": "germany",
+      "b": "south_korea",
+      "score": 0.705
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.695
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.691
+    },
+    {
+      "a": "spain",
+      "b": "turkey",
+      "score": 0.672
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "spain",
+      "score": 0.668
+    },
+    {
+      "a": "south_korea",
+      "b": "spain",
+      "score": 0.666
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.664
+    },
+    {
+      "a": "germany",
+      "b": "spain",
+      "score": 0.645
+    },
+    {
+      "a": "spain",
+      "b": "taiwan_hk",
+      "score": 0.639
+    },
+    {
+      "a": "germany",
+      "b": "korea_north",
+      "score": 0.636
+    },
+    {
+      "a": "india",
+      "b": "south_korea",
+      "score": 0.601
+    },
+    {
+      "a": "india",
+      "b": "korea_north",
+      "score": 0.599
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.597
+    },
+    {
+      "a": "korea_north",
+      "b": "spain",
+      "score": 0.581
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.557
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.555
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "india",
+      "score": 0.522
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.498
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.436
+    },
+    {
+      "a": "india",
+      "b": "spain",
+      "score": 0.378
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.601,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.7,
+      "n_tokens": 248
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.711,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.712,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.724,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.751,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.758,
+      "n_tokens": 318
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.549,
+      "n_tokens": 14
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.656,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "turkey": [],
+    "usa": [
+      {
+        "term": "corp",
+        "count": 3
+      },
+      {
+        "term": "order",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "treffen",
+        "count": 3
+      }
+    ],
+    "spain": [],
+    "south_korea": [
+      {
+        "term": "herald",
+        "count": 6
+      },
+      {
+        "term": "goal",
+        "count": 5
+      },
+      {
+        "term": "global",
+        "count": 4
+      },
+      {
+        "term": "ministry",
+        "count": 4
+      },
+      {
+        "term": "question",
+        "count": 4
+      },
+      {
+        "term": "readout",
+        "count": 4
+      },
+      {
+        "term": "communication",
+        "count": 3
+      },
+      {
+        "term": "photo",
+        "count": 3
+      },
+      {
+        "term": "overture",
+        "count": 3
+      },
+      {
+        "term": "reviv",
+        "count": 3
+      },
+      {
+        "term": "come",
+        "count": 3
+      },
+      {
+        "term": "halve",
+        "count": 3
+      },
+      {
+        "term": "committed",
+        "count": 3
+      },
+      {
+        "term": "omission",
+        "count": 3
+      }
+    ],
+    "korea_north": [
+      {
+        "term": "relationship",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [
+      {
+        "term": "revive",
+        "count": 3
+      }
+    ],
+    "asia_pacific_regional": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:18:33+00:00",
+  "meta_version": "10.0.3"
+}

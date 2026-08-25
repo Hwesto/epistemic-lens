@@ -1,0 +1,333 @@
+{
+  "date": "2026-08-25",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 14,
+  "buckets": [
+    "france",
+    "india",
+    "japan",
+    "opinion_magazines",
+    "pakistan",
+    "qatar",
+    "state_tv_intl",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 95,
+    "france": 187,
+    "pakistan": 33,
+    "qatar": 64,
+    "state_tv_intl": 58,
+    "india": 14,
+    "japan": 32,
+    "opinion_magazines": 47
+  },
+  "pairwise_similarity": [
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.881
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.865
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.861
+    },
+    {
+      "a": "france",
+      "b": "opinion_magazines",
+      "score": 0.822
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.817
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.817
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.814
+    },
+    {
+      "a": "qatar",
+      "b": "state_tv_intl",
+      "score": 0.814
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.793
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.792
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "state_tv_intl",
+      "score": 0.785
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.781
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.776
+    },
+    {
+      "a": "japan",
+      "b": "qatar",
+      "score": 0.768
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "qatar",
+      "score": 0.766
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.766
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.758
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.739
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pakistan",
+      "score": 0.724
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.719
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.706
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.703
+    },
+    {
+      "a": "japan",
+      "b": "state_tv_intl",
+      "score": 0.699
+    },
+    {
+      "a": "pakistan",
+      "b": "state_tv_intl",
+      "score": 0.684
+    },
+    {
+      "a": "france",
+      "b": "japan",
+      "score": 0.674
+    },
+    {
+      "a": "japan",
+      "b": "opinion_magazines",
+      "score": 0.633
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.614
+    },
+    {
+      "a": "japan",
+      "b": "pakistan",
+      "score": 0.524
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.661,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.702,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.755,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.783,
+      "n_tokens": 187
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.786,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.789,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.804,
+      "n_tokens": 95
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.745,
+      "n_tokens": 14
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "saoudien",
+        "count": 7
+      },
+      {
+        "term": "avec",
+        "count": 5
+      },
+      {
+        "term": "projet",
+        "count": 5
+      },
+      {
+        "term": "emploi",
+        "count": 5
+      },
+      {
+        "term": "près",
+        "count": 4
+      },
+      {
+        "term": "créer",
+        "count": 4
+      },
+      {
+        "term": "héritier",
+        "count": 4
+      },
+      {
+        "term": "lundi",
+        "count": 3
+      },
+      {
+        "term": "emmanuel",
+        "count": 3
+      },
+      {
+        "term": "direct",
+        "count": 3
+      },
+      {
+        "term": "visite",
+        "count": 3
+      },
+      {
+        "term": "diplomatiqu",
+        "count": 3
+      }
+    ],
+    "pakistan": [
+      {
+        "term": "announc",
+        "count": 3
+      },
+      {
+        "term": "backed",
+        "count": 3
+      },
+      {
+        "term": "biggest",
+        "count": 3
+      }
+    ],
+    "qatar": [],
+    "state_tv_intl": [
+      {
+        "term": "saudita",
+        "count": 4
+      },
+      {
+        "term": "millon",
+        "count": 4
+      },
+      {
+        "term": "tres",
+        "count": 3
+      },
+      {
+        "term": "parqu",
+        "count": 3
+      },
+      {
+        "term": "cerca",
+        "count": 3
+      },
+      {
+        "term": "parí",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "japan": [],
+    "opinion_magazines": [
+      {
+        "term": "mirapoli",
+        "count": 3
+      },
+      {
+        "term": "site",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-25T08:18:12+00:00",
+  "meta_version": "10.0.3"
+}
