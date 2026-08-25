@@ -1,0 +1,136 @@
+{
+  "story_key": "L814a22047f",
+  "date": "2026-08-25",
+  "n_buckets": 7,
+  "n_articles": 10,
+  "tldr": "Headlines frame Indonesia's forest fire crisis primarily through enforcement — arrests of arsonists and Prabowo's orders to revoke corporate permits — while China's state media pivots entirely to Indonesia welcoming Chinese investment, and the UK Guardian foregrounds the toxic haze as a lived health emergency.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Arrests and permit revocations for arson",
+      "buckets": ["canada", "india", "vietnam_thai_my", "taiwan_hk"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Indonesian police arrest 72 people suspected",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Indonesian police arrest 72 people suspected",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Prabowo orders permits to be revoked for firms",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "can Indonesia make land burners pay?",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Government orders swift fire response",
+      "buckets": ["indonesia", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Govt calls for swift action on forest and land fires",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "South Kalimantan forms team to tackle fires",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Indonesia deploys hundreds of troops to fight Borneo fires",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Toxic haze as public health crisis",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "'Like smoking a cigarette': Indonesia chokes on haze",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Indonesia-China investment diplomacy",
+      "buckets": ["china"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Indonesia welcomes more Chinese investments, businesses",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Indonesia welcomes more Chinese investments, businesses",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.44,
+      "n_tokens": 68
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.495,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "indonesia",
+      "mean_similarity": 0.505,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.55,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.557,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.619,
+      "n_tokens": 238
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer sells this story as a law-enforcement and permit-crackdown narrative, while China's CGTN substitutes the fire crisis with an investment-diplomacy frame and the Guardian alone renders the regional haze as a vivid human health emergency.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
