@@ -1,0 +1,249 @@
+{
+  "story_key": "Lf11fa9696e",
+  "date": "2026-08-25",
+  "n_buckets": 8,
+  "n_articles": 17,
+  "tldr": "Headlines across 17 articles frame the Abu al-Duhur airstrike primarily as a military deterrence signal from Israel to Turkey, with a parallel diplomatic track (Syria-Israel de-escalation talks, Mossad-FM meeting) running alongside. The headline layer foregrounds confrontation risk and Israel’s defiance of US pressure more sharply than the diplomatic nuance visible in body text.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Israeli deterrence warning to Turkey via Syria",
+      "buckets": [
+        "usa",
+        "turkey",
+        "russia",
+        "syria"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "puts NATO power on notice as Middle East tensions surge",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "nearly triggers clash with Türkiye: US envoy",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israel warns Türkiye over Syria",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "syria",
+          "outlet": "Syrian Observer",
+          "quote": "Israel Is Expanding Its Red Lines in Syria",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Three-way diplomatic tensions and de-escalation",
+      "buckets": [
+        "china",
+        "israel",
+        "usa",
+        "syria",
+        "turkey",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Türkiye-Israel tensions deepen over Syria",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Mossad chief meets with Syrian foreign minister",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Syria and Israel move to defuse tensions",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "syria",
+          "outlet": "Enab Baladi",
+          "quote": "Syria Expects Israel Talks to Resume, Stands by Turkey",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Not trusting Israel currently, thankful for Turkish",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Israel and Syria Agreed to Maintain 'Status Quo'",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Strike legality challenged; Interpol accountability",
+      "buckets": [
+        "usa",
+        "turkey",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Israeli bombing of airbase was unjustified",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Bianet English",
+          "quote": "Turkish military personnel were not at Syrian airbase",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Netanyahu Interpol request",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Syria’s post-strike alliance repositioning",
+      "buckets": [
+        "syria",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "syria",
+          "outlet": "Enab Baladi",
+          "quote": "Damascus Considers Joining “Mecca Agreement”",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Damascus expects US to lift all remaining Syria sanctions",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Israel defies US envoy; US credibility strained",
+      "buckets": [
+        "vietnam_thai_my",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "rebukes US envoy over ‘unnecessary escalation’ criticism",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "nearly triggers clash with Türkiye: US envoy",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.6,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.68,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.694,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "syria",
+      "mean_similarity": 0.704,
+      "n_tokens": 163
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.709,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.742,
+      "n_tokens": 157
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.748,
+      "n_tokens": 110
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline invoking Turkey’s NATO membership as the stakes, framing Israel’s warning as directed at ‘a NATO power’ rather than Erdoğan’s government — the alliance dimension is invisible in every other bucket’s headlines.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "Only headline pairing the airstrike story with the Interpol Red Notice against Netanyahu, linking military and legal accountability in a single title and extending the crisis into international law territory.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Syrian Observer",
+      "bucket": "syria",
+      "finding": "Only headline naming ‘Syria’s Rearmament’ as the disputed object, making post-Assad military rebuilding the explicit focus rather than the airbase or Turkish presence specifically.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Only headline foregrounding Syria’s demand for full US sanctions relief, decoupling Damascus’s diplomatic posture from the Turkey-Israel binary at the headline level.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "Sole headline bundling Israel’s second Syria strike and its public rebuke of US envoy Barrack in one title, spotlighting US-Israel friction as the defining diplomatic subplot.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Bianet English",
+      "bucket": "turkey",
+      "finding": "Only analytical headline (‘What does Israel’s Abu al-Duhur attack mean?’) framing the strike as requiring interpretation — all other outlets report what happened; this one asks what it signals.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "The headline layer positions Abu al-Duhur as an Israel-Turkey confrontation teetering near direct military clash, with US credibility as mediator publicly challenged — foregrounding military risk and political defiance more than the body-level analysis of post-Assad rearmament dynamics.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
