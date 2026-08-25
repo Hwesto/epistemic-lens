@@ -1,0 +1,114 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "L26c89032aa",
+  "cluster_id": 95,
+  "cluster_name": "Conakry landfill collapse kills 30 after heavy rains",
+  "salience_score": 3.184,
+  "n_outlets": 11,
+  "n_countries": 8,
+  "n_articles": 13,
+  "tldr": "At the headline layer, the Conakry landfill collapse is framed almost uniformly as a lethal disaster across nine outlets — death tolls, collapse mechanics, and body counts dominate every Guinea-focused title with little editorial inflection. The sole register shift comes from a second AfricaNews headline that pivots to resident experience ('grapple with aftermath'), while RT Africa and Republic World India advertise a wholly different event — a gold mine collapse in the Central African Republic — entering this cluster through shared vocabulary rather than shared story.",
+  "event_summary": "On 23-24 August 2026, the Dar-es-Salam landfill in Conakry, Guinea collapsed after heavy overnight rains, killing at least 30 people and burying nearby homes. Rescue operations continued at the site, which the government had announced plans to close less than a week before.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "landfill collapse mass fatality",
+      "outlets": [
+        "AfricaNews",
+        "BBC Africa",
+        "Breitbart",
+        "CGTN World",
+        "Fox News World",
+        "Sky News UK",
+        "Tagesschau",
+        "The Guardian World",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "pan_african",
+        "africa_other",
+        "usa",
+        "china",
+        "uk",
+        "germany",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "Guinea rubbish landfill collapse kills 31",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Garbage Landslide in Guinea Kills 30",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Guinea: 30 Tote nach Abrutschen einer Mülldeponie",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "resident aftermath — lived experience framing",
+      "outlets": [
+        "AfricaNews"
+      ],
+      "countries": [
+        "pan_african"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Conakry residents grapple with aftermath of landfill disaster",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "state_tv_intl",
+      "what_they_covered_instead": "RT Africa headlined a gold mine collapse in the Central African Republic (100+ killed) — appearing in this cluster via shared collapse/kills vocabulary rather than the Conakry landfill event. No headline from this bucket frames the Guinea story."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Headline covers a separate event — 'Over 100 killed as gold mine collapses in African state' (CAR, near the Cameroon border) — not the Guinea landfill. Entered this cluster through shared vocabulary (collapse, kills, African state).",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Also headlines the CAR artisanal gold mine collapse ('At Least 30 Dead After Artisanal Gold Mine Collapses in Central African Republic'), not Guinea — the india bucket is split between this outlier and The Hindu Intl, which correctly headlines the Conakry story.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Longest and most action-driven headline in the corpus: 'Massive garbage heap collapses onto homes, killing at least 30 as rescuers search for survivors.' The 'rescuers search for survivors' clause — absent from all other titles — foregrounds ongoing emergency drama rather than the settled death toll.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Uses 'Garbage Landslide' — an informal, visceral compound absent from every other outlet's title, which favour 'landfill collapse,' 'waste mound,' or 'Mülldeponie.' The phrasing erases the infrastructure context (managed landfill) in favour of a natural-spectacle register.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "The headline layer encodes this almost entirely as a body-count disaster story, suppressing the government accountability angle — the week-old ministerial closure promise — that The Guardian surfaces in its body text but not in its title.",
+  "generated_at": "2026-08-25T09:15:00Z",
+  "model": "claude-sonnet-4-6"
+}
