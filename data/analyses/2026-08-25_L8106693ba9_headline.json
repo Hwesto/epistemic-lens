@@ -1,0 +1,169 @@
+{
+  "story_key": "L8106693ba9",
+  "date": "2026-08-25",
+  "n_buckets": 17,
+  "n_articles": 30,
+  "tldr": "Headlines across 15 of 17 buckets frame this as an unprecedented policy action — the Trump administration planning the largest-ever mass visa revocation, targeting up to 200,000 asylum seekers — while Russia and Southeast Asian outlets instead lead with a separate federal court ruling striking down Trump's 75-country immigrant visa ban.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Largest-ever mass visa revocation plan",
+      "buckets": [
+        "canada",
+        "germany",
+        "india",
+        "italy",
+        "japan",
+        "mexico",
+        "nigeria",
+        "qatar",
+        "russia_native",
+        "state_tv_intl",
+        "taiwan_hk",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "revoke hundreds of thousands of asylum visas",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "US set for largest mass visa revocation in history",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "US targets up to 200,000 foreigners in largest-ever",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "revoke 200,000 visas of asylum seekers",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "200,000 Asylum Filers Set to Lose Tourist Visas in Record Purge",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "US plans mass visa revocation for asylum seekers",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump administration to revoke visas of up to 200,000",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "plans to revoke up to 200,000 visas from asylum seekers",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Court voids 75-country immigrant visa ban",
+      "buckets": [
+        "russia",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "US court reverses Trump's 75-country visa ban",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "US judge strikes down Trump's 75-country visa ban",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "Federal Judge Strikes Down Trump's 75-Country Visa Ban",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "US judge strikes down policy suspending immigrant visa",
+          "signal_text_idx": 29
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "mexico", "mean_similarity": 0.714, "n_tokens": 57},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.719, "n_tokens": 82},
+    {"bucket": "nigeria", "mean_similarity": 0.731, "n_tokens": 37},
+    {"bucket": "germany", "mean_similarity": 0.75, "n_tokens": 189},
+    {"bucket": "russia_native", "mean_similarity": 0.753, "n_tokens": 39},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.768, "n_tokens": 49},
+    {"bucket": "wire_services", "mean_similarity": 0.772, "n_tokens": 67},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.782, "n_tokens": 50},
+    {"bucket": "italy", "mean_similarity": 0.793, "n_tokens": 276},
+    {"bucket": "usa", "mean_similarity": 0.802, "n_tokens": 532},
+    {"bucket": "india", "mean_similarity": 0.813, "n_tokens": 69},
+    {"bucket": "uk", "mean_similarity": 0.82, "n_tokens": 67}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "spain"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only headline to use the word 'Purge' — the sole punitive-enforcement characterisation in the title layer; every other outlet frames the action as a 'revocation' or 'plan', not a purge.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "'Trump Admin Prepares To Revoke More Visas Than Ever Before' — the only headline that omits both the 200,000 figure and the word 'asylum', obscuring the scale and the affected population.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Financiero",
+      "bucket": "mexico",
+      "finding": "'Tienes visa de EU, ¿pero por cuánto tiempo?' — the only headline framed from the reader/visa-holder's perspective rather than as a policy announcement; unique reader-impact angle across all 30 titles.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Il Sole 24 Ore",
+      "bucket": "italy",
+      "finding": "'Trump verso revoca di 200mila visti. E la Corte Suprema limita il voto per posta' — the only headline that bundles the mass visa revocation with the Supreme Court mail-vote ruling in a single title, linking two distinct Trump policy stories.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "El Mundo",
+      "bucket": "spain",
+      "finding": "Title field contains only the section label 'Internacional' — no substantive headline was captured; the spain bucket contributes no frameable signal.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "The headline layer presents the mass visa revocation almost exclusively as a historic policy milestone — 'largest ever' — spotlighting the administration's action while suppressing the legal vulnerability and the humanitarian stakes that appear only in the bodies.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
