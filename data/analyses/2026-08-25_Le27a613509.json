@@ -1,0 +1,160 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "Le27a613509",
+  "cluster_id": 163,
+  "cluster_name": "Sinaloa Governor Rocha Moya takes indefinite leave amid US indictment",
+  "salience_score": 7.898,
+  "n_outlets": 10,
+  "n_countries": 6,
+  "n_articles": 43,
+  "event_summary": "U.S. prosecutors charged Sinaloa Governor Rubén Rocha Moya with drug trafficking and ties to the Los Chapitos cartel. He briefly returned to office before being granted indefinite leave within 48 hours after President Sheinbaum publicly questioned his return.",
+  "tldr": "The most striking finding is Sheinbaum's rapid, public distancing from a sitting governor of her own Morena party — her pointed remarks at the mañanera effectively ended Rocha's tenure within 48 hours of his return. Mexican domestic outlets diverged sharply on whether this episode reveals fractures inside the ruling 4T coalition or confirms Sheinbaum's firm control over wayward party figures. International coverage (France 24, Fox News, ANSA Italy) foregrounded the U.S. DOJ indictment and Los Chapitos cartel ties, treating the story as narco-corruption rather than an intra-party political crisis. The cluster also absorbed off-topic noise from Argentine Popstars entertainment coverage and unrelated Spanish content, which share vocabulary tokens with the political corpus.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "cartel indictment",
+      "outlets": ["ANSA Italian (Mondo)", "Fox News World", "France 24 Spanish", "Mexico News Daily"],
+      "countries": ["italy", "usa", "state_tv_intl", "mexico"],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "El Departamento de Justicia de EE. UU. acusó formalmente a Rubén Rocha Moya, gobernador de Sinaloa, de narcotráfico, uso de armamento militar y vínculos con la facción de Los Chapitos.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "ANSA Italian (Mondo)",
+          "country": "italy",
+          "quote": "Rocha-Moya è accusato dagli Usa per collusione con i cartelli della droga",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Mexican governor facing US drug charges seeks leave just one day after returning to office",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "intra-Morena fracture vs. presidential control",
+      "outlets": ["24 Horas", "El Financiero", "Fox News World", "France 24 Spanish", "Mexico News Daily"],
+      "countries": ["mexico", "usa", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "24 Horas",
+          "country": "mexico",
+          "quote": "La intentona de Rubén Rocha Moya de retomar su cargo como gobernador de Sinaloa (sin consultar al partido Morena, a los gobernadores, a los diputados y senadores, y a la presidenta Sheinbaum) alimentó la especulación de quienes a toda costa quieren ver fracturas al interior de la 4T.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Embattled Sinaloa Gov. Rubén Rocha Moya's abrupt reversal follows pointed remarks from Mexico's President Claudia Sheinbaum about putting nation above personal interest.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US DOJ jurisdiction over Mexican official",
+      "outlets": ["France 24 Spanish", "Fox News World", "Mexico News Daily", "ANSA Italian (Mondo)"],
+      "countries": ["state_tv_intl", "usa", "mexico", "italy"],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "El Departamento de Justicia de EE. UU. acusó formalmente a Rubén Rocha Moya, gobernador de Sinaloa, de narcotráfico, uso de armamento militar y vínculos con la facción de Los Chapitos.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Mexico News Daily",
+          "country": "mexico",
+          "quote": "she does not believe Rubén Rocha Moya should be at the helm of the Sinaloa government while he faces drug trafficking charges abroad.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "gubernatorial leave and succession procedure",
+      "outlets": ["El Financiero", "France 24 Spanish", "Mexico News Daily"],
+      "countries": ["mexico", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "La presidenta Claudia Sheinbaum aseguró que no habló con Rubén Rocha Moya previo a su decisión de regresar a la gubernatura de Sinaloa.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "celebró que se le otorgara licencia indefinida, lo que implica que no volverá a la gubernatura.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Mexico News Daily",
+          "country": "mexico",
+          "quote": "Rubén Rocha Moya, the Sinaloa governor who is accused of drug trafficking by U.S. prosecutors, returned to office on Friday — only to ask to go on leave again the very next day.",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "spain",
+      "what_they_covered_instead": "El Mundo ran corporate regulation and consumer lifestyle content; El Pais published a disability-rights profile and an AI-in-education piece."
+    },
+    {
+      "country": "argentina_chile",
+      "what_they_covered_instead": "La Nacion AR covered the Popstars 2026 reality-TV premiere and its red-carpet fashion."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "24 Horas",
+      "country": "mexico",
+      "finding": "Only outlet to frame Rocha's unilateral return as an 'intentona' (attempted power grab), explicitly noting he consulted no one in Morena — a politically charged read absent from all international coverage.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Reports that Sheinbaum confirmed she had no prior communication with Rocha before his return decision, undercutting any narrative that the president tacitly approved the move.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Most detailed account of the DOJ charges — names Los Chapitos specifically and concludes the indefinite leave implies Rocha will not return to the governorship, a stronger conclusion than other outlets draw.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Headlines the US drug charges as the lead fact and attributes Rocha's reversal directly to Sheinbaum's public pressure, framing her intervention as the decisive lever rather than Rocha's own decision.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Mexico News Daily",
+      "country": "mexico",
+      "finding": "Contextualises the Rocha story within the same mañanera press conference that announced a US-Mexico bilateral cattle trade agreement, showing Sheinbaum kept the crisis from dominating the agenda.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "ANSA Italian (Mondo)",
+      "country": "italy",
+      "finding": "Brief Italian wire item leads with Sheinbaum's 'imprudente' characterisation rather than the DOJ charges — suggesting European audiences received the diplomatic angle over the law-enforcement angle.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A U.S. federal indictment forced Sinaloa Governor Rubén Rocha Moya off the job within 48 hours of his return to office, with President Sheinbaum's public rebuke at her daily mañanera proving the decisive political lever. Mexican domestic media debated whether this exposed or reinforced Sheinbaum's grip on her Morena coalition, while international outlets treated the episode as a straightforward narco-corruption case requiring no deeper political reading.",
+  "generated_at": "2026-08-25T07:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
