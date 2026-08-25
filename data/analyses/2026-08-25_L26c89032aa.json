@@ -1,0 +1,142 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "L26c89032aa",
+  "cluster_id": 95,
+  "cluster_name": "Conakry landfill collapse kills 30 after heavy rains",
+  "salience_score": 3.184,
+  "n_outlets": 11,
+  "n_countries": 8,
+  "n_articles": 13,
+  "event_summary": "On 23-24 August 2026, the Dar-es-Salam landfill in Conakry, Guinea collapsed after heavy overnight rains, killing at least 30 people and burying nearby homes. Rescue operations continued at the site, which the government had announced plans to close less than a week before.",
+  "tldr": "Coverage of the Conakry landfill collapse was strikingly uniform across politically diverse outlets, with nearly all reporting the same death toll and mechanism without editorial inflection. The clearest divergence came from RT Africa, which instead covered a separate infrastructure collapse — a gold mine in the Central African Republic killing over 100 — appearing in this cluster only because of shared vocabulary (collapse, kills, African) rather than a shared story. The Guardian was alone in surfacing the accountability dimension: the government had announced plans to close and relocate the Dar-es-Salam site for safety reasons less than a week before it collapsed. France, Guinea's former colonial power with deep historical ties to Francophone West Africa, produced no items in this cluster despite no feed failure being recorded.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "landfill collapse mass fatality",
+      "outlets": ["AfricaNews", "BBC Africa", "Breitbart", "CGTN World", "Fox News World", "Sky News UK", "Tagesschau", "The Guardian World", "The Hindu Intl"],
+      "countries": ["pan_african", "africa_other", "usa", "china", "uk", "germany", "india"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Residents in Guinea's capital Conakry have been left reeling after part of a landfill fell on to neighbouring homes following heavy rains. The incident has claimed 30 lives.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Thirty people died in Guinea's capital Conakry on Sunday when a mound of rubbish in a landfill collapsed before dawn onto neighboring homes following heavy rains, the government said.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Mindestens 30 Menschen sind beim Abrutschen einer Mülldeponie im westafrikanischen Guinea ums Leben gekommen, weitere wurden verletzt. Schwerer Regen hatte die Deponie in der Hauptstadt Conakry aufgeweicht.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "government closure promised before collapse",
+      "outlets": ["The Guardian World", "AfricaNews"],
+      "countries": ["uk", "pan_african"],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Dump site in Conakry, which minister had just promised to move, collapsed after heavy rain in west African state",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Authorities have promised to evacuate families still living near the site, which was already due to be closed.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "overloaded urban waste infrastructure",
+      "outlets": ["Fox News World", "The Hindu Intl", "AfricaNews"],
+      "countries": ["usa", "india", "pan_african"],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "A mountain of garbage collapsed after heavy rain at a major landfill site in Conakry, Guinea, burying nearby homes and launching a search for survivors.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "At least 30 people have died after heavy rains caused a huge pile of waste to collapse.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "informal settlers beside hazardous dump",
+      "outlets": ["AfricaNews", "The Guardian World", "The Hindu Intl"],
+      "countries": ["pan_african", "uk", "india"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Authorities have promised to evacuate families still living near the site, which was already due to be closed.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Rescue operations were continuing at the site of the landslide, which witnesses said ​was large enough ‌to bury an apartment building along with more precarious dwellings",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "No French outlet appeared in this cluster; Guinea is a Francophone West African state with strong historical ties to France, making the absence editorially notable given no feed failure was recorded."
+    },
+    {
+      "country": "nigeria",
+      "what_they_covered_instead": "No Nigerian outlets appeared; as Africa's largest press market with broad West Africa coverage, their absence suggests the story did not break into regional priority placement."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Covered a different collapse event — a gold mine in the Central African Republic killing 100+ — not the Guinea landfill; entered this cluster only via shared vocabulary (collapse, kills, African).",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Also reported the CAR gold mine collapse (30 deaths at time of writing) rather than Guinea, appearing here alongside RT Africa via shared vocabulary rather than shared event.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to name the dump site (Dar es Salaam), identify the responsible minister, and report that the government had announced a closure-and-relocation plan less than a week before the collapse.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Used 'avalanche of refuse' language, treating the event as a dramatic natural spectacle; unlike The Guardian, omitted the government's prior closure announcement entirely.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The Conakry landfill collapse drew factually uniform coverage across a wide ideological spread of international outlets, with virtually no editorial divergence on the basic facts of the event. The main asymmetries are RT Africa's and Republic World India's pivot to a separate African collapse story (a CAR gold mine), The Guardian's singular accountability framing linking the disaster to a government closure promise made days earlier, and the conspicuous absence of any French-language outlet from a story in Francophone West Africa.",
+  "generated_at": "2026-08-25T08:24:05Z",
+  "model": "claude-sonnet-4-6"
+}
