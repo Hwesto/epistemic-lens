@@ -1,0 +1,132 @@
+{
+  "story_key": "L7b049596b8",
+  "date": "2026-08-25",
+  "n_buckets": 14,
+  "n_articles": 21,
+  "tldr": "Headlines across all 14 buckets reduce the Supreme Court's ruling to a binary 'Trump wins' verdict on mail-in ballots, with roughly half also foregrounding the midterm-election stakes; almost no headline signals that the ruling was procedural—on standing—rather than a decision on the executive order's constitutionality.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Supreme Court clears Trump ballot curbs",
+      "buckets": ["brazil", "canada", "india", "israel", "italy", "japan", "qatar", "south_africa", "taiwan_hk", "uk", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Supreme Court allows Trump's mail voting restrictions",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Supreme Court removes judicial decision blocking Trump",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Supreme Court clears way for Trump to restrict mail-in",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "US Supreme Court hands a win to Trump",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Partisan win ahead of midterms",
+      "buckets": ["india", "taiwan_hk", "uk", "usa", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "SCOTUS Hands Trump a Temporary Win In His Crusade",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "temporary win on mail-in ballots as midterms loom",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "can stay, for now, before fast-approaching midterms",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Mail-In Ballot Fight Ahead Of Midterms",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "USPS unveils new ballot rules",
+      "buckets": ["turkey", "uk"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Postal Service implements new rule for mail-in ballots",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "USPS unveils new mail ballot requirements",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "south_africa", "mean_similarity": 0.683, "n_tokens": 225},
+    {"bucket": "brazil", "mean_similarity": 0.731, "n_tokens": 41},
+    {"bucket": "israel", "mean_similarity": 0.732, "n_tokens": 36},
+    {"bucket": "india", "mean_similarity": 0.736, "n_tokens": 33},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.76, "n_tokens": 64},
+    {"bucket": "uk", "mean_similarity": 0.779, "n_tokens": 67},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.784, "n_tokens": 81},
+    {"bucket": "usa", "mean_similarity": 0.785, "n_tokens": 421}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mother Jones",
+      "bucket": "usa",
+      "finding": "Only headline to use 'Crusade'—the sole adversarial characterization in the title layer; every other outlet frames the restriction as a legal/political contest, not an ideological campaign.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "'Rules in Trump's Favor on Mail Ballot Rules'—avoids 'restriction' language entirely; the only headline that could be read as treating the order as a neutral procedural matter rather than a curtailment of access.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "bucket": "turkey",
+      "finding": "Only headline anchored on USPS rule implementation rather than the court ruling—frames the story as administrative process, distinguishing the separate USPS action from the Supreme Court order.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "One article (idx 13) covers White House ballroom construction—an unrelated story captured at the cluster's embedding boundary; headline does not pertain to mail voting.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Headline coverage globally frames a narrow standing ruling as a decisive Trump victory on mail voting, erasing the procedural caveat that the executive order's constitutionality remains unresolved—exactly the gap that only readers who click through to the body text are likely to learn.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
