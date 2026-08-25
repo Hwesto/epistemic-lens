@@ -1,0 +1,167 @@
+{
+  "story_key": "L477ce371f7",
+  "date": "2026-08-25",
+  "n_buckets": 8,
+  "n_articles": 14,
+  "tldr": "Headlines across 8 country-buckets converge on Saudi Arabia's €6–7 billion investment to build three theme parks near Paris, with most outlets leading on the investment figure or 22,000 jobs. A distinctive Japan-Times and wire-service sub-thread foregrounds Dragon Ball Z as the cultural hook, while Le Monde alone frames the spectacle as overshadowing MBS's broader diplomatic and commercial visit to France.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Saudi €6–7B investment and 22,000 jobs",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pakistan",
+        "qatar",
+        "state_tv_intl",
+        "india",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Saudi Arabia to invest €6 billion in theme parks",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "avec 22 000 emplois attendus",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Figaro",
+          "quote": "avec 22.000 emplois directs à la clé",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "€6 billion Saudi-backed theme park project",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Arabia Saudita invertirá 6.000 millones de euros",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Saudi Arabia to invest $7 bn in theme parks near Paris",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "France, Saudi Arabia agree on $7bn theme park project",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Saudi Arabia to invest €6B in massive French theme park",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Dragon Ball Z / manga IP as defining hook",
+      "buckets": [
+        "japan",
+        "qatar",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "'Dragon Ball' theme park plans included in France-Saudi",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "France and Saudi Arabia plan Dragon Ball Z theme park",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "€6 billion Dragon Ball Z theme park project near Paris",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "MBS visit and Macron's diplomatic theater",
+      "buckets": [
+        "france",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "éclipse les enjeux diplomatiques et commerciaux",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "l'Elysée et l'Arabie saoudite officialisent",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.661,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.702,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.755,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.783,
+      "n_tokens": 187
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.786,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.789,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.804,
+      "n_tokens": 95
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer, this story is almost universally sold as a Saudi investment announcement — the scale of money and jobs — with Dragon Ball Z serving as the click-hook that Japanese and wire-service outlets emphasize over the geopolitical context of the MBS Paris visit that Le Monde alone names.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
