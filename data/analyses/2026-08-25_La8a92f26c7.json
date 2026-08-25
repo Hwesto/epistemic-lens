@@ -1,0 +1,198 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-25",
+  "lineage_id": "La8a92f26c7",
+  "cluster_id": 92,
+  "cluster_name": "Hawk Fire forces up to 90,000 to evacuate near Reno Nevada",
+  "salience_score": 4.898,
+  "n_outlets": 15,
+  "n_countries": 10,
+  "n_articles": 16,
+  "event_summary": "The Hawk Fire, ignited by human activity near Peavine Peak northwest of Reno, Nevada, burned more than 15,000 acres from August 23–25, 2026, destroying homes and placing up to 90,000 residents under evacuation orders or warnings; six to seven people were injured, including first responders.",
+  "tldr": "The Hawk Fire attracted unusually broad international media attention for a US domestic wildfire, with 15 outlets across 10 countries reporting within 48 hours of ignition. Coverage converged almost entirely on the HEALTH_SAFETY frame — scale of evacuation, speed of spread, and firefighting challenges — with minimal divergence across ideological lines. RT (Russia) and the Globe and Mail (Canada) both foregrounded the fire's human-caused origin in their headlines, an unusual alignment between a state-funded propaganda outlet and a mainstream centrist paper; both reflect the officially confirmed cause rather than a shared editorial agenda. Two corpus entries — ANSA (Italy, Bergamo weather) and Hindustan Times (India, Oklahoma fire) — cover structurally similar but geographically distinct events, pulled into the cluster by embedding proximity rather than direct editorial engagement with Reno.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "mass evacuation, smoke, injuries to responders",
+      "outlets": ["AFP / France 24 EN", "AFP / France 24 FR", "BBC World", "CBC World", "Inquirer", "Malay Mail World", "The Guardian World", "The Hindu Intl", "Tagesschau", "ZDF Heute", "Aaj Tak (alt)"],
+      "countries": ["wire_services", "france", "uk", "canada", "philippines", "vietnam_thai_my", "india", "germany"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Tens of thousands of people faced another night away from home on Monday as a wind-driven wildfire threatened Reno, Nevada, blanketing the city in smoke and closing schools.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Si aucun mort n'est à déplorer pour l'instant, on dénombre sept blessés, dont trois secouristes.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Zehntausende Menschen wurden zur Evakuierung aufgefordert. Sechs Menschen wurden verletzt.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "The Hawk fire is about 27% contained, authorities said on Monday afternoon, two days after the fast-moving, wind-driven wildfire sparked near Reno, Nevada.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "fire outpaced crews, national guard mobilized",
+      "outlets": ["CBC World", "Globe and Mail", "The Guardian World"],
+      "countries": ["canada", "uk"],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "A fast-moving wildfire that jumped over fire trucks and made it difficult for crews to reach hot spots destroyed homes in northwest Reno, Nevada, on Sunday. Shifting winds challenged firefighters trying to bring it under control, and authorities urged some 90,000 people to evacuate.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Nevada Governor declared a state of emergency and mobilized national guard to help fight blaze",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "The Hawk fire is about 27% contained, authorities said on Monday afternoon, two days after the fast-moving, wind-driven wildfire sparked near Reno, Nevada.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "homes destroyed, residents displaced overnight",
+      "outlets": ["BBC World", "AFP / France 24 EN", "Aaj Tak (alt)", "Inquirer"],
+      "countries": ["uk", "wire_services", "india", "philippines"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "'Scared to death': Thousands evacuate Nevada homes as wildfire spreads\n\nTens of thousands of people in the US state have been warned to evacuate as the wildfire spreads in the outskirts of Reno.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Aaj Tak (alt)",
+          "country": "india",
+          "quote": "15 हजार एकड़ से ज्यादा इलाका जल चुका है, जबकि 24 हजार लोग बेघर हो गए हैं.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Inquirer",
+          "country": "philippines",
+          "quote": "Some 42,000 people have evacuated their homes and another 45,000 have been told to get ready leave, Reno Mayor Hillary Schieve told CNN.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "human-caused ignition foregrounded",
+      "outlets": ["RT", "Globe and Mail"],
+      "countries": ["russia", "canada"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "A rapidly spreading human-caused wildfire near Reno, Nevada has injured six people and forced around 42,000 to evacuate Read Full Article at RT.com",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Wildfire started by humans approaches Reno, Nevada, forcing thousands of evacuations",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "governor emergency declaration, mayoral statements",
+      "outlets": ["Globe and Mail", "Inquirer"],
+      "countries": ["canada", "philippines"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Nevada Governor declared a state of emergency and mobilized national guard to help fight blaze",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Inquirer",
+          "country": "philippines",
+          "quote": "Some 42,000 people have evacuated their homes and another 45,000 have been told to get ready leave, Reno Mayor Hillary Schieve told CNN.",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "italy",
+      "what_they_covered_instead": "ANSA covered severe weather and evacuations near Bergamo — six towns cut off, 350 evacuated — a domestic emergency that displaced the Nevada story on the Italian wire."
+    },
+    {
+      "country": "india",
+      "what_they_covered_instead": "Hindustan Times covered the Velma, Oklahoma wildfire in Stephens County rather than the Reno/Hawk Fire, suggesting Indian outlets split attention across simultaneous US wildfire events."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "Only outlet to report the operational detail that the fire 'jumped over fire trucks,' underscoring how the blaze's speed outpaced initial ground response before crews could establish containment lines.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Most granular containment update: 27% contained by Monday afternoon, with tiered evacuation terminology ('go-now' vs 'get-set') — a level of operational specificity absent from wire-service coverage.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only outlet to specify that three of the seven injured are first responders (secouristes), adding an accountability dimension to the injury count.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Provides the most specific geographic origin — Peavine Peak, Humboldt-Toiyabe National Forest — giving ecological and terrain context that explains how rugged foothills ringed by homes accelerated the blaze.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "State-funded outlet leads with 'human-caused wildfire' in both headline and lede, treating anthropogenic origin as the defining fact; other outlets relegate this to a secondary clause.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Aaj Tak (alt)",
+      "country": "india",
+      "finding": "Only Hindi-language coverage; uses 'बेघर' (homeless/displaced from home) for evacuees rather than 'evacuated,' framing the event as a housing emergency rather than a precautionary order.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Two articles: one headlines 'Wildfire started by humans' (accountability), the other leads with the Governor's emergency declaration (political response) — the only outlet to split these into separate news angles.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The Hawk Fire near Reno generated fast, broad international pickup — 15 outlets across 10 countries — with coverage almost uniformly framed as a HEALTH_SAFETY emergency centred on evacuation scale and firefighting challenges. The only notable editorial divergence is the human-caused ignition emphasis shared by RT and the Globe and Mail, which reflects confirmed official information rather than an ideological convergence, and the presence of two off-target articles (Bergamo, Oklahoma) that were pulled into the cluster by topical similarity rather than direct editorial coverage of the Reno event.",
+  "generated_at": "2026-08-25T07:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
