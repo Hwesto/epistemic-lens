@@ -1,0 +1,156 @@
+{
+  "story_key": "L2d84371283",
+  "date": "2026-08-28",
+  "n_buckets": 12,
+  "n_articles": 21,
+  "tldr": "Global headlines frame the CIA director's surprise Moscow visit primarily as a security alarm — intelligence circles warning Putin against attacking NATO — countered by Trump's insistent political downplaying of both the threat and the meeting's significance; Chinese and Russian titles add a quieter thread about stalled Ukraine peace talks.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "NATO attack threat; CIA warning to Kremlin",
+      "buckets": ["asia_pacific_regional", "canada", "israel", "ukraine", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "signals real concern in intelligence circles",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "possible attack on NATO territory - report",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "CIA Chief Warned Putin Against NATO Attack",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Trump Dismisses Fears Of Russian Strike On NATO",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump dismisses threat; downplays Ratcliffe visit",
+      "buckets": ["usa", "turkey", "uk", "india", "ukraine", "russia"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "I'm not worried Russia will attack NATO",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Trump downplays Moscow visit by CIA director",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "'It doesn't bother me at all'",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Trump says Putin won't attack NATO territory",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Russia intelligence contact; peace talks stalled",
+      "buckets": ["china", "kenya", "russia", "uk", "turkey", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Russia-Ukraine peace talks stall",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Kremlin Says Ukraine Peace Talks on 'Deep Pause'",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "CIA chief 'told Russian counterpart to make peace with Kyiv'",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Raises Questions Over Russia, Ukraine, Iran",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.718,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.75,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.758,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.794,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.798,
+      "n_tokens": 248
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.798,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.802,
+      "n_tokens": 95
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.804,
+      "n_tokens": 103
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.81,
+      "n_tokens": 83
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage splits between a security alarm — the CIA director secretly warns Putin against attacking NATO — and Trump's political counter-narrative that there is no threat, with a subsidiary subplot about frozen Ukraine peace talks.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
