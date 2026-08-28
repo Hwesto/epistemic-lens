@@ -1,0 +1,262 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "Ldef2057ca2",
+  "cluster_id": 159,
+  "cluster_name": "Iran-Oman Hormuz corridor deal agreed as US declares mines cleared",
+  "salience_score": 4.84,
+  "n_outlets": 15,
+  "n_countries": 11,
+  "n_articles": 20,
+  "event_summary": "US Central Command confirmed clearing Iranian sea mines from the Strait of Hormuz shipping lanes in late August 2026. Iran and Oman announced a phased framework for a temporary joint shipping corridor, while Iran's IRGC stated the strait would not reopen unless the US accepted Iran's conditions.",
+  "tldr": "At the headline layer the Hormuz story splits three ways: US outlets and CGTN lead with Trump's mine-clearing as a decisive military success, Iranian state titles insist Tehran's control is intact and the Oman arrangement falls short of reopening, and Turkey-Egypt-Gulf-diaspora press foregrounds the corridor diplomacy. RT abandons factual framing entirely to relay an Iranian diplomat's attack on Trump's mental fitness — the starkest headline-register departure in the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Mine-clearing and US naval blockade",
+      "outlets": [
+        "Axios World",
+        "Breitbart",
+        "CGTN Politics",
+        "CGTN World",
+        "Republic World (alt)",
+        "Tehran Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "usa",
+        "china",
+        "iran_state",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Trump: Mines fully removed from Strait of Hormuz",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "IRGC: Hormuz Strait to stay closed if US does not accept",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "'We'll Bomb Them': Trump Warns Oman Over Deal",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "The US cannot remove Iran's control over the Strait of Hormu",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Iran, Qatar hold Hormuz talks as U.S. blockade chokes",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran-Oman-Qatar diplomatic framework",
+      "outlets": [
+        "AfricaNews",
+        "Daily News Egypt",
+        "Daily Sabah",
+        "Foreign Policy",
+        "IRNA English",
+        "Iran International EN"
+      ],
+      "countries": [
+        "pan_african",
+        "egypt",
+        "turkey",
+        "opinion_magazines",
+        "iran_state",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Qatar's foreign minister visits Tehran",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily News Egypt",
+          "country": "egypt",
+          "quote": "Oman and Iran plan temporary Hormuz shipping corridor",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "Iran, Oman Agree to Temporary Strait of Hormuz Deal",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Iran International EN",
+          "country": "iran_opposition",
+          "quote": "Regional diplomacy tests path back to Iran-US talks",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "Iran, Oman agree to open temporary shipping corridor",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Oil trade impact and revenue-sharing",
+      "outlets": [
+        "Malay Mail World"
+      ],
+      "countries": [
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "What the new temporary corridor means for oil trade",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Iran Guards say agreed with Oman to share revenues",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump rhetoric vs. Iranian blame-framing",
+      "outlets": [
+        "Breitbart",
+        "RT",
+        "IRNA English"
+      ],
+      "countries": [
+        "usa",
+        "russia",
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Trump Says Tehran 'Begging to Make a Deal'",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Trump has 'Hormuz schizophrenia' – Iran",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "solely result of US and Israeli military aggression",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.601,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.613,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.661,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.675,
+      "n_tokens": 269
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.704,
+      "n_tokens": 126
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.721,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.73,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.747,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.757,
+      "n_tokens": 155
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only headline to stack three separate victory claims in one title — CENTCOM clearance, Iranian oil at zero, and Trump's 'begging' boast — the most maximalist US-triumph framing in the corpus and absent from centrist US coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only headline with zero factual content about the mine-clearing or corridor deal; instead relays an Iranian diplomat's charge that Trump has 'Hormuz schizophrenia' — pure rhetorical relay with no news framing of the underlying events.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Only outlet to foreground Trump's explicit military threat against Oman itself ('We'll Bomb Them'), framing US coercion of the neutral mediator rather than pressure on Tehran — a headline angle entirely absent from every other title.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Headline deliberately deflates the corridor announcement ('Oman understanding does not mean Hormuz reopening') while IRNA English simultaneously ran a headline confirming the corridor agreement — revealing a split Iranian state messaging strategy within the same day.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Iran International EN",
+      "country": "iran_opposition",
+      "finding": "Only headline to frame the Hormuz corridor deal as a step in a larger diplomatic process ('tests path back to Iran-US talks') rather than a standalone agreement — the sole title advertising negotiations-as-process rather than negotiations-as-event.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The headline layer presents a tripartite split: US and Chinese state titles advertise an American military win, Iranian state titles assert unchanged sovereign control and deflate the Oman deal, and regional neutral outlets foreground the corridor diplomacy — the most vivid headline-body divergence candidates are Breitbart (maximalist victory stack) and RT (pure rhetorical attack with no event framing).",
+  "generated_at": "2026-08-28T20:53:14Z",
+  "model": "claude-sonnet-4-6"
+}
