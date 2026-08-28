@@ -1,0 +1,909 @@
+{
+  "date": "2026-08-28",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 17,
+  "n_articles": 29,
+  "buckets": [
+    "balkans",
+    "canada",
+    "france",
+    "germany",
+    "india",
+    "iran_opposition",
+    "italy",
+    "japan",
+    "opinion_magazines",
+    "pan_african",
+    "south_africa",
+    "turkey",
+    "uk",
+    "ukraine",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 43,
+    "france": 46,
+    "pan_african": 27,
+    "balkans": 291,
+    "canada": 53,
+    "south_africa": 16,
+    "turkey": 53,
+    "germany": 70,
+    "usa": 59,
+    "india": 227,
+    "italy": 31,
+    "japan": 25,
+    "ukraine": 61,
+    "vietnam_thai_my": 252,
+    "iran_opposition": 65,
+    "uk": 15,
+    "opinion_magazines": 201
+  },
+  "pairwise_similarity": [
+    {
+      "a": "iran_opposition",
+      "b": "usa",
+      "score": 0.949
+    },
+    {
+      "a": "germany",
+      "b": "iran_opposition",
+      "score": 0.933
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.91
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.908
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.885
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.877
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.875
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.869
+    },
+    {
+      "a": "iran_opposition",
+      "b": "italy",
+      "score": 0.868
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.867
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.865
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.861
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.861
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.859
+    },
+    {
+      "a": "iran_opposition",
+      "b": "pan_african",
+      "score": 0.855
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.853
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.853
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.848
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.845
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.841
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.841
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.841
+    },
+    {
+      "a": "germany",
+      "b": "pan_african",
+      "score": 0.837
+    },
+    {
+      "a": "iran_opposition",
+      "b": "japan",
+      "score": 0.834
+    },
+    {
+      "a": "iran_opposition",
+      "b": "wire_services",
+      "score": 0.831
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.828
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.826
+    },
+    {
+      "a": "italy",
+      "b": "turkey",
+      "score": 0.826
+    },
+    {
+      "a": "germany",
+      "b": "japan",
+      "score": 0.821
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.82
+    },
+    {
+      "a": "balkans",
+      "b": "india",
+      "score": 0.819
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.819
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.819
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.818
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.816
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.815
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.81
+    },
+    {
+      "a": "france",
+      "b": "iran_opposition",
+      "score": 0.809
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.809
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.808
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.808
+    },
+    {
+      "a": "japan",
+      "b": "turkey",
+      "score": 0.806
+    },
+    {
+      "a": "japan",
+      "b": "ukraine",
+      "score": 0.806
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.804
+    },
+    {
+      "a": "south_africa",
+      "b": "turkey",
+      "score": 0.803
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.799
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.796
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.795
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.794
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.792
+    },
+    {
+      "a": "france",
+      "b": "japan",
+      "score": 0.788
+    },
+    {
+      "a": "iran_opposition",
+      "b": "south_africa",
+      "score": 0.788
+    },
+    {
+      "a": "balkans",
+      "b": "vietnam_thai_my",
+      "score": 0.787
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.787
+    },
+    {
+      "a": "balkans",
+      "b": "france",
+      "score": 0.784
+    },
+    {
+      "a": "italy",
+      "b": "pan_african",
+      "score": 0.784
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.783
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.783
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.782
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.782
+    },
+    {
+      "a": "japan",
+      "b": "usa",
+      "score": 0.781
+    },
+    {
+      "a": "france",
+      "b": "ukraine",
+      "score": 0.78
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.778
+    },
+    {
+      "a": "germany",
+      "b": "south_africa",
+      "score": 0.776
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.775
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.774
+    },
+    {
+      "a": "canada",
+      "b": "south_africa",
+      "score": 0.772
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.771
+    },
+    {
+      "a": "japan",
+      "b": "south_africa",
+      "score": 0.769
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.766
+    },
+    {
+      "a": "balkans",
+      "b": "italy",
+      "score": 0.764
+    },
+    {
+      "a": "italy",
+      "b": "japan",
+      "score": 0.764
+    },
+    {
+      "a": "italy",
+      "b": "south_africa",
+      "score": 0.764
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.762
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.761
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.76
+    },
+    {
+      "a": "south_africa",
+      "b": "ukraine",
+      "score": 0.76
+    },
+    {
+      "a": "balkans",
+      "b": "ukraine",
+      "score": 0.759
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.756
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.755
+    },
+    {
+      "a": "south_africa",
+      "b": "usa",
+      "score": 0.753
+    },
+    {
+      "a": "france",
+      "b": "south_africa",
+      "score": 0.752
+    },
+    {
+      "a": "iran_opposition",
+      "b": "vietnam_thai_my",
+      "score": 0.752
+    },
+    {
+      "a": "balkans",
+      "b": "germany",
+      "score": 0.75
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.747
+    },
+    {
+      "a": "balkans",
+      "b": "turkey",
+      "score": 0.742
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.741
+    },
+    {
+      "a": "iran_opposition",
+      "b": "uk",
+      "score": 0.739
+    },
+    {
+      "a": "canada",
+      "b": "japan",
+      "score": 0.738
+    },
+    {
+      "a": "italy",
+      "b": "ukraine",
+      "score": 0.738
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.737
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.734
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.733
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.731
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.726
+    },
+    {
+      "a": "balkans",
+      "b": "wire_services",
+      "score": 0.724
+    },
+    {
+      "a": "balkans",
+      "b": "iran_opposition",
+      "score": 0.723
+    },
+    {
+      "a": "france",
+      "b": "pan_african",
+      "score": 0.721
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.718
+    },
+    {
+      "a": "balkans",
+      "b": "usa",
+      "score": 0.711
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.711
+    },
+    {
+      "a": "japan",
+      "b": "pan_african",
+      "score": 0.71
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.7
+    },
+    {
+      "a": "japan",
+      "b": "vietnam_thai_my",
+      "score": 0.693
+    },
+    {
+      "a": "balkans",
+      "b": "canada",
+      "score": 0.685
+    },
+    {
+      "a": "india",
+      "b": "south_africa",
+      "score": 0.683
+    },
+    {
+      "a": "balkans",
+      "b": "south_africa",
+      "score": 0.676
+    },
+    {
+      "a": "pan_african",
+      "b": "ukraine",
+      "score": 0.676
+    },
+    {
+      "a": "balkans",
+      "b": "japan",
+      "score": 0.674
+    },
+    {
+      "a": "balkans",
+      "b": "pan_african",
+      "score": 0.67
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.663
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.658
+    },
+    {
+      "a": "pan_african",
+      "b": "south_africa",
+      "score": 0.656
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.654
+    },
+    {
+      "a": "balkans",
+      "b": "uk",
+      "score": 0.653
+    },
+    {
+      "a": "japan",
+      "b": "uk",
+      "score": 0.643
+    },
+    {
+      "a": "south_africa",
+      "b": "wire_services",
+      "score": 0.627
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.622
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.619
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.602
+    },
+    {
+      "a": "south_africa",
+      "b": "vietnam_thai_my",
+      "score": 0.595
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.588
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.587
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.581
+    },
+    {
+      "a": "iran_opposition",
+      "b": "opinion_magazines",
+      "score": 0.563
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.563
+    },
+    {
+      "a": "balkans",
+      "b": "opinion_magazines",
+      "score": 0.54
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "pan_african",
+      "score": 0.537
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.528
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "ukraine",
+      "score": 0.527
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.507
+    },
+    {
+      "a": "italy",
+      "b": "opinion_magazines",
+      "score": 0.501
+    },
+    {
+      "a": "japan",
+      "b": "opinion_magazines",
+      "score": 0.487
+    },
+    {
+      "a": "france",
+      "b": "opinion_magazines",
+      "score": 0.479
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "south_africa",
+      "score": 0.42
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.414
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.528,
+      "n_tokens": 201
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.716,
+      "n_tokens": 291
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.733,
+      "n_tokens": 252
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.752,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.758,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.765,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.775,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.776,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.787,
+      "n_tokens": 227
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.796,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.801,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.809,
+      "n_tokens": 70
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.813,
+      "n_tokens": 65
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.675,
+      "n_tokens": 15
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.711,
+      "n_tokens": 16
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.745,
+      "n_tokens": 25
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.75,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "france": [
+      {
+        "term": "ancien",
+        "count": 3
+      }
+    ],
+    "pan_african": [],
+    "balkans": [
+      {
+        "term": "kako",
+        "count": 4
+      },
+      {
+        "term": "dalje",
+        "count": 4
+      },
+      {
+        "term": "reaction",
+        "count": 3
+      },
+      {
+        "term": "european",
+        "count": 3
+      },
+      {
+        "term": "commission",
+        "count": 3
+      },
+      {
+        "term": "ministar",
+        "count": 3
+      },
+      {
+        "term": "ratka",
+        "count": 3
+      },
+      {
+        "term": "mladića",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "south_africa": [],
+    "turkey": [],
+    "germany": [],
+    "usa": [],
+    "india": [],
+    "italy": [
+      {
+        "term": "morto",
+        "count": 3
+      },
+      {
+        "term": "macellaio",
+        "count": 3
+      }
+    ],
+    "japan": [],
+    "ukraine": [
+      {
+        "term": "russia",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "iran_opposition": [],
+    "uk": [],
+    "opinion_magazines": [
+      {
+        "term": "country",
+        "count": 4
+      },
+      {
+        "term": "friend",
+        "count": 3
+      },
+      {
+        "term": "rise",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-28T19:56:10+00:00",
+  "meta_version": "10.0.3"
+}
