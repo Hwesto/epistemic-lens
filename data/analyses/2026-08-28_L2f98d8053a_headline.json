@@ -1,0 +1,131 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "L2f98d8053a",
+  "cluster_id": 164,
+  "cluster_name": "Ugandan King Oyo Nyimba, world's youngest monarch, dies aged 34",
+  "salience_score": 5.4,
+  "n_outlets": 18,
+  "n_countries": 10,
+  "n_articles": 18,
+  "event_summary": "King Oyo Nyimba Kabamba Iguru Rukidi IV, who ascended to Uganda's Tooro Kingdom throne at age three in 1995 and held the Guinness World Records title of world's youngest reigning monarch, died on 28 August 2026 aged 34; the kingdom confirmed an heir exists.",
+  "tldr": "Across all 18 headline-layer outlets and 10 countries, the 'world's youngest monarch' superlative functions as the single dominant framing device — a degree of cross-regional convergence rarely seen in international headline corpora. The UK press breaks ranks by layering illness language onto the death announcement: Daily Mail attributes death to 'critical illness' and The Independent escalates to 'secret illness,' a sensationalising move absent from every other outlet globally. Geo News is the sole outlet to reframe the death as an open investigative question — 'How King Oyo... died?' — importing a cause-of-death mystery register no other title invokes. German-language outlets (Bild, ZDF) compress the story to a bare superlative — 'Jüngster König der Welt gestorben' — stripping the Ugandan geographic context and the king's name visible in every English-language headline. AllAfrica is the only outlet to foreground community grief explicitly, using 'Mourns,' while TASS grounds the story in dynastic biography ('crowned at age of three') rather than the global record.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "world-record traditional kingship",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AllAfrica",
+        "BBC Africa",
+        "BBC World",
+        "Bild",
+        "Daily Maverick",
+        "Deutsche Welle English",
+        "El Sol de Mexico",
+        "Hindustan Times",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "Straits Times",
+        "TASS English",
+        "ZDF Heute"
+      ],
+      "countries": [
+        "wire_services",
+        "africa_other",
+        "uk",
+        "germany",
+        "south_africa",
+        "india",
+        "mexico",
+        "vietnam_thai_my",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "World's youngest reigning traditional monarch dies aged 34",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "once world's youngest reigning monarch, dies at 34",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Jüngster König der Welt gestorben",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "illness mystery, cause of death",
+      "outlets": [
+        "Daily Mail",
+        "Geo News English",
+        "The Independent"
+      ],
+      "countries": [
+        "uk",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "passes away after 'critical illness'",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "dies aged 34 after secret illness",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "How King Oyo of Uganda's Tooro kingdom died?",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The only outlet to use 'secret illness' rather than 'critical illness,' adding a concealment register — the framing implies palace suppression of cause-of-death information that no other headline in the corpus asserts.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "The sole outlet to frame the story as an open investigative question ('How King Oyo of Uganda's Tooro kingdom died?') rather than a death announcement, importing a whodunit register absent from all 17 other headlines.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "The only headline to foreground community mourning ('Tooro Kingdom Mourns King Oyo As 34-Year Reign Ends') rather than the world-record superlative, positioning the story as a collective grief event — a framing visible nowhere else in the corpus.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "ZDF Heute",
+      "country": "germany",
+      "finding": "The most compressed headline in the corpus — 'Jüngster König der Welt gestorben' — strips country, royal name, and age, reducing the story to a superlative alone; Bild names the king but still keeps geographic context minimal compared to any English-language outlet.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "Eighteen outlets across ten countries converge almost entirely on the 'world's youngest monarch' cultural frame, but the UK and Pakistani press uniquely overlay an illness-mystery layer — with The Independent's 'secret illness' the most sensationalistic divergence from the wire's factual register.",
+  "generated_at": "2026-08-28T20:15:00Z",
+  "model": "claude-sonnet-4-6"
+}
