@@ -1,0 +1,203 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "La8986e08d8",
+  "cluster_id": 83,
+  "cluster_name": "Anti-migrant protests and camp burnings erupt in Ceuta Spain",
+  "salience_score": 5.4,
+  "n_outlets": 13,
+  "n_countries": 12,
+  "n_articles": 15,
+  "event_summary": "Anti-migrant protesters clashed with police and burned migrant camps in Spain's Ceuta enclave on August 27-28. Roughly 72,000 people had crossed from Morocco on July 30, killing 82; Spain's Interior Minister requested Frontex help to screen the 5,000-8,000 migrants still in the enclave.",
+  "tldr": "At the headline layer, the Ceuta story is almost universally advertised as a security breakdown — 'clashes,' 'violence,' 'affrontements' dominate titles from wire services through European and Asian outlets alike. The sharpest departures are Breitbart's triumphalist 'Spain Fights Back' frame, which casts local camp demolitions as heroic resistance, and RT Africa's two headlines, which pivot entirely to Morocco's sovereignty claim and border arrests — a territorial dimension invisible in every other outlet's title.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Clashes, violence, and camp burnings",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "AfricaNews",
+        "BBC World",
+        "BFM TV",
+        "Deutsche Welle English",
+        "RT",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "pan_african",
+        "uk",
+        "germany",
+        "russia",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "anti-migrant protesters clash with police",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Clashes erupt in Ceuta as anti-migrant protesters confront",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Violence breaks out in Ceuta as migrant crisis continues",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Protesters set fire to migrant camp in Ceuta",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Clashes in Spain's Ceuta month after mass migrant influx",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Government urges calm; Spain asks EU for Frontex",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Straits Times"
+      ],
+      "countries": [
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Spanish government urges calm after Ceuta",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Spain asks EU for help processing migrants in Ceuta",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Nationalist resistance and invasion rhetoric",
+      "outlets": [
+        "Breitbart",
+        "The Conversation"
+      ],
+      "countries": [
+        "usa",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Spain Fights Back: Fed-Up Ceuta Locals Trash Beach Migrant",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "anti-migrant 'invasion' rhetoric threatens Europe's food",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Morocco sovereignty claim and border enforcement",
+      "outlets": [
+        "RT Africa"
+      ],
+      "countries": [
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Spain rejects Morocco's claim to sovereignty over enclaves",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Morocco arrests hundreds of migrants near Ceuta",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Anti-migrant rhetoric threatens food supply",
+      "outlets": [
+        "The Conversation"
+      ],
+      "countries": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "rhetoric threatens Europe's food supply and economy",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "africa_other",
+      "outlet": "BBC Africa",
+      "title": "What triggered the mass migrant crossings into Ceuta?",
+      "reason": "Explanatory 'what triggered' question; the headline asserts no security, policy, cultural, or economic frame — it seeks causes rather than advertising a crisis register"
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only headline to use combat-victory language ('Spain Fights Back', 'Trash') framing local camp demolitions as heroic community resistance — a register entirely absent from all other outlets including RT, which reports the same events more neutrally.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only outlet whose headlines foreground Morocco's sovereignty claim over Ceuta and Morocco's own border enforcement actions — a territorial-dispute angle wholly absent from all other outlets' titles.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Only headline framed as an explanatory question ('What triggered the mass migrant crossings?') rather than reporting current unrest — the sole title seeking structural causes rather than advertising the security breakdown.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Conversation",
+      "country": "opinion_magazines",
+      "finding": "Only headline to name economic stakes in the title ('threatens Europe's food supply and economy'), counter-framing anti-migrant rhetoric as an economic threat rather than covering the protests as a security story.",
+      "signal_text_idx": 13
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The headline layer of Ceuta coverage reads almost unanimously as a security-disorder story, but two outlets break sharply from that consensus: Breitbart's titles celebrate local camp demolitions as nationalist pushback ('Spain Fights Back'), while RT Africa's titles pivot to Morocco's territorial claims — opposite ideological departures that will anchor the largest divergences in the body-headline sensationalism index for this cluster.",
+  "generated_at": "2026-08-28T20:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
