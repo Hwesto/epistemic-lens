@@ -1,0 +1,199 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "L4972029024",
+  "cluster_id": 93,
+  "cluster_name": "US courts block Trump mail-voting rules and hush money appeal",
+  "salience_score": 6.3,
+  "n_outlets": 15,
+  "n_countries": 10,
+  "n_articles": 19,
+  "tldr": "At the headline layer, coverage divides across two simultaneous judicial setbacks for Trump: courts blocking mail-in voting restrictions (lead frame in USA, UK, Germany, India, China, and Spain) and judges repeatedly rejecting Trump's bid to escape his hush money criminal conviction (dominant in Canada, India, Turkey, and the UK). Conservative US outlets uniquely frame the mail-vote rulings as partisan judicial activism — Daily Caller advertises 'Obama Judge' and Daily Wire frames it as a political 'fight' — a register entirely absent from any international headline. The Daily Mail stands apart with an explicit personal-humiliation frame ('Humiliation for Trump'), the most adversarial headline in the corpus. Wire services and Singapore cover only the birthright citizenship sub-story at homepage level, an angle absent from every other outlet's title.",
+  "event_summary": "Federal judges blocked U.S. Postal Service enforcement of Trump's mail-in voting overhaul and rejected Trump's third bid to move his 2024 hush money felony conviction to federal court; a separate judge also declined to immediately block Trump's revised birthright citizenship executive order.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Courts block mail-voting and immigration rules",
+      "outlets": [
+        "Axios World",
+        "CGTN World",
+        "El Pais English",
+        "The Hindu Intl",
+        "The Independent",
+        "ZDF Heute",
+        "Reuters (via Google News)",
+        "Straits Times"
+      ],
+      "countries": [
+        "usa",
+        "china",
+        "spain",
+        "india",
+        "uk",
+        "germany",
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "violated court order on mail-voting rules",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "blocks rule implementing Trump plan to restrict mail-in",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "Trump's restrictions on mail-in voting stall in the courts",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "U.S. court blocks Trump bid to curb mail-in ballots",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "blocks Trump mail ballot rules over 'overwhelming risk'",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Richterin setzt Trumps Briefwahl-Pläne wieder außer Kraft",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "won't yet block Trump's new birthright citizenship order",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Hush money conviction bid rejected again",
+      "outlets": [
+        "Daily Mail",
+        "Daily Sabah",
+        "Globe and Mail",
+        "India Today",
+        "The Hill",
+        "The Independent"
+      ],
+      "countries": [
+        "uk",
+        "turkey",
+        "canada",
+        "india",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Trump loses again in bid to erase his hush money conviction",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "US judge rejects Trump bid to toss hush money conviction",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "India Today",
+          "country": "india",
+          "quote": "rejects Trump's latest bid to shift hush money case",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "Trump can't appeal New York conviction in federal court",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Judge again blocks Trump's attempt to get his felony",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Humiliation for Trump as judge blocks third desperate",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Partisan 'Obama judge' adversarial framing",
+      "outlets": [
+        "Daily Caller",
+        "Daily Wire",
+        "Daily Mail"
+      ],
+      "countries": [
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Caller",
+          "country": "usa",
+          "quote": "Obama Judge Once Again Orders Postal Service To Defy",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Trump's Mail Ballot Fight Just Got More Complicated",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Humiliation for Trump as judge blocks third desperate",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "finding": "Only headline to label the judge as 'Obama Judge,' explicitly politicizing the judicial appointment to frame the ruling as partisan obstruction rather than a legal determination — a framing entirely absent from all international and centrist domestic outlets.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Only headline to lead with 'Humiliation for Trump,' personalizing the conviction ruling as a personal defeat rather than a legal outcome — the most adversarial register in the corpus and the only non-US outlet to foreground the emotional/political stakes over the legal facts.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "Only outlet to run a headline on the H-1B visa fee story alongside the main voting-rules coverage ('Trump persists in pushing fee of over $100,000 for H-1B visas'), the sole headline in this cluster advertising a separate immigration-economic angle invisible in every other outlet's title.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "The headline layer divides between two simultaneous judicial defeats for Trump — mail-voting restrictions blocked by courts (near-universal framing) and hush money conviction appeal rejected again (led by UK, Canada, India, Turkey) — while conservative US outlets alone frame the rulings as a partisan political battle and wire services surface only the birthright citizenship sub-story, an angle suppressed at headline level across the entire remainder of the corpus.",
+  "generated_at": "2026-08-28T20:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
