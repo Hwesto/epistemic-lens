@@ -1,0 +1,197 @@
+{
+  "story_key": "L8281182ad1",
+  "date": "2026-08-28",
+  "n_buckets": 17,
+  "n_articles": 29,
+  "tldr": "Headlines across 17 national outlets overwhelmingly label Ratko Mladić a 'war criminal' or 'Butcher of Bosnia' convicted of genocide, while a secondary cluster — concentrated in Balkan and geopolitical outlets — frames the story as a contest over the legitimacy of the UN tribunal and Serbia's disputed decision to bury him with state honours.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Convicted genocidaire dies in prison",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pan_african",
+        "canada",
+        "south_africa",
+        "turkey",
+        "germany",
+        "usa",
+        "iran_opposition",
+        "uk",
+        "japan",
+        "italy",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "WAR CRIMINAL: Ratko Mladić, genocidal Butcher",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "convicted of genocide dies aged 84",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "'Butcher of Bosnia' convicted of genocide, dies at 84",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "The 'Butcher Of Bosnia' Who Was Convicted Of Genocide",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "'Butcher of Bosnia' Ratko Mladic dies",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "il \"macellaio di Srebrenica\"",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Bosnian Serb war criminal Mladic dies in prison at 84",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "UN tribunal legitimacy contested",
+      "buckets": [
+        "balkans",
+        "india",
+        "vietnam_thai_my",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "UN Court 'Wanted Mladic to Die Behind Bars'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "criticizes UN court for not releasing war criminal",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russia Attacks UN Tribunal After Death",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Vucic raps 'uncivilised' UN court over handling",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "State burial honours disputed",
+      "buckets": [
+        "wire_services",
+        "turkey",
+        "balkans"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Mladic to be buried with 'state honours'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "war criminal Mladic to be buried with 'state honors'",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "N1 Serbia English",
+          "quote": "Ministar kaže uz najviše državne počasti",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Hero vs. war criminal: Balkan split",
+      "buckets": [
+        "balkans",
+        "opinion_magazines",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "War Criminal or 'Serb Hero'",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "still viewed as a hero by many Bosnian Serbs",
+          "signal_text_idx": 27
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "The Death of Mladić Won't End His War",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.528,
+      "n_tokens": 201
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.716,
+      "n_tokens": 291
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.733,
+      "n_tokens": 252
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Maverick",
+      "bucket": "south_africa",
+      "finding": "Only outlet to lead headline with all-caps 'WAR CRIMINAL:' — the most emphatically punitive labeling in the corpus."
+    }
+  ],
+  "bottom_line": "The headline layer collapses a decades-long reckoning into a single dominant label — 'convicted war criminal' / 'Butcher of Bosnia' — while a sharp secondary signal from Balkan and Russian-aligned outlets reframes the story as a challenge to the legitimacy of international justice.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
