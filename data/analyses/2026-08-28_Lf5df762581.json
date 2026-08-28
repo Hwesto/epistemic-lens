@@ -1,0 +1,208 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "Lf5df762581",
+  "cluster_id": 79,
+  "cluster_name": "Israeli air strike kills three in Jenin as forces occupy camp",
+  "salience_score": 7.2,
+  "n_outlets": 16,
+  "n_countries": 12,
+  "n_articles": 20,
+  "event_summary": "Israel's military struck Jenin in the occupied West Bank on 28 August 2026, killing three Palestinians including Qais Bitwani, described by the IDF as a Hamas operative. Defense Minister Katz then declared Israeli forces had permanently occupied the Jenin refugee camp after evacuating its residents.",
+  "tldr": "Haaretz — an Israeli newspaper — published an investigation based on IDF soldiers' own testimonies alleging Israel is cultivating armed militias in Gaza to commit war crimes, running simultaneously with Israeli government celebrations of the Jenin strike as a counter-terrorism success. Wire services and most centrist outlets foreground the strike's rarity and the Israeli military's counter-terrorism framing, while Jerusalem Post supplies the deepest intelligence backstory — dozens of suspects arrested, Bitwani's alleged role in a 2024 bombing. Al Jazeera and Middle East Eye shift the story from targeted killing to camp occupation: Defense Minister Katz declared Israeli forces 'permanently stationed' in Jenin after evacuating residents, a territorial claim no other outlet leads with. France Info alone notes the contested affiliation — Israel calling the killed men Hamas members, Islamic Jihad claiming them as its own fighters. ANSA uniquely imports the Vatican's voice through Latin Patriarch Pizzaballa, who described the West Bank as a 'no-man's land' where settler violence is 'unrestrained.'",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "counter-terrorism air strike",
+      "outlets": ["AFP / France 24 EN", "Reuters (via Google News)", "Straits Times", "Jerusalem Post", "France Info", "Le Monde", "AFP / France 24 FR", "Hindustan Times"],
+      "countries": ["wire_services", "vietnam_thai_my", "israel", "france", "india"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Israel's military said it carried out an air strike in the Jenin area in the West Bank on Friday that killed a ​Palestinian it described as a Hamas militant operative as well as two of his accomplices, in a rare use of deadly Israeli air power in the occupied territory.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "The IDF killed a former senior Jenin terror cell member and two additional terrorists in an IAF airstrike on their vehicle in the West Bank on Friday, the military confirmed in a joint statement with the Shin Bet (Israel Security Agency).",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "militant targeting and affiliation dispute",
+      "outlets": ["Jerusalem Post", "France Info", "AFP / France 24 FR", "Al Jazeera English"],
+      "countries": ["israel", "france", "qatar"],
+      "evidence": [
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "The statement noted that Qais Bitwani was involved in \"significant\" terror activities, including \"directing, funding, and executing\" terrorist attacks against Israeli soldiers and civilians.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "Israël a présenté ces trois hommes tués dans la région de Jénine comme des membres du Hamas, mais une autre organisation, le Jihad islamique, les a revendiqués comme ses combattants.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "medic detention and militia war crimes",
+      "outlets": ["Al Jazeera English", "Haaretz", "ANSA English", "Middle East Eye"],
+      "countries": ["qatar", "israel", "italy", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "The Palestine Red Crescent ambulance service said Israeli ground troops raided the site of the drone strike, briefly detained medics and prevented them from transporting those wounded or killed to hospital.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "A Haaretz investigation, based on IDF soldiers' testimonies, sources in Gaza and satellite imagery, reveals how Israel is cultivating a network of armed militias in Gaza",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Gaza camp conditions and civilian deaths",
+      "outlets": ["AfricaNews", "Al Jazeera English", "Dawn", "Middle East Eye"],
+      "countries": ["pan_african", "qatar", "pakistan", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Israeli strikes killed at least four people in Gaza, hitting a tent shelter and worsening conditions in overcrowded camps plagued by pests and poor sanitation.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "The latest round of attacks comes as Palestinians across the strip continue to face severe food insecurity.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "government celebrating strike as policy success",
+      "outlets": ["Jerusalem Post", "Al Jazeera English", "Middle East Eye", "Foreign Policy"],
+      "countries": ["israel", "qatar", "pan_arab", "opinion_magazines"],
+      "evidence": [
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "Defense Minister Israel Katz also congratulated the IDF in an X post later on Friday, as well as the Israel Police and security forces, describing the strike as among the \"fruits of the offensive and proactive policy we are leading in Judea and Samaria.\"",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "\"The [Israeli military] is permanently stationed there,\" the minister said in a social media post.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "civilian harm and demands for accountability",
+      "outlets": ["Haaretz", "Al Jazeera English", "AfricaNews", "The Independent"],
+      "countries": ["israel", "qatar", "pan_african", "uk"],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "'Israel is sending armed militias in Gaza to commit war crimes – and I have to protect them'",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Hamas condemned the strike but did not claim the person targeted – whom the Israeli military identified as Qais Bitawi – as a member. Palestinian Islamic Jihad said in a statement Bitawi was a senior operative of its armed wing.",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "quote": "A Haaretz investigation, based on IDF soldiers' testimonies, sources in Gaza and satellite imagery, reveals how Israel is cultivating a network of armed militias in Gaza",
+      "signal_text_idx": 9
+    },
+    "b": {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "quote": "The Palestine Red Crescent ambulance service said Israeli ground troops raided the site of the drone strike, briefly detained medics and prevented them from transporting those wounded or killed to hospital.",
+      "signal_text_idx": 4
+    },
+    "joint_conclusion": "An Israeli left-liberal newspaper sourcing IDF soldiers and a pan-Arab broadcaster sourcing Hamas both characterise Israeli military operations in occupied Palestinian territories as causing civilian harm — converging from opposing editorial traditions on the accountability framing, though by completely different routes and evidence."
+  },
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet appears in this cluster despite the US being Israel's primary arms supplier and diplomatic backer; US editorial attention may have been drawn to domestic stories or the Iran-sanctions wire item referenced in Middle East Eye's live blog."
+    },
+    {
+      "country": "germany",
+      "what_they_covered_instead": "No German outlet in the corpus; Germany has been a live forum for debate over arms-export restrictions to Israel, making the West Bank escalation plausibly salient there."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "ANSA English",
+      "country": "italy",
+      "finding": "Uniquely surfaces Latin Patriarch Pizzaballa describing the West Bank as a 'no-man's land' where settler violence is 'unrestrained' — the only pastoral or Vatican-sourced voice in the cluster.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "Runs an investigation based on IDF soldiers' own testimonies alleging Israel is cultivating armed militias in Gaza to commit war crimes — the only internal Israeli accountability piece in the corpus, published on the same day as the Jenin strike celebration.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Provides the only detailed intelligence backstory: Bitwani's alleged role in the July 2024 Gilboa Seam bombing and dozens of suspects interrogated before the strike, framing the killing as an operationally rigorous action rather than an ad hoc strike.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "Focuses entirely on settler violence consuming the West Bank rather than the air strike — the only outlet to centre the story on Israeli settlers rather than Israeli military operations.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Covers a parallel Gaza escalation no other outlet carries: Katz threatening to treat kites flown from Gaza 'the same as a drone', which Hamas says is being used to justify further Palestinian attacks.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to report that Islamic Jihad — not Hamas — claimed the killed operative as its own, directly contradicting the Israeli military's Hamas framing, and that Red Crescent medics were detained at the strike site.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "Alone elevates the story to a territorial-control frame: Katz's declaration that Israeli forces have evacuated residents and are 'permanently stationed' in the Jenin camp transforms a targeted killing into a camp-occupation announcement.",
+      "signal_text_idx": 14
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "An Israeli air strike on Jenin on 28 August 2026 — rare in the occupied West Bank — produced a clean counter-terrorism narrative from Israeli officials and wire services, while Al Jazeera and Haaretz, from opposite editorial traditions, both documented civilian harm and potential legal violations. The sharpest editorial split is between the security-victory vocabulary of the Jerusalem Post and the accountability vocabulary of Al Jazeera, with Haaretz — citing its own soldiers — landing closer to Al Jazeera's conclusion than to its government's.",
+  "generated_at": "2026-08-28T20:23:44Z",
+  "model": "claude-sonnet-4-6"
+}
