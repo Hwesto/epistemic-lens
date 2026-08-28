@@ -1,0 +1,168 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "L9e266ba9ef",
+  "cluster_id": 91,
+  "cluster_name": "Trump pauses immigrant visas worldwide and restricts international student internships",
+  "salience_score": 3.51,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 13,
+  "event_summary": "The Trump administration paused global immigrant visa processing, announced 200,000 visa revocations for asylum seekers, and restricted internship authorizations for international students. A federal judge struck down a separate policy suspending visas for nationals of 75 countries.",
+  "tldr": "El Pais is the only outlet to call the stated rationale a 'pretext,' explicitly questioning whether the 'public charge' training justification masks other intent — a charge no Anglophone outlet in the cluster makes. The Hindu contextualizes the internship crackdown within Trump's broader campus culture war — probes, funding threats, pro-Palestinian protests, DEI, climate, and transgender policies — framing the visa squeeze as ideological rather than regulatory. VnExpress English is uniquely positioned as the only outlet to cover both the internship crackdown and the judicial rollback of the 75-country visa suspension, presenting policy and legal constraint in the same view. CGTN, China's state international broadcaster, cites the Financial Times as its source, routing coverage of the US immigration crackdown through a Western financial outlet rather than independent reporting.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "immigration enforcement rollout",
+      "outlets": ["AllAfrica", "CGTN Politics", "Dawn", "Folha de São Paulo", "Standard Kenya World", "Straits Times", "The Independent", "VnExpress English"],
+      "countries": ["africa_other", "china", "pakistan", "brazil", "kenya", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "The Trump administration has paused immigrant visa applications globally to conduct \"in-depth training\" for consular officers amid its ongoing immigration crackdown, the Financial Times reported on Tuesday, citing a State Department spokesperson.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "seeking to restrict the issuance of certain internship work authorisations for international students",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "President Donald Trump's administration has issued a memo for ​universities that seeks to restrict issuance of certain internship work",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "judicial limits on executive immigration power",
+      "outlets": ["El Pais English", "VnExpress English"],
+      "countries": ["spain", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "The Trump administration has temporarily halted interviews at embassies and consulates while training its officials",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "A U.S. judge on Friday struck down, opens new tab a Trump administration policy suspending the issuance of immigrant visas to ​applicants from 75 countries, saying that the policy exceeded Secretary of ‌State Marco Rubio's statutory authority.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US policy impact on foreign nationals globally",
+      "outlets": ["AllAfrica", "Standard Kenya World", "CGTN Politics", "Folha de São Paulo"],
+      "countries": ["africa_other", "kenya", "china", "brazil"],
+      "evidence": [
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "The US is set to revoke no fewer than 200,000 visas, according to the Department of State.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "The US government plans to revoke the visas of foreigners who came to the country for tourism or business but sought to stay longer by applying for asylum, the State Department said Tuesday.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "A medida ocorre em meio à ofensiva do republicano para restringir a entrada de estrangeiros no país.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "student and worker disruption",
+      "outlets": ["Straits Times", "VnExpress English", "Dawn"],
+      "countries": ["vietnam_thai_my", "pakistan"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "It resulted in some schools pausing certain applications for work authorisations for international students.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "colleges not complying with the regulations may lose certification to enroll foreign students.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "campus culture war as context for visa crackdown",
+      "outlets": ["The Hindu Intl"],
+      "countries": ["india"],
+      "evidence": [
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "diversity initiatives, climate programs and transgender policies.",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "south_korea",
+      "what_they_covered_instead": "South Korea is among the top sources of US international students and visa applicants; its absence suggests the story was displaced by domestic political or US-Korea trade coverage."
+    },
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Japan sends tens of thousands of students to the US annually; no Japanese outlet appears in the cluster, suggesting the story was overshadowed by Japan's own political or economic news cycle."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "The only outlet to call the visa pause justification a 'pretext,' using the 'public charge' framing to signal explicit skepticism of the stated training rationale.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Embeds the internship restriction within Trump's broader campus culture war — pro-Palestinian protests, DEI, climate, transgender — making an ideological connection absent from every other outlet.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "Cites the Financial Times as its source for the visa pause story — the Chinese state broadcaster routes its coverage through a Western financial outlet rather than independent reporting.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "VnExpress English",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to cover both the internship crackdown and the federal judge striking down the 75-nation visa suspension, presenting both the policy threat and its legal limit together.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Focuses specifically on asylum seekers who overstayed tourist or business visas — a distinct subgroup from the student workers and immigrant visa queue covered by other outlets.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "International coverage of Trump's immigration crackdown divides along two tracks: outlets from major source countries of US students (India, Pakistan, Vietnam) track the internship restriction's operational impact on universities, while African and Latin American outlets emphasize mass visa revocations affecting asylum seekers. El Pais stands alone in treating the stated training justification as a pretext, signaling that European press is more openly skeptical of the policy rationale than its Anglophone counterparts.",
+  "generated_at": "2026-08-28T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
