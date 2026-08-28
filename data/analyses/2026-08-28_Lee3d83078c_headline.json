@@ -1,0 +1,185 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "Lee3d83078c",
+  "cluster_id": 137,
+  "cluster_name": "Fed Chair Warsh flags inflation risk at Jackson Hole",
+  "salience_score": 8.58,
+  "n_outlets": 19,
+  "n_countries": 13,
+  "n_articles": 22,
+  "tldr": "The headline layer offers almost zero geographic divergence: thirteen country buckets produce the same two interlocking signals — US inflation is too high, and rate hikes may follow. Most outlets blend both frames in a single headline, making this corpus unusual for its semantic uniformity across languages and political leanings. Two notable absences: India (Hindustan Times) ran a viewer's-guide headline ('when and where to watch'), and Iraq (Iraqi News) offered pure anticipation ('all eyes on Warsh'), neither engaging with the economic or policy substance at all. The one register outlier is Breitbart, whose headline uses 'Troubling' and 'Fighting' — the sharpest language in the set — while Axios uniquely framed the pre-speech moment as one of political pressure on Warsh himself.",
+  "event_summary": "US Federal Reserve Chair Kevin Warsh delivered his first major speech at the Jackson Hole Economic Policy Symposium on August 28, 2026, warning that inflation remains insufficient and signaling that interest rate hikes may be necessary to bring prices back to the 2% target.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "inflation still too high",
+      "outlets": [
+        "Al Jazeera English",
+        "BBC World",
+        "Breitbart",
+        "CBC World",
+        "Channel News Asia",
+        "El Pais",
+        "Geo News English",
+        "Globe and Mail",
+        "Le Monde",
+        "O Globo",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "The Guardian World",
+        "The Independent"
+      ],
+      "countries": [
+        "qatar",
+        "uk",
+        "usa",
+        "canada",
+        "vietnam_thai_my",
+        "spain",
+        "pakistan",
+        "wire_services",
+        "taiwan_hk",
+        "france",
+        "brazil"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Inflation Numbers Are Troubling",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "US Fed chair warns inflation progress insufficient",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "trouve « préoccupante » l’inflation aux Etats-Unis",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "O Globo",
+          "country": "brazil",
+          "quote": "inflação não está desacelerando",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Fed Chair Warsh reaffirms inflation fight",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "rate hikes signaled as next tool",
+      "outlets": [
+        "Al Jazeera English",
+        "Axios World",
+        "CBC World",
+        "Channel News Asia",
+        "El Pais",
+        "Globe and Mail",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "The Hill",
+        "The Independent"
+      ],
+      "countries": [
+        "qatar",
+        "usa",
+        "canada",
+        "vietnam_thai_my",
+        "spain",
+        "wire_services",
+        "taiwan_hk",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Fed Chair Warsh signals rate hikes may be needed",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Warsh signals US Fed may need to raise rates",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Rate-hike expectations rise on Warsh speech",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "signals rate hikes may be needed in Jackson Hole speech",
+          "signal_text_idx": 21
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Warsh says Fed has ‘work to do’",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Warsh under institutional pressure",
+      "outlets": [
+        "Axios World"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Fed’s Warsh under pressure to clarify message",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "india",
+      "what_they_covered_instead": "Hindustan Times ran a viewer's-guide headline ('when and where to watch Fed Chair's address? Here's what to expect'), choosing event logistics over any substantive economic or policy framing."
+    },
+    {
+      "country": "iraq",
+      "what_they_covered_instead": "Iraqi News framed the speech as a spectacle of anticipation ('all eyes on Warsh as Fed chair kicks off key central banking meeting'), providing no economic or policy content in its headline."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "The only headline to use 'Troubling' and 'Fighting for Price Stability' — both substantively charged terms absent from every other outlet's title. Where all others use technical language ('signals,' 'may be needed,' 'reaffirms'), Breitbart frames monetary policy as combat against a worrying threat.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "The only outlet to frame the event as political pressure on the Fed chair before his speech ('under pressure to clarify message'), centering institutional dynamics rather than the economic substance that every other headline led with.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "Across four languages and thirteen countries, the headline layer tells a single story: Kevin Warsh at Jackson Hole sent an unmistakable signal that inflation is unacceptably elevated and rate hikes are on the table. The only meaningful headline-layer variation is whether outlets foreground the economic problem (inflation 'troubling,' 'insufficient,' 'préoccupante') or the policy mechanism (rate hikes 'may be needed,' 'expectations rise'), a distinction that tracks no clear geographic or editorial-lean fault line.",
+  "generated_at": "2026-08-28T21:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
