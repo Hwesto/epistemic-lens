@@ -1,0 +1,254 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "L4972029024",
+  "cluster_id": 93,
+  "cluster_name": "Federal judges block Trump mail-vote restrictions and hush-money conviction transfer",
+  "salience_score": 6.3,
+  "n_outlets": 15,
+  "n_countries": 10,
+  "n_articles": 21,
+  "event_summary": "Judge Talwani in Boston re-blocked Trump’s USPS mail-voting rule ahead of the November midterms; Judge Hellerstein in Manhattan denied for the third time Trump’s bid to move his 2024 hush-money conviction from New York state court to federal court.",
+  "tldr": "The cluster spans two parallel judicial defeats for Trump in a single news cycle, yet domestic conservative and international press treat them as categorically different stories: US conservative outlets frame the mail-voting case as an election-integrity dispute while largely ignoring the criminal-conviction story, whereas international outlets merge both into a single pattern of courts checking executive overreach. The most striking divergence is between the Daily Wire’s “blow to election integrity” framing and The Hindu’s verbatim citation of the judge calling the regulation “likely unconstitutional” — identical events, diametrically opposed evaluative anchors. El País is the only outlet to explicitly name the midterm electoral benefit as Trump’s motive for the mail-voting rule, a framing absent from all US domestic coverage in the corpus. Germany’s ZDF frames the whole episode as a “Tauziehen” (tug-of-war), stripping out both the democracy-crisis and election-integrity angles in favour of pure procedural repetition. CGTN’s coverage is title-only and indistinguishable from a wire brief, showing minimal editorial engagement.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "presidential immunity and jurisdictional removal",
+      "outlets": [
+        "Axios World",
+        "Daily Sabah",
+        "The Hill",
+        "The Independent",
+        "Globe and Mail",
+        "India Today",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "usa",
+        "turkey",
+        "uk",
+        "canada",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Defendants cannot contend that they misunderstood the scope of the court's order",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "rejecting his request to shift the New York state case to federal court and dismiss it on presidential immunity grounds.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "strategy aimed at citing presidential immunity, under which Trump could potentially toss charges that stem from a 2016 hush money payment in the trash can.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "judicial-appointment politics and electoral motive",
+      "outlets": [
+        "Daily Caller",
+        "Daily Wire",
+        "El Pais English"
+      ],
+      "countries": [
+        "usa",
+        "spain"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Caller",
+          "country": "usa",
+          "quote": "Obama Judge Once Again Orders Postal Service To Defy Trump’s Mail-In Ballot Executive Order",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "In a blow to election integrity, a federal judge on Thursday temporarily blocked the U.S. Postal Service from enforcing its proper new requirements for mail-in voting for the November midterm elections.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "A new court ruling has put the decree, which would benefit the president in the midterms, on hold for two weeks",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "hush-money conviction and immunity claim",
+      "outlets": [
+        "Daily Sabah",
+        "Globe and Mail",
+        "Daily Mail",
+        "The Hill",
+        "The Independent",
+        "India Today"
+      ],
+      "countries": [
+        "turkey",
+        "canada",
+        "uk",
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Trump was convicted in May 2024 of 34 felony counts of falsifying business records to conceal a $130,000 hush money payment to adult film actor Stormy Daniels",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "It is the third time the judge has blocked Trump from having the U.S. District Court in Manhattan seize control of the case from the New York court",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Humiliation for Trump as judge blocks third desperate attempt to drag Stormy Daniels conviction out of New York",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "mail-vote rule constitutionality and midterm readiness",
+      "outlets": [
+        "The Hindu Intl",
+        "Axios World"
+      ],
+      "countries": [
+        "india",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "District Court Judge Indira Talwani wrote on Thursday (August 27) that it was \"practically impossible\" for states to comply with the \"likely unconstitutional regulation,\" pointing out that the midterms were little over two months away.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The decision removes the last major legal obstacle to the administration's plan, though it does not end the court challenges over the embattled rule.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US institutional checks as international spectacle",
+      "outlets": [
+        "ZDF Heute",
+        "CGTN World",
+        "Straits Times",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "germany",
+        "china",
+        "vietnam_thai_my",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Nächste Runde im juristischen Tauziehen um die Briefwahl in den USA: Bereits zum zweiten Mal blockiert eine US-Richterin Pläne von Donald Trump, die Wahlregelung zu verschärfen.",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "A federal judge on Friday declined to immediately block U.S. President Donald Trump's newest executive order limiting the number of people eligible for birthright citizenship, even as she sharply questioned its viability after the U.S. Supreme Court rejected his previous effort to do so.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Judge blocks rule implementing Trump plan to restrict mail-in voting",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "australia",
+      "what_they_covered_instead": "Not represented despite Australian outlets routinely tracking US electoral law; likely displaced by domestic or Asia-Pacific news that day."
+    },
+    {
+      "country": "france",
+      "what_they_covered_instead": "French-language press absent despite routine coverage of US democratic-norms stories by Le Monde and France 24; topic did not clear editorial threshold in the ingest window."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "finding": "Sole outlet to use 'Obama Judge' as the primary news label, converting a procedural ruling into an argument about judicial partisanship.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Labels the court block 'a blow to election integrity' — the only outlet to adopt the administration's own evaluative framing verbatim.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "Only outlet to name the electoral motive explicitly: the mail-vote decree 'would benefit the president in the midterms' — absent from all US domestic coverage in the corpus.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Uses 'Humiliation for Trump' in the headline — the most sensationalised framing in the corpus, treating the hush-money ruling as personal spectacle.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet providing full-body extraction; includes Trump legal team calling the ruling 'baseless and lawless' and referencing a 'Witch Hunt' — language quoted by no other outlet.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "ZDF Heute",
+      "country": "germany",
+      "finding": "German public broadcaster frames the episode as a 'juristischen Tauziehen' (legal tug-of-war), stripping crisis language for a procedural-repetition narrative.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Uniquely covers a third Trump judicial setback in the same cycle — the birthright citizenship executive order questioned by a Maryland judge — not mentioned by any other outlet in this cluster.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only outlet to quote the judge's constitutional assessment verbatim, calling the regulation 'likely unconstitutional' — the strongest legal characterisation in any signal text.",
+      "signal_text_idx": 15
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "US federal courts handed Trump three judicial defeats in a single news cycle — on mail-in voting, hush-money conviction venue, and birthright citizenship — yet the cluster shows a clean editorial split: US conservative outlets treat the mail-voting case as an election-integrity dispute while minimising the criminal-conviction story, whereas international press conflates all three into a single pattern of US institutional resistance to executive pressure. The midterm electoral stake, named directly only by El País, is the connective tissue the domestic US corpus systematically avoids stating.",
+  "generated_at": "2026-08-28T20:00:33Z",
+  "model": "claude-sonnet-4-6"
+}
