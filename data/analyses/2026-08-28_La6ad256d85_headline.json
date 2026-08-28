@@ -1,0 +1,269 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "La6ad256d85",
+  "cluster_id": 145,
+  "cluster_name": "Russia-Ukraine drone escalation devastates logistics and oil refineries",
+  "salience_score": 15.96,
+  "n_outlets": 19,
+  "n_countries": 14,
+  "n_articles": 57,
+  "tldr": "Headlines across 14 country-buckets frame the Russia-Ukraine war as an intensifying two-sided drone campaign targeting economic infrastructure: Russia repeatedly hammering Ukrainian cities and food logistics while Ukraine strikes Russian refineries and e-commerce warehouses. The SECURITY_DEFENSE register dominates — most outlets lead with military-action verbs (hammers, bombards, batters, endures, launches) — while economic consequences appear as secondary headlines from a smaller cluster of outlets. Zelensky’s order to launch 1,000 drones per day surfaces only in exiled Russian press (Meduza), absent from Western and Global South news fronts entirely.",
+  "event_summary": "Russia struck Ukrainian cities and logistics infrastructure with missiles and drones over multiple days while Ukraine escalated counter-strikes on Russian refineries, ports, and e-commerce warehouses.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "sustained mutual drone barrage",
+      "outlets": [
+        "AfricaNews",
+        "Breitbart",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Moscow Times",
+        "RFE/RL (was Radio Farda)",
+        "Standard Kenya World",
+        "The Hindu Intl",
+        "Ukrainska Pravda English",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "pan_african",
+        "usa",
+        "canada",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "kenya",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Russia’s overnight drone barrage ignites fires",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Russia Launches Major Missile Attack On Kyiv",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Ukrinform English",
+          "country": "ukraine",
+          "quote": "Russian attacks across Ukraine leave 16 killed, 50 injured",
+          "signal_text_idx": 25
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Russia Hammers Ukraine With Drones For Second Heavy Day",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "logistics and energy infrastructure attrition",
+      "outlets": [
+        "CBC World",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Meduza",
+        "Moscow Times",
+        "Reuters (via Google News)",
+        "Straits Times"
+      ],
+      "countries": [
+        "canada",
+        "germany",
+        "ukraine",
+        "russia",
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Russian strikes destroy Ukrainian food storage",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Grain exports stall as Ukraine steps up attacks",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "drones have pushed Russian oil refining to a 20-year low",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Russia devastates Ukrainian food storage",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian sites and mass casualty strikes",
+      "outlets": [
+        "Al Jazeera English",
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "qatar",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Deadly Russian strikes hit civilian targets in Ukraine",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Russian Drone Attack Hits Ukrainian Shopping Mall",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "drone and missile production arms race",
+      "outlets": [
+        "Meduza",
+        "Republic World (alt)",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "russia",
+        "india",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "Zelensky orders Ukraine’s military to launch 1,000 drones",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Republic World (alt)",
+          "country": "india",
+          "quote": "Ukraine Launches One of Its Largest Aerial Attacks",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Ukrinform English",
+          "country": "ukraine",
+          "quote": "Russia plans to scale up ballistic missile production",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "regional spillover beyond the front",
+      "outlets": [
+        "Balkan Insight",
+        "The Conversation"
+      ],
+      "countries": [
+        "balkans",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Romania Destroys Drone Near Major Gas Project",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "How Ukraine’s strikes on Russian warehouses became",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "balkans",
+      "country": "balkans",
+      "mean_similarity": 0.504,
+      "note": "Balkan Insight headlines foreground Romania's Black Sea drone interception — a NATO-border security angle absent from all other outlet titles."
+    },
+    {
+      "outlet": "vietnam_thai_my",
+      "country": "vietnam_thai_my",
+      "mean_similarity": 0.593,
+      "note": "Straits Times headline anchors in Ukrainian food logistics destruction, emphasising trade-supply consequences over the bilateral military exchange."
+    },
+    {
+      "outlet": "germany",
+      "country": "germany",
+      "mean_similarity": 0.619,
+      "note": "Deutsche Welle leads with grain export disruption and Black Sea port attacks, framing the conflict through global food-supply consequences."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese-outlet headlines despite China's stake in Russian oil markets and global grain prices disrupted by Black Sea strikes."
+    },
+    {
+      "country": "turkey",
+      "what_they_covered_instead": "Turkey, which mediates Black Sea grain corridor access and faces direct exposure to maritime drone incidents, is absent from headline coverage."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only outlet to headline Zelensky’s order to launch 1,000 drones per day at Russia — a major strategic escalation declaration not foregrounded by any Western or Global South news title.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Only outlet to lead on grain export disruption rather than the military exchange itself, foregrounding global food-supply consequences from the headline’s first word.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Conversation",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to headline Kyrgyzstan as a supply-chain casualty of Ukrainian warehouse strikes — a third-country economic spillover invisible in all news headlines.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "Balkan Insight",
+      "country": "balkans",
+      "finding": "Only outlet to headline Romania’s military interception of a maritime drone near a Black Sea gas platform, framing NATO-member energy infrastructure as a direct blast-radius target.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Exiled Russian press uniquely headlined Russian oil refining at a 20-year low, quantifying economic damage inside Russia that Western news headlines did not foreground.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer presents the Russia-Ukraine conflict as a mutual, escalating drone war with the security frame dominant across most outlets; a distinct minority foreground economic consequences (destroyed food storage, stalled grain exports, historic lows in Russian oil refining). The strategic escalation signal — Zelensky ordering 1,000 daily drone launches — surfaces only in exiled Russian press headlines, absent from Western news fronts.",
+  "generated_at": "2026-08-28T20:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
