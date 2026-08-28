@@ -1,0 +1,266 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "Lf957fed5ee",
+  "cluster_id": 153,
+  "cluster_name": "Trump orders Lake Ontario renamed Lake America amid Canada trade war",
+  "salience_score": 17.34,
+  "n_outlets": 27,
+  "n_countries": 17,
+  "n_articles": 30,
+  "tldr": "Headlines near-universally frame Trump's Lake Ontario renaming as a trade-war escalation move against Canada rather than a standalone symbolic act — 'amid Canada trade war,' 'Canada trade war takes ugly turn,' and 'Trump turns Canada feud toward Lake Ontario' typify the dominant register across 12 country-buckets. Only three headline registers diverge: Al Jazeera alone asks whether Trump actually has legal authority to rename the lake; The Independent and CBC Canada invoke a cultural-historical counter-narrative through 'history lesson' and 'symbol of U.S.-Canada collaboration'; and The Punch Nigeria inverts the story entirely by foregrounding American domestic rejection of the order. U.S. right-wing headlines (Breitbart, Daily Wire) strip trade-war context entirely and pivot to partisan culture-war angles.",
+  "event_summary": "On August 27, 2026, U.S. President Donald Trump signed an executive order renaming Lake Ontario 'Lake America' amid an escalating trade war with Canada. Canadian PM Mark Carney immediately rejected the new name as both countries imposed retaliatory tariffs following collapsed trade negotiations.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Canada trade-war escalation",
+      "outlets": [
+        "AFP / France 24 EN",
+        "ARY News English",
+        "Axios World",
+        "CGTN Politics",
+        "CGTN World",
+        "Daily Mail",
+        "Daily Maverick",
+        "Daily Sabah",
+        "Folha de São Paulo",
+        "Japan Times",
+        "Malay Mail World",
+        "RT"
+      ],
+      "countries": [
+        "wire_services",
+        "pakistan",
+        "usa",
+        "china",
+        "uk",
+        "south_africa",
+        "turkey",
+        "brazil",
+        "japan",
+        "vietnam_thai_my",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "US-CANADA: Trump signs order renaming Lake Ontario",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "amid Canada trade war",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "Rift deepens as US-Canada trade dispute escalates",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Canada trade war takes ugly turn",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "amid trade war with Canada",
+          "signal_text_idx": 22
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "Trump fans Canada spat by renaming Lake Ontario",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Trump turns Canada feud toward Lake Ontario",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "partisan US domestic backlash",
+      "outlets": [
+        "Axios World",
+        "Breitbart",
+        "Mother Jones"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Democrats plan bill to counter Trump order",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Democrat Hillary Clinton Fumes",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Mother Jones",
+          "country": "usa",
+          "quote": "Trump Orders Americans to Call Lake Ontario Lake America",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Can Trump compel binational rename?",
+      "outlets": [
+        "Al Jazeera English"
+      ],
+      "countries": [
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Can Trump really rename Lake Ontario, 'Lake America'?",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Indigenous name and collaborative legacy",
+      "outlets": [
+        "CBC World",
+        "The Independent"
+      ],
+      "countries": [
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "symbol of U.S.-Canada collaboration",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Lake America name change with a history lesson",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "grassroots defiance of the rename",
+      "outlets": [
+        "The Punch",
+        "National Post"
+      ],
+      "countries": [
+        "nigeria",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Americans reject Trump's rename",
+          "signal_text_idx": 28
+        },
+        {
+          "outlet": "National Post",
+          "country": "canada",
+          "quote": "'Lake Ontario' hat maker sees politics and sales",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "mean_similarity": 0.727,
+      "note": "CGTN Politics headline strips the renaming entirely — 'Rift deepens as US-Canada trade dispute escalates' — the only title in the corpus that does not name Lake Ontario or 'Lake America', registering the western-alliance fracture without amplifying the symbolic spectacle."
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "mean_similarity": 0.735,
+      "note": "Japan Times chose the word 'fans' — 'Trump fans Canada spat' — the most editorial verb in the corpus, implying deliberate provocation rather than a principled policy decision; no other outlet's headline characterises Trump's intent."
+    },
+    {
+      "outlet": "The Punch",
+      "country": "nigeria",
+      "mean_similarity": 0.751,
+      "note": "The Punch leads with American domestic rejection rather than Canadian pushback — 'Americans reject Trump's rename' — inverting the expected bilateral story into a US intra-national defiance narrative absent from every other outlet's headline."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "indigenous_voices",
+      "what_they_covered_instead": "No headline from any outlet names the Indigenous (Wyandot/Haudenosaunee) origin of 'Ontario' or quotes Indigenous leaders — the word 'Indigenous' appears only in body texts. The Independent's 'history lesson' and Japan Times body text gesture at this, but the actual headline layer leaves the colonial-naming dimension entirely implicit."
+    },
+    {
+      "country": "legal_mechanism",
+      "what_they_covered_instead": "Only Al Jazeera's headline raises authority as a question; no headline mentions GNIS (Geographic Names Information System), Interior Secretary Burgum, or the fact that the order has zero force on the Canadian portion of the lake — details visible only in body texts."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "The only headline in the corpus not to name 'Lake Ontario' or 'Lake America' — frames purely as a US-Canada trade dispute, suppressing the renaming spectacle entirely.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Sole headline to foreground legal authority over geographic naming — 'Can Trump really rename...' — before reporting the signing; every other outlet treats the act as fait accompli.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Two headlines on the same story from Breitbart focus entirely on partisan culture-war angles (MapQuest defiance, Clinton's reaction) while omitting trade-war context from titles — the most divergent from the global headline consensus.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Punch",
+      "country": "nigeria",
+      "finding": "Only outlet whose headline foregrounds American rejection of the order rather than Canadian pushback, reframing the story as a US domestic legitimacy crisis rather than a bilateral spat.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "National Post",
+      "country": "canada",
+      "finding": "Only headline to take a consumer/cultural-entrepreneurship angle — hat-maker sales as political resistance — invisible in all other country-buckets' headline framing.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Only headline to report the Congressional counter-response (Democratic bill), treating the renaming as a legislative trigger rather than a diplomatic provocation.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "The headline layer frames Trump's Lake Ontario rename as a trade-war escalation act in nearly every country-bucket, with cultural-historical objection and legal authority visible only in a small minority of titles, leaving most readers to encounter the story as diplomatic spectacle rather than a question of binational governance.",
+  "generated_at": "2026-08-28T20:15:00Z",
+  "model": "claude-sonnet-4-6"
+}
