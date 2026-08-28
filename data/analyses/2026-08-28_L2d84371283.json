@@ -1,0 +1,157 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "L2d84371283",
+  "cluster_id": 157,
+  "cluster_name": "CIA Director Ratcliffe visits Moscow to warn Russia against NATO attack",
+  "salience_score": 5.52,
+  "n_outlets": 15,
+  "n_countries": 12,
+  "n_articles": 23,
+  "event_summary": "CIA Director John Ratcliffe made an unannounced visit to Moscow on August 25, meeting Russian intelligence chief Sergey Naryshkin — the highest-level US-Russia contact since January. Trump called the trip 'semi-routine' and denied Ratcliffe had warned Moscow against attacking NATO territory.",
+  "tldr": "The corpus splits sharply between what intelligence sources told reporters — that Ratcliffe flew to Moscow specifically to warn Russia against attacking Baltic NATO members — and what Trump said publicly, denying any such warning was delivered. Chinese state media and Turkish pro-government outlets amplified Trump's framing of the visit as routine, while Western, Ukrainian, and Russian-exile outlets foregrounded the underlying Baltic security concern. Only RFE/RL's full-body text surfaces a July 30 letter from Baltic and Polish EU commissioners describing a 'deteriorating security environment' with 'increased frequency of airspace violations and drone incursions' — placing Ratcliffe's visit as the culmination of months of coordinated alarm-raising invisible to summary-only readers. Jerusalem Post is the sole outlet to cover the Iran dimension: Ratcliffe also pressed the Kremlin to cut economic and military support for Tehran, a linkage absent from every other outlet in the cluster.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Baltic NATO attack deterrence",
+      "outlets": ["Kyiv Post", "RFE/RL (was Radio Farda)", "Globe and Mail", "Axios World", "Jerusalem Post", "The Guardian World", "The Hindu Intl", "Daily Sabah", "Meduza"],
+      "countries": ["ukraine", "iran_opposition", "canada", "usa", "israel", "uk", "india", "turkey", "russia"],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "CIA Director John Ratcliffe secretly traveled to Moscow this week to warn Vladimir Putin against attacking NATO, The Wall Street Journal and Politico reported.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Ratcliffe flew to Moscow to urge the Kremlin against escalating with US allies -- particularly Estonia, Latvia, and Lithuania -- sources briefed about the visit confirmed to RFE/RL on August 26.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "CIA director John Ratcliffe went to Moscow this week for an almost-secret, face-to-face meeting with his top Russian counterparts",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump contradicts his CIA director",
+      "outlets": ["Axios World", "Daily Sabah", "Kyiv Post", "The Guardian World", "The Hindu Intl", "Meduza"],
+      "countries": ["usa", "turkey", "ukraine", "uk", "india", "russia"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "President Trump told Axios in a phone interview on Thursday that he isn't concerned that Russia will attack NATO countries.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "U.S. President Donald Trump on Thursday insisted Russian leader Vladimir Putin would not attack NATO territory",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "US President Donald Trump said Thursday, Aug. 27, that he has no concerns regarding a possible Russian attack on NATO countries, dismissing reports that CIA Director John Ratcliffe warned Moscow against such a move during his Tuesday, Aug. 25 visit.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Russia Iran-Ukraine diplomatic linkage",
+      "outlets": ["Jerusalem Post", "CGTN World", "Moscow Times", "RFE/RL (was Radio Farda)", "The Independent"],
+      "countries": ["israel", "china", "russia", "iran_opposition", "uk"],
+      "evidence": [
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "CNN reported that Ratcliffe also used the trip to warn the Kremlin to cut off economic and military support for Iran.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "US President Donald Trump on Wednesday confirmed that CIA Director John Ratcliffe recently visited Moscow, describing the trip as",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Ukraine strike suspension and peace push",
+      "outlets": ["Axios World", "Moscow Times", "The Independent"],
+      "countries": ["usa", "russia", "uk"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "the U.S. told Ukraine that a senior delegation was traveling to Moscow and asked it to suspend strikes until it leaves, according to a source with knowledge of the matter.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "The New York Times reported that CIA Director John Ratcliffe visited Moscow this week to push the Kremlin towards a peace deal.",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Asia Times",
+      "country": "asia_pacific_regional",
+      "finding": "Frames Ratcliffe's visit as partly aimed at warning Moscow against 'replacing the Kyiv regime' as Ukraine nears collapse — an interpretation not corroborated by any other outlet and echoing Russian government framing.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Sole outlet to report the Iran dimension explicitly: Ratcliffe used the trip to warn the Kremlin to cut economic and military support for Tehran, linking the Moscow visit to the US-Iran sanctions agenda.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Covers the visit as a bare wire item, explicitly noting the purpose 'was not immediately clear' — the only outlet to foreground uncertainty rather than advance an interpretive frame.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Uses Trump's most politically damaging quote as its headline, maximising the contrast between Trump's public reassurance and his CIA director's covert warning trip.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Moscow Times",
+      "country": "russia",
+      "finding": "Foregrounds the Kremlin's 'deep pause' on Ukraine peace talks as the primary context for Ratcliffe's visit, framing the trip as an American response to stalled negotiations rather than a deterrence signal.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to frame the visit as driven by authentic intelligence-community alarm — its headline positions IC professionals against their own president's public dismissal.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Uniquely reports that the US asked Ukraine to suspend strikes on Russia during Ratcliffe's visit — a significant operational detail absent from all other outlets in the cluster.",
+      "signal_text_idx": 2
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Fifteen outlets across twelve countries covered Ratcliffe's Moscow trip, but the story fractured along a single fault line: covert deterrence warning or routine intelligence contact. Trump's public denial directly contradicted reporting by WSJ, Politico, and RFE/RL — and Chinese and Turkish outlets amplified his framing while Western and Ukrainian outlets kept the deterrence narrative alive. The most operationally significant details — the Iran linkage and the Ukraine strike-suspension request — remained invisible to all but two outlets each, meaning most international readers received a materially incomplete picture of what the visit was for.",
+  "generated_at": "2026-08-28T20:02:29Z",
+  "model": "claude-sonnet-4-6"
+}
