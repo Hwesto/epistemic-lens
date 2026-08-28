@@ -1,0 +1,149 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-28",
+  "lineage_id": "Ld22b402974",
+  "cluster_id": 148,
+  "cluster_name": null,
+  "salience_score": 3.0,
+  "n_outlets": 10,
+  "n_countries": 10,
+  "n_articles": 10,
+  "tldr": "All ten headlines converge on virtually the same sentence: a Dutch court has sentenced a man to life for his role in the 1994 Rwandan genocide. Framing variation is minimal and structural — eight outlets lead with 'Dutch court' as the legal actor, one (Breitbart) leads with the defendant's nationality, and one (Straits Times) oddly retains 'suspect' after the verdict. Nothing in the headline layer conveys the acquittal on incitement, the planned appeal, Rwanda's prior extradition request, or the full 800,000-victim scale of the genocide.",
+  "event_summary": "A Dutch court in The Hague sentenced Eugene N., a 66-year-old Dutch-Rwandan national, to life imprisonment for his role in the 1994 Rwandan genocide, including his involvement in the massacre of approximately 3,000 Tutsis who sought refuge at a football stadium in Mbazi, southern Rwanda.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "life sentence for genocide participation",
+      "outlets": [
+        "Al Jazeera English",
+        "BBC Africa",
+        "BBC World",
+        "Breitbart",
+        "Deutsche Welle English",
+        "Le Devoir",
+        "NL Times",
+        "South China Morning Post",
+        "Standard Kenya World",
+        "Straits Times"
+      ],
+      "countries": [
+        "qatar",
+        "africa_other",
+        "uk",
+        "usa",
+        "germany",
+        "canada",
+        "netherlands_belgium",
+        "taiwan_hk",
+        "kenya",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Dutch court hands life sentence to Rwandan man",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Rwandan Man Convicted of Genocide by Dutch Court",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "condamné à perpétuité aux Pays-Bas",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "NL Times",
+          "country": "netherlands_belgium",
+          "quote": "orchestrated Rwanda massacre that killed 3,000",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Rwandan genocide suspect jailed for life",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Dutch court jurisdiction over Rwanda crimes",
+      "outlets": [
+        "Al Jazeera English",
+        "BBC Africa",
+        "BBC World",
+        "Deutsche Welle English",
+        "South China Morning Post",
+        "Standard Kenya World",
+        "Straits Times"
+      ],
+      "countries": [
+        "qatar",
+        "africa_other",
+        "uk",
+        "germany",
+        "taiwan_hk",
+        "kenya",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Dutch court sentences man to life over Rwanda genocide",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Rwanda genocide: Dutch court sentences man to life",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Dutch court jails man for life over role in Rwanda genocide",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "jailed for life in the Netherlands",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "The only headline to lead with the defendant's nationality ('Rwandan Man') rather than the legal institution ('Dutch court') — inverting the subject of 8 out of 10 other titles and framing the story through perpetrator identity rather than judicial authority.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "NL Times",
+      "country": "netherlands_belgium",
+      "finding": "The only headline to use 'orchestrated' (implying planning and direction, not mere participation) and the only one to cite the specific death toll of 3,000 in the title itself — distinctly foregrounding the scale of individual culpability absent from all other headlines.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Uniquely retains the word 'suspect' ('Rwandan genocide suspect jailed for life') after the verdict has been delivered — an editorial choice that introduces an ambiguity about guilt that no other outlet's headline carries.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "Ten outlets across ten countries and two languages produce nearly identical headlines — Dutch court, life sentence, Rwanda genocide — with no outlet surfacing the acquittal, the planned appeal, or the extradition history visible in body texts; the only meaningful headline-layer variation is whether the sentence subject is the court or the defendant's nationality.",
+  "generated_at": "2026-08-28T21:05:00Z",
+  "model": "claude-sonnet-4-6"
+}
