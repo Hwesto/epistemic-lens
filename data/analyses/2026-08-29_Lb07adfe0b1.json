@@ -1,0 +1,166 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "Lb07adfe0b1",
+  "cluster_id": 149,
+  "cluster_name": "Iceland votes on restarting EU membership negotiations suspended in 2013",
+  "salience_score": 3.0,
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 16,
+  "event_summary": "Iceland held a referendum on August 29, 2026, asking approximately 273,000 eligible voters whether to resume EU accession negotiations suspended in 2013; polls on voting day showed No at 51.6% and Yes at 48.4%, within the statistical margin of error.",
+  "tldr": "Global media coverage of Iceland's referendum extends from Russia's RT to Nigeria's The Punch to Singapore's Straits Times, signalling that this small-nation vote is being read as a geopolitical bellwether beyond Europe. The sharpest divergence is between outlets leading with a security driver — Trump's threat to seize Greenland forced Iceland to reconsider EU membership — and those noting that voters themselves are focused on the fishing industry, a domestic-versus-geopolitical split in what the referendum is really about. RT uniquely frames the vote as a dual-alliance test ('A NATO member votes on the EU'), casting EU and NATO membership as potentially in tension with national sovereignty — a framing that serves Russian interests by depicting Euro-Atlantic alignment as self-contradictory. Polls on voting day showed No ahead at 51.6% versus Yes at 48.4%, within the statistical margin of error, and with no exit polls planned, results are not expected until late Saturday.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU accession negotiation process",
+      "outlets": ["AFP / France 24 EN", "Anadolu Agency English", "Reuters (via Google News)", "The Local Germany", "The Local Sweden"],
+      "countries": ["wire_services", "turkey", "nordic"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Icelanders go to the polls on Saturday in a referendum on whether to resume membership negotiations with the European Union, in a tight race that will be closely watched in Brussels.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "If the 'Yes' side wins, an accession agreement would be negotiated with Brussels and then put to a new referendum on actual membership.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Trump Greenland threat as geopolitical catalyst",
+      "outlets": ["Deutsche Welle English", "Al Jazeera English", "Straits Times", "The Local Germany", "The Local Sweden"],
+      "countries": ["germany", "qatar", "vietnam_thai_my", "nordic"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The Nordic nation shelved earlier plans to join the EU over fishing rights, but geopolitics, including Trump's threat to seize Greenland, has prompted a rethink.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Amid economic and security challenges, Iceland is holding a referendum more than a decade after pausing accession talks.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "fishing industry and cost of living",
+      "outlets": ["AFP / France 24 EN", "BBC World", "Straits Times", "The Local Germany", "The Local Sweden", "The Punch"],
+      "countries": ["wire_services", "uk", "vietnam_thai_my", "nordic", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Turbulent international affairs have brought the vote forward, but the campaign has focused more on Iceland's vital fishing industry.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Islanders are split over cost of living, security and control over fishing waters.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "knife-edge polls and voter uncertainty",
+      "outlets": ["AFP / France 24 EN", "Al Jazeera English", "Deutsche Welle English", "The Local Germany", "The Local Sweden"],
+      "countries": ["wire_services", "qatar", "germany", "nordic"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Iceland will vote Saturday in a tight referendum on whether to reopen membership negotiations with the European Union.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "the latest Gallup poll crediting the 'No' camp with 51.6 percent of voter support and the 'Yes' side with 48.4 percent, a gap within the statistical margin of error.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "sovereignty and national self-reliance",
+      "outlets": ["RT", "The Local Germany", "The Local Sweden"],
+      "countries": ["russia", "nordic"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Icelanders are about to vote on restarting EU accession talks",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "\"We don't need Brussels to rule us. We can do it ourselves,\" said Elias Theodorsson, a 65-year-old entrepreneur.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "norway",
+      "what_they_covered_instead": "Norway, which has itself rejected EU membership by referendum twice and participates in the EEA alongside Iceland, was absent from this corpus; its editorial perspective on whether Iceland should cross that threshold would be politically significant given their parallel non-member status."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to headline the vote as a NATO-member-joining-EU question, implicitly casting the dual Euro-Atlantic alignment as a sovereignty paradox rather than a policy choice.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Sole brief-format outlet to name Trump's Greenland threat explicitly as the catalyst that brought the dormant EU question back to referendum stage.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "Notes a counterintuitive disconnect: turbulent geopolitics drove the referendum timing, but voters on the ground are focused on the fishing industry, not on Greenland or Trump.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Most compressed statement of the voter decision matrix — cost of living, security, and fishing water control — all three competing concerns named in a single sentence.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Local Germany",
+      "country": "nordic",
+      "finding": "Only outlet to provide the actual Gallup poll numbers (51.6% No, 48.4% Yes) alongside direct voter quotes articulating the sovereignty and prosperity arguments from both sides.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Local Germany",
+      "country": "nordic",
+      "finding": "Alone in pivoting from Iceland's referendum to ask which countries could be next in the EU accession queue if Iceland votes yes, treating this as a potential queue-setter for broader enlargement.",
+      "signal_text_idx": 11
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Iceland's EU referendum drew global coverage across nine country groups with sharply differing editorial orientations, reflecting that the vote is being read as a geopolitical bellwether rather than a narrow Nordic story. The core split — security-driven reorientation (Trump's Greenland threat) versus voter-level focus on fishing rights — maps onto a deeper question of whether Iceland's EU calculus has been fundamentally changed by great-power competition or remains, as it has always been, a domestic industry question.",
+  "generated_at": "2026-08-29T06:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
