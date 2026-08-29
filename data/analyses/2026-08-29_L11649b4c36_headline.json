@@ -1,0 +1,160 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "L11649b4c36",
+  "cluster_id": 120,
+  "cluster_name": "Trump executive order renames Lake Ontario to Lake America",
+  "salience_score": 7.188,
+  "n_outlets": 16,
+  "n_countries": 10,
+  "n_articles": 20,
+  "tldr": "The headline layer collapses the Lake Ontario renaming into a single dominant frame: US-Canada trade-war escalation, with thirteen of twenty corpus headlines explicitly signalling bilateral conflict through words such as 'trade war,' 'feud,' 'row,' or 'irrita Canadá.' Only two Canadian and two UK headlines engage with the cultural or historical dimension of the lake's name, making CULTURAL coverage a distinctly Anglo-Canadian register. The starkest single-outlet divergence is Daily Wire, whose title ('Lake Screw You, Canada' / 'Brutal Diplomatic Victory') operates in a satirical-triumphalist register entirely absent from every other outlet globally, including other conservative titles. Wire_services/Reuters is the only bucket to contribute a wholly off-topic headline (US Space Academy), contributing zero Lake Ontario signal. Indian coverage splits sharply: one Hindustan Times headline treats the trade-war substance; the other chases a viral social-media prediction angle — a within-country fracture not seen in any other national pool.",
+  "event_summary": "US President Donald Trump signed an executive order on August 28, 2026, redesignating Lake Ontario as 'Lake America' for US federal use, escalating a bilateral dispute with Canada following the collapse of trade negotiations and the imposition of reciprocal tariffs.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "renaming as trade-war escalation",
+      "outlets": [
+        "Axios World",
+        "CBC World",
+        "Daily Maverick",
+        "Daily Sabah",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Mother Jones",
+        "NDTV World",
+        "RT",
+        "Sky News UK",
+        "Standard Kenya World",
+        "The Independent"
+      ],
+      "countries": [
+        "usa",
+        "canada",
+        "south_africa",
+        "turkey",
+        "brazil",
+        "india",
+        "russia",
+        "uk",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Trump turns Canada feud toward Lake Ontario",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "'Lake America' amid Canada trade war",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "US-Canada trade war: State Department makes big statement",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Trump christens 'Lake America' amid trade war with Canada",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Canada May Change Street Named After Trump To 'Taco Avenue'",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "partisan responses to the order",
+      "outlets": [
+        "Axios World",
+        "Daily Wire",
+        "The Hill"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Democrats plan bill to counter Trump order renaming Lake Ontario",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Trump Renames Lake Ontario To 'Lake Screw You, Canada'",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "Seneca Nation requests reversal on 'Lake America'",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "lake name as heritage and identity",
+      "outlets": [
+        "CBC World",
+        "The Independent"
+      ],
+      "countries": [
+        "canada",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Great Lakes endure as symbol of U.S.-Canada collaboration",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "US residents can't stop googling its old name",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "wire_services",
+      "what_they_covered_instead": "Reuters (via Google News) ran a headline about a Trump executive order creating a US Space Academy — entirely unrelated to the Lake Ontario story — making it the only corpus item sharing none of the cluster's thematic content and contributing zero bilateral-conflict signal."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "The only outlet to frame the renaming as an American triumph rather than a diplomatic dispute. Its headline — 'Trump Renames Lake Ontario To \"Lake Screw You, Canada\" In Brutal Diplomatic Victory' — deploys combative, near-satirical language absent from every other outlet in the corpus, including other conservative-leaning titles such as Daily Sabah.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "One of its two Lake Ontario headlines led entirely with a viral social-media angle ('Did Jack Kimble predict Trump's Lake Ontario name change? 2025 post goes viral amid US-Canada trade war'), making it the only headline in the corpus to sidestep the diplomatic substance in favour of internet virality and predictive-tweet culture.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "The headline layer of Lake Ontario coverage is near-uniformly EXTERNAL_REGULATION in register: outlets across nine country buckets shorthand the renaming as another move in the US-Canada trade war and little else. The sole genuine headline-layer variation is register — Daily Wire's 'brutal diplomatic victory' versus CBC's 'symbol of collaboration' — a contrast that signals the divergence-index will find measurable sensationalism inflation in US conservative outlets relative to Canadian public broadcasting.",
+  "generated_at": "2026-08-29T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
