@@ -1,0 +1,205 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "L2db3e5b7f6",
+  "cluster_id": 133,
+  "cluster_name": "ICE arrests British far-right commentator Milo Yiannopoulos for deportation",
+  "salience_score": 2.438,
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 13,
+  "event_summary": "ICE arrested British commentator Milo Yiannopoulos at New Orleans International Airport on August 27 after he overstayed his US visa; an immigration judge had issued a final removal order on July 22 when he failed to appear. He is held pending deportation to the United Kingdom.",
+  "tldr": "The arrest of Milo Yiannopoulos — a British far-right commentator who championed Trump's immigration crackdown — by Trump's own ICE produced a cross-ideological shrug: almost no outlet defended him. Breitbart, his former employer, reported the story using DHS's 'illegal alien' designation without objection, while fellow conservative outlet the Daily Wire headlined him 'Disgraced Provocateur.' The most explicit irony framing appeared only at libertarian outlet Reason, whose URL reads 'milo-yiannopoulos-wanted-more-ice-raids-now-hes-in-ice-detention.' Russian state media RT introduced the only faint skepticism, placing 'illegal alien' in quotation marks rather than adopting DHS language verbatim. Breitbart was the only outlet to reproduce in full the DHS pitch promoting its $3,000 self-deportation incentive, effectively turning coverage of a former colleague's arrest into a policy promotion.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "immigration enforcement arrest",
+      "outlets": [
+        "Anadolu Agency English",
+        "BBC World",
+        "Breitbart",
+        "Daily Wire",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "Middle East Eye",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "The Independent"
+      ],
+      "countries": [
+        "turkey",
+        "uk",
+        "usa",
+        "germany",
+        "canada",
+        "pan_arab",
+        "wire_services",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Immigration agents arrested Yiannopoulos at New Orleans International Airport after he failed to attend immigration hearing",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Milo Yiannopoulos has been arrested by Immigration and Customs Enforcement (ICE) agents in New Orleans, Louisiana, and will soon be deported to the United Kingdom after overstaying his visa.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "US immigration officials arrested controversial British far-right commentator Milo Yiannopoulos on Thursday in New Orleans, according to the Department of Homeland Security.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "visa overstay and removal order",
+      "outlets": [
+        "Breitbart",
+        "Daily Wire",
+        "South China Morning Post",
+        "The Independent"
+      ],
+      "countries": [
+        "usa",
+        "taiwan_hk",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Yiannopoulos had legally entered the United States through New York City, New York on May 14, 2019 but later overstayed his visa, making him an illegal alien.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "An immigration judge issued a final order of removal on July 22 after Yiannopoulos failed to show.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Yiannopoulos, a 41-year-old British national, had been issued a final order of removal after overstaying his visa but failed to show up for an immigration appointment",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump supporter caught by Trump enforcement",
+      "outlets": [
+        "BBC World",
+        "Deutsche Welle English",
+        "Globe and Mail"
+      ],
+      "countries": [
+        "uk",
+        "germany",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The British citizen, who lives and works in the US, has supported Trump and ICE agents in the past.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Yiannopoulos, a far-right commentator, was an early supporter of Donald Trump and his immigration crackdown, but they have since fallen out.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "DHS self-deportation incentive promotion",
+      "outlets": [
+        "Breitbart"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "DHS said illegal aliens who voluntarily leave through the CBP Home App could preserve their ability to return legally.",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "quote": "Now, Department of Homeland Security (DHS) officials have confirmed that Yiannopoulos is an illegal alien because he overstayed his visa.",
+      "signal_text_idx": 2
+    },
+    "b": {
+      "outlet": "BBC World",
+      "country": "uk",
+      "quote": "The British citizen, who lives and works in the US, has supported Trump and ICE agents in the past.",
+      "signal_text_idx": 1
+    },
+    "joint_conclusion": "Breitbart — the right-populist outlet that previously employed Yiannopoulos — applies DHS enforcement language to its former colleague without objection, while the UK public broadcaster he often attacked foregrounds the irony of a Trump immigration champion caught in Trump's own enforcement net. Both treat the arrest as uncontroversially legitimate, converging from opposite political poles."
+  },
+  "silences": [
+    {
+      "country": "australia",
+      "what_they_covered_instead": "No Australian outlet appears in the corpus despite Australia being a major English-language press market; British far-right figures' US legal troubles typically attract coverage from outlets like ABC Australia or Sydney Morning Herald."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Reason",
+      "country": "usa",
+      "finding": "The only outlet to lead with the irony frame: URL slug reads 'milo-yiannopoulos-wanted-more-ice-raids-now-hes-in-ice-detention', absent from all other coverage which reports the arrest factually.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Labels him 'Conservative' rather than 'far-right' or 'provocateur' and places 'illegal alien' in quotation marks — the only outlet to signal any skepticism of the DHS characterisation rather than adopting it verbatim.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Headlines him 'Disgraced Provocateur' — the sharpest editorial distancing applied by any outlet, and notably from a fellow conservative American publication rather than a left-leaning one.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "The only outlet to identify Yiannopoulos as 'onetime political aide to rapper Kanye West' — a biographical detail absent everywhere else, signalling a readership less familiar with his US far-right media career.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "The only outlet to reproduce in full the DHS $3,000 self-deportation incentive pitch and CBP Home App promotion, turning coverage of a former colleague's arrest into a vehicle for DHS policy messaging.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Leads with Yiannopoulos's mugshot expression ('looks dejected') — the only outlet to foreground the visual and personal humiliation angle rather than the immigration enforcement process.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Milo Yiannopoulos's ICE arrest drew coverage across nine countries but produced no defenders — not even from the right-wing US outlets he once inhabited, which applied DHS enforcement language to him without reservation. The case illustrates how a political figure who built his brand on immigration hardline positions can be processed by that same enforcement apparatus with near-universal press approval.",
+  "generated_at": "2026-08-29T07:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
