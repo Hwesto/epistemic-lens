@@ -1,0 +1,148 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "L2db3e5b7f6",
+  "cluster_id": 133,
+  "cluster_name": "ICE arrests British far-right commentator Milo Yiannopoulos for deportation",
+  "salience_score": 2.438,
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 13,
+  "tldr": "The headline layer presents this story with near-total uniformity as a law-enforcement action — ICE detaining and deporting a British far-right figure — with no outlet offering any editorial defence of Yiannopoulos across twelve titles. The only meaningful divergences are label choices: outlets split between 'far-right', 'right-wing', 'conservative', and 'provocateur'; RT alone wraps 'illegal alien' in scare quotes; and The Independent alone names the enforcement arm as 'Trump's ICE', the sole headline to attach the arrest to a political principal rather than a neutral institution.",
+  "event_summary": "ICE arrested British commentator Milo Yiannopoulos at New Orleans International Airport on August 27 after he overstayed his US visa; an immigration judge had issued a final removal order on July 22 when he failed to appear. He is held pending deportation to the United Kingdom.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "ICE arrest & deportation enforcement",
+      "outlets": [
+        "Anadolu Agency English",
+        "BBC World",
+        "Breitbart",
+        "Daily Wire",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "Middle East Eye",
+        "Reason",
+        "Reuters (via Google News)",
+        "RT",
+        "South China Morning Post",
+        "The Independent"
+      ],
+      "countries": [
+        "turkey",
+        "uk",
+        "usa",
+        "germany",
+        "canada",
+        "pan_arab",
+        "russia",
+        "wire_services",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "ICE detains British political commentator Milo",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "US arrests far-right provocateur Milo Yiannopoulos",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "UK far-right provocateur Milo Yiannopoulos arrested",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Visa overstay; 'illegal alien' label",
+      "outlets": [
+        "Breitbart",
+        "RT"
+      ],
+      "countries": [
+        "usa",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Arrested by ICE Agents for Overstaying Visa",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "detained as 'illegal alien'",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's ICE; editorial distancing",
+      "outlets": [
+        "The Independent",
+        "Daily Wire"
+      ],
+      "countries": [
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "detained by Trump's ICE",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Disgraced Provocateur Milo Yiannopoulos Detained",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only headline to label Yiannopoulos 'Conservative' rather than 'far-right' or 'provocateur', and the only one to place 'illegal alien' in scare quotes — signalling distance from DHS framing without explicitly contesting the arrest.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The only headline to frame the detention as 'Trump's ICE' rather than a neutral institutional act, and the only one to foreground personal humiliation ('looks dejected in mugshot') — a tabloid register absent from all other titles.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Headlines Yiannopoulos as 'Disgraced Provocateur' — the sharpest editorial distancing in the corpus, and notably from a fellow conservative American publication rather than a left-leaning outlet.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only headline to lead with the specific legal cause (overstaying visa) and state the deportation destination — 'Will Be Deported to United Kingdom' — foregrounding procedural finality where other outlets stop at the detention fact.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "At the headline layer, twelve outlets across nine countries unanimously frame the story as routine immigration enforcement — an ICE arrest and impending deportation — with divergence limited to how Yiannopoulos is politically labeled and whether 'Trump's ICE' or a neutral institution is credited for the action.",
+  "generated_at": "2026-08-29T13:32:56+00:00",
+  "model": "claude-sonnet-4-6"
+}
