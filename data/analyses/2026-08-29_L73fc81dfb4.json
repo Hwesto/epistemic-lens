@@ -1,0 +1,181 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "L73fc81dfb4",
+  "cluster_id": 151,
+  "cluster_name": "Ecuador court convicts ex-president Moreno in Sinohydro bribery case",
+  "salience_score": 3.656,
+  "n_outlets": 11,
+  "n_countries": 9,
+  "n_articles": 13,
+  "event_summary": "Ecuador's National Court of Justice convicted former President Lenín Moreno of bribery on August 28, 2026, for accepting Sinohydro payments during construction of the Coca Codo Sinclair hydroelectric plant, sentencing him to five years in prison and a permanent bar from public office.",
+  "tldr": "Coverage across 11 outlets in 9 countries is strikingly uniform: every outlet treated Moreno's conviction as a straightforward criminal verdict with no meaningful dissent. The detail receiving the least attention outside German-language coverage is that a former Chinese ambassador was among the 19 co-defendants convicted alongside Moreno — a cross-border diplomatic dimension that Spanish-language and English-language outlets skipped almost entirely. Deutsche Welle alone explored Moreno's claim that his predecessor Rafael Correa 'promised to take revenge on me,' making the political persecution narrative invisible in all other coverage. Spanish-language outlets across three countries converged on the Sinohydro scheme mechanics and the sentencing of Moreno's wife and daughter, without engaging the political rivalry or international dimensions.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "presidential bribery conviction",
+      "outlets": ["Al Jazeera English", "Carta Capital", "Deutsche Welle Deutsch", "El Financiero", "El Sol de Mexico", "France 24 Spanish", "La Jornada", "Straits Times", "The Hindu Intl", "The Independent", "The Punch"],
+      "countries": ["qatar", "brazil", "germany", "mexico", "state_tv_intl", "vietnam_thai_my", "india", "uk", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Ecuador sentences ex-president Moreno to five years in jail in bribery case\n\nLenin Moreno, 73, has also been permanently barred from holding any public office in the future.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Ecuador jails ex-President Moreno five years for bribery\n\nFormer Ecuadoran President Lenin Moreno sentenced to five years in prison for bribery related to a Chinese-built hydroelectric dam. Read more on the case. Read More: https://punchng.com/ecuador-jails-ex-president-moreno-five-years-for-bribery/",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "National Court of Justice verdict",
+      "outlets": ["France 24 Spanish", "La Jornada", "Straits Times", "El Financiero"],
+      "countries": ["state_tv_intl", "mexico", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "La Corte Nacional de Justicia de Ecuador consideró probado que, cuando era vicepresidente de Rafael Correa, Lenín Moreno encabezó un esquema de corrupción para favorecer a la empresa estatal china Sinohydro en la construcción de la mayor central hidroeléctrica del país. Según los jueces, la firma asiática pagó dádivas a un círculo que luego fueron distribuidas a distintas sociedades y personas, incluidos familiares del exmandatario, como su esposa y su hija.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "El Tribunal de la Corte Nacional de Justicia de Ecuador declaró ayer la culpabilidad del ex presidente Lenín Moreno, su esposa y su hija, por cohecho en el caso Sinohydro, por lo que el acusado deberá cumplir cinco años de cárcel y no podrá volver a ejercer cargos públicos. Mientras sus familiares fueron condenados a más de dos años de prisión.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Chinese state company cross-border bribery",
+      "outlets": ["The Independent", "El Financiero", "El Sol de Mexico", "France 24 Spanish", "Deutsche Welle Deutsch"],
+      "countries": ["uk", "mexico", "state_tv_intl", "germany"],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Former Ecuadorian President Lenín Moreno has been sentenced to prison for accepting bribes from the Chinese company Sinohydro",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "Lenín Moreno fue declarado culpable de cohecho por un tribunal de Ecuador, por recibir sobornos para favorecer a Sinohydro en la construcción de una central hidroeléctrica.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Moreno-Correa rivalry and persecution claim",
+      "outlets": ["Deutsche Welle Deutsch"],
+      "countries": ["germany"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Zugleich richtete er Vorwürfe gegen das frühere \"Correa-Regime.\" Rafael Correa habe \"versprochen, sich an mir zu rächen\", versicherte Moreno. Das sei der Grund für den Prozess gegen ihn.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "hydroelectric plant construction bribes",
+      "outlets": ["Carta Capital", "Deutsche Welle Deutsch", "France 24 Spanish", "El Financiero"],
+      "countries": ["brazil", "germany", "state_tv_intl", "mexico"],
+      "evidence": [
+        {
+          "outlet": "Carta Capital",
+          "country": "brazil",
+          "quote": "Justiça do Equador declara ex-presidente Lenín Moreno culpado de corrupção\n\nCaso envolve a construção da maior usina hidrelétrica do País",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Laut Staatsanwaltschaft zahlte die Firma aus China insgesamt 76 Millionen Dollar (65 Millionen Euro) an Bestechungsgeldern, während das Wasserkraftwerk mit der Bezeichnung \"Coca Codo Sinclair\" gebaut wurde.",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "vietnam_thai_my",
+      "country": "vietnam_thai_my",
+      "mean_similarity": 0.749,
+      "note": "Straits Times — most isolated bucket. Brief wire-style coverage with the thinnest token overlap with other countries, though topically aligned."
+    },
+    {
+      "outlet": "germany",
+      "country": "germany",
+      "mean_similarity": 0.777,
+      "note": "Deutsche Welle Deutsch — German-language full-body article drives the lowest cross-lingual similarity, the only full extraction in the cluster."
+    },
+    {
+      "outlet": "state_tv_intl",
+      "country": "state_tv_intl",
+      "mean_similarity": 0.777,
+      "note": "France 24 Spanish — two articles with a live Guayaquil correspondent; formal legal register diverges from regional Spanish outlets despite shared language."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "country": "germany",
+      "terms": ["verurteilt", "korruption", "staatsanwaltschaft", "südamerikanischen"],
+      "what_it_reveals": "German exclusive vocabulary clusters around criminal prosecution ('verurteilt'=convicted, 'korruption', 'staatsanwaltschaft'=prosecution) — reflecting the only full-body article in the cluster, which grounds the story firmly in judicial process language absent from summary-level coverage elsewhere."
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "terms": ["condenado", "cárcel", "prisión"],
+      "what_it_reveals": "Mexico's three Spanish-exclusive terms are all punitive synonyms (convicted, jail, prison) — the three Mexico outlets collectively dominate punitive-register vocabulary in Spanish, with no other Spanish-language bucket (state_tv_intl uses 'cohecho'/'dádivas') matching this frequency."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "country": "germany",
+      "finding": "Only outlet to report that a former Chinese ambassador was among the 19 co-defendants convicted alongside Moreno, making the diplomatic and state-actor dimension of the bribery scheme invisible to all other global coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "country": "germany",
+      "finding": "Only outlet to detail Moreno's political counter-narrative: he alleges Correa 'promised to take revenge on me' and frames the entire prosecution as politically motivated by his former mentor.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "country": "germany",
+      "finding": "Only outlet to note that Moreno's wheelchair-bound disability and paraplegia could convert the five-year sentence to house arrest if the conviction survives appeal — a mitigation detail absent from all other coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Fielded two articles including a live correspondent report from Guayaquil following nine hours of sentencing — the only outlet to cover the real-time procedural dimension of the verdict.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Specifically notes that judges found the Chinese company paid funds to a business network which then distributed them to 'various companies and people' — emphasizing the breadth of the scheme beyond Moreno himself.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Eleven outlets across nine countries converged on Moreno's guilt without dissent, but the Chinese dimension — a former Chinese ambassador convicted alongside him and $76 million in documented Sinohydro bribes — was reported by only one outlet (Deutsche Welle) and received no amplification in English or Spanish-language coverage. The political subplot framing Moreno as a victim of Correa's revenge was equally confined to a single article, leaving the global picture flatter than the underlying story warranted.",
+  "generated_at": "2026-08-29T13:45:21Z",
+  "model": "claude-sonnet-4-6"
+}
