@@ -1,0 +1,193 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "L0944a36dc2",
+  "cluster_id": 98,
+  "cluster_name": "Federal judge rejects Trump's bid to void hush money conviction",
+  "salience_score": 2.438,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 13,
+  "tldr": "The headline layer narrows the August 28 judicial triple-bill to a single dominant frame: eight of ten live outlets lead with defeat verbs — 'loses,' 'rejects,' 'denies,' 'blocks' — applied to the hush money case, while body text sustains broader presidential immunity analysis. Only Reuters and The Hindu Intl introduce the pro-Palestinian deportation angle at headline level, and only Straits Times surfaces the birthright citizenship track, so most RSS readers encounter a single-story day rather than the three-front judicial story that body text reveals. Reason alone shifts from outcome to procedural cause ('came too late'), the only headline to make the legal mechanism legible without clicking. China's Xinhua is editorially absent — its sole entry is a stale 2017 travel ban headline — widening the gap between China's stated cluster participation and its actual headline presence.",
+  "event_summary": "On August 28, 2026, judge Hellerstein denied Trump's bid to transfer his hush money conviction to federal court a third time; a California judge struck down deportation of pro-Palestinian student activists; a Maryland judge declined to block Trump's revised birthright citizenship order.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "court blocks hush money transfer bid",
+      "outlets": [
+        "Axios World",
+        "Daily Sabah",
+        "Geo News English",
+        "Globe and Mail",
+        "Reason",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Independent"
+      ],
+      "countries": [
+        "usa",
+        "turkey",
+        "pakistan",
+        "canada",
+        "wire_services",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "US judge rejects Trump bid to toss hush money conviction",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Judge denies Trump's latest bid to move hush money case",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Judge again blocks Trump's attempt to get his felony",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "felony / criminal conviction framing",
+      "outlets": [
+        "The Independent",
+        "Reuters (via Google News)"
+      ],
+      "countries": [
+        "uk",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "his felony hush money conviction tossed",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "already-decided criminal hush money case",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump losing streak / executive setbacks",
+      "outlets": [
+        "Axios World",
+        "Globe and Mail"
+      ],
+      "countries": [
+        "usa",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Trump loses longshot bid to erase hush money conviction",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Trump loses again in bid to erase his hush money conviction",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "pro-Palestinian deportation unconstitutional",
+      "outlets": [
+        "Reuters (via Google News)",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Judge deals blow to Trump moves to deport pro-Palestinian",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Judge deals setback to Trump's bid to deport pro-Palestinian",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "birthright citizenship order under judicial review",
+      "outlets": [
+        "Straits Times"
+      ],
+      "countries": [
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "won't yet block Trump's new birthright citizenship order",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "Xinhua's sole headline in this cluster ('Federal judge in Hawaii extends order blocking Trump's travel ban') is stale 2017 content entirely unrelated to the 2026 hush money proceedings — China's editorial voice is absent at the headline layer despite formal cluster membership."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Reason",
+      "country": "usa",
+      "finding": "Only headline to frame the ruling as a procedural defect ('came too late') rather than a substantive outcome ('loses' / 'blocks') — the legal mechanism is visible at title level without clicking, unlike every other outlet in the corpus.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only headline to use 'again,' signalling accumulation — the pattern of repeated executive failure is conveyed in the title itself, the highest temporal information density at RSS level.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to run a birthright citizenship headline alongside the hush money headline, making it the sole outlet whose homepage exposes all three simultaneous judicial fronts of August 28.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Xinhua English",
+      "country": "china",
+      "finding": "Sole outlet contributing a stale 2017 headline ('Federal judge in Hawaii extends order blocking Trump's travel ban') — entirely unrelated to the 2026 hush money proceedings, leaving China absent from the headline story.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "At the headline layer, eight of ten live outlets reduce three simultaneous judicial rulings to a single frame — a court blocking Trump's bid to move his hush money conviction — with defeat verbs ('loses,' 'rejects,' 'blocks') dominating every title; the pro-Palestinian deportation and birthright citizenship rulings are invisible to most RSS readers, and Reason alone exposes the procedural rationale rather than the bare outcome.",
+  "generated_at": "2026-08-29T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
