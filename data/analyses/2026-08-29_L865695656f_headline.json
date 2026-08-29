@@ -1,0 +1,213 @@
+{
+  "story_key": "L865695656f",
+  "date": "2026-08-29",
+  "n_buckets": 22,
+  "n_articles": 39,
+  "tldr": "Headlines worldwide frame Norway's King Harald V's death as a moment of profound national and international grief, with his reformist legacy and national-symbol status as a consistent secondary theme; a handful of English-language outlets depart from this consensus to foreground the incoming royal family's Epstein-linked scandals.",
+  "frames": [
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Mass mourning for King Harald",
+      "buckets": ["wire_services", "pan_african", "qatar", "uk", "germany", "spain", "italy", "taiwan_hk", "vietnam_thai_my", "india", "nordic", "religious_press", "canada"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Tens of thousands mourn King Harald V in Oslo",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Norway mourns king Harald V as crown prince Haakon",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Norway mourns King Harald as new era begins",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Norway mourns King Harald as Haakon VIII ascends",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "\"Eine ganze Nation trauert\"",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "Flores y condolencias: así despide Noruega",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Addio ad Harald V",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Norway mourns death of King Harald",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Norway mourns King Harald as crowds gather",
+          "signal_text_idx": 31
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Norway mourns King Harald as crowds gather",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Europe's monarchs and world leaders mourn",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Pope Leo mourns death of Norway's King Harald V",
+          "signal_text_idx": 37
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Tens of thousands mourn King Harald V",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Harald as reformer & national symbol",
+      "buckets": ["qatar", "brazil", "uk", "canada", "south_africa", "italy", "kenya", "taiwan_hk", "nordic"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "'The whole country's grandfather'",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "rei da Noruega era casado com plebeia e considerado",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "A beloved monarch buffeted by family crises",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Norway's reform-minded head of state",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Norway's reform-minded head of state",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "fine di un'era e ascesa di Re Haakon in Norvegia",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "King Harald, 'symbol' of Norway, dead at 89",
+          "signal_text_idx": 30
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "King Haakon the new face of Norway's monarchy",
+          "signal_text_idx": 32
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Norway's late King Harald was a 'wise elder'",
+          "signal_text_idx": 38
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Epstein scandal shadows succession",
+      "buckets": ["uk", "spain"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Epstein links cast shadow over new royal family",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "From Epstein ties to a shaman brother-in-law",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "religious_press", "mean_similarity": 0.71, "n_tokens": 30},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.718, "n_tokens": 35},
+    {"bucket": "wire_services", "mean_similarity": 0.747, "n_tokens": 89},
+    {"bucket": "pan_african", "mean_similarity": 0.773, "n_tokens": 64},
+    {"bucket": "nordic", "mean_similarity": 0.783, "n_tokens": 369},
+    {"bucket": "ukraine", "mean_similarity": 0.784, "n_tokens": 32},
+    {"bucket": "brazil", "mean_similarity": 0.786, "n_tokens": 64},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.79, "n_tokens": 72},
+    {"bucket": "france", "mean_similarity": 0.804, "n_tokens": 47},
+    {"bucket": "south_africa", "mean_similarity": 0.806, "n_tokens": 37},
+    {"bucket": "germany", "mean_similarity": 0.807, "n_tokens": 58},
+    {"bucket": "qatar", "mean_similarity": 0.81, "n_tokens": 47},
+    {"bucket": "italy", "mean_similarity": 0.813, "n_tokens": 48},
+    {"bucket": "spain", "mean_similarity": 0.813, "n_tokens": 60},
+    {"bucket": "usa", "mean_similarity": 0.822, "n_tokens": 261},
+    {"bucket": "india", "mean_similarity": 0.827, "n_tokens": 57},
+    {"bucket": "turkey", "mean_similarity": 0.833, "n_tokens": 32},
+    {"bucket": "canada", "mean_similarity": 0.838, "n_tokens": 288},
+    {"bucket": "uk", "mean_similarity": 0.842, "n_tokens": 91}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["china", "russia", "ukraine", "usa", "turkey", "france"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "note": "Only outlet in the uk bucket to foreground the Epstein scandal in the headline; both BBC World articles focus on mourning and legacy."
+    },
+    {
+      "outlet": "El País English",
+      "bucket": "spain",
+      "note": "El País English leads with scandal framing ('family scandals: From Epstein ties to a shaman brother-in-law') while the Spanish-language edition headlines mourning imagery and flowers."
+    }
+  ],
+  "bottom_line": "At the headline layer, global coverage advertises Harald's death as an occasion for collective grief and a reformist legacy, while a small cluster of English-language outlets chose scandal as the story's defining frame.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
