@@ -1,0 +1,171 @@
+{
+  "story_key": "Ld929a44b10",
+  "date": "2026-08-29",
+  "n_buckets": 12,
+  "n_articles": 21,
+  "tldr": "Headlines across all 12 country buckets lead overwhelmingly with mounting death tolls and missing-persons counts from the Nepal-Tibet flash floods. A subset emphasises the strain on rescue operations, and Canada's Globe and Mail uniquely foregrounds 25 Canadians among the missing — an angle absent from every other outlet's headline.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Mass casualties & thousands missing",
+      "buckets": [
+        "india",
+        "wire_services",
+        "pakistan",
+        "turkey",
+        "canada",
+        "china",
+        "germany",
+        "taiwan_hk",
+        "south_korea",
+        "usa",
+        "russia",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Death toll passes 600, nearly 3,000 people missing",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Number of missing in Nepal, China floods soars past 2,400",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Death toll from Nepal-Tibet floods rises to over 600",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "157 killed in floods in northern Nepal: police",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Nepal, China floods: Nearly 3,000 missing, 633 dead",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "At Least 472 Dead, More than 1,500 Missing",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Hundreds killed, over 1,000 missing after flash floods",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Nepal floods leave hundreds dead, thousands missing",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Death toll from Nepal-China flash floods rises to 633",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "Search for 1,000 missing after deadly Nepal-Tibet floods",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Aerial view of the devastating Nepal flash floods",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Death toll at least 359, with more than 1,000 missing",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Rescue operations under strain",
+      "buckets": [
+        "india",
+        "wire_services",
+        "canada",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "15,000+ Personnel Deployed For Rescue",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Rescuers race to find 100 workers trapped in tunnels",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Rescuers retrieve flood survivors in Nepal",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Nepal scrambles to find 1,300 missing",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Own nationals among the missing",
+      "buckets": [
+        "canada"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "At least 25 Canadians among 1,500 missing",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.71, "n_tokens": 31},
+    {"bucket": "nigeria", "mean_similarity": 0.743, "n_tokens": 33},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.745, "n_tokens": 42},
+    {"bucket": "india", "mean_similarity": 0.753, "n_tokens": 52},
+    {"bucket": "germany", "mean_similarity": 0.757, "n_tokens": 30},
+    {"bucket": "russia", "mean_similarity": 0.779, "n_tokens": 40},
+    {"bucket": "south_korea", "mean_similarity": 0.8, "n_tokens": 64},
+    {"bucket": "wire_services", "mean_similarity": 0.807, "n_tokens": 70},
+    {"bucket": "canada", "mean_similarity": 0.812, "n_tokens": 82},
+    {"bucket": "turkey", "mean_similarity": 0.835, "n_tokens": 85}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage presents a near-uniform HEALTH_SAFETY frame of death tolls and missing counts; the only divergence is Globe and Mail leading with 25 Canadians among the missing — a national-stakes angle every other outlet omits from its headline.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
