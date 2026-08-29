@@ -1,0 +1,177 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "Lbbff431bc9",
+  "cluster_id": 125,
+  "cluster_name": "Niger junta regains control after military mutiny in Niamey",
+  "salience_score": 11.25,
+  "n_outlets": 20,
+  "n_countries": 15,
+  "n_articles": 24,
+  "tldr": "Headlines across all 15 country buckets converge uniformly on SECURITY_DEFENSE: gunfire, explosions, and an armed attempt to storm Niger's presidential palace are the sole frame present at RSS level, with no title in the corpus raising political context, jihadist history, governance consequences, or economic implications. The principal variation is register, not frame: Anglophone outlets lead with the offensive action ('attack,' 'attempt to storm,' 'insurgents') while French-language and wire-service headlines balance that with the junta's counter-narrative ('gradually regaining control,' 'coup de force'). France 24 FR is the only outlet to treat the state television blackout as a standalone headline signal, making information suppression visible at RSS level where every other outlet buries it as a parenthetical. India Today is the only outlet to deploy a causal verb — 'Niger mutiny sparks overnight gunfire' — giving its headline the fullest narrative arc in the corpus; all other outlets lead with the sensory fact and omit causation entirely.",
+  "event_summary": "On 29 August 2026, elements of Niger's armed forces attacked Air Force Base 101 at Niamey's international airport and attempted to breach the presidential palace perimeter; the military junta declared it was 'gradually regaining control' as state television briefly went off air.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Armed mutiny targeting airport and presidential palace",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "AfricaNews",
+        "Al Jazeera English",
+        "CGTN World",
+        "Daily Sabah",
+        "Dawn",
+        "Deutsche Welle English",
+        "India Today",
+        "Kommersant",
+        "Le Monde",
+        "Premium Times Nigeria",
+        "RFI Afrique",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "TASS English",
+        "The Africa Report",
+        "The Punch",
+        "Vanguard"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "pan_african",
+        "qatar",
+        "china",
+        "turkey",
+        "pakistan",
+        "germany",
+        "india",
+        "russia_native",
+        "africa_other",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "russia",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Mutinous soldiers attack airport, presidency in Niger capital",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Reports of gunfire near military base in Niger's capital",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Mutinous soldiers attack airport, presidency in Niger capital",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "Clashes in Niger's Niamey after troops attempt to storm",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "India Today",
+          "country": "india",
+          "quote": "Niger mutiny sparks overnight gunfire at Niamey military base",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Clashes in Niger after troops try to storm presidential palace",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Vanguard",
+          "country": "nigeria",
+          "quote": "Gunfire, as Niger insurgents attempt to storm presidential palace",
+          "signal_text_idx": 23
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Gunfire, blasts heard in several areas of Niger capital Niamey",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Junta authority challenged by armed mutiny",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "Le Monde",
+        "Deutsche Welle English"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Niger's junta says 'regaining control'",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "coup de force mené par des « soldats en rupture »",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Niger's defense ministry says soldiers attempted mutiny",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "The only outlet to treat the state TV blackout as a standalone headline — '🔴 Niger : le signal de la télévision nationale coupé après une nuit de tirs à Niamey' — foregrounding information suppression as its primary signal rather than the kinetic violence. Every other outlet mentions the TV blackout parenthetically in body text if at all.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "India Today",
+      "country": "india",
+      "finding": "Only outlet to use a causal verb ('sparks') placing the mutiny as cause and overnight gunfire as effect — 'Niger mutiny sparks overnight gunfire at Niamey military base'. All other outlets lead with the sensory fact (gunfire, explosions) and omit the causal chain, requiring readers to click for the narrative arc.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Le Monde",
+      "country": "france",
+      "finding": "Only outlet to use explicitly political vocabulary in the headline — 'coup de force' and 'soldats en rupture' — framing the mutiny as a political rupture against the ruling order rather than a kinetic security incident. This is the most contextually loaded headline in the corpus at RSS level.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "The only headline to attribute the gunfire report entirely to a third-party wire — 'Gunfire heard in Niger's capital, at international airport — Reuters' — without adding independent framing or agency language, maintaining maximum editorial distance from the story.",
+      "signal_text_idx": 19
+    }
+  ],
+  "bottom_line": "The headline layer of Niger coverage is uniformly SECURITY_DEFENSE across all 15 country buckets, with gunfire, explosions, and an assault on the presidential palace dominating every front page and RSS feed globally and no outlet raising political context, jihadist history, or governance implications at title level. The only meaningful variation is register: Anglophone outlets foreground the offensive ('attack,' 'attempt to storm,' 'insurgents') while French-language and wire-service titles balance that with the junta's counter-narrative ('gradually regaining control,' 'coup de force'). The divergence-index should expect a significant body-vs-headline gap on contextual depth — body texts across the corpus add historical background, jihadist context, and Russian-partnership detail that no headline transmits.",
+  "generated_at": "2026-08-29T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
