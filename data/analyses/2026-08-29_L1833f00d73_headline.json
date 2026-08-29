@@ -1,0 +1,162 @@
+{
+  "story_key": "L1833f00d73",
+  "date": "2026-08-29",
+  "n_buckets": 8,
+  "n_articles": 16,
+  "tldr": "Headlines across all outlets lead with the dollar amount and legal fact of the settlement — '$17B', '$18B', 'settles', 'pay' — with a secondary wave emphasising competitive and regulatory consequences: The Hill frames Meta as cornering rivals, The Local outlets headline the EU's immediate demand, and El Pais invokes the 'tobacco moment' analogy in the title itself.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "billion-dollar settlement as headline fact",
+      "buckets": ["usa", "canada", "russia", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Meta settles with states, sets new industry standards",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Meta to pay $17-billion to settle social-media harms",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Meta agrees to pay $18 bn to settle Facebook and Insta",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Meta settles landmark US lawsuit for nearly $18bn",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "youth addiction and child harm",
+      "buckets": ["canada", "germany", "nordic"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "How teen accounts on Instagram and Facebook are",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Why social media addiction is so hard to regulate",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "EU demands Meta 'protect our kids' after US settlement",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "industry standards and competitor pressure",
+      "buckets": ["usa", "spain", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "Meta settlement backs competitors into a corner",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Social networks face their 'tobacco moment'",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "How the Meta Settlement Could Change the Internet",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU demand and global legal spillover",
+      "buckets": ["nordic", "uk"],
+      "evidence": [
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "EU demands Meta 'protect our kids' after US settlement",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "What could Meta's US settlement mean around the world",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "AI cyber-threat countdown",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Tech giants warn time is running out to prepare",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "We're Now Relying on AI to Police AI",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "spain", "mean_similarity": 0.526, "n_tokens": 36},
+    {"bucket": "uk", "mean_similarity": 0.553, "n_tokens": 185},
+    {"bucket": "nordic", "mean_similarity": 0.611, "n_tokens": 54},
+    {"bucket": "opinion_magazines", "mean_similarity": 0.663, "n_tokens": 75},
+    {"bucket": "usa", "mean_similarity": 0.671, "n_tokens": 386},
+    {"bucket": "canada", "mean_similarity": 0.69, "n_tokens": 66}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Hill",
+      "country": "usa",
+      "finding": "Frames the settlement not as legal accountability but as competitive strategy — headline 'backs competitors into a corner' signals Meta's offensive use of the deal from the title alone.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Mother Jones",
+      "country": "usa",
+      "finding": "Headline 'We're Now Relying on AI to Police AI' makes no reference to Meta or children — the most topically divergent article in this cluster by title alone.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "Only outlet to invoke the 'tobacco moment' analogy in the headline itself, immediately historicising the deal before a reader reaches the body.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "The headline layer presents the Meta settlement as a financial-legal event (dollar figures dominate every lede) with a competitive aftershock — industry standards, EU demands, and rival pressure are all advertised in titles — but the global litigation stakes and non-US enforcement gaps visible in the body text are entirely invisible from the front page.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
