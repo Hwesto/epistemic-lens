@@ -1,0 +1,269 @@
+{
+  "date": "2026-08-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 11,
+  "buckets": [
+    "china",
+    "france",
+    "israel",
+    "pakistan",
+    "pan_arab",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 81,
+    "france": 34,
+    "pakistan": 24,
+    "turkey": 86,
+    "china": 15,
+    "israel": 37,
+    "pan_arab": 44,
+    "vietnam_thai_my": 36
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.855
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.831
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.761
+    },
+    {
+      "a": "israel",
+      "b": "wire_services",
+      "score": 0.757
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.722
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.719
+    },
+    {
+      "a": "israel",
+      "b": "turkey",
+      "score": 0.709
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.7
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.69
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.669
+    },
+    {
+      "a": "pan_arab",
+      "b": "wire_services",
+      "score": 0.644
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.621
+    },
+    {
+      "a": "israel",
+      "b": "vietnam_thai_my",
+      "score": 0.616
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.605
+    },
+    {
+      "a": "china",
+      "b": "israel",
+      "score": 0.59
+    },
+    {
+      "a": "israel",
+      "b": "pakistan",
+      "score": 0.589
+    },
+    {
+      "a": "israel",
+      "b": "pan_arab",
+      "score": 0.588
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.584
+    },
+    {
+      "a": "china",
+      "b": "france",
+      "score": 0.571
+    },
+    {
+      "a": "france",
+      "b": "israel",
+      "score": 0.564
+    },
+    {
+      "a": "china",
+      "b": "wire_services",
+      "score": 0.528
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.51
+    },
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.508
+    },
+    {
+      "a": "france",
+      "b": "pan_arab",
+      "score": 0.481
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.464
+    },
+    {
+      "a": "pakistan",
+      "b": "pan_arab",
+      "score": 0.443
+    },
+    {
+      "a": "china",
+      "b": "pakistan",
+      "score": 0.438
+    },
+    {
+      "a": "china",
+      "b": "pan_arab",
+      "score": 0.362
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.554,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.618,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.631,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.637,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.66,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.706,
+      "n_tokens": 81
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.495,
+      "n_tokens": 15
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.591,
+      "n_tokens": 24
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "strik",
+        "count": 4
+      },
+      {
+        "term": "hospital",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "jénine",
+        "count": 3
+      },
+      {
+        "term": "cisjordanie",
+        "count": 3
+      }
+    ],
+    "pakistan": [
+      {
+        "term": "airstrike",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "china": [
+      {
+        "term": "conducted",
+        "count": 3
+      }
+    ],
+    "israel": [],
+    "pan_arab": [
+      {
+        "term": "attack",
+        "count": 6
+      },
+      {
+        "term": "increase",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-29T13:33:20+00:00",
+  "meta_version": "10.0.3"
+}

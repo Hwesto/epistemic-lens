@@ -1,0 +1,134 @@
+{
+  "date": "2026-08-29",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 742,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 19,
+      "n_tokens_in_cohort": 750,
+      "distinctive_terms": []
+    },
+    "balkans": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 284,
+      "n_tokens_in_cohort": 485,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 716,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 716,
+      "distinctive_terms": [
+        {
+          "term": "criminal",
+          "count_in_bucket": 6,
+          "count_in_cohort": 9,
+          "rate_in_bucket": 0.11321,
+          "rate_in_cohort": 0.01257,
+          "llr": 13.718,
+          "log_ratio": 2.198,
+          "p_value": 0.000212
+        }
+      ]
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 45,
+      "n_tokens_in_cohort": 724,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 92,
+      "n_tokens_in_cohort": 677,
+      "distinctive_terms": [
+        {
+          "term": "hrustanovic",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.07609,
+          "rate_in_cohort": 0.0,
+          "llr": 30.209,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "ahmed",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.05435,
+          "rate_in_cohort": 0.0,
+          "llr": 21.477,
+          "log_ratio": null,
+          "p_value": 4e-06
+        },
+        {
+          "term": "reflect",
+          "count_in_bucket": 5,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.05435,
+          "rate_in_cohort": 0.00295,
+          "llr": 13.586,
+          "log_ratio": 2.912,
+          "p_value": 0.000228
+        }
+      ]
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 745,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 65,
+      "n_tokens_in_cohort": 704,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 66,
+      "n_tokens_in_cohort": 703,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 41,
+      "n_tokens_in_cohort": 728,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

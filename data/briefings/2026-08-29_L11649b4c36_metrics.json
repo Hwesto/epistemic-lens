@@ -1,0 +1,385 @@
+{
+  "date": "2026-08-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 20,
+  "buckets": [
+    "brazil",
+    "canada",
+    "india",
+    "kenya",
+    "russia",
+    "south_africa",
+    "turkey",
+    "uk",
+    "usa",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 272,
+    "canada": 101,
+    "south_africa": 39,
+    "turkey": 34,
+    "brazil": 48,
+    "india": 106,
+    "russia": 29,
+    "wire_services": 14,
+    "uk": 84,
+    "kenya": 229
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.937
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.917
+    },
+    {
+      "a": "russia",
+      "b": "south_africa",
+      "score": 0.906
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.906
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.903
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.893
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.889
+    },
+    {
+      "a": "brazil",
+      "b": "south_africa",
+      "score": 0.885
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.885
+    },
+    {
+      "a": "south_africa",
+      "b": "turkey",
+      "score": 0.881
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.878
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.875
+    },
+    {
+      "a": "india",
+      "b": "south_africa",
+      "score": 0.873
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.872
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.871
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.868
+    },
+    {
+      "a": "south_africa",
+      "b": "usa",
+      "score": 0.865
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.864
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.86
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.858
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.85
+    },
+    {
+      "a": "brazil",
+      "b": "russia",
+      "score": 0.849
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.847
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.846
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.839
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.837
+    },
+    {
+      "a": "canada",
+      "b": "south_africa",
+      "score": 0.834
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.821
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.816
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.802
+    },
+    {
+      "a": "india",
+      "b": "kenya",
+      "score": 0.792
+    },
+    {
+      "a": "kenya",
+      "b": "uk",
+      "score": 0.79
+    },
+    {
+      "a": "kenya",
+      "b": "south_africa",
+      "score": 0.775
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.773
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.761
+    },
+    {
+      "a": "brazil",
+      "b": "kenya",
+      "score": 0.724
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.551
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.529
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.501
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.48
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.465
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.465
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.457
+    },
+    {
+      "a": "south_africa",
+      "b": "wire_services",
+      "score": 0.429
+    },
+    {
+      "a": "kenya",
+      "b": "wire_services",
+      "score": 0.401
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.747,
+      "n_tokens": 229
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.798,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.808,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.815,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.817,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.828,
+      "n_tokens": 101
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.83,
+      "n_tokens": 272
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.837,
+      "n_tokens": 34
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.475,
+      "n_tokens": 14
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.805,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "seneca",
+        "count": 5
+      },
+      {
+        "term": "democrat",
+        "count": 4
+      },
+      {
+        "term": "nation",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "collaboration",
+        "count": 3
+      }
+    ],
+    "south_africa": [],
+    "turkey": [],
+    "brazil": [
+      {
+        "term": "lago",
+        "count": 6
+      },
+      {
+        "term": "ontário",
+        "count": 3
+      },
+      {
+        "term": "américa",
+        "count": 3
+      },
+      {
+        "term": "canadá",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "avenue",
+        "count": 4
+      },
+      {
+        "term": "jack",
+        "count": 3
+      },
+      {
+        "term": "kimble",
+        "count": 3
+      },
+      {
+        "term": "taco",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "wire_services": [],
+    "uk": [],
+    "kenya": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-29T13:32:48+00:00",
+  "meta_version": "10.0.3"
+}

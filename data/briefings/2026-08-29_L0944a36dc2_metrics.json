@@ -1,0 +1,337 @@
+{
+  "date": "2026-08-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 12,
+  "buckets": [
+    "canada",
+    "china",
+    "india",
+    "pakistan",
+    "turkey",
+    "uk",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 106,
+    "turkey": 31,
+    "pakistan": 49,
+    "canada": 27,
+    "wire_services": 57,
+    "vietnam_thai_my": 72,
+    "india": 32,
+    "uk": 31,
+    "china": 33
+  },
+  "pairwise_similarity": [
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.839
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.837
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.823
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.811
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.807
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.795
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.793
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.787
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.778
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.751
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.751
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.751
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.743
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.743
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.739
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.733
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.724
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.718
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.718
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.715
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.713
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.692
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.689
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.679
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.676
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.67
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.662
+    },
+    {
+      "a": "china",
+      "b": "pakistan",
+      "score": 0.66
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.655
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.649
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.648
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.626
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.619
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.617
+    },
+    {
+      "a": "china",
+      "b": "wire_services",
+      "score": 0.607
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.516
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.646,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.673,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.704,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.716,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.728,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.743,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.759,
+      "n_tokens": 72
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.782,
+      "n_tokens": 31
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.682,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "conclud",
+        "count": 3
+      },
+      {
+        "term": "candidate",
+        "count": 3
+      },
+      {
+        "term": "remove",
+        "count": 3
+      },
+      {
+        "term": "prosecution",
+        "count": 3
+      },
+      {
+        "term": "came",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "pakistan": [
+      {
+        "term": "deni",
+        "count": 3
+      },
+      {
+        "term": "detail",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 6
+      }
+    ],
+    "vietnam_thai_my": [
+      {
+        "term": "birthright",
+        "count": 3
+      },
+      {
+        "term": "citizenship",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "uk": [],
+    "china": [
+      {
+        "term": "hawaii",
+        "count": 3
+      },
+      {
+        "term": "blocking",
+        "count": 3
+      },
+      {
+        "term": "travel",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-29T13:32:44+00:00",
+  "meta_version": "10.0.3"
+}

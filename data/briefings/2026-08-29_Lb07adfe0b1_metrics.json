@@ -1,0 +1,339 @@
+{
+  "date": "2026-08-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 15,
+  "buckets": [
+    "germany",
+    "nigeria",
+    "nordic",
+    "qatar",
+    "russia",
+    "turkey",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 96,
+    "qatar": 25,
+    "turkey": 18,
+    "uk": 47,
+    "germany": 29,
+    "russia": 23,
+    "vietnam_thai_my": 18,
+    "nordic": 462,
+    "nigeria": 29
+  },
+  "pairwise_similarity": [
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.837
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.832
+    },
+    {
+      "a": "nordic",
+      "b": "wire_services",
+      "score": 0.811
+    },
+    {
+      "a": "nigeria",
+      "b": "wire_services",
+      "score": 0.803
+    },
+    {
+      "a": "nigeria",
+      "b": "uk",
+      "score": 0.795
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.795
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.782
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.773
+    },
+    {
+      "a": "nigeria",
+      "b": "qatar",
+      "score": 0.76
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.759
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.757
+    },
+    {
+      "a": "nigeria",
+      "b": "turkey",
+      "score": 0.746
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.745
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.744
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.733
+    },
+    {
+      "a": "nigeria",
+      "b": "russia",
+      "score": 0.728
+    },
+    {
+      "a": "nigeria",
+      "b": "nordic",
+      "score": 0.717
+    },
+    {
+      "a": "nordic",
+      "b": "russia",
+      "score": 0.692
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.685
+    },
+    {
+      "a": "nordic",
+      "b": "turkey",
+      "score": 0.68
+    },
+    {
+      "a": "nordic",
+      "b": "uk",
+      "score": 0.678
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.651
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.651
+    },
+    {
+      "a": "germany",
+      "b": "nigeria",
+      "score": 0.65
+    },
+    {
+      "a": "nigeria",
+      "b": "vietnam_thai_my",
+      "score": 0.648
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.648
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.647
+    },
+    {
+      "a": "qatar",
+      "b": "russia",
+      "score": 0.643
+    },
+    {
+      "a": "nordic",
+      "b": "qatar",
+      "score": 0.64
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.64
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.631
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.619
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.6
+    },
+    {
+      "a": "germany",
+      "b": "nordic",
+      "score": 0.586
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.578
+    },
+    {
+      "a": "nordic",
+      "b": "vietnam_thai_my",
+      "score": 0.491
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.662,
+      "n_tokens": 462
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.753,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.777,
+      "n_tokens": 96
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.611,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.657,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.685,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.702,
+      "n_tokens": 25
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.715,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.731,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "qatar": [],
+    "turkey": [],
+    "uk": [],
+    "germany": [],
+    "russia": [
+      {
+        "term": "stake",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "nordic": [
+      {
+        "term": "countr",
+        "count": 8
+      },
+      {
+        "term": "voter",
+        "count": 6
+      },
+      {
+        "term": "next",
+        "count": 6
+      },
+      {
+        "term": "year",
+        "count": 6
+      },
+      {
+        "term": "result",
+        "count": 4
+      },
+      {
+        "term": "expected",
+        "count": 4
+      },
+      {
+        "term": "percent",
+        "count": 4
+      },
+      {
+        "term": "done",
+        "count": 4
+      },
+      {
+        "term": "married",
+        "count": 4
+      },
+      {
+        "term": "ourselv",
+        "count": 4
+      },
+      {
+        "term": "europe",
+        "count": 4
+      },
+      {
+        "term": "bloc",
+        "count": 4
+      }
+    ],
+    "nigeria": [
+      {
+        "term": "door",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-29T13:33:17+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,315 @@
+{
+  "date": "2026-08-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 16,
+  "buckets": [
+    "canada",
+    "germany",
+    "nordic",
+    "opinion_magazines",
+    "russia",
+    "spain",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 386,
+    "canada": 66,
+    "germany": 27,
+    "spain": 36,
+    "russia": 28,
+    "opinion_magazines": 75,
+    "uk": 185,
+    "nordic": 54
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.868
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.812
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.789
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.755
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.703
+    },
+    {
+      "a": "canada",
+      "b": "nordic",
+      "score": 0.7
+    },
+    {
+      "a": "nordic",
+      "b": "usa",
+      "score": 0.699
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.683
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.669
+    },
+    {
+      "a": "nordic",
+      "b": "opinion_magazines",
+      "score": 0.651
+    },
+    {
+      "a": "nordic",
+      "b": "russia",
+      "score": 0.636
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.608
+    },
+    {
+      "a": "nordic",
+      "b": "uk",
+      "score": 0.596
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.586
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.578
+    },
+    {
+      "a": "canada",
+      "b": "spain",
+      "score": 0.562
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.556
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.544
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "spain",
+      "score": 0.544
+    },
+    {
+      "a": "germany",
+      "b": "spain",
+      "score": 0.542
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.528
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.518
+    },
+    {
+      "a": "germany",
+      "b": "nordic",
+      "score": 0.512
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.511
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.483
+    },
+    {
+      "a": "nordic",
+      "b": "spain",
+      "score": 0.482
+    },
+    {
+      "a": "spain",
+      "b": "uk",
+      "score": 0.482
+    },
+    {
+      "a": "russia",
+      "b": "spain",
+      "score": 0.461
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.526,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.553,
+      "n_tokens": 185
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.611,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.663,
+      "n_tokens": 75
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.671,
+      "n_tokens": 386
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.69,
+      "n_tokens": 66
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.533,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.628,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "competitor",
+        "count": 7
+      },
+      {
+        "term": "agent",
+        "count": 6
+      },
+      {
+        "term": "standard",
+        "count": 4
+      },
+      {
+        "term": "openai",
+        "count": 4
+      },
+      {
+        "term": "warn",
+        "count": 3
+      },
+      {
+        "term": "prepare",
+        "count": 3
+      },
+      {
+        "term": "threat",
+        "count": 3
+      },
+      {
+        "term": "given",
+        "count": 3
+      },
+      {
+        "term": "hugging",
+        "count": 3
+      },
+      {
+        "term": "incident",
+        "count": 3
+      },
+      {
+        "term": "research",
+        "count": 3
+      },
+      {
+        "term": "investigation",
+        "count": 3
+      },
+      {
+        "term": "notice",
+        "count": 3
+      },
+      {
+        "term": "puts",
+        "count": 3
+      },
+      {
+        "term": "pressure",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "changing",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "spain": [],
+    "russia": [],
+    "opinion_magazines": [],
+    "uk": [
+      {
+        "term": "meareg",
+        "count": 5
+      },
+      {
+        "term": "world",
+        "count": 4
+      },
+      {
+        "term": "post",
+        "count": 3
+      },
+      {
+        "term": "victory",
+        "count": 3
+      }
+    ],
+    "nordic": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-08-29T13:32:52+00:00",
+  "meta_version": "10.0.3"
+}
