@@ -1,0 +1,202 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "Lb29c68472b",
+  "cluster_id": 104,
+  "cluster_name": "Israel conducts rare air strike on Jenin, kills three Palestinians",
+  "n_outlets": 9,
+  "n_countries": 8,
+  "n_articles": 11,
+  "salience_score": 2.75,
+  "event_summary": "Israel's military conducted a rare drone strike near Jenin in the occupied West Bank on August 28, 2026, killing three Palestinians. Separately, Israeli strikes in Gaza killed five more people, bringing the cumulative death toll since October 2023 to approximately 73,449.",
+  "tldr": "The same three dead are labelled 'three terrorists' (IDF's own language, relayed by AFP and CGTN), 'three Palestinians' (ARY News, Daily Sabah, Middle East Eye), and unnamed 'accomplices' (Straits Times) — a single event, three incompatible subject frames. Turkey's Anadolu Agency stands alone in headlining Israel's 'genocidal war,' a legal charge no other outlet in the cluster picks up, including fellow Turkish outlet Daily Sabah. Haaretz, the only Israeli outlet present, exclusively surfaces that IDF forces delayed Palestinian Red Crescent medics and confiscated medical equipment after the strike — a legally significant accountability detail absent from all international coverage. The 'rare' qualifier for a West Bank air strike appears independently across AFP wire, Pakistani, and Singapore outlets, signalling that the use of air power in the occupied West Bank is itself a distinct news peg, separate from the ongoing Gaza campaign.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "IDF counter-terrorism air strike",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Straits Times",
+        "CGTN World",
+        "Haaretz"
+      ],
+      "countries": [
+        "wire_services",
+        "vietnam_thai_my",
+        "china",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Israel's military said it carried out an air strike in the Jenin area in the West Bank on Friday that killed a ​Palestinian it described as a Hamas militant operative as well as two of his accomplices, in a rare use of deadly Israeli air power in the occupied territory.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "An Israeli strike killed a Hamas operative and two of his accomplices in the West Bank on Friday, the military said, in a rare use of deadly air power in the occupied territory.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "IDF says it conducted strike against 'terrorists' in Jenin area",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "genocide war-crimes framing",
+      "outlets": [
+        "Anadolu Agency English"
+      ],
+      "countries": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Gaza death toll from Israel’s genocidal war nears 73,500 as 9 more Palestinians killed",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "occupied territory / norm violation",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Daily Sabah",
+        "Middle East Eye",
+        "ARY News English"
+      ],
+      "countries": [
+        "france",
+        "turkey",
+        "pan_arab",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "L'armée israélienne a annoncé ​avoir tué vendredi lors d'une frappe de drone ​en Cisjordanie un activiste du Hamas ainsi que deux complices qui circulaient à bord d'une voiture dans la région ​de ‌Jénine.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "An Israeli drone strike killed three Palestinians in the occupied West Bank city of Jenin on Friday, with Israeli forces subsequently withholding their bodies, according to the Pal...",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "Israel killed three Palestinians in rare West Bank airstrike",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "cumulative casualty accounting",
+      "outlets": [
+        "Middle East Eye",
+        "Daily Sabah",
+        "Anadolu Agency English",
+        "AFP / France 24 EN"
+      ],
+      "countries": [
+        "pan_arab",
+        "turkey",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "The new attacks put the death toll from Israel's war on Gaza at 73,449 Palestinians, and 174,472 injured since 7 October 2023.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The death toll in Gaza has risen to 73,449 since Israel launched its war on the Palestinian enclave in October 2023, the Gaza Health Ministry said Saturday, as a Palestinian rights...",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Two separate Israeli strikes killed one person each in Gaza City, according to health officials at Shifa hospital.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "ministerial domestic signaling",
+      "outlets": [
+        "Haaretz"
+      ],
+      "countries": [
+        "israel"
+      ],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Defense Minister Katz said the Jenin refugee camp had been 'cleansed' of militants and terror infrastructure",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Only outlet in the cluster to use 'genocidal war' in a headline, making an explicit legal charge absent from all other coverage including fellow Turkish outlet Daily Sabah.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "Exclusively reports that Israeli troops delayed Palestinian Red Crescent medics and confiscated medical equipment at the Jenin strike site — a legally significant operational detail absent from all international outlets.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "Only outlet to report Defense Minister Katz's statement that the Jenin refugee camp had been 'cleansed' — political signaling to a domestic audience invisible in all non-Israeli coverage.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Alone among non-Israeli outlets in reporting that Israeli forces withheld the bodies of the three killed after the West Bank strike.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "Only outlet to report both death and injury totals together (73,449 dead, 174,472 injured since October 7, 2023), providing the most expansive humanitarian accounting in the cluster.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Uses scare quotes around 'terrorists' in a near-empty item — a minimal, non-committal acknowledgment that signals factual awareness without any editorial framing.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "Nine outlets across eight countries covered the same West Bank drone strike but produced three incompatible subject labels for the dead — terrorists, Palestinians, and militants — encoding the full geopolitical fault line in a single lexical choice. The most operationally significant detail, that IDF forces delayed Palestinian Red Crescent medics and confiscated equipment, was reported only by the Israeli outlet Haaretz, creating a gap between Israeli accountability journalism and all international coverage that is itself a finding.",
+  "generated_at": "2026-08-29T13:51:51Z",
+  "model": "claude-sonnet-4-6"
+}
