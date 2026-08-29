@@ -1,0 +1,146 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-29",
+  "lineage_id": "Lb29c68472b",
+  "cluster_id": 104,
+  "cluster_name": null,
+  "salience_score": 2.75,
+  "n_outlets": 9,
+  "n_countries": 8,
+  "n_articles": 11,
+  "tldr": "The headline layer splits into two clusters: five outlets across wire services, Singapore, Pakistan, China, and Israel report the West Bank strike in a security-operations register — emphasising the 'rare' use of Israeli air power and the IDF's identification of targets as Hamas militants — while three outlets (two Turkish, one pan-Arab) lead with the cumulative Gaza death toll, framing the same period of violence through aggregate Palestinian casualties approaching 73,500. France24 FR and Daily Sabah alone invoke 'occupied' status in their titles, introducing a legality signal invisible in every other headline.",
+  "event_summary": "Israeli forces conducted an air strike in the Jenin area of the occupied West Bank on August 28, 2026, killing three Palestinians whom the IDF identified as a Hamas militant and two accomplices; separate Israeli strikes on Gaza during the same period raised the cumulative death toll to approximately 73,449 Palestinians.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "IDF strikes, rare West Bank air power",
+      "outlets": [
+        "AFP / France 24 EN",
+        "ARY News English",
+        "CGTN World",
+        "Haaretz",
+        "Straits Times"
+      ],
+      "countries": [
+        "wire_services",
+        "pakistan",
+        "china",
+        "israel",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Israel army carries out rare West Bank air strike",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "Israel killed three Palestinians in rare West Bank airstrike",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "IDF says it conducted strike against 'terrorists'",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "IDF says three Palestinians killed in targeted strike",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Israel kills Hamas operative in rare West Bank air strike",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Cumulative Gaza death toll rising",
+      "outlets": [
+        "Anadolu Agency English",
+        "Daily Sabah",
+        "Middle East Eye"
+      ],
+      "countries": [
+        "turkey",
+        "pan_arab"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Gaza death toll from Israel's genocidal war nears 73,500",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Gaza death toll reaches 73,449 as thousands remain missing",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "Israeli attacks increase Gaza death toll",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Occupied territory status invoked",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "france",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "en Cisjordanie occupée, au moins 3 morts",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Israeli drone strike in occupied West Bank",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Only outlet in the corpus to use 'genocidal war' in the headline itself, characterising the entire Gaza conflict rather than the specific West Bank strike. This framing — absent from every other title including the pro-Palestinian Daily Sabah and Middle East Eye — places the day's events inside a maximally condemnatory legal-moral register at the RSS level, before any body text is read.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "Only wire-service headline to place 'three terrorists' in scare quotes, signalling editorial distance from the IDF's characterisation of those killed. CGTN applies the same scare-quote device but attributes it explicitly to the IDF; AFP's framing is subtler, marking the claim without a clear attribution tag in the title.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "At the headline layer, most outlets reduce the story to a targeted IDF counter-terrorism operation framed around the 'rare' use of West Bank air power, while Turkish and pan-Arab coverage foregrounds a rising Gaza death toll — Anadolu Agency alone characterises the conflict as a 'genocidal war' in its title, a framing absent from every other headline in the corpus.",
+  "generated_at": "2026-08-29T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
