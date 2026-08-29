@@ -1,0 +1,179 @@
+{
+  "story_key": "L7d6986c628",
+  "date": "2026-08-29",
+  "n_buckets": 13,
+  "n_articles": 23,
+  "tldr": "Headlines globally lead with Mladic's identity as a convicted war criminal who died in Hague custody, while a secondary cluster spotlights Serbia's defiance of the international court over burial honors, and a third tier foregrounds the unresolved hero-vs-criminal divide in Bosnian Serb communities.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "War criminal dies in Hague prison",
+      "buckets": [
+        "pan_african",
+        "africa_other",
+        "canada",
+        "turkey",
+        "germany",
+        "brazil",
+        "usa",
+        "iran_opposition",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ratko Mladic convicted of genocide dies aged 84",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Dutch court sentences man to life over Rwanda genocide",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Ratko Mladic, war criminal and former Bosnian Serb",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Bosnian Serb war criminal Mladic dies in prison at 84",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "The man behind Srebrenica: Ratko Mladic dies at 84",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Morre sob custódia em Haia Ratko Mladic",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Ratko Mladić, 'Butcher of Bosnia' convicted of genocide",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Bosnian Serb Commander And Convicted War Criminal",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "'Butcher of Bosnia' Ratko Mladic dies",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Serbia vs. UN court; Mladic state honors",
+      "buckets": [
+        "balkans",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "UN Court 'Wanted Mladic to Die Behind Bars'",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "war criminal Mladic to be buried with 'state honors'",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Vucic raps 'uncivilised' UN court over handling of Mladic",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "War criminal vs. Serb hero divide",
+      "buckets": [
+        "balkans",
+        "opinion_magazines",
+        "uk",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "War Criminal or 'Serb Hero': Reactions to Ratko Mladic",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Mladić is still viewed as a hero by many Bosnian Serbs",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "'The butcher may be gone, but to many he is a hero'",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "The Death of Mladić Won't End His War",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.523,
+      "n_tokens": 201
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.616,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.72,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.727,
+      "n_tokens": 284
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.737,
+      "n_tokens": 92
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer brands Mladic overwhelmingly as a convicted war criminal who died in prison, but balkans and Straits Times headlines uniquely foreground Serbia's political defiance of the Hague — the tension the body coverage develops but that titles alone already signal.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
