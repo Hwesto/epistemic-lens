@@ -1,0 +1,199 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "Lc3d101ac99",
+  "cluster_id": 74,
+  "cluster_name": "Ratko Mladic dies in Hague detention serving genocide sentence",
+  "salience_score": 11.202,
+  "n_outlets": 15,
+  "n_countries": 13,
+  "n_articles": 20,
+  "tldr": "Headlines across 13 countries frame Mladic's death almost unanimously as a crime-and-punishment epitaph — labeling him 'war criminal,' 'Butcher of Bosnia,' or 'convicted of genocide' across at least 10 outlets. The Balkan regional press diverges sharply: Balkan Insight foregrounds Serbian President Vucic's political defiance of the UN court and a binary cultural split (war criminal or 'Serb hero'), while N1 focuses on the IRMCT's formal investigation into death circumstances. NPR World is the sole outlet to center a survivor voice in its headline, shifting frame from perpetrator identity to victim testimony. BBC Africa pivots entirely to a concurrent Rwanda genocide conviction in The Hague, treating international accountability for genocide as the systemic story rather than a Mladic obituary. La Jornada's headline contributes no encodable frame — its title is a generic column header — making Mexico the only bucket where the headline layer is editorially silent on the story.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "war criminal convicted of genocide dies",
+      "outlets": [
+        "AfricaNews",
+        "BBC Africa",
+        "Daily Sabah",
+        "Deutsche Welle English",
+        "Folha de São Paulo",
+        "Fox News World",
+        "Globe and Mail",
+        "Malay Mail World",
+        "RFE/RL (was Radio Farda)",
+        "Taipei Times"
+      ],
+      "countries": [
+        "pan_african",
+        "africa_other",
+        "turkey",
+        "germany",
+        "brazil",
+        "usa",
+        "canada",
+        "vietnam_thai_my",
+        "iran_opposition",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Ratko Mladic convicted of genocide dies aged 84",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Ratko Mladic, the man behind Srebrenica massacre, dies at 84",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "'Butcher of Bosnia' convicted of genocide, dies at 84",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "The 'Butcher Of Bosnia' Who Was Convicted Of Genocide",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Taipei Times",
+          "country": "taiwan_hk",
+          "quote": "War criminal Mladic's death lays bare Bosnia's wounds",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Serbia's state-honors burial defies EU",
+      "outlets": [
+        "Balkan Insight",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "balkans",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "war criminal Mladic to be buried with 'state honors'",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "UN Court 'Wanted Mladic to Die Behind Bars'",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "hero vs. war criminal: divided Balkan memory",
+      "outlets": [
+        "Balkan Insight",
+        "The Conversation"
+      ],
+      "countries": [
+        "balkans",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "War Criminal or 'Serb Hero': Reactions to Ratko Mladic",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "still viewed as a hero by many Bosnian Serbs",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "IRMCT investigation into death circumstances",
+      "outlets": [
+        "N1 Serbia English"
+      ],
+      "countries": [
+        "balkans"
+      ],
+      "evidence": [
+        {
+          "outlet": "N1 Serbia English",
+          "country": "balkans",
+          "quote": "IRMCT judge begins investigation into circumstances",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "survivor testimony: lived grief",
+      "outlets": [
+        "NPR World"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Srebrenica survivor Ahmed Hrustanovic reflects",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "russia",
+      "what_they_covered_instead": "Russian state media — which would predictably adopt Vucic's framing of The Hague as an anti-Serb institution and contest the universal 'war criminal' label — is entirely absent from the headline layer; their counter-narrative is a structural gap in this corpus."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Pivots entirely to a concurrent Rwanda genocide conviction in The Hague rather than Mladic's death, implicitly treating both as instances of systemic international accountability for genocide rather than a Balkan-specific obituary.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Sole outlet to center a survivor's voice in its headline, foregrounding victim testimony over perpetrator identity — a framing absent from every other outlet in the cluster.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "La Jornada",
+      "country": "mexico",
+      "finding": "Title 'El Correo Ilustrado' is a generic reader-letters column header with no story framing; the headline layer contributes no encodable frame for this story despite the signal text covering Mladic's death.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Takes a retrospective accountability angle — where are the other key figures from the Balkan wars? — contextualizing Mladic's death within an incomplete accountability reckoning rather than treating it as a closed chapter.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The headline layer is overwhelmingly a crime-and-punishment epitaph — Mladic dies as 'war criminal' and 'Butcher of Bosnia' across 10 of 15 outlets and 10 of 13 countries — with a distinct Balkan counterthread foregrounding divided memory and Serbia's provocative state-honors burial plans diverging sharply from the international consensus.",
+  "generated_at": "2026-08-30T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
