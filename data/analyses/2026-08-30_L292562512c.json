@@ -1,0 +1,309 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "L292562512c",
+  "cluster_id": 160,
+  "cluster_name": "Russian drone strike on Bucha ammunition depot kills 38",
+  "n_outlets": 29,
+  "n_countries": 16,
+  "n_articles": 64,
+  "salience_score": 32.681,
+  "event_summary": "A Russian drone hit an ammunition depot in Myla, Bucha district, near Kyiv on August 28, 2026, triggering secondary blasts and fires that killed 38 and forced some 400 to evacuate. Zelensky opened criminal proceedings over munitions storage near residential buildings.",
+  "tldr": "The most striking feature of global coverage is that Ukrainian officials — including Zelensky himself — drove the accountability story inward almost immediately: the dominant second-layer narrative is not Russian aggression alone but Ukrainian 'criminal negligence' in siting an ammunition depot next to a care home for the elderly and disabled, where at least 20 of the 38 dead were residents. This self-critical pivot, anchored in Zelensky's own Telegram posts, was amplified identically across ideologically opposed Western outlets, from Breitbart to NPR to BBC, erasing the usual editorial gradient on Ukraine coverage. The 'russia' country slot in this corpus is occupied entirely by exile press — Meduza and Moscow Times — not state media, meaning the Russian Ministry of Defence's framing of the strike as a legitimate hit on a Ukrainian defence contractor (Fire Point UAV components) is absent from the dataset. A further structural contrast: the Moscow Times items within the cluster focus on Ukrainian drone strikes against Russian Ozon e-commerce warehouses, while The Conversation maps the downstream supply-chain disruption reaching as far as Kyrgyzstan — the only piece linking the mutual drone escalation to a Global South economic consequence.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mass-casualty drone escalation near Kyiv",
+      "outlets": [
+        "AP News",
+        "AfricaNews",
+        "Anadolu Agency English",
+        "BBC World",
+        "Breitbart",
+        "CBC World",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "NDTV World",
+        "NPR World",
+        "National Post",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "Sydney Morning Herald",
+        "The Hindu Intl",
+        "The Independent",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "turkey",
+        "uk",
+        "usa",
+        "canada",
+        "germany",
+        "india",
+        "vietnam_thai_my",
+        "australia_nz",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "The death toll from a Russian strike on a warehouse west of Kyiv, the war’s deadliest attack so far this year, rose to 38 with four people still missing, President Zelensky",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Zelenskyy says Russia launched some 2,000 drones, more than 1,600 aerial bombs and 31 missiles, including North Korean ballistic missiles, against Ukraine this past week",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "The deadly strike comes amid 72 hours of near constant drone strikes across Ukraine, severely disrupting daily life.",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "criminal negligence in munitions storage",
+      "outlets": [
+        "Politico Europe",
+        "RFE/RL (was Radio Farda)",
+        "BBC World",
+        "Kyiv Post",
+        "El Financiero",
+        "France 24 Spanish",
+        "Daily Sabah",
+        "Meduza"
+      ],
+      "countries": [
+        "opinion_magazines",
+        "iran_opposition",
+        "uk",
+        "ukraine",
+        "mexico",
+        "state_tv_intl",
+        "turkey",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Politico Europe",
+          "country": "opinion_magazines",
+          "quote": "Ukrainian police have started an investigation into why ammunition was stored near residential properties.",
+          "signal_text_idx": 25
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "\"A terrible situation and terrible negligence on the part of those who stored explosives right next to people,\" Zelenskyy said late on August 29 in his nightly video address.",
+          "signal_text_idx": 26
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "el almacenamiento de municiones cerca de zonas residenciales tras la explosión registrada en Bucha.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "The incident, which began late Friday and continued into Saturday, Aug. 29, forced the evacuation of over 200 people and temporarily closed the Kyiv-Chop highway.",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "care home deaths and forced evacuations",
+      "outlets": [
+        "Meduza",
+        "Ukrainska Pravda English",
+        "Daily Sabah",
+        "RFE/RL (was Radio Farda)",
+        "Deutsche Welle Deutsch"
+      ],
+      "countries": [
+        "russia",
+        "ukraine",
+        "turkey",
+        "iran_opposition",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "The heaviest damage was to a nearby care home for elderly and disabled residents, where 20 people died, according to local social media pages.",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Ukrainska Pravda English",
+          "country": "ukraine",
+          "quote": "Thirty-eight people were killed when a Russian drone strike triggered the detonation of ammunition in the village of Myla, in the Bucha district near Kyiv. Among them were Valentyna, who lived at the Dobryi Dim care home for the elderly, and 52-year-old local resident Vitalii Momot.",
+          "signal_text_idx": 38
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The blast forced hundreds to evacuate and damaged multiple homes, including a care facility for elderly and disabled people, he added.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "rules for ammunition storage near civilians",
+      "outlets": [
+        "Meduza",
+        "RFE/RL (was Radio Farda)",
+        "Kyiv Post",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "russia",
+        "iran_opposition",
+        "ukraine",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "There are rules: ammunition cannot be stored near homes or other residential buildings. There will definitely be appropriate conclusions,” the president of Ukraine said.",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "\"All the facts must be fully investigated. Another such crime -- after what happened in Vyshneve -- is absolutely unacceptable. I expect the details to be presented to the public promptly,\" he said.",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Ukrainian strikes on Russian e-commerce hubs",
+      "outlets": [
+        "The Conversation",
+        "Moscow Times"
+      ],
+      "countries": [
+        "opinion_magazines",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "Producers as far afield as Central Asia have been affected by Ukraine’s drones attacks on the e-commerce giant.",
+          "signal_text_idx": 34
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "The strike is the first on a facility owned by online retailer Ozon, coming after weeks of drone attacks on its larger rival Wildberries.",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "North Korean missiles in Russian arsenal",
+      "outlets": [
+        "Anadolu Agency English",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Zelenskyy says Russia launched some 2,000 drones, more than 1,600 aerial bombs and 31 missiles, including North Korean ballistic missiles, against Ukraine this past week",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "quote": "At least 37 people have been killed following a Russian strike close to the Ukrainian capital of Kyiv, officials said Saturday, one of the deadliest attacks to hit Ukraine this year.",
+      "signal_text_idx": 5
+    },
+    "b": {
+      "outlet": "NPR World",
+      "country": "usa",
+      "quote": "The deadly strike comes amid 72 hours of near constant drone strikes across Ukraine, severely disrupting daily life.",
+      "signal_text_idx": 23
+    },
+    "joint_conclusion": "America's editorial poles — a right-populist outlet that routinely questions Ukraine aid commitments and a left-leaning public broadcaster — converge on factual, uncommented reporting of the strike as one of the year's deadliest, with no framing divergence. The event's scale (38 dead, a care home gutted) appears to have been too unambiguous for editorial prism to recolor on either flank."
+  },
+  "silences": [
+    {
+      "country": "russia",
+      "what_they_covered_instead": "The 'russia' country slot is occupied entirely by exile press (Meduza, Moscow Times). Moscow Times items in this cluster focus on Ukrainian drone strikes against Russian Ozon e-commerce warehouses rather than the Bucha event. Russian state outlets (RT, TASS, RIA Novosti), which would have described the Myla warehouse as a legitimate military strike on Ukrainian defence contractor Fire Point, are absent from the corpus — their framing of this event as a military operation rather than a civilian atrocity goes unrepresented."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only outlet to specify that 20 of the 38 dead were residents of the Dobryi Dim care home for elderly and disabled people, per local social media — a detail absent from all wire and broadcast summaries.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "The Conversation",
+      "country": "opinion_magazines",
+      "finding": "Only outlet connecting Ukraine's parallel drone campaign against Russian e-commerce warehouses to disruption of Central Asian (Kyrgyz) producers — the sole Global South economic angle in the cluster.",
+      "signal_text_idx": 34
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only outlet to report Zelensky's operational order to launch 1,000 drones per day at Russia, providing context for the mutual escalation behind the Bucha strike.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Focuses on Ukraine's August 16 mass drone attack on Moscow (600 drones detected; Russia claims 822 destroyed) rather than the Bucha strike, inverting the cluster's casualty direction and foregrounding Ukrainian offensive capability.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Reports simultaneous Russian attacks on an Odesa civilian food storage warehouse and FPV drone strikes in Zaporizhzhia the same night, showing Bucha as one simultaneous front among several.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Names the bereaved: local resident Zhanna, who lost her husband in the blast despite his having survived Russian occupation — only the full-body extraction captures this human detail.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Ukrainska Pravda English",
+      "country": "ukraine",
+      "finding": "Provides the only named victims in the corpus — Valentyna (Dobryi Dim care home) and 52-year-old Vitalii Momot — alongside the witness quote 'Only ashes and bones left.'",
+      "signal_text_idx": 38
+    },
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "Labels the site as 'Kyiv weapons depot' in its headline and leads with the accountability investigation into storage of weapons near a residential area — the only UK outlet to foreground the negligence question above the death toll in its headline.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A Russian drone struck an ammunition depot in Myla, Bucha district on August 28, killing 38 people including at least 20 elderly care home residents — the deadliest single Russian strike on Ukraine in 2026. The defining global framing is a Ukrainian self-critical accountability story: Zelensky himself condemned 'criminal negligence' in siting the munitions facility next to civilian buildings, a narrative that crossed every editorial divide from Breitbart to NPR without distortion.",
+  "generated_at": "2026-08-30T09:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
