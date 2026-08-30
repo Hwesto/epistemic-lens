@@ -1,0 +1,257 @@
+{
+  "story_key": "L16526eea54",
+  "date": "2026-08-30",
+  "n_buckets": 14,
+  "n_articles": 24,
+  "tldr": "Headline coverage across all 14 buckets frames Iceland's referendum as a clean political rejection of EU accession — 'votes against', 'rejects', 'says no' — while almost entirely suppressing the economic drivers (fishing rights, interest rates) that body-text coverage shows were central to the outcome.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Referendum rejection of govt EU bid",
+      "buckets": [
+        "wire_services",
+        "pakistan",
+        "qatar",
+        "turkey",
+        "uk",
+        "vietnam_thai_my",
+        "germany",
+        "egypt",
+        "canada",
+        "usa",
+        "opinion_magazines",
+        "russia",
+        "india",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Iceland rejects restarting EU accession talks in referendum",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "rejects government proposal to resume EU membership talks",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Icelanders say no to restarting talks to join the EU",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Iceland votes against resuming EU accession talks",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Iceland votes 'No' to resuming EU talks",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Opponents of EU accession talks are leading polls in Iceland",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iceland-EU accession bid rebuffed",
+      "buckets": [
+        "wire_services",
+        "pakistan",
+        "qatar",
+        "turkey",
+        "uk",
+        "vietnam_thai_my",
+        "germany",
+        "egypt",
+        "canada",
+        "usa",
+        "opinion_magazines",
+        "russia",
+        "india",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Icelandic voters reject a proposal to restart negotiations",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Iceland voters reject EU accession talks",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Iceland rejects EU accession talks in referendum",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Icelandic voters reject proposal to restart negotiations",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Icelanders reject EU-accession talks",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Close vote, knife-edge split",
+      "buckets": [
+        "vietnam_thai_my",
+        "canada",
+        "usa",
+        "russia",
+        "wire_services",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Iceland rejects EU-accession talks in close-fought referendum",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Iceland votes on its future in knife-edge EU referendum",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Icelanders reject restarting EU membership talks by 52.8%",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Iceland rejects talks to join EU in close-fought referendum",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Icelanders vote 'no' to talks aimed at joining the EU",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Iceland rejects EU-accession talks in close-fought",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Trump's Greenland threats as backdrop",
+      "buckets": [
+        "egypt"
+      ],
+      "evidence": [
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "under the shadow of Trump's Greenland threats",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.619,
+      "n_tokens": 212
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.678,
+      "n_tokens": 378
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.699,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.725,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.726,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.727,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.780,
+      "n_tokens": 192
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.788,
+      "n_tokens": 124
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.797,
+      "n_tokens": 256
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Egypt Independent",
+      "bucket": "egypt",
+      "finding": "Only headline to embed a geopolitical framing (Trump's Greenland threats) into the referendum headline itself — all other outlets strip context to the vote outcome alone.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to use 'knife-edge' framing ('Iceland votes on its future in knife-edge EU referendum'), foregrounding existential national-identity stakes not present in other headline choices.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Only headline framed from the No camp's vantage point ('Opponents of EU accession talks are leading polls') rather than from the state/government proposal being rejected.",
+      "signal_text_idx": 19
+    }
+  ],
+  "bottom_line": "Headline coverage presents a unanimous political verdict — Iceland rejected EU accession — while entirely omitting the fishing-rights and interest-rate economics that drove the No vote in every body-text account.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
