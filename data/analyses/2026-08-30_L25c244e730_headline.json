@@ -1,0 +1,154 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "L25c244e730",
+  "cluster_id": 117,
+  "cluster_name": "Kyrenia-to-Turkey ferry capsizes off northern Cyprus with 267 aboard",
+  "salience_score": 4.213,
+  "n_outlets": 17,
+  "n_countries": 11,
+  "n_articles": 17,
+  "tldr": "At the headline layer all seventeen outlets converge on a minimal maritime-accident frame — ferry capsized, roughly 260–270 aboard, rescue underway — with almost no editorial differentiation across 11 country groups. Anadolu Agency (Turkey) is the sole outlet to lead with a named political actor ('TRNC premier confirms fatalities') rather than the event itself, making governmental authority the homepage-level hook. The Daily Mirror is the only outlet to deploy emotionally amplified language ('many feared dead') while The Independent uniquely foregrounds the rescue operation as the headline subject rather than the capsize. Wire-relay syndication is visible in near-identical phrasing shared by ARY News, Reuters, and Straits Times, all reproducing 'Boat with around 270 people on board capsizes off North Cyprus' with minimal adaptation.",
+  "event_summary": "A passenger catamaran carrying 267 people capsized on August 30 a few kilometres off Kyrenia (Girne), northern Cyprus, shortly after departing for Tasucu, Turkey; TRNC Prime Minister Unal Ustel confirmed multiple fatalities, with at least 172 rescued and rescue operations ongoing.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "ferry capsize, casualties, rescue underway",
+      "outlets": [
+        "ABP Live",
+        "AFP / France 24 EN",
+        "ARY News English",
+        "Al Jazeera English",
+        "Anadolu Agency English",
+        "CBC World",
+        "Daily Mail",
+        "Daily Mirror",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Jerusalem Post",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "TASS English",
+        "The Independent",
+        "i News"
+      ],
+      "countries": [
+        "india",
+        "wire_services",
+        "pakistan",
+        "qatar",
+        "turkey",
+        "canada",
+        "uk",
+        "germany",
+        "israel",
+        "vietnam_thai_my",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mirror",
+          "country": "uk",
+          "quote": "'Many feared dead' as passenger boat capsizes off Cyprus",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "Boat with around 270 people on board capsizes off North Cyprus; one dead",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Ferry carrying 260 people capsizes off northern Cyprus coast",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "Ship with 270 passengers sinks off coast of Northern Cyprus",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "rescue operation mobilized, evacuees counted",
+      "outlets": [
+        "ABP Live",
+        "Daily Mail",
+        "The Independent"
+      ],
+      "countries": [
+        "india",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Rescue operation after ferry with over 260 passengers onboard capsizes",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "major rescue operation launched",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "ABP Live",
+          "country": "india",
+          "quote": "Capsizes Off Northern Cyprus; 100 Evacuated",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "TRNC premier as confirming authority",
+      "outlets": [
+        "Anadolu Agency English"
+      ],
+      "countries": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "TRNC premier confirms fatalities after ferry capsizes off Kyrenia",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mirror",
+      "country": "uk",
+      "finding": "Only headline to use emotionally amplified language ('many feared dead') — all other outlets used neutral constructions such as 'fatalities reported', 'one dead', or no casualty language at all.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Only headline to foreground a named political actor (TRNC Prime Minister) as the grammatical subject, making governmental authority — not the maritime event — the top-level homepage hook; every other outlet led with the ship or the capsize.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only headline to open with 'Rescue operation' as the subject, inverting the standard disaster-news structure and signalling a response-frame rather than an incident-frame visible at the RSS/homepage level.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "The headline layer for this story is strikingly uniform: fifteen of seventeen outlets used near-identical accident-event language, compressing 267 passengers and an active rescue into 70-char factual summaries with almost no editorial voice. The two visible exceptions — Anadolu Agency's political-actor lead and the Daily Mirror's 'many feared dead' amplification — are register divergences, not substance divergences, confirming that headline-to-body framing divergence for this story is tonal rather than topical.",
+  "generated_at": "2026-08-30T13:35:00Z",
+  "model": "claude-sonnet-4-6"
+}
