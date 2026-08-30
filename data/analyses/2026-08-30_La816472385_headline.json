@@ -1,0 +1,161 @@
+{
+  "story_key": "La816472385",
+  "date": "2026-08-30",
+  "n_buckets": 11,
+  "n_articles": 21,
+  "tldr": "Headlines collectively frame Ratcliffe's surprise Moscow visit as a dual-purpose mission: proposing a Trump-Putin-Zelensky peace summit while warning the Kremlin against NATO escalation. Most outlets lead with the summit pitch; security-deterrence framing is strongest in Canadian, Ukrainian, and RFE/RL coverage.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Summit proposal & stalled peace talks",
+      "buckets": ["turkey", "usa", "china", "india", "russia", "uk", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "CIA chief proposed Trump-Putin-Zelenskyy meeting",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "floated Trump-Putin-Zelensky summit during Moscow visit",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Russia-Ukraine peace talks stall",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Trump-Putin-Zelensky summit on the cards?",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "CIA chief proposed trilateral talks during Moscow visit",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "CIA chief 'proposed Trump-Putin-Zelensky summit'",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "CIA chief proposed summit involving Trump, Zelenskyy",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "NATO deterrence & escalation warning",
+      "buckets": ["canada", "ukraine", "russia", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "real concern in intelligence circles Putin might widen war",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "CIA Moscow Trip Warned Against NATO Escalation",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "warn Russia not to exploit perceived U.S. weakness",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Meant To Warn Russia Off Baltic Attack",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Russia diplomatic divide",
+      "buckets": ["asia_pacific_regional", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "CIA diplomacy fails to bridge the US-Russia divide",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Surprise Moscow Trip Raises Questions Over Russia",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump downplays CIA trip as routine",
+      "buckets": ["russia", "uk"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Calling It 'Semi-Routine'",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Trump downplays Moscow visit by CIA director",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.658,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.709,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.747,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.755,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.768,
+      "n_tokens": 81
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["kenya"],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage leads overwhelmingly with the summit-proposal angle, subordinating the security-deterrence story to a peace-diplomacy narrative even as analysts frame the visit as a warning shot.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
