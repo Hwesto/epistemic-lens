@@ -1,0 +1,177 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "Lf0c43ca33a",
+  "cluster_id": 113,
+  "cluster_name": "Israeli settlers attack Qusra in West Bank, Netanyahu condemns",
+  "salience_score": 8.298,
+  "n_outlets": 16,
+  "n_countries": 13,
+  "n_articles": 19,
+  "tldr": "The headline layer is almost uniformly locked on the CRIME_PUNISHMENT register — settler 'attacks' on Palestinian homes in Qusra appear across 13 of 13 country groups, a near-universal framing that focuses on the perpetrator and the act but collapses three weeks of escalating siege into a single news peg. A secondary POLITICAL layer is clearly visible: seven outlet groups lead with Netanyahu's or the Israeli president's condemnation or with IDF/police blame-trading, splitting the corpus between 'attack' headlines and 'condemnation' headlines. The Intercept is the sole outlier: its headline ('Palestinians Asked for Help Against Settlers. Israelis Detained Palestinian Workers Instead.') inverts the subject-object relationship and centers Israeli state complicity — the only title to do so at the headline level across the entire corpus. Foreign Policy is the only outlet to characterize the violence as systemic ('Is Consuming'), and La Jornada is the only one to embed temporal scope ('van 3 semanas de violencia'), while all other headlines present events as a discrete incident rather than a three-week campaign.",
+  "event_summary": "Dozens of masked Israeli settlers attacked Palestinian homes in the occupied West Bank village of Qusra on 29 August 2026; Israeli Prime Minister Benjamin Netanyahu condemned the violence as 'criminal acts of violence' committed by 'a handful of rioters.'",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "settler attacks on Palestinian homes",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "CBC World",
+        "Deutsche Welle English",
+        "El Tiempo Colombia",
+        "Foreign Policy",
+        "Globe and Mail",
+        "Haaretz",
+        "La Jornada",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "Straits Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "canada",
+        "germany",
+        "colombia_ven_peru",
+        "opinion_magazines",
+        "israel",
+        "mexico",
+        "uk",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Israeli settlers attack home in occupied West Bank",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Dozens of masked Israeli settlers wound Palestinians",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "Settler Violence Is Consuming the West Bank",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "Decenas de colonos israelíes atacan aldea en Cisjordania",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu condemns; IDF-police trade blame",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "El Tiempo Colombia",
+        "Jerusalem Post",
+        "Middle East Eye",
+        "Straits Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "colombia_ven_peru",
+        "israel",
+        "pan_arab",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Netanyahu condemns violence in West Bank",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "IDF, Israel Police trade blame as West Bank settler",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "settler attack 'stain on Israel's face'",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Netanyahu condemns settler attack in flashpoint",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "IDF detained Palestinians, not settler attackers",
+      "outlets": [
+        "The Intercept"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Intercept",
+          "country": "usa",
+          "quote": "Palestinians Asked for Help Against Settlers.",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "Only headline in the corpus to name foreign journalists as attack targets alongside Palestinians ('attack foreign journalists in West Bank'), surfacing a press-freedom dimension that is invisible in all other titles.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Only headline to foreground intra-Israeli institutional blame-trading ('IDF, Israel Police trade blame') over the settler violence itself — the sole title to make Israeli internal accountability visible before the reader clicks.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "La Jornada",
+      "country": "mexico",
+      "finding": "Only headline to embed temporal scope ('van 3 semanas de violencia'), characterizing events as a three-week campaign rather than a discrete incident — a framing absent from all other titles in the corpus.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Intercept",
+      "country": "usa",
+      "finding": "Inverts the perpetrator-victim framing entirely: the only headline to center Israeli state complicity (detaining Palestinian workers who sought protection) rather than settler behavior, a structural critique invisible at headline level across the other 15 outlets.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "'Is Consuming' is the only systemic verb in the corpus — all other headlines describe discrete actions ('attacks', 'condemns', 'stage new attack'), while Foreign Policy positions settler violence as a structural, ongoing phenomenon rather than an isolated event.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "At the headline layer, settler violence against Palestinians in Qusra reads as a near-uniform crime story across all 13 country groups, with Netanyahu's condemnation embedded as a secondary political frame in seven of them and the Intercept alone surfacing Israeli state complicity — a divergence the body pass will amplify.",
+  "generated_at": "2026-08-30T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
