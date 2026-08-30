@@ -1,0 +1,215 @@
+{
+  "story_key": "L40c43618f2",
+  "date": "2026-08-30",
+  "n_buckets": 14,
+  "n_articles": 26,
+  "tldr": "Headlines across all 14 outlet clusters reproduce Khamenei's 'real enemy' framing with unusual uniformity — nearly every title quotes or paraphrases the call to confront the US and Israel, with Iran's state press and pan-Arab outlets adding religious register ('sworn enemies of Muslim unity'). The sole outlier is RFE/RL, whose headline leads with TOEFL exam suspensions under US sanctions rather than Khamenei's unity appeal, making the opposition-diaspora outlet the only source whose front page shows the civilian cost of the conflict rather than Tehran's geopolitical message.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Gulf unity call: confront US-Israel",
+      "buckets": [
+        "brazil",
+        "germany",
+        "india",
+        "iran_state",
+        "israel",
+        "pakistan",
+        "pan_arab",
+        "qatar",
+        "russia",
+        "turkey",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Khamenei calls for Gulf unity as Hormuz tensions persist",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "calls on all Muslim countries to stand up to US",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Six months into war, Iran's new supreme leader calls",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Khamenei urges Gulf rulers in written message to confront",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "'Recognise your real enemy': Iran Supreme Leader",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "urges Gulf rulers in written message to unite against",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "recognize 'true enemy,' says Iran's supreme leader",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "urges Gulf rulers in written message to confront 'real enemy'",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "G1 Globo",
+          "quote": "pede união do mundo islâmico contra Estados Unidos e Israel",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Chamenei ruft Muslime zur Einheit gegen USA auf",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israel, US 'sworn enemies of Muslim unity'",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "confront 'real enemy' for Islamic Unity Week",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "US, Israeli regime are sworn enemies of Muslim unity",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Islamic unity as religious duty",
+      "buckets": [
+        "india",
+        "iran_state",
+        "pan_arab",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "'Enemy Of Islam Wants To Sow Division...'",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "sworn enemies of Muslim unity: Iran Leader",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Israel, US 'sworn enemies of Muslim unity'",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "confront 'real enemy' for Islamic Unity Week",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Sanctions bite: tests suspended",
+      "buckets": [
+        "iran_opposition",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Suspends TOEFL, GRE Exams In Iran After Sanctions",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Bol News",
+          "quote": "president admits sanctions bite",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Absent leader: who governs Iran?",
+      "buckets": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "unseen supreme leader fuels questions over who is in charge",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.642,
+      "n_tokens": 210
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.701,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.705,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.709,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.725,
+      "n_tokens": 68
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer is a near-consensus transmission of Tehran's own framing — 'confront the real enemy' — across 13 of 14 outlet buckets, with only RFE/RL breaking ranks to lead on TOEFL exam suspensions under US sanctions, and Bol News the sole outlet to pair the unity call with Iran's own admission that sanctions are biting.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
