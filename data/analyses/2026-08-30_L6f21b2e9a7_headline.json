@@ -1,0 +1,195 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "L6f21b2e9a7",
+  "cluster_id": 122,
+  "cluster_name": "Trump executive order renames Lake Ontario to Lake America",
+  "salience_score": 6.67,
+  "n_outlets": 16,
+  "n_countries": 11,
+  "n_articles": 18,
+  "tldr": "Headline coverage across all 11 country buckets is almost entirely locked on a bilateral US-Canada EXTERNAL_REGULATION frame: Trump signed an executive order, Canada struck back with a giant lakeshore sign, and the two countries are trading symbolic blows alongside real tariffs. A secondary CULTURAL frame — identity permanence expressed through 'now and always' / 'now and forever' language — surfaces in French, Chinese, Canadian, Indian, and UK titles, reflecting the naming-as-heritage angle. RT stands alone among all 18 titles in explicitly invoking 'trade war,' positioning the rename as a pure economic-warfare act while every peer outlet treats it as symbolic or diplomatic. The only US-domestic political angle — Axios World's 'Scoop: Democrats plan bill to counter Trump order' — appears in no other country's headlines, making the partisan legislative response a purely American headline concern. The Independent is the sole outlet to frame Trump's AI propaganda video as the story, foregrounding absurdist spectacle where all peers frame bilateral confrontation.",
+  "event_summary": "Trump signed an executive order on 27 August 2026 renaming Lake Ontario to 'Lake America' amid collapsed US-Canada trade talks; Ontario Premier Doug Ford responded with a 'Lake Ontario. Now and Always' sign on the Canadian shoreline.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Canada diplomatic confrontation over rename",
+      "outlets": [
+        "Al Jazeera English",
+        "Axios World",
+        "BBC World",
+        "Daily Sabah",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Standard Kenya World"
+      ],
+      "countries": ["qatar", "usa", "uk", "turkey", "brazil", "canada", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Canada unveils huge new Lake Ontario sign in snub to Trump",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Trump moves to rename Lake Ontario to \"Lake America\"",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Large Lake Ontario sign installed in Canada in latest jab at US",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Trump orders Lake Ontario renamed 'Lake America' amid Canada row",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Trump assina decreto que renomeia lago Ontário como lago América",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Trump signs executive order to rename Lake Ontario as Lake America",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Trump orders Lake Ontario to be renamed 'Lake America'",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Lake name as heritage identity — now and always",
+      "outlets": [
+        "BFM TV",
+        "CGTN World",
+        "Hindustan Times",
+        "Le Devoir",
+        "NDTV World",
+        "National Post",
+        "The Independent",
+        "Times of India"
+      ],
+      "countries": ["france", "china", "india", "canada", "uk"],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Carney rejects Trump's Lake Ontario renaming: 'Then, now and always'",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "BFM TV",
+          "country": "france",
+          "quote": "Aujourd'hui et pour toujours",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "National Post",
+          "country": "canada",
+          "quote": "it's Lake Ontario now and forever",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Canada Leader Answers Trump's \"Lake America\" With Giant \"Lake Ontario\" Sign",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Lake Ontario, Always: Canada hits back at Trump's Lake America order",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Times of India",
+          "country": "india",
+          "quote": "Trump wants 'Lake America'. Canada puts up a 24-foot sign saying otherwise",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US Democrats plan counter-legislation",
+      "outlets": ["Axios World"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Democrats plan bill to counter Trump order renaming Lake Ontario",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Renaming as trade-war instrument",
+      "outlets": ["RT"],
+      "countries": ["russia"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Trump christens 'Lake America' amid trade war with Canada",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "terms": ["democrat"],
+      "what_it_reveals": "Only outlet to introduce a US domestic partisan actor into the headline — making the Democratic counter-bill the headline story — while all other outlets frame this as a bilateral US-Canada event."
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "terms": ["video"],
+      "what_it_reveals": "One of The Independent's two headlines uniquely foregrounds Trump's AI video propaganda, framing the story as performative spectacle ('bequiffed Donald Ducks') while every peer outlet ignores the AI content angle entirely."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The only headline in the corpus to focus on Trump's AI social-media video — 'Trump posts AI video of 'Lake America' being protected by an army of bequiffed 'Donald Ducks'' — frames the story as absurdist propaganda spectacle. All 17 other headlines treat this as a diplomatic or identity event; The Independent alone treats the AI content itself as the news.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "The only outlet to make the US domestic legislative response its headline story — 'Scoop: Democrats plan bill to counter Trump order renaming Lake Ontario to 'Lake America'' — treating this as a partisan political story rather than a bilateral diplomatic one. The 'Scoop' label also uniquely positions Axios as insider-sourced on a day when all peers were covering the symbolic sign.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only outlet to explicitly name the economic context in its headline — 'Trump christens 'Lake America' amid trade war with Canada' — framing the rename as a trade-war weapon rather than a symbolic diplomatic jab. The verb 'christens' is also unique across all 18 headlines, positioning Trump in a quasi-ceremonial naming role that no other outlet's wording implies.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "Headline coverage of this story collapses almost entirely into two frames — diplomatic confrontation (EXTERNAL_REGULATION) and cultural-identity permanence (CULTURAL) — with the economic 'trade war' framing, the US partisan legislative angle, and the AI-video spectacle each appearing in exactly one outlet's headlines; the fuller economic and policy-prescription body-text framing documented in the regular pass is almost entirely absent at headline level, making this a strong candidate for a high body-versus-headline divergence score.",
+  "generated_at": "2026-08-30T14:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
