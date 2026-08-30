@@ -1,0 +1,260 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "Lf0c43ca33a",
+  "cluster_id": 113,
+  "cluster_name": "Israeli settler militants repeatedly attack West Bank village Qusra",
+  "n_outlets": 16,
+  "n_countries": 13,
+  "n_articles": 20,
+  "salience_score": 8.298,
+  "event_summary": "Dozens of masked Israeli settler militants attacked homes in the occupied West Bank village of Qusra on August 29, 2026. Israeli Prime Minister Netanyahu condemned the attacks as \"criminal acts of violence\"; President Herzog called it \"a stain on Israel's face.\"",
+  "tldr": "The most striking finding is convergence between opposing Israeli outlets: Haaretz (left-liberal, critical of government) and the Jerusalem Post (centre-right) both document that Israeli security forces failed to act against masked settlers — Haaretz framing it as soldiers actively shielding settlers while not enforcing the anti-mask order, the Jerusalem Post framing it as a blame-trading institutional failure. International wire services characterise Netanyahu's condemnation as \"rare\" from his ultranationalist government, language unusual for neutral wires. Left-investigative coverage (The Intercept) documents an inversion: Palestinian workers building a defensive fence were detained by soldiers, while masked settlers were allowed to trespass. Latin American outlets (Mexico, Colombia) contextualise three weeks of sustained settler violence as the primary frame, while Western Anglophone outlets foreground Netanyahu's condemnation as the news hook. The sole analytical piece (Foreign Policy) frames settler violence as \"consuming\" the West Bank and names the Israeli government as facing \"mounting pressure.\"",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "settler attacks condemned as criminal acts",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Deutsche Welle English",
+        "El Tiempo Colombia",
+        "Middle East Eye",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services",
+        "germany",
+        "colombia_ven_peru",
+        "pan_arab",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Israeli Prime Minister Benjamin Netanyahu on Saturday condemned what he called \"criminal acts of violence\" perpetrated by Israeli settlers in two Palestinian villages.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Masked Israeli settlers launched their first major attack since initiating a siege in the village of Qusra earlier this month. Saturday's attacks were met with rare criticism from Prime Minister Benjamin Netanyahu.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "military non-enforcement of anti-mask order",
+      "outlets": [
+        "Haaretz",
+        "The Intercept",
+        "Globe and Mail"
+      ],
+      "countries": [
+        "israel",
+        "usa",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Israeli soldiers in the Palestinian village of Qusra were filmed shielding a building where workers had taken shelter. They did not detain or identify the masked settlers, despite an order criminalizing face coverings in the West Bank",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Intercept",
+          "country": "usa",
+          "quote": "In the besieged West Bank village of Qusra, the workers were building a fence for keeping settlers out. Soldiers allowed the settlers to trespass.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "rare Netanyahu condemnation; IDF-Police accountability blame",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Foreign Policy",
+        "Jerusalem Post"
+      ],
+      "countries": [
+        "wire_services",
+        "opinion_magazines",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "It was a rare condemnation from what is widely seen as the most religious and ultranationalist government in Israel’s history.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "IDF, Israel Police trade blame as West Bank settler violence ramps up: 'Where was the military?'",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "The Israeli government is facing mounting pressure to get the situation under control.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "asymmetric military treatment settlers vs Palestinians",
+      "outlets": [
+        "The Intercept",
+        "Globe and Mail"
+      ],
+      "countries": [
+        "usa",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Intercept",
+          "country": "usa",
+          "quote": "Palestinians Asked for Help Against Settlers. Israelis Detained Palestinian Workers Instead.",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Owner of the house said when the Israeli military arrived they handcuffed, blindfolded and beat those inside, before later releasing them",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "three-week settler siege and escalating attacks",
+      "outlets": [
+        "CBC World",
+        "La Jornada",
+        "Sky News UK",
+        "Straits Times"
+      ],
+      "countries": [
+        "canada",
+        "mexico",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Dozens of masked Israeli settler militants attacked homes surrounding the occupied West Bank village of Qusra on Saturday, the first major attack since a siege by settlers in the area earlier this month drew an international outcry.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "Decenas de colonos israelíes enmascarados atacaron la aldea palestina de Qusra, en el norte de ese territorio, informaron ayer el ejército israelí y un residente, tras casi tres semanas de su campaña de violencia de en Cisjordania reocupada.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Israeli state reputation and international condemnation",
+      "outlets": [
+        "Middle East Eye",
+        "The Hindu Intl",
+        "AFP / France 24 EN"
+      ],
+      "countries": [
+        "pan_arab",
+        "india",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "Israeli President Isaac Herzog joined prime minister Benjamin Netanyahu in condemning settler violence in the occupied West Bank village of Qusra, saying it was unlawful.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "President Isaac Herzog also condemned the attack in Qusra, while Israel's Foreign Ministry called the violence \"a disgrace\"",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "quote": "Israeli soldiers in the Palestinian village of Qusra were filmed shielding a building where workers had taken shelter. They did not detain or identify the masked settlers, despite an order criminalizing face coverings in the West Bank",
+      "signal_text_idx": 8
+    },
+    "b": {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "quote": "IDF, Israel Police trade blame as West Bank settler violence ramps up: 'Where was the military?'",
+      "signal_text_idx": 9
+    },
+    "joint_conclusion": "Israel's left-liberal and centre-right flagship newspapers converge on the same finding: security forces failed to act against masked settlers in Qusra. Haaretz documents soldiers actively shielding settler-occupied buildings while ignoring the anti-mask order; the Jerusalem Post reports the IDF and Israel Police trading blame over who bears responsibility for the absence. Both outlets, from opposite political flanks, reach the same conclusion — institutional failure to protect Palestinians."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Intercept",
+      "country": "usa",
+      "finding": "Reports that Palestinian workers were detained by Israeli soldiers while building a fence to keep settlers out, as soldiers simultaneously allowed masked settlers to trespass — the most explicit documentation of security force complicity in the corpus.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Reports that when Israeli military arrived at the attacked house, soldiers handcuffed, blindfolded and beat those inside before releasing them — implicating security forces in direct violence against Palestinians.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "The sole analytical piece; frames settler violence as 'consuming' the West Bank and names the Israeli government as facing 'mounting pressure to get the situation under control' — moving beyond incident reporting to systemic diagnosis.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "As a centre-right Israeli outlet, documents the IDF-Police institutional blame-trading with the editorial question 'Where was the military?' — an accountability framing unusual for an outlet that typically supports the security establishment.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "Describes Netanyahu's condemnation as 'a rare condemnation from what is widely seen as the most religious and ultranationalist government in Israel's history' — unusually editorial language for a neutral wire service.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "The only outlet to headline Herzog's self-critical framing ('a stain on Israel's face'), foregrounding Israeli state self-condemnation more prominently than the attacks themselves.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Notes that Israel's Foreign Ministry called the violence 'a disgrace' — adding a third Israeli state institution to the condemnation record alongside Netanyahu and Herzog.",
+      "signal_text_idx": 17
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Across 16 outlets in 13 countries, the Qusra settler attacks generated broad coverage anchored by a notable convergence: both Israel's left-liberal flagship (Haaretz) and its centre-right equivalent (Jerusalem Post) document that security forces failed to act against masked settlers. The international spotlight settled on Netanyahu's rare condemnation, but the intra-Israeli accountability story — who failed to protect Palestinians and why — is the thread left-investigative and Israeli outlets are pulling hardest.",
+  "generated_at": "2026-08-30T13:48:40Z",
+  "model": "claude-sonnet-4-6"
+}
