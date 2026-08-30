@@ -1,0 +1,180 @@
+{
+  "story_key": "L1445b6433b",
+  "date": "2026-08-30",
+  "n_buckets": 14,
+  "n_articles": 23,
+  "tldr": "Headlines across 14 outlet clusters frame Niger's soldier mutiny as a security crisis that the ruling junta suppressed — gunfire and explosions in Niamey, followed by the junta declaring control restored. A sole French-language headline breaks the pack by explicitly crediting Russia for helping crush the revolt.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Junta suppresses capital mutiny",
+      "buckets": ["wire_services", "china", "pakistan", "pan_african", "turkey", "germany", "state_tv_intl", "india", "taiwan_hk", "vietnam_thai_my", "nigeria", "france"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Niger: Junta says back in control after mutiny",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Gunfire, explosions reported near military base",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Rival factions stand off in Niger capital",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Soldiers' mutiny rocks Niger capital, but junta says back",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Niger's security forces battle mutinous soldiers",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Gunfire erupts in Niger capital, state TV goes off air",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Niger's defense ministry says soldiers attempted mutiny",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "recupera progresivamente el control frente a los amotinados",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Niger says it regains control of airbase after soldiers mutiny",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "Vanguard",
+          "quote": "Niamey back to normal after soldier mutiny",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Reports of gunfire near military base in Niger's capital",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Echanges de tirs et explosions à Niamey",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Mass arrests of mutinous soldiers",
+      "buckets": ["africa_other", "russia", "pan_african"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Dozens of soldiers arrested in Niger after attempted mutiny",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Dozens of servicemen arrested after attempted mutiny",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "RFI Afrique",
+          "quote": "dizaines d'arrestations parmi les soldats mutinés",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia credited for crushing mutiny",
+      "buckets": ["france"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "la junte déjoue une mutinerie avec l'aide de la Russie",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.635,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.718,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.743,
+      "n_tokens": 89
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.75,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.753,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.759,
+      "n_tokens": 69
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.761,
+      "n_tokens": 217
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.767,
+      "n_tokens": 95
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.77,
+      "n_tokens": 84
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage packages Niger's mutiny as a resolved military security incident with the junta back in control — only one French-language headline names Russia's active role in suppressing the revolt, a geopolitical dimension invisible to readers of every other outlet.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
