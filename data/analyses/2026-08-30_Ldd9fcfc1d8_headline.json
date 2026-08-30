@@ -1,0 +1,173 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "Ldd9fcfc1d8",
+  "cluster_id": 151,
+  "cluster_name": "Milo Yiannopoulos deported from US after overstaying visa",
+  "salience_score": 4.851,
+  "n_outlets": 14,
+  "n_countries": 8,
+  "n_articles": 17,
+  "tldr": "Headlines across all eight country blocs uniformly frame this story through crime-and-punishment enforcement — ICE arrest, detention, deportation — with minimal contextual or political analysis at homepage level. The political-irony dimension prominent in body coverage appears in headlines only at Malay Mail ('From Trump ally to illegal alien from the UK'), The Independent ('Anti-immigrant provocateur'), and Folha ('Ex-trumpista'), while most outlets supply plain factual labels like 'far-right commentator' or 'right-wing commentator' without invoking the enforcement-irony angle. RT deploys sardonic American slang ('gets ICE’d') — the corpus's most mocking register — while Daily Wire calls him 'Disgraced Provocateur,' both distancing moves absent from left-leaning or establishment titles. The legal basis for removal (visa overstay, missed immigration hearing) surfaces explicitly in only three headlines; the other eleven present the deportation as self-evident enforcement with no procedural context. Reason's headline is a bare URL slug, entirely suppressing what its body develops as the corpus's sharpest irony framing.",
+  "event_summary": "Milo Yiannopoulos was arrested by ICE at Louis Armstrong New Orleans International Airport on August 28, 2026, and deported to the UK the following day after an immigration judge issued a removal order on July 22 following a missed hearing.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "ICE arrest, detention, deportation enforcement",
+      "outlets": [
+        "BBC World",
+        "Breitbart",
+        "Daily Wire",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Malay Mail World",
+        "RT",
+        "Reason",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "Taipei Times",
+        "The Hill",
+        "The Independent"
+      ],
+      "countries": [
+        "uk",
+        "usa",
+        "brazil",
+        "canada",
+        "vietnam_thai_my",
+        "russia",
+        "wire_services",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Milo Yiannopoulos deported from US to UK",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Taipei Times",
+          "country": "taiwan_hk",
+          "quote": "ICE detains British far-right commentator Yiannopoulos",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "DHS confirms Milo Yiannopoulos was deported to UK",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "pro-deportation Trump ally deported by ICE he championed",
+      "outlets": [
+        "Malay Mail World",
+        "Folha de São Paulo",
+        "RT",
+        "The Independent",
+        "Daily Wire"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "brazil",
+        "russia",
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "From Trump ally to 'illegal alien from the UK'",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Right-wing influencer gets ICE’d’",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Anti-immigrant provocateur Milo Yiannopoulos",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Ex-trumpista detido pelo ICE",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "visa overstay and missed immigration hearing explicit",
+      "outlets": [
+        "Breitbart",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Arrested by ICE Agents for Overstaying Visa",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "faces deportation after missing US immigration hearing",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to use sardonic American slang ('gets ICE’d') in the headline, projecting mockery of a Western right-wing figure — a tonal register entirely absent from all other titles in the corpus.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Conservative outlet labels Yiannopoulos 'Disgraced Provocateur' — the only right-leaning US outlet to use distancing editorial language rather than neutral attribution, signaling ideological non-solidarity at headline level.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Sharpest political-irony headline in the corpus: 'From Trump ally to illegal alien from the UK' — the only title to explicitly frame the story as political reversal rather than routine enforcement.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Reason",
+      "country": "usa",
+      "finding": "Title is a bare URL slug ('Milo-YIANNOPOULOS-detained') with no headline text; the actual article headline ('Milo Yiannopoulos Wanted More ICE Raids, Now He’s in ICE Detention') contains the strongest irony framing in the cluster but is invisible at RSS and homepage level.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to foreground Yiannopoulos's anti-immigrant advocacy in the headline itself ('Anti-immigrant provocateur'), making the deportation-by-ICE irony explicit at homepage level without requiring the reader to click through.",
+      "signal_text_idx": 16
+    }
+  ],
+  "bottom_line": "The headline layer converges almost entirely on crime-and-punishment enforcement across all eight country blocs, with the political-irony angle surfacing only in Malay Mail's 'From Trump ally to illegal alien from the UK' and The Independent's 'anti-immigrant provocateur' label — meaning most readers receive straight enforcement news at the homepage rather than the ideological contradiction the bodies develop. Reason's unparseable URL slug is the corpus's most notable headline failure: its actual irony headline ('Wanted More ICE Raids, Now He’s in ICE Detention') is the sharpest framing in the dataset but entirely invisible at RSS level.",
+  "generated_at": "2026-08-30T07:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
