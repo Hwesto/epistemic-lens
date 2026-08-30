@@ -1,0 +1,164 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "L6f21b2e9a7",
+  "cluster_id": 122,
+  "cluster_name": "Trump renames Lake Ontario 'Lake America' amid US-Canada trade war",
+  "n_outlets": 16,
+  "n_countries": 11,
+  "n_articles": 19,
+  "salience_score": 6.67,
+  "event_summary": "US President Donald Trump signed an executive order on August 27 renaming Lake Ontario 'Lake America' for US federal use after US-Canada trade talks collapsed and 50% tariffs took effect. Ontario Premier Doug Ford responded August 30 with a giant lakeside sign reading 'Lake Ontario. Now and Always.'",
+  "tldr": "Eleven countries across four continents covered a story in which most have no direct stake, signalling the Lake Ontario renaming has become a global symbol of US unilateralism. Every outlet in the corpus — from Russian state media to Pan-Arab Al Jazeera to India's commercial press — treats Canada's defiance as credible and Trump's order as unenforceable beyond US borders, with not one endorsing the new name as legitimate. The most consequential finding, reported only by Axios, is that US House Democrats are drafting legislation to counter the executive order, pointing to unusual domestic recoil within the US itself. The underlying tariff war — 50% US duties and Canadian counter-tariffs arriving September 8 — received far less global attention than the theatrical sign-vs-decree contest between Ford and Trump.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US unilateralism vs. Canadian sovereign pushback",
+      "outlets": ["Al Jazeera English", "CGTN World", "Daily Sabah", "Globe and Mail", "RT", "Standard Kenya World", "BBC World", "BFM TV"],
+      "countries": ["qatar", "china", "turkey", "canada", "russia", "kenya", "uk", "france"],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Trump stepped up his trolling of Canada by signing an executive order changing the name of the body of water on the border between the North American neighbors.\nBut Canadian Prime Minister Mark Carney swiftly rejected Trump's move, saying it would be called Lake Ontario \"then, now and always.\"",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Canadian Prime Minister Mark Carney said Thursday that the name \"Lake Ontario\" carries a long history and that Canadians will always use this name regardless of external changes.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "executive trolling and domestic counter-mobilisation",
+      "outlets": ["Axios World", "National Post", "NDTV World", "Le Devoir", "Hindustan Times"],
+      "countries": ["usa", "canada", "india"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "House Democrats are planning legislation to counteract the executive order President Trump signed Thursday redesignating Lake Ontario as \"Lake America,\" Axios has learned.Why it matters: Democrats are scrambling to contain the fallout from an escalating economic conflict between the Trump administration and the Canadian government.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Ontario Premier Doug Ford answered President Donald Trump's \"Lake America\" decree Saturday with a billboard-sized message on the Canadian shoreline - \"Lake Ontario. Now and Always\" - as Canadian leaders met the move with ridicule rather than outrage.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "tariff war triggering symbolic escalation",
+      "outlets": ["Axios World", "BBC World", "Folha de São Paulo", "RT", "Standard Kenya World"],
+      "countries": ["usa", "uk", "brazil", "russia", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The collapse of trade talks between the two countries last week triggered 50% tariffs on a slew of Canadian goods, to which Canada has vowed to respond in kind.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The war of words was triggered after trade talks collapsed, with the US imposing new 50% tariffs on $20bn (C$28bn) of Canadian goods. Canada will implement \"dollar for dollar\" counter-tariffs next month.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "naming authority vs sovereign limits",
+      "outlets": ["BBC World", "Axios World"],
+      "countries": ["uk", "usa"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "While he has broad discretion over how the US recognises landmarks, other countries are not required to follow. Canadian officials have dismissed Trump's move.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The collapse triggered 50% tariffs on roughly $20 billion of Canadian goods, with Canada announcing matching tariffs set to take effect Sept. 8.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Indigenous naming heritage erased by US executive fiat",
+      "outlets": ["BBC World", "Standard Kenya World", "National Post"],
+      "countries": ["uk", "kenya", "canada"],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Carney retorted that the name of the lake was 400 years old -- predating the formation of both the United States and Canada -- and came from an Indigenous word meaning \"the lake is beautiful, the lake is big.\"",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The names of four of the Great Lakes - Ontario, Huron, Michigan and Erie - originate from indigenous words. Lake Superior was named after an anglicised French word.",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "mexico",
+      "what_they_covered_instead": "Mexico has direct precedent interest — Trump renamed the Gulf of Mexico 'Gulf of America' in January 2025, a move Mexico also rejected — yet contributed no items to this cluster, suggesting Mexican outlets may be covering the story under a domestic angle not captured in today's feed set."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Democrats plan legislation to counter the Lake Ontario executive order — the only outlet to report this US domestic political response.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Trump posted an AI video depicting Canada geese with his hairstyle carrying rifles along the shoreline — the only outlet to cover the social-media spectacle dimension explicitly.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Reports Trump had two maps in the Oval Office — one labelling the lake 'Lake America' and another headed 'Making the Great Lakes Even Greater' — a visual staging detail absent from other outlets.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Characterises Canada's leadership response as 'ridicule rather than outrage' — the only outlet to editorially name the strategic register of Canada's counter-move.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Russian state media covers the story as a factual trade-war escalation with no pro-Trump editorial framing, diverging from RT's typical alignment with Trump administration positions.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "National Post",
+      "country": "canada",
+      "finding": "Centre-right Canadian outlet gives Ford's defiance full platform and quotes him at length, showing Canadian right-left consensus around rejecting the renaming.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Sixteen outlets across 11 countries converged on a single editorial verdict: Canada's rejection of the Lake Ontario renaming is credible and Trump's executive order is unenforceable beyond US borders. The underlying tariff war — 50% US duties and Canadian counter-tariffs arriving September 8 — is the real stakes, but the symbolic sign-vs-decree contest dominated global coverage and buried the economic substance.",
+  "generated_at": "2026-08-30T13:29:47Z",
+  "model": "claude-sonnet-4-6"
+}
