@@ -1,0 +1,117 @@
+{
+  "date": "2026-08-30",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 84,
+      "n_tokens_in_cohort": 608,
+      "distinctive_terms": [
+        {
+          "term": "reuter",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.07143,
+          "rate_in_cohort": 0.0,
+          "llr": 25.692,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 665,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 217,
+      "n_tokens_in_cohort": 475,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 42,
+      "n_tokens_in_cohort": 650,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 668,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 663,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 95,
+      "n_tokens_in_cohort": 597,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 637,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 623,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 670,
+      "distinctive_terms": []
+    },
+    "nigeria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 664,
+      "distinctive_terms": []
+    },
+    "france": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 89,
+      "n_tokens_in_cohort": 51,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 89,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

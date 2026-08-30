@@ -1,0 +1,96 @@
+{
+  "date": "2026-08-30",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 748,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 19,
+      "n_tokens_in_cohort": 756,
+      "distinctive_terms": []
+    },
+    "balkans": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 438,
+      "n_tokens_in_cohort": 337,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 722,
+      "distinctive_terms": [
+        {
+          "term": "criminal",
+          "count_in_bucket": 6,
+          "count_in_cohort": 12,
+          "rate_in_bucket": 0.11321,
+          "rate_in_cohort": 0.01662,
+          "llr": 11.462,
+          "log_ratio": 1.919,
+          "p_value": 0.00071
+        }
+      ]
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 48,
+      "n_tokens_in_cohort": 727,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 64,
+      "n_tokens_in_cohort": 711,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 754,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 749,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 65,
+      "n_tokens_in_cohort": 710,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 10,
+      "n_tokens_in_bucket": 14,
+      "n_tokens_in_cohort": 761,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

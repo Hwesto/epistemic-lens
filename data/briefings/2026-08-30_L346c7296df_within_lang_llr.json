@@ -1,0 +1,114 @@
+{
+  "date": "2026-08-30",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 171,
+      "n_tokens_in_cohort": 797,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 944,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 18,
+      "n_tokens_in_cohort": 950,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 919,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 266,
+      "n_tokens_in_cohort": 702,
+      "distinctive_terms": [
+        {
+          "term": "shot",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.0188,
+          "rate_in_cohort": 0.0,
+          "llr": 12.986,
+          "log_ratio": null,
+          "p_value": 0.000314
+        }
+      ]
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 943,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 908,
+      "distinctive_terms": [
+        {
+          "term": "wounded",
+          "count_in_bucket": 5,
+          "count_in_cohort": 9,
+          "rate_in_bucket": 0.08333,
+          "rate_in_cohort": 0.00991,
+          "llr": 11.026,
+          "log_ratio": 2.129,
+          "p_value": 0.000898
+        }
+      ]
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 943,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 200,
+      "n_tokens_in_cohort": 768,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 76,
+      "n_tokens_in_cohort": 892,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 54,
+      "n_tokens_in_cohort": 914,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

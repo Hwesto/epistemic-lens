@@ -1,0 +1,103 @@
+{
+  "date": "2026-08-30",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 330,
+      "n_tokens_in_cohort": 1262,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 59,
+      "n_tokens_in_cohort": 1533,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 110,
+      "n_tokens_in_cohort": 1482,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 45,
+      "n_tokens_in_cohort": 1547,
+      "distinctive_terms": [
+        {
+          "term": "coast",
+          "count_in_bucket": 5,
+          "count_in_cohort": 23,
+          "rate_in_bucket": 0.11111,
+          "rate_in_cohort": 0.01487,
+          "llr": 11.129,
+          "log_ratio": 2.011,
+          "p_value": 0.00085
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 174,
+      "n_tokens_in_cohort": 1418,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 173,
+      "n_tokens_in_cohort": 1419,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 358,
+      "n_tokens_in_cohort": 1234,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 156,
+      "n_tokens_in_cohort": 1436,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 1571,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 110,
+      "n_tokens_in_cohort": 1482,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 56,
+      "n_tokens_in_cohort": 1536,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
