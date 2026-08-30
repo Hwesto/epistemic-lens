@@ -1,0 +1,187 @@
+{
+  "story_key": "L627034c4fa",
+  "date": "2026-08-30",
+  "n_buckets": 14,
+  "n_articles": 22,
+  "tldr": "Headlines across 14 buckets frame the Iran war's 6-month mark almost entirely through economic lenses — tightening US sanctions, Iran's mounting economic toll, and a hardening stalemate — with secondary threads on the war's domestic political costs and US threats of secondary sanctions against China.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Iran economy under war & sanctions toll",
+      "buckets": ["wire_services", "japan", "india", "vietnam_thai_my", "spain", "canada", "iran_opposition", "kenya"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "uneven economic toll 6 months in",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "failed to strangle Iran's economy",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "economic hardship of war as U.S. steps up sanctions",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Tehran debates austerity as US targets sanctions lifelines",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Iran's Currency Plunges As Washington Readies",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "War weighs on Iran's economy as U.S. intensifies sanctions",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "economic toll at home",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "War weighs on Iran's economy as U.S. intensifies sanctions",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "new US sanctions will achieve nothing",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "War stalemate — no exit in sight",
+      "buckets": ["pan_african", "turkey", "russia", "opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "no end in sight to the conflict",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "costly stalemate looks most likely endgame",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Iran was supposed to collapse. Here's what happened instead",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Affairs",
+          "quote": "The Impossible Middle East",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "US sanctions as economic onslaught",
+      "buckets": ["china", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "US threatens 'economic D-Day' sanctions on Iran",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "US Launching 'Economic Onslaught' On Iran, Demands",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Domestic political toll on war leaders",
+      "buckets": ["qatar", "canada"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "How Israel, Iran, and US leaders have been hit by the war",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Trump's attention largely elsewhere",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US secondary sanctions threat on China",
+      "buckets": ["turkey"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump signals US may sanction Chinese banks over Iran links",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.508,
+      "n_tokens": 200
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.64,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.66,
+      "n_tokens": 53
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "bucket": "russia",
+      "outlet": "RT",
+      "note": "RT uniquely frames the 6-month mark as a narrative of Iranian resilience against failed Western predictions of collapse — inverting the dominant 'sanctions pressure' frame."
+    },
+    {
+      "bucket": "china",
+      "outlet": "CGTN Politics",
+      "note": "CGTN foregrounds US threat posture ('economic D-Day') rather than Iran's distress, centering US aggression as the headline story."
+    }
+  ],
+  "bottom_line": "The headline layer advertises the Iran war primarily as an economic siege — US sanctions tightening while Iran strains but does not break — with the war's stalemate and political costs of prolonged conflict as secondary threads.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
