@@ -1,0 +1,251 @@
+{
+  "story_key": "Lb3fd437490",
+  "date": "2026-08-30",
+  "n_buckets": 15,
+  "n_articles": 35,
+  "tldr": "Headlines universally foreground two interlocking events — the death of King Harald V at 89 and the immediate ascension of Crown Prince Haakon — with most titles accenting either the mass public mourning that swept Norway or the reformer-king legacy (plebeia, reformista, 'symbol of Norway', 'wise elder'). International tributes from European monarchs, world leaders, and Pope Leo round out the picture, while Russia's lone headline is a bare factual notice with no frame.",
+  "frames": [
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Mass public mourning across Norway",
+      "buckets": [
+        "canada",
+        "germany",
+        "india",
+        "pan_african",
+        "uk",
+        "usa",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Norwegians line up at churches for emotional",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Norway mourns king Harald V",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Tens of Thousands Gather in Oslo to Mourn",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Eine ganze Nation trauert",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Le Devoir",
+          "quote": "Des milliers de Norvégiens rendent hommage",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Norway mourns King Harald as crowds gather",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Tens of thousands mourn as Norway enters",
+          "signal_text_idx": 29
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Reformer king, national symbol",
+      "buckets": [
+        "brazil",
+        "canada",
+        "kenya",
+        "nordic",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "casado com plebeia e considerado reformista",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "reform-minded head of state, dies at 89",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "reform-minded head of state, dies at 89",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "King Harald, 'symbol' of Norway, dead at 89",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Norway's late King Harald was a 'wise elder'",
+          "signal_text_idx": 33
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Global tributes: monarchs, leaders, Pope",
+      "buckets": [
+        "nordic",
+        "religious_press",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "European royals and global leaders pay tribute",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Europe's monarchs and world leaders mourn",
+          "signal_text_idx": 31
+        },
+        {
+          "bucket": "religious_press",
+          "outlet": "Vatican News",
+          "quote": "Pope Leo mourns death of Norway's King Harald V",
+          "signal_text_idx": 32
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Royal succession: Haakon ascends",
+      "buckets": [
+        "brazil",
+        "germany",
+        "pan_african",
+        "turkey",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Norway's New King breaks silence after father's",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "crown prince Haakon becomes king",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Norway's new king remembers 'my dear father'",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Carta Capital",
+          "quote": "Quem é Haakon 8º, o novo rei da Noruega",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Crown Prince Haakon takes over",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Norway's new King Haakon remembers 'dear father'",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "son Crown Prince Haakon to succeed him",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'Now it is my turn': Norway's Haakon pays tribute",
+          "signal_text_idx": 22
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.729,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.791,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.803,
+      "n_tokens": 115
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.807,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.814,
+      "n_tokens": 90
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "russia"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "The only headline in the corpus to flag 'family crises,' inserting a scandal subtext ('buffeted by family crises') absent from every other outlet's title — a framing that diverges sharply from the uniformly reverential tone elsewhere.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Compresses Harald to a single identity marker — 'symbol of Norway' — bypassing both the dynastic succession angle and the reformer-king framing to foreground pure national-symbol status, the most reduced cultural headline in the corpus.",
+      "signal_text_idx": 24
+    }
+  ],
+  "bottom_line": "Headline coverage presents Harald V's death as a dual story of collective national grief and clean dynastic handover to Haakon, with the reformer-king legacy framing concentrated in Brazilian and Commonwealth outlets and international-tribute angles prominent in Nordic and Southeast Asian press — Russia alone offers no frame beyond bare fact.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
