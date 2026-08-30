@@ -1,0 +1,225 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-08-30",
+  "lineage_id": "L292562512c",
+  "cluster_id": 160,
+  "cluster_name": "Russian drone strike on Bucha ammunition depot kills 38",
+  "n_outlets": 29,
+  "n_countries": 16,
+  "n_articles": 41,
+  "tldr": "At the headline level this cluster is overwhelmingly dominated by a single register: casualty-count framing of the Russian strike on Myla — 'kills 37', 'deadliest attack this year', 'death toll rises to 38' — with virtually no editorial variation across ideological poles from Breitbart to NPR to BBC. A secondary headline layer in four outlets (RFE/RL, El Financiero, Kyiv Post, Daily Sabah) leads with Zelensky's or Ukraine's own accountability language — 'Blasts Negligence', 'Condemns Negligence', 'atroz', 'seeks answers' — a self-critical pivot that is rarely signaled so prominently at the headline level and that divergence-index analysis should weight as a meaningful body-vs-headline gap for most other outlets. Meduza is the only outlet to embed the care-home detail directly in its headline, making civilian-victim specificity visible before the reader clicks. The Moscow Times and The Conversation depart entirely from the Bucha story, headlining Ukrainian drone strikes on Russian e-commerce infrastructure (Ozon warehouses) — the only titles in the corpus that cast Ukraine as the striking party against civilian-adjacent targets.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Russian drone strikes, mass casualties near Kyiv",
+      "outlets": [
+        "AP News",
+        "AfricaNews",
+        "Anadolu Agency English",
+        "BBC World",
+        "Breitbart",
+        "CBC World",
+        "Daily Sabah",
+        "Deutsche Welle Deutsch",
+        "Deutsche Welle English",
+        "France 24 Spanish",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Meduza",
+        "NDTV World",
+        "NPR World",
+        "National Post",
+        "Politico Europe",
+        "RFE/RL (was Radio Farda)",
+        "Reuters (via Google News)",
+        "Republic World (alt)",
+        "Straits Times",
+        "Sydney Morning Herald",
+        "The Hindu Intl",
+        "The Independent",
+        "Ukrainska Pravda English",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "turkey",
+        "uk",
+        "usa",
+        "canada",
+        "germany",
+        "state_tv_intl",
+        "ukraine",
+        "russia",
+        "india",
+        "iran_opposition",
+        "vietnam_thai_my",
+        "australia_nz",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "Death toll rises to 38 from Russia’s deadliest attack",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Russian Strikes on Kyiv Region in Ukraine Kill at Least 37",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Zelenskyy says 38 killed in Russian strike on village",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Russian strike near Kyiv kills 37, in one of the year's deadliest",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Negligence in munitions storage near homes",
+      "outlets": [
+        "RFE/RL (was Radio Farda)",
+        "El Financiero",
+        "Kyiv Post",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "iran_opposition",
+        "mexico",
+        "ukraine",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "demanded answers as to why explosives were stored",
+          "signal_text_idx": 26
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "‘Negligencia atroz’: Zelenski condena explosión",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "PM Koretskyi Condemns Negligence After Deadly Bucha",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "expressing anger that arms were still being stored",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Care home deaths; survivor witness testimony",
+      "outlets": [
+        "Meduza",
+        "Ukrainska Pravda English"
+      ],
+      "countries": [
+        "russia",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "heaviest damage was to a nearby care home for elderly",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Ukrainska Pravda English",
+          "country": "ukraine",
+          "quote": "\"Only ashes and bones left\": what we know about those killed",
+          "signal_text_idx": 38
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Ukrainian drone hits on Russian e-commerce hubs",
+      "outlets": [
+        "Moscow Times",
+        "The Conversation"
+      ],
+      "countries": [
+        "russia",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Ukrainian Drone Attacks Kill Multiple People Across Russia",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "How Ukraine’s strikes on Russian warehouses became a problem",
+          "signal_text_idx": 34
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "russia",
+      "what_they_covered_instead": "Moscow Times headlines focus entirely on Ukrainian drone strikes against Russian Ozon e-commerce warehouses (indices 20–21), presenting Ukraine as the party targeting civilian-adjacent infrastructure. The Bucha/Myla civilian massacre is not headlined by either Russia-bucket outlet; Meduza covers it (index 18) but Moscow Times inverts the narrative direction entirely. Russian state outlets (RT, TASS, RIA Novosti), which would have headlined the strike as a legitimate military operation against Ukrainian defence contractor Fire Point, are absent from the corpus."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only headline in the corpus to explicitly name care-home residents as a distinct victim group, making the civilian-impact detail visible before the reader clicks — a choice absent from all wire and broadcast headlines.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Ukrainska Pravda English",
+      "country": "ukraine",
+      "finding": "Only headline embedding a direct survivor witness quote ('Only ashes and bones left'), foregrounding testimony over statistics — the sole outlet to use first-person-testimony language in a title.",
+      "signal_text_idx": 38
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only headline capturing Zelensky's counter-escalation mandate (1,000 drones/day at Russia), the sole title signaling mutual drone war as the operative context rather than a unidirectional Russian attack.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Headline covers Ukraine's Aug 16 large-scale drone attack on Moscow (not the Bucha strike), inverting casualty direction and foregrounding Ukrainian offensive reach — the only India outlet to do so.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "'Kyiv seeks answers' frames Ukrainian accountability as neutral bureaucratic inquiry; more restrained than 'Blasts Negligence' (RFE/RL) or 'Condemns Negligence' (Kyiv Post), suggesting a measured editorial distance from the self-critical framing.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The headline layer of this cluster broadcasts a near-uniform Russian-aggressor-kills-civilians frame across all 16 outlet groups, with casualty counts ('kills 37–38', 'deadliest attack this year') as the only signal most readers see before clicking. Where headlines diverge, they do so in angle rather than polarity: four outlets foreground Ukrainian accountability ('Negligence', 'Condemns', 'seeks answers'), Moscow Times exclusively headlines Ukrainian strikes on Russian territory, and Meduza alone names the care home — details that the body pass captures far more broadly, indicating headline-layer compression will register a sensationalism delta for most of the corpus.",
+  "generated_at": "2026-08-30T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
