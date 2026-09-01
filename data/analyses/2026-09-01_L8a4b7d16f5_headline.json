@@ -1,0 +1,179 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L8a4b7d16f5",
+  "cluster_id": 49,
+  "cluster_name": "Iceland voters reject EU accession talks in close referendum",
+  "salience_score": 6.061,
+  "n_outlets": 12,
+  "n_countries": 11,
+  "n_articles": 16,
+  "tldr": "Headlines across all 11 buckets report Iceland's 52.8% No-vote universally, but split into four distinct registers: neutral result-reporting (brazil, canada, india, ukraine, vietnam_thai_my, nordic), a 'warning to Europe / blow to Brussels' geopolitical frame (Nordic press, UK's Guardian, Foreign Policy), an anti-EU propaganda frame casting Brussels as warmongering bureaucrats (Russia's RT), and a post-vote security-pivot (Turkey's Daily Sabah). Vatican News stands alone in avoiding all electoral vocabulary, repackaging the outcome as an 'Arctic gateway remaining closed to Europe.'",
+  "event_summary": "On August 30, 2026, Iceland held a referendum on whether to reopen EU accession talks; 52.8% voted No against 47.2% Yes, ending a government-backed push for EU membership. Prime Minister Kristrun Frostadottir declared the result closes EU speculation, with the No campaign having argued that joining would jeopardize Iceland's sovereignty and fishing waters.",
+  "frames": [
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "voters reject EU talks at the polls",
+      "outlets": [
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Malay Mail World",
+        "The Hindu Intl",
+        "The Local Germany",
+        "The Local Sweden"
+      ],
+      "countries": [
+        "brazil",
+        "canada",
+        "ukraine",
+        "vietnam_thai_my",
+        "india",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Iceland votes to reject EU membership talks",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Iceland Voters Reject Resuming EU Membership Talks",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Icelandic voters reject proposal to restart",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Iceland votes 'No' to resuming EU talks",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Islândia recusa em plebiscito retomar negociações",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "Iceland votes 'No' to resuming EU talks",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU ambitions dealt a blow",
+      "outlets": [
+        "Foreign Policy",
+        "The Guardian World",
+        "The Local Germany",
+        "The Local Sweden"
+      ],
+      "countries": [
+        "opinion_magazines",
+        "uk",
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "'Warning to Europe': How Iceland's 'No' vote is a blow",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "no vote is not a Brexit-style rejection",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "Iceland's EU Ambitions",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Iceland pivots to security post-vote",
+      "outlets": [
+        "Daily Sabah"
+      ],
+      "countries": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Iceland seeks new security options after voters reject",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "anti-EU identity and Arctic sovereignty",
+      "outlets": [
+        "RT",
+        "Vatican News"
+      ],
+      "countries": [
+        "russia",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "cold shoulder to EU's 'bureaucrats and warmongering'",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Iceland: The Arctic gateway that remains closed to",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "The only headline to deploy explicit anti-EU propaganda framing, characterizing EU governance as 'bureaucrats and warmongering' — absent from all other outlet headlines, which describe a close democratic vote without editorializing on EU governance quality.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "The only headline to push back against a Brexit analogy rather than simply report the result, positioning interpretation as the primary news claim ('close ties... no vote is not a Brexit-style rejection') rather than the vote outcome itself.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "The only headline to avoid the words 'vote,' 'referendum,' 'No,' and 'reject' entirely, repackaging the outcome as a geographic metaphor ('Arctic gateway that remains closed to Europe') — erasing the democratic agency of the result at headline level.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "At headline level, Iceland's EU referendum is overwhelmingly a neutral result-reporting story, but RT's propaganda framing ('bureaucrats and warmongering'), Daily Sabah's security-pivot, and Vatican News's gateway metaphor represent three distinct outlier registers that would signal radically different stories to readers who never clicked through.",
+  "generated_at": "2026-09-01T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
