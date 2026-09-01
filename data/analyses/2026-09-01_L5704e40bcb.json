@@ -1,0 +1,147 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L5704e40bcb",
+  "cluster_id": 164,
+  "cluster_name": "Woman stabs two in Times Square, one killed, attacker shot dead",
+  "salience_score": 4.592,
+  "n_outlets": 15,
+  "n_countries": 10,
+  "n_articles": 15,
+  "event_summary": "On August 31, 2026, Pamela Cisneros, 49, stabbed two people with kitchen knives in New York City's Times Square around 4:30 p.m., killing a 32-year-old woman and injuring a 68-year-old man; police shot and killed Cisneros after she refused to surrender.",
+  "tldr": "Coverage across 15 outlets in 10 countries is strikingly uniform — nearly every outlet treats the Times Square attack as a straightforward criminal incident, with minimal framing divergence. The sharpest editorial split is domestic US: Breitbart's headline labels the location 'gun-free Times Square,' inserting a gun-rights policy argument absent from every other outlet in the cluster. Three Indian outlets — Times of India, Hindustan Times, The Hindu Intl — independently foreground the attacker's documented mental health history, a thread US mainstream outlets mention only in passing. Russian state media RT covers the incident factually and without anti-American framing, a restrained approach given the symbolic value of Times Square as a target.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "random knife attack and police use of force",
+      "outlets": ["24 Horas", "Deutsche Welle English", "El Tiempo Colombia", "Globe and Mail", "Jerusalem Post", "Malay Mail World", "RT", "Straits Times", "The Independent"],
+      "countries": ["mexico", "germany", "colombia_ven_peru", "canada", "israel", "vietnam_thai_my", "russia", "uk"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "A woman armed with two kitchen knives killed one person and wounded another in New York City's Times Square before police fatally shot her. Authorities said the attack was random and unprovoked.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "24 Horas",
+          "country": "mexico",
+          "quote": "Una mujer apuñaló a 2 personas en Times Square, Nueva York, una víctima murió y la policía abatió a la sospechosa.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Pamela Cisneros, 49, and a 32-year-old woman whom she allegedly stabbed died at the hospital, and the second victim, a 68-year-old man, is in stable condition",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "attacker mental health history",
+      "outlets": ["Times of India", "Daily Wire", "The Hindu Intl"],
+      "countries": ["india", "usa"],
+      "evidence": [
+        {
+          "outlet": "Times of India",
+          "country": "india",
+          "quote": "The woman had a documented mental health history with the NYPD. Officers shot and killed the suspect after she refused to surrender.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Police fatally shot a woman they described as emotionally disturbed after she allegedly stabbed two people, killing one, during a knife attack in Times Square on Monday.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Police reportedly do not believe the stabbing was terror-related.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "gun-free zone critique",
+      "outlets": ["Breitbart"],
+      "countries": ["usa"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "A woman who allegedly stabbed two people in gun-free Times Square at 4:26 p.m. was shot and killed by the NYPD approximately a minute later.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "police deployment in public tourist space",
+      "outlets": ["Hindustan Times", "Globe and Mail", "El Sol de Mexico"],
+      "countries": ["india", "canada", "mexico"],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Emergency responders gathered near 43rd Street and Seventh Avenue in Times Square after a person carrying a knife was shot Monday.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Videos posted on social media show a group of at least 10 officers gathered around the woman, who is holding two large kitchen knives",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "El Sol de Mexico",
+          "country": "mexico",
+          "quote": "La mujer primero recibió una descarga con una pistola taser, sin embargo, siguió amenazando a los elementos policiacos",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only outlet to label Times Square 'gun-free' in the headline, framing police response as evidence against gun restrictions — a political argument absent from every other publication in the cluster.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Times of India",
+      "country": "india",
+      "finding": "Uniquely leads its headline with the attacker's mental health history ('Woman with mental health history charges at NYPD officers'), making it the story's central framing angle.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Only outlet to report that police first deployed a taser on Cisneros before fatally shooting her, adding a use-of-force procedural detail missing from all other coverage.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Russian state media covers the incident in neutral factual terms without anti-American amplification, despite Times Square being a high-value symbolic target for such messaging.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Foregrounds the scale of police deployment via social media video — 'at least 10 officers gathered around the woman' — emphasising the visual spectacle of the standoff.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "The Times Square stabbing draws near-identical factual coverage across 15 outlets in 10 countries, with divergence confined to emphasis rather than interpretation. The sole clear editorial outlier is Breitbart, which converts a crime story into a gun-policy argument via its 'gun-free zone' framing; independently, three Indian outlets converge on foregrounding the attacker's mental health history — a thread US mainstream coverage largely treats as secondary.",
+  "generated_at": "2026-09-01T07:15:00Z",
+  "model": "claude-sonnet-4-6"
+}
