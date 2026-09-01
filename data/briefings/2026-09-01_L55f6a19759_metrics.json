@@ -1,0 +1,337 @@
+{
+  "date": "2026-09-01",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 18,
+  "buckets": [
+    "brazil",
+    "canada",
+    "germany",
+    "india",
+    "russia",
+    "uk",
+    "ukraine",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 172,
+    "brazil": 26,
+    "germany": 34,
+    "canada": 59,
+    "ukraine": 86,
+    "russia": 142,
+    "vietnam_thai_my": 34,
+    "india": 26,
+    "uk": 213
+  },
+  "pairwise_similarity": [
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.893
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.841
+    },
+    {
+      "a": "brazil",
+      "b": "ukraine",
+      "score": 0.806
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.797
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.795
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.786
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.771
+    },
+    {
+      "a": "brazil",
+      "b": "russia",
+      "score": 0.764
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.756
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.723
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.722
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.709
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.707
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.706
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.706
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.702
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.697
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.689
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.686
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.683
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.675
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.67
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.66
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.649
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.648
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.637
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.631
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.61
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.602
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.583
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.577
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.568
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.557
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.53
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.529
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.426
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.632,
+      "n_tokens": 213
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.644,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.681,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.683,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.735,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.738,
+      "n_tokens": 142
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.747,
+      "n_tokens": 172
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.577,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.686,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "basic",
+        "count": 4
+      },
+      {
+        "term": "first",
+        "count": 3
+      },
+      {
+        "term": "emphasiz",
+        "count": 3
+      },
+      {
+        "term": "opening",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "ministro",
+        "count": 3
+      },
+      {
+        "term": "russo",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "pres",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "ukraine": [],
+    "russia": [
+      {
+        "term": "sourc",
+        "count": 3
+      },
+      {
+        "term": "busines",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "india": [],
+    "uk": [
+      {
+        "term": "face",
+        "count": 3
+      },
+      {
+        "term": "huge",
+        "count": 3
+      },
+      {
+        "term": "year",
+        "count": 3
+      },
+      {
+        "term": "exile",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-01T12:59:49+00:00",
+  "meta_version": "10.0.3"
+}

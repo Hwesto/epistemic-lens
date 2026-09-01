@@ -1,0 +1,146 @@
+{
+  "date": "2026-09-01",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 107,
+      "n_tokens_in_cohort": 1606,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 150,
+      "n_tokens_in_cohort": 1563,
+      "distinctive_terms": [
+        {
+          "term": "reuter",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.04,
+          "rate_in_cohort": 0.00128,
+          "llr": 20.802,
+          "log_ratio": 3.442,
+          "p_value": 5e-06
+        }
+      ]
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 1688,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 299,
+      "n_tokens_in_cohort": 1414,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 462,
+      "n_tokens_in_cohort": 1251,
+      "distinctive_terms": []
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 36,
+      "n_tokens_in_cohort": 1677,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 56,
+      "n_tokens_in_cohort": 1657,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 1685,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 1645,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 228,
+      "n_tokens_in_cohort": 1485,
+      "distinctive_terms": [
+        {
+          "term": "missile",
+          "count_in_bucket": 8,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.03509,
+          "rate_in_cohort": 0.00471,
+          "llr": 13.724,
+          "log_ratio": 2.007,
+          "p_value": 0.000212
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 93,
+      "n_tokens_in_cohort": 1620,
+      "distinctive_terms": [
+        {
+          "term": "security",
+          "count_in_bucket": 5,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.05376,
+          "rate_in_cohort": 0.00247,
+          "llr": 17.452,
+          "log_ratio": 3.081,
+          "p_value": 2.9e-05
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 73,
+      "n_tokens_in_cohort": 1640,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 1680,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 1658,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

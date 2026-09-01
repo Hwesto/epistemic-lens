@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-01",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 89,
+      "n_tokens_in_cohort": 761,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 480,
+      "n_tokens_in_cohort": 370,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 70,
+      "n_tokens_in_cohort": 780,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 797,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 80,
+      "n_tokens_in_cohort": 770,
+      "distinctive_terms": [
+        {
+          "term": "pete",
+          "count_in_bucket": 6,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.075,
+          "rate_in_cohort": 0.00909,
+          "llr": 12.123,
+          "log_ratio": 2.11,
+          "p_value": 0.000498
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 78,
+      "n_tokens_in_cohort": 772,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 31,
+      "n_tokens_in_cohort": 52,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 31,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
