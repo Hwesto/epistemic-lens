@@ -1,0 +1,138 @@
+{
+  "story_key": "L080403d2c3",
+  "date": "2026-09-01",
+  "n_buckets": 12,
+  "n_articles": 16,
+  "tldr": "Headlines across 12 countries converge on a single message: Iran will reciprocate immediately if the US returns to the June MoU. The military threat dimension appears only at the margins, and only Iran's own outlet repositions the SCO summit as an anti-unilateralism platform rather than a ceasefire appeal.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "conditional reciprocation if US returns",
+      "buckets": [
+        "canada",
+        "germany",
+        "india",
+        "israel",
+        "nigeria",
+        "pakistan",
+        "pan_arab",
+        "russia",
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "'immediately' reciprocate if US returns to June deal",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Iran says it will return to ceasefire if US does",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Iran urges U.S. to honour June interim deal",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Tehran will 'immediately' reciprocate if US honours June MoU",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Trump strike threats in headlines",
+      "buckets": [
+        "pakistan",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "after Trump threatens further strikes",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Trump threatens to hit Iran 'hard'",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "SCO as anti-unilateralism platform",
+      "buckets": [
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "SCO summit: Iran's opportunity to contain unilateralism",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.536,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.617,
+      "n_tokens": 187
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.739,
+      "n_tokens": 172
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Dawn",
+      "bucket": "pakistan",
+      "finding": "Only outlet to use 'olive branch' metaphor in the headline, framing Iran's conditional offer in conciliatory rather than transactional terms.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Daily Sabah",
+      "bucket": "turkey",
+      "finding": "Uses 'claims' — 'Tehran claims ready to reciprocate' — adding a layer of editorial skepticism absent from all other outlets.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "TASS English",
+      "bucket": "russia",
+      "finding": "Only outlet to name the deal 'Islamabad memorandum' in the headline, aligning with Russian diplomatic terminology that no Western outlet adopts.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Tehran Times",
+      "bucket": "iran_state",
+      "finding": "Uniquely foregrounds the SCO summit itself as Iran's strategic opportunity, framing the story as multilateral pushback against US unilateralism rather than a bilateral ceasefire offer.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The headline layer presents Iran as the proactive de-escalation actor waiting on US compliance, stripping away the body-text context of resumed missile exchanges and Hormuz tanker incidents — a framing gap that the divergence index will reflect across nearly all 12 outlets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
