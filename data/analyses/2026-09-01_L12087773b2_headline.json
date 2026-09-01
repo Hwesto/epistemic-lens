@@ -1,0 +1,162 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L12087773b2",
+  "cluster_id": 160,
+  "cluster_name": "Lionel Messi retires from Argentina international football",
+  "salience_score": 9.0,
+  "n_outlets": 18,
+  "n_countries": 14,
+  "n_articles": 21,
+  "tldr": "The most striking divergence at headline level is the Daily Wire's all-caps 'SHOCK MOVE: Messi Delivers Emotional Message To Argentina' — sensationalist register applied to a retirement virtually every other outlet across 13 countries treats as a solemn farewell. More than half the corpus (11 of 21 articles, spanning wire services, Canada, Germany, and pan-African outlets) ran bare factual retirement announcements with no editorial frame, meaning the homepage layer suppresses the personal, cultural, and legacy dimensions developed in the bodies. Where framing does emerge it splits into three registers: national-cultural icon (AFP calling Messi 'le monument argentin,' Buenos Aires Herald declaring 'Messi era ends,' France 24 Spanish marking 'entrega la 10'), personal-sacrifice emotional (BBC's 'nothing left to give'), and peer-tribute (Al Jazeera's 'praised by peers,' The Punch quoting Beckham, Times of India quoting Ronaldo's 2016 reaction to Messi's previous retirement). The Times of India is the only outlet in the corpus to anchor the current announcement in a historical frame — re-surfacing Ronaldo's past words about Messi's 2016 retirement rather than treating this as a singular endpoint.",
+  "event_summary": "Lionel Messi, 39, announced on September 1, 2026, his retirement from international football, ending a 21-year, 207-cap career with Argentina in the weeks following the 2026 World Cup final and the death of his father.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "national icon, era's end, symbolic legacy",
+      "outlets": [
+        "ABC Australia World",
+        "AFP / France 24 FR",
+        "Buenos Aires Herald",
+        "France 24 Spanish",
+        "Japan Times"
+      ],
+      "countries": [
+        "australia_nz",
+        "france",
+        "argentina_chile",
+        "state_tv_intl",
+        "japan"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Le monument argentin Lionel Messi",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Buenos Aires Herald",
+          "country": "argentina_chile",
+          "quote": "Messi era ends in Argentina as star retires",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "entrega la '10' en Argentina tras más de dos décadas",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "peer tribute and public mourning",
+      "outlets": [
+        "Al Jazeera English",
+        "The Punch",
+        "Times of India"
+      ],
+      "countries": [
+        "qatar",
+        "nigeria",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "'Eternal' star praised by peers",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Messi legacy will live forever, says Beckham",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "Times of India",
+          "country": "india",
+          "quote": "'It hurts to see Messi in tears': What Ronaldo said",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "personal sacrifice and emotional farewell",
+      "outlets": [
+        "BBC World",
+        "Daily Wire"
+      ],
+      "countries": [
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "with 'nothing left to give'",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "SHOCK MOVE: Messi Delivers Emotional Message",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "wire_services",
+      "what_they_covered_instead": "plain factual end-of-career announcement ('announces end of international career'), no editorial or cultural angle at headline level"
+    },
+    {
+      "country": "pan_african",
+      "what_they_covered_instead": "factual retirement announcement emphasising duration ('21 years with Argentina'), no legacy or tribute frame"
+    },
+    {
+      "country": "canada",
+      "what_they_covered_instead": "three factual retirement announcements across English and French outlets, no editorial framing beyond 'legend' as bare descriptor"
+    },
+    {
+      "country": "germany",
+      "what_they_covered_instead": "flat factual announcement ('announces retirement from international football'), no editorial imprint at headline level"
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "All-caps 'SHOCK MOVE' framing for what every other outlet treats as a solemn farewell — the only sensationalist register in the corpus, amplifying emotional stakes at homepage level that the body text itself does not support as unexpected.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Times of India",
+      "country": "india",
+      "finding": "Only headline in the corpus to anchor the story in the 2016 retirement narrative, surfacing Ronaldo's past reaction rather than the current announcement — framing this retirement as the close of a recurring arc rather than a singular endpoint.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "'Argentines hoped Messi would stay forever' — the only headline to foreground Argentine public grief and attachment rather than the announcement itself, centring national emotional response over the player's agency.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "ABC Australia World",
+      "country": "australia_nz",
+      "finding": "Only headline to frame Messi's career through the near-miss narrative ('legendary run... almost never happened after heartbreak'), casting the entire international career in retrospect as contingent rather than inevitable.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "At homepage level, Messi's international retirement is overwhelmingly a factual announcement story: wire services, Canada, Germany, and pan-African outlets run flat retirement notices with no editorial frame, while cultural-icon framing (France's 'monument,' Buenos Aires's 'era ends,' Spanish TV's jersey handover) is confined to five blocs and peer-tribute framing to three. The Daily Wire's all-caps 'SHOCK MOVE' is the corpus's sole sensationalist outlier in a story where even emotionally-invested Argentine and French outlets chose measured language at headline level.",
+  "generated_at": "2026-09-01T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
