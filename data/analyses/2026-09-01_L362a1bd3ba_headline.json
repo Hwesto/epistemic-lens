@@ -1,0 +1,215 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L362a1bd3ba",
+  "cluster_id": 64,
+  "cluster_name": "Norway King Harald V dies, Haakon VIII sworn in parliament",
+  "salience_score": 10.561,
+  "n_outlets": 20,
+  "n_countries": 15,
+  "n_articles": 22,
+  "tldr": "The constitutional oath dominates the headline layer — nine of twenty-two articles foreground Haakon VIII's swearing-in before parliament, making LEGALITY the controlling frame across wire services, European, and Asian outlets. The starkest divergence is the UK Daily Mail, which buries the oath entirely and leads with Queen Mette-Marit's lung-transplant complications and her replacement by her daughter, a celebrity-health sub-frame absent from every other headline. Geo News Pakistan is the sole outlet to omit the king's name from its headline, foregrounding a palace health bulletin as if it were the primary event. The international mourning thread surfaces distinctly in CGTN and the Vatican, both framing this as a foreign dignitary's condolence act rather than Norway's internal constitutional transition.",
+  "event_summary": "Norway's King Harald V died aged 89 on 28 August 2026; his son Haakon VIII was sworn in before parliament on 1 September 2026, with Queen Mette-Marit absent due to complications from her June lung transplant.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "constitutional oath before parliament",
+      "outlets": [
+        "AP News",
+        "BFM TV",
+        "Bild",
+        "Deutsche Welle English",
+        "O Globo",
+        "Reuters (via Google News)",
+        "South China Morning Post",
+        "Straits Times",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "germany",
+        "brazil",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "pledges an oath of allegiance to the constitution",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "Norway's King Haakon VIII swears allegiance to constitution",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "O Globo",
+          "country": "brazil",
+          "quote": "presta juramento ao Parlamento em primeira cerimônia oficial",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "national mourning and dynastic succession",
+      "outlets": [
+        "AfricaNews",
+        "Daily Sabah",
+        "Deutsche Welle Deutsch",
+        "Deutsche Welle English",
+        "Folha de São Paulo",
+        "Fox News World",
+        "Standard Kenya World"
+      ],
+      "countries": [
+        "pan_african",
+        "turkey",
+        "germany",
+        "brazil",
+        "usa",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "King Harald, 'symbol' of Norway, dead at 89",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Norway mourns king Harald V as crown prince Haakon becomes",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Norway's King Harald dies peacefully at 89",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Queen Mette-Marit lung transplant complications",
+      "outlets": [
+        "BFM TV",
+        "Daily Mail",
+        "Geo News English"
+      ],
+      "countries": [
+        "france",
+        "uk",
+        "pakistan"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "misses husband's swearing-in ceremony after 'complications'",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Queen's health update just hours before crucial ceremony",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "foreign dignitaries' condolences",
+      "outlets": [
+        "CGTN World",
+        "The Local Sweden",
+        "Vatican News"
+      ],
+      "countries": [
+        "china",
+        "nordic",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "China expresses condolences over passing of Norway's King",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Pope Leo mourns death of Norway's King Harald V",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "mean_similarity": 0.647,
+      "note": "Only outlet to frame the story as China's own diplomatic act rather than Norway's internal transition."
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "mean_similarity": 0.664,
+      "note": "Sole headline to name both 'allegiance' and 'constitution' explicitly; all others reduce the ceremony to 'oath' or 'swearing-in'."
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "mean_similarity": 0.689,
+      "note": "Most oblique headline in corpus — omits king's name and the oath entirely, foregrounding a palace health bulletin."
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "mean_similarity": 0.697,
+      "note": "Papal mourning framing; unique register of religious-institutional condolence absent from secular press."
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "mean_similarity": 0.704,
+      "note": "UK tabloid diverges from The Guardian's institutional frame by leading with the Queen's medical absence and daughter's replacement."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "The only headline to mention the Queen being 'replaced by her daughter' — reframing a constitutional ceremony as a celebrity family drama and foregrounding her daughter's substitution role, an angle absent from all twenty other outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Sole outlet to omit Haakon's name, Harald's name, and the oath from the headline entirely, instead leading with a palace medical statement; the succession story is only recoverable from the article body.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Uniquely places 'symbol' in scare quotes ('symbol' of Norway), the only headline to interrogate the nature of Harald's symbolic role rather than state it as fact — a faint sceptical register towards monarchical symbolism absent elsewhere.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "At the headline layer, the constitutional-oath frame (LEGALITY) dominates across wire, European, and East Asian press, while the UK tabloid and Pakistani outlets pivot to Queen Mette-Marit's medical drama; China's state broadcaster and the Vatican stand apart in a self-centric international-condolences register, producing a three-way split in advertised framing that the shared body text largely smooths away.",
+  "generated_at": "2026-09-01T13:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
