@@ -1,0 +1,215 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L77012b8992",
+  "cluster_id": 157,
+  "cluster_name": "US strikes Larak Island, Iran retaliates on Jordan and UAE bases",
+  "n_outlets": 24,
+  "n_countries": 17,
+  "n_articles": 32,
+  "salience_score": 11.102,
+  "event_summary": "US forces struck Iranian rocket launchers on Larak Island in the Strait of Hormuz on August 30, 2026 — the first US military strike in a month — killing at least two people. Iran retaliated with ballistic missiles at US bases in Jordan and UAE. Trump vowed to hit Iran 'hard' in response.",
+  "tldr": "Across seventeen outlet-countries, headlines overwhelmingly foreground the military kinetics — mutual strikes, retaliation, and Trump's 'hit hard' vow — anchoring the headline layer almost entirely in SECURITY_DEFENSE. Strategy skepticism surfaces only at Al Jazeera and Asia Times; political optics (Breitbart's 'Failed Nation' epithet, The Independent's AI-video mockery) appear at exactly two outlets. The ECONOMIC frame prominent in the body pass — economic pressure campaign, sanctions, the conflict's recent shift to an economic standoff — is entirely absent from the headline layer, marking the clearest body-headline divergence in this story.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "mutual strikes and escalation threats",
+      "outlets": [
+        "ARY News English",
+        "AfricaNews",
+        "Al Jazeera English",
+        "Asia Times",
+        "Axios World",
+        "BBC World",
+        "Breitbart",
+        "CBC World",
+        "CGTN Politics",
+        "CGTN World",
+        "Daily Sabah",
+        "Foreign Policy",
+        "Globe and Mail",
+        "Haaretz",
+        "Malay Mail World",
+        "NDTV World",
+        "RFE/RL (was Radio Farda)",
+        "RT",
+        "Standard Kenya World",
+        "Straits Times",
+        "Tehran Times",
+        "The Guardian World",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "pakistan",
+        "pan_african",
+        "qatar",
+        "asia_pacific_regional",
+        "usa",
+        "uk",
+        "canada",
+        "china",
+        "turkey",
+        "opinion_magazines",
+        "israel",
+        "vietnam_thai_my",
+        "india",
+        "iran_opposition",
+        "russia",
+        "kenya",
+        "iran_state"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Iran strikes US bases in Jordan in response to US attack",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "US and Iran trade strikes for first time in weeks",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "U.S. strikes Iran to prevent Hormuz mine threat",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "US strategy debate and Iran ceasefire call",
+      "outlets": [
+        "Al Jazeera English",
+        "Asia Times",
+        "NDTV World"
+      ],
+      "countries": [
+        "qatar",
+        "asia_pacific_regional",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Does Trump have another ‘new’ Iran strategy, can it work?",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Asia Times",
+          "country": "asia_pacific_regional",
+          "quote": "Trump’s try to keep the Iran war from backfiring further",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "Iran Says It Wants To Go Back To June Truce",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump domestic signaling and AI video mockery",
+      "outlets": [
+        "Breitbart",
+        "The Independent"
+      ],
+      "countries": [
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Trump: Iran a ‘Failed Nation,’ Says U.S. May ‘Smack Them’",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Trump mocked over AI video of fake strikes",
+          "signal_text_idx": 29
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "mean_similarity": 0.696,
+      "note": "Sole headline to compress the story to three words ('U.S.-Iran Fighting Reignites') — the starkest editorial register in the corpus, omitting agency, actor specificity, and Trump entirely, in contrast to every other outlet's event-specific framing."
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "mean_similarity": 0.711,
+      "note": "Only headline to foreground the US deterrence rationale ('Seen As Signal To Tehran On Hormuz') rather than the kinetic event itself, framing the strike as deliberate signaling rather than a reactive military exchange."
+    },
+    {
+      "outlet": "Asia Times",
+      "country": "asia_pacific_regional",
+      "mean_similarity": 0.722,
+      "note": "Sole headline to invert the escalation consensus: frames the US strike as an attempt to prevent strategic backfire rather than an act of aggression or deterrence — the only headline in which US restraint is the governing intent."
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "mean_similarity": 0.804,
+      "note": "Only outlet to apply political-pejorative language ('Failed Nation', 'Smack Them') in the headline itself, converting a military-exchange story into a domestic political characterization of Iran absent from all other headlines."
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "mean_similarity": 0.839,
+      "note": "Sole outlet to surface Trump's AI-generated fake-strikes video and the mockery it attracted in the headline, injecting an information-warfare and political-optics dimension entirely absent from the other 29 headlines."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only headline in the corpus to label Iran a 'Failed Nation' and use 'smack' as a military-action synonym — converting a bilateral military exchange into a political-pejorative characterization of Iran absent from all other outlets.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to foreground Trump's AI-generated video of fictional strikes and the resulting public mockery in its headline, adding an information-warfare dimension entirely absent from the remaining 29 headlines.",
+      "signal_text_idx": 29
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Only outlet whose headline explicitly claims Iran struck US bases in both Jordan AND the UAE — a UAE dimension not confirmed by US Central Command and absent from Western and most neutral headlines.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Sole headline to frame the mutual exchange as an event that will 'reignite Mideast war,' the only outlet to predict broad regional war ignition rather than describe the localized exchange of fire.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Only headline to foreground Iran's desire to return to the June ceasefire ('Iran Says It Wants To Go Back To June Truce') alongside Trump's threats — uniquely surfacing Iran's diplomatic offer in the headline layer when all other outlets focus on the military exchange.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "The headline layer of this story is nearly uniformly a military-event frame across all seventeen outlet-countries, with strategy skepticism (Al Jazeera, Asia Times) and political satire (The Independent) appearing as isolated counter-frames; the ECONOMIC framing prominent in body coverage is entirely invisible at the headline layer.",
+  "generated_at": "2026-09-01T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
