@@ -1,0 +1,176 @@
+{
+  "story_key": "Lee38dd58b8",
+  "date": "2026-09-01",
+  "n_buckets": 12,
+  "n_articles": 19,
+  "tldr": "Headlines across 12 national buckets overwhelmingly foreground PM Sanchez's accusation of Russian and Israeli disinformation—at least nine titles lead with that angle—while five others foreground clashes and civil unrest in Ceuta. The 141 deaths and humanitarian emergency that open the body texts are almost entirely invisible at the headline layer, and the Morocco-orchestration question is visible only as a denial.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia-Israel disinformation accused",
+      "buckets": ["turkey", "israel", "russia", "india", "brazil", "state_tv_intl", "italy", "pan_african", "uk"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Russia, Israeli disinformation helped trigger Ceuta crises:",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Spain's Sanchez: Israel, Russia amplified disinformation",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Spain's prime minister blames networks linked to Russia",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Spanish PM blames Russia, Israel for disinformation in Ceuta",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Espanha acusa Rússia e Israel de desinformação",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "¿Qué papel atribuye Pedro Sánchez a Israel y Rusia?",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Cremlino, 'nessun ruolo nella crisi dei migranti a Ceuta'",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Spain PM Pedro Sanchez rules out Moroccan role in Ceuta",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Morocco not to blame for Ceuta border breach, says Spanish PM",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Clashes and anti-migrant violence",
+      "buckets": ["spain", "italy", "pan_african", "germany", "uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Rapes and violence a daily occurrence. Now officials warn",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Scontri fra migranti a Ceuta, la polizia spara in aria",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Protesters set fire to migrant camp in Ceuta",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Clashes erupt in Ceuta as anti-migrant protesters confront",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "spain",
+          "outlet": "ABC.es",
+          "quote": "manifestaciones, enfrentamientos y última hora",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Moroccan border arrests of migrants",
+      "buckets": ["state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Morocco arrests hundreds of migrants near Ceuta",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "EU tit-for-tat border controls",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "Italy and Spain extend tit-for-tat border controls",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "spain", "mean_similarity": 0.677, "n_tokens": 239},
+    {"bucket": "russia", "mean_similarity": 0.68, "n_tokens": 45},
+    {"bucket": "italy", "mean_similarity": 0.686, "n_tokens": 46},
+    {"bucket": "israel", "mean_similarity": 0.691, "n_tokens": 33},
+    {"bucket": "brazil", "mean_similarity": 0.7, "n_tokens": 41},
+    {"bucket": "pan_african", "mean_similarity": 0.703, "n_tokens": 67},
+    {"bucket": "turkey", "mean_similarity": 0.706, "n_tokens": 35},
+    {"bucket": "uk", "mean_similarity": 0.724, "n_tokens": 247},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.731, "n_tokens": 88}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["africa_other"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Uniquely extreme severity register at headline level: 'Rapes and violence a daily occurrence... verge of disaster... worst of the worst' — no other headline across 12 buckets approaches this danger framing.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "RT Africa",
+      "bucket": "state_tv_intl",
+      "finding": "Only headline in the corpus to avoid Russia's alleged disinformation role entirely, pivoting instead to Morocco's enforcement arrests — the deflection is complete and legible at a single-title glance.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "El Mundo",
+      "bucket": "spain",
+      "finding": "Headline reads only 'Política' (section label) — entirely uninformative at RSS/homepage layer; the story is invisible as a standalone title, a structural silence the body pass cannot detect.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "BBC Africa",
+      "bucket": "africa_other",
+      "finding": "Interrogative framing — 'What triggered the mass migrant crossings into Ceuta?' — is the only headline to avoid asserting a cause or blame, placing this outlet in the silence bucket while all others commit to a frame.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "The headline layer reduces the Ceuta crisis to a Russia-Israel information war and a street-violence emergency, erasing both the humanitarian death toll and the ongoing 5,000-person shelter crisis that dominate the body texts.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
