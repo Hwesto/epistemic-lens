@@ -1,0 +1,157 @@
+{
+  "story_key": "L5704e40bcb",
+  "date": "2026-09-01",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "tldr": "Headlines across all ten country buckets frame the Times Square stabbing as a crime event; the only headline-layer divergence is Breitbart's 'gun-free' policy insert in the USA bucket and Times of India's explicit mental-health framing in the India bucket.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Random stabbing, police lethal force",
+      "buckets": [
+        "canada",
+        "colombia_ven_peru",
+        "germany",
+        "india",
+        "israel",
+        "mexico",
+        "russia",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Woman stabs two people, killing one, and is shot dead",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "ataque con cuchillo en pleno centro de Times Square",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Times Square stabbing in NYC leaves 1 dead, assailant killed",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "NYC Times Square shooting, stabbing reports",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Times Square stabbing leaves woman dead, attacker dies",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "Mujer apuñala a 2 en Times Square, una víctima muere",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Woman goes on stabbing spree in Times Square",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Woman shot dead by police in Times Square after fatally",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Police Kill Knife-Wielding Woman After Times Square",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Times Square stabbing leaves one victim dead, attacker",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Attacker's mental health history",
+      "buckets": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Woman with mental health history charges at NYPD",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Gun-free zone critique",
+      "buckets": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Woman Fatally Shot in Gun-Free Times Square",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.654,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.728,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.736,
+      "n_tokens": 32
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only outlet to label Times Square 'gun-free' in the headline, converting a crime story into a gun-policy argument absent from every other outlet in the cluster."
+    },
+    {
+      "outlet": "Times of India",
+      "bucket": "india",
+      "finding": "Only headline to foreground the attacker's mental health history ('Woman with mental health history charges at NYPD officers'), making it the story's central framing angle rather than the act itself."
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Headline 'Woman goes on stabbing spree in Times Square' uses charged language without anti-American amplification — notable restraint given the symbolic value of Times Square."
+    }
+  ],
+  "bottom_line": "Headline coverage is near-uniform crime reporting across all ten buckets; the only advertised editorial wedge is Breitbart's gun-free-zone insert in the USA and Times of India's mental-health lead in India.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
