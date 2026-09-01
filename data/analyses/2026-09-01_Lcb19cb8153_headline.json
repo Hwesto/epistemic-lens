@@ -1,0 +1,147 @@
+{
+  "story_key": "Lcb19cb8153",
+  "date": "2026-09-01",
+  "n_buckets": 15,
+  "n_articles": 36,
+  "tldr": "Across all 15 outlet buckets, headlines uniformly lead with Russia's sixth consecutive night of drone and missile strikes on Kyiv, anchoring on casualty figures and the scale of bombardment; US and Southeast Asian outlets add a secondary civilian-disruption layer, while wire services and Ukrainian outlets highlight targeting of energy, rail, and port infrastructure.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Sixth-night Russian attack escalation",
+      "buckets": ["canada", "france", "germany", "india", "iran_opposition", "qatar", "russia", "south_africa", "taiwan_hk", "turkey", "uk", "ukraine", "usa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Russia targets Kyiv and its region for sixth consecutive",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Russia kills at least 12 on sixth night of drone attacks",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Russian air attacks kill 12 in Kyiv region on 6th day",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Russian drone and missile barrage kills at least 12",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "ballistic missile strike on railway infrastructure in Kyiv",
+          "signal_text_idx": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Disruption to civilian life and security",
+      "buckets": ["usa", "india", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "drones bring empty Kyiv supermarket shelves and rattle",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Kyiv orders heightened security amid intense Russian drone",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Ukraine tightens Kyiv security measures",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Energy and rail infrastructure targeted",
+      "buckets": ["wire_services", "uk", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "hits energy and rail infrastructure in Kyiv",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Russian attack hits rail workers in new deadly strikes",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Russia hits port export facilities in Ukraine's Odesa",
+          "signal_text_idx": 25
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "iran_opposition", "mean_similarity": 0.599, "n_tokens": 33},
+    {"bucket": "russia", "mean_similarity": 0.672, "n_tokens": 73},
+    {"bucket": "usa", "mean_similarity": 0.686, "n_tokens": 68},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.731, "n_tokens": 55},
+    {"bucket": "canada", "mean_similarity": 0.752, "n_tokens": 462}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only headline to foreground war-termination politics ('fear hanging over war's end') over casualties or strike scale, framing Russia's drone escalation through a political endgame lens.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Uniquely headlines the civilian supply-chain impact — empty supermarket shelves from warehouse strikes — grounding the story in consumer experience rather than military metrics.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Only headline to foreground deliberate Russian intent as the news core ('Russia Always Calculates Its Strikes to Destroy Lives'), introducing a morality-of-intent frame absent from neutral international titles.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only outlet to headline Ukraine's counter-drone strike on Yekaterinburg in the Russian Ural region, reversing the actor-victim framing dominant across all other cluster headlines.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Headlines a separate mid-August Ukrainian offensive against Russia rather than September 1 Russian strikes on Kyiv, foregrounding Ukrainian offensive capability in a cluster otherwise dominated by Russian attack coverage.",
+      "signal_text_idx": 24
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only headline to make victim nationality the primary news hook ('Indian among 12 killed'), filtering a 12-death event through diaspora identity rather than military or humanitarian framing.",
+      "signal_text_idx": 30
+    }
+  ],
+  "bottom_line": "The headline layer compresses a complex military-diplomatic crisis into a single dominant message — Russia's sixth night of mass strikes killed at least 12 — leaving diplomatic response, air-defense depletion, and peace-process dimensions visible only in bodies, not titles.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
