@@ -1,0 +1,227 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L362a1bd3ba",
+  "cluster_id": 64,
+  "cluster_name": "Norway's King Haakon VIII takes parliamentary oath after Harald V dies",
+  "n_outlets": 20,
+  "n_countries": 15,
+  "n_articles": 23,
+  "salience_score": 10.561,
+  "event_summary": "Norway's King Harald V died at age 89 on August 28, 2026, at Oslo University Hospital after a 35-year reign. His son Crown Prince Haakon became King Haakon VIII and swore an oath of allegiance to the Norwegian constitution before parliament in Oslo on September 1, 2026.",
+  "tldr": "Coverage across 20 outlets in 15 countries is almost entirely ceremonial, with no outlet questioning the monarchy's institutional future or Haakon VIII's governance agenda. BFM TV is the only outlet to note that at 53, Haakon is now the youngest sitting sovereign in European constitutional monarchies — a fact unreported elsewhere. Vatican News references Pope Leo XIV rather than Francis, implicitly recording a papal succession that preceded this date. An O Globo signal-text extraction artifact blends the oath story with content about Norway playing England in the 2026 World Cup quarterfinal, a notable pipeline anomaly. The Guardian alone contextualises the Norwegian ceremony within broader European security dynamics, embedding the oath report in a live blog tracking Russian strikes and an upcoming EU-NATO meeting.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "constitutional succession ritual",
+      "outlets": ["AP News", "Deutsche Welle English", "Straits Times", "Bild", "Reuters (via Google News)", "South China Morning Post"],
+      "countries": ["wire_services", "germany", "vietnam_thai_my", "taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "Bild",
+          "country": "germany",
+          "quote": "Haakon VIII. schwört im Parlament in Oslo feierlich auf die Verfassung.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "The new king swore to uphold the constitution in parliament in Oslo, the first major institutional step of his reign.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "King Haakon VIII of Norway will on Tuesday take an oath before parliament following the death of his father, pledging to uphold the Nordic country's constitution and laws in the latest in a series of ceremonies marking the passing of the crown.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "queen's lung transplant complications",
+      "outlets": ["BFM TV", "Daily Mail", "Geo News English", "South China Morning Post"],
+      "countries": ["france", "uk", "pakistan", "taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Norway's new Queen Mette-Marit misses husband's swearing-in ceremony after 'complications' from lung transplant and is replaced by her daughter",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "the first major institutional step of his reign, though his wife, still convalescing after a lung transplant, was unable to attend.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "BFM TV",
+          "country": "france",
+          "quote": "Le palais norvégien a communiqué ce mardi, jour où Haakon prête serment, sur l'état de santé de la reine Mette-Marit, toujours fragile depuis sa greffe de poumon en juin dernier.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "international condolences and diplomatic response",
+      "outlets": ["CGTN World", "The Local Sweden"],
+      "countries": ["china", "nordic"],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "China expresses deep condolences over the passing of Norway's King Harald V and extends its sincere sympathies to the Norwegian royal family and the government and people of Norway, a Chinese Foreign Ministry spokesperson said on Monday.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "European monarchs and world leaders paid to Norway's King Harald, after the royal palace announced his death aged 89.",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Norwegian monarchy legacy and national mourning",
+      "outlets": ["Daily Sabah", "Deutsche Welle Deutsch", "AfricaNews", "Standard Kenya World", "Folha de São Paulo"],
+      "countries": ["turkey", "germany", "pan_african", "kenya", "brazil"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Norway is mourning King Harald V, who died Friday at 89 after more than three decades on the throne, ending a reign marked by national unity, modernization of the monarchy and an u...",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Bei Gedenkgottesdiensten in ganz Norwegen haben die Menschen Abschied von König Harald V. genommen. Sein Sohn Haakon VIII. würdigte den Verstorbenen zuvor in seiner ersten Ansprache als neuer König.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "\"It is with deep sadness that we announce that His Majesty King Harald passed away today. King Harald passed away peacefully at Oslo University Hospital on Friday, August 28 at 6:35am.\"",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Após a morte do rei Harald 5º nesta sexta-feira (28), a Noruega tem um novo rei.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "devoted royal service and religious tribute",
+      "outlets": ["Vatican News"],
+      "countries": ["religious_press"],
+      "evidence": [
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "Pope Leo XIV sends his condolences to King Haakon VIII and the people of Norway for the death of King Harald V, and praises the late King's decades of \"devoted service\" to the Scandinavian nation.",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "BFM TV",
+      "country": "france",
+      "terms": ["serment", "greffe", "poumon", "reine"],
+      "what_it_reveals": "French press foregrounds both the oath ceremony (serment, parlement) and the Queen's lung-transplant complications (greffe de poumon, reine) as co-equal story lines — exclusive vocabulary that reflects a dual ceremonial-and-health frame."
+    },
+    {
+      "outlet": "Bild",
+      "country": "germany",
+      "terms": ["norwegen", "könig", "moment"],
+      "what_it_reveals": "Germany's most token-rich bucket uses elevated register (König, Norwegen) and 'moment' — the token behind 'Historischer Moment' in the Bild headline — marking the event as historically significant rather than merely procedural."
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "terms": ["crucial", "health"],
+      "what_it_reveals": "Pakistan's exclusive vocabulary ('crucial', 'health') reflects a coverage angle centred on the Queen's medical bulletin rather than the constitutional oath itself."
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "terms": ["pope"],
+      "what_it_reveals": "The sole religious-press outlet is uniquely identified by papal attribution — the only framing that routes Harald's death through a cross-faith institutional lens rather than dynastic ceremony."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "O Globo",
+      "country": "brazil",
+      "finding": "Signal text contains an apparent extraction artifact: the summary describes Norway playing England in the 2026 World Cup quarterfinal rather than the oath ceremony referenced in the headline — a pipeline anomaly worth flagging.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "BFM TV",
+      "country": "france",
+      "finding": "Uniquely notes that at 53, Haakon VIII is now the youngest sitting sovereign among European constitutional monarchies — a comparative fact absent from all other coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "References Pope Leo XIV (not Francis), recording a papal succession that must have occurred before September 1, 2026.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Coverage limited to a Chinese Foreign Ministry condolence statement; does not report the oath ceremony or succession itself, treating the event purely as a diplomatic-protocol item.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Embedded the royal oath in a live Europe blog also tracking Russian strikes and an upcoming EU-NATO meeting — the only outlet to place the succession within a European security context.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Led on Queen Mette-Marit's health rather than Haakon's oath, and noted she was 'replaced by her daughter' at the ceremony — prioritising tabloid human-interest over the constitutional milestone.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Bild",
+      "country": "germany",
+      "finding": "Describes the oath as a 'historischer Moment' (historic moment) — the most hyperbolic framing among European outlets, which otherwise used neutral process language.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Headlines the Queen's health bulletin as a 'crucial ceremony' item rather than reporting the constitutional oath itself, treating the medical update as the primary news hook.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Provides the most substantive institutional context: explains Norway's constitutional monarchy traces to a 1905 plebiscite in which three-quarters of voters endorsed a symbolic monarchy after independence from Sweden.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "The only outlet to name Prime Minister Jonas Gahr Støre and describe his joining crowds outside the Royal Palace — foregrounding government response over constitutional procedure.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "Norway's transition from Harald V to Haakon VIII drew ceremonial coverage from 20 outlets across 15 countries with near-zero editorial divergence on the constitutional facts. The hidden story is personal: Queen Mette-Marit's lung transplant complications sidelined her from the oath ceremony, drawing as many column inches in tabloid and human-interest outlets as the constitutional milestone itself.",
+  "generated_at": "2026-09-01T12:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
