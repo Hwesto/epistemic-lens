@@ -1,0 +1,222 @@
+{
+  "story_key": "L725f36cd4c",
+  "date": "2026-09-01",
+  "n_buckets": 20,
+  "n_articles": 65,
+  "tldr": "Headlines across 20 buckets converge on a cascading death-toll and tunnel-rescue narrative for the Nepal-Tibet glacial flood (toll past 1,000; hundreds of hydropower workers feared trapped in mud-filled tunnels). A secondary thread in US and German headlines foregrounds China's suppression of Tibet flood footage, while a climate-justice argument — that Nepal bears disproportionate costs for emissions it did not produce — surfaces only in opinion-outlet and Vietnamese headlines.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "rising death toll, tunnel rescue race",
+      "buckets": [
+        "canada",
+        "china",
+        "germany",
+        "india",
+        "kenya",
+        "opinion_magazines",
+        "pakistan",
+        "philippines",
+        "qatar",
+        "religious_press",
+        "russia",
+        "south_korea",
+        "taiwan_hk",
+        "turkey",
+        "uk",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Death toll from devastating floods in Nepal surpasses 1,000",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Nepal flood: Death toll tops 1,000 as rescue continues",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Nepal races to find hundreds stuck in hydropower tunnels",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "tunnels, washed-out roads, foreign-aid hesitance",
+      "buckets": [
+        "wire_services",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "Why finding missing workers from Nepal's hydropower",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Nepal flood relief vehicles trapped as heavy rain",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Nepal's hesitance to accept foreign help for flood relief",
+          "signal_text_idx": 42
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China erases Tibet flood videos, punishes citizens",
+      "buckets": [
+        "usa",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "China Starts Erasing Tibet Flood Videos, Punishing Citizens",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "How China buried Tibet flood images after Nepal disaster",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "warning-system gap and climate action demand",
+      "buckets": [
+        "usa",
+        "pakistan",
+        "asia_pacific_regional"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Why Nepal's rare, deadly flood struck without warning",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Nepal PM demands climate action",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "Why South Asia's Governments Must Build Disaster",
+          "signal_text_idx": 55
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Nepal bears climate costs it didn't create",
+      "buckets": [
+        "opinion_magazines",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "The Floods Nepal Didn't Cause",
+          "signal_text_idx": 61
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Climate change boosted risk of devastating Nepal flash",
+          "signal_text_idx": 64
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.594,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.69,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.707,
+      "n_tokens": 150
+    },
+    {
+      "bucket": "religious_press",
+      "mean_similarity": 0.718,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.735,
+      "n_tokens": 83
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The New Yorker",
+      "country": "opinion_magazines",
+      "finding": "Headline 'The Floods Nepal Didn't Cause' encodes the climate-justice moral argument entirely in the title — the only headline in the corpus that assigns implicit causal blame to high-emitting nations without naming them.",
+      "signal_text_idx": 61
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Leads its first headline with China's censorship rather than the humanitarian toll, making state suppression the primary story — the starkest editorial contrast to all other US outlets' death-toll or rescue framing.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Only headline in the corpus to scrutinise Nepal's own institutional response ('hesitance to accept foreign help'), an accountability angle absent from every other outlet including those in the region.",
+      "signal_text_idx": 42
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Headline frames the event as a systemic warning-system failure ('struck without warning') rather than a casualty scorecard — the only explanatory-causal headline among all US outlets.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only headline in the entire corpus to foreground a heroism/human-interest narrative (principal saving 900 students) rather than death counts, missing tallies, or rescue operations.",
+      "signal_text_idx": 29
+    }
+  ],
+  "bottom_line": "The headline layer is a near-global death-toll scoreboard and tunnel-rescue race; China's information crackdown in Tibet appears in only two Western outlets' titles, and climate justice is confined entirely to opinion-magazine and Vietnamese headlines.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
