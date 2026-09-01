@@ -1,0 +1,161 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "Lbaac147ecd",
+  "cluster_id": 110,
+  "cluster_name": "Supreme Court 5-4 allows Trump White House ballroom construction",
+  "salience_score": 7.071,
+  "n_outlets": 21,
+  "n_countries": 11,
+  "n_articles": 21,
+  "tldr": "Headlines across all 11 buckets converge on a single factual claim — the Supreme Court permitted ballroom construction — but split into two distinct registers: a neutral legal register (most international outlets frame it as the court 'clearing the way' or 'authorising') and an explicit Trump-victory register (conservative US, Italian, and Latin American papers frame it as a 'win', 'victory', or 'nueva victoria'). The Roberts dissent, prominent in body-text coverage internationally, is headline-visible only at The Independent; headline-only readers across 10 of 11 buckets receive no signal that a chief justice called the construction 'likely unlawful'.",
+  "event_summary": "The U.S. Supreme Court voted 5-4 on August 31, 2026 to allow White House ballroom construction to continue, ruling the preservation group likely lacks standing without deciding the project's legality. Chief Justice Roberts dissented with the three liberals, calling construction 'likely unlawful.'",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "court permits; merits unresolved",
+      "outlets": [
+        "AFP / France 24 FR",
+        "Axios World",
+        "BBC World",
+        "Deutsche Welle English",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Le Devoir",
+        "Malay Mail World",
+        "NPR World",
+        "National Post",
+        "Reason",
+        "Straits Times",
+        "Tagesschau",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "france",
+        "usa",
+        "uk",
+        "germany",
+        "brazil",
+        "canada",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "US Supreme Court clears way for Trump to keep building",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "La Cour suprême autorise la construction de la salle de bal",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Trump's ballroom construction 'likely unlawful,'",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "National Post",
+          "country": "canada",
+          "quote": "amid legal challenges, U.S. Supreme Court rules",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Reason",
+          "country": "usa",
+          "quote": "Supreme Court Allows White House Ballroom Construction",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump win; partisan victory framing",
+      "outlets": [
+        "ANSA Italian (Mondo)",
+        "Breitbart",
+        "Daily Caller",
+        "Daily Wire",
+        "El Financiero",
+        "El Tiempo Colombia"
+      ],
+      "countries": [
+        "italy",
+        "usa",
+        "mexico",
+        "colombia_ven_peru"
+      ],
+      "evidence": [
+        {
+          "outlet": "ANSA Italian (Mondo)",
+          "country": "italy",
+          "quote": "Vittoria per Trump",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Supreme Court Delivers Win to Trump",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "El Tiempo Colombia",
+          "country": "colombia_ven_peru",
+          "quote": "Nueva victoria de Trump en Estados Unidos",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "Cumpla su capricho: Corte de EU avala",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Supreme Court Drops 5-4 Ruling In Trump Ballroom Fight",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only headline to foreground Roberts' 'likely unlawful' dissent rather than the court's permission to build, inverting the dominant frame used by all 20 other outlets; headline-only readers of every other outlet receive no signal that a chief justice opposed the ruling.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Only headline to editorialise against the project — 'Cumpla su capricho' (fulfill his whim) — framing the ruling as indulgence of a personal extravagance rather than a legal or institutional event; every other outlet, including the other Spanish-language papers, treats it as a factual ruling.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to include a cost figure (US$600m) as part of the lede, making the fiscal scale of the project visible to headline-only readers; all other non-US outlets omit cost entirely at headline level.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Only headline to bundle the ballroom ruling with a second story (Army secretary resignation), signalling to readers that SCOTUS is one of several concurrent stories rather than a standalone event.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "At headline level, the Supreme Court ballroom ruling reads almost entirely as 'court permits construction' (LEGALITY), with conservative US, Italian, and Latin American outlets overlaying an explicit 'Trump wins' register (POLITICAL) — while the Roberts dissent that shapes international body coverage is invisible in 20 of 21 headlines.",
+  "generated_at": "2026-09-01T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
