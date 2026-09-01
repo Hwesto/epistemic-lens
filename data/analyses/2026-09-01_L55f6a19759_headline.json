@@ -1,0 +1,201 @@
+{
+  "story_key": "L55f6a19759",
+  "date": "2026-09-01",
+  "n_buckets": 9,
+  "n_articles": 18,
+  "tldr": "Headlines across the cluster center on the diplomatic shock of Russia's return to G20 in person and the European boycott it triggered — non-US press overwhelmingly leads with the invitation as a transatlantic affront rather than a peace signal. A secondary headline cluster, concentrated in Canadian and Russian-exile outlets, foregrounds the conditional wall Bessent erected: no economic relief until the Ukraine war ends.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia's G20 return, European backlash",
+      "buckets": ["usa", "brazil", "germany", "ukraine", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Bessent met with Russian counterpart at G20",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Carta Capital",
+          "quote": "EUA convida ministro russo para reunião do G20",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US irks Germany, Europe with Russian G20 invite, press bans",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "European Ministers Boycott Russian Counterpart",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "US irks G20 ministers by inviting Russia",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Trump faces huge backlash for inviting Russian finance minister",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "War end as condition for sanctions relief",
+      "buckets": ["canada", "russia", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S. sanctions will remain until Ukraine war ends",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "met at the G20 to talk about ending the war in Ukraine",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "called on Russian minister to end war against Ukraine",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "pressure will not ease until Ukraine war ends",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Economic lifelines tied to war outcome",
+      "buckets": ["canada", "russia"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Tariffs, Iran and bond turmoil to put U.S. Treasury Secretary",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Russia won't get economic relief until Ukraine war ends",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "No Economic Lifelines Until Ukraine War Ends",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's embrace vs. allied objections",
+      "buckets": ["russia", "usa"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump welcomes Russia at G20 despite EU tantrum",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Scott Bessent Emphasizes Back to Basics, Iran Sanctions",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.632,
+      "n_tokens": 213
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.644,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.681,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.683,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.735,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.738,
+      "n_tokens": 142
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.747,
+      "n_tokens": 172
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "india",
+      "note": "The Hindu's headline covers only India's attendance (Nirmala Sitharaman), carrying no detectable frame on Russia's reinstatement, European backlash, or war conditions."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline to label European objections a 'tantrum', inverting the legitimacy of the boycott and casting Russia's G20 presence as a diplomatic win over EU opposition.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Meduza",
+      "bucket": "russia",
+      "finding": "Only headline to mention that Bessent and Siluanov 'also talked about doing business again', surfacing an economic-normalisation angle absent from every other outlet's title.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline to bundle Russia's invitation and press bans in a single clause, framing both as symptoms of the same US unilateralism rather than separate issues.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only headline to lead with Bessent's 'back to basics' and Iran sanctions framing at the G20 opening, sidelining the Russia-Europe rift that dominates all non-US headline coverage.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "Headline coverage advertises Russia's G20 reinstatement as an alliance rupture — the invitation, boycott, and backlash dominate above the fold — while sanctions-conditioned headlines from Canadian and Russian-exile outlets quietly carry the harder message Bessent delivered in the room.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
