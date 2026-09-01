@@ -1,0 +1,240 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "Lcb19cb8153",
+  "cluster_id": 140,
+  "cluster_name": "Russia strikes Kyiv sixth consecutive night, killing 12",
+  "n_outlets": 26,
+  "n_countries": 15,
+  "n_articles": 49,
+  "salience_score": 22.5,
+  "event_summary": "Russia struck Kyiv for the sixth consecutive night on September 1, killing at least 12 people including six railway workers at a depot hit by ballistic missiles. Odesa was also targeted, while Ukraine struck Russia's Baltic port at Ust-Luga and Yekaterinburg with drones.",
+  "tldr": "The most striking cross-outlet finding is that politically opposed outlets — Fox News and The Guardian — both anchor their coverage on Russia's deliberate strategy of exhausting Ukraine's air-defense capacity, despite diverging on every other editorial emphasis. India's three outlets uniquely foreground the death of an Indian national in Boryspil, with Zelensky's condolence statement becoming the lead angle in The Hindu rather than the attack's military dimension. Canadian outlets and The Globe and Mail stand nearly alone in reporting Ukraine's Foreign Minister Sybiha calling for frozen Russian asset disbursements and additional Patriot interceptors — a policy demand absent from most other coverage. Al Jazeera is the only outlet to directly connect the overnight barrage to a simultaneous EU defense ministers' meeting in Ireland on Ukraine air defense shortages, linking tactical events to institutional response. The Independent uniquely frames Russia's strikes as retaliation against Ukraine's 'sustained deep strike campaign on Russian infrastructure' — a symmetry narrative absent from all other Western coverage.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "sustained bombardment and air-defense depletion",
+      "outlets": [
+        "AFP / France 24 EN",
+        "BBC World",
+        "CBC World",
+        "Deutsche Welle English",
+        "Fox News World",
+        "Kyiv Post",
+        "Meduza",
+        "Reuters (via Google News)",
+        "Ukrinform English",
+        "The Guardian World",
+        "Daily Maverick",
+        "Straits Times"
+      ],
+      "countries": ["wire_services", "uk", "canada", "germany", "usa", "ukraine", "russia", "south_africa", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Russia has intensified strikes on the beleaguered Ukrainian cities in recent weeks disrupting the daily lives of millions of people and triggering up to a dozen air-raid alerts a day.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The strikes mark the sixth day of sustained Russian drone and missile attacks on Kyiv, in what appears to be a strategy aimed at exhausting Ukrainian air defences and undermining civilian morale.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Kyiv has endured five days of relentless Russian drone attacks, with faster jet-powered UAVs, repeated air-raid alerts and deadly strikes disrupting the capital. A blast at an arms depot near Kyiv has killed 38, while two children were also among those killed in the wider barrage.",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Patriot interceptor shortage",
+      "outlets": [
+        "The Guardian World",
+        "CBC World",
+        "Globe and Mail",
+        "Al Jazeera English"
+      ],
+      "countries": ["uk", "canada", "qatar"],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Zelenskyy says Moscow is capitalising on shortage of US-made Patriot interceptors to lower morale in capital",
+          "signal_text_idx": 29
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "He urged allies to provide Ukraine with more air defences, as it runs critically low on the U.S.-made Patriot interceptors capable of stopping Russia's ballistic missiles.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Russian attacks escalate as EU defence ministers meet in Ireland to discuss Ukraine air defence shortages.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian infrastructure and daily life disruption",
+      "outlets": [
+        "NPR World",
+        "Malay Mail World",
+        "CBC World",
+        "Globe and Mail",
+        "Ukrainska Pravda English"
+      ],
+      "countries": ["usa", "vietnam_thai_my", "canada", "ukraine"],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Russian forces relentlessly battered Kyiv and cities in the region around the Ukrainian capital for a fifth straight day, leaving some supermarket shelves bare after repeated strikes on warehouses.",
+          "signal_text_idx": 22
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Swarms of drones have plagued Kyiv and nearby areas in the last five days, killing residents, damaging homes and warehouses. Many of them are newer versions, powered by jet engines, making them harder to intercept. The near round-the-clock attacks have upended daily routines for millions with hours-long air-raid alerts.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Ukrainska Pravda English",
+          "country": "ukraine",
+          "quote": "Russian UAVs attacked Kyiv during the day on 1 September, injuring three people in a fire at a multi-storey building in the Misto Kvitiv residential complex in the Podilskyi district, while another drone fell near a residential building in the Sviatoshynskyi district.",
+          "signal_text_idx": 32
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "allied air defense and frozen Russian asset policy",
+      "outlets": [
+        "CBC World",
+        "Deutsche Welle English"
+      ],
+      "countries": ["canada", "germany"],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "\"It is time to signal [to] the Kremlin that imitating diplomacy does not work anymore,\" Sybiha said in a post on X.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Deadly attacks both in Ukraine and Russia continue as European Union defense ministers discuss the \"hybrid\" threat from Moscow in Europe.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "India-Russia diplomacy and EU-NATO response",
+      "outlets": [
+        "BBC World",
+        "Al Jazeera English"
+      ],
+      "countries": ["uk", "qatar"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "This comes a day after Russian President Vladimir Putin was urged by Indian Prime Minister Narendra Modi, a close ally, to end the war.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Russian attacks escalate as EU defence ministers meet in Ireland to discuss Ukraine air defence shortages.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "poland",
+      "what_they_covered_instead": "Poland, a NATO border state hosting millions of Ukrainian refugees and a primary transit country for Western military aid, is absent from this cluster; Polish coverage likely foregrounded domestic security implications or logistical dimensions not present in Western wire-driven framing."
+    },
+    {
+      "country": "china",
+      "what_they_covered_instead": "Mainland Chinese outlets are absent despite Beijing's strategic interest in the conflict trajectory; Chinese state media typically applies a Western-aggression framing that would contrast sharply with the cluster's dominant Ukrainian-sourced casualty framing."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Leads with the Indian national among the 12 killed, foregrounding Zelensky's condolence statement above the attack's military or humanitarian dimension — making nationality the primary news lens.",
+      "signal_text_idx": 30
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Anchors on 'fear hanging over war's end' rather than casualties or air-defense shortfalls, framing Russia's drone volume through the lens of US war-termination anxiety.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to explicitly position Russia's attacks as 'retaliation against Kyiv's sustained deep strike campaign on Russian infrastructure' — introducing a symmetry narrative absent from all other Western coverage.",
+      "signal_text_idx": 31
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to directly link the overnight barrage to the simultaneous EU defense ministers' meeting in Ireland on Ukraine air defense shortages — connecting tactical events to institutional response.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Uniquely foregrounds the civilian supply chain impact — empty supermarket shelves after repeated strikes on warehouses — grounding the story in consumer experience rather than military or diplomatic dimensions.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Only outlet in the cluster reporting Ukraine's successful drone strike on Yekaterinburg in Russia's Ural region, documenting the conflict's geographic spread deep into Russian territory.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Focuses on the older August 29 Bucha district strike with a rising death toll of 37-38 rather than September 1 events, contextualizing current strikes within an accumulating series of mass-casualty events.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Covers Ukraine's one of its largest aerial attacks on Russia rather than the Russian strikes on Kyiv, foregrounding Ukrainian offensive capability in a cluster otherwise dominated by Russian offensive coverage.",
+      "signal_text_idx": 24
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to include survivor testimony — quoting Yevhen Zavhorodniy in Boryspil describing the crater outside his building — adding a human witness dimension absent from wire-service-dependent coverage.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Leads headline with Zelensky's attribution of deliberate intent — 'Russia Always Calculates Its Strikes to Destroy Lives' — introducing a morality-of-intent frame absent from most neutral international reporting.",
+      "signal_text_idx": 16
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Russia's six-night sustained drone and missile campaign against Kyiv is covered with near-identical factual framing across 26 outlets in 15 countries; the primary editorial divergence is not whether to report it but which secondary angle to lead with — air-defense capacity shortfalls in Western outlets, the Indian casualty in Indian outlets, or the symmetry of mutual strikes in The Independent. The most consequential under-reported story the cluster surfaces is Ukraine's critical depletion of US-made Patriot interceptors at precisely the moment Russia is deploying faster jet-powered drones — a resource-capacity crisis flagged by only a handful of Western outlets and entirely absent from Global South coverage.",
+  "generated_at": "2026-09-01T06:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
