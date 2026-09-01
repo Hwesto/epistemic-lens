@@ -1,0 +1,220 @@
+{
+  "story_key": "La684ac0b46",
+  "date": "2026-09-01",
+  "n_buckets": 15,
+  "n_articles": 23,
+  "tldr": "Headlines worldwide converge on a single claim: the US has secured a massive, century-long stake in Venezuelan oil reserves. The advertised frame is one of historic American energy triumph — with geopolitical subframes noting China's displacement and investor risks; only Spain's press foregrounds the constitutional 'privatización' dimension.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "US energy dominance: reserves secured",
+      "buckets": ["turkey", "asia_pacific_regional", "usa", "canada", "germany", "india", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "US secures 100-year concessions in Venezuela oil deal",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "deepens China's energy security squeeze",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "'MORE THAN DOUBLES' U.S. Oil Reserves",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "refill Strategic Petroleum Reserve using Venezuelan oil",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "USA sichern sich riesige Ölvorkommen in Venezuela",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "U.S. energy deal will last 25 years",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "US secures 100-year concessions in Venezuela oil deal",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Deal scale and investor/market risk",
+      "buckets": ["usa", "argentina_chile", "colombia_ven_peru", "india", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump hails \"biggest oil deal in world history\"",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Buenos Aires Herald",
+          "quote": "deal for huge US stake in Venezuelan oil reserves",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "Caracas Chronicles",
+          "quote": "\"Mega Deal\" in Venezuela Could Deepen Risks for Investors",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "why it may not lower gas prices anytime soon",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "raises red flags for some major producers",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Leaders announce and defend the deal",
+      "buckets": ["usa", "turkey", "uk", "qatar", "spain"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "White House fills in some of the details",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump announces sweeping US deal for Venezuela's oil",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Rodríguez defends 'endless' benefits of her oil deal",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "White House unveils more details of Trump's Venezuela",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Oil, the most sensitive issue in Venezuelan politics",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Privatization of Venezuelan oil sovereignty",
+      "buckets": ["spain"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "la “privatización” del sector petrolero venezolano",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.636,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.653,
+      "n_tokens": 217
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.658,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.663,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.680,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.681,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.681,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.706,
+      "n_tokens": 227
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.707,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.755,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.757,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.780,
+      "n_tokens": 166
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["russia", "state_tv_intl"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Caller",
+      "bucket": "usa",
+      "note": "Only outlet to use all-caps in the headline ('MORE THAN DOUBLES U.S. Oil Reserves'), uniquely amplifying the resource-gain claim above all other US coverage."
+    }
+  ],
+  "bottom_line": "At the headline layer, global coverage uniformly advertises this as a historic US energy acquisition — with only Spain's press naming the constitutional 'privatization' at stake and the Colombian-Venezuelan outlet flagging investor risk.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
