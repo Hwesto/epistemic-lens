@@ -1,0 +1,164 @@
+{
+  "story_key": "L2af6057b03",
+  "date": "2026-09-01",
+  "n_buckets": 11,
+  "n_articles": 20,
+  "tldr": "Headlines collectively frame this story as a presidential power move — Trump ordering Lake Ontario renamed and pressuring tech companies to comply — with the Google-vs-Apple compliance split treated as a drama in its own right. Poll-carrying outlets add that a majority of Americans reject both the renaming and the Canadian tariffs, while Canadian and UK outlets are alone in explicitly naming the escalating bilateral 'spat.'",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "exec order + partisan/tech compliance split",
+      "buckets": ["russia_native", "usa", "uk", "canada", "china", "kenya"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Trump renames Lake Ontario to 'Lake America'",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Trump orders Lake Ontario to be renamed 'Lake America'",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Democrats plan bill to counter Trump order",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Mother Jones",
+          "quote": "Google's Obedience to Trump's “Lake America” Order",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Argumenty i Fakty",
+          "quote": "Трамп попросил Apple переименовать озеро Онтарио",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Trump pushes Apple to change ‘Lake Ontario’ to ‘Lake America’",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Canada-US trade war bilateral framing",
+      "buckets": ["canada", "uk"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S. officials trade blame for tensions",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Canada erects giant ‘Lake Ontario’ sign as spat with Trump",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "amid escalating Canada trade war",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "US majority oppose tariffs and renaming",
+      "buckets": ["turkey", "wire_services", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Majority of Americans against Canada tariffs, renaming Lake Ontario",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Majority of Americans oppose Trump’s new Canada tariffs",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Majority of Americans oppose Trump’s new Canada tariffs",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "who controls map naming authority",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "but who gets to decide what goes on maps?",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.521,
+      "n_tokens": 210
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.689,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.705,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.733,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.788,
+      "n_tokens": 243
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.802,
+      "n_tokens": 94
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.808,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.814,
+      "n_tokens": 169
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["india", "italy"],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage leads with Trump's executive act and the Google-vs-Apple compliance drama; poll-carrying outlets from Turkey, Singapore, and wire services are the only ones foregrounding that most Americans oppose the renaming, while India and Italy's headlines reduce the story to a neutral tech-change fact with no political frame.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
