@@ -1,0 +1,159 @@
+{
+  "story_key": "L046743881a",
+  "date": "2026-09-01",
+  "n_buckets": 10,
+  "n_articles": 23,
+  "tldr": "Headlines across all ten buckets frame Driscoll's departure as driven by personal conflict with Hegseth; opinion and UK outlets add an institutional-chaos register, and Spain uniquely foregrounds the purge of armed-forces leadership as the triggering cause.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Hegseth clash / administration purge",
+      "buckets": [
+        "brazil",
+        "canada",
+        "india",
+        "opinion_magazines",
+        "pakistan",
+        "spain",
+        "state_tv_intl",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "tenders resignation' amid feud with Hegseth",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "latest military leader to quit administration",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Surprise Move After Reported Hegseth Clash",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "resigns after reportedly clashing with Hegseth",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "'Conflict' with Pete Hegseth explained",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "resigns after clashes with Pete Hegseth",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "tras meses de tensiones con Hegseth",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "dimite por los despidos en la cúpula",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "renuncia após atritos com chefe do Pentágono",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "Dan Driscoll's Parting Shot",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Pentagon dysfunction / leadership vacuum",
+      "buckets": [
+        "opinion_magazines",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "chaos inside Hegseth's defense department",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "Hegseth's Pentagon Lurches off the Rails",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Military hierarchy destabilized by purge",
+      "buckets": [
+        "spain"
+      ],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "despidos en la cúpula de las Fuerzas Armadas",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.77,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.77,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.803,
+      "n_tokens": 480
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only outlet whose headline omits the Hegseth conflict entirely — 'Steps Down After 18 Months in the Post' frames departure as a tenure milestone, neutralising the clash narrative."
+    },
+    {
+      "outlet": "The Atlantic",
+      "bucket": "opinion_magazines",
+      "finding": "Both Atlantic headlines are explicitly editorial ('Pentagon Lurches off the Rails', 'Parting Shot') — treating the resignation as institutional failure rather than a personnel event."
+    }
+  ],
+  "bottom_line": "Headline coverage unanimously treats Driscoll's exit as a Hegseth-clash story; the only meaningful divergence is between outlets that add institutional-chaos language (Atlantic, The Independent) and those — led by Breitbart — that strip the conflict from the headline entirely.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
