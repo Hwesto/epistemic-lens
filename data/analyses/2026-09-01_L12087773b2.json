@@ -1,0 +1,185 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-01",
+  "lineage_id": "L12087773b2",
+  "cluster_id": 160,
+  "cluster_name": "Lionel Messi announces retirement from Argentina national team",
+  "salience_score": 9.0,
+  "n_outlets": 18,
+  "n_countries": 14,
+  "n_articles": 21,
+  "event_summary": "Lionel Messi, 39, announced his retirement from Argentina's national team on 1 September 2026, after 207 caps and 125 goals across 21 years. The announcement followed Argentina's loss to Spain in the 2026 World Cup final and the death of his father, Jorge Messi, three weeks prior.",
+  "tldr": "Coverage across 18 outlets and 14 countries is unusually convergent — no outlet questions or critiques Messi's decision, reflecting a near-total global editorial consensus on his cultural status. Spanish-language outlets are the only ones to explicitly name Spain as the 2026 World Cup final opponent whose victory contributed to the retirement announcement, while English-language coverage foregrounds the father's death as the dominant personal context. The Daily Wire is the sole outlet to sensationalize the news with an all-caps 'SHOCK MOVE' headline, yet its substantive framing converges with every other outlet on the legend-retires conclusion. Nigeria's Punch leads exclusively with David Beckham's tribute, positioning peer reaction as the primary story hook. Times of India alone revisits Messi's 2016 temporary retirement to frame this as his second international exit, invoking the Messi-Ronaldo rivalry as archive context.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Messi as transcendent national icon",
+      "outlets": ["ABC Australia World", "Japan Times", "Al Jazeera English", "AfricaNews", "CBC World"],
+      "countries": ["australia_nz", "japan", "qatar", "pan_african", "canada"],
+      "evidence": [
+        {
+          "outlet": "ABC Australia World",
+          "country": "australia_nz",
+          "quote": "Lionel Messi ends his international football career as a living legend with a God-like status in his country, but the dizzying heights the great man reached almost never happened if he had stuck to his original retirement.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "Lionel Messi's long-anticipated international retirement still came as a shock in Argentina, where the World Cup winner became far more than a soccer star.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Argentina superstar Lionel Messi announced his retirement from international soccer on Monday, ending 21 years of national-team duty that were capped by winning the World Cup in 2022 to secure his place in the pantheon of the game's greatest ever players.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "global peer tributes and fan grief",
+      "outlets": ["The Punch", "Al Jazeera English", "Times of India"],
+      "countries": ["nigeria", "qatar", "india"],
+      "evidence": [
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Messi on Monday revealed he had called time on his remarkable career with Argentina after 207 caps and 125 goals.",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Messi retires as one of the greatest players of all time after a glittering and decades-long career for Argentina.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Times of India",
+          "country": "india",
+          "quote": "Lionel Messi has announced his second international retirement from football. This decision follows a highly successful period of winning major trophies.",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "father's death and emotional weight of decision",
+      "outlets": ["BBC World", "Buenos Aires Herald", "Daily Wire", "Sky News UK", "Buenos Aires Herald"],
+      "countries": ["uk", "argentina_chile", "usa"],
+      "evidence": [
+        {
+          "outlet": "Buenos Aires Herald",
+          "country": "argentina_chile",
+          "quote": "\"It was a decision that hurt and still hurts deep in my soul but I understand that it is the right time,\" he reveals in post on Instagram.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Argentina great Lionel Messi announces his retirement from international football, saying it was a decision that \"hurt\" but he understands \"the time has come\".",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Soccer star Lionel Messi announced his retirement from international soccer on Monday, just three weeks after his father died at 68 following a battle with illness.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "'I've given everything I had; I have nothing left to give'. Pic: Reuters",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "career statistics and record documentation",
+      "outlets": ["AFP / France 24 EN", "AFP / France 24 FR", "AfricaNews", "France 24 Spanish", "Globe and Mail"],
+      "countries": ["wire_services", "france", "pan_african", "state_tv_intl", "canada"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Lionel Messi has announced his retirement from international football after 207 appearances for Argentina.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Con más de 200 partidos, 125 goles y 68 asistencias, deja un legado histórico como máximo goleador de la albiceleste.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Lionel Messi has retired from international football at 39, ending a remarkable 21-year career with Argentina just weeks after leading the team to the 2026 World Cup final.",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "spain",
+      "what_they_covered_instead": "No Spanish outlet appears in this cluster despite Spain defeating Argentina in the 2026 World Cup final weeks before the announcement — the specific defeat that Messi's own statement cites as contributing context for his decision."
+    },
+    {
+      "country": "brazil",
+      "what_they_covered_instead": "No Brazilian outlet represented despite Brazil being Argentina's principal football rival and a country where Messi's retirement would carry deep cultural significance."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Only outlet to headline the retirement as 'SHOCK MOVE' in all-caps; also the only one whose text leads with the father's death rather than career statistics, inverting the standard obituary-of-a-career structure.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Times of India",
+      "country": "india",
+      "finding": "Only outlet to revisit Messi's 2016 temporary retirement and Ronaldo's reaction at the time, explicitly framing this as 'his second international retirement' and invoking the Messi-Ronaldo rivalry as historical context.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to name Spain explicitly as the 2026 World Cup final opponent, connecting the defeat directly to the retirement: the announcement arrives 'semanas después de la derrota de Argentina en la final del Mundial 2026 frente a España'.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Only major outlet to close with the club-career continuity angle — Messi will keep playing for Inter Miami in MLS — reframing the story as a partial rather than total retirement from professional football.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Buenos Aires Herald",
+      "country": "argentina_chile",
+      "finding": "'Messi era ends in Argentina' headline is the only coverage to use explicit era-ending language, signalling a broader generational transition for Argentine football beyond the individual career.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Leads with Argentine fan sentiment ('Argentines hoped Messi would stay forever') as the primary story angle rather than Messi's own words or career statistics, positioning crowd grief as the narrative centre.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Le Devoir",
+      "country": "canada",
+      "finding": "Briefest coverage in the corpus; uniquely notes only that Messi has not specified when he will stop playing professionally, leaving his full career end-date open — a detail every other outlet omits.",
+      "signal_text_idx": 16
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Messi's international retirement generated one of the most globally convergent sports-coverage events in this dataset: 18 outlets across 14 countries with near-zero editorial divergence on his standing as a generational figure. The two triggers Messi himself cited — the 2026 World Cup final loss to Spain and his father's death — are systematically under-weighted in English-language coverage and surfaced mainly by Spanish-language and US conservative outlets, respectively.",
+  "generated_at": "2026-09-01T13:05:04Z",
+  "model": "claude-sonnet-4-6"
+}
