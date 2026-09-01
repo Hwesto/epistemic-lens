@@ -1,0 +1,178 @@
+{
+  "story_key": "L906f753c7e",
+  "date": "2026-09-01",
+  "n_buckets": 14,
+  "n_articles": 27,
+  "tldr": "Headlines across all 14 buckets converge on a single verdict bulletin: Duane 'Keffe D' Davis found guilty of murdering Tupac Shakur, closing a nearly 30-year cold case. Indian outlets alone break from the uniform verdict register by foregrounding the case's conspiracy theories and the unanswered question of who actually pulled the trigger.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Guilty verdict closes 30-year murder case",
+      "buckets": [
+        "canada",
+        "colombia_ven_peru",
+        "germany",
+        "india",
+        "mexico",
+        "pakistan",
+        "pan_african",
+        "qatar",
+        "south_africa",
+        "state_tv_intl",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Former gang member found guilty of murdering rapper Tupac",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Former gang member found guilty of murdering Tupac Shakur",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Ex-gang leader Duane 'Keffe D' Davis found guilty",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Former Crips boss Duane 'Keffe D' Davis guilty of murder",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "Keffe D Found Guilty In Murder of Tupac Shakur",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Duane 'Keffe D' Davis found guilty of orchestrating 1996",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Jury finds ex-gang leader guilty of murder in Tupac case",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Tupac Shakur murder trial: Duane 'Keffe D' Davis guilty",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "Un jurado declara culpable Duane Davis, exlíder de pandilla",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "Declaran culpable a Duane 'Keffe D' Davis, exlíder",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "el expandillero Duane Davis es declarado culpable",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Tupac Shakur verdict: Duane 'Keffe D' Davis found guilty",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Jury convicts Keffe D for 1996 killing of rap icon Tupac",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Jury finds ex-gang leader guilty of murder in Tupac case",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Cold-case mythology & conspiracy theories",
+      "buckets": [
+        "india",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "A shooting, bizarre conspiracy theories and a case",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Who really shot Tupac Shakur?",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "What it was like inside court for Tupac Shakur's murder",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.716,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.751,
+      "n_tokens": 77
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.77,
+      "n_tokens": 33
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "Both Hindustan Times headlines foreground mystery and doubt rather than the verdict itself — 'bizarre conspiracy theories', 'Who really shot Tupac Shakur?' — making india the only bucket whose homepage framing foregrounds unresolved cultural mythology over the court's resolution."
+    },
+    {
+      "outlet": "BBC World",
+      "bucket": "uk",
+      "finding": "One of two BBC headlines is experiential rather than informational ('What it was like inside court') — the only outlet in the corpus to lead with an eyewitness/narrative frame at headline level, suppressing the verdict itself in favour of atmospheric courtroom reporting."
+    }
+  ],
+  "bottom_line": "The headline layer is a near-uniform verdict bulletin across all 14 buckets; the only meaningful divergence is Hindustan Times, which substitutes conspiracy-theory mythology and open questions for the settled-fact register used by every other outlet.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
