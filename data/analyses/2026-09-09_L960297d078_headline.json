@@ -1,0 +1,119 @@
+{
+  "story_key": "L960297d078",
+  "date": "2026-09-09",
+  "n_buckets": 16,
+  "n_articles": 25,
+  "tldr": "Headlines across 16 countries collectively assert that AI poses a credible near-term threat to human survival, foregrounding a senior Anthropic researcher's resignation as proof that insiders believe the risk is real and that AI labs are recklessly gambling with humanity's lives.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "AI extinction risk within the decade",
+      "buckets": ["india", "turkey", "usa", "uk", "pakistan", "russia", "argentina_chile", "france", "italy", "spain", "israel", "iraq", "vietnam_thai_my", "mexico"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Anthropic insiders warn AI could kill all humans",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "AI could 'kill all humans' by the end of the decade",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "AI has over 10% chance of killing all humans",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "10% chance AI could kill all humans",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "Aaj Tak (alt)",
+          "quote": "AI खत्म कर देगा इंसानों को? एक्सपर्ट ने बताया 10%",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "'L'AI potrebbe ucciderci tutti entro un decennio'",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "AI labs gambling recklessly with human lives",
+      "buckets": ["germany", "opinion_magazines", "iraq", "vietnam_thai_my", "pakistan", "france", "argentina_chile", "israel"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Ki-Firmen „setzen unser aller Leben aufs Spiel“",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "'Gambling with our lives': AI researcher quits",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "'They're playing with our lives': AI researcher",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "\"Elles jouent avec nos vies\"",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "AI labs are 'gambling with our lives'",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Clarin",
+          "quote": "podría matarnos a todos para finales de la década",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.666,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.696,
+      "n_tokens": 89
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.706,
+      "n_tokens": 69
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer renders this as a global alarm: AI could kill all of humanity within the decade, and the companies building it know it.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
