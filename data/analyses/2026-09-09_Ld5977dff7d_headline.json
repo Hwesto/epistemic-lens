@@ -1,0 +1,136 @@
+{
+  "story_key": "Ld5977dff7d",
+  "date": "2026-09-09",
+  "n_buckets": 10,
+  "n_articles": 17,
+  "tldr": "Headlines globally frame Serbia's snap election as a political power move by Vucic to extend his rule through the prime-ministerial seat, with roughly a third of titles contextualising the dissolution within the protest movement — but the Novi Sad corruption backdrop, judicial failures, and EXPO 2027 rationale central to body coverage are invisible at headline level.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Vucic snaps election to extend hold on power",
+      "buckets": [
+        "balkans",
+        "france",
+        "germany",
+        "hungary_central",
+        "israel",
+        "russia",
+        "russia_native",
+        "turkey",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AP News",
+          "quote": "testing Vucic's hold on power",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "Balkan Insight",
+          "quote": "Serbia's Vucic Calls Early Parliamentary Elections",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "dissolves parliament as snap elections called",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "more than a year ahead of schedule",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "hungary_central",
+          "outlet": "Telex Hungary",
+          "quote": "előrehozott parlamenti választást tartanak Szerbiában",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Protest movement forced election call",
+      "buckets": [
+        "balkans",
+        "israel",
+        "turkey",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "after nearly two years of protests",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "after months of protests",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "amid anti-corruption protests",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "balkans",
+          "outlet": "N1 Serbia English",
+          "quote": "Šta kažu studenti, a šta stranke i analitičari",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.807,
+      "n_tokens": 474
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.819,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.827,
+      "n_tokens": 31
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AP News",
+      "bucket": "wire_services",
+      "finding": "Only headline explicitly framing the election as a test of Vucic's 'hold on power' — peer wire services (Reuters, AFP) report procedurally (dissolution/call), while AP foregrounds the power-contest angle at title level.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "N1 Serbia English",
+      "bucket": "balkans",
+      "finding": "Only headline predicting electoral fraud ('najbrutalniju krađu' — 'most brutal theft'), the sole adversarial framing of the election process rather than the political outcome — a local Balkans angle entirely absent from international coverage.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Meduza",
+      "bucket": "russia",
+      "finding": "Only headline emphasising the schedule disruption ('more than a year ahead of schedule'), framing the election as an institutional abnormality rather than a political or protest-driven event — a procedural-irregularity angle visible only in the exiled Russian outlet.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer universally advertises a Vucic power-retention manoeuvre, with a minority of outlets surfacing the protest movement as context; the corruption backdrop, EXPO 2027 justification, and student-list challenger that drive body coverage are entirely absent at the title layer.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
