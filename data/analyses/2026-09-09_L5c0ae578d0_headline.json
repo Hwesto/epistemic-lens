@@ -1,0 +1,90 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-09",
+  "lineage_id": "L5c0ae578d0",
+  "cluster_id": 158,
+  "cluster_name": "Brazil STF justices clash over Federal Police director removal",
+  "salience_score": 7.469,
+  "n_outlets": 7,
+  "n_countries": 4,
+  "n_articles": 11,
+  "tldr": "The headline layer is almost exclusively Brazilian domestic content, with BBC Brasil the only outlet to explicitly invoke the 'guerra' (war) metaphor — framing the Mendonça-Moraes STF dispute as an ongoing live conflict with a daily episode structure, a register absent from all other outlets in the cluster. O Globo took the opposite tack, foregrounding Temer's mediation appeal and framing the crisis as one that political dialogue might still resolve — the only headline in the corpus to signal de-escalation. The three non-Brazilian outlets (Haaretz, N1 Serbia English, Reason) contributed a cartoon label, a studio broadcast entry, and a screenshot filename: zero editorial signal at the headline layer for Israel, Balkans, and USA. The 2026 electoral season bleeds into the constitutional-crisis coverage with BBC Brasil publishing a candidates-proposals piece and Carta Capital a Lula-Bolsonaro poll alongside the STF conflict, suggesting Brazilian editors are fusing the judicial and electoral frames in a single news feed.",
+  "event_summary": "Brazil's Federal Police director Andrei Rodrigues faced a suspension order from STF Justice André Mendonça, triggering an emergency AGU appeal to Justice Fachin and political mediation by former president Michel Temer, who urged Moraes to seek dialogue with Mendonça.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "AGU appeal to suspend PF director removal",
+      "outlets": ["BBC Brasil"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "BBC Brasil",
+          "country": "brazil",
+          "quote": "AGU pede a Fachin que suspenda afastamento",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "STF judicial war and 2026 election season",
+      "outlets": ["BBC Brasil", "O Globo"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "O Globo",
+          "country": "brazil",
+          "quote": "Temer diz ter aconselhado Moraes a buscar diálogo",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "BBC Brasil",
+          "country": "brazil",
+          "quote": "Eleição 2026: quais são as propostas dos candidatos",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Lula-Bolsonaro polling lead in Bahia",
+      "outlets": ["Carta Capital"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "Carta Capital",
+          "country": "brazil",
+          "quote": "Lula tem mais de 30 pontos de vantagem",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "BBC Brasil",
+      "country": "brazil",
+      "finding": "Only outlet to deploy the 'guerra Mendonça x Moraes' war metaphor in its headline, structuring the story as an ongoing daily conflict readers follow in episodes — an escalatory register absent from all other Brazilian outlets.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "O Globo",
+      "country": "brazil",
+      "finding": "Uniquely frames the Mendonça-Moraes crisis through Temer's mediation lens, signalling political dialogue as a plausible resolution path — a de-escalatory headline stance no other outlet adopted.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "G1 Globo",
+      "country": "brazil",
+      "finding": "Contributed only live TV broadcast schedule entries ('assista aos telejornais') with no editorial headline — the dominant portal in the Globo ecosystem produced zero news content at the headline layer for this cluster.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "Brazilian headline coverage unanimously frames the Mendonça-Moraes STF dispute as a live constitutional war, with the AGU's emergency Fachin appeal and Temer's mediation call running simultaneously; the non-Brazilian outlets in this cluster (Israel, Balkans, USA) produced no editorial headlines, making this an exclusively Brazilian-domestic story at the headline layer.",
+  "generated_at": "2026-09-09T13:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
