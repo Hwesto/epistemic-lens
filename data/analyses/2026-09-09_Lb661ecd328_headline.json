@@ -1,0 +1,236 @@
+{
+  "story_key": "Lb661ecd328",
+  "date": "2026-09-09",
+  "n_buckets": 12,
+  "n_articles": 26,
+  "tldr": "Headlines across all 12 buckets overwhelmingly frame the UK ATC outage as mass passenger disruption — 'chaos,' 'nightmare,' and scale figures (1,000–2,000 cancellations, 65,000+ passengers) dominate the global title layer; one in four headlines foreground a cyberattack suspicion despite its official denial; and UK domestic plus wire-service titles uniquely advance an accountability narrative demanding the NATS chief’s resignation or government summons.",
+  "frames": [
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Passenger chaos and nightmare",
+      "buckets": [
+        "wire_services",
+        "pakistan",
+        "taiwan_hk",
+        "uk",
+        "india",
+        "vietnam_thai_my",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Travellers in UK face ongoing disruption",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "'Absolute nightmare': 65,000+ passengers hit",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "Travellers in UK face more chaos",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mirror",
+          "quote": "Nearly 300 flights cancelled today after air traffic chaos",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Travellers in UK face more chaos after air traffic glitch",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "Travel chaos at UK airports as over 1,000 flights canceled",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Caos nei cieli nel Regno Unito, ancora decine di voli",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "ATC system glitch, nationwide disruption",
+      "buckets": [
+        "canada",
+        "italy",
+        "netherlands_belgium",
+        "nordic",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Air traffic control problem disrupts flights across U.K.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Technical snag causes chaos at U.K. airports",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "1,100 UK flights cancelled after air traffic control glitch",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Traffico aereo in tilt in Gb",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "netherlands_belgium",
+          "outlet": "NL Times",
+          "quote": "air traffic control clears backlog",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "Yle Finland English",
+          "quote": "Finnair cancels UK flights as air traffic disruption continues",
+          "signal_text_idx": 25
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Cyberattack suspicion leads coverage",
+      "buckets": [
+        "turkey",
+        "germany",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "rules out cyber attack after over 2,000 flights canceled",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "UK rules out cyberattack after major flight disruptions",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Air traffic control boss rules out cyberattack",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "cyberattack ruled out as UK travellers suffer ongoing chaos",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "NATS chief summoned, resignation demanded",
+      "buckets": [
+        "uk",
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "UK summons air traffic boss after major outage",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "demand NATS boss resigns",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Nats boss summoned by UK transport secretary",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "UK summons air traffic boss after major outage",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.667,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.67,
+      "n_tokens": 96
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.703,
+      "n_tokens": 70
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Only headline simultaneously demanding the NATS boss resign AND linking the current outage to the 2023 failure — constructs a pattern of repeated institutional breakdown rather than an isolated glitch, amplifying accountability pressure at the title layer.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Only headline framing the outage as a passenger-rights question ('what are your rights if you have been affected?') — the sole consumer-entitlement angle across all 26 articles; inverts the agency from operator failure to reader recourse.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Il Sole 24 Ore",
+      "bucket": "italy",
+      "finding": "Only headline reporting that air traffic had already resumed ('ripreso traffico aereo') — the sole recovery/positive signal visible at title level, in contrast to the chaos and ongoing disruption framing across every other outlet.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Yle Finland English",
+      "bucket": "nordic",
+      "finding": "Only headline naming a specific national carrier (Finnair) rather than UK airports or NATS — localizes the story as a Scandinavian aviation disruption, making the UK outage legible through its domestic knock-on impact.",
+      "signal_text_idx": 25
+    }
+  ],
+  "bottom_line": "The global headline layer sells the UK ATC failure as a consumer catastrophe — chaos language and mass-cancellation scale figures dominate — while the political reckoning (government summons, resignation demands) and the cyberattack suspicion are the secondary frames visible primarily to UK domestic and wire-service readers.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
