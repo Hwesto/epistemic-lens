@@ -1,0 +1,194 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-09",
+  "lineage_id": "Ld5977dff7d",
+  "cluster_id": 81,
+  "cluster_name": "Vucic dissolves Serbian parliament, calls snap elections October 25",
+  "n_outlets": 14,
+  "n_countries": 10,
+  "n_articles": 26,
+  "salience_score": 7.959,
+  "event_summary": "Serbian President Vucic dissolved parliament on September 9, 2026, and called snap elections for October 25 after nearly two years of student protests over the deadly 2024 Novi Sad station collapse. Unable to seek another presidential term, Vucic will run as his party's prime minister candidate.",
+  "tldr": "The most striking pattern is the gulf between wire-service framing and local coverage: Western wires, Russian state media (TASS), and Russian business press (Kommersant) converge on neutral procedural framing — 'test of his hold on power' — while only Balkan Insight and N1 Serbia surface the sharpest local stakes, including an analyst predicting the most brutal vote theft and Vucic's claim of significant interference by foreign powers in the protest movement. Vucic simultaneously invokes Serbia's EU candidacy and its traditional friendship with Russia — a geopolitical balancing act that Balkan Insight flags explicitly but no other outlet in the corpus examines. The protest movement's origin — a preventable infrastructure collapse that killed 16 people — surfaces mainly in French-language and regional coverage; most global wires reduce it to generic protest pressure. A structurally novel development the corpus mostly under-covers: the students have formed an official electoral party (Student List), making this the first Serbian election where a street protest movement runs directly against the incumbent.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "power consolidation via prime ministerial bid",
+      "outlets": ["AFP / France 24 EN", "AP News", "Deutsche Welle English", "Daily Sabah", "Jerusalem Post", "Meduza", "Straits Times", "Telex Hungary", "Reuters (via Google News)"],
+      "countries": ["wire_services", "germany", "turkey", "israel", "russia", "vietnam_thai_my", "hungary_central"],
+      "evidence": [
+        {
+          "outlet": "AP News",
+          "country": "wire_services",
+          "quote": "President Aleksandar Vucic on Wednesday scheduled an early parliamentary election in Serbia for Oct. 25, a test of his hold on power after nearly two years of street protests that have rattled his rule. Vucic, who cannot run for another presidential term, has said he",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "BELGRADE, Sept 9 - Serbia's President Aleksandar Vucic on Wednesday dissolved parliament and announced snap elections for next month as he seeks to extend his hold on power by running for prime minister.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Serbia will head to the polls in late October after President Aleksandar Vucic dissolved parliament following growing pressure from protesters demanding political change. However, Vucic plans to stand as a PM candidate.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "anti-corruption accountability for Novi Sad deaths",
+      "outlets": ["AFP / France 24 EN", "AFP / France 24 FR", "Balkan Insight", "Daily Sabah"],
+      "countries": ["wire_services", "france", "balkans", "turkey"],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Student-led protests have gripped the country since November 2024, sparked by the collapse of a railway station canopy in Novi Sad that left 16 people dead, sparking nationwide outrage over alleged official corruption and negligence.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "They are expected to be a key test of his right-wing populist Serbian Progressive Party after nearly two years of student-led anti-corruption protests.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Le président serbe a annoncé mercredi la dissolution du Parlement, en réponse à un mouvement de protestations né de l'effondrement meurtrier d'un auvent dans la gare de Novi Sad fin 2024.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU candidacy vs. Russian friendship balancing act",
+      "outlets": ["Balkan Insight", "Kommersant"],
+      "countries": ["balkans", "russia_native"],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "He and his Progressive Party have often claimed that foreign states, including European countries, have been involved in supporting or inciting the student-led protests.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Vucic cited the organisation of the high-profile international EXPO 2027 exhibition, which will be held in Belgrade starting in May next year.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Kommersant",
+          "country": "russia_native",
+          "quote": "При значительном вмешательстве внешних сил мы получили беспорядки, конфликты и в итоге — разделенное общество.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "constitutional dissolution procedure",
+      "outlets": ["TASS English", "Balkan Insight"],
+      "countries": ["russia", "balkans"],
+      "evidence": [
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "Acting on the government's proposal, I am issuing a decree to dissolve the National Assembly. The decree enters into force on the day of its publication. I am announcing elections for members of parliament and scheduling them for October 25",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "On Monday, Prime Minister Djuro Macut proposed the dissolution of parliament, which was adopted by the government and sent to the President as part of the official procedure.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "ruling party leads polls; student list debuts",
+      "outlets": ["Kommersant", "Balkan Insight"],
+      "countries": ["russia_native", "balkans"],
+      "evidence": [
+        {
+          "outlet": "Kommersant",
+          "country": "russia_native",
+          "quote": "Последние опросы дают преимущество правящей партии, и ее победа позволит Александру Вучичу пересесть из президентского кресла в премьерское, оставаясь у руля, по крайней мере, еще четыре года.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Many experts see the upcoming elections as the most challenging for Vucic and his party since 2012. The main opponent this time is Student List, made by the students who have been protesting.",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "romania",
+      "what_they_covered_instead": "Romania is a direct neighbor hosting a significant Serbian diaspora and has a stake in Serbia's EU accession, yet is absent from the corpus — likely covered domestic politics on this date."
+    },
+    {
+      "country": "croatia",
+      "what_they_covered_instead": "Croatia, a fellow former Yugoslav state with direct regional interest in Serbian EU accession, is absent — its media likely focused on domestic EU-related affairs instead."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Balkan Insight",
+      "country": "balkans",
+      "finding": "Only outlet to report Vucic's claim that 'significant interference by foreign powers' drove the protest turbulence, while simultaneously quoting his EU-path rhetoric — exposing the contradiction in his dual messaging.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "N1 Serbia English",
+      "country": "balkans",
+      "finding": "Only outlet to publish an analyst (Dragomir Anđelković) predicting the most brutal vote theft and warning that election night will not bring resolution — a fraud-risk framing absent from all international coverage.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Kommersant",
+      "country": "russia_native",
+      "finding": "Only outlet to report that current polls give the ruling party the advantage and that a Vucic win would keep him in power for at least four more years as prime minister.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Balkan Insight",
+      "country": "balkans",
+      "finding": "Only outlet to report that Vucic cited EXPO 2027 in Belgrade as a concrete scheduling rationale — framing delay as a threat to the international exhibition, not just a democratic deficit.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Only outlet to name both PM Macut (who submitted the dissolution proposal) and SNS leader Milos Vucevic (who announced Vucic as PM candidate) — the fullest procedural account in the cluster.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Telex Hungary",
+      "country": "hungary_central",
+      "finding": "Only Central European outlet; frames the story as Vucic trading his presidential seat for the prime ministerial one, with no protest context in the summary.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only French-language outlet; uniquely names the Novi Sad canopy collapse ('effondrement meurtrier d'un auvent') as the movement's origin and foregrounds Vucic's potential return to the premiership as a consequence.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Global wire and Russian state media converge on procedural 'power test' framing while local Serbian and regional Balkan outlets alone surface the live stakes — opposition fraud warnings, Vucic's foreign-interference counter-narrative, and the unprecedented step of the student movement entering the ballot. The story's moral anchor, a deadly infrastructure failure that ignited two years of protest, is largely stripped from international coverage, narrowing the global read to electoral mechanics.",
+  "generated_at": "2026-09-09T13:16:29Z",
+  "model": "claude-sonnet-4-6"
+}
