@@ -1,0 +1,186 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-09",
+  "lineage_id": "Le7a2c7ff0a",
+  "cluster_id": 130,
+  "cluster_name": "Republicans hold first-ever midterm party convention in Dallas, Texas",
+  "salience_score": 5.816,
+  "n_outlets": 15,
+  "n_countries": 10,
+  "n_articles": 19,
+  "tldr": "Headlines across all ten country buckets frame the Dallas convention as a damage-control operation around an unpopular president — a uniformity of political-risk framing that is sharper at the headline layer than in body text. The 'Trumpapalooza' label coined by El País appears informally across multiple headline layers, signaling that even international coverage has absorbed the ironic-damage-control register. Daily Wire is the only outlet whose title presents the event as a positive opportunity — 'How the GOP Can Reclaim the American Dream' — in stark contrast to every other outlet's vocabulary of risk, perils, and dilemmas. TASS stands uniquely apart: its headline is purely logistical, carrying no political valence whatsoever — the only outlet that does not editorialize in its title. Straits Times and Malay Mail World echo near-identical Reuters wire language on 'political risks,' revealing how Southeast Asian English-language headlines are shaped by wire-copy dominance rather than independent framing.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Convention as Trump electoral gamble",
+      "outlets": [
+        "Al Jazeera English",
+        "Axios World",
+        "Daily Wire",
+        "Deutsche Welle English",
+        "El Pais English",
+        "Globe and Mail",
+        "Il Sole 24 Ore",
+        "Malay Mail World",
+        "NPR World",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "TASS English",
+        "The Guardian World",
+        "The Hill",
+        "The Independent"
+      ],
+      "countries": [
+        "qatar",
+        "usa",
+        "germany",
+        "spain",
+        "canada",
+        "italy",
+        "vietnam_thai_my",
+        "wire_services",
+        "russia",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "\"We're stuck:\" GOP accepts Trump's all-about-me midterms",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "The Hill",
+          "country": "usa",
+          "quote": "Trump's midterm convention presents GOP candidates",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Only one Republican actually wants Trump's midterm",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Dallas Republican convention: How Trump looms over midterms",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "Welcome to Trumpapalooza, the unusual convention",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "First-ever GOP midterm convention this week could magnify",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Republicans tie midterm hopes to Trump at Dallas",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "As Trump takes center stage in Dallas, Republicans",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "Trump to address Republican convention in Dallas",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Il Sole 24 Ore",
+          "country": "italy",
+          "quote": "Convention repubblicana a Dallas, lo show di Trump",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Republican midterm convention 2026: What to know",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Trump approval collapse drives narrative",
+      "outlets": [
+        "Malay Mail World",
+        "The Guardian World"
+      ],
+      "countries": [
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "as president's popularity sinks",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "to overcome Trump unpopularity",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "GOP as vehicle for next-gen American Dream",
+      "outlets": [
+        "Daily Wire"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "How The GOP Can Reclaim The American Dream For The",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "qatar",
+      "country": "qatar",
+      "mean_similarity": 0.718,
+      "note": "Most isolated bucket; Al Jazeera's headline is the only neutral 'What to know' explainer framing rather than explicitly marking the event as risky or failed."
+    },
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.73,
+      "note": "The Guardian and The Independent both foreground Republican weakness — unpopularity and intra-party avoidance — more explicitly in their titles than most other outlets."
+    },
+    {
+      "outlet": "spain",
+      "country": "spain",
+      "mean_similarity": 0.732,
+      "note": "El País coined 'Trumpapalooza' in its English headline, a culturally freighted label that anchors the ironic/skeptical tone of the headline layer internationally."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer, the GOP Dallas convention is framed as a political liability across nearly every outlet and country in the corpus — risk, peril, dilemma, and sinking approval vocabulary dominate titles regardless of outlet lean. The advertised tone of crisis visible to homepage and RSS readers is more concentrated and uniform than the body-text analysis, which contains more procedural and informational coverage alongside the risk narrative.",
+  "generated_at": "2026-09-09T13:30:00Z",
+  "model": "claude-haiku-4-5"
+}
