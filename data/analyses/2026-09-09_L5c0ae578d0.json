@@ -1,0 +1,135 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-09",
+  "lineage_id": "L5c0ae578d0",
+  "cluster_id": 158,
+  "cluster_name": "Brazil STF justices clash over Federal Police director removal",
+  "salience_score": 7.469,
+  "n_outlets": 7,
+  "n_countries": 4,
+  "n_articles": 61,
+  "event_summary": "STF Justice André Mendonça petitioned to remove Federal Police Director Andrei Rodrigues on September 9, 2026; the Supreme Court's Second Panel split on the vote before Justice Gilmar Mendes suspended proceedings with a 'vista,' while the AGU counter-petitioned Justice Fachin to block the removal.",
+  "tldr": "The cluster is dominated by a sharp intra-STF confrontation: conservative Justice André Mendonça (a Bolsonaro appointee) moved to oust Federal Police Director Andrei Rodrigues, producing a split Second Panel vote before Gilmar Mendes froze proceedings by requesting 'vista.' Former President Michel Temer then publicly urged Justice Moraes — his own STF appointee — to seek dialogue with Mendonça, a rare ex-presidential intervention that O Globo treated as the story's centre of gravity. Brazilian outlets simultaneously embedded the legal crisis in the 2026 electoral backdrop, with BBC Brasil publishing an interactive presidential-candidates guide and Carta Capital noting Lula's 30-point polling lead in Bahia the same day. Non-Brazilian items in the cluster (Haaretz daily cartoon, N1 Serbia live-stream link, Reason metadata artefact, G1 Globo broadcast notices) carry no substantive relation to the Brazil story and appear to be false-clustered noise.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "STF jurisdiction over Federal Police directorate",
+      "outlets": ["BBC Brasil", "O Globo"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "BBC Brasil",
+          "country": "brazil",
+          "quote": "Ministro André Mendonça pediu o afastamento de Andrei Rodrigues da PF e levou decisão à Segunda Turma do Supremo. Dois ministros votaram por manter determinação, formando maioria na decisão, mas Gilmar Mendes pediu vista e suspendeu julgamento.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "O Globo",
+          "country": "brazil",
+          "quote": "Temer diz ter aconselhado Moraes a buscar diálogo com Mendonça e que decisão sobre diretor da PF dificulta\n\nMichel Temer e Alexandre de Moraes: ministro foi indicado ao STF pelo ex-presidente",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "inter-branch power struggle in pre-election year",
+      "outlets": ["BBC Brasil", "Carta Capital", "O Globo"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "O Globo",
+          "country": "brazil",
+          "quote": "Temer diz ter aconselhado Moraes a buscar diálogo com Mendonça e que decisão sobre diretor da PF dificulta\n\nMichel Temer e Alexandre de Moraes: ministro foi indicado ao STF pelo ex-presidente",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "BBC Brasil",
+          "country": "brazil",
+          "quote": "Eleição 2026: quais são as propostas dos candidatos a presidente?\n\nA BBC News Brasil preparou um especial interativo com as propostas e posicionamentos de todos os nomes que concorrem à Presidência em oito áreas: economia e emprego; saúde; educação; política e corrupção; meio ambiente; programas sociais e direitos humanos; política externa; e segurança.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Carta Capital",
+          "country": "brazil",
+          "quote": "Real Time Big Data: Lula tem mais de 30 pontos de vantagem sobre Flávio Bolsonaro na Bahia\n\nO estado tem o maior colégio eleitoral do Nordeste, com mais de 11 milhões de eleitores",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "AGU counter-petition and dialogue as resolution path",
+      "outlets": ["BBC Brasil", "O Globo"],
+      "countries": ["brazil"],
+      "evidence": [
+        {
+          "outlet": "BBC Brasil",
+          "country": "brazil",
+          "quote": "AGU pede a Fachin que suspenda afastamento de Andrei Rodrigues da PF: o que aconteceu na guerra Mendonça x Moraes nesta terça",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "O Globo",
+          "country": "brazil",
+          "quote": "Temer diz ter aconselhado Moraes a buscar diálogo com Mendonça e que decisão sobre diretor da PF dificulta\n\nMichel Temer e Alexandre de Moraes: ministro foi indicado ao STF pelo ex-presidente",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "brazil",
+      "country": "brazil",
+      "mean_similarity": 0.312,
+      "note": "Brazil is the only bucket with sufficient token mass (225 tokens) for a reliable isolation score; the low cosine (0.312) against the cluster mean reflects that non-Brazilian items (balkans, usa, israel) are title-only entries with minimal semantic overlap, making Brazil the de facto outlier in a cluster it otherwise dominates."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "BBC Brasil / O Globo / Carta Capital",
+      "country": "brazil",
+      "terms": ["mendonça", "afastamento", "andrei", "rodrigu", "temer", "decisão"],
+      "what_it_reveals": "Brazil's exclusive vocabulary is almost entirely proper-noun legal terminology around the Federal Police crisis — Mendonça, afastamento (suspension), Andrei Rodrigues, Temer, decisão — confirming Brazilian outlets are the only cluster members engaging substantively with the story; non-Brazilian items contribute noise tokens only."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "O Globo",
+      "country": "brazil",
+      "finding": "O Globo leads with former President Temer publicly advising his own STF appointee (Moraes) to seek dialogue with Mendonça — a rare ex-presidential intervention that frames the crisis as resolvable rather than structural.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "BBC Brasil",
+      "country": "brazil",
+      "finding": "BBC Brasil simultaneously covers the PF director crisis and a 2026 presidential-candidate policy guide, embedding the institutional dispute within a pre-election context no other outlet in the cluster explicitly makes.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Carta Capital",
+      "country": "brazil",
+      "finding": "Carta Capital (centre-left investigative) pairs its Lula-Bolsonaro polling item with a Ziyech-to-Botafogo sports transfer story — the only non-political item from a Brazilian news outlet, suggesting miscellaneous clustering.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Reason",
+      "country": "usa",
+      "finding": "Reason's item is a metadata extraction failure (title: 'Screenshot 2026-09-04 155533'); the linked article covers RFK Jr.'s MAHA cooking show as government propaganda — entirely unrelated to the Brazilian institutional crisis.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "G1 Globo",
+      "country": "brazil",
+      "finding": "Both G1 Globo items are live-broadcast schedule links for regional affiliates (Juiz de Fora and Divinópolis), carrying no news content — feed artefacts that inflated the cluster's Brazil article count.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "This cluster captures a genuine Brazilian constitutional flashpoint — STF Justice Mendonça's move to remove the Federal Police chief, blocked mid-vote by Gilmar Mendes and counter-petitioned by the AGU — set against the 2026 election year's charged institutional backdrop. A significant portion of the cluster's articles (live-broadcast links, a daily cartoon, a metadata artefact) are pipeline noise rather than editorial coverage, which limits the analytical signal to Brazilian Portuguese outlets.",
+  "generated_at": "2026-09-09T12:59:57Z",
+  "model": "claude-sonnet-4-6"
+}
