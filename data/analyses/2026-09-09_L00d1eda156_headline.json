@@ -1,0 +1,208 @@
+{
+  "story_key": "L00d1eda156",
+  "date": "2026-09-09",
+  "n_buckets": 13,
+  "n_articles": 20,
+  "tldr": "Headlines across all 13 country buckets frame the Houthi strikes on Saudi Arabia as an acute security emergency — 'war expands,' 'worst attack in years,' and 'largest attack' signal escalation risk — while roughly a third of titles name oil or energy facilities explicitly; the Bab al-Mandab strategic angle and war-economy consequences visible in body text are entirely absent from the headline layer.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "strikes, reprisals, war escalation",
+      "buckets": [
+        "wire_services",
+        "pan_african",
+        "canada",
+        "china",
+        "south_africa",
+        "turkey",
+        "egypt",
+        "opinion_magazines",
+        "iran_opposition",
+        "iraq",
+        "vietnam_thai_my",
+        "usa",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "reprisals after oil sites set ablaze in wave of strikes",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "War expands as Houthis attack Saudi cities",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "one of largest attacks in conflict with Saudi Arabia",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Are Yemen and Saudi Arabia Returning to All-Out War?",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "Yemen rebels report fresh Saudi strikes as conflict deepens",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Houthis hit oil sites in worst attack in years",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "OpIndia",
+          "quote": "Is the Middle East sliding towards another war?",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "oil/energy infrastructure targeted",
+      "buckets": [
+        "wire_services",
+        "pan_african",
+        "canada",
+        "iran_opposition",
+        "vietnam_thai_my",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "oil sites set ablaze in wave of strikes",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Houthi strikes set fire to Saudi oil sites wounding 73",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Houthi attacks on Saudi Arabia ignite oil facilities",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "attack Saudi cities and energy facilities",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "ignite fires at oil facilities and wound 73 people",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran-proxy label and US involvement",
+      "buckets": [
+        "canada",
+        "south_africa",
+        "egypt",
+        "iran_opposition",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Iran-backed Houthis attack Saudi oil facilities",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "Houthis attack Saudi cities and US strikes Iranian tankers",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Iran-backed Houthis attack Saudi Arabia",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Iran-backed Houthis attack Saudi cities",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "India condemns Houthi attacks on Saudi oil installations",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.702,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.724,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.726,
+      "n_tokens": 78
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "CGTN Politics",
+      "bucket": "china",
+      "finding": "Only headline omitting 'Iran-backed' — frames the strikes as Houthi retaliation for Saudi military operations, invisibilising Iranian sponsorship at the title layer.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Daily Maverick",
+      "bucket": "south_africa",
+      "finding": "Only headline simultaneously naming US strikes on Iranian tankers alongside the Houthi-Saudi exchange, advertising the conflict as a multi-actor regional war rather than a bilateral proxy attack.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "bucket": "india",
+      "finding": "Only headline naming a third country's formal condemnation — India's diplomatic stance is signalled at the RSS/homepage layer, visible to readers before they click.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Straits Times",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline covering Saudi Arabia lifting the Khamis Mushait civil-defence alert — the sole de-escalation signal in the headline layer across 20 articles.",
+      "signal_text_idx": 17
+    }
+  ],
+  "bottom_line": "The headline layer universally advertises a security emergency while roughly a third of front pages also foreground oil-site damage, but the maritime chokepoint stakes, war-economy consequences, and humanitarian depth that appear in body text are entirely invisible at title level — readers who stop at headlines see a discrete strike event, not a widening multi-front war.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
