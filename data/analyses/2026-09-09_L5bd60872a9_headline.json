@@ -1,0 +1,175 @@
+{
+  "story_key": "L5bd60872a9",
+  "date": "2026-09-09",
+  "n_buckets": 11,
+  "n_articles": 18,
+  "tldr": "Headlines across eleven buckets reduce the Amazon cargo crash almost entirely to a death-toll and crash-mechanics story—five killed, runway overrun, vehicles hit—with NTSB's investigative presence visible in titles only from Canada, China, Germany, wire services, and Southeast Asia. The sharpest outlier at the headline layer is Daily Wire's 'Pilots Saw This Disaster Coming. No One Listened.'—an accusatory register absent from every other outlet's front page that reads as pre-emptive blame rather than investigative follow-up. Breitbart filed no Amazon cargo headline at all, substituting a separate Florida-family crash near the Bahamas, a substitution detectable only from the title layer and completely invisible to any body-text analysis. The Independent is the sole outlet to surface a social-media ethics angle at the homepage level—a livestreamer taking unrepentant selfies at the crash site—a frame buried in every other outlet's RSS feed.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "five dead, runway overrun, crash mechanics",
+      "buckets": ["uk", "usa", "canada", "brazil", "turkey", "russia", "kenya"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Five killed as Amazon cargo plane crashes at Miami airport",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "5 killed as Amazon cargo plane crashes at Miami airport",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "five dead, five in hospital after Amazon plane crashes",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Five killed in Miami plane crash (VIDEOS)",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Amazon cargo plane overshoots Miami runway, hits vehicles",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Avião de carga da Amazon sai da pista e mata 5",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Five Miami plane crash victims identified after Amazon jet",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Hear The Moment First Responders Count Number Of Dead",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "NTSB probe, pilot abort decision, systemic blame",
+      "buckets": ["canada", "china", "wire_services", "vietnam_thai_my", "germany", "usa"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "NTSB investigators to interview pilots of crashed Amazon",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Authorities investigate deadly Amazon cargo plane crash",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "NTSB calls deadly Amazon Prime Air cargo plane crash 'devastating'",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "'Devastating scene': NTSB recovers flight data recorders",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Pilots considered aborting landing after touchdown",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Pilots considered aborting landing after touchdown in Miami",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Sueddeutsche Zeitung",
+          "quote": "Zu schnell und zu spät auf der Landebahn",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Pilots Saw This Disaster Coming. No One Listened.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "unrepentant bystander at crash site",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Livestreamer who filmed and took selfies at deadly",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "wire_services", "mean_similarity": 0.635, "n_tokens": 30},
+    {"bucket": "china", "mean_similarity": 0.763, "n_tokens": 38},
+    {"bucket": "kenya", "mean_similarity": 0.767, "n_tokens": 32},
+    {"bucket": "usa", "mean_similarity": 0.774, "n_tokens": 139},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.79, "n_tokens": 65},
+    {"bucket": "brazil", "mean_similarity": 0.797, "n_tokens": 48},
+    {"bucket": "canada", "mean_similarity": 0.808, "n_tokens": 119},
+    {"bucket": "uk", "mean_similarity": 0.808, "n_tokens": 82},
+    {"bucket": "turkey", "mean_similarity": 0.812, "n_tokens": 31}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "'Pilots Saw This Disaster Coming. No One Listened.' is the only headline in the corpus to assert prior knowledge of danger and collective failure to heed it — an accusatory register wholly absent from every other outlet's title, blaming unnamed authorities rather than reporting the investigation.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Filed no Amazon cargo headline at all; covered instead a separate crash — four Florida family members killed when a small plane went down near the Bahamas. The substitution is invisible to body-text analysis and detectable only from the headline layer.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only outlet to headline the social-media bystander angle — a livestreamer described as 'unrepentant' for filming and taking selfies at the crash site. This morality-framed story is invisible at the homepage level of every other outlet in the corpus.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Sueddeutsche Zeitung",
+      "bucket": "germany",
+      "finding": "'Zu schnell und zu spät auf der Landebahn' (Too fast and too late on the runway) is the only headline corpus-wide to assert a specific mechanical cause, foregrounding technical causation rather than the event, the death toll, or the investigation.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "At the headline layer the Amazon cargo crash story collapses into a near-universal death-toll and crash-mechanics report, with the NTSB accountability thread visible only in follow-up titles from Canada, wire services, and Southeast Asia — and Daily Wire's lone accusatory headline is the single instance of pre-emptive blame that the divergence index will need to flag against the body-text record.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
