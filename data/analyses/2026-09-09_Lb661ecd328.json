@@ -1,0 +1,293 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-09",
+  "lineage_id": "Lb661ecd328",
+  "cluster_id": 109,
+  "cluster_name": "NATS software failure cancels 1,300 UK flights over two days",
+  "salience_score": 9.551,
+  "n_outlets": 20,
+  "n_countries": 12,
+  "n_articles": 26,
+  "event_summary": "A NATS system failure on September 8, 2026 cancelled over 1,300 UK flights and disrupted 65,000+ passengers across 15 airports; 177 more cancellations followed September 9. Transport Secretary Alexander summoned CEO Martin Rolfe, who ruled out a cyberattack and accepted responsibility.",
+  "tldr": "The most notable feature of this story is near-total consensus across 20 outlets in 12 countries: every publication treated the NATS failure as a straightforward infrastructure story with minimal divergence in angle. A brief security scare — was this a cyberattack? — dissolved quickly once NATS explicitly denied it, pivoting coverage to accountability, specifically whether CEO Martin Rolfe should resign. UK domestic outlets (Daily Mail, Daily Mirror, Guardian) then split into consumer-rights and executive-accountability sub-frames, while global outlets in India, Southeast Asia, and the Nordic region focused almost entirely on disruption scale and recovery timeline. The outage's designation as a third major stoppage in three years — echoing a 2023 incident affecting 700,000 passengers — appeared only in UK domestic coverage; international outlets did not pick up that context.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "aviation infrastructure failure",
+      "outlets": [
+        "AFP / France 24 EN",
+        "CBC World",
+        "Globe and Mail",
+        "NL Times",
+        "Yle Finland English",
+        "VnExpress English",
+        "The Hindu Intl",
+        "Deutsche Welle English"
+      ],
+      "countries": [
+        "wire_services",
+        "canada",
+        "netherlands_belgium",
+        "nordic",
+        "vietnam_thai_my",
+        "india",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "a glitch in the country's air traffic control service left hundreds of thousands of passengers stranded",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Britain’s National Air Traffic Services say it has resolved the issue, but delays rippled across 15 U.K. airports and beyond",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Yle Finland English",
+          "country": "nordic",
+          "quote": "A technical glitch affecting the air traffic control provider Nats has caused widespread disruption to flights to and from the UK.",
+          "signal_text_idx": 25
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "passenger stranding and chaos",
+      "outlets": [
+        "Hindustan Times",
+        "Malay Mail World",
+        "VnExpress English",
+        "Geo News English",
+        "Daily Mirror",
+        "Straits Times",
+        "South China Morning Post"
+      ],
+      "countries": [
+        "india",
+        "vietnam_thai_my",
+        "pakistan",
+        "uk",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "‘Absolute nightmare’: 65,000+ passengers hit as over 1,000 flights cancelled across the UK",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Josie Donoghue spent three hours stuck on a plane at Gatwick before her Ryanair flight to Ireland was canceled.\n\"Getting through that airport was like trying to get out of Alcatraz,\" she said",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "CEO accountability, resignation pressure",
+      "outlets": [
+        "The Guardian World",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "Deutsche Welle English",
+        "Malay Mail World",
+        "Daily Mail"
+      ],
+      "countries": [
+        "uk",
+        "wire_services",
+        "vietnam_thai_my",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Martin Rolfe, who faces pressure to resign, due to brief Heidi Alexander after cancellations pass 1,900",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Hundreds more flights grounded on second day of air traffic control chaos: Ryanair and Wizz Air boss demand NATS boss resigns - amid claims latest meltdown 'was repeat of issue from 2023 outage'",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "UK summons air traffic boss after major outage as flights slowly resume",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "cyberattack ruled out, infrastructure security",
+      "outlets": [
+        "Anadolu Agency English",
+        "Deutsche Welle English",
+        "Hindustan Times",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "turkey",
+        "germany",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "UK air traffic control service rules out cyber attack after over 2,000 flights canceled",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "The head of the National Air Traffic Services (NATS), Martin Rolfe, meanwhile said “we have at this point ruled out cyber” as a cause.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "airline losses, passenger compensation rights",
+      "outlets": [
+        "The Guardian World",
+        "VnExpress English",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "UK airport disruption: what are your rights if you have been affected?",
+          "signal_text_idx": 21
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "British Airways said it was forced to cancel or divert more than 100 flights. Ryanair said more than 65,000 of its passengers had been disrupted and it had canceled more than 50 scheduled flights.",
+          "signal_text_idx": 24
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "pakistan",
+      "country": "pakistan",
+      "mean_similarity": 0.667,
+      "note": "Most isolated bucket — Geo News English covers disruption scale but lacks the UK insider/accountability framing that dominates other outlets."
+    },
+    {
+      "outlet": "nordic",
+      "country": "nordic",
+      "mean_similarity": 0.67,
+      "note": "Yle Finland English's Finnair-specific content (flight diversions, Stansted rerouting, Helsinki route cancellations) pulls the Nordic bucket away from the cluster centroid."
+    },
+    {
+      "outlet": "italy",
+      "country": "italy",
+      "mean_similarity": 0.703,
+      "note": "Italian-language vocabulary in ANSA and Il Sole 24 Ore creates embedding distance despite factually identical coverage to English wire services."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "ANSA Italian (Mondo)",
+      "country": "italy",
+      "terms": [
+        "traffico",
+        "aereo",
+        "voli",
+        "aeroporti",
+        "britannici"
+      ],
+      "what_it_reveals": "Italian-language framing; exclusive vocabulary is purely linguistic, not editorial — same factual coverage as wire services rendered in Italian."
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "terms": [
+        "resign",
+        "live",
+        "enter"
+      ],
+      "what_it_reveals": "'Resign' as exclusive UK term confirms that accountability and personnel consequences were a distinctively UK-domestic editorial choice; 'live' reflects blog-style real-time coverage absent from international outlets."
+    },
+    {
+      "outlet": "Yle Finland English",
+      "country": "nordic",
+      "terms": [
+        "finnair",
+        "helsinki"
+      ],
+      "what_it_reveals": "Nordic coverage is differentiated entirely by national-airline focus — Finnair flight numbers and Helsinki-route specifics appear nowhere else in the cluster."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "us",
+      "what_they_covered_instead": "US outlets absent despite transatlantic BA and American routes being disrupted and US passengers stranded at Heathrow; likely covered domestic aviation or other international stories that day."
+    },
+    {
+      "country": "france",
+      "what_they_covered_instead": "French domestic outlets absent despite AFP distributing the story internationally and French cross-Channel travellers being affected."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Only outlet to demand the NATS CEO's resignation in the headline, explicitly linking the outage to a 2023 failure as evidence of repeated leadership failure.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to publish a passenger-rights explainer, pivoting to a consumer entitlement frame entirely absent from all international coverage.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Yle Finland English",
+      "country": "nordic",
+      "finding": "Only outlet to track specific Finnair flight diversions — AY1335 rerouted from Heathrow to Stansted, Helsinki return cancelled — giving national-carrier granularity missing elsewhere.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "NL Times",
+      "country": "netherlands_belgium",
+      "finding": "Quantified Dutch exposure as 'around a dozen NL-U.K. flights canceled', localising an otherwise UK-centric story for a Dutch-English readership.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Led with cyberattack framing as the primary open question, distinct from all other outlets that treated the event as a technical glitch from the outset.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Il Sole 24 Ore",
+      "country": "italy",
+      "finding": "Only Italian business outlet in the cluster; covered the story in Italian without adding any economic angle — airline equity, insurance, compensation costs — distinct from wire copy.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A NATS software failure that cancelled over 1,300 UK flights across two days drew broad, consistent coverage from 20 outlets in 12 countries with near-zero divergence in framing. The only meaningful editorial split was between UK domestic outlets — which pushed accountability and resignation narratives rooted in a pattern of repeated outages — and international outlets, which treated it exclusively as a passenger-disruption and infrastructure-recovery story.",
+  "generated_at": "2026-09-09T13:11:55Z",
+  "model": "claude-sonnet-4-6"
+}
