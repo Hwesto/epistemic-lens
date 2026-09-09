@@ -1,0 +1,150 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-09",
+  "lineage_id": "L5c496caf3f",
+  "cluster_id": 61,
+  "cluster_name": "Ratko Mladic state funeral in Belgrade triggers EU diplomatic backlash",
+  "salience_score": 7.714,
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 16,
+  "tldr": "Headlines across 9 countries overwhelmingly frame Mladic's Belgrade burial through a CRIME_PUNISHMENT lens — at least eight of sixteen titles explicitly label him 'war criminal' or 'Butcher of Bosnia' before stating the event, making the criminal designation the load-bearing word of the headline layer. The EXTERNAL_REGULATION frame is nearly co-dominant: UK summons Serbia's diplomat, the EU Commissioner cancels her Belgrade visit, Türkiye condemns the funeral, and Bosnia expels Serbian diplomats each earn their own headline, collectively signalling a coordinated Western diplomatic punishment. RT is the sole outlier, stripping the criminal label entirely with 'Mass Serbian public demonstrations,' a framing inversion that the body-pass divergence index should flag as a strong sensationalism/neutrality signal for Russian state media. Germany's DW adds a third dimension absent elsewhere, connecting the funeral directly to upcoming regional elections via a 'casts shadow over Bosnia and Herzegovina vote' frame that no other national outlet pursued at the headline layer.",
+  "event_summary": "Convicted Bosnian Serb war criminal Ratko Mladic was buried with military honours in Belgrade on 7 September 2026, triggering a wave of diplomatic protests including EU condemnation, a cancelled EU commissioner visit, UK summoning of Serbia's ambassador, and Bosnia expelling two Serbian diplomats.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Honouring convicted war criminal with state rites",
+      "outlets": [
+        "Daily Sabah",
+        "Deutsche Welle English",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "RFE/RL (was Radio Farda)",
+        "Standard Kenya World",
+        "Tagesschau"
+      ],
+      "countries": ["turkey", "germany", "brazil", "canada", "iran_opposition", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "War criminal Ratko Mladic buried with military honors",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Ratko Mladic Gets Hero's Funeral In Belgrade",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "funeral of convicted war criminal Ratko Mladic",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "War criminal Mladic's body returns to Serbia",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "War criminal Mladic's funeral draws crowds, EU backlash",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Western diplomatic punishment of Serbia",
+      "outlets": [
+        "Balkan Insight",
+        "N1 Serbia English",
+        "Daily Sabah",
+        "RFE/RL (was Radio Farda)",
+        "Sky News UK",
+        "Tagesschau"
+      ],
+      "countries": ["balkans", "turkey", "iran_opposition", "uk", "germany"],
+      "evidence": [
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "UK summons Serbian diplomat over 'Butcher of Bosnia' funeral",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "N1 Serbia English",
+          "country": "balkans",
+          "quote": "Kos confirms visit to Serbia canceled over Mladic funeral",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Serbia, Bosnian Serbs Slate Sarajevo's Expulsion of Diplomats",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Türkiye slams mass public funeral for 'Butcher of Bosnia'",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Serbia Draws International Criticism For Honoring War Criminal",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Funeral shadows Balkan electoral politics",
+      "outlets": [
+        "Deutsche Welle English",
+        "Deutsche Welle Deutsch"
+      ],
+      "countries": ["germany"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "funeral casts shadow over Bosnia and Herzegovina vote",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Mladics Beerdigung vertieft die Gräben auf dem Westbalkan",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet in the corpus to omit the 'war criminal' designation entirely, framing the event as 'Mass Serbian public demonstrations' — a neutral public-gathering register that inverts the condemnatory stance of every other outlet and is the clearest sensationalism-divergence signal in the cluster.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "The only outlet to use the phrase 'Hero's Funeral' in a headline, making the implicit indictment of Serbia's choice maximally explicit — a stronger condemnatory register than even the UK or EU outlet headlines.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer of coverage on Mladic's funeral is dominated by two interlocking frames: CRIME_PUNISHMENT (the near-universal 'war criminal' label foregrounded in titles across all Western and non-Western outlets) and EXTERNAL_REGULATION (diplomatic consequences headlined by UK, Bosnia, Turkey, and the EU cancelling a commissioner visit). The sole framing outlier is RT, which strips the criminal designation and reports the event as a mass public gathering — the most notable divergence between headline tone and body content that downstream analysis should flag.",
+  "generated_at": "2026-09-09T13:10:00Z",
+  "model": "claude-sonnet-4-6"
+}
