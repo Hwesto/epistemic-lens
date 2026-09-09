@@ -1,0 +1,217 @@
+{
+  "story_key": "Lfcf576b8de",
+  "date": "2026-09-09",
+  "n_buckets": 12,
+  "n_articles": 20,
+  "tldr": "Headlines globally lead with the far-right AfD's record-breaking victory in Saxony-Anhalt as a historic shock to Germany's postwar democratic norms, while a prominent secondary layer centres on Trump's enthusiastic endorsement and 'Make Germany Great Again' slogan — framing the result as a trans-Atlantic far-right alignment event.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "AfD landslide; German firewall under test",
+      "buckets": [
+        "canada",
+        "china",
+        "germany",
+        "nordic",
+        "opinion_magazines",
+        "russia",
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "AfD just won 44% in a German state.",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Germany's far-right AfD celebrate projected win",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Far-right AfD scores record win in German state",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Germany wakes up to 'unsettling' AfD victory",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "AfD surges to historic victory in state election",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Germany's Merz refuses to work with AfD",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "AfD claims landslide victory in German regional",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "Germany: why the AfD won in Saxony-Anhalt",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Germany's Merz vows to stay course after AfD's",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Trump endorses AfD; MGGA slogan",
+      "buckets": [
+        "israel",
+        "opinion_magazines",
+        "turkey",
+        "uk",
+        "ukraine",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "'Big night': Trump celebrates far-right AfD's",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Trump congratulates far-right AfD on landslide",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Trump hails AfD win in Saxony-Anhalt",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Trump hails 'really big night' after far-right",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Trump praises AfD's state election win",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Trump welcomes election victory of far-right",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "German economy alarmed by AfD win",
+      "buckets": [
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "German economy frets about Saxony-Anhalt",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.743,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.754,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.787,
+      "n_tokens": 85
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.795,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.799,
+      "n_tokens": 85
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.804,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.808,
+      "n_tokens": 199
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.851,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.855,
+      "n_tokens": 42
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Ukrainska Pravda English",
+      "bucket": "ukraine",
+      "finding": "Only headline in the corpus to label AfD 'friends of Putin', explicitly embedding the German election result in Russia's geopolitical orbit — no other outlet's headline makes this linkage.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Haaretz",
+      "bucket": "israel",
+      "finding": "Only headline to quote Trump's 'Make Germany Great Again!' slogan verbatim and to note AfD's accusations of antisemitism and Holocaust distortion — uniquely foregrounding the slogan's resonance for a Jewish-majority readership.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Conversation",
+      "bucket": "opinion_magazines",
+      "finding": "Only headline to adopt a causal-analytical 'why...and what happens next' question frame, positioning the AfD win as a political puzzle to be explained rather than a shock to be reported.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "The headline layer asserts a dual story: an unprecedented far-right breakthrough that puts Germany's postwar anti-extremism 'firewall' under its gravest test, amplified by Trump's 'Make Germany Great Again' endorsement that frames the result as part of a coordinated trans-Atlantic far-right surge.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
