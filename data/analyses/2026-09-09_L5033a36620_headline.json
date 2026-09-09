@@ -1,0 +1,199 @@
+{
+  "story_key": "L5033a36620",
+  "date": "2026-09-09",
+  "n_buckets": 12,
+  "n_articles": 21,
+  "tldr": "Headlines collectively assert that the US-Canada trade war sharply escalated on September 9, with Trump banning specific Canadian goods — alcohol, motorcycles, dairy — as Canada's retaliatory tariffs took effect. The dominant headline framing is a goods-specificity economic narrative layered over a bilateral escalation-and-retaliation frame; Chinese state media alone departs, leading instead with poll data on Canadian public support for retaliation and the strategic renegotiation logic behind Canada's tariff moves.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Goods bans and 50% tariff scale",
+      "buckets": ["wire_services", "pakistan", "uk", "canada", "germany", "spain", "taiwan_hk", "vietnam_thai_my", "usa", "india"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "US bans Canadian alcohol, motorcycles and dairy products",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "US to ban Canadian motorcycle, dairy, alcohol imports",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Trump escalates trade war with Canada with import bans",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "Trump banning Canada's dairy products, motorcycles and many",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "some Canadian alcohol, dairy goods and motorbikes",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-Canada bilateral trade war escalation",
+      "buckets": ["wire_services", "usa", "uk", "pakistan", "spain", "taiwan_hk", "canada", "germany", "opinion_magazines", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "North America trade war intensifies",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Canada's retaliatory US tariffs take effect as trade dispute",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Trump bans Canadian alcohol in new trade war salvo",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Economist World",
+          "quote": "America and Canada stand on the brink of a trade war",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Canada strikes back with tariffs on about $20 billion",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "80% Canadians back retaliation — poll",
+      "buckets": ["china"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Record 80% of Canadians back trade retaliation against US",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Deal-making and renegotiation leverage",
+      "buckets": ["india", "china"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Trump Says US and Canada Have Reached Last-Minute Deal",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Canadian tariffs aim for renegotiation, but may not change",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.594,
+      "n_tokens": 90
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.709,
+      "n_tokens": 207
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.72,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.721,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.739,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.755,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.769,
+      "n_tokens": 236
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.778,
+      "n_tokens": 106
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.791,
+      "n_tokens": 81
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.801,
+      "n_tokens": 337
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Sky News UK",
+      "bucket": "uk",
+      "finding": "Only headline to single out Canadian Bombardier jets as a named Trump threat — a specific aviation sector not mentioned in any other outlet's title, foregrounding industrial leverage alongside the goods-ban narrative.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "CGTN World",
+      "bucket": "china",
+      "finding": "Only outlet to lead with poll data ('Record 80% of Canadians back trade retaliation'), foregrounding domestic Canadian legitimacy for the conflict rather than the specific goods banned or the escalation mechanics.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "bucket": "india",
+      "finding": "Only headline referencing a last-minute deal delay (August 19 event) rather than the September 9 escalation — creating a temporal mismatch that makes the India bucket's headline narrative distinctly out of step with the dominant escalation story.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "CGTN Politics",
+      "bucket": "china",
+      "finding": "Only outlet to frame Canada's tariff move as a calculated renegotiation lever ('aim for renegotiation') rather than as retaliation or escalation — a strategic rationality framing absent from every Western and non-Chinese headline.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "At the headline layer, the story reads as a concrete goods-ban escalation — booze, bikes, dairy — layered over a bilateral trade-war narrative, while Chinese state media alone reframes the conflict as a legitimacy test for Canadian public opinion and a renegotiation gambit.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
