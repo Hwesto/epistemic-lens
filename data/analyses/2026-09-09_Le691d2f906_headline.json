@@ -1,0 +1,194 @@
+{
+  "story_key": "Le691d2f906",
+  "date": "2026-09-09",
+  "n_buckets": 12,
+  "n_articles": 24,
+  "tldr": "Headlines across all 12 country buckets foreground the Witkoff-Kushner shuttle between Moscow and Kyiv as a historic US diplomatic push to end the Ukraine war, with Russia's conditional openness to resumed talks treated as the lead development; only three outlets surface the Russian missile strikes that continued through and after the envoys' visit.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US envoy shuttle drives peace push",
+      "buckets": [
+        "asia_pacific_regional",
+        "canada",
+        "china",
+        "germany",
+        "iran_opposition",
+        "israel",
+        "russia",
+        "turkey",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "The Ukraine negotiations and Ukraine's future",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump envoys Witkoff and Kushner to travel to Moscow and Kyiv",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Zelenskyy says US to hold separate talks in Moscow and Kyiv",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US envoy signals fresh Russia-Ukraine peace talks after meetings",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US envoys hold Ukraine talks after meeting Putin",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S. renews push to end Ukraine war",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Russia hopes US-mediated talks with Ukraine will resume soon",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Trump, Putin Discuss Ukraine in Hour-Long 'Extremely Frank'",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "U.S. Envoys Make First Kyiv Visit Amid Ukraine Peace Push",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Zelenskyy Calls For Trilateral Negotiations With Russia",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Russia hopes US-mediated talks with Ukraine will resume soon",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Strikes continue alongside peace talks",
+      "buckets": [
+        "india",
+        "iran_opposition",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Russian strikes continue following visit by Witkoff and Kushner",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Russia Again Strikes Ukraine's Capital",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Russian drone, missile strikes on Kyiv kill 2, end pause in attacks",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "No formal plan; envoy results assessed",
+      "buckets": [
+        "russia",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "No Sign of Breakthrough",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "What Did US Envoys Achieve in Moscow and Kyiv?",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "no formal plan to end war against Ukraine",
+          "signal_text_idx": 23
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.675,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.697,
+      "n_tokens": 158
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.701,
+      "n_tokens": 33
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Moscow Times",
+      "bucket": "russia",
+      "finding": "Only headline to explicitly flag 'No Sign of Breakthrough' — uniquely skeptical framing that contrasts with the Kremlin's own 'useful' language (RT/Meduza) and the broadly optimistic peace-push framing seen everywhere else.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to foreground 'atmosphere of trust' between US and Russia — framing the talks as US-Russia bilateral rapprochement rather than a Ukraine peace process, invisible in every other title worldwide.",
+      "signal_text_idx": 20
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "bucket": "india",
+      "finding": "Only headline leading with civilian casualties from Russian strikes ('kill 2') rather than any diplomatic activity — the lone outlet whose front-page story is the war's violence, not the peace push.",
+      "signal_text_idx": 22
+    }
+  ],
+  "bottom_line": "The headline layer globally sells a single story: a US-brokered diplomatic push — Witkoff and Kushner's first-ever Kyiv visit headlining virtually every outlet — while the concurrent Russian missile strikes that killed civilians surface in only three titles and the absence of any formal peace plan is acknowledged only by Ukrainian and exiled-Russian outlets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
