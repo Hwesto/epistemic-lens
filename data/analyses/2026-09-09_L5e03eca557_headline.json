@@ -1,0 +1,131 @@
+{
+  "story_key": "L5e03eca557",
+  "date": "2026-09-09",
+  "n_buckets": 13,
+  "n_articles": 16,
+  "tldr": "Headlines across all 13 country buckets overwhelmingly frame the Shelton-Alcaraz quarterfinal as a historic sporting spectacle anchored by its record-late 3:33am finish and the dramatic five-set upset, while the UK tabloid and one Italian outlet are alone in foregrounding Alcaraz's physical distress at title level.",
+  "frames": [
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Record-late epic; match as spectacle",
+      "buckets": [
+        "australia_nz",
+        "pakistan",
+        "qatar",
+        "turkey",
+        "canada",
+        "india",
+        "italy",
+        "japan",
+        "argentina_chile",
+        "wire_services",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "ABC Australia World",
+          "quote": "US Open thriller finishes after 3:30am",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "latest finish in US Open history",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "match that ends after 3:30 a.m.",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "epic latest-ever U.S. Open finish",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "impresa Shelton: batte Alcaraz al quinto set",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Shelton stuns Alcaraz in late, late show",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Sueddeutsche Zeitung",
+          "quote": "Alcaraz scheitert nach Krimi nachts um 3.33 Uhr",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Player physical distress headlined",
+      "buckets": [
+        "uk",
+        "italy"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "vomit-stained 3.33am nightmare in New York!",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Repubblica",
+          "quote": "Alcaraz vomita, lotta ma si arrende",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.691,
+      "n_tokens": 200
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.748,
+      "n_tokens": 223
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.76,
+      "n_tokens": 32
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "philippines"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Only headline foregrounding Alcaraz's vomiting as a tabloid spectacle ('vomit-stained 3.33am nightmare') rather than the match result — the health-distress angle is invisible in every other title worldwide.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Inquirer",
+      "bucket": "philippines",
+      "finding": "Only headline leading with Alcaraz's gracious reaction ('I leave with a smile') rather than the match result or record-late finish — the player's emotional response, not the outcome or spectacle, is the advertised story.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "The headline layer sells a single story globally: a record-late sporting spectacle defined by the 3:33am finish and a five-set upset — but only the UK tabloid broadcasts Alcaraz's physical condition, and only the Philippines outlet surfaces his emotional reaction, while the match's broader all-American-semifinal significance is absent from virtually all front pages.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
