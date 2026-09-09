@@ -1,0 +1,220 @@
+{
+  "story_key": "Lf83c1c1777",
+  "date": "2026-09-09",
+  "n_buckets": 10,
+  "n_articles": 16,
+  "tldr": "Headlines across nine buckets assert that New York officials deliberately concealed evidence of toxic air conditions after 9/11 and lied to residents for 25 years; the concurrent health toll — toxic air, illness, deaths — is the secondary headline frame, while the India bucket uniquely leads with a political attack on Mayor Mamdani rather than the document release.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Officials' 25-yr cover-up of 9/11 toxic air",
+      "buckets": [
+        "wire_services",
+        "usa",
+        "france",
+        "spain",
+        "state_tv_intl",
+        "mexico",
+        "argentina_chile",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "air toxicity information kept secret for 25 years",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "New York Officials Tried To Cover Up",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "La Ville de New York a caché des informations",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "New York authorities hid air toxicity after attacks",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Arabic",
+          "quote": "إخفاء معلومات عن تلوث الهواء بعد الهجمات",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Mintieron autoridades sobre la calidad del aire",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "La Nacion AR",
+          "quote": "Los neoyorquinos fueron engañados sobre la calidad",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "New York hid warnings on 'toxic air' after 9/11",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "officials 'lied' to New Yorkers about still-toxic air",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Toxic air exposure, illness and deaths",
+      "buckets": [
+        "wire_services",
+        "usa",
+        "france",
+        "spain",
+        "state_tv_intl",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "post-9/11 air toxicity information kept secret",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "officials knew air was unsafe after 9/11",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "la toxicité de l'air après le 11-Septembre",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "hid air toxicity after the terrorist attacks",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "nube tóxica vinculada con la muerte de miles",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "failed to disclose what it knew on 'toxic air'",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Asbestos dust and toxic smoke-filled air",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Mamdani accused of bin Laden sympathy",
+      "buckets": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "'Sick to death': NYC councilwoman accuses Mamdani",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.618,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.731,
+      "n_tokens": 73
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.77,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.772,
+      "n_tokens": 73
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.773,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.792,
+      "n_tokens": 139
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.798,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.801,
+      "n_tokens": 42
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "The only headline in the corpus to ignore the document release entirely and instead lead with a political attack on Mamdani — invoking Osama bin Laden — reflecting a uniquely oppositional framing absent from all other outlets.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Daily Caller",
+      "bucket": "usa",
+      "finding": "Captures a completely off-topic headline ('EXCLUSIVE: DOJ's New Top 2A Enforcer Sits Down For First Interview Since Getting Gig') alongside the 9/11 cover-up story, indicating this index entry (idx=4) is cluster noise from the same outlet's homepage.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only outlet to foreground the economic-reopening motive behind the cover-up ('officials seeking to reopen NYC'), contextualising the deception within an institutional trade-off between public health and economic recovery.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "Headline coverage is nearly unanimous in framing this as official deception — 'hid', 'lied', 'caché', 'engañados', 'cover up' — rather than transparency or disclosure, while the India bucket alone pivots to political backlash against Mamdani.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
