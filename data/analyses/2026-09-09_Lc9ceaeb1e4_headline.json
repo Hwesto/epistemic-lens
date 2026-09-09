@@ -1,0 +1,227 @@
+{
+  "story_key": "Lc9ceaeb1e4",
+  "date": "2026-09-09",
+  "n_buckets": 15,
+  "n_articles": 23,
+  "tldr": "Headlines worldwide lead with the security-failure claim — Netanyahu received a warning and did nothing — while political-consequence and legal-counter-attack subframes are visible only in specific outlets; Le Monde's 'séisme politique' and Folha's 'oposição pressiona premiê' deliver the political fallout framing, and four outlets foreground Netanyahu's libel lawsuit as the headline story.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "pre-attack warning dismissed, chiefs not briefed",
+      "buckets": [
+        "canada",
+        "france",
+        "india",
+        "israel",
+        "opinion_magazines",
+        "russia",
+        "state_tv_intl",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "U.A.E. warned Netanyahu of major Hamas operation",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "Netanyahu Dismissed Pre-Oct. 7 Hamas Warning",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "He didn't brief Israel's security chiefs",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Netanyahu knew about Oct. 7 Hamas attack days in advance",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "The Warning Benjamin Netanyahu Ignored",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "india",
+          "outlet": "Times of India",
+          "quote": "Egypt warned Netanyahu of Hamas plans before October 7",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Netanyahu était au courant des attaques du 7-Octobre",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "EAU advirtió a Netanyahu del ataque del 7-O",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu under fire, opposition presses PM",
+      "buckets": [
+        "brazil",
+        "france",
+        "israel",
+        "turkey",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "lands Netanyahu in hot water",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "oposição pressiona premiê",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Netanyahu led Israel 'blindly to disaster'",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "provoquent un séisme politique",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Netanyahu under fire over report UAE warned of Oct 7",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "libel lawsuit vs press accountability",
+      "buckets": [
+        "colombia_ven_peru",
+        "israel",
+        "pan_arab",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Netanyahu says he will sue over claims",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "Netanyahu demandará por difamación",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Netanyahu announces planned libel lawsuit",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Netanyahu threatens legal action",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.434,
+      "n_tokens": 236
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.752,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.762,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.765,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.787,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.79,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.803,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.807,
+      "n_tokens": 199
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.813,
+      "n_tokens": 393
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    "germany"
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "RT's headline 'Netanyahu knew about Oct. 7 Hamas attack days in advance – report' drops all hedging, asserting foreknowledge as established fact via the declarative past tense 'knew' — the only headline in the corpus to do so without 'reportedly' or attribution.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Times of India",
+      "bucket": "india",
+      "finding": "Only headline to name Egypt as a warning source ('Egypt warned Netanyahu of Hamas plans before October 7'), expanding the intelligence-failure frame beyond the UAE channel; this second warning country appears in no other outlet's headline.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "'The Warning Benjamin Netanyahu Ignored' is the most declarative editorial headline in the corpus — six words, no attribution, no hedging — asserting Netanyahu's personal agency in the failure without any source attribution.",
+      "signal_text_idx": 21
+    }
+  ],
+  "bottom_line": "Headline coverage worldwide leads with the security-failure claim — Netanyahu warned, Netanyahu silent — while the legal-threat and political-fallout subframes are prominent in UK, Latin American, and Israeli outlets; Germany's DW uniquely leads with Netanyahu's denial, the only bucket whose headline offers no substantive frame.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
