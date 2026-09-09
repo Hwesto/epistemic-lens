@@ -1,0 +1,140 @@
+{
+  "date": "2026-09-09",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 48,
+      "n_tokens_in_cohort": 823,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 849,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 811,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 78,
+      "n_tokens_in_cohort": 793,
+      "distinctive_terms": [
+        {
+          "term": "large",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.07692,
+          "rate_in_cohort": 0.0,
+          "llr": 29.388,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "scale",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.07692,
+          "rate_in_cohort": 0.0,
+          "llr": 29.388,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "drone",
+          "count_in_bucket": 6,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.07692,
+          "rate_in_cohort": 0.00126,
+          "llr": 23.82,
+          "log_ratio": 4.111,
+          "p_value": 1e-06
+        },
+        {
+          "term": "missile",
+          "count_in_bucket": 6,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.07692,
+          "rate_in_cohort": 0.00378,
+          "llr": 18.453,
+          "log_ratio": 3.012,
+          "p_value": 1.7e-05
+        }
+      ]
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 44,
+      "n_tokens_in_cohort": 827,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 802,
+      "distinctive_terms": []
+    },
+    "egypt": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 71,
+      "n_tokens_in_cohort": 800,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 836,
+      "distinctive_terms": []
+    },
+    "iraq": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 224,
+      "n_tokens_in_cohort": 647,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 94,
+      "n_tokens_in_cohort": 777,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 838,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 93,
+      "n_tokens_in_cohort": 778,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
