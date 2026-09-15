@@ -1,0 +1,166 @@
+{
+  "story_key": "L769a317020",
+  "date": "2026-09-15",
+  "n_buckets": 15,
+  "n_articles": 27,
+  "tldr": "Headlines collectively present Trump's claimed Russia-Ukraine energy ceasefire as a disputed political announcement rather than a confirmed agreement, while foregrounding Zelensky's conditional acceptance — Ukraine will halt strikes only if Russia demonstrates genuine reciprocity.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's deal claim & midterm pressure",
+      "buckets": ["canada", "germany", "italy", "russia", "state_tv_intl", "ukraine", "usa"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Trump seeks halt to energy attacks by both Russia, Ukraine",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump blames fuel price spike on Zelensky",
+          "signal_text_idx": 22
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Trump annuncia la tregua energetica Mosca-Kiev",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Trump anuncia una tregua energética entre Rusia y Ucrania",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Putin Resists Energy Truce Announced by Trump",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "usa",
+          "outlet": "NPR World",
+          "quote": "Trump says Ukraine and Russia agreed to stop attacks",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump calls on Ukraine to stop attacks on Russian diesel",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia-Ukraine energy strikes ceasefire",
+      "buckets": ["wire_services", "egypt", "iran_opposition", "turkey", "brazil"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Ukraine ready to de-escalate if Russia halts strikes",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Trump Says Russia, Ukraine Agree To Halt Strikes On Energy",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Russia, Ukraine agree to halt energy facility strikes",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Trump says Ukraine and Russia agreed to stop targeting",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Rússia e Ucrânia aceitam parar ataques ao setor de energia",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Zelensky's conditions for mutual halt",
+      "buckets": ["france", "india", "qatar", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "L'Ukraine prendra des \"mesures de désescalade\"",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Zelenskyy says Ukraine will pause strikes on Russia",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Ukraine will pause attacks if Russia spares infrastructure",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Zelensky outlines conditions for Ukraine to halt strikes",
+          "signal_text_idx": 25
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Diesel price spike as US pressure driver",
+      "buckets": ["canada", "russia"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Trump calls on Ukraine to stop attacks on Russian diesel",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump blames fuel price spike on Zelensky",
+          "signal_text_idx": 22
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "france", "mean_similarity": 0.744, "n_tokens": 46},
+    {"bucket": "qatar", "mean_similarity": 0.755, "n_tokens": 221},
+    {"bucket": "brazil", "mean_similarity": 0.774, "n_tokens": 39},
+    {"bucket": "wire_services", "mean_similarity": 0.774, "n_tokens": 43},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.781, "n_tokens": 55},
+    {"bucket": "italy", "mean_similarity": 0.785, "n_tokens": 95},
+    {"bucket": "egypt", "mean_similarity": 0.797, "n_tokens": 70},
+    {"bucket": "germany", "mean_similarity": 0.807, "n_tokens": 33},
+    {"bucket": "iran_opposition", "mean_similarity": 0.813, "n_tokens": 30},
+    {"bucket": "turkey", "mean_similarity": 0.819, "n_tokens": 57},
+    {"bucket": "russia", "mean_similarity": 0.842, "n_tokens": 177},
+    {"bucket": "ukraine", "mean_similarity": 0.844, "n_tokens": 328}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer presents a Trump-driven peace claim that Ukraine's own outlets immediately qualify with conditions, and that Russian-exile outlets flag as unconfirmed by Moscow.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
