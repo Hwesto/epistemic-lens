@@ -1,0 +1,111 @@
+{
+  "story_key": "Lf6f3183035",
+  "date": "2026-09-15",
+  "n_buckets": 7,
+  "n_articles": 19,
+  "tldr": "Headlines overwhelmingly treat the Dangote refinery IPO as a landmark African financial event — 'blockbuster', 'historic', the continent's biggest-ever share sale. The principal counter-frame, confined to DW and AllAfrica, questions whether the 'people's IPO' is accessible to ordinary Nigerians; The Guardian uniquely reframes it as the story of Dangote's personal wealth gain rather than public participation.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Africa's record IPO; investor returns",
+      "buckets": ["wire_services", "pan_african", "africa_other", "uk", "germany", "state_tv_intl", "nigeria"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Dangote refinery kicks off blockbuster IPO",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Africa's biggest refinery launches historic public offering",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Africa's richest man aiming to make $23bn",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "N100,000 investment can make investors millionaires",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "The Africa Report",
+          "quote": "Dangote refinery chief defends $49bn valuation",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Africa's richest man launches continent's biggest share sale",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "people's IPO vs. affordability gap",
+      "buckets": ["africa_other", "germany", "pan_african", "nigeria"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "IPO 'For The People' Is Out of Reach for Many in Nigeria",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Africa's richest man Dangote's IPO out of reach",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Dangote bills refinery IPO as chance for ordinary Africans",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "Vanguard",
+          "quote": "IPO'll democratise wealth creation – Dangote",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Nigeria oil sector tax litigation",
+      "buckets": ["pan_african"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "The Africa Report",
+          "quote": "SAPETRO and Nigeria locked in two-year tax dispute",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "state_tv_intl", "mean_similarity": 0.771, "n_tokens": 215},
+    {"bucket": "pan_african", "mean_similarity": 0.789, "n_tokens": 159},
+    {"bucket": "nigeria", "mean_similarity": 0.792, "n_tokens": 178},
+    {"bucket": "uk", "mean_similarity": 0.793, "n_tokens": 77},
+    {"bucket": "wire_services", "mean_similarity": 0.794, "n_tokens": 109},
+    {"bucket": "africa_other", "mean_similarity": 0.853, "n_tokens": 536}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage is near-universally celebratory — 'blockbuster', 'historic', 'biggest-ever' — with only DW and AllAfrica explicitly questioning accessibility in their titles; The Guardian is the sole outlet to invert the story into a billionaire-enrichment headline, while The Africa Report's tax-dispute title introduces a LEGALITY thread absent from all other buckets.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
