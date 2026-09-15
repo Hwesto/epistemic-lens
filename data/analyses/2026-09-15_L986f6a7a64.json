@@ -1,0 +1,160 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-15",
+  "lineage_id": "L986f6a7a64",
+  "cluster_id": 76,
+  "cluster_name": "Virgo Transport 8 ferry capsizes in Java Sea, 129 missing",
+  "n_outlets": 15,
+  "n_countries": 12,
+  "n_articles": 31,
+  "salience_score": 11.16,
+  "event_summary": "The Virgo Transport 8 passenger ferry, carrying 243 people, capsized in rough seas in the Java Sea on 13 September 2026 while sailing from Surabaya to Banjarmasin; six died, 108 were rescued, and 129 remained missing by 15 September as bad weather hampered search operations.",
+  "tldr": "The most striking finding is that this cluster bundles at least four simultaneous maritime disasters across Asia-Pacific and the Mediterranean within five days, yet the Philippine June Aster—76 confirmed dead by 13 September, described as the worst Philippine ferry disaster in over a decade—drew only a fraction of the international coverage given to Indonesia's 129 still-missing. Indonesian state agency Antara covered the rescue exclusively through operational logistics (helicopter movements, body transfers, DVI identification) with no reference to structural causes, while Channel News Asia explicitly named 'lax safety standards' as a systemic driver—a distinction invisible in most coverage. China's CGTN led not with the 25 dead at Qingdao but with Xi Jinping's personal instructions to 'prevent major accidents,' foregrounding political responsiveness over casualties. The concurrent Vanuatu MV Matui sinking (30+ missing) and Northern Cyprus capsize (8 dead) each received coverage from a single outlet only.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "maritime rescue and casualty response",
+      "outlets": ["AfricaNews", "Antara English", "Channel News Asia", "Folha de São Paulo", "Fox News World", "Globe and Mail", "Malay Mail World", "Sky News UK", "The Guardian World"],
+      "countries": ["pan_african", "indonesia", "vietnam_thai_my", "brazil", "usa", "canada", "uk"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Indonesia intensified its search operation on 14 September for 129 people still missing after the Virgo Transport 8 ferry capsized in rough seas in the Java Sea the previous day. By then, 108 survivors had been rescued and six bodies recovered.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Lax safety standards and unpredictable weather are the main reasons for the disasters.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "weather-constrained multi-agency rescue",
+      "outlets": ["Antara English", "Channel News Asia", "Folha de São Paulo"],
+      "countries": ["indonesia", "vietnam_thai_my", "brazil"],
+      "evidence": [
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "We cannot fight nature; the swells and waves in the area were extremely high",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Antara English",
+          "country": "indonesia",
+          "quote": "Ambarita said air evacuation efforts on the third day of the search-and-rescue operation focused on transporting dead victims from the support vessel to medical facilities ashore.",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "safety oversight after repeated maritime failures",
+      "outlets": ["CGTN Politics", "Channel News Asia"],
+      "countries": ["china", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "Chinese President Xi Jinping has urged resolute efforts to prevent major accidents after a foreign cargo ship caught fire in east China's Shandong Province.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Marine accidents are a regular occurrence in Indonesia, an archipelago of more than 17,000 islands that relies heavily on boat connections for daily transport and tourism.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "human toll and grief across concurrent disasters",
+      "outlets": ["Malay Mail World", "The Guardian World"],
+      "countries": ["vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "some were found in an embrace",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "One dead and more than 30 missing after ferry sinks off Vanuatu coast in rough seas",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "philippines",
+      "what_they_covered_instead": "No Philippine outlet appears in this cluster despite the June Aster disaster—76 dead, the worst Philippine ferry sinking in over a decade—occurring concurrently. Coverage reached international audiences only through Malaysian and Vietnamese regional outlets."
+    },
+    {
+      "country": "australia",
+      "what_they_covered_instead": "Australia, the dominant aid and maritime-safety partner for Pacific island states including Vanuatu, contributed no coverage of the Vanuatu MV Matui sinking or the Indonesia Virgo disaster despite both events falling within its regional sphere of interest."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "Leads with Xi Jinping's personal directive to 'prevent major accidents' rather than the 25 confirmed deaths—political leadership framing takes precedence over casualty count.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Channel News Asia",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to explicitly attribute Indonesia's recurring maritime disasters to 'lax safety standards'—a systemic structural critique absent from all other coverage including Indonesian state media.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Reports the Philippine June Aster death toll at 76—described as the worst Philippine ferry disaster in over a decade—yet this story received a fraction of the cluster's international coverage relative to Indonesia's 129 still-missing.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to cover the Vanuatu MV Matui sinking (one dead, 30+ missing), adding a third concurrent Pacific maritime disaster that went almost entirely unreported internationally.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Bianet English",
+      "country": "turkey",
+      "finding": "Only outlet to cover the Northern Cyprus boat capsize (8 dead, 241 rescued, 18 still missing)—a fourth concurrent maritime incident receiving no coverage outside Turkey-adjacent press.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Antara English",
+      "country": "indonesia",
+      "finding": "Indonesian state agency coverage is entirely operational (helicopter movements, body bag transfers, hospital handovers, DVI forensic procedures) with no mention of structural causes or Indonesia's broader maritime safety record.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "NL Times",
+      "country": "netherlands_belgium",
+      "finding": "Sole article in this cluster not about a maritime disaster—covers Dutch victims of a light aircraft crash near the German border, suggesting the embedding-based clustering drew in general-accident coverage.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Reports Qingdao fire at '20 people dead' using an early Xinhua figure, while Fox News, CGTN, and Hong Kong Free Press all report 25 confirmed deaths—different reporting stages captured within the same day's cluster.",
+      "signal_text_idx": 16
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Five simultaneous maritime and transport disasters across Asia-Pacific and the Mediterranean fell into this cluster, with the Indonesia Virgo capsize (129 missing) drawing disproportionate international coverage over the Philippine June Aster (76 confirmed dead). Indonesian state media and international press diverge sharply on whether each event is an isolated emergency or a predictable product of structurally lax maritime safety standards.",
+  "generated_at": "2026-09-15T13:21:53Z",
+  "model": "claude-sonnet-4-6"
+}
