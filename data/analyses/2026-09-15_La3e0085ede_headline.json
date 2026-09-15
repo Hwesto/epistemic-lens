@@ -1,0 +1,192 @@
+{
+  "story_key": "La3e0085ede",
+  "date": "2026-09-15",
+  "n_buckets": 11,
+  "n_articles": 19,
+  "tldr": "Headline coverage is almost entirely locked on a single register: the Pentagon's own watchdog confirming a US munitions shortfall from the Iran war, a disclosure that contradicts months of White House denials. Al Jazeera is the sole outlier, inverting the dominant shortfall frame toward Iranian strike effectiveness — leading with 'dozens of aircraft, hundreds of buildings' destroyed — while wire services and French-language outlets are the only ones whose homepage headlines also carry the Iran-US diplomatic breakdown, a thread visible to RSS readers of those outlets but invisible to readers of any other.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "munitions shortfall, industrial bottlenecks",
+      "buckets": [
+        "wire_services",
+        "france",
+        "pakistan",
+        "canada",
+        "uk",
+        "egypt",
+        "vietnam_thai_my",
+        "pan_arab",
+        "india",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Iran war exposes US munitions shortfall, industrial bottlenecks",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "War on Iran resulted in munitions shortfall for US",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "war on Iran led to 'strategic' US munitions shortfalls",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "US military confirms Iran war has led to munitions shortfall",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US bases, aircraft, facilities damaged",
+      "buckets": [
+        "qatar",
+        "canada",
+        "egypt",
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "Dozens of aircraft, hundreds of buildings: US loss to Iran attacks",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Several U.S. military bases, diplomatic buildings have been damaged",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Missile shortages, damage to US facilities",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "Damaged Bases Across Middle East: Report",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's claims contradicted by defence officials",
+      "buckets": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "despite Trump's claims...defence officials confirm",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran rejects US talks over mixed signals",
+      "buckets": [
+        "wire_services",
+        "france"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Iran rejects talks with US after 'mixed signals' from Trump",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "\"Aucune discussion\" avec les États-Unis, l'Iran répond sèchement à Trump",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.755,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.772,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.776,
+      "n_tokens": 88
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.783,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.796,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.804,
+      "n_tokens": 187
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.806,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.829,
+      "n_tokens": 56
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "The only headline in the corpus to lead with Iranian strike effectiveness rather than the US munitions shortfall — 'Dozens of aircraft, hundreds of buildings: US loss to Iran attacks revealed' — inverting the accountability frame toward an Iranian-capability frame that no other outlet adopted at headline level.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Only headline to name Trump explicitly in an accountability formulation ('despite Trump's claims...defence officials confirm') while simultaneously citing the $33.4bn war cost — the sole title that combines the political-contradiction and economic-cost angles in a single headline.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Dawn",
+      "bucket": "pakistan",
+      "finding": "The headline 'War on Iran resulted in munitions shortfall for US' frames the US as the aggressor ('war on Iran') rather than a party to a war with Iran — a framing choice absent from every other English-language title in the corpus.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "At headline level, the Pentagon watchdog's munitions-shortfall disclosure dominates 10 of 11 regional buckets almost identically, with Al Jazeera as the only outlier redirecting readers toward Iranian strike damage rather than US supply vulnerability.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
