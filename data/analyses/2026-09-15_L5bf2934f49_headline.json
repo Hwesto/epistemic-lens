@@ -1,0 +1,154 @@
+{
+  "story_key": "L5bf2934f49",
+  "date": "2026-09-15",
+  "n_buckets": 7,
+  "n_articles": 12,
+  "tldr": "Headlines across the corpus lead uniformly with an Israeli minister's threat to strip filmmakers of citizenship for producing NAZA, while RT stands alone in stating as headline fact that Israel used AI to kill thousands in Gaza — an assertion all other outlets frame as documentary allegation.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "minister's citizenship revocation threat",
+      "buckets": ["italy", "uk", "israel", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "threatens to revoke filmmakers' citizenship",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "threatens to strip Israeli film-makers of citizenship",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "threatens to revoke citizenship of Gaza doc filmmakers",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA English",
+          "quote": "Naza directors risk being stripped of Israeli citizenship",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Arabic",
+          "quote": "ردود فعل غاضبة جدا في إسرائيل على فيلم \"نازا\"",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "AI-assisted Gaza killings as stated fact",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Israel used AI to kill thousands of Palestinians in Gaza",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "award-winning death-by-AI documentary",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Gaza crimes to treason accusations",
+      "buckets": ["qatar"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera Arabic",
+          "quote": "من جرائم غزة إلى الاتهامات بالخيانة",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "art and media's duty to witness Gaza",
+      "buckets": ["spain", "israel"],
+      "evidence": [
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "That life in Tel Aviv goes on as if nothing was happening",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "'Why didn't you broadcast it?'",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Israeli filmmakers' civil society petition",
+      "buckets": ["israel"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "Over a thousand Israeli filmmakers sign petition supporting",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.601,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.628,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.658,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.709,
+      "n_tokens": 69
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.729,
+      "n_tokens": 58
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.761,
+      "n_tokens": 265
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.761,
+      "n_tokens": 90
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage is dominated by the ministerial citizenship-revocation threat across Western, Italian, and Israeli outlets, with RT alone elevating the AI-killing allegation to stated fact — the sharpest headline-layer divergence in the corpus.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
