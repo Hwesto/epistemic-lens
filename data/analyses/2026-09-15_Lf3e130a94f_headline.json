@@ -1,0 +1,137 @@
+{
+  "story_key": "Lf3e130a94f",
+  "date": "2026-09-15",
+  "n_buckets": 11,
+  "n_articles": 19,
+  "tldr": "Headlines across all 11 buckets frame the Macklemore/Ed Sheeran incident through three diverging lenses. Most international outlets (European, Canadian, Latin American, UK, Indian) neutrally foreground Macklemore's 'pro-Palestinian remarks' as the stated reason for removal. US conservative outlets (Breitbart, Daily Wire) and Germany's Bild inject moral-condemnation language absent elsewhere — casting the same speech as 'unhinged anti-Israel tirades,' a 'pro-Islamic terrorist rant,' or 'Israel-hate.' Middle East Eye and Haaretz stand apart by foregrounding the mechanism: a billionaire's organised pressure campaign. Pakistan's Geo News alone applies a positive moral frame, describing Macklemore's stance as a 'bold move.'",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Pro-Palestinian speech triggers removal",
+      "buckets": ["wire_services", "france", "canada", "india", "mexico", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "after pro-Palestinian remarks",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "after onstage 'Free Palestine' remarks",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "après son discours en faveur de la Palestine",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "over pro-Palestinian comments onstage",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "por apoyar a Palestina",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "over 'Free Palestine' comment",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Speech as hate or brave moral stance",
+      "buckets": ["germany", "usa", "pakistan"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Rapper verbreitet Israel-Hass",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Unhinged Anti-Israel Tirades",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Pro-Islamic Terrorist Rant",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "after bold move",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Billionaire pressure silences artist",
+      "buckets": ["israel", "pan_arab", "usa"],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "after pro-Israel campaign over support for Palestinians",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Pro-Israel billionaire Robert Kraft led campaign",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Caller",
+          "quote": "Alleged Pressure Campaign From Pro-Israel Robert Kraft",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "pan_arab", "mean_similarity": 0.68, "n_tokens": 204},
+    {"bucket": "israel", "mean_similarity": 0.773, "n_tokens": 33},
+    {"bucket": "wire_services", "mean_similarity": 0.773, "n_tokens": 43},
+    {"bucket": "pakistan", "mean_similarity": 0.777, "n_tokens": 78},
+    {"bucket": "usa", "mean_similarity": 0.825, "n_tokens": 213},
+    {"bucket": "canada", "mean_similarity": 0.841, "n_tokens": 57},
+    {"bucket": "france", "mean_similarity": 0.859, "n_tokens": 122}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Headlines characterise Macklemore's speech as a 'Pro-Islamic Terrorist Rant' and his response as 'blaming' a Jewish owner — the most extreme editorial characterisation in the corpus.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Bild",
+      "country": "germany",
+      "finding": "Leads with 'Rapper verbreitet Israel-Hass' (rapper spreads Israel-hate), the only non-US outlet to use moral-condemnation framing equivalent to right-wing American coverage.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "The headline layer divides sharply by political culture: international and wire outlets report Macklemore's removal as a factual consequence of pro-Palestinian speech; US conservative and German tabloid outlets reframe that speech as 'hate' or 'terrorism-adjacent'; Middle East Eye and Haaretz alone name Robert Kraft's billionaire pressure campaign as the operative mechanism, turning a music-tour story into one about organised political suppression.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
