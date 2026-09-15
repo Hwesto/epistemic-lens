@@ -1,0 +1,192 @@
+{
+  "story_key": "L8a54d60ab6",
+  "date": "2026-09-15",
+  "n_buckets": 14,
+  "n_articles": 22,
+  "tldr": "Headlines across 14 countries uniformly brand Umar Kremlev by his Kremlin or Putin affiliation, collapsing the story into a foreign-state-access narrative before any click-through; a minority of outlets add a 'secretly bankrolled' or 'accusa' register that carries an explicit legality charge, while the couple's own 'wedding gift' framing surfaces only in skeptical quotation marks.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Kremlin/Putin-linked funder of Trump family",
+      "buckets": ["asia_pacific_regional", "canada", "france", "germany", "india", "italy", "mexico", "russia", "spain", "state_tv_intl", "turkey", "uk", "ukraine", "usa"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Kremlin-linked Russian oligarch helped fund Trump Jr.",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Putin-Linked Russian Businessman Paid in Part",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Kremlin-backed Russian oligarch Umar Kremlev funded",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Putin ally paid for some wedding festivities",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Kremlin-Linked Businessman Helped Pay for Donald Trump",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Secret/covert funding; accusation register",
+      "buckets": ["asia_pacific_regional", "italy", "usa"],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "secretly bankrolled by oligarch close to Putin",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "ProPublica",
+          "quote": "Secretly Bankrolled by Russian Oligarch Close to Putin",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Repubblica",
+          "quote": "L'accusa al tycoon",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "'Gift' framing quoted to contest it",
+      "buckets": ["state_tv_intl", "uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "as 'extraordinarily generous gift'",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "Un querido amigo",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.649,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.722,
+      "n_tokens": 220
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.758,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.759,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.765,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.772,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.78,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.781,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.818,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.82,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.821,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.831,
+      "n_tokens": 113
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.846,
+      "n_tokens": 111
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese outlet in corpus; absent despite Beijing's strategic interest in US-Russia elite financial ties and Kremlin-linked actors with US presidential family access."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "No Polish outlet in corpus despite Poland's acute interest in Kremlin influence operations targeting US leadership and the geopolitical stakes of Trump's Russia ties."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "La Repubblica",
+      "country": "italy",
+      "finding": "Only outlet to use an explicit accusation register in the headline ('accusa al tycoon'), shifting from the disclosure frame dominant elsewhere to a charge-against-an-individual frame.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "La Stampa",
+      "country": "italy",
+      "finding": "Only headline to lead with luxury-spectacle detail ('Isole alle Bahamas e una torta a cinque piani') before naming the oligarch, foregrounding the extravagance over the political controversy.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Spanish-language international headline opens with the couple's own 'Un querido amigo' framing rather than a Kremlin-affiliation label, the most donor-sympathetic headline construction in the corpus.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "Headline coverage across 14 countries frames the story almost entirely through the Kremlin-affiliation lens, with 'Putin ally,' 'Kremlin-linked,' and 'Putin-tied' labels appearing in the majority of titles and reducing the wedding to a foreign-state-access story before a reader clicks through.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
