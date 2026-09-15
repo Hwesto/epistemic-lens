@@ -1,0 +1,212 @@
+{
+  "story_key": "L80bc21972e",
+  "date": "2026-09-15",
+  "n_buckets": 13,
+  "n_articles": 29,
+  "tldr": "Headlines across all language markets foreground the US Space Force's first-ever public confirmation that weapons are deployed in Earth's orbit; a secondary cluster frames the story through China's and Russia's diplomatic pushback, warning of a new space arms race.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "First US confirmation of orbital weapons",
+      "buckets": [
+        "mexico",
+        "wire_services",
+        "france",
+        "brazil",
+        "uk",
+        "germany",
+        "usa",
+        "canada",
+        "india",
+        "israel",
+        "vietnam_thai_my",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "US Space Force confirms weapons deployed in space for first",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "US confirms for first time it has deployed space weapons",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US confirms it has weapons in space",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Defense News",
+          "quote": "US Air Force secretary reveals deployment of on-orbit",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S confirms for the first time that it has deployed weapons",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "US Confirms It Has Deployed First-Ever 'On-Orbit' Weapon",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "The final frontier: US reveals Space Force",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "US confirms weapons deployed in space for first time",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "U.S. acknowledges for the first time that it has deployed",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "EU confirma que tiene armas desplegadas en el espacio",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "États-Unis confirment pour la première fois avoir déployé",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "EUA confirmam ter colocado pela primeira vez armamentos",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China/Russia pushback on space arms race",
+      "buckets": [
+        "germany",
+        "india",
+        "vietnam_thai_my",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Wegen Russland und China - USA bestätigen erstmals Waffen",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "US admits weapons are in orbit — Why China is warning",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "China urges U.S. to ‘stop preparing for war in outer space’",
+          "signal_text_idx": 24
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "China warns US against space arms race after Space Force",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Russia, China urge US to keep weapons out of space",
+          "signal_text_idx": 26
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.639,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.666,
+      "n_tokens": 91
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.693,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.711,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.767,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.789,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.792,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.801,
+      "n_tokens": 312
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.807,
+      "n_tokens": 198
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.81,
+      "n_tokens": 283
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.814,
+      "n_tokens": 84
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.826,
+      "n_tokens": 304
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage worldwide uniformly leads with the US Space Force's first public admission of on-orbit weapons, while Indian, Southeast Asian, and Nigerian outlets add a secondary lens on China's and Russia's diplomatic alarm about a space arms race.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
