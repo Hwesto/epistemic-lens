@@ -1,0 +1,294 @@
+{
+  "date": "2026-09-15",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 16,
+  "buckets": [
+    "australia_nz",
+    "germany",
+    "opinion_magazines",
+    "poland_balt",
+    "turkey",
+    "ukraine",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 36,
+    "turkey": 32,
+    "germany": 162,
+    "australia_nz": 49,
+    "ukraine": 104,
+    "poland_balt": 26,
+    "vietnam_thai_my": 44,
+    "opinion_magazines": 50
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.841
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.799
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.774
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.765
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.735
+    },
+    {
+      "a": "australia_nz",
+      "b": "germany",
+      "score": 0.734
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.727
+    },
+    {
+      "a": "australia_nz",
+      "b": "opinion_magazines",
+      "score": 0.718
+    },
+    {
+      "a": "australia_nz",
+      "b": "usa",
+      "score": 0.718
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.717
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "poland_balt",
+      "score": 0.696
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.681
+    },
+    {
+      "a": "germany",
+      "b": "poland_balt",
+      "score": 0.667
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.666
+    },
+    {
+      "a": "australia_nz",
+      "b": "poland_balt",
+      "score": 0.648
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.629
+    },
+    {
+      "a": "australia_nz",
+      "b": "turkey",
+      "score": 0.614
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "ukraine",
+      "score": 0.612
+    },
+    {
+      "a": "poland_balt",
+      "b": "ukraine",
+      "score": 0.611
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.611
+    },
+    {
+      "a": "australia_nz",
+      "b": "ukraine",
+      "score": 0.604
+    },
+    {
+      "a": "poland_balt",
+      "b": "usa",
+      "score": 0.592
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.587
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.531
+    },
+    {
+      "a": "australia_nz",
+      "b": "vietnam_thai_my",
+      "score": 0.516
+    },
+    {
+      "a": "poland_balt",
+      "b": "turkey",
+      "score": 0.485
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.432
+    },
+    {
+      "a": "poland_balt",
+      "b": "vietnam_thai_my",
+      "score": 0.421
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.561,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.641,
+      "n_tokens": 104
+    },
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.65,
+      "n_tokens": 49
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.653,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.664,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.671,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.752,
+      "n_tokens": 162
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "poland_balt",
+      "mean_similarity": 0.589,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "sovereigntist",
+        "count": 3
+      },
+      {
+        "term": "tripl",
+        "count": 3
+      },
+      {
+        "term": "result",
+        "count": 3
+      }
+    ],
+    "turkey": [
+      {
+        "term": "municipal",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "после",
+        "count": 4
+      },
+      {
+        "term": "победы",
+        "count": 4
+      },
+      {
+        "term": "контроль",
+        "count": 3
+      },
+      {
+        "term": "украине",
+        "count": 3
+      }
+    ],
+    "australia_nz": [
+      {
+        "term": "australia",
+        "count": 3
+      }
+    ],
+    "ukraine": [
+      {
+        "term": "ukraine",
+        "count": 9
+      },
+      {
+        "term": "support",
+        "count": 5
+      },
+      {
+        "term": "weapon",
+        "count": 3
+      },
+      {
+        "term": "excessive",
+        "count": 3
+      }
+    ],
+    "poland_balt": [],
+    "vietnam_thai_my": [
+      {
+        "term": "embattled",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-15T13:05:39+00:00",
+  "meta_version": "10.0.3"
+}

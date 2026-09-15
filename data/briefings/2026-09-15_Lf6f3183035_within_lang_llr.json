@@ -1,0 +1,136 @@
+{
+  "date": "2026-09-15",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 109,
+      "n_tokens_in_cohort": 1135,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 159,
+      "n_tokens_in_cohort": 1085,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 478,
+      "n_tokens_in_cohort": 766,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 77,
+      "n_tokens_in_cohort": 1167,
+      "distinctive_terms": [
+        {
+          "term": "continent",
+          "count_in_bucket": 5,
+          "count_in_cohort": 5,
+          "rate_in_bucket": 0.06494,
+          "rate_in_cohort": 0.00428,
+          "llr": 14.872,
+          "log_ratio": 2.718,
+          "p_value": 0.000115
+        },
+        {
+          "term": "richest",
+          "count_in_bucket": 5,
+          "count_in_cohort": 6,
+          "rate_in_bucket": 0.06494,
+          "rate_in_cohort": 0.00514,
+          "llr": 13.697,
+          "log_ratio": 2.536,
+          "p_value": 0.000215
+        },
+        {
+          "term": "biggest",
+          "count_in_bucket": 5,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.06494,
+          "rate_in_cohort": 0.006,
+          "llr": 12.675,
+          "log_ratio": 2.382,
+          "p_value": 0.000371
+        }
+      ]
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 1216,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 215,
+      "n_tokens_in_cohort": 1029,
+      "distinctive_terms": []
+    },
+    "nigeria": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 178,
+      "n_tokens_in_cohort": 1066,
+      "distinctive_terms": [
+        {
+          "term": "neighbouring",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03371,
+          "rate_in_cohort": 0.0,
+          "llr": 23.507,
+          "log_ratio": null,
+          "p_value": 1e-06
+        },
+        {
+          "term": "year",
+          "count_in_bucket": 8,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.04494,
+          "rate_in_cohort": 0.00375,
+          "llr": 17.332,
+          "log_ratio": 2.483,
+          "p_value": 3.1e-05
+        },
+        {
+          "term": "countr",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03371,
+          "rate_in_cohort": 0.00188,
+          "llr": 15.109,
+          "log_ratio": 2.888,
+          "p_value": 0.000101
+        },
+        {
+          "term": "dangote",
+          "count_in_bucket": 19,
+          "count_in_cohort": 41,
+          "rate_in_bucket": 0.10674,
+          "rate_in_cohort": 0.03846,
+          "llr": 12.386,
+          "log_ratio": 1.021,
+          "p_value": 0.000432
+        }
+      ]
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

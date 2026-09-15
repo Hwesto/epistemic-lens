@@ -1,0 +1,154 @@
+{
+  "date": "2026-09-15",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 81,
+      "n_tokens_in_cohort": 1754,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 438,
+      "n_tokens_in_cohort": 1397,
+      "distinctive_terms": [
+        {
+          "term": "warship",
+          "count_in_bucket": 12,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.0274,
+          "rate_in_cohort": 0.00501,
+          "llr": 13.361,
+          "log_ratio": 1.699,
+          "p_value": 0.000257
+        }
+      ]
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 255,
+      "n_tokens_in_cohort": 1580,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 50,
+      "n_tokens_in_cohort": 1785,
+      "distinctive_terms": []
+    },
+    "poland_balt": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 38,
+      "n_tokens_in_cohort": 1797,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 276,
+      "n_tokens_in_cohort": 1559,
+      "distinctive_terms": [
+        {
+          "term": "border",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.02174,
+          "rate_in_cohort": 0.00128,
+          "llr": 14.486,
+          "log_ratio": 2.83,
+          "p_value": 0.000141
+        }
+      ]
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 250,
+      "n_tokens_in_cohort": 1585,
+      "distinctive_terms": [
+        {
+          "term": "danish",
+          "count_in_bucket": 17,
+          "count_in_cohort": 38,
+          "rate_in_bucket": 0.068,
+          "rate_in_cohort": 0.02397,
+          "llr": 11.32,
+          "log_ratio": 1.043,
+          "p_value": 0.000767
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 254,
+      "n_tokens_in_cohort": 1581,
+      "distinctive_terms": [
+        {
+          "term": "time",
+          "count_in_bucket": 6,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.02362,
+          "rate_in_cohort": 0.0019,
+          "llr": 13.271,
+          "log_ratio": 2.522,
+          "p_value": 0.00027
+        }
+      ]
+    },
+    "balkans": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 1800,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 1807,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 1784,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 79,
+      "n_tokens_in_cohort": 1756,
+      "distinctive_terms": [
+        {
+          "term": "military",
+          "count_in_bucket": 7,
+          "count_in_cohort": 27,
+          "rate_in_bucket": 0.08861,
+          "rate_in_cohort": 0.01538,
+          "llr": 12.259,
+          "log_ratio": 1.751,
+          "p_value": 0.000463
+        }
+      ]
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

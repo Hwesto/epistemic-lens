@@ -1,0 +1,313 @@
+{
+  "date": "2026-09-15",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 19,
+  "buckets": [
+    "africa_other",
+    "germany",
+    "nigeria",
+    "pan_african",
+    "state_tv_intl",
+    "uk",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 109,
+    "pan_african": 159,
+    "africa_other": 536,
+    "uk": 77,
+    "germany": 28,
+    "state_tv_intl": 215,
+    "nigeria": 178
+  },
+  "pairwise_similarity": [
+    {
+      "a": "africa_other",
+      "b": "germany",
+      "score": 0.895
+    },
+    {
+      "a": "africa_other",
+      "b": "wire_services",
+      "score": 0.866
+    },
+    {
+      "a": "nigeria",
+      "b": "pan_african",
+      "score": 0.846
+    },
+    {
+      "a": "africa_other",
+      "b": "nigeria",
+      "score": 0.844
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.842
+    },
+    {
+      "a": "africa_other",
+      "b": "uk",
+      "score": 0.839
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "wire_services",
+      "score": 0.834
+    },
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.832
+    },
+    {
+      "a": "nigeria",
+      "b": "uk",
+      "score": 0.803
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.798
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.794
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.779
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.762
+    },
+    {
+      "a": "nigeria",
+      "b": "wire_services",
+      "score": 0.762
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.762
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.759
+    },
+    {
+      "a": "nigeria",
+      "b": "state_tv_intl",
+      "score": 0.749
+    },
+    {
+      "a": "germany",
+      "b": "nigeria",
+      "score": 0.748
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.745
+    },
+    {
+      "a": "germany",
+      "b": "pan_african",
+      "score": 0.74
+    },
+    {
+      "a": "germany",
+      "b": "state_tv_intl",
+      "score": 0.692
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.771,
+      "n_tokens": 215
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.789,
+      "n_tokens": 159
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.792,
+      "n_tokens": 178
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.793,
+      "n_tokens": 77
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.794,
+      "n_tokens": 109
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.853,
+      "n_tokens": 536
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.772,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "pan_african": [
+      {
+        "term": "danjuma",
+        "count": 3
+      },
+      {
+        "term": "locked",
+        "count": 3
+      }
+    ],
+    "africa_other": [
+      {
+        "term": "uganda",
+        "count": 5
+      },
+      {
+        "term": "world",
+        "count": 4
+      },
+      {
+        "term": "participate",
+        "count": 4
+      },
+      {
+        "term": "money",
+        "count": 4
+      },
+      {
+        "term": "raffinerie",
+        "count": 4
+      },
+      {
+        "term": "humanitarian",
+        "count": 3
+      },
+      {
+        "term": "forc",
+        "count": 3
+      },
+      {
+        "term": "acces",
+        "count": 3
+      },
+      {
+        "term": "invictu",
+        "count": 3
+      },
+      {
+        "term": "invest",
+        "count": 3
+      },
+      {
+        "term": "cement",
+        "count": 3
+      },
+      {
+        "term": "subscription",
+        "count": 3
+      },
+      {
+        "term": "channel",
+        "count": 3
+      },
+      {
+        "term": "invited",
+        "count": 3
+      },
+      {
+        "term": "entre",
+        "count": 3
+      },
+      {
+        "term": "bourse",
+        "count": 3
+      },
+      {
+        "term": "milliard",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "germany": [],
+    "state_tv_intl": [
+      {
+        "term": "domestic",
+        "count": 3
+      }
+    ],
+    "nigeria": [
+      {
+        "term": "neighbouring",
+        "count": 6
+      },
+      {
+        "term": "millionair",
+        "count": 4
+      },
+      {
+        "term": "lived",
+        "count": 4
+      },
+      {
+        "term": "current",
+        "count": 4
+      },
+      {
+        "term": "home",
+        "count": 4
+      },
+      {
+        "term": "newspaper",
+        "count": 4
+      },
+      {
+        "term": "review",
+        "count": 4
+      },
+      {
+        "term": "democratise",
+        "count": 4
+      },
+      {
+        "term": "creation",
+        "count": 4
+      },
+      {
+        "term": "petrol",
+        "count": 4
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-15T13:06:09+00:00",
+  "meta_version": "10.0.3"
+}
