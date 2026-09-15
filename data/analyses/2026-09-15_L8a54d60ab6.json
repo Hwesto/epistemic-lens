@@ -1,0 +1,174 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-15",
+  "lineage_id": "L8a54d60ab6",
+  "cluster_id": 147,
+  "cluster_name": "Russian oligarch Umar Kremlev secretly funded Trump Jr.'s Bahamas wedding",
+  "salience_score": 9.24,
+  "n_outlets": 21,
+  "n_countries": 14,
+  "n_articles": 22,
+  "event_summary": "ProPublica reported that Russian oligarch Umar Kremlev, a Putin ally, secretly paid hundreds of thousands of dollars for Donald Trump Jr.'s Bahamas wedding celebrations in May 2026. Trump Jr. and wife Bettina confirmed the payments, calling them a 'wedding gift' from a 'dear friend.'",
+  "tldr": "The most striking finding is that two exiled Russian outlets—Meduza and Moscow Times—reported the story with the same critical gravity as Western investigative media, providing no minimising context about Kremlev's role and leaving no Russian-bloc silence gap. France Info is alone among the 21 outlets in connecting the revelation to Trump's ongoing Ukraine-Russia peace negotiations, raising a live geopolitical-stakes dimension the rest of the corpus leaves implicit. Western European outlets uniformly applied 'Kremlin-linked' or 'Putin ally' descriptors, marginalising the couple's 'dear friend' and 'wedding gift' framing, which found traction only in outlets reproducing Bettina Trump's own social-media language. The Italian press introduced an 'accusation' register—La Repubblica's headline frames it as an 'accusa al tycoon'—that is harder-edged than the investigative-reveal tone dominant elsewhere, and pro-AKP Turkish outlet Daily Sabah reported without any Russia-sympathising softening.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Kremlin access to Trump family",
+      "outlets": ["ProPublica", "The Independent", "BBC World", "Deutsche Welle English", "Kyiv Post", "France Info"],
+      "countries": ["usa", "uk", "germany", "ukraine", "france"],
+      "evidence": [
+        {
+          "outlet": "ProPublica",
+          "country": "usa",
+          "quote": "That dream was heavily funded by a secret benefactor: Umar Kremlev, a Russian oligarch close to President Vladimir Putin.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "Des révélations qui risquent de peser dans les négociations lancées par Donald Trump entre l'Ukraine et la Russie.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "state-linked donor via IBA-Dubai channel",
+      "outlets": ["Deutsche Welle English", "ProPublica", "Kyiv Post", "Meduza", "Moscow Times", "El Pais English"],
+      "countries": ["germany", "usa", "ukraine", "russia", "spain"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Kremlev was awarded the \"Order of Friendship\" by Putin earlier this year.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "ProPublica",
+          "country": "usa",
+          "quote": "Kremlev is the head of the International Boxing Association, a scandal-plagued sports group that has been financed by the Russian state-owned energy giant Gazprom. The wedding payments came from an IBA-affiliated entity in Dubai that the boxing association uses for financial transactions.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US opposition alarm; 2016 precedent invoked",
+      "outlets": ["Tagesschau", "ProPublica", "CBC World", "Sky News UK", "Asia Times"],
+      "countries": ["germany", "usa", "canada", "uk", "asia_pacific_regional"],
+      "evidence": [
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "für die US-Opposition ist das \"besorgniserregend\".",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "ProPublica",
+          "country": "usa",
+          "quote": "Kremlev footed the bill for hundreds of thousands of dollars of wedding expenses, according to records reviewed by ProPublica and interviews with three people familiar with the event.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "gift ethics vs. implied conflict of interest",
+      "outlets": ["The Hindu Intl", "France 24 Spanish", "La Jornada", "Sky News UK", "BBC World"],
+      "countries": ["india", "state_tv_intl", "mexico", "uk"],
+      "evidence": [
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "generosity doesn't automatically come with an agenda. And sometimes a wedding gift is simply a wedding gift",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "La pareja confirmó el aporte, pero aseguró que se trató de un \"regalo de bodas\" de un \"querido amigo\" y rechazó cualquier motivación política.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "secret financial channel; undisclosed foreign gift",
+      "outlets": ["ProPublica", "The Independent", "Moscow Times"],
+      "countries": ["usa", "uk", "russia"],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Kremlin-connected International Boxing Association chief Umar Kremlev funneled money into renting a private island",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "The payments reportedly included around $100,000 to rent a private island and $70,000 for a fireworks display.",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese outlet in corpus; plausibly prioritised domestic economic or Taiwan-related coverage over a US-Russia elite financial story that would be relevant to Beijing's interest in US-Russia relations."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "No Polish outlet in corpus despite Poland's acute interest in Kremlin influence operations targeting US leadership; likely displaced by domestic political or NATO-related news."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "ProPublica",
+      "country": "usa",
+      "finding": "Original investigation: names guest list including Jared Kushner and Eric Trump; identifies the IBA-affiliated Dubai entity used for payments; provides cost breakdown (private island rental, fireworks show) and notes the oligarch group stood apart from other guests speaking Russian.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "France Info",
+      "country": "france",
+      "finding": "Sole outlet to explicitly tie Kremlev's payments to the credibility of Trump's active Ukraine-Russia peace negotiations—the only outlet to name geopolitical stakes beyond the domestic US political fallout.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Ukrainian outlet reports factually without invoking the war or editorial alarm—a notably restrained register given Ukraine's direct stake in Trump's Russia ties.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "La Jornada",
+      "country": "mexico",
+      "finding": "Left-of-centre Mexican outlet bundles the Kremlev story with JD Vance confronting a protester at a Kansas rally in the same digest item—the only outlet to contextualise the wedding story within broader Trump-family political news.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Latvia-based exiled Russian outlet covers the story with the same matter-of-fact critical stance as Western investigative media, providing no minimising context for Kremlev's role—no Russian-bloc softening present.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "German public broadcaster is the only outlet to quote US opposition reaction directly, noting the story is viewed as 'alarming' (besorgniserregend) by domestic critics.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Pro-AKP Turkish outlet reports without any Russia-sympathising framing, straightforwardly describing Kremlev as a 'Russia-linked businessman'—closer to Western editorial norms than its government-aligned lean would suggest.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "ProPublica's investigation—confirmed by the couple themselves—into a Kremlin-linked oligarch secretly funding hundreds of thousands of dollars of Donald Trump Jr.'s wedding was treated by 21 international outlets across 14 countries as a foreign-influence story, with the 'wedding gift' framing finding no echo outside the Trumps' own statements. The exiled Russian press matched Western critical coverage with no softening, and France Info alone raised the story's most consequential implication: that Kremlev's intimate Trump-family access may now complicate US-mediated Ukraine-Russia peace negotiations.",
+  "generated_at": "2026-09-15T13:20:43Z",
+  "model": "claude-sonnet-4-6"
+}
