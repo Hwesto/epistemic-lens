@@ -1,0 +1,208 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-15",
+  "lineage_id": "Lf3e130a94f",
+  "cluster_id": 149,
+  "cluster_name": "Macklemore dropped from Ed Sheeran US tour over 'Free Palestine' remarks",
+  "salience_score": 6.6,
+  "n_outlets": 16,
+  "n_countries": 11,
+  "n_articles": 20,
+  "event_summary": "Rapper Macklemore was dropped from Ed Sheeran's US 'Loop Tour' after saying 'Free Palestine' at a September 4 concert in New Jersey. New England Patriots owner Robert Kraft threatened to bar the tour from his stadium and rallied other venue owners to demand Macklemore's removal.",
+  "tldr": "The sharpest divide in this corpus is between US right-wing outlets (Breitbart, Daily Wire), which celebrate the removal as warranted ejection of anti-Israel hate speech, and virtually every non-US outlet — French, Canadian, Indian, Pakistani — which frames the same event as political speech suppression. A notable cross-cutting convergence: US conservative Daily Caller and Israeli left-liberal Haaretz both characterise the removal as a coordinated 'pro-Israel pressure campaign' by Kraft, a framing Breitbart and Daily Wire conspicuously avoid. Germany's Bild is the outlier among non-US outlets, deploying 'Israel-Hass' (Israel hatred) in its headline and aligning with US conservative framing rather than the European mainstream. France's Le Monde alone generalises the incident into a structural chilling effect on all artists who wish to speak on the Israeli-Palestinian conflict. Middle East Eye is the only outlet with a full body extraction, detailing Kraft's multi-stadium coordination and quoting Macklemore's Instagram statement directly. Pakistani coverage (Geo News) uniquely frames Macklemore as a moral actor who prioritised humanity over professional self-interest.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "pro-Israel/pro-Palestinian polarization in US entertainment",
+      "outlets": ["Breitbart", "Daily Wire", "Daily Caller", "Haaretz"],
+      "countries": ["usa", "israel"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "anti-Israel, pro-Palestine, and pro-Hamas tirades",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "he responded by blaming a Jewish man",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Macklemore dropped from Ed Sheeran tour after pro-Israel campaign over support for Palestinians",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "venue pressure campaign as speech suppression",
+      "outlets": ["Le Monde", "Daily Caller", "Haaretz", "Middle East Eye"],
+      "countries": ["france", "usa", "israel", "pan_arab"],
+      "evidence": [
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "Sous la pression de plusieurs salles américaines, Macklemore a été retiré de la tournée",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Daily Caller",
+          "country": "usa",
+          "quote": "Tour After Alleged Pressure Campaign From Pro-Israel Robert Kraft",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "promoters said venues warned they would cancel the concerts if he performed",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "billionaire pro-Israel donor network controls venue access",
+      "outlets": ["Middle East Eye", "AFP / France 24 EN", "BFM TV"],
+      "countries": ["pan_arab", "wire_services", "france"],
+      "evidence": [
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "The campaign to remove Macklemore from the tour was driven by billionaire Robert Kraft, owner of the New England Patriots and Gillette Stadium, who threatened to block Sheeran and his team from using his stadium.",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "BFM TV",
+          "country": "france",
+          "quote": "les foudres du Conseil israélo-américain après avoir tenu des propos en faveur de la Palestine sur scène",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "pressure from venue owners, including New England Patriots owner Robert Kraft, over his criticism of Israel",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "moral duty to speak vs. spreading hate",
+      "outlets": ["Geo News English", "Bild", "Middle East Eye", "Daily Wire"],
+      "countries": ["pakistan", "germany", "pan_arab", "usa"],
+      "evidence": [
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "prioritised humanity over his 13 years of friendship with Ed Sheeran",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Bild",
+          "country": "germany",
+          "quote": "Rapper verbreitet Israel-Hass",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Middle East Eye",
+          "country": "pan_arab",
+          "quote": "he wanted the people of Gaza and the West Bank to know that their plight at the hands of Israel had not been forgotten",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "after he spouted Islamist propaganda on stage",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "pop concert stage as arena for political speech",
+      "outlets": ["CBC World", "Le Devoir", "AFP / France 24 FR", "Sky News UK", "Hindustan Times", "La Jornada"],
+      "countries": ["canada", "france", "uk", "india", "mexico"],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "several venues in the United States said they would not allow the concerts to be held if the American rapper, who is an outspoken advocate for Palestinian rights, remains on the lineup.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Le Devoir",
+          "country": "canada",
+          "quote": "Le rappeur américain avait lancé le slogan",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Daily Caller",
+      "country": "usa",
+      "quote": "Tour After Alleged Pressure Campaign From Pro-Israel Robert Kraft",
+      "signal_text_idx": 7
+    },
+    "b": {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "quote": "Macklemore dropped from Ed Sheeran tour after pro-Israel campaign over support for Palestinians",
+      "signal_text_idx": 12
+    },
+    "joint_conclusion": "A US conservative outlet and Israel's left-liberal flagship both name Kraft's coordinated 'pro-Israel pressure campaign' as the direct mechanism of Macklemore's removal — a framing that Breitbart and Daily Wire suppress in favour of focusing exclusively on Macklemore's speech as the cause."
+  },
+  "silences": [
+    {
+      "country": "turkey",
+      "what_they_covered_instead": "Turkish press reliably amplifies pro-Palestinian speech suppression stories in Western contexts; its absence here suggests it was focused on UNGA-related diplomacy or domestic political matters on this date."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Bild",
+      "country": "germany",
+      "finding": "Only outlet globally to label Macklemore's speech 'Israel-Hass' (Israel hatred) in the headline, placing Germany's largest tabloid to the right of even most US conservative coverage on the hate-speech spectrum.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Describes Macklemore as 'Washed-Up' and a 'has-been' who 'spouted Islamist propaganda' — the only outlet to merge career-dismissal language with terrorism framing in a single headline.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "Only outlet with a full body extraction, providing Macklemore's verbatim Instagram account of the ultimatum Kraft delivered to Sheeran and the coordinated multi-stadium pressure campaign; no other outlet published this operational detail.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Published a follow-up piece framing the tour removal as leading to 'good news' — treating the expulsion as the start of a sympathetic backlash rather than a career setback, a positive-outcome angle unique to Pakistani coverage.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Le Monde",
+      "country": "france",
+      "finding": "Only outlet to generalise beyond the incident, framing it as evidence of a structural barrier for all artists seeking to speak on the Israeli-Palestinian conflict.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Robert Kraft's self-description — that Macklemore spread 'Division and Hate' — appears only via Breitbart, which reproduces Kraft's self-exculpatory framing without independent sourcing.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "This story is a proxy battle over whether the Israeli-Palestinian conflict has a permissible side in US commercial entertainment: US right-wing outlets approve Macklemore's removal as enforcement against hate, while the rest of the world's press — including Haaretz from within Israel — treats it as a coordinated pro-Israel lobby operation that suppressed political speech. The lone structural insight comes from Le Monde, which frames the incident not as a celebrity spat but as a structural chilling effect on any artist who wishes to speak on the conflict.",
+  "generated_at": "2026-09-15T07:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
