@@ -1,0 +1,101 @@
+{
+  "story_key": "L986f6a7a64",
+  "date": "2026-09-15",
+  "n_buckets": 12,
+  "n_articles": 20,
+  "tldr": "Headlines across 12 outlets cluster multiple simultaneous maritime and transport disasters under a single safety-crisis frame: the Indonesia Virgo Transport 8 capsize (6 dead, 129 missing), a Qingdao cargo ship fire (25 dead), a Philippine ferry disaster (76 dead), a Northern Cyprus capsizing, and a Vanuatu ferry sinking. Casualty counts and search-operation status dominate, with Western and regional outlets leading with dead-and-missing figures. China's state outlet (CGTN) uniquely frames the Qingdao fire through President Xi's political response rather than the body count, while SE Asian outlets widen the lens to a pattern of regional maritime disasters.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Casualty counts & search-rescue status",
+      "buckets": ["pan_african", "turkey", "vietnam_thai_my", "canada", "uk", "usa", "taiwan_hk", "kenya", "brazil", "indonesia", "netherlands_belgium"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Indonesia races to find 129 missing",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "At least six dead and 129 missing after Indonesian ferry",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "Six dead and search under way for 129 missing",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Fire aboard cargo ship undergoing repairs",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Search for June Aster victims continues as death toll",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Weather-hampered rescue logistics",
+      "buckets": ["vietnam_thai_my", "brazil", "indonesia"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Bad weather hampers Indonesia ferry rescue",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Equipes enfrentam ventos e mar turbulento",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Sjamsudin Noor Air Base serves as Virgo evacuation point",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "State leader directing disaster response",
+      "buckets": ["china"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "President Xi makes instructions following cargo ship",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.45, "n_tokens": 32},
+    {"bucket": "indonesia", "mean_similarity": 0.55, "n_tokens": 194},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.606, "n_tokens": 43},
+    {"bucket": "brazil", "mean_similarity": 0.626, "n_tokens": 101},
+    {"bucket": "pan_african", "mean_similarity": 0.636, "n_tokens": 32},
+    {"bucket": "usa", "mean_similarity": 0.667, "n_tokens": 72},
+    {"bucket": "uk", "mean_similarity": 0.689, "n_tokens": 110},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.697, "n_tokens": 267}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer presents a global accumulation of maritime and transport disasters almost entirely through a dead-and-missing scorecard, with the Indonesia Virgo capsize commanding the largest share of coverage; the sole notable divergence is CGTN, which makes the Qingdao fire a story about President Xi's political authority rather than the body count.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
