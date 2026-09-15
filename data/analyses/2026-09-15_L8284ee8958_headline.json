@@ -1,0 +1,152 @@
+{
+  "story_key": "L8284ee8958",
+  "date": "2026-09-15",
+  "n_buckets": 10,
+  "n_articles": 14,
+  "tldr": "Headlines collectively frame Canada's pursuit of a 'unique alliance' with the EU as a deliberate strategic pivot away from a hostile US, with Australia amplifying the story as a potential model for other nations.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Canada–EU ‘unique alliance’ pivot",
+      "buckets": [
+        "canada",
+        "egypt",
+        "france",
+        "germany",
+        "japan",
+        "mexico",
+        "opinion_magazines",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "European Parliament to open Ottawa office",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Canada is pursuing a ‘unique alliance’ with the EU",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Canberra ‘on the same page’ as Ottawa on closer EU ties",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Canadá va por “alianza única” con la UE",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "could follow Canada in forging deeper ties with EU",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Australia ‘on the same page’ as Canada",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "US trade war forces pivot",
+      "buckets": [
+        "france",
+        "germany",
+        "egypt",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "l’escalade commerciale pousse Ottawa à changer de cap",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Trump verschärft Handelskonflikt mit Kanada",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "as US ties remain fraught",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "pushes back against hostile US",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Carney’s EU diplomatic offensive",
+      "buckets": [
+        "canada",
+        "opinion_magazines",
+        "mexico"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "Carney jets to EU in search of new and deeper ties",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Carney presses 10 EU countries to ratify Canada trade deal",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Le Devoir",
+          "quote": "Mark Carney part à la conquête d’une «alliance unique»",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "france",
+      "mean_similarity": 0.577,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.645,
+      "n_tokens": 224
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.716,
+      "n_tokens": 156
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage uniformly advertises Canada’s EU pivot as a geopolitical counter to US hostility, with Australia's echo elevating it into a broader Western realignment story.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
