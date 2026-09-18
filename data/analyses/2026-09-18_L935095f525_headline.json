@@ -1,0 +1,150 @@
+{
+  "story_key": "L935095f525",
+  "date": "2026-09-18",
+  "n_buckets": 11,
+  "n_articles": 14,
+  "tldr": "Headlines across all 11 country-buckets uniformly announce the same scientific landmark: the tilcayo, the first new wild cat species formally described in over 100 years, found in Bolivia's Yungas forest. A subset of outlets sharpen the discovery's urgency by noting only one specimen is currently known to be alive.",
+  "frames": [
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "Century-first wild cat species named",
+      "buckets": [
+        "argentina_chile",
+        "canada",
+        "germany",
+        "india",
+        "mexico",
+        "nigeria",
+        "pakistan",
+        "spain",
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "New wild cat species discovered",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "New Wild Cat Species for First Time in 100 Years",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Bolivia: New cat species discovered by scientists",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "primer felino salvaje descubierto en más de cien años",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "nueva especie de gato silvestre descubierta en Bolivia",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "New cat species identified in Bolivia, first in over a century",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "New cat species identified in Bolivian forest",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "La Nacion AR",
+          "quote": "reveló la existencia de una nueva especie para la ciencia",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "New cat species identified in Bolivia",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "New cat species 'Tilcayo' identified in Bolivia",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "Scientists discover new wild cat species after 100 years",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Only one specimen known alive",
+      "buckets": [
+        "pakistan",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "with only one known living member",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Geo News English",
+          "quote": "with only one known alive",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.701,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.752,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.76,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.761,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.813,
+      "n_tokens": 99
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage presents the tilcayo as an unambiguous scientific milestone — a century-defining moment for feline taxonomy — while BBC and Geo News amplify urgency with the detail that only one living specimen is currently known.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
