@@ -1,0 +1,158 @@
+{
+  "story_key": "Lf31f417274",
+  "date": "2026-09-18",
+  "n_buckets": 15,
+  "n_articles": 21,
+  "tldr": "Non-English headlines overwhelmingly frame Buffett's departure as a business legend's end of era — 'Börsen-Legende', 'Fim de uma era', 'El arquitecto del capital moderno', 'el adiós definitivo' — while the majority of English-language titles deliver plain succession facts with no evaluative colour. BFM TV is the sole outlet whose headline leads with Buffett's own nepotism admission ('Il obtient ce poste parce qu'il est mon fils'), a framing invisible in every other title.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "End-of-era business legend",
+      "buckets": ["germany", "brazil", "argentina_chile", "uk", "spain", "india"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Bild",
+          "quote": "Börsen-Legende Warren Buffett hört auf",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "Fim de uma era: Warren Buffett, o megainvestidor",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "argentina_chile",
+          "outlet": "Clarin",
+          "quote": "El arquitecto del capital moderno",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Father time always wins",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais",
+          "quote": "el adiós definitivo",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "a post he has held since 1970",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Trillion-dollar empire transition",
+      "buckets": ["france", "india"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "BFM TV",
+          "quote": "empire de 1.000 milliards de dollars",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "net worth, son Howard in focus",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Orderly leadership handover",
+      "buckets": ["vietnam_thai_my", "israel", "wire_services", "taiwan_hk", "india"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "becomes chairman emeritus",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "becomes chairman emeritus",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "son Howard succeeds",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Howard replaces his father, Warren Buffett",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "who will take over and what all will change",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.748, "n_tokens": 33},
+    {"bucket": "france", "mean_similarity": 0.754, "n_tokens": 37},
+    {"bucket": "nigeria", "mean_similarity": 0.756, "n_tokens": 89},
+    {"bucket": "russia_native", "mean_similarity": 0.765, "n_tokens": 34},
+    {"bucket": "spain", "mean_similarity": 0.801, "n_tokens": 33},
+    {"bucket": "india", "mean_similarity": 0.818, "n_tokens": 564},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.819, "n_tokens": 55},
+    {"bucket": "uk", "mean_similarity": 0.827, "n_tokens": 207},
+    {"bucket": "argentina_chile", "mean_similarity": 0.84, "n_tokens": 172},
+    {"bucket": "usa", "mean_similarity": 0.845, "n_tokens": 79}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["usa", "russia_native", "nigeria", "australia_nz"],
+  "single_outlet_findings": [
+    {
+      "outlet": "BFM TV",
+      "bucket": "france",
+      "finding": "Only headline in the corpus to surface Buffett's nepotism admission verbatim — 'Il obtient ce poste parce qu'il est mon fils' (he gets this position because he's my son) — foregrounding the filial transaction where every other outlet, including all English-language press, used neutral succession language.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Clarin",
+      "bucket": "argentina_chile",
+      "finding": "Only headline to title Buffett 'El arquitecto del capital moderno' (architect of modern capital) — the sole title treating the departure as a civilisational rather than corporate event.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "O Globo",
+      "bucket": "brazil",
+      "finding": "Only headline to lead with 'Fim de uma era' (end of an era), framing the succession as a generational rupture; all English-language headlines in the corpus used neutral 'steps down' language.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Bild",
+      "bucket": "germany",
+      "finding": "Only headline to pair a celebrity label ('Börsen-Legende', stock-exchange legend) with Buffett's own farewell maxim ('Die Zeit gewinnt immer', time always wins) — the only title combining legendary status and mortality in a single line.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "El Pais",
+      "bucket": "spain",
+      "finding": "Used 'adiós definitivo' (definitive farewell) — the only Spanish-language headline to frame the departure as a permanent, irreversible exit rather than a governance transition.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "At the headline layer, non-English outlets collectively advertise Buffett as a departing legend ending an era while most English-language titles strip the story to bare succession facts; BFM TV's nepotism-admission headline stands alone as the only title in the corpus that makes the filial transaction visible to the reader before the click.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
