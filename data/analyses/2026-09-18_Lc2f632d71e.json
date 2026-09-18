@@ -1,0 +1,208 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "Lc2f632d71e",
+  "cluster_id": 55,
+  "cluster_name": "War-damaged Gaza City building collapse kills 21 during ceasefire",
+  "salience_score": 4.062,
+  "n_outlets": 11,
+  "n_countries": 10,
+  "n_articles": 13,
+  "event_summary": "A war-damaged residential building in Gaza City collapsed on September 16, 2026, killing at least 21 people including multiple children, with dozens more missing and rescue teams searching the rubble.",
+  "tldr": "The cluster is dominated by Global South and state-aligned outlets; Western Anglophone press (US, UK) is entirely absent. Daily Sabah's full-text body coverage reveals the scale behind the single-incident story: 147 destroyed homes are being searched under a Civil Defense recovery project, roughly 1,072 people are believed buried, and 9,500 Palestinians were reported missing since the war began — placing the ceasefire-era collapse inside an ongoing, not concluded, humanitarian crisis. One article in the cluster (Standard Kenya World, corpus index 10) covers a wholly unrelated building collapse in New Delhi, India, signalling that the HDBSCAN cluster captured 'building collapse' as a lexical signal rather than a Gaza-specific topic. Russia's RT and Canada's Globe and Mail converge on the same core characterisation — a bombed structure killed civilians during a truce — despite their opposing editorial orientations.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "war-damage kills during ceasefire",
+      "outlets": ["CGTN Politics", "RT", "Globe and Mail"],
+      "countries": ["china", "russia", "canada"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "At least 21 Palestinians were injured in Israeli airstrikes across the Gaza Strip on Monday, according to Palestinian sources, as strikes continued despite a ceasefire",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "At least 21 people have been killed and dozens are missing after a bombed building collapsed in Gaza City",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "War-damaged Gaza building collapses killing 21 as perilous conditions persist during truce",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "civilian death toll and rescue operations",
+      "outlets": ["AfricaNews", "Egypt Independent", "Tehran Times", "Malay Mail World"],
+      "countries": ["pan_african", "egypt", "iran_state", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "A deadly building collapse has killed at least 12 people in Gaza City on 16 September, according to Shifa Hospital, after a multi-storey building housing displaced families came down.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Egypt Independent",
+          "country": "egypt",
+          "quote": "More than 20 people, including several children, have died after a war-damaged residential building in Gaza City collapsed early Wednesday, local authorities said, with dozens more feared trapped under layers of rubble.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "At least 21 people, including six children, were killed when a war-damaged residential building collapsed in Gaza City on Wednesday, local rescue officials said.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "displaced families sheltering in rubble",
+      "outlets": ["Globe and Mail", "AfricaNews"],
+      "countries": ["canada", "pan_african"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Collapse underscores how perilous and desperate living conditions have grown for the majority of the enclave’s population",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "a multi-storey building housing displaced families came down",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "rubble clearance equipment shortage",
+      "outlets": ["Daily Sabah"],
+      "countries": ["turkey"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The recovery effort has been slowed by severe shortages of heavy machinery and other equipment needed to clear the vast quantities of rubble.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "genocidal war framing and ministerial threats",
+      "outlets": ["Daily Sabah", "Folha de São Paulo", "CGTN Politics"],
+      "countries": ["turkey", "brazil", "china"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Five children were among 20 killed overnight Wednesday when a building – damaged in Israel's genocidal war on Gaza – came crashing down on dozens of Palestinians sheltering there",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "ministro de Israel ameaça retomar guerra e expulsar palestinos",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "strikes continued despite a ceasefire, with Gaza's already devastated education system facing further collapse",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "terms": ["team", "destroyed", "bodi", "defense", "home"],
+      "what_it_reveals": "Stemmed forms of 'teams', 'destroyed homes', 'bodies/remains', 'Civil Defense', and 'homes' — all from the body-text recovery-operation narrative unique to Daily Sabah. No other outlet describes Gaza as a Civil Defense worksite with named operational phases."
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "terms": ["prédio", "meno"],
+      "what_it_reveals": "Portuguese-language exclusive tokens: 'prédio' (building) and the stem of 'ao menos' (at least). Confirms Folha's coverage is original Portuguese-language text, not a wire translation — the only non-English outlet in the cluster."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "At least 21 people have been killed and dozens are missing after a bombed building collapsed in Gaza City",
+      "signal_text_idx": 9
+    },
+    "b": {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "quote": "War-damaged Gaza building collapses killing 21 as perilous conditions persist during truce",
+      "signal_text_idx": 7
+    },
+    "joint_conclusion": "Russia's state propaganda channel and Canada's centre-establishment broadsheet both characterise the collapse as a direct consequence of Israeli bombing during a ceasefire or truce period, converging on a causal framing that holds Israeli military action structurally responsible for post-ceasefire civilian deaths."
+  },
+  "silences": [
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No US outlet appears in this cluster; US press likely covered Gaza from a ceasefire-negotiation or Israeli government framing rather than foregrounding Palestinian civilian casualty counts from building collapses."
+    },
+    {
+      "country": "israel",
+      "what_they_covered_instead": "No Israeli outlet appears; Israeli press would be expected on a story involving IDF war-damage legacy but likely engaged with ceasefire terms or security framing rather than the collapse death toll."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "This article covers a building collapse in New Delhi, India (3 killed), not Gaza — a clear lexical false positive in the cluster. The phrase 'building collapse' pulled it in; the story has no thematic relation to the Gaza event.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Full-body coverage discloses the scale of Gaza's ongoing recovery backlog: 147 destroyed homes being searched, approximately 1,072 people believed buried beneath them, and 9,500 Palestinians reported missing since the war began — context absent from every other outlet in the cluster.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Sole outlet to use 'genocidal war on Gaza' language — the strongest editorial characterisation of Israeli military action in the corpus.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only outlet to link the building collapse directly to an Israeli minister's threat to resume war and expel Palestinians, connecting an infrastructure incident to live ceasefire-politics. Also the only outlet to label Hamas 'grupo terrorista' in the same breath.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Sole outlet to lead with survivor testimony as a headline — 'My whole family is either dead or injured' — personalising the death toll through direct first-person voice.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "Extends the collapse frame to institutions: 'Gaza's already devastated education system facing further collapse' — the only outlet to treat this as systemic institutional breakdown beyond a single physical building.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A war-damaged building collapsed in Gaza City on September 16, killing at least 21 people including children, with the death toll still evolving across outlets due to staggered reporting. The story surfaces not just a single incident but an ongoing humanitarian backlog: Daily Sabah's full-body coverage discloses that Civil Defense teams are searching 147 homes for an estimated 1,072 buried bodies — a recovery burden that makes post-ceasefire Gaza a zone of deferred, accumulating death long after active fighting paused.",
+  "generated_at": "2026-09-18T12:58:21Z",
+  "model": "claude-sonnet-4-6"
+}
