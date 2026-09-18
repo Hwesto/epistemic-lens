@@ -1,0 +1,119 @@
+{
+  "story_key": "L9e194822d7",
+  "date": "2026-09-18",
+  "n_buckets": 11,
+  "n_articles": 14,
+  "tldr": "At the headline layer, the US-Saudi F-35 sale is overwhelmingly framed as a dollar-value transaction: nine of eleven country buckets lead with the $24.3 billion figure or a near equivalent, making ECONOMIC the dominant advertised frame. Two notable exceptions break from this consensus: Israel's Jerusalem Post pivots entirely to a compensation narrative ('Israel will seek new weapons systems from US as compensation'), while Southeast Asia's Malay Mail embeds the sale in active warfare ('amid Iran war'). France's AFP uniquely names the Trump administration as the approving actor, a political attribution absent from every other headline.",
+  "frames": [
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Dollar-value arms deal foregrounded",
+      "buckets": ["wire_services", "italy", "turkey", "israel", "india", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "US approves $24.3 billion sale of 48 F-35 warplanes",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "vendita di F-35 all'Arabia Saudita per 24,3 miliardi",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "over $24 billion F-35 fighter jet sale to Saudi Arabia",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "USD 24.3 billion sale of 48 F-35 fighter jets",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "U.S. clears way for $24.3 billion F-35 sale",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "US clears way for $30.9 billion fighter jet sale",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Regional military balance and Iran-war context",
+      "buckets": ["uk", "israel", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "sell F-35 warplanes to Saudi Arabia is controversial",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "new weapons systems from US as compensation",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "48 F‑35 jets to Saudi Arabia amid Iran war",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump admin credited as approving actor",
+      "buckets": ["france"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Feu vert de l'administration Trump à la vente de 48 F-35",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "israel", "mean_similarity": 0.757, "n_tokens": 62},
+    {"bucket": "russia_native", "mean_similarity": 0.801, "n_tokens": 33},
+    {"bucket": "pakistan", "mean_similarity": 0.825, "n_tokens": 50},
+    {"bucket": "france", "mean_similarity": 0.826, "n_tokens": 40},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.841, "n_tokens": 45},
+    {"bucket": "india", "mean_similarity": 0.858, "n_tokens": 43},
+    {"bucket": "wire_services", "mean_similarity": 0.860, "n_tokens": 30}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "canada",
+      "what_they_covered_instead": "Le Devoir headline is a plain factual announcement with no dollar figure, no security angle, and no political attribution — headline carries no evaluative frame."
+    },
+    {
+      "country": "pakistan",
+      "what_they_covered_instead": "Dawn headline is a minimal factual statement with no price, no regional security context, and no political framing — headline carries no evaluative frame."
+    },
+    {
+      "country": "russia_native",
+      "what_they_covered_instead": "Kommersant headline is a spare factual announcement of the State Department approval with no dollar figure, no political framing, and no security dimension — headline carries no evaluative frame."
+    }
+  ],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer, the US-Saudi F-35 deal reads primarily as a major dollar-value transaction: most outlets worldwide foreground the $24.3 billion figure and nothing else. The Israeli and Southeast Asian press alone crack the economic shell — Jerusalem Post frames it as an Israeli compensation story, Malay Mail embeds it in the live Iran war — divergences entirely suppressed by the neutral headlines from Pakistan, Russia, and Canada.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
