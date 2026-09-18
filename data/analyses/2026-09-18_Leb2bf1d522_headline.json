@@ -1,0 +1,172 @@
+{
+  "story_key": "Leb2bf1d522",
+  "date": "2026-09-18",
+  "n_buckets": 9,
+  "n_articles": 10,
+  "tldr": "Headlines across eight of nine country-buckets announce the same political fact: Sweden's centre-left won a narrow election, Kristersson resigned, and Andersson is returning to government. Canada and the U.S. diverge by foregrounding immigration as the decisive issue — Canada framing the win as an ideological U-turn, Fox News listing migration alongside crime and economy. Al Jazeera's headline stands apart entirely, covering Israeli voters shrugging off Western sanctions rather than the Swedish result.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Centre-left wins; PM Kristersson resigns",
+      "buckets": [
+        "brazil",
+        "canada",
+        "germany",
+        "italy",
+        "kenya",
+        "mexico",
+        "nordic",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Kristersson resigns as PM after Sweden's centre-left",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Knapper Sieg für Mitte-links-Lager",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "vitória da centro-esquerda em eleições",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Retoma Magdalena Andersson gobierno de Suecia",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "italy",
+          "outlet": "Il Sole 24 Ore",
+          "quote": "centro-sinistra vince al fotofinish",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Immigration as electoral identity battleground",
+      "buckets": [
+        "canada",
+        "nordic",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "National Post",
+          "quote": "Sweden's left does U-turn on immigration",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "migration, crime and economy dominate",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "Swedish immigrants vote in their own interests",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Immigrant voters = legitimate voters",
+      "buckets": [
+        "nordic"
+      ],
+      "evidence": [
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Sweden",
+          "quote": "just like other voters",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Israeli voters dismiss Western sanctions",
+      "buckets": [
+        "qatar"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "shrugging off Western sanctions",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.597,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.64,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.652,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.658,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.671,
+      "n_tokens": 244
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.684,
+      "n_tokens": 38
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "The only headline in the corpus not about the Swedish election: Al Jazeera covers Israeli voters dismissing Western sanctions, positioning Qatar's outlet as attending to a parallel 'elections under external pressure' register entirely absent from the rest of the cluster.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "National Post",
+      "bucket": "canada",
+      "finding": "The only headline to characterise the centre-left victory as an ideological concession rather than a mandate: 'does U-turn on immigration' frames the win as an accommodation of right-wing concerns, not a progressive surge.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Local Sweden",
+      "bucket": "nordic",
+      "finding": "One of the Nordic outlet's two headlines explicitly enters the post-election controversy over immigrant voters, defending their equal democratic standing ('just like other voters') — the only headline in the corpus to editorially rebut Sweden Democrat accusations that immigrant votes were illegitimate.",
+      "signal_text_idx": 8
+    }
+  ],
+  "bottom_line": "At the headline layer, the Swedish election is almost universally framed as a political transition — Kristersson out, Andersson back — while Canada and the U.S. uniquely foreground immigration as the defining issue, and Al Jazeera is the sole outlier covering Israeli voters and Western sanctions rather than Sweden.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
