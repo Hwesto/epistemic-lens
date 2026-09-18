@@ -1,0 +1,349 @@
+{
+  "date": "2026-09-18",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 13,
+  "buckets": [
+    "asia_pacific_regional",
+    "china",
+    "indonesia",
+    "kenya",
+    "pan_african",
+    "russia",
+    "state_tv_intl",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 29,
+    "indonesia": 21,
+    "china": 250,
+    "usa": 40,
+    "russia": 26,
+    "state_tv_intl": 64,
+    "kenya": 26,
+    "asia_pacific_regional": 42,
+    "uk": 67
+  },
+  "pairwise_similarity": [
+    {
+      "a": "china",
+      "b": "state_tv_intl",
+      "score": 0.789
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.699
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.651
+    },
+    {
+      "a": "kenya",
+      "b": "uk",
+      "score": 0.65
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "kenya",
+      "score": 0.643
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.638
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.633
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "state_tv_intl",
+      "score": 0.626
+    },
+    {
+      "a": "kenya",
+      "b": "state_tv_intl",
+      "score": 0.619
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.615
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "china",
+      "score": 0.611
+    },
+    {
+      "a": "china",
+      "b": "indonesia",
+      "score": 0.61
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.602
+    },
+    {
+      "a": "indonesia",
+      "b": "state_tv_intl",
+      "score": 0.575
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "uk",
+      "score": 0.567
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "russia",
+      "score": 0.566
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.545
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.544
+    },
+    {
+      "a": "kenya",
+      "b": "pan_african",
+      "score": 0.536
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.533
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.532
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.517
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "indonesia",
+      "score": 0.513
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.513
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.496
+    },
+    {
+      "a": "russia",
+      "b": "state_tv_intl",
+      "score": 0.472
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.465
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "pan_african",
+      "score": 0.432
+    },
+    {
+      "a": "indonesia",
+      "b": "usa",
+      "score": 0.424
+    },
+    {
+      "a": "indonesia",
+      "b": "kenya",
+      "score": 0.419
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.4
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.394
+    },
+    {
+      "a": "indonesia",
+      "b": "russia",
+      "score": 0.361
+    },
+    {
+      "a": "indonesia",
+      "b": "uk",
+      "score": 0.332
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.32
+    },
+    {
+      "a": "indonesia",
+      "b": "pan_african",
+      "score": 0.299
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.532,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.558,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.574,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.577,
+      "n_tokens": 250
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.589,
+      "n_tokens": 64
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "indonesia",
+      "mean_similarity": 0.442,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.458,
+      "n_tokens": 29
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.474,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.581,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [],
+    "indonesia": [],
+    "china": [
+      {
+        "term": "development",
+        "count": 5
+      },
+      {
+        "term": "multilateralism",
+        "count": 4
+      },
+      {
+        "term": "governance",
+        "count": 3
+      },
+      {
+        "term": "reform",
+        "count": 3
+      },
+      {
+        "term": "international",
+        "count": 3
+      },
+      {
+        "term": "order",
+        "count": 3
+      },
+      {
+        "term": "multilateral",
+        "count": 3
+      },
+      {
+        "term": "observer",
+        "count": 3
+      },
+      {
+        "term": "greater",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "iran",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "state_tv_intl": [
+      {
+        "term": "ties",
+        "count": 3
+      }
+    ],
+    "kenya": [],
+    "asia_pacific_regional": [
+      {
+        "term": "siddhant",
+        "count": 3
+      },
+      {
+        "term": "kishore",
+        "count": 3
+      },
+      {
+        "term": "asia",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "carpet",
+        "count": 3
+      },
+      {
+        "term": "relation",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-18T12:41:07+00:00",
+  "meta_version": "10.0.3"
+}

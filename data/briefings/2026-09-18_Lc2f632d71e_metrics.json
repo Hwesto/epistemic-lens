@@ -1,0 +1,420 @@
+{
+  "date": "2026-09-18",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 12,
+  "buckets": [
+    "brazil",
+    "canada",
+    "china",
+    "egypt",
+    "iran_state",
+    "kenya",
+    "pan_african",
+    "russia",
+    "turkey",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 31,
+    "china": 44,
+    "turkey": 226,
+    "egypt": 55,
+    "brazil": 52,
+    "canada": 28,
+    "vietnam_thai_my": 31,
+    "russia": 20,
+    "kenya": 27,
+    "iran_state": 21
+  },
+  "pairwise_similarity": [
+    {
+      "a": "egypt",
+      "b": "turkey",
+      "score": 0.825
+    },
+    {
+      "a": "brazil",
+      "b": "china",
+      "score": 0.812
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.809
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.798
+    },
+    {
+      "a": "egypt",
+      "b": "pan_african",
+      "score": 0.797
+    },
+    {
+      "a": "brazil",
+      "b": "pan_african",
+      "score": 0.768
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.765
+    },
+    {
+      "a": "brazil",
+      "b": "egypt",
+      "score": 0.754
+    },
+    {
+      "a": "brazil",
+      "b": "russia",
+      "score": 0.75
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.746
+    },
+    {
+      "a": "china",
+      "b": "iran_state",
+      "score": 0.745
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.745
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.739
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.738
+    },
+    {
+      "a": "egypt",
+      "b": "russia",
+      "score": 0.738
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.731
+    },
+    {
+      "a": "china",
+      "b": "egypt",
+      "score": 0.729
+    },
+    {
+      "a": "brazil",
+      "b": "iran_state",
+      "score": 0.728
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.727
+    },
+    {
+      "a": "egypt",
+      "b": "iran_state",
+      "score": 0.726
+    },
+    {
+      "a": "iran_state",
+      "b": "pan_african",
+      "score": 0.725
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.718
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.717
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.711
+    },
+    {
+      "a": "iran_state",
+      "b": "russia",
+      "score": 0.7
+    },
+    {
+      "a": "egypt",
+      "b": "vietnam_thai_my",
+      "score": 0.697
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.696
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.684
+    },
+    {
+      "a": "iran_state",
+      "b": "turkey",
+      "score": 0.676
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.675
+    },
+    {
+      "a": "canada",
+      "b": "egypt",
+      "score": 0.67
+    },
+    {
+      "a": "iran_state",
+      "b": "vietnam_thai_my",
+      "score": 0.667
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.657
+    },
+    {
+      "a": "canada",
+      "b": "iran_state",
+      "score": 0.634
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.633
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.621
+    },
+    {
+      "a": "kenya",
+      "b": "pan_african",
+      "score": 0.612
+    },
+    {
+      "a": "egypt",
+      "b": "kenya",
+      "score": 0.572
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.53
+    },
+    {
+      "a": "iran_state",
+      "b": "kenya",
+      "score": 0.521
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.52
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.504
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.495
+    },
+    {
+      "a": "brazil",
+      "b": "kenya",
+      "score": 0.489
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.387
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.689,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.709,
+      "n_tokens": 226
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.714,
+      "n_tokens": 52
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.718,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "egypt",
+      "mean_similarity": 0.723,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.725,
+      "n_tokens": 31
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.515,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.637,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.68,
+      "n_tokens": 21
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.709,
+      "n_tokens": 20
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [],
+    "china": [
+      {
+        "term": "israeli",
+        "count": 3
+      },
+      {
+        "term": "strik",
+        "count": 3
+      }
+    ],
+    "turkey": [
+      {
+        "term": "team",
+        "count": 7
+      },
+      {
+        "term": "destroyed",
+        "count": 6
+      },
+      {
+        "term": "bodi",
+        "count": 5
+      },
+      {
+        "term": "defense",
+        "count": 5
+      },
+      {
+        "term": "home",
+        "count": 5
+      },
+      {
+        "term": "recover",
+        "count": 4
+      },
+      {
+        "term": "recovery",
+        "count": 4
+      },
+      {
+        "term": "recovered",
+        "count": 3
+      },
+      {
+        "term": "operation",
+        "count": 3
+      },
+      {
+        "term": "phase",
+        "count": 3
+      }
+    ],
+    "egypt": [
+      {
+        "term": "kill",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "prédio",
+        "count": 3
+      },
+      {
+        "term": "meno",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "perilou",
+        "count": 3
+      },
+      {
+        "term": "condition",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [
+      {
+        "term": "apartment",
+        "count": 3
+      },
+      {
+        "term": "block",
+        "count": 3
+      }
+    ],
+    "russia": [],
+    "kenya": [
+      {
+        "term": "three",
+        "count": 3
+      }
+    ],
+    "iran_state": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-18T12:41:17+00:00",
+  "meta_version": "10.0.3"
+}

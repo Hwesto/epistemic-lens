@@ -1,0 +1,287 @@
+{
+  "date": "2026-09-18",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 13,
+  "buckets": [
+    "balkans",
+    "brazil",
+    "canada",
+    "germany",
+    "india",
+    "iran_opposition",
+    "russia",
+    "taiwan_hk"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "balkans": 73,
+    "germany": 123,
+    "brazil": 42,
+    "canada": 28,
+    "iran_opposition": 38,
+    "russia": 55,
+    "taiwan_hk": 8,
+    "india": 33
+  },
+  "pairwise_similarity": [
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.874
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.86
+    },
+    {
+      "a": "brazil",
+      "b": "iran_opposition",
+      "score": 0.857
+    },
+    {
+      "a": "balkans",
+      "b": "germany",
+      "score": 0.837
+    },
+    {
+      "a": "germany",
+      "b": "iran_opposition",
+      "score": 0.833
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.819
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.808
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.802
+    },
+    {
+      "a": "balkans",
+      "b": "russia",
+      "score": 0.765
+    },
+    {
+      "a": "balkans",
+      "b": "iran_opposition",
+      "score": 0.758
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.751
+    },
+    {
+      "a": "balkans",
+      "b": "canada",
+      "score": 0.704
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.698
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.692
+    },
+    {
+      "a": "balkans",
+      "b": "brazil",
+      "score": 0.691
+    },
+    {
+      "a": "brazil",
+      "b": "russia",
+      "score": 0.681
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.602
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.595
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.595
+    },
+    {
+      "a": "balkans",
+      "b": "india",
+      "score": 0.572
+    },
+    {
+      "a": "iran_opposition",
+      "b": "taiwan_hk",
+      "score": 0.561
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.539
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.537
+    },
+    {
+      "a": "balkans",
+      "b": "taiwan_hk",
+      "score": 0.536
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.529
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.477
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.46
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.432
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.524,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.695,
+      "n_tokens": 73
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.7,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.701,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.737,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.769,
+      "n_tokens": 123
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.556,
+      "n_tokens": 8
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.709,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "balkans": [
+      {
+        "term": "defence",
+        "count": 3
+      },
+      {
+        "term": "acquittal",
+        "count": 3
+      },
+      {
+        "term": "obstruction",
+        "count": 3
+      },
+      {
+        "term": "justice",
+        "count": 3
+      },
+      {
+        "term": "unjust",
+        "count": 3
+      },
+      {
+        "term": "minister",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "präsident",
+        "count": 5
+      },
+      {
+        "term": "verurteilt",
+        "count": 3
+      },
+      {
+        "term": "thaçi",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "presidente",
+        "count": 3
+      },
+      {
+        "term": "anos",
+        "count": 3
+      },
+      {
+        "term": "prisão",
+        "count": 3
+      },
+      {
+        "term": "guerra",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "iran_opposition": [],
+    "russia": [],
+    "taiwan_hk": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-18T12:40:51+00:00",
+  "meta_version": "10.0.3"
+}

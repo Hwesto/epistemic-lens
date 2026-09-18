@@ -1,0 +1,398 @@
+{
+  "date": "2026-09-18",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 16,
+  "buckets": [
+    "france",
+    "germany",
+    "italy",
+    "kenya",
+    "russia",
+    "russia_native",
+    "ukraine",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 117,
+    "france": 53,
+    "russia_native": 104,
+    "germany": 303,
+    "italy": 34,
+    "russia": 471,
+    "kenya": 223,
+    "ukraine": 22
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.858
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.851
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.824
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.806
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.795
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.786
+    },
+    {
+      "a": "france",
+      "b": "russia_native",
+      "score": 0.762
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.762
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.745
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.731
+    },
+    {
+      "a": "germany",
+      "b": "russia_native",
+      "score": 0.731
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.727
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.722
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.709
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.705
+    },
+    {
+      "a": "italy",
+      "b": "russia",
+      "score": 0.705
+    },
+    {
+      "a": "italy",
+      "b": "russia_native",
+      "score": 0.683
+    },
+    {
+      "a": "kenya",
+      "b": "wire_services",
+      "score": 0.673
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.658
+    },
+    {
+      "a": "france",
+      "b": "kenya",
+      "score": 0.638
+    },
+    {
+      "a": "russia_native",
+      "b": "wire_services",
+      "score": 0.626
+    },
+    {
+      "a": "russia",
+      "b": "russia_native",
+      "score": 0.623
+    },
+    {
+      "a": "france",
+      "b": "ukraine",
+      "score": 0.619
+    },
+    {
+      "a": "kenya",
+      "b": "ukraine",
+      "score": 0.586
+    },
+    {
+      "a": "italy",
+      "b": "ukraine",
+      "score": 0.576
+    },
+    {
+      "a": "italy",
+      "b": "kenya",
+      "score": 0.571
+    },
+    {
+      "a": "russia_native",
+      "b": "ukraine",
+      "score": 0.558
+    },
+    {
+      "a": "kenya",
+      "b": "russia_native",
+      "score": 0.443
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.632,
+      "n_tokens": 104
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.642,
+      "n_tokens": 223
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.669,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.714,
+      "n_tokens": 117
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.724,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.755,
+      "n_tokens": 471
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.776,
+      "n_tokens": 303
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.651,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 6
+      },
+      {
+        "term": "seize",
+        "count": 3
+      },
+      {
+        "term": "india",
+        "count": 3
+      },
+      {
+        "term": "baby",
+        "count": 3
+      },
+      {
+        "term": "sample",
+        "count": 3
+      },
+      {
+        "term": "substandard",
+        "count": 3
+      },
+      {
+        "term": "legal",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "actif",
+        "count": 3
+      }
+    ],
+    "russia_native": [
+      {
+        "term": "песков",
+        "count": 6
+      },
+      {
+        "term": "объяснил",
+        "count": 4
+      },
+      {
+        "term": "ашан",
+        "count": 3
+      },
+      {
+        "term": "передаче",
+        "count": 3
+      },
+      {
+        "term": "внешнее",
+        "count": 3
+      }
+    ],
+    "germany": [
+      {
+        "term": "russland",
+        "count": 15
+      },
+      {
+        "term": "unter",
+        "count": 10
+      },
+      {
+        "term": "zwangsverwaltung",
+        "count": 6
+      },
+      {
+        "term": "stellt",
+        "count": 5
+      },
+      {
+        "term": "vermögenswerte",
+        "count": 4
+      },
+      {
+        "term": "jahr",
+        "count": 4
+      },
+      {
+        "term": "schweizer",
+        "count": 4
+      },
+      {
+        "term": "lebensmittelkonzern",
+        "count": 4
+      },
+      {
+        "term": "laut",
+        "count": 4
+      },
+      {
+        "term": "dekret",
+        "count": 4
+      },
+      {
+        "term": "konzern",
+        "count": 4
+      },
+      {
+        "term": "kontrolle",
+        "count": 3
+      },
+      {
+        "term": "über",
+        "count": 3
+      },
+      {
+        "term": "krieg",
+        "count": 3
+      },
+      {
+        "term": "geschäfte",
+        "count": 3
+      },
+      {
+        "term": "einem",
+        "count": 3
+      },
+      {
+        "term": "auch",
+        "count": 3
+      },
+      {
+        "term": "unternehmen",
+        "count": 3
+      },
+      {
+        "term": "seine",
+        "count": 3
+      },
+      {
+        "term": "russischen",
+        "count": 3
+      },
+      {
+        "term": "концернов",
+        "count": 3
+      }
+    ],
+    "italy": [],
+    "russia": [
+      {
+        "term": "temporary",
+        "count": 12
+      },
+      {
+        "term": "placing",
+        "count": 3
+      },
+      {
+        "term": "meduza",
+        "count": 3
+      },
+      {
+        "term": "supermarket",
+        "count": 3
+      },
+      {
+        "term": "declined",
+        "count": 3
+      }
+    ],
+    "kenya": [
+      {
+        "term": "media",
+        "count": 3
+      }
+    ],
+    "ukraine": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-18T12:40:59+00:00",
+  "meta_version": "10.0.3"
+}

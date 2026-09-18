@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-18",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 331,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 321,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 328,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 326,
+      "distinctive_terms": []
+    },
+    "nordic": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 244,
+      "n_tokens_in_cohort": 110,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

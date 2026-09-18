@@ -1,0 +1,363 @@
+{
+  "date": "2026-09-18",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 10,
+  "buckets": [
+    "brazil",
+    "canada",
+    "germany",
+    "italy",
+    "kenya",
+    "mexico",
+    "nordic",
+    "qatar",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "qatar": 23,
+    "brazil": 41,
+    "usa": 33,
+    "italy": 40,
+    "mexico": 54,
+    "canada": 26,
+    "kenya": 28,
+    "germany": 38,
+    "nordic": 244
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.823
+    },
+    {
+      "a": "brazil",
+      "b": "nordic",
+      "score": 0.792
+    },
+    {
+      "a": "italy",
+      "b": "mexico",
+      "score": 0.786
+    },
+    {
+      "a": "germany",
+      "b": "nordic",
+      "score": 0.77
+    },
+    {
+      "a": "brazil",
+      "b": "germany",
+      "score": 0.763
+    },
+    {
+      "a": "germany",
+      "b": "mexico",
+      "score": 0.758
+    },
+    {
+      "a": "mexico",
+      "b": "nordic",
+      "score": 0.754
+    },
+    {
+      "a": "brazil",
+      "b": "mexico",
+      "score": 0.744
+    },
+    {
+      "a": "italy",
+      "b": "nordic",
+      "score": 0.733
+    },
+    {
+      "a": "brazil",
+      "b": "italy",
+      "score": 0.712
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.709
+    },
+    {
+      "a": "mexico",
+      "b": "usa",
+      "score": 0.701
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.677
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.673
+    },
+    {
+      "a": "nordic",
+      "b": "usa",
+      "score": 0.65
+    },
+    {
+      "a": "kenya",
+      "b": "nordic",
+      "score": 0.64
+    },
+    {
+      "a": "brazil",
+      "b": "kenya",
+      "score": 0.63
+    },
+    {
+      "a": "brazil",
+      "b": "usa",
+      "score": 0.613
+    },
+    {
+      "a": "kenya",
+      "b": "mexico",
+      "score": 0.603
+    },
+    {
+      "a": "italy",
+      "b": "kenya",
+      "score": 0.598
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.576
+    },
+    {
+      "a": "canada",
+      "b": "nordic",
+      "score": 0.541
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.531
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.521
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.508
+    },
+    {
+      "a": "brazil",
+      "b": "canada",
+      "score": 0.503
+    },
+    {
+      "a": "nordic",
+      "b": "qatar",
+      "score": 0.489
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.471
+    },
+    {
+      "a": "brazil",
+      "b": "qatar",
+      "score": 0.463
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.438
+    },
+    {
+      "a": "italy",
+      "b": "qatar",
+      "score": 0.42
+    },
+    {
+      "a": "canada",
+      "b": "mexico",
+      "score": 0.396
+    },
+    {
+      "a": "canada",
+      "b": "qatar",
+      "score": 0.387
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.386
+    },
+    {
+      "a": "mexico",
+      "b": "qatar",
+      "score": 0.38
+    },
+    {
+      "a": "kenya",
+      "b": "qatar",
+      "score": 0.37
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.597,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.64,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.652,
+      "n_tokens": 41
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.658,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.671,
+      "n_tokens": 244
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.684,
+      "n_tokens": 38
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.417,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.482,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.575,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "qatar": [
+      {
+        "term": "sanction",
+        "count": 3
+      }
+    ],
+    "brazil": [
+      {
+        "term": "primeiro",
+        "count": 3
+      },
+      {
+        "term": "suécia",
+        "count": 3
+      },
+      {
+        "term": "renúncia",
+        "count": 3
+      },
+      {
+        "term": "após",
+        "count": 3
+      },
+      {
+        "term": "eleiçõ",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "dominate",
+        "count": 3
+      }
+    ],
+    "italy": [
+      {
+        "term": "svezia",
+        "count": 3
+      },
+      {
+        "term": "sinistra",
+        "count": 3
+      }
+    ],
+    "mexico": [
+      {
+        "term": "gobierno",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "kenya": [],
+    "germany": [
+      {
+        "term": "schweden",
+        "count": 3
+      }
+    ],
+    "nordic": [
+      {
+        "term": "party",
+        "count": 7
+      },
+      {
+        "term": "swedish",
+        "count": 5
+      },
+      {
+        "term": "immigrant",
+        "count": 5
+      },
+      {
+        "term": "demographic",
+        "count": 5
+      },
+      {
+        "term": "with",
+        "count": 4
+      },
+      {
+        "term": "citizen",
+        "count": 3
+      },
+      {
+        "term": "group",
+        "count": 3
+      },
+      {
+        "term": "decide",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-18T12:41:24+00:00",
+  "meta_version": "10.0.3"
+}
