@@ -1,0 +1,190 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "Lca7588fe32",
+  "cluster_id": 52,
+  "cluster_name": "Nine women found dead near Johannesburg, serial killer feared",
+  "salience_score": 5.5,
+  "n_outlets": 12,
+  "n_countries": 11,
+  "n_articles": 14,
+  "tldr": "At the headline layer, a serial-killer or murder-spree frame dominates nine of eleven source buckets: most outlets reduce the story to escalating victim count and police investigation. Al Jazeera is the sole outlet to weaponize 'femicide' and 'war' in the same headline; NPR's 'feels like a prison' metaphor marks it as the only non-procedural register in the English corpus. RT Africa narrows the story to a presidential vow, stripping out victim count, community impact, and investigation details present in every other headline. Daily Maverick's ALL-CAPS 'KILLING SPREE' contrasts sharply with the BBC's measured 'investigate string of deaths', illustrating how the domestic South African outlet chose the most sensationalized register while the UK public broadcaster chose the most procedurally cautious. The headline layer predicts a meaningful body-to-headline divergence for NPR and Al Jazeera, where metaphorical or activist headline language leads into statistic-heavy body text.",
+  "event_summary": "Nine women's bodies were discovered over two months in the Ekurhuleni area east of Johannesburg, with the ninth found on September 17, 2026. Police offered a R400,000 reward for information and President Ramaphosa ordered a national-priority investigation.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "serial killer fears and murder investigation",
+      "outlets": [
+        "AFP / France 24 FR",
+        "AfricaNews",
+        "BBC Africa",
+        "BBC World",
+        "Daily Maverick",
+        "Globe and Mail",
+        "Hindustan Times",
+        "Malay Mail World",
+        "Sky News UK"
+      ],
+      "countries": [
+        "france",
+        "pan_african",
+        "africa_other",
+        "uk",
+        "south_africa",
+        "canada",
+        "india",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "serial killer fears escalate after discovery of ninth body",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "raises fears of serial killer in South Africa",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "South African police investigate string of deaths",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "deepens fears of a possible serial killer",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Ninth woman found dead in South Africa murder spree",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "could be 'linked to serial killer', police say",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "neuf femmes ont été retrouvées mortes en deux mois",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "'We cannot continue picking up bodies'",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "femicide as gendered rights crisis",
+      "outlets": [
+        "Al Jazeera English",
+        "NPR World"
+      ],
+      "countries": [
+        "qatar",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "'This is a war': South Africa battles femicide",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "South Africa 'feels like a prison' for women",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "women's fear and daily movement curtailed",
+      "outlets": [
+        "AfricaNews"
+      ],
+      "countries": [
+        "pan_african"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Women living in fear after body of ninth victim found",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential justice pledge",
+      "outlets": [
+        "RT Africa"
+      ],
+      "countries": [
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "South African president vows justice for murdered women",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Sole outlet to combine war language and 'femicide' in the same headline — the most explicitly activist framing in the corpus, predicting a smaller body-to-headline divergence than Anglophone outlets that hedged with 'possible serial killer'.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only headline to lead with presidential accountability rather than victim count, investigation, or community fear — uniquely narrow political lens that strips all community and victim voice from the title.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Daily Maverick",
+      "country": "south_africa",
+      "finding": "Most sensationalized headline in the corpus: ALL-CAPS 'KILLING SPREE' registers dramatically higher editorial intensity than any international outlet, including those also using 'serial killer' language.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Along with BBC World, the only outlets to frame the headline around police procedure ('investigate string of deaths') rather than serial-killer fear — the sole procedural skepticism against the serial-killer consensus in the headline layer.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "Only outlet to use metaphor in the headline ('feels like a prison'), an editorial register absent from all peers — predicts a larger body-to-headline divergence as the body text cites victim names and statistics rather than sustaining the metaphorical frame.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "At the headline layer, the South Africa femicide story is almost entirely serialized as a procedural serial-killer narrative — nine of eleven source buckets reduce the story to body count, investigation, or escalating fear — with only Al Jazeera and NPR invoking femicide as an explicit gendered-rights concept. RT Africa's presidential-vow headline stands in isolation from the victim-centered and community-fear framing adopted by every other outlet, predicting the widest body-to-headline divergence for that outlet in the divergence index.",
+  "generated_at": "2026-09-18T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
