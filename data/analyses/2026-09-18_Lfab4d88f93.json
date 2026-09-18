@@ -1,0 +1,178 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "Lfab4d88f93",
+  "cluster_id": 56,
+  "cluster_name": "37 suspected illegal miners die in Nigerian paramilitary custody",
+  "salience_score": 6.188,
+  "n_outlets": 14,
+  "n_countries": 11,
+  "n_articles": 18,
+  "event_summary": "Thirty-seven suspected illegal miners arrested in Nigeria's Niger State died in a paramilitary detention facility in Minna on September 18. Officials attributed deaths to disease; intelligence reports and relatives said 65 people suffocated in an overcrowded, poorly ventilated cell.",
+  "tldr": "The most striking finding across 14 outlets from 11 countries is that no major outlet accepts the official disease-outbreak narrative uncritically: every corpus item juxtaposes it against the overcrowding-and-suffocation account from intelligence reports and relatives. The Straits Times alone reported that security forces opened fire on hundreds of protesters in Minna — an escalation absent from all other coverage. Daily Maverick, via Reuters, adds an extortion allegation: officials reportedly demanded 100,000 naira ($75) per detainee for their release before the deaths. BBC Africa anchors the suffocation account with a father's testimony that his son survived only because he stood near a small window while other detainees knocked on the door for help that never came. Nigeria's highest-circulation independent daily, The Punch, reported 40 deaths rather than the consensus figure of 37, suggesting the official toll is still unstabilised.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "death in civil defence detention",
+      "outlets": [
+        "AFP / France 24 EN", "AfricaNews", "Al Jazeera English", "AllAfrica",
+        "Anadolu Agency English", "BBC Africa", "BBC World", "Daily Maverick",
+        "Deutsche Welle English", "Premium Times Nigeria", "RFI Afrique",
+        "Straits Times", "The Hindu Intl", "The Punch"
+      ],
+      "countries": [
+        "wire_services", "pan_african", "qatar", "africa_other", "turkey",
+        "uk", "south_africa", "germany", "nigeria", "vietnam_thai_my", "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Nigerian authorities launched an investigation Thursday after 37 suspected illegal miners died in a civil defence detention facility in central Niger state, with conflicting accounts blaming either a disease outbreak or overcrowding and poor ventilation.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "At least 37 artisanal miners, including teenagers, have died in the custody of the Nigeria Security and Civil Defence Corps (NSCDC) in Minna, Niger State.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "disease vs. suffocation cause-of-death dispute",
+      "outlets": [
+        "AFP / France 24 EN", "AfricaNews", "Al Jazeera English",
+        "BBC Africa", "BBC World", "Deutsche Welle English", "The Hindu Intl"
+      ],
+      "countries": [
+        "wire_services", "pan_african", "qatar", "africa_other", "uk", "germany", "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Officials blame disease outbreak for deaths as survivor suggests they suffocated.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Authorities linked the deaths to disease, but this has been disputed by intelligence reports and relatives of the accused.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "65 detainees were packed into a poorly ventilated cell, suggesting the dead may have suffocated",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "relatives denied access, extortion alleged",
+      "outlets": ["BBC Africa", "Daily Maverick"],
+      "countries": ["africa_other", "south_africa"],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "\"We believe they suffocated because there was no ventilation,\" the father of one of those detained told the BBC.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "Officials had refused to allow relatives to deliver food to the detainees and demanded 100,000 naira ($75) for them to be freed, she said.\n\"This is injustice. We will not forgive them.\"",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "street protests and security force response",
+      "outlets": ["Anadolu Agency English", "Daily Maverick", "Deutsche Welle English", "Straits Times"],
+      "countries": ["turkey", "south_africa", "germany", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "The deaths have triggered public concern and protests in the affected state",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Security forces opened fire in a city in central Nigeria on Friday as hundreds of people took to the streets to protest against the deaths of 37 detainees in the custody of a paramilitary force, witnesses said.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "commandant suspended, investigation panel convened",
+      "outlets": ["AllAfrica", "Daily Maverick", "Premium Times Nigeria"],
+      "countries": ["africa_other", "south_africa", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "Premium Times Nigeria",
+          "country": "africa_other",
+          "quote": "Niger State has constituted a committee to investigate the deaths of 37 suspected illegal miners in NSCDC custody and ordered autopsies to establish the cause.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "Interior Minister Olubunmi Tunji-Ojo ordered the immediate suspension of Niger State's NSCDC commandant, Suberu Siyaka Aniviye, pending the outcome of a full investigation.",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to report that security forces opened fire on hundreds of protesters in Minna on Friday — an escalation angle absent from all other coverage in this cluster.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Daily Maverick",
+      "country": "south_africa",
+      "finding": "Via Reuters, sole outlet reporting that officials refused relatives permission to deliver food and demanded 100,000 naira ($75) per detainee for their release — a direct extortion allegation no other outlet carries.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Sole outlet with firsthand survivor testimony: a father says his son lived because he stood near a small window, while other detainees knocked on the door for help that never came.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Premium Times Nigeria",
+      "country": "africa_other",
+      "finding": "Only outlet to report the cancellation of an APC political rally in Minna, linking the custody deaths directly to electoral politics in Niger State.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Punch",
+      "country": "nigeria",
+      "finding": "Nigeria's highest-circulation independent paper reports 40 deaths versus the internationally cited official figure of 37, with the investigation still under way.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "Contextualises the Niger State deaths within a broader African digest alongside Sudan famine warnings and Ethiopia wildlife deaths linked to informal gold mining — situating this as part of a continent-wide informal mining accountability pattern.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Thirty-seven people died in Nigerian paramilitary custody after being arrested for suspected illegal mining, and the official disease-outbreak explanation is universally contested by intelligence reports and eyewitness accounts pointing to suffocation in an overcrowded cell. The crisis prompted protests that security forces reportedly fired upon, the suspension of a regional commander, the cancellation of a political rally, and a domestic Nigerian death toll of 40 — higher than the internationally reported 37.",
+  "generated_at": "2026-09-18T13:04:52Z",
+  "model": "claude-sonnet-4-6"
+}
