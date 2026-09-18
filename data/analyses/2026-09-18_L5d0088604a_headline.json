@@ -1,0 +1,194 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L5d0088604a",
+  "cluster_id": 123,
+  "cluster_name": "Russia holds first wartime State Duma election since 2022 invasion",
+  "salience_score": 6.708,
+  "n_outlets": 18,
+  "n_countries": 14,
+  "n_articles": 22,
+  "tldr": "At the homepage/RSS layer, coverage locks almost uniformly on political control — the election as a Kremlin-guaranteed outcome — with the explicit 'barometer of support for war' construction appearing verbatim across wire services, Israeli, and Southeast Asian outlets, suggesting coordinated wire-language uptake. Qatar's Al Jazeera is the sole outlet to invert the story structure entirely, making Ukrainian drone strikes the headline event rather than the vote.",
+  "event_summary": "Russia began a three-day parliamentary election on 18 September 2026, its first since the 2022 invasion of Ukraine; United Russia is expected to retain its majority with anti-war party Yabloko barred from the national ballot.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "predetermined Kremlin win, no real opposition",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "CBC World",
+        "Daily Mail",
+        "Daily Sabah",
+        "Deutsche Welle English",
+        "Kyiv Post",
+        "Moscow Times",
+        "RFE/RL (was Radio Farda)",
+        "South China Morning Post",
+        "Straits Times",
+        "The Conversation",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "canada",
+        "uk",
+        "turkey",
+        "germany",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "set to secure the Kremlin's power",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "staged election Putin is guaranteed to win",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Russians Prepare for an Election With Less Choice Than Ever",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ongoing war casts shadow over vote",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "Al Jazeera English",
+        "South China Morning Post",
+        "Straits Times",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "qatar",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "as war in Ukraine drags on",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Ukraine fires drone barrage as Russia launches elections",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "backdrop of Ukraine war and Putin's tightening grip",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "vote framed as war-support barometer",
+      "outlets": [
+        "Jerusalem Post",
+        "Moscow Times",
+        "Reuters (via Google News)",
+        "Straits Times"
+      ],
+      "countries": [
+        "israel",
+        "russia",
+        "wire_services",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "Putin sees as barometer of public support",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Election as Barometer of Support for War",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Putin sees as barometer of public support",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "economic woes linked to Putin's war",
+      "outlets": [
+        "The Independent"
+      ],
+      "countries": [
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "face mounting economic woes due to Putin's war",
+          "signal_text_idx": 21
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to invert the story structure at headline level: leads with Ukraine's drone barrage rather than the Russian election, making the military action the primary event and the vote secondary.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Only headline in the corpus to name armed-troop accompaniment of mobile polling teams in occupied Ukrainian territory, a dimension absent from all other titles.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only headline to foreground Russian economic hardship ('mounting economic woes due to Putin's war') rather than political control or war legitimation — the lone economic-frame entry at headline level.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "finding": "Most declaratively blunt headline in the corpus: calls it a 'staged election Putin is guaranteed to win' and asserts anti-war party exclusion as plain fact, dropping hedging qualifiers used by all other outlets.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "Russia's 2026 Duma election headlines advertise a near-unanimous story of predetermined Kremlin victory, with 'barometer of public support for war' appearing verbatim across wire services, Israeli mainstream, and Singapore establishment outlets; only Al Jazeera breaks the frame by leading with Ukrainian military action rather than the vote.",
+  "generated_at": "2026-09-18T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
