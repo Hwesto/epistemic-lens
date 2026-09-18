@@ -1,0 +1,178 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L917533a4f1",
+  "cluster_id": 122,
+  "cluster_name": "18th BRICS Summit in New Delhi marks India-China diplomatic thaw",
+  "salience_score": 4.688,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 25,
+  "event_summary": "The 18th BRICS Summit was held in New Delhi, India, September 11-13, 2026, with Modi hosting Xi Jinping, Vladimir Putin, and Iranian President Pezeshkian. Xi received a red-carpet welcome marking a public thaw in India-China relations after their deadly 2020 border clash.",
+  "tldr": "The sharpest divergence in this corpus is not between East and West but within the West: Fox News foregrounds the security threat of Putin, Xi, and Pezeshkian 'descending' on India amid 'escalating global tensions', while The Diplomat (independent, Asia-Pacific) argues the summit's real story is India's deliberate multi-alignment and calls it a 'Forum, Not a Front' that Europe should welcome. Chinese state media (CGTN) and Russian state media (RT Africa) both anchor on economic and governance-reform themes — the Global South's growing voice — with no reference to security risks, a framing that Indonesian state news (Antara) partially shares by asking the harder question of whether BRICS can turn trade commitments into actual transactions. Russia's independent exiled outlet, Moscow Times, focuses almost entirely on commercial outcomes: Putin arrived with over 300 executives to negotiate supply chain and food security contracts, a detail absent from every other outlet. Most notable structural absence: India itself — the host country — has no domestic outlet in the corpus, leaving coverage of its own summit entirely to foreign voices.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "multilateral governance reform and Global South voice",
+      "outlets": ["CGTN Politics", "CGTN World", "RT Africa", "The Diplomat", "The Guardian World"],
+      "countries": ["china", "state_tv_intl", "asia_pacific_regional", "uk"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "BRICS should remain a united voice for reform, demonstrate the practical results of multilateral cooperation and help shape a fairer, more accountable and development-oriented global governance system",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "In the past two decades, BRICS has brought tangible benefits to the Global South with a series of cooperation mechanisms that introduce alternative financial resources, foster industrial and technological innovation and amplify its voice in global governance.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "BRICS is expanding Global South representation and pushing for a multipolar world, South African BRICS Forum chief Raymond Matlala says",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Diplomat",
+          "country": "asia_pacific_regional",
+          "quote": "Xi and Putin in Delhi made the headlines. The declaration tells the real story of India's multi-alignment and why Europe should welcome it.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "regional rivals Beijing and Delhi make a public display of thawing relations while quietly competing to lead at a time of shaky US global dominance",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "India multi-alignment and summit geopolitics",
+      "outlets": ["Fox News World", "The Diplomat", "Standard Kenya World"],
+      "countries": ["usa", "asia_pacific_regional", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Presidents of Iran, Russia and China converge on New Delhi for the BRICS summit as India navigates competing interests amid Middle East and Ukraine wars.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Diplomat",
+          "country": "asia_pacific_regional",
+          "quote": "Siddhant Kishore joins host Tushar Shetty to examine the BRICS summit in New Delhi and the strategic realignment underway across Asia.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Chinese President Xi Jinping is heading to New Delhi for the BRICS gathering just over a week after he took part in the Shanghai Cooperation Organisation summit.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "trade commitments and bilateral supply chain deals",
+      "outlets": ["Antara English", "Moscow Times", "RT Africa"],
+      "countries": ["indonesia", "russia", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "Antara English",
+          "country": "indonesia",
+          "quote": "BRICS has expanded its agenda for trade facilitation and economic integration. The next test is whether those ...",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "A delegation of more than 300 Russian executives is accompanying Putin to New Delhi to negotiate supply chains and food security contracts.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "South African President Cyril Ramaphosa has called for deeper trade and investment ties with India after the BRICS summit in New Delhi",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Global South equity in international order",
+      "outlets": ["CGTN Politics", "RT Africa", "AfricaNews"],
+      "countries": ["china", "state_tv_intl", "pan_african"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "saying the voices of Africa and the Global South must be fully reflected in shaping the future international order",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "Observers from the Global South said that the BRICS cooperation mechanism has evolved into an influential platform for multilateral cooperation, with China playing an important role in its development.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "BRICS is expanding Global South representation and pushing for a multipolar world, South African BRICS Forum chief Raymond Matlala says",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "india",
+      "what_they_covered_instead": "No Indian domestic outlet appears in the cluster despite India hosting the summit; coverage of the event is entirely mediated through Chinese state, Russian, Western liberal, and regional perspectives."
+    },
+    {
+      "country": "brazil",
+      "what_they_covered_instead": "No Brazilian outlet present; Brazil is a founding BRICS member and its perspective on summit outcomes is absent from the corpus."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Sole outlet covering Ramaphosa's illness after the summit — a health aftermath angle absent everywhere else.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to use threat-valence vocabulary ('descend', 'high-stakes', 'escalating global tensions'), casting the summit as a security event rather than a governance forum.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Moscow Times",
+      "country": "russia",
+      "finding": "Independent exiled Russian outlet uniquely reports that Putin brought 300+ Russian executives to negotiate supply chains and food security contracts — a commercial angle absent from all other coverage.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Diplomat",
+      "country": "asia_pacific_regional",
+      "finding": "Only outlet to argue that India's multi-alignment is a net positive for Europe ('why Europe should welcome it'), reframing the summit away from bloc consolidation narratives.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Antara English",
+      "country": "indonesia",
+      "finding": "Only Global South outlet to introduce skepticism — questioning whether BRICS can convert trade commitments into real transactions — rather than endorsing the summit's outcomes.",
+      "signal_text_idx": 1
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The 18th BRICS Summit in New Delhi is covered as three largely separate events depending on outlet: a Global South governance-reform milestone (Chinese and Russian state media), a geopolitical security flashpoint (US right), and a pragmatic test of whether multilateral commitments translate into actual trade (Indonesian state news and Moscow Times). India's complete absence from the corpus as a domestic voice is the most structurally notable gap in a cluster where India was the decisive actor.",
+  "generated_at": "2026-09-18T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
