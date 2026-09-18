@@ -1,0 +1,172 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L15e329dad0",
+  "cluster_id": 124,
+  "cluster_name": "UN probe: US war crimes in Iran airstrikes, Tehran crimes against humanity",
+  "salience_score": 13.594,
+  "n_outlets": 28,
+  "n_countries": 15,
+  "n_articles": 29,
+  "tldr": "The headline layer compresses a dual-sided UN report into a near-monolithic US war crimes story: 24 of 28 outlets lead with US culpability while fewer than a third mention Iran's crimes against humanity, despite the report treating both sides as equally significant findings. Iran's state agency IRNA is the sole outlet to reframe the story as a propaganda war — calling US media cover 'Hollywood-style shows' — rather than reporting the UN findings. Mexico's El Financiero is the only outlet to cover an entirely different angle: the US granting visas to Iran's UN delegation, headlined provocatively as 'the enemy at home.' The Independent delivers the most editorially loaded headline, calling the strike 'reckless,' the report 'damning,' and specifying 120 children killed — far beyond the hedged 'reasonable grounds' language used by all other outlets. Across 15 countries and four languages, the factual phrase 'reasonable grounds to believe [the US] committed war crimes' anchors the overwhelming majority of headlines with minimal editorial variation, predicting a lower body-to-headline divergence for most outlets and a wider gap for UK tabloid-style titles.",
+  "event_summary": "A UN fact-finding mission concluded on 17 September 2026 that the US likely committed war crimes in two February airstrikes on a school in Minab and a sports complex in Lamerd, Iran, killing 178 civilians; Iranian authorities also committed crimes against humanity suppressing protests.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "US airstrikes as war crimes; UN investigation",
+      "outlets": [
+        "ABP Live",
+        "AFP / France 24 EN",
+        "Al Jazeera English",
+        "Axios World",
+        "BBC World",
+        "CBC World",
+        "Daily Maverick",
+        "Daily Sabah",
+        "Deutsche Welle Deutsch",
+        "Deutsche Welle English",
+        "El Sol de Mexico",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Iran International EN",
+        "Japan Times",
+        "NDTV World",
+        "NPR World",
+        "RT",
+        "Sky News UK",
+        "Spiegel International",
+        "Sueddeutsche Zeitung",
+        "Tagesschau",
+        "The Guardian World",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "brazil",
+        "canada",
+        "germany",
+        "india",
+        "iran_opposition",
+        "japan",
+        "mexico",
+        "qatar",
+        "russia",
+        "south_africa",
+        "turkey",
+        "uk",
+        "usa",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "UN mission says grounds to believe US committed war crimes",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "UN experts say grounds to believe US committed war crimes",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "'grounds to believe' U.S. committed war crimes in strikes",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "UN mission notes possible US war crimes in Iran strikes",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Missão da ONU vê indícios de crimes de guerra dos EUA no Irã",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Iran International EN",
+          "country": "iran_opposition",
+          "quote": "UN says Iran crackdown amounted to crimes against humanity",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "'Reasonable grounds' to believe US committed war crimes",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US rejects UN authority; Iran counters with propaganda",
+      "outlets": [
+        "El Financiero",
+        "IRNA English",
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "iran_opposition",
+        "iran_state",
+        "mexico"
+      ],
+      "evidence": [
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "El enemigo en casa: EU aprueba visa para presidente de Irán",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "Hollywood-style Shows cannot mask US war crimes",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "White House Rejects UN Report Alleging US War Crimes In Iran",
+          "signal_text_idx": 20
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "The most editorially intensified headline in the corpus: 'reckless,' 'damning,' and '120 children' all appear together in the title, far beyond the hedged 'reasonable grounds' language of every other outlet including UK peers — widest predicted body-to-headline divergence gap in the corpus.",
+      "signal_text_idx": 28
+    },
+    {
+      "outlet": "IRNA English",
+      "country": "iran_state",
+      "finding": "Sole outlet to reframe the story as a propaganda war: instead of reporting UN findings, IRNA's headline accuses the US of staging 'Hollywood-style shows' to conceal war crimes it treats as established fact — the opposite of the Western press's hedged 'alleged' or 'possible' register.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "The only headline to substitute 'atrocity' for 'war crime' for the Minab strike, while also omitting the Iran crimes-against-humanity finding entirely — the sole UK outlet to frame this as a one-sided atrocity story rather than a dual-accountability report.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "The only outlet to devote its headline to the US visa-approval angle rather than the UN war-crimes probe, with the provocative tag 'El enemigo en casa' (the enemy at home) — a domestic-intrusion frame absent from all other coverage in the corpus.",
+      "signal_text_idx": 11
+    }
+  ],
+  "bottom_line": "At the headline layer, 24 of 28 outlets reduce a dual-accountability UN report to a US war crimes story, suppressing the Iran protest-crackdown finding at the title level. The UK's Independent stands out for the most loaded language — 'reckless,' 'damning,' '120 children' — predicting the largest body-to-headline divergence in the corpus, while Iran's IRNA abandons the reporting register entirely to wage a headline-level propaganda counter-offensive.",
+  "generated_at": "2026-09-18T13:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
