@@ -1,0 +1,180 @@
+{
+  "story_key": "L29a6aa3edc",
+  "date": "2026-09-18",
+  "n_buckets": 11,
+  "n_articles": 22,
+  "tldr": "Headlines across this cluster overwhelmingly frame Canada's EU associate-membership proposal as a historic diplomatic overture, with a persistent secondary thread foregrounding Trump's tariff threat and Carney's defiant pushback. Only a small minority of titles surface uncertainty about the proposal's substantive content.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Canada-EU associate membership",
+      "buckets": ["canada", "usa", "turkey", "germany", "opinion_magazines", "uk", "india", "nordic", "vietnam_thai_my", "spain"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Canada could become the EU's first \"associate member\"",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Why Canada and the EU want a 'unique alliance'",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "EU's von der Leyen pitches Canada as bloc's 1st associate member",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "The EU's 28th State?",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Canada welcomes EU proposal to become 'associate member'",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "EU chief offers Canada 'Associate Membership' of bloc",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Could Canada become the first 'associate member' of the EU?",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "EU chief pitches 'associate member' status for Canada",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Can Canada and the EU deepen ties to counter Trump?",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Europe and Canada are stronger together",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Carney versus Trump defiance",
+      "buckets": ["turkey", "germany", "uk", "india", "nordic"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump slams EU touting Canada membership as 'hostile' act",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "Carney aims dig at Trump as he addresses EU",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Carney pushes 'new alliance' with EU despite Trump threats",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "nordic",
+          "outlet": "The Local Germany",
+          "quote": "Carney pushes 'new alliance' with EU despite Trump threats",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Can Canada and the EU deepen ties to counter Trump?",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Trump tariff retaliation threat",
+      "buckets": ["vietnam_thai_my", "spain", "turkey"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Trump threatens 'very heavy tariffs' after EU proposes",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "after Trump's new tariff threats",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump slams EU touting Canada membership as 'hostile' act",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Uncertainty over membership's substance",
+      "buckets": ["uk", "ukraine", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "uncertainty clouds Canada's EU membership plan",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Appreciated in Canada; a Non-Starter in Ukraine?",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Canada, EU face limits to relationship",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "ukraine", "mean_similarity": 0.586, "n_tokens": 35},
+    {"bucket": "usa", "mean_similarity": 0.726, "n_tokens": 55},
+    {"bucket": "canada", "mean_similarity": 0.75, "n_tokens": 48},
+    {"bucket": "turkey", "mean_similarity": 0.768, "n_tokens": 88},
+    {"bucket": "uk", "mean_similarity": 0.771, "n_tokens": 162},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.777, "n_tokens": 99},
+    {"bucket": "nordic", "mean_similarity": 0.795, "n_tokens": 101},
+    {"bucket": "india", "mean_similarity": 0.801, "n_tokens": 61}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "On the homepage layer, this story reads as Canada and the EU forging a bold new alliance against Trump — the tariff threat frames the urgency, while the skeptical 'what does it actually mean?' angle is largely submerged beneath celebratory partnership headlines.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
