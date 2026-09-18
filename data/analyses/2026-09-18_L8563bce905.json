@@ -1,0 +1,184 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L8563bce905",
+  "cluster_id": 67,
+  "cluster_name": "Russia seizes Nestlé and Auchan assets under Putin decree",
+  "n_outlets": 13,
+  "n_countries": 8,
+  "n_articles": 17,
+  "salience_score": 4.25,
+  "event_summary": "Putin signed a decree on 17 September 2026 placing Russian subsidiaries of Nestlé, Auchan, and Leroy Merlin under temporary management by L.E.V. Management, run by a Russian Interior Ministry general. Neither company had exited Russia after the 2022 invasion of Ukraine.",
+  "tldr": "The most striking detail across the corpus is that L.E.V. Management — the entity receiving control over an estimated €1.7 billion in Nestlé assets — was registered only in late 2025 and is led by an Interior Ministry major general, a finding surfaced by Meduza and Deutsche Welle Deutsch but entirely absent from Russian state-aligned coverage. Kremlin spokesman Peskov explicitly invoked the war, stating the companies belong to nations 'actively involved in hostilities against Russia', which state press reported as a self-sufficient justification. Independent exile outlets (Meduza, Moscow Times) and Western wire services contextualise the move within a documented Kremlin pattern of temporary administration preceding full expropriation — the 2023 Danone seizure ended with assets sold to a nephew of Chechen leader Ramzan Kadyrov. Analysts across multiple outlets put Russia at roughly 1% of Nestlé's current group sales, yet Nestlé shares fell 1.5% in Zurich, reflecting concern over the precedent rather than the direct financial hit.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "war-economy asset seizure",
+      "outlets": ["AFP / France 24 EN", "Meduza", "Moscow Times", "Standard Kenya World", "La Repubblica"],
+      "countries": ["wire_services", "russia", "kenya", "italy"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Russian President Vladimir Putin signed a decree on Thursday to transfer assets of Swiss food giant Nestle and three French groups to a company called LEV Management. Most Western companies quickly sold their Russian operations and holdings after Moscow launched its full-scale invasion of Ukraine, and the Kremlin has since made it difficult for firms to leave the country.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "The assets of the Russian subsidiaries of France’s Auchan and Switzerland’s Nestlé have been placed under the temporary management of a company called L.E.V. Management, under a decree signed by Russian President Vladimir Putin.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Russian authorities have seized the residual businesses and assets of Swiss food giant Nestle and three French groups, the latest move against Western firms in response to sanctions against Moscow over its war against Ukraine.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "limited financial impact, analyst consensus",
+      "outlets": ["Deutsche Welle Deutsch", "Moscow Times", "Standard Kenya World"],
+      "countries": ["germany", "russia", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Analysten schätzten den Wert der Geschäfte in Russland auf umgerechnet bis zu 1,7 Milliarden Franken.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Nestlé shares were down 1.5% in early trading in Zurich.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Jean-Philippe Bertschy of the Swiss investment bank Vontobel said he expected the financial impact to Nestle would be small \"given Russia's limited contribution to group sales\".",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "expropriation as state theft",
+      "outlets": ["Deutsche Welle Russian", "Moscow Times", "Standard Kenya World"],
+      "countries": ["germany", "russia", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle Russian",
+          "country": "germany",
+          "quote": "Ранее это приводило к тому, что собственники называли \"кражей\".",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Moscow has also used the law to raise cash through forced sales, exit taxes and discounts, while rewarding Kremlin-loyal insiders.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "The latest seizure echoes Moscow's 2023 takeover of Danone's Russian business, which was later sold to a nephew of Chechen leader Ramzan Kadyrov.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "corporate rights defense",
+      "outlets": ["AFP / France 24 FR", "Meduza", "Ukrainska Pravda English", "Kommersant"],
+      "countries": ["france", "russia", "ukraine", "russia_native"],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "Nestlé is committed to taking all necessary steps to protect its rights and ensure continuity of business operations in the interests of all stakeholders, particularly its employees",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "le distributeur français Auchan affirme avoir demandé des \"clarifications\".",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Kommersant",
+          "country": "russia_native",
+          "quote": "«Ашан Ритейл Россия» направила запрос о разъяснениях в связи с указом президента о передаче компании во внешнее управление.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "seizure as response to hostile nations",
+      "outlets": ["Argumenty i Fakty", "Kommersant"],
+      "countries": ["russia_native"],
+      "evidence": [
+        {
+          "outlet": "Argumenty i Fakty",
+          "country": "russia_native",
+          "quote": "Акции Nestle передали, потому что это компания из недружественной страны, заявил Дмитрий Песков.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Kommersant",
+          "country": "russia_native",
+          "quote": "Российские власти при принятии решения о внешнем управлении российскими активами Nestle и Auchan учитывали, что они принадлежат компаниям из тех недружественных стран, которые активно вовлечены в боевые действия против России.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "switzerland",
+      "what_they_covered_instead": "No Swiss outlet appears in this cluster despite Nestlé being headquartered in Vevey — the domestic Swiss investor-rights and corporate-governance angle on the seizure is entirely absent."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "Identifies L.E.V. Management's general director Andrei Krayushkin as an Interior Ministry major general and former first deputy head of the migration department — the only outlet to name and contextualise the security-service identity of the new controlling entity.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Moscow Times",
+      "country": "russia",
+      "finding": "Frames the seizure as a Kremlin patronage mechanism: 'Moscow has also used the law to raise cash through forced sales, exit taxes and discounts, while rewarding Kremlin-loyal insiders' — framing absent from all other outlets.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Most explicit invocation of the Danone precedent, noting Moscow's 2023 seizure 'was later sold to a nephew of Chechen leader Ramzan Kadyrov' — providing the clearest indication of where Nestlé's assets may end up.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Argumenty i Fakty",
+      "country": "russia_native",
+      "finding": "Reports Peskov's justification as a complete explanation with no further context — 'a company from an unfriendly country' — omitting asset value, employee impact, legal mechanism, and prior Danone/Carlsberg precedents.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Reuters (via Google News)",
+      "country": "wire_services",
+      "finding": "Cluster contains a tangential Reuters item about India finding a Nestlé baby food sample substandard — a separate Nestlé story that appears clustered here due to brand overlap rather than thematic connection.",
+      "signal_text_idx": 12
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Russia has placed Nestlé, Auchan, and two other Western firms under temporary state management via a company linked to an Interior Ministry general, extending a pattern that previously ended with Danone's Russian assets going to a Chechen leader's relative. Western and exile press foreground the insider-enrichment mechanics and legal precedent; Russian state press presents the seizure as routine administrative action against companies from nations actively fighting Russia.",
+  "generated_at": "2026-09-18T12:50:00Z",
+  "model": "claude-sonnet-4-6"
+}
