@@ -1,0 +1,136 @@
+{
+  "story_key": "L917533a4f1",
+  "date": "2026-09-18",
+  "n_buckets": 9,
+  "n_articles": 13,
+  "tldr": "BRICS summit headlines are dominated by a multilateralism-and-Global-South frame across Chinese, Russian-aligned, Kenyan, and British outlets, with a concurrent thread on India-China diplomatic thaw. A single US outlet (Fox News) breaks sharply from this consensus, inserting Iran and 'escalating global tensions' to frame the same gathering as a security threat.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Global South multilateralism & India-China thaw",
+      "buckets": ["china", "russia", "kenya", "state_tv_intl", "uk"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Ramaphosa urges BRICS to defend multilateralism",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Intl. observers look to China to advance 'Greater BRICS'",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "How BRICS creates new development opportunities for Global South",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Putin Meets Modi as India Hosts BRICS Summit",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "BRICS gives Global South a bigger voice – expert",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Xi advocates Global South cooperation",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "thaw in India-China relations",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "High-stakes summit amid escalating tensions",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "high-stakes BRICS summit amid escalating global tensions",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Trade commitments and bilateral economic ties",
+      "buckets": ["indonesia", "state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "indonesia",
+          "outlet": "Antara English",
+          "quote": "Can BRICS turn trade commitments into real transactions?",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "South Africa seeks deeper economic ties with India",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "BRICS as strategic forum, not alliance bloc",
+      "buckets": ["asia_pacific_regional"],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "BRICS and the New Geopolitics of Asia",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "The Diplomat",
+          "quote": "BRICS 2026: A Forum, Not a Front",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Ramaphosa post-summit illness",
+      "buckets": ["pan_african"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ramaphosa taken ill after BRICS summit",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "uk", "mean_similarity": 0.532, "n_tokens": 67},
+    {"bucket": "usa", "mean_similarity": 0.558, "n_tokens": 40},
+    {"bucket": "asia_pacific_regional", "mean_similarity": 0.574, "n_tokens": 42},
+    {"bucket": "china", "mean_similarity": 0.577, "n_tokens": 250},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.589, "n_tokens": 64}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer, the BRICS summit reads as a milestone in Global South cooperation and India-China reconciliation — except on the American right, where it reads as a dangerous gathering of US adversaries.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
