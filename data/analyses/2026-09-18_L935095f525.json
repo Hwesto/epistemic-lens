@@ -1,0 +1,152 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L935095f525",
+  "cluster_id": 139,
+  "cluster_name": "Tilcayo tiger cat confirmed as new species in Bolivian Yungas",
+  "n_outlets": 13,
+  "n_countries": 11,
+  "n_articles": 14,
+  "salience_score": 4.812,
+  "event_summary": "Scientists confirmed the Tilcayo (Leopardus tilcayo), a small cat from Bolivia's Yungas cloud forest, as the first new wild felid species named in over 100 years. Genetic analysis showed its lineage separated from other tiger cats 1.4 million years ago; only one living specimen is currently known.",
+  "tldr": "Thirteen outlets across 11 countries ran a remarkably uniform science-wonder story, united by the 'first in 100 years' superlative, with little ideological or regional divergence. The most striking finding is cross-ideological convergence: right-populist Breitbart and left-liberal Guardian carried near-identical framings with no political coloration, illustrating how a globally legible scientific milestone erases typical outlet-level framing divergence. Spanish-language outlets (El Pais, La Nacion AR, El Sol de Mexico) foregrounded the Bolivian scientist's identity and the local indigenous naming origin more prominently than anglophone peers. The Hindu stood alone in noting that 'little is yet known about the biology and lifestyle,' the only outlet tempering the celebratory tone with epistemic caution. Geo News (Pakistan) published two separate articles — more volume than any other outlet — suggesting outsized reader interest in the Pakistani market.",
+  "frames": [
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "scientific taxonomy milestone",
+      "outlets": [
+        "BBC World", "Breitbart", "Deutsche Welle English", "El Pais",
+        "El Sol de Mexico", "Geo News English", "Globe and Mail", "La Nacion AR",
+        "Sky News UK", "Straits Times", "The Guardian World", "The Hindu Intl", "The Punch"
+      ],
+      "countries": [
+        "uk", "usa", "germany", "spain", "mexico", "pakistan",
+        "canada", "argentina_chile", "vietnam_thai_my", "india", "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Genetic data confirmed that the small feline, called \"tilcayo\" by locals, is a new species of cat. It's the first such discovery in more than 100 years.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Genetic analysis suggested that the Tilcayo lineage separated from other tiger cats about 1.4 million years ago; little is yet known about the biology and lifestyle",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "El Pais",
+          "country": "spain",
+          "quote": "El linaje del pequeño animal, descrito por la científica Paola Nogales-Ascarrunz en los bosques nubosos de Bolivia, se separó del resto de los gatos tigre hace 1,4 millones de años",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Scientists have discovered the Tilcayo tiger cat in Bolivia, the first new wild cat species to be identified in more than 100 years, a researcher says.",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "single surviving specimen",
+      "outlets": ["BBC World", "Geo News English", "Sky News UK"],
+      "countries": ["uk", "pakistan"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "New wild cat species discovered - with only one known living member\n\nA spotted wildcat long mistaken for relatives has been identified as a new species in Bolivia.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Scientists discover new spotted cat species in Bolivia with only one known alive",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "indigenous naming and local rescue origin",
+      "outlets": ["Globe and Mail", "La Nacion AR", "El Pais"],
+      "countries": ["canada", "argentina_chile", "spain"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Called Tilcayo by local communities, it is smaller than the average domestic cat",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "La Nacion AR",
+          "country": "argentina_chile",
+          "quote": "Fue rescatado por una familia de campo que, luego de un año, comenzó a notar conductas atípicas en el animal; desde los Yungas de Bolivia, la bióloga Paola Nogales Ascarrunz de National Geographic lidera la investigación de la especie",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "quote": "A new wild cat species has been discovered for the first time in 100 years — the tilcayo tiger cat from the Bolivian Yungas.",
+      "signal_text_idx": 1
+    },
+    "b": {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "quote": "marking the first time a new living feline species has been formally named and described in more than a century",
+      "signal_text_idx": 11
+    },
+    "joint_conclusion": "Right-populist Breitbart and left-liberal Guardian both led with the same '100-year first' milestone framing, with no ideological coloration and no divergent emphasis. Globally legible scientific superlatives produce cross-ideological convergence that political and economic stories rarely achieve."
+  },
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "La Nacion AR",
+      "country": "argentina_chile",
+      "finding": "Only outlet to narrate the discovery origin as a rural rescue story: a field family noticed atypical behaviors in the animal after keeping it for a year before it was studied scientifically.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only outlet to flag that 'little is yet known about the biology and lifestyle' of the newly described species, introducing uncertainty absent from every other outlet's coverage.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Published two separate articles on the same discovery — more coverage volume than any other outlet in the cluster.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to specify physical dimensions (46cm, 1.4kg), giving Southeast Asian readers the most grounded sensory description of the animal.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "El Pais",
+      "country": "spain",
+      "finding": "Uniquely foregrounded the scientist's full name and Bolivian identity ('la cientifica Paola Nogales-Ascarrunz') and gave the evolutionary timescale (1.4 million years), the deepest scientific context in the corpus.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Only outlet to name the prior discovery baseline: first feline species identified since the pampas cat in 1923, anchoring the milestone against a specific historical predecessor.",
+      "signal_text_idx": 4
+    }
+  ],
+  "bottom_line": "The Tilcayo discovery produced rare global editorial uniformity across 13 outlets and 11 countries, with politically opposed outlets (Breitbart, Guardian) using identical century-first framing — a convergence that political stories almost never achieve. The only substantive divergence was Spanish-language outlets centering the Bolivian scientist's identity and a rural rescue origin story, while anglophone outlets led with the single-surviving-specimen conservation hook.",
+  "generated_at": "2026-09-18T07:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
