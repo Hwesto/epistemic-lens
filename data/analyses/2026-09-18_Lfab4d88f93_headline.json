@@ -1,0 +1,199 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "Lfab4d88f93",
+  "cluster_id": 56,
+  "cluster_name": "37 illegal miners die in NSCDC custody in Nigeria",
+  "salience_score": 6.188,
+  "n_outlets": 14,
+  "n_countries": 11,
+  "n_articles": 16,
+  "tldr": "Headlines reach near-universal consensus on the bare mortality fact — 37 illegal mining suspects died in Nigerian paramilitary custody — but diverge sharply on what comes next: Southern African and German outlets pivot to public protests while Singapore's Straits Times escalates to state forces opening fire on demonstrators, a second-order frame absent from all wire and broadcast outlets. Nigeria's Premium Times is the only outlet to foreground political and institutional accountability — APC rally cancellation and commandant suspension — treating this as a governance crisis rather than a mortality event. India's The Hindu is alone in embedding the disputed disease-narrative directly in its title, making the contested cause of death visible at the headline layer where every other outlet simply states the death count. The overwhelming majority of international wire and broadcast outlets converge at high cosine similarity (0.80+), compressing the story to a single quantitative frame at the title layer.",
+  "event_summary": "At least 37 people detained for suspected illegal mining in Niger State, Nigeria died while in custody of the Nigeria Security and Civil Defence Corps; officials blamed a disease outbreak but an intelligence report cited overcrowding and poor ventilation in the detention cell.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Custody deaths of illegal miners",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "Al Jazeera English",
+        "AllAfrica",
+        "Anadolu Agency English",
+        "BBC Africa",
+        "BBC World",
+        "RFI Afrique",
+        "The Hindu Intl",
+        "The Punch"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "qatar",
+        "africa_other",
+        "turkey",
+        "uk",
+        "india",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "At least 37 suspected illegal miners die in custody",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "37 illegal mining suspects found dead in Nigerian custody",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Nigerian police probe death in custody of 37 illegal",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "Dozens of suspected illegal miners die in Nigerian custody",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "37 suspected illegal miners die in Nigerian custody",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Dozens of suspected illegal miners die in Nigerian custody",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Probe begins as 40 miners die in NSCDC detention",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Protests erupt after custody deaths",
+      "outlets": [
+        "Daily Maverick",
+        "Deutsche Welle English"
+      ],
+      "countries": [
+        "south_africa",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "Protests erupt in Nigeria after 37 miners die in custody",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Nigeria: Protests erupt over deaths of 37 miners in custody",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "State forces open fire on protesters",
+      "outlets": [
+        "Straits Times"
+      ],
+      "countries": [
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Nigeria forces open fire at protest over deaths",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Officials blame disease for deaths",
+      "outlets": [
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "officials blaming disease",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Commandant suspended; APC rally cancelled",
+      "outlets": [
+        "Premium Times Nigeria"
+      ],
+      "countries": [
+        "africa_other"
+      ],
+      "evidence": [
+        {
+          "outlet": "Premium Times Nigeria",
+          "country": "africa_other",
+          "quote": "Niger govt cancels APC rally, suspends NSCDC commandant",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Premium Times Nigeria",
+          "country": "africa_other",
+          "quote": "Niger sets up panel to probe deaths of 37 detainees",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "The only outlet to headline the second-order event — security forces opening fire on protesters — rather than the primary custody deaths. This title positions the story as a state-repression narrative before most international outlets have moved beyond the initial death count, predicting the widest divergence between its headline and body frames.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Premium Times Nigeria",
+      "country": "africa_other",
+      "finding": "The only outlet to foreground institutional accountability in its headline, pairing APC rally cancellation with the NSCDC commandant suspension and investigation panel — framing this as a Nigerian governance crisis rather than a mortality event, a dimension absent from all non-Nigerian international coverage.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "The sole outlet to embed the official disease-explanation directly in its headline, making the disputed cause of death explicitly visible at the title layer where all other outlets simply report the death count without surfacing the contested narrative.",
+      "signal_text_idx": 14
+    }
+  ],
+  "bottom_line": "Headline coverage across 14 outlets in 11 countries reduces the Nigerian custody-deaths story to a near-identical mortality frame, with the most analytically significant divergences at the periphery: Singapore's Straits Times alone advances to state-force-on-protesters, Nigeria's Premium Times alone surfaces political accountability, and The Hindu alone foregrounds the official disease-narrative — divergences invisible in wire-service aggregation but directly load-bearing for the headline-to-body divergence index.",
+  "generated_at": "2026-09-18T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
