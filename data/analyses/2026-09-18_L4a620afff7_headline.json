@@ -1,0 +1,227 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L4a620afff7",
+  "cluster_id": 53,
+  "cluster_name": "Hague tribunal convicts Kosovo ex-president Thaci for war crimes",
+  "salience_score": 6.0,
+  "n_outlets": 9,
+  "n_countries": 8,
+  "n_articles": 13,
+  "tldr": "Headlines across the corpus converge on a single hard fact — conviction plus a 25-year sentence — producing a narrower, more uniform register than the body text. The Kosovo-Serbia political split surfaces in Balkan and German titles, while Russia's RT uniquely relabels Thaci a 'NATO-backed separatist' rather than a president, the starkest ideological divergence visible at the homepage layer.",
+  "event_summary": "On September 16, 2026, the Kosovo Specialist Chambers in The Hague convicted former President Hashim Thaci of war crimes and sentenced him to 25 years in prison; three other former Kosovo Liberation Army leaders were also convicted on charges arising from the 1998–99 Kosovo war.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "conviction & 25-year sentence",
+      "outlets": [
+        "Deutsche Welle Deutsch",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "RFE/RL (was Radio Farda)",
+        "Taipei Times"
+      ],
+      "countries": [
+        "germany",
+        "brazil",
+        "canada",
+        "iran_opposition",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "25 Jahre Haft für Kosovos Ex-Präsident Thaçi",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Hague court sentences Kosovo's former president",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Hague Court Finds Former Kosovo President Thaci Guilty",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Tribunal condena ex-presidente do Kosovo a 25 anos",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Taipei Times",
+          "country": "taiwan_hk",
+          "quote": "Court convicts ex-Kosovo leader",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Kosovo-Serbia split on verdict",
+      "outlets": [
+        "Balkan Insight",
+        "Deutsche Welle Deutsch",
+        "Deutsche Welle English"
+      ],
+      "countries": [
+        "balkans",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Kosovo Slams 'Unjust' Conviction of Hashim Thaci;",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Serbian President Vucic criticizes Kosovo war crimes verdict",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Ex-Präsident verurteilt: Schock in Kosovo",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "acquittal bid & Hague jurisdiction",
+      "outlets": [
+        "Balkan Insight",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "balkans",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Balkan Insight",
+          "country": "balkans",
+          "quote": "Kosovo Ex-President Thaci's Defence Seeks Acquittal",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Why was the former President of Kosovo convicted",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "NATO patronage reframing",
+      "outlets": [
+        "RT"
+      ],
+      "countries": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "NATO-backed Kosovo separatist convicted of war crimes",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "public shock and protest violence",
+      "outlets": [
+        "Deutsche Welle English",
+        "RT"
+      ],
+      "countries": [
+        "germany",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Shock in Kosovo as Hague convicts former President Thaci",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Protesters attack EU office over Kosovo leader's",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.524,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "balkans",
+      "mean_similarity": 0.695,
+      "n_tokens": 73
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.7,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.701,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.737,
+      "n_tokens": 38
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.769,
+      "n_tokens": 123
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet to strip Thaci's presidential title and substitute 'NATO-backed Kosovo separatist' — reorienting the verdict as a critique of Western Balkans policy rather than an international justice milestone, a framing absent from every other headline in the corpus.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Balkan Insight",
+      "country": "balkans",
+      "finding": "The only headline to pack both Kosovo's rejection ('Unjust') and the Serbian minister's endorsement ('Applauds') into a single title, making the bilateral political split visible at a glance — no other outlet manages this contrast at headline level.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "The only explainer-format headline in the corpus ('Why... Explained'), treating the conviction's legal basis as non-obvious and requiring justification — a different narrative posture than all other outlets, which present the verdict as a self-evident news event.",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "The headline layer condenses the Thaci verdict into a straightforward crime-and-punishment event for most global outlets, with only Balkan and German titles surfacing the Kosovo-Serbia political divide and Russia's RT uniquely reframing the defendant as a 'NATO-backed separatist' rather than a former head of state.",
+  "generated_at": "2026-09-18T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
