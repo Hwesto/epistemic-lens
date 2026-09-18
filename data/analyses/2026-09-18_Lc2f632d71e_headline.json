@@ -1,0 +1,135 @@
+{
+  "story_key": "Lc2f632d71e",
+  "date": "2026-09-18",
+  "n_buckets": 10,
+  "n_articles": 12,
+  "tldr": "Gaza building collapse headlines are dominated by a health-safety frame across almost all outlets — death counts, missing persons, and rescue operations — with minimal framing divergence at title level. A sharper split emerges on causal attribution: Chinese (CGTN Politics) and Turkish (Daily Sabah) headlines name Israeli strikes or 'Israel's war on Gaza' as the direct cause in the title itself, while most other outlets treat the collapse as the primary actor. Brazil's Folha de São Paulo stands alone in pairing the casualty headline with an Israeli minister's explicit threat to resume war and expel Palestinians in the same title, injecting live ceasefire politics. Iran's Tehran Times is the only outlet to lead with survivor testimony rather than a death count, personalising mass casualties through direct speech.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "death toll, missing, rescue operations",
+      "buckets": ["pan_african", "china", "egypt", "vietnam_thai_my", "russia", "iran_state"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "At least 12 dead and dozens missing",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "21 killed, including 11 children, in Gaza building collapse",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "kills more than 20, dozens remain trapped under rubble",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "killing eight; rescuers search for dozens missing",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Dozens killed in Gaza collapse (VIDEOS)",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "'My whole family is either dead or injured'",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "war damage as proximate cause",
+      "buckets": ["china", "turkey", "canada"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "21 Palestinians injured as Israeli strikes continue",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "building damaged in Israel's war on Gaza collapses",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "War-damaged Gaza building collapses killing 21",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Israeli minister threatens to resume war",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "ministro de Israel ameaça retomar guerra",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.689, "n_tokens": 31},
+    {"bucket": "turkey", "mean_similarity": 0.709, "n_tokens": 226},
+    {"bucket": "brazil", "mean_similarity": 0.714, "n_tokens": 52},
+    {"bucket": "china", "mean_similarity": 0.718, "n_tokens": 44},
+    {"bucket": "egypt", "mean_similarity": 0.723, "n_tokens": 55},
+    {"bucket": "pan_african", "mean_similarity": 0.725, "n_tokens": 31}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "kenya",
+      "what_they_covered_instead": "Standard Kenya World's entry in this cluster covers a building collapse in New Delhi, India (3 dead) — a lexical false positive; the headline shares 'building collapse', 'killed', and 'trapped' with the Gaza story but refers to an entirely different event and fits no Gaza frame."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Only outlet to lead with first-person survivor testimony as a headline — 'My whole family is either dead or injured' — personalising mass casualties through direct speech rather than a numerical death count.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Only outlet to link the building collapse directly to an Israeli minister's threat to resume war and expel Palestinians in the same headline, inserting live ceasefire-politics into what every other outlet presents as a pure casualty story.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Covers a building collapse in New Delhi, India (3 killed), not Gaza — a lexical false positive in the cluster. The headline has no thematic relation to the Gaza event.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "One of two Daily Sabah entries (corpus index 3) carries the headline 'Gaza rescuers recover 12 more bodies from rubble, total hits 75' — the only headline to frame the story as an ongoing recovery operation with a running cumulative count rather than a single-incident casualty report.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "At the headline layer, the Gaza building collapse reads almost universally as a HEALTH_SAFETY story about deaths and missing persons — but Turkish and Chinese outlets name Israeli military action as the structural cause in the title itself, and Brazil's Folha uniquely ties the disaster to a live political threat, a framing divergence invisible to readers who see only the neutral-seeming death-count headlines from other outlets.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
