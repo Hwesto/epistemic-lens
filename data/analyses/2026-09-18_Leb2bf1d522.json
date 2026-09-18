@@ -1,0 +1,159 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "Leb2bf1d522",
+  "cluster_id": 66,
+  "cluster_name": "Sweden centre-left wins 176-173, Kristersson resigns as PM",
+  "salience_score": 4.5,
+  "n_outlets": 9,
+  "n_countries": 9,
+  "n_articles": 16,
+  "event_summary": "Sweden's parliamentary election concluded on September 17, 2026, with the centre-left bloc led by Social Democrat Magdalena Andersson winning 176 seats against the governing right-wing coalition's 173, prompting Prime Minister Ulf Kristersson to resign after the final count was certified.",
+  "tldr": "The most striking divergence in this cluster is on what the Swedish election was actually about: Fox News (US right) foregrounds gun violence, migration, and crime, while Standard Kenya (mainstream Africa) sees a campaign driven by healthcare and the welfare state — the same election, irreconcilably different framings. National Post (Canadian centre-right) stands alone in arguing the Social Democrats won by co-opting right-wing immigration positions, an interpretation absent from every other outlet. Al Jazeera's only contribution to this cluster is a piece on Israeli voters resisting Western sanctions — not a Swedish story at all — suggesting Qatar's flagship outlet deprioritised Sweden's vote entirely. The post-election Sweden Democrat claim that 'Islamist voters' decided the result, a flashpoint for Swedish democratic legitimacy, appears only in The Local Sweden, leaving the dispute invisible to international audiences.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "election outcome and power transfer",
+      "outlets": ["Folha de São Paulo", "Il Sole 24 Ore", "La Jornada", "Tagesschau", "The Local Sweden"],
+      "countries": ["brazil", "italy", "mexico", "germany", "nordic"],
+      "evidence": [
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "Sweden's prime minister Ulf Kristersson has tendered his resignation as the vote count for Sweden's election was completed shortly after 1pm on Thursday, with the opposition parties retaining their 176-173 lead over the government bloc.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Il Sole 24 Ore",
+          "country": "italy",
+          "quote": "Quattro giorni dopo la chiusura delle urne in Svezia il conteggio dei voti ha dato un vincitore: la coalizione di centro-sinistra guidata da Magdalena Andersson. Il blocco composto dai Socialdemocratici,...",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Tagesschau",
+          "country": "germany",
+          "quote": "Der von Ulf Kristersson geführte konservativ-rechte Parteienblock musste bei der Wahl in Schweden eine Niederlage hinnehmen. Der Regierungschef trat zurück. Die bisherige Opposition steht mit Magdalena Andersson vor einer schwierigen Regierungsbildung.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "immigration and demographic identity politics",
+      "outlets": ["Fox News World", "National Post", "The Local Sweden"],
+      "countries": ["usa", "canada", "nordic"],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Gun violence, asylum policy and welfare reform dominate Sweden's election as Ulf Kristersson's coalition battles Magdalena Andersson's Social Democrats.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "National Post",
+          "country": "canada",
+          "quote": "Country's Social Democrats have embraced issues formerly the purview of the right",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "Others targeted a specific ethnic-religious minority group (guess which one!), saying that their votes had influenced, or swayed the election.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "welfare state vs. immigration restriction",
+      "outlets": ["Standard Kenya World", "Fox News World"],
+      "countries": ["kenya", "usa"],
+      "evidence": [
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "Sweden votes Sunday in a tight general election that could see the left-wing opposition oust the government after a campaign dominated by concerns over healthcare and the welfare state.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Gun violence, asylum policy and welfare reform dominate Sweden's election as Ulf Kristersson's coalition battles Magdalena Andersson's Social Democrats.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "immigrant voter legitimacy contested",
+      "outlets": ["The Local Sweden"],
+      "countries": ["nordic"],
+      "evidence": [
+        {
+          "outlet": "The Local Sweden",
+          "country": "nordic",
+          "quote": "That is democracy. Particular demographic groups regularly sway elections.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Israeli voter resilience to Western sanctions",
+      "outlets": ["Al Jazeera English"],
+      "countries": ["qatar"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "New sanctions highlight Israel's isolation, yet analysts say they won't sway voters before October's elections.",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Al Jazeera's only item in this election cluster covers Israeli voters resisting Western sanctions, not the Swedish election — the outlet appears to have deprioritised Sweden's vote entirely in favour of Middle East election coverage.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to lead with 'gun violence' alongside migration and economy as defining Swedish election issues, applying a US-style crime framing to a European electoral context.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "National Post",
+      "country": "canada",
+      "finding": "Alone among all outlets in arguing the Social Democrats won by strategically co-opting right-wing immigration positions rather than by defending traditional left-wing welfare policy.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "The Local Sweden",
+      "country": "nordic",
+      "finding": "Only outlet globally to cover Sweden Democrat leader Jimmie Åkesson's post-election claim that the Social Democrats 'mobilised Islamist voters', and the only one to rebut it with a democratic participation argument.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Only Global South outlet in the cluster; uniquely frames the Swedish election through healthcare and the welfare state with no mention of immigration or crime.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Tagesschau",
+      "country": "germany",
+      "finding": "Germany's public broadcaster is the only outlet to foreground coalition-formation difficulty ('schwierige Regierungsbildung') as the immediate post-election challenge, reflecting Berlin's familiarity with Nordic coalition norms.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Sweden's 176-173 centre-left victory on September 17 produced sharply divergent international coverage: western right-wing outlets emphasised immigration and crime as the decisive issues, while left-leaning and Global South outlets foregrounded welfare and healthcare. The post-election dispute over whether immigrant voters decided the result — including Sweden Democrat leader Åkesson's 'Islamist voters' claim — went entirely unreported outside The Local Sweden, leaving a significant democratic legitimacy story invisible to international audiences.",
+  "generated_at": "2026-09-18T12:59:05Z",
+  "model": "claude-sonnet-4-6"
+}
