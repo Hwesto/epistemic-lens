@@ -1,0 +1,322 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-18",
+  "lineage_id": "L5d0088604a",
+  "cluster_id": 123,
+  "cluster_name": "Russia holds first wartime State Duma election since 2022 invasion",
+  "salience_score": 6.708,
+  "n_outlets": 18,
+  "n_countries": 14,
+  "n_articles": 23,
+  "event_summary": "Russia began a three-day parliamentary election on 18 September 2026 to fill all 450 State Duma seats, its first since the February 2022 invasion of Ukraine. United Russia is expected to retain its majority; anti-war party Yabloko was barred from the national ballot.",
+  "tldr": "Coverage across 14 countries converges almost without exception on a single structural verdict: the ballot was engineered to deliver a predetermined outcome, with all registered parties supporting the war. The sharpest finding is that outlets as opposed in editorial stance as Qatar's Al Jazeera and the UK's Daily Mail state identically that no anti-war party was permitted to run — a rare alignment between a pan-Arab outlet critical of Western narratives and a pro-Brexit tabloid. Ukrainian outlet Kyiv Post is the sole source in the cluster to report that Russia deployed armed troops to accompany mobile polling teams in occupied Ukrainian territory, a dimension ignored by all 17 other outlets. The economic-pressure angle — sanctions, labor shortages, high interest rates — surfaces only in UK and Israeli outlets, not in wire services. Moscow Times, published in Dutch exile, is the only outlet to argue that despite the foregone majority, vote tallies and turnout retain informational value as a gauge of public sentiment.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "controlled ballot, no meaningful opposition",
+      "outlets": [
+        "AFP / France 24 EN",
+        "CBC World",
+        "Daily Mail",
+        "Deutsche Welle English",
+        "Globe and Mail",
+        "South China Morning Post",
+        "Straits Times",
+        "The Guardian World"
+      ],
+      "countries": [
+        "wire_services",
+        "canada",
+        "uk",
+        "germany",
+        "taiwan_hk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Voting got ⁠underway on Friday in a tightly controlled three-day parliamentary election in Russia which President Vladimir Putin has framed as a barometer of support for Russia's war in Ukraine. It is the first parliamentary election since Russia launched its full-scale war in Ukraine in February 2022, and most anti-war candidates have been excluded from the ballot.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Russians on Friday began three days of voting in the country's first wartime parliamentary election, which features virtually no opposition and is all but certain to secure the Kremlin's political dominance.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Russians are going to the polls to elect a new State Duma in a tightly controlled vote stripped of meaningful competition and with little doubt about the result.",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "election as wartime legitimacy test",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Al Jazeera English",
+        "Daily Sabah",
+        "Kyiv Post",
+        "RFE/RL (was Radio Farda)",
+        "Straits Times"
+      ],
+      "countries": [
+        "wire_services",
+        "qatar",
+        "turkey",
+        "ukraine",
+        "iran_opposition",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Putin has framed the election as a demonstration of national unity and support for Russia's war effort. In a televised address ahead of voting, he urged Russians to cast ballots as a way of helping secure victory in Ukraine and showing resolve against what the Kremlin describes as external threats.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Putin, who frequently accuses the West of seeking to weaken or destroy Russia, exhorted Russians to vote, calling the election a barometer of support for the war. More than 1.5 million Russian soldiers have been killed or wounded in the conflict, according to Western estimates.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Russia's first parliamentary election since the invasion opens with no antiwar party on the ballot.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "opposition exclusion and occupied-territory voting",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Daily Mail",
+        "Kyiv Post",
+        "Moscow Times",
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "wire_services",
+        "uk",
+        "ukraine",
+        "russia",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "With Yabloko excluded from the national ballot, opposition figures imprisoned, and independent monitoring dismantled, the result cannot credibly measure freely expressed support for the war.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Russia has begun early voting ahead of its scheduled Sept. 18-20 State Duma elections. In occupied parts of Ukraine, mobile polling teams were deployed and accompanied by armed servicemen and police.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Meanwhile, the only prominent political party opposing the war, now in its fifth year, was barred from the ballot weeks ahead of the vote.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "war economy pressure on Russian voters",
+      "outlets": [
+        "Daily Sabah",
+        "Jerusalem Post",
+        "RFE/RL (was Radio Farda)",
+        "The Independent"
+      ],
+      "countries": [
+        "turkey",
+        "israel",
+        "iran_opposition",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The vote comes as the war enters its fifth year and its effects are increasingly felt inside Russia. Ukrainian drone strikes have reached targets far from the front line, while fuel shortages, high interest rates, labor shortages and Western sanctions have added pressure to an economy that has continued functioning despite the restrictions.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Jerusalem Post",
+          "country": "israel",
+          "quote": "The vote comes amid signs of war fatigue, economic pressure and speculation about a possible new mobilization.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Russians face mounting economic woes due to Putin’s war on Ukraine as country goes to polls",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "election as residual public sentiment barometer",
+      "outlets": [
+        "Globe and Mail",
+        "Jerusalem Post",
+        "Moscow Times",
+        "Straits Times",
+        "The Conversation"
+      ],
+      "countries": [
+        "canada",
+        "israel",
+        "russia",
+        "vietnam_thai_my",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Even with an all-but-guaranteed majority for United Russia, experts say the vote remains an important gauge of public sentiment.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Putin has framed the election as a barometer of support for the war in Ukraine",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Conversation",
+          "country": "opinion_magazines",
+          "quote": "Russia’s 2026 parliamentary elections will take place over three days, starting Sept. 18.",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "turkey",
+      "country": "turkey",
+      "mean_similarity": 0.64,
+      "note": "Daily Sabah (Turkey, AKP-aligned) is the most isolated bucket: provides extensive body text covering drone strikes on Moscow and wartime economic pressure absent from other cluster members."
+    },
+    {
+      "outlet": "opinion_magazines",
+      "country": "opinion_magazines",
+      "mean_similarity": 0.641,
+      "note": "The Conversation takes an analytical meta-stance — arguing vote tallies and turnout are the real signal — diverging from the dominant political-control framing."
+    },
+    {
+      "outlet": "pan_african",
+      "country": "pan_african",
+      "mean_similarity": 0.685,
+      "note": "AfricaNews (Pan-African Euronews subsidiary) limits coverage to sparse procedural facts, producing the most content-thin signal in the cluster."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "terms": ["armed", "team"],
+      "what_it_reveals": "Ukraine's coverage introduces military enforcement vocabulary exclusive to this bucket: 'armed servicemen' and 'mobile polling teams' in occupied territories — a dimension absent from all other outlets."
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "terms": ["face"],
+      "what_it_reveals": "UK exclusive vocabulary centers on economic-hardship framing: 'Russians face mounting economic woes' — the only outlet to position the voter as an agent bearing consequences rather than as a passive subject of the Kremlin."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "quote": "Russia's first parliamentary election since the invasion opens with no antiwar party on the ballot.",
+      "signal_text_idx": 3
+    },
+    "b": {
+      "outlet": "Daily Mail",
+      "country": "uk",
+      "quote": "Russians begin voting in staged election Putin is guaranteed to win - with parties that support his war the only ones allowed to enter",
+      "signal_text_idx": 5
+    },
+    "joint_conclusion": "A pan-Arab outlet that typically challenges Western narratives about the Russia-Ukraine conflict and a pro-Brexit UK tabloid that is instinctively anti-Putin converge on the identical structural verdict: Russia's 2026 Duma election permitted only pro-war parties on the ballot, rendering the ballot design itself the news."
+  },
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "Mainland Chinese state media is absent despite close Russia-China diplomatic and economic ties; Chinese outlets would likely have legitimized the election as a domestic sovereign exercise rather than foregrounding ballot restrictions."
+    },
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No major US outlet appears in this cluster despite the US being Ukraine's leading military backer; US domestic outlets likely folded the election into Ukraine-aid policy coverage or sanctions-effectiveness debates rather than centering ballot-design illegitimacy."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Only outlet to report that Russia deployed armed troops and police to accompany mobile polling teams in occupied Ukrainian territories; quotes Ukraine's FM Sybiha calling the process a 'farce'.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to note that Ukraine launched over 350 drones at the Moscow region overnight as voters headed to the polls, situating the election within an active military exchange.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Only outlet to cite a specific war-casualty figure: 'More than 1.5 million Russian soldiers have been killed or wounded,' attributing to Western estimates — a number absent from all other outlets in the cluster.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Moscow Times",
+      "country": "russia",
+      "finding": "Sole outlet to argue the election retains analytical value despite its foregone result: 'experts say the vote remains an important gauge of public sentiment' — a contrarian read absent from all other coverage.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Jerusalem Post",
+      "country": "israel",
+      "finding": "Only outlet to mention 'speculation about a possible new mobilization' alongside the election, adding a forward-looking military-manpower dimension not raised elsewhere.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Conversation",
+      "country": "opinion_magazines",
+      "finding": "Only outlet to reframe what is worth watching: 'vote tally, turnout and level of coercion will tell the real story' — an analytical lens centered on process rather than outcome.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to lead with Russian economic hardship as the primary angle rather than political control or war legitimation.",
+      "signal_text_idx": 21
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Inverts the conventional story structure by leading with the Ukrainian drone barrage as the headline event, subordinating the election itself.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Global coverage of Russia's 2026 Duma election achieves near-consensus that the ballot was engineered to guarantee United Russia's dominance, with the only anti-war party excluded — an alignment that erases the usual editorial gap between Western liberal outlets and Qatar's Al Jazeera. The most under-covered dimension is Russia's forced voting in occupied Ukrainian territories under armed escort, reported exclusively by Kyiv Post while all 17 other outlets treat the election as a purely domestic Russian event.",
+  "generated_at": "2026-09-18T08:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
