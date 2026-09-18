@@ -1,0 +1,159 @@
+{
+  "story_key": "L8563bce905",
+  "date": "2026-09-18",
+  "n_buckets": 8,
+  "n_articles": 16,
+  "tldr": "Headlines across all outlets describe Russia/Putin seizing or placing under 'temporary administration' the Russian assets of Nestlé and French firms; Western outlets add that the companies are weighing legal options, while Russian state media foreground the Kremlin's official rationale.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Russia seizes Western firms' assets",
+      "buckets": ["wire_services", "france", "germany", "italy", "russia", "kenya"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Russia seizes assets of Swiss food giant Nestle",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Après le transfert de leurs actifs à une société russe",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Tagesschau",
+          "quote": "Putin stellt Nestlé in Russland unter Zwangsverwaltung",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "italy",
+          "outlet": "La Repubblica",
+          "quote": "Putin mette le mani sulle filiali russe di Nestlé",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Putin put Russian assets of French supermarket chain",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Russia seizes assets of Nestle, French firms",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Companies weighing options post-seizure",
+      "buckets": ["france", "russia", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Auchan et Nestlé cherchent la parade",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Nestlé Weighing All Options After Kremlin Takes Control",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Nestle weighing all options after Kremlin moves to seize",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Firms vow to protect their rights",
+      "buckets": ["russia", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "taking all necessary steps to protect its rights",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Nestlé responds to seizure of its business in Russia",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Kremlin explains rationale for seizures",
+      "buckets": ["russia_native"],
+      "evidence": [
+        {
+          "bucket": "russia_native",
+          "outlet": "Argumenty i Fakty",
+          "quote": "Песков объяснил решение передать активы «Ашана» и Nestle",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "Kommersant",
+          "quote": "Песков объяснил передачу активов Auchan и Nestle",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "russia_native",
+      "mean_similarity": 0.632,
+      "n_tokens": 104
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.642,
+      "n_tokens": 223
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.669,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.714,
+      "n_tokens": 117
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.724,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.755,
+      "n_tokens": 471
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.776,
+      "n_tokens": 303
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage uniformly advertises Russia's seizure of Western corporate assets as a geopolitical act, with Western outlets adding a legal-options angle and Russian state media foregrounding the Kremlin's justification of 'hostile countries'.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
