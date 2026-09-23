@@ -1,0 +1,99 @@
+{
+  "story_key": "Lee825dcb63",
+  "date": "2026-09-23",
+  "n_buckets": 7,
+  "n_articles": 13,
+  "tldr": "Headlines universally frame US sanctions as the direct mechanism grounding Iranian carriers, with China's public rejection of the measures as 'illegal' surfacing as the only visible counter-narrative at the title level.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "sanctions ground Iranian carriers",
+      "buckets": ["turkey", "iran_opposition", "vietnam_thai_my", "pan_arab", "kenya"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Bianet English",
+          "quote": "Turkey's major airlines suspend flights to Iran after US",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Iranian Flights Canceled As New US Aviation Sanctions",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Iran airlines suspend more international flights",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Iran suspends all flights to Baghdad, Muscat, Qatar",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Iran airlines cancel flights as US sanctions hit",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "China rejects US sanctions as illegal",
+      "buckets": ["taiwan_hk", "iran_state", "pan_arab"],
+      "evidence": [
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Hong Kong Free Press",
+          "quote": "China says opposes 'illegal' US sanctions on Iran airlines",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "China rejects US sanctions on Iranian airlines",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Iranian flight lands in China despite US sanctions threat",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "US pressure squeezes air links",
+      "buckets": ["iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Flying to or from Iran? What to know as US pressure",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "taiwan_hk", "mean_similarity": 0.735, "n_tokens": 40},
+    {"bucket": "turkey", "mean_similarity": 0.743, "n_tokens": 116},
+    {"bucket": "kenya", "mean_similarity": 0.79, "n_tokens": 231},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.807, "n_tokens": 256},
+    {"bucket": "iran_opposition", "mean_similarity": 0.817, "n_tokens": 286},
+    {"bucket": "pan_arab", "mean_similarity": 0.838, "n_tokens": 105}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer presents a single dominant message — US sanctions are forcing Iranian airline cancellations — while China's open defiance, labelling the measures 'illegal' and allowing a sanctioned Iranian flight to complete a Guangzhou landing, is the only counter-frame visible before any reader clicks through.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
