@@ -1,0 +1,247 @@
+{
+  "story_key": "Lcc15a08717",
+  "date": "2026-09-23",
+  "n_buckets": 15,
+  "n_articles": 30,
+  "tldr": "Headlines across all 15 buckets frame Trump's White House media ban primarily as a legal confrontation — lawsuits, court hearings, and the 'access is a privilege' doctrine dominate globally. The press-pool solidarity boycott is the secondary headline angle, prominent in pan-African, Turkish, and wire-service coverage, while U.S. and Brussels-beltway outlets uniquely surface 'national security' as itself a newsworthy framing device.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "First Amendment court battle for press access",
+      "buckets": [
+        "wire_services",
+        "usa",
+        "canada",
+        "japan",
+        "india",
+        "france",
+        "vietnam_thai_my",
+        "brazil",
+        "nigeria",
+        "germany",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "CNN, MS NOW, Politico sues White House over blocked access",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "News outlets will ask judge to end Trump's White House ban",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Trump's White House media ban faces long odds in court",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "L'accès à la Maison Blanche est « un privilège, pas un droit",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "accuses banned media outlets of 'falsehoods' ahead of court",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "Vanguard",
+          "quote": "US Justice Dept insists Trump can deny journalists",
+          "signal_text_idx": 28
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Nach Rauswurf: US-Medien klagen gegen Trump-Regierung",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "CNN, MS NOW and Politico sue Trump administration",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "News outlets will ask judge to end Trump's White House ban",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "O Globo",
+          "quote": "argumenta que acesso é 'privilégio'",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Trump's White House media ban faces long odds in court",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump's media purge sparks press-pool solidarity",
+      "buckets": [
+        "pan_african",
+        "turkey",
+        "wire_services",
+        "canada",
+        "vietnam_thai_my",
+        "india",
+        "kenya"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Trump media ban sparks solidarity among US news outlets",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Major US TV networks pause White House pool coverage",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Top US networks suspend Trump pool coverage",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Did Trump just silence himself?",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "US broadcasters halt White House pool coverage in protest",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Trump vs media: What is the White House press pool",
+          "signal_text_idx": 27
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "National security cited to justify press ban",
+      "buckets": [
+        "usa",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "\"National security\" becomes Trump's executive sledgehammer",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Trump cites national security, midterms coverage",
+          "signal_text_idx": 19
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.692,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.723,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.731,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.787,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.788,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.8,
+      "n_tokens": 182
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.807,
+      "n_tokens": 93
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.815,
+      "n_tokens": 73
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.815,
+      "n_tokens": 310
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.819,
+      "n_tokens": 68
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "note": "Only headline in the corpus to frame the ban as exposure of a pre-existing journalistic fraud ('The Biggest Scam In American Journalism EXPOSED') rather than a press-freedom crisis — the lone headline that treats the ban as justified rather than alarming."
+    },
+    {
+      "outlet": "Axios World",
+      "bucket": "usa",
+      "note": "Only headline to use 'national security' as the rhetorical subject itself, calling it Trump's 'executive sledgehammer' — foregrounds the pattern of invocation rather than the specific ban, diverging from every other outlet's event-centered framing."
+    },
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "note": "Only headline to invert the power dynamic: 'Did Trump just silence himself?' frames the ban as potentially self-defeating rather than a successful exercise of executive control — a reflexive angle absent from all other titles."
+    },
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "note": "Only headline to put direct speech front and centre: ''UN allowed us in, sir'' dramatizes a reporter confronting Trump, foregrounding individual defiance over the institutional legal battle that dominates every other outlet's title."
+    }
+  ],
+  "bottom_line": "At the headline layer, global coverage collapses this story into a First Amendment court battle — lawsuits, court hearings, and the 'privilege not a right' doctrine span 11 of 15 buckets — while the solidarity boycott reads as a secondary signal exclusive to pan-African, Turkish, and wire-service titles, and the 'national security' framing appears only in U.S. and Brussels-beltway outlets.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
