@@ -1,0 +1,121 @@
+{
+  "story_key": "L4f726c1550",
+  "date": "2026-09-23",
+  "n_buckets": 11,
+  "n_articles": 12,
+  "tldr": "Headlines predominantly frame Iran's UNGA appearance through the lens of Trump's 'annihilate Iran' threat and the ongoing US-Israel-Iran war, while French, Southeast Asian, and Kenyan titles pivot toward diplomatic hopes and Iran's foreign-policy defiance; Iran's state media issues only neutral procedural titles, and Iran International uniquely foregrounds the domestic political squeeze bearing on Pezeshkian.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US-Iran war & annihilation threat",
+      "buckets": ["wire_services", "china", "usa", "india", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "US, Israel launched Iran war",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "amid rising tensions with US",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "converge on NYC for 'dramatic' UN showdown",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "likely to respond to Trump's 'annihilate Iran' remark",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "after Trump threatens 'annihilation'",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Pezeshkian's diplomacy vs defiance",
+      "buckets": ["france", "vietnam_thai_my", "kenya"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "possibles négociations avec Trump",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "amid hopes for diplomacy",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "vows to 'firmly defend' country's positions at UN",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Domestic squeeze over Trump meeting",
+      "buckets": ["iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Pezeshkian squeezed at home over meeting Trump",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "uk", "mean_similarity": 0.643, "n_tokens": 30},
+    {"bucket": "china", "mean_similarity": 0.657, "n_tokens": 183},
+    {"bucket": "iran_opposition", "mean_similarity": 0.66, "n_tokens": 32},
+    {"bucket": "usa", "mean_similarity": 0.677, "n_tokens": 35},
+    {"bucket": "qatar", "mean_similarity": 0.68, "n_tokens": 59},
+    {"bucket": "india", "mean_similarity": 0.694, "n_tokens": 217},
+    {"bucket": "iran_state", "mean_similarity": 0.703, "n_tokens": 56},
+    {"bucket": "wire_services", "mean_similarity": 0.736, "n_tokens": 46},
+    {"bucket": "france", "mean_similarity": 0.756, "n_tokens": 48}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["qatar", "iran_state"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline to frame the UNGA encounter as a spectator 'showdown' and explicitly flag punitive US movement restrictions on Tehran's delegation — 'Tehran faces tight restrictions' — casting the event as adversarial theatre rather than a diplomatic forum.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "Sole outlet to pivot the story entirely inward — 'squeezed at home over meeting Trump' — foregrounding Pezeshkian's domestic political vulnerability rather than the international war or diplomatic stakes that drive every other headline.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "IRNA English",
+      "bucket": "iran_state",
+      "finding": "Both IRNA titles ('arrives in New York for UN General Assembly'; 'to address UN General Assembly today') are purely procedural, uniquely absent any reference to the war, Trump's annihilation threat, or diplomatic negotiations — an editorial silence that stands out against the confrontation framing dominant worldwide.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "Headline coverage is dominated by the war-and-annihilation-threat frame, with the peace-or-destruction binary Trump articulated at UNGA the day before driving most editorial choices — except Iran's state media, which alone issues neutral arrival notices, and Iranian opposition media, which uniquely turns the lens on Pezeshkian's domestic political peril.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
