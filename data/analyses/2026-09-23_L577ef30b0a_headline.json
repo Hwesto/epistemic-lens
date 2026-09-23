@@ -1,0 +1,142 @@
+{
+  "story_key": "L577ef30b0a",
+  "date": "2026-09-23",
+  "n_buckets": 8,
+  "n_articles": 20,
+  "tldr": "Across 20 headlines the dominant framing splits cleanly by region: Andean, Mexican, Turkish, and wire-service outlets foreground the historic first Trump–Rodríguez diplomatic encounter at UNGA, while Japanese, Singaporean, and Hong Kong titles lead with Machado's blocked return attempts; Brazilian outlets diverge from everyone else by uniquely surfacing US military threats in Latin America and Lula's fraught electoral position at the UN.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Historic US-Venezuela meeting at UNGA",
+      "buckets": ["turkey", "mexico", "colombia_ven_peru", "brazil", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Venezuela's Rodriguez hold 1st meeting since Maduro ouster",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "Donald Trump y Delcy Rodríguez se reúnen por primera vez",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "colombia_ven_peru",
+          "outlet": "El Tiempo Colombia",
+          "quote": "calificó de histórica su reunión con Donald Trump",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Líder interina da Venezuela faz 1ª visita aos EUA",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Trump meets Venezuela's Rodriguez for first time",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Machado blocked; Lula under US pressure",
+      "buckets": ["japan", "taiwan_hk", "vietnam_thai_my", "wire_services", "brazil"],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Machado fails to slip back into Venezuela",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Exiled opposition leader tries to enter Venezuela",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Machado fails in return attempts as Rodriguez meets Trump",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Machado fails in return attempts as Rodriguez meets Trump",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "As tensões e incertezas que envolvem discurso de Lula na ONU",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US military threat & Latin cartel pact",
+      "buckets": ["brazil"],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "14 países da região se comprometem a combater facções",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "'A próxima coisa que veremos é ação militar direta'",
+          "signal_text_idx": 1
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "brazil", "mean_similarity": 0.587, "n_tokens": 361},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.661, "n_tokens": 67},
+    {"bucket": "wire_services", "mean_similarity": 0.682, "n_tokens": 60},
+    {"bucket": "colombia_ven_peru", "mean_similarity": 0.683, "n_tokens": 75},
+    {"bucket": "turkey", "mean_similarity": 0.7, "n_tokens": 30},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.715, "n_tokens": 80}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "El Tiempo Colombia",
+      "bucket": "colombia_ven_peru",
+      "finding": "Only headline to locate the meeting 'a pocos kilómetros de la prisión de Maduro' and note that 'solo cuatro funcionarios de EE. UU. estuvieron presentes' — the sole title foregrounding secrecy and Maduro's geographic shadow over the diplomacy.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "El Tiempo Colombia",
+      "bucket": "colombia_ven_peru",
+      "finding": "Only headline to quote Rodríguez calling the meeting 'histórica' and thanking Trump for his 'respaldo' — the most politically charged title language in the corpus, absent from all other 19 headlines.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "BBC Brasil",
+      "bucket": "brazil",
+      "finding": "Sole outlet whose headline quotes a prediction of 'ação militar direta dos EUA em diferentes países' — a threat-of-military-action framing entirely absent from every other outlet's title.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Japan Times",
+      "bucket": "japan",
+      "finding": "Only headline to use 'slip back' — covert, furtive framing of Machado's return attempt — while every other outlet uses neutral 'fails to enter' or 'fails in return attempts.'",
+      "signal_text_idx": 12
+    }
+  ],
+  "bottom_line": "At the headline layer, non-Latin outlets (Asia, wire services) lead with Machado's blocked return while Spanish-language outlets foreground the historic Trump–Rodríguez diplomatic encounter; BBC Brasil alone surfaces a military-intervention frame that is invisible in every other outlet's title.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
