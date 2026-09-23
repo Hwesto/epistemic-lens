@@ -1,0 +1,371 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 20,
+  "buckets": [
+    "brazil",
+    "colombia_ven_peru",
+    "japan",
+    "mexico",
+    "taiwan_hk",
+    "turkey",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "brazil": 361,
+    "turkey": 30,
+    "mexico": 27,
+    "colombia_ven_peru": 75,
+    "japan": 26,
+    "wire_services": 60,
+    "taiwan_hk": 67,
+    "vietnam_thai_my": 80
+  },
+  "pairwise_similarity": [
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.885
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "turkey",
+      "score": 0.858
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "mexico",
+      "score": 0.83
+    },
+    {
+      "a": "mexico",
+      "b": "turkey",
+      "score": 0.825
+    },
+    {
+      "a": "japan",
+      "b": "vietnam_thai_my",
+      "score": 0.807
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.791
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.79
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.7
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.691
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "wire_services",
+      "score": 0.685
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "vietnam_thai_my",
+      "score": 0.667
+    },
+    {
+      "a": "japan",
+      "b": "taiwan_hk",
+      "score": 0.664
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.661
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "taiwan_hk",
+      "score": 0.65
+    },
+    {
+      "a": "brazil",
+      "b": "colombia_ven_peru",
+      "score": 0.649
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.627
+    },
+    {
+      "a": "mexico",
+      "b": "wire_services",
+      "score": 0.622
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.618
+    },
+    {
+      "a": "japan",
+      "b": "wire_services",
+      "score": 0.615
+    },
+    {
+      "a": "brazil",
+      "b": "mexico",
+      "score": 0.602
+    },
+    {
+      "a": "brazil",
+      "b": "wire_services",
+      "score": 0.582
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.558
+    },
+    {
+      "a": "mexico",
+      "b": "vietnam_thai_my",
+      "score": 0.539
+    },
+    {
+      "a": "mexico",
+      "b": "taiwan_hk",
+      "score": 0.515
+    },
+    {
+      "a": "brazil",
+      "b": "japan",
+      "score": 0.475
+    },
+    {
+      "a": "colombia_ven_peru",
+      "b": "japan",
+      "score": 0.444
+    },
+    {
+      "a": "japan",
+      "b": "turkey",
+      "score": 0.441
+    },
+    {
+      "a": "japan",
+      "b": "mexico",
+      "score": 0.327
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.587,
+      "n_tokens": 361
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.661,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.682,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "colombia_ven_peru",
+      "mean_similarity": 0.683,
+      "n_tokens": 75
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.7,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.715,
+      "n_tokens": 80
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.539,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.609,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "brazil": [
+      {
+        "term": "para",
+        "count": 9
+      },
+      {
+        "term": "feira",
+        "count": 6
+      },
+      {
+        "term": "lula",
+        "count": 6
+      },
+      {
+        "term": "cidade",
+        "count": 6
+      },
+      {
+        "term": "país",
+        "count": 5
+      },
+      {
+        "term": "pessoa",
+        "count": 5
+      },
+      {
+        "term": "brasil",
+        "count": 4
+      },
+      {
+        "term": "sobre",
+        "count": 4
+      },
+      {
+        "term": "américa",
+        "count": 4
+      },
+      {
+        "term": "latina",
+        "count": 4
+      },
+      {
+        "term": "quarta",
+        "count": 4
+      },
+      {
+        "term": "assembleia",
+        "count": 4
+      },
+      {
+        "term": "geral",
+        "count": 4
+      },
+      {
+        "term": "nova",
+        "count": 4
+      },
+      {
+        "term": "setembro",
+        "count": 4
+      },
+      {
+        "term": "região",
+        "count": 3
+      },
+      {
+        "term": "discurso",
+        "count": 3
+      },
+      {
+        "term": "americano",
+        "count": 3
+      },
+      {
+        "term": "militar",
+        "count": 3
+      },
+      {
+        "term": "próxima",
+        "count": 3
+      },
+      {
+        "term": "tarot",
+        "count": 3
+      },
+      {
+        "term": "contra",
+        "count": 3
+      },
+      {
+        "term": "grêmio",
+        "count": 3
+      },
+      {
+        "term": "nesta",
+        "count": 3
+      },
+      {
+        "term": "negociaçõ",
+        "count": 3
+      },
+      {
+        "term": "naçõ",
+        "count": 3
+      },
+      {
+        "term": "vídeo",
+        "count": 3
+      },
+      {
+        "term": "mina",
+        "count": 3
+      },
+      {
+        "term": "incêndio",
+        "count": 3
+      },
+      {
+        "term": "indonésia",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "mexico": [],
+    "colombia_ven_peru": [
+      {
+        "term": "jefa",
+        "count": 3
+      },
+      {
+        "term": "asamblea",
+        "count": 3
+      }
+    ],
+    "japan": [],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 6
+      },
+      {
+        "term": "capture",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "vietnam_thai_my": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:29+00:00",
+  "meta_version": "10.0.3"
+}

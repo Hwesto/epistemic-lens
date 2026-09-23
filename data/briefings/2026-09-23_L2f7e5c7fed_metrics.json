@@ -1,0 +1,305 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 19,
+  "buckets": [
+    "india",
+    "russia",
+    "turkey",
+    "uk",
+    "ukraine",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 74,
+    "turkey": 250,
+    "usa": 32,
+    "ukraine": 212,
+    "russia": 95,
+    "india": 93,
+    "vietnam_thai_my": 31,
+    "uk": 34
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.854
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.839
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.817
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.791
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.79
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.785
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.753
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.748
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.741
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.739
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.732
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.718
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.714
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.71
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.707
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.688
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.686
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.678
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.677
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.677
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.668
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.636
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.627
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.626
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.61
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.582
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.575
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.572
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.625,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.673,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.696,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.707,
+      "n_tokens": 93
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.719,
+      "n_tokens": 212
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.722,
+      "n_tokens": 250
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.748,
+      "n_tokens": 95
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.75,
+      "n_tokens": 74
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "pound",
+        "count": 3
+      }
+    ],
+    "turkey": [
+      {
+        "term": "zelenskyy",
+        "count": 6
+      },
+      {
+        "term": "railway",
+        "count": 3
+      }
+    ],
+    "usa": [],
+    "ukraine": [
+      {
+        "term": "transport",
+        "count": 7
+      },
+      {
+        "term": "crash",
+        "count": 4
+      },
+      {
+        "term": "command",
+        "count": 3
+      },
+      {
+        "term": "rubicon",
+        "count": 3
+      },
+      {
+        "term": "depot",
+        "count": 3
+      },
+      {
+        "term": "donetsk",
+        "count": 3
+      },
+      {
+        "term": "luhansk",
+        "count": 3
+      },
+      {
+        "term": "storey",
+        "count": 3
+      },
+      {
+        "term": "centre",
+        "count": 3
+      },
+      {
+        "term": "uavs",
+        "count": 3
+      },
+      {
+        "term": "store",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "kharkiv",
+        "count": 3
+      }
+    ],
+    "india": [
+      {
+        "term": "industrial",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "uk": [
+      {
+        "term": "putin",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:14+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,272 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 13,
+  "buckets": [
+    "brazil",
+    "china",
+    "india",
+    "japan",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "turkey": 57,
+    "brazil": 45,
+    "japan": 27,
+    "vietnam_thai_my": 93,
+    "taiwan_hk": 12,
+    "uk": 117,
+    "india": 64,
+    "china": 31
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.908
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.884
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.879
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.828
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.823
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.821
+    },
+    {
+      "a": "brazil",
+      "b": "turkey",
+      "score": 0.81
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.806
+    },
+    {
+      "a": "brazil",
+      "b": "india",
+      "score": 0.804
+    },
+    {
+      "a": "brazil",
+      "b": "vietnam_thai_my",
+      "score": 0.791
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.776
+    },
+    {
+      "a": "japan",
+      "b": "turkey",
+      "score": 0.765
+    },
+    {
+      "a": "brazil",
+      "b": "uk",
+      "score": 0.763
+    },
+    {
+      "a": "japan",
+      "b": "taiwan_hk",
+      "score": 0.737
+    },
+    {
+      "a": "japan",
+      "b": "vietnam_thai_my",
+      "score": 0.728
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.719
+    },
+    {
+      "a": "japan",
+      "b": "uk",
+      "score": 0.712
+    },
+    {
+      "a": "india",
+      "b": "japan",
+      "score": 0.703
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.702
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.695
+    },
+    {
+      "a": "brazil",
+      "b": "taiwan_hk",
+      "score": 0.691
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.678
+    },
+    {
+      "a": "brazil",
+      "b": "japan",
+      "score": 0.677
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.659
+    },
+    {
+      "a": "china",
+      "b": "japan",
+      "score": 0.622
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.619
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.615
+    },
+    {
+      "a": "brazil",
+      "b": "china",
+      "score": 0.583
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.645,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.731,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.746,
+      "n_tokens": 117
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.797,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.8,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.801,
+      "n_tokens": 93
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.706,
+      "n_tokens": 27
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.715,
+      "n_tokens": 12
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "turkey": [],
+    "brazil": [
+      {
+        "term": "tufão",
+        "count": 3
+      },
+      {
+        "term": "chuva",
+        "count": 3
+      },
+      {
+        "term": "pessoa",
+        "count": 3
+      },
+      {
+        "term": "japão",
+        "count": 3
+      }
+    ],
+    "japan": [
+      {
+        "term": "prefecture",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "taiwan_hk": [],
+    "uk": [
+      {
+        "term": "island",
+        "count": 3
+      },
+      {
+        "term": "again",
+        "count": 3
+      },
+      {
+        "term": "expected",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "china": [
+      {
+        "term": "central",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:04+00:00",
+  "meta_version": "10.0.3"
+}

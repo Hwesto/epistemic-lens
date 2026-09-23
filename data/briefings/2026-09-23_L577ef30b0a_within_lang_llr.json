@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 233,
+      "distinctive_terms": []
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 237,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 203,
+      "distinctive_terms": [
+        {
+          "term": "reuter",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.1,
+          "rate_in_cohort": 0.0,
+          "llr": 18.217,
+          "log_ratio": null,
+          "p_value": 2e-05
+        }
+      ]
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 67,
+      "n_tokens_in_cohort": 196,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 5,
+      "n_tokens_in_bucket": 80,
+      "n_tokens_in_cohort": 183,
+      "distinctive_terms": []
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 75,
+      "distinctive_terms": []
+    },
+    "colombia_ven_peru": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 75,
+      "n_tokens_in_cohort": 27,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

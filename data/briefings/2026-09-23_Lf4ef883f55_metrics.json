@@ -1,0 +1,283 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 13,
+  "buckets": [
+    "india",
+    "korea_north",
+    "pakistan",
+    "qatar",
+    "south_korea",
+    "taiwan_hk",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "india": 142,
+    "pakistan": 20,
+    "qatar": 31,
+    "vietnam_thai_my": 20,
+    "south_korea": 277,
+    "korea_north": 67,
+    "taiwan_hk": 12
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 1.0
+    },
+    {
+      "a": "korea_north",
+      "b": "south_korea",
+      "score": 0.867
+    },
+    {
+      "a": "qatar",
+      "b": "south_korea",
+      "score": 0.793
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.78
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.719
+    },
+    {
+      "a": "korea_north",
+      "b": "qatar",
+      "score": 0.717
+    },
+    {
+      "a": "india",
+      "b": "south_korea",
+      "score": 0.715
+    },
+    {
+      "a": "pakistan",
+      "b": "south_korea",
+      "score": 0.713
+    },
+    {
+      "a": "south_korea",
+      "b": "vietnam_thai_my",
+      "score": 0.713
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.702
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.702
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.658
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.658
+    },
+    {
+      "a": "india",
+      "b": "korea_north",
+      "score": 0.65
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.641
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.641
+    },
+    {
+      "a": "korea_north",
+      "b": "pakistan",
+      "score": 0.622
+    },
+    {
+      "a": "korea_north",
+      "b": "vietnam_thai_my",
+      "score": 0.622
+    },
+    {
+      "a": "south_korea",
+      "b": "taiwan_hk",
+      "score": 0.597
+    },
+    {
+      "a": "korea_north",
+      "b": "taiwan_hk",
+      "score": 0.587
+    },
+    {
+      "a": "qatar",
+      "b": "taiwan_hk",
+      "score": 0.553
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.677,
+      "n_tokens": 67
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.691,
+      "n_tokens": 142
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.707,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.733,
+      "n_tokens": 277
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.629,
+      "n_tokens": 12
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.723,
+      "n_tokens": 20
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.723,
+      "n_tokens": 20
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "india": [
+      {
+        "term": "bags",
+        "count": 3
+      },
+      {
+        "term": "complet",
+        "count": 3
+      },
+      {
+        "term": "redemption",
+        "count": 3
+      },
+      {
+        "term": "hangzhou",
+        "count": 3
+      },
+      {
+        "term": "heartbreak",
+        "count": 3
+      },
+      {
+        "term": "badminton",
+        "count": 3
+      },
+      {
+        "term": "finish",
+        "count": 3
+      },
+      {
+        "term": "loss",
+        "count": 3
+      },
+      {
+        "term": "life",
+        "count": 3
+      },
+      {
+        "term": "complete",
+        "count": 3
+      },
+      {
+        "term": "dream",
+        "count": 3
+      },
+      {
+        "term": "come",
+        "count": 3
+      },
+      {
+        "term": "true",
+        "count": 3
+      }
+    ],
+    "pakistan": [],
+    "qatar": [],
+    "vietnam_thai_my": [],
+    "south_korea": [
+      {
+        "term": "individual",
+        "count": 4
+      },
+      {
+        "term": "choo",
+        "count": 4
+      },
+      {
+        "term": "shooting",
+        "count": 4
+      },
+      {
+        "term": "asiad",
+        "count": 4
+      },
+      {
+        "term": "total",
+        "count": 4
+      },
+      {
+        "term": "fencer",
+        "count": 3
+      },
+      {
+        "term": "epee",
+        "count": 3
+      },
+      {
+        "term": "snatch",
+        "count": 3
+      },
+      {
+        "term": "clean",
+        "count": 3
+      },
+      {
+        "term": "jerk",
+        "count": 3
+      }
+    ],
+    "korea_north": [],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:57+00:00",
+  "meta_version": "10.0.3"
+}

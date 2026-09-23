@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 116,
+      "n_tokens_in_cohort": 941,
+      "distinctive_terms": []
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 40,
+      "n_tokens_in_cohort": 1017,
+      "distinctive_terms": []
+    },
+    "iran_opposition": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 286,
+      "n_tokens_in_cohort": 771,
+      "distinctive_terms": [
+        {
+          "term": "september",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01748,
+          "rate_in_cohort": 0.0,
+          "llr": 13.136,
+          "log_ratio": null,
+          "p_value": 0.00029
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 256,
+      "n_tokens_in_cohort": 801,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 105,
+      "n_tokens_in_cohort": 952,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 231,
+      "n_tokens_in_cohort": 826,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 7,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 1034,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

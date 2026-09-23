@@ -1,0 +1,220 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 13,
+  "buckets": [
+    "iran_opposition",
+    "iran_state",
+    "kenya",
+    "pan_arab",
+    "taiwan_hk",
+    "turkey",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "turkey": 116,
+    "taiwan_hk": 40,
+    "iran_opposition": 286,
+    "vietnam_thai_my": 256,
+    "pan_arab": 105,
+    "kenya": 231,
+    "iran_state": 23
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pan_arab",
+      "b": "vietnam_thai_my",
+      "score": 0.915
+    },
+    {
+      "a": "iran_opposition",
+      "b": "vietnam_thai_my",
+      "score": 0.891
+    },
+    {
+      "a": "iran_opposition",
+      "b": "pan_arab",
+      "score": 0.886
+    },
+    {
+      "a": "kenya",
+      "b": "pan_arab",
+      "score": 0.869
+    },
+    {
+      "a": "iran_opposition",
+      "b": "kenya",
+      "score": 0.854
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.853
+    },
+    {
+      "a": "kenya",
+      "b": "vietnam_thai_my",
+      "score": 0.85
+    },
+    {
+      "a": "pan_arab",
+      "b": "taiwan_hk",
+      "score": 0.825
+    },
+    {
+      "a": "pan_arab",
+      "b": "turkey",
+      "score": 0.8
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.782
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.772
+    },
+    {
+      "a": "kenya",
+      "b": "taiwan_hk",
+      "score": 0.754
+    },
+    {
+      "a": "iran_state",
+      "b": "pan_arab",
+      "score": 0.733
+    },
+    {
+      "a": "iran_opposition",
+      "b": "taiwan_hk",
+      "score": 0.732
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.719
+    },
+    {
+      "a": "iran_state",
+      "b": "taiwan_hk",
+      "score": 0.717
+    },
+    {
+      "a": "iran_state",
+      "b": "vietnam_thai_my",
+      "score": 0.695
+    },
+    {
+      "a": "iran_opposition",
+      "b": "iran_state",
+      "score": 0.688
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.662
+    },
+    {
+      "a": "iran_state",
+      "b": "kenya",
+      "score": 0.632
+    },
+    {
+      "a": "iran_state",
+      "b": "turkey",
+      "score": 0.589
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.735,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.743,
+      "n_tokens": 116
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.79,
+      "n_tokens": 231
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.807,
+      "n_tokens": 256
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.817,
+      "n_tokens": 286
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.838,
+      "n_tokens": 105
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.675,
+      "n_tokens": 23
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "turkey": [
+      {
+        "term": "aircraft",
+        "count": 4
+      }
+    ],
+    "taiwan_hk": [],
+    "iran_opposition": [
+      {
+        "term": "september",
+        "count": 5
+      },
+      {
+        "term": "pressure",
+        "count": 3
+      },
+      {
+        "term": "march",
+        "count": 3
+      },
+      {
+        "term": "talk",
+        "count": 3
+      },
+      {
+        "term": "york",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "pan_arab": [
+      {
+        "term": "tracker",
+        "count": 4
+      }
+    ],
+    "kenya": [],
+    "iran_state": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:49+00:00",
+  "meta_version": "10.0.3"
+}

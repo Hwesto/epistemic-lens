@@ -1,0 +1,372 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 12,
+  "buckets": [
+    "canada",
+    "india",
+    "italy",
+    "opinion_magazines",
+    "spain",
+    "taiwan_hk",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "uk": 79,
+    "usa": 98,
+    "canada": 36,
+    "spain": 28,
+    "italy": 73,
+    "vietnam_thai_my": 27,
+    "taiwan_hk": 10,
+    "opinion_magazines": 18,
+    "india": 31
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.777
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.776
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.765
+    },
+    {
+      "a": "spain",
+      "b": "vietnam_thai_my",
+      "score": 0.737
+    },
+    {
+      "a": "canada",
+      "b": "spain",
+      "score": 0.734
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.718
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.701
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.68
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.675
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "vietnam_thai_my",
+      "score": 0.667
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.654
+    },
+    {
+      "a": "spain",
+      "b": "usa",
+      "score": 0.649
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.64
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.625
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.618
+    },
+    {
+      "a": "spain",
+      "b": "uk",
+      "score": 0.599
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.596
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.586
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.58
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.571
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "spain",
+      "score": 0.569
+    },
+    {
+      "a": "india",
+      "b": "spain",
+      "score": 0.558
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.555
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.545
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.529
+    },
+    {
+      "a": "italy",
+      "b": "spain",
+      "score": 0.524
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.515
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.508
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.498
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.495
+    },
+    {
+      "a": "spain",
+      "b": "taiwan_hk",
+      "score": 0.494
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.49
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.475
+    },
+    {
+      "a": "italy",
+      "b": "opinion_magazines",
+      "score": 0.428
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.398
+    },
+    {
+      "a": "italy",
+      "b": "taiwan_hk",
+      "score": 0.328
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.552,
+      "n_tokens": 98
+    },
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.557,
+      "n_tokens": 73
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.612,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.639,
+      "n_tokens": 79
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.659,
+      "n_tokens": 36
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.481,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.548,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.608,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.658,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "uk": [
+      {
+        "term": "driver",
+        "count": 5
+      }
+    ],
+    "usa": [
+      {
+        "term": "protester",
+        "count": 4
+      },
+      {
+        "term": "president",
+        "count": 4
+      },
+      {
+        "term": "wake",
+        "count": 4
+      },
+      {
+        "term": "illegal",
+        "count": 4
+      },
+      {
+        "term": "alien",
+        "count": 4
+      },
+      {
+        "term": "joaquin",
+        "count": 4
+      },
+      {
+        "term": "castro",
+        "count": 4
+      },
+      {
+        "term": "basically",
+        "count": 4
+      },
+      {
+        "term": "torturing",
+        "count": 4
+      },
+      {
+        "term": "threaten",
+        "count": 3
+      },
+      {
+        "term": "lawles",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "treated",
+        "count": 3
+      },
+      {
+        "term": "paralysi",
+        "count": 3
+      },
+      {
+        "term": "left",
+        "count": 3
+      },
+      {
+        "term": "side",
+        "count": 3
+      }
+    ],
+    "spain": [],
+    "italy": [
+      {
+        "term": "agenti",
+        "count": 4
+      },
+      {
+        "term": "auto",
+        "count": 3
+      },
+      {
+        "term": "spari",
+        "count": 3
+      },
+      {
+        "term": "rider",
+        "count": 3
+      },
+      {
+        "term": "venezuelano",
+        "count": 3
+      },
+      {
+        "term": "dall",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "taiwan_hk": [],
+    "opinion_magazines": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:07+00:00",
+  "meta_version": "10.0.3"
+}

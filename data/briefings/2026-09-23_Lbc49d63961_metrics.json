@@ -1,0 +1,347 @@
+{
+  "date": "2026-09-23",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 19,
+  "buckets": [
+    "canada",
+    "china",
+    "germany",
+    "kenya",
+    "opinion_magazines",
+    "russia",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "usa": 155,
+    "uk": 26,
+    "canada": 107,
+    "china": 92,
+    "turkey": 61,
+    "germany": 29,
+    "opinion_magazines": 14,
+    "russia": 48,
+    "kenya": 20,
+    "taiwan_hk": 10
+  },
+  "pairwise_similarity": [
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.921
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.92
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.917
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.91
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.905
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.902
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.88
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.871
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.856
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.838
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.826
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.818
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.818
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.815
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.812
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.804
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.8
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.768
+    },
+    {
+      "a": "kenya",
+      "b": "turkey",
+      "score": 0.763
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.758
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.757
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.745
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.735
+    },
+    {
+      "a": "kenya",
+      "b": "usa",
+      "score": 0.717
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.716
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.712
+    },
+    {
+      "a": "china",
+      "b": "kenya",
+      "score": 0.702
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.697
+    },
+    {
+      "a": "kenya",
+      "b": "uk",
+      "score": 0.683
+    },
+    {
+      "a": "russia",
+      "b": "taiwan_hk",
+      "score": 0.683
+    },
+    {
+      "a": "canada",
+      "b": "kenya",
+      "score": 0.676
+    },
+    {
+      "a": "china",
+      "b": "opinion_magazines",
+      "score": 0.676
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.675
+    },
+    {
+      "a": "kenya",
+      "b": "taiwan_hk",
+      "score": 0.664
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.662
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.653
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.625
+    },
+    {
+      "a": "china",
+      "b": "taiwan_hk",
+      "score": 0.62
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.611
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.596
+    },
+    {
+      "a": "germany",
+      "b": "kenya",
+      "score": 0.586
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.581
+    },
+    {
+      "a": "kenya",
+      "b": "russia",
+      "score": 0.554
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.529
+    },
+    {
+      "a": "kenya",
+      "b": "opinion_magazines",
+      "score": 0.449
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.754,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.784,
+      "n_tokens": 107
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.796,
+      "n_tokens": 92
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.816,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.819,
+      "n_tokens": 155
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.64,
+      "n_tokens": 14
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.644,
+      "n_tokens": 20
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.647,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.709,
+      "n_tokens": 26
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.771,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "usa": [
+      {
+        "term": "plan",
+        "count": 4
+      },
+      {
+        "term": "sourc",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "canada": [
+      {
+        "term": "changed",
+        "count": 3
+      }
+    ],
+    "china": [],
+    "turkey": [],
+    "germany": [],
+    "opinion_magazines": [],
+    "russia": [],
+    "kenya": [],
+    "taiwan_hk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-23T13:11:36+00:00",
+  "meta_version": "10.0.3"
+}
