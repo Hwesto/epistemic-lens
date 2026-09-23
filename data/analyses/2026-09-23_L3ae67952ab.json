@@ -1,0 +1,160 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-23",
+  "lineage_id": "L3ae67952ab",
+  "cluster_id": 90,
+  "cluster_name": "Hurricane Polo reaches Category 5 off Mexico's Pacific coast",
+  "n_outlets": 13,
+  "n_countries": 7,
+  "n_articles": 14,
+  "salience_score": 2.94,
+  "event_summary": "Hurricane Polo reached Category 5 with 165 mph winds on September 22–23, 2026, tracking parallel to Mexico’s southwestern Pacific coast. Mexican authorities suspended schools in Guerrero and Michoacán and activated the DN-III-E emergency plan; President Sheinbaum said direct landfall was unlikely.",
+  "tldr": "The most striking feature of this cluster is near-unanimous scientific framing across all seven countries: 13 outlets lead with Polo’s record-breaking intensification speed and El Niño attribution rather than human-impact or political accountability. Polo intensified from tropical storm to Category 5 in under 36 hours, placing it among the fastest-intensifying Pacific storms on record alongside Patricia (2015) and Otis (2023). Mexican domestic outlets (La Jornada, El Sol de Mexico, Mexico News Daily) pivot quickly to government response and which specific coastal states face risk, while English-language outlets from the UK, Canada, and India foreground the meteorological record. Only The Independent (UK) surfaces a US domestic angle—moisture reaching the American Southwest—making it the sole outlet to cast this as a story with cross-border reach beyond Mexico. Globe and Mail uniquely contextualizes Polo as the third Category 5 hurricane of the 2026 Pacific season, after Genevieve and Lowell, implying an exceptional season-level pattern that no other outlet names.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "life-threatening flooding and extreme wind risk",
+      "outlets": ["AFP / France 24 EN", "CBC World", "Hindustan Times", "Mexico News Daily", "The Guardian World", "The Independent"],
+      "countries": ["wire_services", "canada", "india", "mexico", "uk"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Hurricane Polo has strengthened into one of the most powerful Pacific cyclones in decades and is expected to skirt Mexico’s southwestern coast as a Category 5 storm. The Miami-based National Hurricane Center described Polo as an “extremely dangerous” storm, with maximum sustained winds of 165 miles per hour.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Heavy rain could produce flash flooding and mudslides. About eight to 15 centimetres of rain was forecast for Guerrero and Michoacán states, with smaller amounts possible for coastal portions of Oaxaca",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "emergency response mobilization",
+      "outlets": ["El Sol de Mexico", "La Jornada", "Mexico News Daily", "Globe and Mail", "CBC World"],
+      "countries": ["mexico", "canada"],
+      "evidence": [
+        {
+          "outlet": "El Sol de Mexico",
+          "country": "mexico",
+          "quote": "El huracán Polo llegó a categoría 5 en la escala de Saffir Simpson en menos de 24 horas, alcanzando los 282 km/h de vientos sostenidos, por lo que autoridades federales activaron el Plan DN-III-E en fase preventiva",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Mexico News Daily",
+          "country": "mexico",
+          "quote": "The Category 5 hurricane triggered school closings in Guerrero and Michoacán and is dumping rain on southwestern states.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "rapid intensification and El Niño climate attribution",
+      "outlets": ["BBC World", "BBC Brasil", "The Guardian World", "CBC World", "Globe and Mail"],
+      "countries": ["uk", "brazil", "canada"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The large storm in the Pacific Ocean is being driven by warm waters caused by the El Niño weather phenomenon.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "A tropical storm off the south-west coast of Mexico has intensified into a category 5 monster in fewer than 24 hours, fueled by stronger than usual El Niño weather patterns in the Pacific Ocean.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "presidential reassurance and crisis communication",
+      "outlets": ["La Jornada", "CBC World", "BBC Brasil", "Globe and Mail"],
+      "countries": ["mexico", "canada", "brazil"],
+      "evidence": [
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "la presidenta Claudia Sheinbaum Pardo pidió a la población costera de Colima, Jalisco y Michoacán estar atenta a los avisos de Protección Civil referentes al fenómeno",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Mexican President Claudia Sheinbaum said experts indicated that the hurricane was not likely to touch land.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "coastal community disruption",
+      "outlets": ["Globe and Mail", "Mexico News Daily", "El Pais English"],
+      "countries": ["canada", "mexico", "spain"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Beaches emptied out and dark clouds swirled above choppy seas, while Mexican authorities temporarily suspended classes Tuesday in a number of areas.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "authorities said five states are under watch for torrential rain, high surf, flooding and landslides",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "US outlets are absent from this cluster despite the Miami-based National Hurricane Center being the primary cited authority in every article; US domestic coverage likely foregrounded the Southwest moisture angle (flagged only by The Independent) rather than the Mexican coastal threat."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Uniquely frames Polo as having US domestic implications: 'Hurricane Polo could bring a surge of moisture to the Southwest, potentially leading to more showers in the region' — the only outlet in the cluster to cast this as a cross-border story rather than a Mexico-only event.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Provides unique season-level context: 'Polo on Tuesday became the third Category 5 hurricane of the Pacific season, following Genevieve and Lowell earlier this year' — a detail absent from every other outlet that reframes Polo as part of an exceptional 2026 Pacific season rather than a standalone record event.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "BBC Brasil",
+      "country": "brazil",
+      "finding": "Most technically detailed report in the corpus; explicitly places Polo among the three fastest-intensifying Pacific storms on record — 'entre os três fenômenos que mais rapidamente se fortaleceram até a categoria máxima da escala Saffir-Simpson, ao lado dos furacões Otis (2023) e Patricia (2015)' — in Portuguese, while also naming the specific Mexican states facing wind and swell.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "El Sol de Mexico",
+      "country": "mexico",
+      "finding": "Explains the no-landfall forecast through 'bloqueadores ciclónicos' (cyclone blockers), a technical meteorological mechanism that no other outlet names and that gives Mexican readers a scientific rationale for official reassurances that international coverage presents without explanation.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "Grounds the record-setting claim in named academics: quotes University at Albany professor Kristen L. Corbosiero calling Polo 'one of the strongest storms ever in the [Pacific] Basin' and Colorado State’s Phil Klotzbach attributing the intensification directly to El Niño — the most source-attributed piece in the corpus.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Hurricane Polo generated rare cross-continental consensus: 13 outlets across 7 countries converged on the storm’s record-breaking intensity and El Niño attribution with no meaningful framing divergence on whether it posed a serious threat. The editorial fault line is scope rather than interpretation — Mexican outlets focused on which specific coastal states face wind and rain risk and how the government is responding, while international English-language outlets treated Polo’s rapid intensification as the meteorological headline of the 2026 Pacific season.",
+  "generated_at": "2026-09-23T07:42:00Z",
+  "model": "claude-sonnet-4-6"
+}
