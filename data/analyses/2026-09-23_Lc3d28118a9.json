@@ -1,0 +1,197 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-23",
+  "lineage_id": "Lc3d28118a9",
+  "cluster_id": 78,
+  "cluster_name": "South Africa KwaMakhutha township house party shooting kills eleven",
+  "salience_score": 2.52,
+  "n_outlets": 14,
+  "n_countries": 9,
+  "n_articles": 14,
+  "event_summary": "Three armed men opened fire on a house party in KwaMakhutha township near Durban, South Africa, on 22 September 2026, killing 11 people including a pregnant woman and wounding three. Police launched a manhunt and said a gang feud could not be ruled out.",
+  "tldr": "All 14 outlets across 9 countries converge on near-identical factual framing with no editorial divergence — the story was treated as a crime bulletin everywhere. The only contextualising depth came from the two outlets with full body text: BBC Africa linked the shooting to a concurrent wave of femicide near Johannesburg and Ramaphosa's army-deployment declaration, while CBC quoted KZN Premier Thami Ntuli at the scene and noted police were investigating a car torched nearby. Indian outlets Hindustan Times and NDTV World published word-for-word identical wire framing ('awash with legal and illegal firearms') without adding independent editorial material. No domestic South African outlet appears in the corpus, leaving community-level response entirely absent.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "gang turf shooting, manhunt ongoing",
+      "outlets": [
+        "Al Jazeera English",
+        "AllAfrica",
+        "BBC Africa",
+        "BBC World",
+        "CBC World",
+        "Deutsche Welle English",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "South China Morning Post",
+        "Straits Times",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "qatar",
+        "africa_other",
+        "uk",
+        "canada",
+        "germany",
+        "wire_services",
+        "taiwan_hk",
+        "vietnam_thai_my",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "Police say some of the victims were already known to Crime Intelligence in connection with alleged illegal activities, though further details have not been released.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "While the motive of the shooting has not yet been confirmed, the police said they could not rule out a \"feud between rival groupings\".",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Three armed men opened fire on guests at a house party in a township south of the South African city of Durban on Tuesday night, killing at least 11 and injuring three, in what police said could be a gang-related incident.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "endemic gun violence, record murder rate",
+      "outlets": [
+        "BBC Africa",
+        "CBC World",
+        "Hindustan Times",
+        "NDTV World"
+      ],
+      "countries": [
+        "africa_other",
+        "canada",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "South Africa has one of the world's highest murder rates, with police data showing a murder rate equivalent to more than 60 deaths a day.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "South Africa is awash with legal and illegal firearms, and shootings are common, often fuelled by gang rivalry and competition between informal businesses.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "South Africa has extremely high rates of violent crime, with official police statistics recording 5,427 homicides in the latest three-month period between April and June, at an average of nearly 60 homicides a day.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "army deployment and provincial response",
+      "outlets": [
+        "BBC Africa",
+        "CBC World"
+      ],
+      "countries": [
+        "africa_other",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "In February, President Cyril Ramaphosa said organised crime was \"the most immediate threat to our democracy, our society and our economic development\", as he announced that he would be deploying the army to support the police.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Thami Ntuli, the premier of KwaZulu-Natal province, told reporters at the scene that the killings were \"really disturbing.\" He said that there were known problems with drug dealing and illegal firearms in the community.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "civilian victims, heightened community fear",
+      "outlets": [
+        "Al Jazeera English",
+        "BBC Africa",
+        "The Independent"
+      ],
+      "countries": [
+        "qatar",
+        "africa_other",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Armed men open fire at a house party in a Durban township, killing a pregnant woman and 10 others.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "In recent weeks, the gruesome discovery of at least nine murdered women, with some of the bodies dumped by the roadside, has heightened fears in the country.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "The victims were reportedly having a party when armed gunmen stormed the home",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AllAfrica",
+      "country": "africa_other",
+      "finding": "The only outlet to name 'Crime Intelligence' as having had prior knowledge of victims, implying the shooting was targeted rather than random.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "BBC Africa",
+      "country": "africa_other",
+      "finding": "Connects the shooting to an ongoing femicide wave near Johannesburg ('at least nine murdered women … dumped by the roadside') — situating it within a broader pattern of escalating gender-based violence, a frame absent from all other outlets.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "The only outlet to quote a named political official at the scene: KZN Premier Thami Ntuli, who stated 'there were known problems with drug dealing and illegal firearms in the community.'",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "Notes that police were also investigating whether the torching of a car near the house was connected to the shooting — an investigative detail absent from every other outlet.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Publishes a lede identical to Hindustan Times ('South Africa is awash with legal and illegal firearms, and shootings are common, often fuelled by gang rivalry and competition between informal businesses') — both Indian outlets ran undifferentiated wire copy.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The KwaMakhutha shooting generated factually uniform coverage across 14 international outlets in 9 countries, with no outlet diverging editorially — the story was absorbed globally as a crime bulletin. The absence of domestic South African outlets and US media means both the on-the-ground community voice and the gun-policy angle most prominent in American coverage of mass shootings are entirely missing from the corpus.",
+  "generated_at": "2026-09-23T13:29:18Z",
+  "model": "claude-sonnet-4-6"
+}
