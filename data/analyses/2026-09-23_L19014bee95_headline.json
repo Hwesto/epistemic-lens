@@ -1,0 +1,123 @@
+{
+  "story_key": "L19014bee95",
+  "date": "2026-09-23",
+  "n_buckets": 9,
+  "n_articles": 12,
+  "tldr": "Headlines worldwide lead with the visceral medical detail — a Venezuelan delivery driver detained with a bullet lodged in his back — replicated across six buckets from Canada to India. The sole US right-populist outlet (Breitbart) substitutes protest threats against Trump and ICE as the headline story, while The Atlantic alone surfaces the accountability gap (no body camera on the shooting officer).",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "bullet lodged, medical neglect in detention",
+      "buckets": ["canada", "spain", "vietnam_thai_my", "taiwan_hk", "india", "uk"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Man shot by ICE agent in Texas treated for paralysis",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Venezuelan migrant shot by ICE in Austin cites lack",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "detained with bullet still lodged in body",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Man shot by ICE, sent to jail with bullet inside him",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "detained with bullet still lodged in his body: lawyer",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "shot by ICE says he was hauled off to detention center",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "use-of-force, no body cam, new recruit",
+      "buckets": ["italy", "opinion_magazines", "uk"],
+      "evidence": [
+        {
+          "bucket": "italy",
+          "outlet": "La Stampa",
+          "quote": "Gli agenti urtano la sua auto, poi gli spari",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Atlantic",
+          "quote": "The ICE Officer in Austin Wasn't Wearing a Body Cam",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "ICE agent who shot DoorDash driver was recruit who wasn't",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "court blocks deportation of shooting victim",
+      "buckets": ["uk"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "US judge blocks deportation of DoorDash driver shot by ICE",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "protest threats, partisan ICE criticism",
+      "buckets": ["usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Austin Protesters Threaten President, ICE Officers",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Joaquin Castro: 'Lawless' ICE Basically Torturing People",
+          "signal_text_idx": 2
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "usa", "mean_similarity": 0.552, "n_tokens": 98},
+    {"bucket": "italy", "mean_similarity": 0.557, "n_tokens": 73},
+    {"bucket": "india", "mean_similarity": 0.612, "n_tokens": 31},
+    {"bucket": "uk", "mean_similarity": 0.639, "n_tokens": 79},
+    {"bucket": "canada", "mean_similarity": 0.659, "n_tokens": 36}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "At the headline layer, six of nine buckets advertise this story as a medical-neglect incident — a man jailed with a bullet in his back — while the sole US right-populist outlet redirects entirely to protest threats, the sharpest homepage-level divergence in the corpus.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
