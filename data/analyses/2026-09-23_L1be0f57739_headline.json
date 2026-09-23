@@ -1,0 +1,121 @@
+{
+  "story_key": "L1be0f57739",
+  "date": "2026-09-23",
+  "n_buckets": 10,
+  "n_articles": 17,
+  "tldr": "Across 10 country buckets, headlines frame the German state elections almost unanimously as a personal crisis for Chancellor Merz and a historic CDU collapse, with AfD's third regional win treated as a direct blow to the governing centre. Most mastheads place Merz — not the AfD or its voters — as the protagonist, asking how he will respond rather than why Germans voted as they did.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "CDU collapse, AfD surge",
+      "buckets": ["usa", "canada", "turkey", "germany", "vietnam_thai_my", "russia", "kenya", "india", "nordic"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Far-right AfD wins again as Germany's Merz slides",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Germany is electing far-right and socialist parties",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Germany's age of political stability is ending",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Merz reform agenda at risk",
+      "buckets": ["canada", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Germany's Merz struggles to keep agenda on track",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "election losses risk snarling Merz's reform agenda",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "economy shapes the vote in Mecklenburg",
+      "buckets": ["germany"],
+      "evidence": [
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Mecklenburg-Western Pomerania: Will economy shape the vote?",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Cold War history, AfD identity",
+      "buckets": ["opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The New Yorker",
+          "quote": "Can East Germany's Cold War History Explain the Rise",
+          "signal_text_idx": 16
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.677, "n_tokens": 47},
+    {"bucket": "kenya", "mean_similarity": 0.73, "n_tokens": 33},
+    {"bucket": "usa", "mean_similarity": 0.73, "n_tokens": 53},
+    {"bucket": "russia", "mean_similarity": 0.745, "n_tokens": 47},
+    {"bucket": "nordic", "mean_similarity": 0.747, "n_tokens": 54},
+    {"bucket": "germany", "mean_similarity": 0.767, "n_tokens": 61},
+    {"bucket": "canada", "mean_similarity": 0.769, "n_tokens": 233},
+    {"bucket": "turkey", "mean_similarity": 0.81, "n_tokens": 89}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only headline to use declarative, finality-framed language — 'stability is ending' — absent from every Western masthead, which asks questions or focuses on Merz's response.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The New Yorker",
+      "bucket": "opinion_magazines",
+      "finding": "Only headline to reach for Cold War and East German historical identity as an explanatory frame for the AfD's rise; all news headlines treat the result as an electoral event, not a historical one.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "finding": "Only headline to explicitly name the centre as 'floundering' — framing this as a crisis for democratic centrism rather than an AfD win story.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "bucket": "germany",
+      "finding": "Only headline to introduce an economic explanatory angle ('Will economy shape the vote?'), and the sole pre-election piece positing structural drivers absent from all post-election headline coverage.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "Headline coverage makes Merz's political crisis the story, not AfD's voters or structural polarization; no headline in the corpus asks why Germans chose the far-right, only what Merz will do next.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
