@@ -1,0 +1,166 @@
+{
+  "story_key": "L19000b7d0a",
+  "date": "2026-09-23",
+  "n_buckets": 8,
+  "n_articles": 13,
+  "tldr": "Headlines across all 8 buckets lead with casualty counts and mass evacuations as Typhoon Dujuan strikes Japan. Secondary coverage highlights flight cancellations, power outages, and disruption to daily life near Tokyo.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Casualties and safety threat",
+      "buckets": [
+        "turkey",
+        "brazil",
+        "japan",
+        "taiwan_hk",
+        "uk",
+        "india",
+        "vietnam_thai_my",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "4 dead, 45,000 homes without power due to Japan typhoon",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Tufão provoca chuva recorde e mata 5 pessoas no Japão",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "Typhoon Dujuan leaves at least nine dead and four missing",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "Typhoon Dujuan leaves four people dead in Japan",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "At least four people killed in Japan as typhoon Dujuan",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Typhoon Dujuan leaves at least four dead in Japan",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Typhoon Dujuan leaves four dead, 22 injured in Japan",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "china",
+          "outlet": "Xinhua English",
+          "quote": "Typhoon Lan lashes central Japan, killing 2",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Evacuations, flights, daily disruption",
+      "buckets": [
+        "turkey",
+        "uk",
+        "india",
+        "vietnam_thai_my",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Typhoon Dujuan lashes Tokyo, over 1M urged to evacuate",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Japanese islands brace for Dujuan to become a typhoon again",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Flights scrapped, evacuations urged as Typhoon Dujuan",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "grounds hundreds of flights in Japan",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "china",
+          "outlet": "Xinhua English",
+          "quote": "disrupting transport systems",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.645,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.731,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.746,
+      "n_tokens": 117
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.797,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.8,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.801,
+      "n_tokens": 93
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Xinhua English",
+      "bucket": "china",
+      "note": "Headline names 'Typhoon Lan' not Dujuan — possible corpus mismatch with an older article about a different storm."
+    },
+    {
+      "outlet": "VnExpress English",
+      "bucket": "vietnam_thai_my",
+      "note": "Only outlet to lead with consumer/cultural disruption angle: 'cuts short one of the world's biggest video game fairs'."
+    }
+  ],
+  "bottom_line": "Headline coverage frames Typhoon Dujuan as a deadly humanitarian event, with casualty counts front and centre and disruption to mobility and infrastructure as the secondary signal.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
