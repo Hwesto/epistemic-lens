@@ -1,0 +1,141 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-23",
+  "lineage_id": "Lf4ef883f55",
+  "cluster_id": 114,
+  "cluster_name": "2026 Asian Games: North Korea sweeps weightlifting, India ends 28-year drought",
+  "salience_score": 5.18,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 37,
+  "event_summary": "At the Aichi-Nagoya Asian Games on September 23, North Korea's Ri Song-gum won women's 49kg weightlifting gold with three world records; India's Mirabai Chanu took silver, ending a 28-year Indian weightlifting drought at the Games.",
+  "tldr": "The headline layer bifurcates the story between India's national-redemption narrative and DPRK's world-record performance, with no headline acknowledging both stories except Al Jazeera's. Indian outlets flood their titles with emotional and historical language — 'Redemption,' 'Hangzhou Heartbreak,' '28 years,' 'My life is complete now' — while Pakistani and Singaporean outlets lead solely with North Korea's world records, and South Korea's Yonhap applies a diplomatic register found nowhere else by naming 'Pyongyang' rather than 'North Korea' or 'DPRK.' KBS World pivots entirely away from the weightlifting competition, devoting both its headlines to South Korean national firsts in fencing and shooting. Taipei Times is the most isolated outlet in the corpus, running only a bare Taiwan medal count that offers no regional or event-level framing. The headline layer predicts a measurable body-to-headline divergence for Indian outlets, where the body texts supply competitive context that the title layer replaces with emotional and historical framing.",
+  "frames": [
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "personal redemption and career milestone",
+      "outlets": [
+        "ABP Live",
+        "India Today"
+      ],
+      "countries": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "ABP Live",
+          "country": "india",
+          "quote": "Completes Redemption After Hangzhou Heartbreak",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "India Today",
+          "country": "india",
+          "quote": "My life is complete now: Mirabai Chanu",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "national identity via historic sporting firsts",
+      "outlets": [
+        "Times of India",
+        "KBS World"
+      ],
+      "countries": [
+        "india",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "outlet": "Times of India",
+          "country": "india",
+          "quote": "After 28 years, Mirabai Chanu finally puts India back",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "Choo Ga-eun Claims S. Korea's First Shooting Gold",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "DPRK international sporting presence",
+      "outlets": [
+        "ARY News English",
+        "Channel News Asia",
+        "Al Jazeera English",
+        "NK News",
+        "Yonhap News"
+      ],
+      "countries": [
+        "pakistan",
+        "vietnam_thai_my",
+        "qatar",
+        "korea_north",
+        "south_korea"
+      ],
+      "evidence": [
+        {
+          "outlet": "ARY News English",
+          "country": "pakistan",
+          "quote": "North Korea weightlifter sets three world records",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Mirabai Chanu wins Asian Games silver as Ri breaks",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "NK News",
+          "country": "korea_north",
+          "quote": "North Korea wins its first gold, silver and bronze",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "Pyongyang's 1st gold at Asian Games",
+          "signal_text_idx": 12
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "taiwan_hk",
+      "what_they_covered_instead": "Taipei Times ran a bare Taiwan medal count ('2026 Asian Games: Taiwan snags another three medals') with no mention of the North Korean weightlifting sweep or India's 28-year redemption — the most nationally insulated headline in the corpus."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "India Today",
+      "country": "india",
+      "finding": "Sole headline to quote Chanu directly ('My life is complete now'), converting a national milestone story into personal testimony — a first-person register absent from every other title in the corpus.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only headline to substitute 'Pyongyang' for 'North Korea' or 'DPRK,' using the capital's name to invoke the political entity — a diplomatic register choice absent from every other title including NK News itself.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only headline to name both Chanu and Ri in the same title, treating the event as a joint India-DPRK narrative; every other outlet in the corpus centres one nation at the exclusion of the other.",
+      "signal_text_idx": 2
+    }
+  ],
+  "bottom_line": "The headline layer advertises this Asian Games story in two mutually exclusive registers: Indian outlets use emotional and historical language (redemption, 28 years, 'my life is complete') while nearly every non-Indian outlet leads with North Korea's world-record sweep — two framings of the same podium that only Al Jazeera attempts to hold together in a single title.",
+  "generated_at": "2026-09-23T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
