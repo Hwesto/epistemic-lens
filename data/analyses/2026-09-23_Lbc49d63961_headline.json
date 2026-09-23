@@ -1,0 +1,184 @@
+{
+  "story_key": "Lbc49d63961",
+  "date": "2026-09-23",
+  "n_buckets": 10,
+  "n_articles": 19,
+  "tldr": "Headlines across all ten buckets converge on US military expansion in the Arctic — two new bases, 'permanent control' of Greenland's security — with Trump as the deal's named agent; only the Canadian press adds a NATO multilateral angle and a lone skeptical voice questioning whether anything actually changed.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "US Arctic bases & security deal",
+      "buckets": ["usa", "uk", "china", "turkey", "germany", "opinion_magazines", "russia", "kenya", "taiwan_hk", "canada"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "US to build two military bases in Greenland",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "sign Arctic security agreement",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "establish 2 new military bases in Greenland",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Defense News",
+          "quote": "NATO shares responsibility for Arctic security",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Trump signs 'tremendous' Greenland security deal",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Deal for 'Permanent Control' Over Greenland's Security",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "major military expansion in Greenland",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "US to build two military bases in southern",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "Taipei Times",
+          "quote": "US to build two 'very major' bases in Greenland",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S., Denmark and Greenland sign security agreement",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump claims 'permanent control'",
+      "buckets": ["usa", "canada", "china", "germany", "opinion_magazines", "russia", "turkey"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Trump claims security, military deal with Denmark",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Trump is hailing his new deal",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Trump claims deal gives US control over security",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Trump signs 'tremendous' Greenland security deal",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Trump Announces Deal for 'Permanent Control'",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Trump makes major Greenland military announcement",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US reaches permanent Greenland security deal",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "NATO shares Arctic responsibility",
+      "buckets": ["usa", "canada"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Defense News",
+          "quote": "NATO shares responsibility for Arctic security",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Denmark says NATO shares responsibility for Arctic",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "What actually changed in this deal?",
+      "buckets": ["canada"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "but a deal already existed. So what changed?",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "russia", "mean_similarity": 0.754, "n_tokens": 48},
+    {"bucket": "canada", "mean_similarity": 0.784, "n_tokens": 107},
+    {"bucket": "china", "mean_similarity": 0.796, "n_tokens": 92},
+    {"bucket": "turkey", "mean_similarity": 0.816, "n_tokens": 61},
+    {"bucket": "usa", "mean_similarity": 0.819, "n_tokens": 155}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "CBC World",
+      "bucket": "canada",
+      "finding": "Only headline in the corpus to introduce skepticism about the deal's novelty — 'but a deal already existed. So what changed?' — repositioning the story as a question of substance rather than a milestone announcement, uniquely among all 19 headlines.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "Only outlet to attribute the military-expansion claim externally ('– Reuters') rather than asserting it independently, distancing itself from the factual premise while still amplifying the expansion framing.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "At the headline layer, all ten buckets frame this as a US military buildup story (two new Arctic bases, 'permanent control'), with Trump as the named deal-maker; no headline leads with Greenland's or Denmark's perspective, and the NATO multilateral angle surfaces only in defence and Canadian press.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
