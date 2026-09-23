@@ -1,0 +1,120 @@
+{
+  "story_key": "L2f7e5c7fed",
+  "date": "2026-09-23",
+  "n_buckets": 8,
+  "n_articles": 19,
+  "tldr": "Headlines overwhelmingly foreground Russia's drone barrage on Kyiv, with a recurrent 'after Trump talks' subordinate clause advertising diplomatic failure. A smaller thread leads with Ukraine's own 1,000-drone counter-strike on Moscow, most visible in US and Indian outlets.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Russian drone barrage on Kyiv",
+      "buckets": ["wire_services", "ukraine", "russia", "india", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russian Attack on Kyiv Kills 2, Injures 22",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Russia strikes four Ukrainian cities with missiles and drones",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Russia hits Kyiv petrol stations, kills one",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "UNGA talks fail to stop strikes",
+      "buckets": ["turkey", "wire_services", "uk"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "US-Ukraine talks do little to reign in Russian strikes",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "drone strikes after Zelenskiy-Trump talks",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "Putin's forces launch fresh strikes on Kyiv as Zelensky",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "drone escalation scale, both sides",
+      "buckets": ["usa", "india", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Ukraine targets Russia with over 1,000 drones, killing 2",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Russia increases its use of jet-powered drones eightfold",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "india",
+          "outlet": "Republic World (alt)",
+          "quote": "Ukraine Launches One of Its Largest Aerial Attacks",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "uk", "mean_similarity": 0.625, "n_tokens": 34},
+    {"bucket": "usa", "mean_similarity": 0.673, "n_tokens": 32},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.696, "n_tokens": 31},
+    {"bucket": "india", "mean_similarity": 0.707, "n_tokens": 93},
+    {"bucket": "ukraine", "mean_similarity": 0.719, "n_tokens": 212},
+    {"bucket": "turkey", "mean_similarity": 0.722, "n_tokens": 250},
+    {"bucket": "russia", "mean_similarity": 0.748, "n_tokens": 95},
+    {"bucket": "wire_services", "mean_similarity": 0.75, "n_tokens": 74}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only headline to lead with a causal diplomatic-failure frame ('do little to reign in') rather than describing the attacks themselves — an interpretive editorial angle absent from all factual-baseline outlets.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only headline to situate Ukraine's 1,000-drone strike against the backdrop of Russia's final election day, implying deliberate tactical timing.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Ukrinform English",
+      "country": "ukraine",
+      "finding": "Only headline to cover the structural escalation trend (eightfold jet-drone increase since June) rather than a specific incident — a systemic rather than episodic frame.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "Headline coverage leads with Russia's Kyiv drone barrage; the 'after Trump talks' construction recurs across wire and Western outlets, pre-advertising the body's diplomatic-failure angle before readers click through.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
