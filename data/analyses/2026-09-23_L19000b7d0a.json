@@ -1,0 +1,163 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-23",
+  "lineage_id": "L19000b7d0a",
+  "cluster_id": 87,
+  "cluster_name": "Typhoon Dujuan strikes Japan killing nine, forces mass evacuation",
+  "salience_score": 3.6,
+  "n_outlets": 9,
+  "n_countries": 8,
+  "n_articles": 15,
+  "event_summary": "Typhoon Dujuan struck Japan's Pacific coast on September 22–23, 2026, killing at least nine people and leaving four missing, while triggering landslides and flooding that knocked out power to 45,000 homes and prompted evacuation advisories for over one million people near Tokyo.",
+  "tldr": "The most isolated item in the corpus is a Xinhua English article dated October 2017 about Typhoon Lan — a different storm entirely — that appears as a probable cluster contaminant, drawn in by semantic overlap with Japan typhoon coverage. Across the remaining outlets, coverage converges unusually tightly on humanitarian impact — deaths, rescues, mass evacuation — with almost no editorial divergence despite spanning eight countries and two languages. Vietnam’s VnExpress was the sole outlet to lead with a cultural-economic angle: the typhoon cut short the Tokyo Game Show, described as “one of the world’s biggest video game fairs.” India’s The Hindu was uniquely explicit in placing Dujuan within a global 2026 extreme-weather pattern: “the latest extreme weather ‌event in a year of ‌unusually heavy rain, floods and ⁠tropical cyclones that have hit regions across the globe.” Death toll estimates range from two (early Malay Mail reports, Tuesday) to nine (Japan Times, Wednesday morning), reflecting rolling updates rather than editorial disagreement.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "typhoon casualties and rescue",
+      "outlets": ["Daily Sabah", "Japan Times", "Malay Mail World", "The Guardian World", "The Hindu Intl", "Folha de São Paulo", "Taipei Times"],
+      "countries": ["turkey", "japan", "vietnam_thai_my", "uk", "india", "brazil", "taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Landslides triggered by a powerful typhoon lashing Japan's Pacific coast killed four people and left six missing Tuesday, public broadcaster NHK reported, as the storm cut power to...",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "Chiba Prefecture reported six deaths while Kanagawa Prefecture reported three as of 8 a.m. Wednesday. Two people are missing in each prefecture.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Typhoon Dujuan has killed at least four people and injured 22 in Japan, while tens of thousands of houses near Tokyo remained without power after the storm swept through the region, authorities said on Tuesday.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Cinco pessoas morreram enquanto o tufão Dujuan castigava o Japão com fortes chuvas, despejando mais 500 milímetros em uma ilha e levando as autoridades a emitirem alertas de retirada devido ao risco de inundações e deslizamentos de terra",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "mass evacuation and travel disruption",
+      "outlets": ["Daily Sabah", "Malay Mail World", "VnExpress English", "The Hindu Intl"],
+      "countries": ["turkey", "vietnam_thai_my", "india"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Typhoon Dujuan battered the Tokyo region with torrential rain early Tuesday, prompting evacuation advisories for more than 1 million people and hundreds of flight cancellations as...",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "VnExpress English",
+          "country": "vietnam_thai_my",
+          "quote": "Typhoon Dujuan forced the cancellation of at least 275 flights in Japan on Monday and prompted warnings of potentially record-breaking rainfall as the storm nears Tokyo.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "More than a million people were under evacuation advisories as the typhoon brought torrential rain, flooding and landslides near Tokyo, killing two people",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "power grid and transport infrastructure damage",
+      "outlets": ["Daily Sabah", "Malay Mail World", "The Guardian World"],
+      "countries": ["turkey", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "4 dead, 45,000 homes without power due to Japan typhoon downpour",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Typhoon Dujuan left at least four people dead and 22 injured in Japan, while thousands of houses...",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Dujuan – which brought violent winds of 144km/h (89mph) – was moving away from Japan on Tuesday morning, allowing authorities to downgrade most heavy rain and landslide warnings.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "global extreme weather pattern",
+      "outlets": ["The Hindu Intl", "The Guardian World"],
+      "countries": ["india", "uk"],
+      "evidence": [
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Typhoon Dujuan is the latest extreme weather ‌event in a year of ‌unusually heavy rain, floods and ⁠tropical cyclones that have hit regions across the globe, from East Asia ​to North America and ‌Europe",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Storm system expected to hit Izu Islands as it strengthens. Meanwhile, Atlantic hurricane season is unusually quiet",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "VnExpress English",
+      "country": "vietnam_thai_my",
+      "finding": "Unique lead angle: the typhoon 'cuts short one of the world's biggest video game fairs' (Tokyo Game Show) — the only outlet to connect this disaster to a major cultural-commercial event rather than leading with casualties.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only outlet to explicitly embed Dujuan in a 2026 global extreme-weather pattern, citing impacts 'from East Asia to North America and Europe' — a climate-context frame absent from all other outlets.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Xinhua English",
+      "country": "china",
+      "finding": "Article dated October 2017 about Typhoon Lan — a different storm entirely — appears as a probable cluster contaminant; the only item in the corpus not covering Typhoon Dujuan.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Carries the highest confirmed death toll in the corpus (nine dead, four missing as of Wednesday morning), several hours ahead of the 4–5 figures in outlets reporting Tuesday evening.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Folha de São Paulo",
+      "country": "brazil",
+      "finding": "Portuguese-language coverage is the only outlet to specify 500mm of rainfall on a single island — a concrete hydrological measure absent from all English-language reports.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Pre-landfall meteorological tracker (published before the storm hit) noted Dujuan had briefly weakened to a tropical storm on Sunday before restrengthening — storm-track context not provided by any other outlet.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Coverage of Typhoon Dujuan’s strike on the Tokyo region was unusually convergent across eight countries: nearly every outlet focused on the same humanitarian metrics — deaths, mass evacuation, power outages, flight cancellations — with minimal editorial differentiation. The notable exceptions are Vietnam’s VnExpress leading with the Tokyo Game Show disruption, India’s The Hindu placing the storm in a global 2026 extreme-weather pattern, and a 2017 Xinhua article about Typhoon Lan that appears as a cluster contaminant.",
+  "generated_at": "2026-09-23T06:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
