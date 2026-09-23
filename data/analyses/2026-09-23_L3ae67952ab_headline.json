@@ -1,0 +1,106 @@
+{
+  "story_key": "L3ae67952ab",
+  "date": "2026-09-23",
+  "n_buckets": 7,
+  "n_articles": 14,
+  "tldr": "Headlines across all 14 outlets frame Hurricane Polo as a record-breaking, 'extremely dangerous' Category 5 storm skirting Mexico's Pacific coast without expected landfall; Mexico-based and Spanish-language titles uniquely foreground official guidance and the scientific reason no landfall is expected, while The Guardian and BBC Brasil embed an El Niño attribution in their danger framing absent from most English titles.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Record Cat-5 danger off Mexico coast",
+      "buckets": ["wire_services", "brazil", "uk", "canada", "india", "mexico", "spain"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Hurricane Polo churns off Mexico",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "brazil",
+          "outlet": "BBC Brasil",
+          "quote": "litoral do México em alerta em meio ao 'super El Niño'",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "intensifies to 'extremely dangerous' Category 5",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "one of the strongest storms ever",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Category 5 storm: 5 key things to know about Mexico threat",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "Mexico News Daily",
+          "quote": "'dangerous' Hurricane Polo moves up Mexico's Pacific coast",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "Category 5 hurricane 'Polo' moving parallel to Mexico's",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Official guidance & no-landfall reassurance",
+      "buckets": ["mexico"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Sheinbaum pide atender avisos de Protección Civil",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Sol de Mexico",
+          "quote": "no tocará tierra: los bloqueadores ciclónicos explican",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "india", "mean_similarity": 0.76, "n_tokens": 34},
+    {"bucket": "canada", "mean_similarity": 0.763, "n_tokens": 432},
+    {"bucket": "brazil", "mean_similarity": 0.788, "n_tokens": 242},
+    {"bucket": "spain", "mean_similarity": 0.793, "n_tokens": 66},
+    {"bucket": "wire_services", "mean_similarity": 0.81, "n_tokens": 37},
+    {"bucket": "mexico", "mean_similarity": 0.819, "n_tokens": 133},
+    {"bucket": "uk", "mean_similarity": 0.842, "n_tokens": 138}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Sole outlet in the corpus to pivot the Mexico hurricane story toward potential US domestic impacts — 'here are its potential impacts on the US' — repositioning an international disaster as a concern for a different audience rather than centering Mexican coastal residents as every other headline does.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "La Jornada",
+      "bucket": "mexico",
+      "finding": "Only headline to lead with the president's directive rather than meteorological statistics — 'Sheinbaum pide atender avisos de Protección Civil referentes al fenómeno' — making the story about official guidance to residents, uniquely among all 14 headlines in the corpus.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "At the headline layer, all seven buckets converge on a record-intensity danger frame, but Mexico-based outlets alone foreground official directives and scientific reassurance ('no tocará tierra'), and The Independent uniquely frames the story around potential US rather than Mexican impacts.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
