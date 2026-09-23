@@ -1,0 +1,157 @@
+{
+  "story_key": "Lf0c30e73e7",
+  "date": "2026-09-23",
+  "n_buckets": 12,
+  "n_articles": 23,
+  "tldr": "Headlines across outlets uniformly frame the EU decision as a reversal of punishment against Russian oligarchs, with Ukrainian outrage the dominant advertised signal; a secondary cluster explicitly links the delisting to Azerbaijan's pardon of a French prisoner, making the transactional logic of the deal more visible at the headline layer than the EU internal political fractures that body texts elaborate.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "EU delists Usmanov & Fridman; sanctions",
+      "buckets": ["wire_services", "uk", "germany", "poland_balt", "india", "iran_opposition", "russia", "kenya"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Europe lifts sanctions against two Russians",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Ukraine anger as EU removes Russian oligarchs",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "EU drops sanctions for Russian oligarchs Usmanov",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "EU Reportedly Set To Remove Sanctions On Russian Oligarchs",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "French prisoner pardoned; espionage deal",
+      "buckets": ["france", "turkey", "opinion_magazines", "wire_services", "russia", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "pardons French national convicted of espionage",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Azerbaijan frees French prisoner after EU lifts sanctions",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "L'Azerbaïdjan gracie le Français Martin Ryan",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Azerbaijani president pardons Frenchman after EU lifts",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "EU infighting; France under scrutiny",
+      "buckets": ["russia", "poland_balt", "ukraine"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "EU drops Usmanov from sanctions list after infighting",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "poland_balt",
+          "outlet": "ERR News (Estonia)",
+          "quote": "France must explain lifting sanctions on Russian oligarch",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrainska Pravda English",
+          "quote": "Latvia was only EU country to oppose lifting of sanctions",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Zelensky Condemns Delistings of Russian Oligarchs",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Delisting condemned as shameful precedent",
+      "buckets": ["kenya", "ukraine", "russia"],
+      "evidence": [
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Ukraine says lifting sanctions on Russian tycoons 'shameful'",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "'Lifting Restrictions Must Not Become a Precedent'",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Meduza",
+          "quote": "Leonid Volkov criticizes lifting sanctions on billionaire",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "france", "mean_similarity": 0.601, "n_tokens": 47},
+    {"bucket": "kenya", "mean_similarity": 0.658, "n_tokens": 52},
+    {"bucket": "iran_opposition", "mean_similarity": 0.689, "n_tokens": 40},
+    {"bucket": "poland_balt", "mean_similarity": 0.704, "n_tokens": 61},
+    {"bucket": "ukraine", "mean_similarity": 0.711, "n_tokens": 450},
+    {"bucket": "uk", "mean_similarity": 0.722, "n_tokens": 84},
+    {"bucket": "russia", "mean_similarity": 0.753, "n_tokens": 437},
+    {"bucket": "wire_services", "mean_similarity": 0.764, "n_tokens": 63}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Meduza",
+      "bucket": "russia",
+      "finding": "The headline itself surfaces a documented hypocrisy: it names Volkov's criticism of the delisting and, in the same title, states he proposed lifting Fridman's sanctions himself years earlier — a contradiction legible before any body text is read.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "RT's headline frames the EU delisting as institutional dishonesty ('won't admit') rather than a Kremlin win, distancing Russian state media from overtly celebrating the EU's fracture.",
+      "signal_text_idx": 15
+    }
+  ],
+  "bottom_line": "The headline layer simultaneously advertises Ukrainian outrage at an EU sanctions reversal and a France-Azerbaijan prisoner swap, making the deal's transactional logic visible upfront — whereas body texts dwelled on EU internal political fractures and Baltic isolation that headlines largely omit.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
