@@ -1,0 +1,228 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-23",
+  "lineage_id": "L1be0f57739",
+  "cluster_id": 69,
+  "cluster_name": "AfD wins Mecklenburg-Western Pomerania, CDU ejected from parliament",
+  "salience_score": 4.8,
+  "n_outlets": 13,
+  "n_countries": 10,
+  "n_articles": 24,
+  "event_summary": "Germany held concurrent state elections on September 20, 2026: the AfD won Mecklenburg-Western Pomerania — its third state election win, second this month — and Die Linke won in Berlin; Merz's CDU failed to keep a seat in Mecklenburg-Western Pomerania for the first time in its eight-decade history.",
+  "tldr": "The most striking finding is the convergence of RT (Russian state propaganda) and CBC (Canadian public broadcaster) on near-identical language: Germany's postwar political stability order is ending. The dominant international read treats the dual surge of the far-right AfD and the hard-left Die Linke as an existential squeeze on Merz's CDU — a framing shared from Nairobi to Singapore to New Delhi. Economic grievances in eastern Germany surface only in DW's pre-election piece and The Hindu's analysis; most international outlets explain the result through national Merz unpopularity rather than regional structural causes. The New Yorker is the sole outlet to embed the AfD rise in Cold War and East German historical context, a structural frame absent from every news outlet in the corpus.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "CDU collapse and Merz leadership crisis",
+      "outlets": ["Axios World", "CBC World", "Daily Sabah", "Deutsche Welle English", "Globe and Mail", "Malay Mail World", "RT", "Standard Kenya World", "Straits Times", "The Hindu Intl", "The Local Germany"],
+      "countries": ["usa", "canada", "turkey", "germany", "vietnam_thai_my", "russia", "kenya", "india", "nordic"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "The result marks the third state election AfD has won — and its second this month — underscoring its growing strength even as Germany's other major parties refuse to govern with it.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Friedrich Merz’s centre-right party, the Christian Democratic Union (CDU), has suffered catastrophic losses in a number of recent regional elections.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Germany's far-right AfD and the socialist Left Party gained ground in recent state elections, while the centrist parties lost support. The biggest loser is Chancellor Friedrich Merz.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "voter polarization and mainstream disillusion",
+      "outlets": ["Anadolu Agency English", "CBC World", "Axios World"],
+      "countries": ["turkey", "canada", "usa"],
+      "evidence": [
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "The most important outcome of Sept. 20 elections may be seen not as one party's success over another, but rather the strengthening of centrifugal dynamics within Germany's party system.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "\"People are getting polarized more and more these days,\" said Leonie Siwter, a Die Linke supporter who was celebrating at the Berlin watch party on Sunday night.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Merz reform agenda at risk",
+      "outlets": ["Straits Times", "Globe and Mail", "The Local Germany", "The Hindu Intl"],
+      "countries": ["vietnam_thai_my", "canada", "nordic", "india"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "German state election losses risk snarling Merz’s reform agenda\n\nThere has been increasing pressure from within the coalition for the government to do something to reflect the votes.",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Major setback for Merz and his CDU party in recent State polls in Berlin and Mecklenburg-Western Pomerania; struggling economy and unpopular reforms become deciding factors",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "eastern economic grievances as vote driver",
+      "outlets": ["Deutsche Welle English", "The Hindu Intl"],
+      "countries": ["germany", "india"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Voters in the eastern state of Mecklenburg-Western Pomerania head to the polls on Sunday, with the Social Democrats and far-right AfD neck and neck. Here's a look at key economic issues that could influence the election.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Cold War history and far-right national identity",
+      "outlets": ["The New Yorker", "CBC World"],
+      "countries": ["opinion_magazines", "canada"],
+      "evidence": [
+        {
+          "outlet": "The New Yorker",
+          "country": "opinion_magazines",
+          "quote": "After winning a state election this past weekend, the German far right is closer to power than it has been in decades.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "The CDU has been the most dominant party of Germany's postwar history. The fact that more Germans now say in surveys that they'd rather vote for a far-right party marks a seismic shift.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "implications for European stability",
+      "outlets": ["RT", "The Local Germany"],
+      "countries": ["russia", "nordic"],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "Germany’s state elections show the CDU-SPD order giving way to the AfD, the Left and a fragmented political landscape with risks for Europe",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The Local Germany",
+          "country": "nordic",
+          "quote": "A dramatic election in Germany's north-east has produced a new political landscape. The AfD finished first, the CDU crashed out of parliament – and the result could have implications far beyond Mecklenburg-Western Pomerania.",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "terms": ["linke", "mainstream", "centre"],
+      "what_it_reveals": "CBC is the only country-bucket to use the German party name 'linke' directly alongside 'mainstream' and 'centre', anchoring its coverage as a crisis for liberal-democratic centrism rather than a simple AfD rise story."
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "terms": ["dynamic"],
+      "what_it_reveals": "Turkish outlets are the only bucket using 'dynamic' — Anadolu's 'centrifugal dynamics' and 'shifting political dynamics' titles position this as a systemic party-system story absent from all other coverage."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "Germany’s age of political stability is ending\n\nGermany’s state elections show the CDU-SPD order giving way to the AfD, the Left and a fragmented political landscape with risks for Europe",
+      "signal_text_idx": 9
+    },
+    "b": {
+      "outlet": "CBC World",
+      "country": "canada",
+      "quote": "For a political system designed for stability, the rise of both the far-right and hard-left signals a crisis for the country's mainstream politics.",
+      "signal_text_idx": 2
+    },
+    "joint_conclusion": "Russia's state propaganda outlet and Canada's public broadcaster reach the same verdict — that Germany's postwar stability order is ending — despite serving opposite geopolitical agendas. RT benefits narratively from showcasing Western democratic fragmentation; CBC is performing genuine democratic concern journalism. Their convergence makes the conclusion harder to dismiss as partisan framing from either direction."
+  },
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "No French outlet is represented in this cluster; as Germany's principal EU partner and co-anchor of European leadership, French editorial absence on a historic CDU defeat is notable."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "No Polish outlet appears despite Poland's acute interest in German political stability as a NATO and EU border partner directly exposed to any shifts in German Ukraine-policy continuity."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "CBC World",
+      "country": "canada",
+      "finding": "Only corpus item with on-the-ground sourcing: direct voter quotes from a Die Linke Berlin rally, including a supporter linking AfD growth to fear of fascism — context absent from all wire-service coverage.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The New Yorker",
+      "country": "opinion_magazines",
+      "finding": "Alone in framing AfD's rise through Cold War and East German historical context — the only structural explanation in the corpus; all other outlets treat the result as electoral news.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Two separate pieces emphasise European systemic risk ('risks for Europe') rather than German domestic politics, positioning this as a Western-instability story rather than a CDU-Merz story.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Uses 'centrifugal dynamics' as the analytical frame — a structural-systems description of the party system entirely absent from every other outlet's party-by-party results framing.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "The only outlet to analyse economic factors specific to Mecklenburg-Western Pomerania as pre-election vote drivers, rather than attributing the result solely to national Merz unpopularity.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Focuses on coalition pressure and reform-agenda snarling — treating this primarily as a governance continuity story rather than an electoral drama or leadership crisis.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Frames the loss around Merz's capacity to 'keep agenda on track' — a governance-competence angle distinct from the existential-crisis framing dominant in most coverage.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "The Local Germany",
+      "country": "nordic",
+      "finding": "Flags Germany's top soldier being elected to a key NATO leadership role in the same news cycle — a defence-institution story embedded in the day's political context that no other outlet in the corpus registers.",
+      "signal_text_idx": 15
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The AfD has now won three German state elections and the CDU has been ejected from a state legislature for the first time in its history — a structural break in Germany's postwar party system read across 10 countries as a direct threat to Merz's national government. The telling paradox is that Russian state media and Western democratic outlets diagnose this collapse in near-identical terms, from opposite motivations.",
+  "generated_at": "2026-09-23T13:14:25Z",
+  "model": "claude-sonnet-4-6"
+}
