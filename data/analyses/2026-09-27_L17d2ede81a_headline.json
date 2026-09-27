@@ -1,0 +1,169 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "L17d2ede81a",
+  "cluster_id": 136,
+  "cluster_name": "Russia and Ukraine trade deadly drone and missile strikes",
+  "salience_score": 9.551,
+  "n_outlets": 14,
+  "n_countries": 9,
+  "n_articles": 22,
+  "tldr": "The most striking divergence at headline level is that Russian-exile outlets (Meduza, Moscow Times) are the only country group to frame the aerial exchange through its domestic economic consequences — refinery shutdowns, halted operations, and reimposed fuel-purchase limits — an angle entirely absent from every other outlet's headlines. All other eight country groups default to the security register, leading with strike tallies and casualty counts, producing a near-uniform homepage experience of mutual aerial violence that the body-text layer partially complicates. Within the Ukraine bucket, Kyiv Post fractures the victimhood consensus: one headline uses visceral on-the-ground quoting ('Bodies on the Ground') while the other asserts Ukraine's 3-to-1 drone-offensive superiority, the only title in the corpus to foreground Ukrainian military advantage rather than Russian firepower. Canada (Globe and Mail) and Iran-opposition (RFE/RL) are the only two outlet groups to surface the sanctions-pressure dimension at headline level, indicating that Zelenskyy's diplomatic push on Trump registers as homepage-worthy only in those two blocs; the remaining seven country groups suppress it entirely.",
+  "event_summary": "Russia and Ukraine conducted intensive mutual aerial strikes during late September 2026, with Russian drones and missiles killing at least 16 people across Ukraine while Ukrainian drones struck Russian oil refineries, disrupting fuel supply in multiple southern and central Russian regions.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Escalating reciprocal drone and missile strikes",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "Anadolu Agency English",
+        "Breitbart",
+        "Daily Sabah",
+        "Globe and Mail",
+        "Kyiv Post",
+        "Moscow Times",
+        "RFE/RL (was Radio Farda)",
+        "Republic World (alt)",
+        "The Hindu Intl",
+        "Ukrainska Pravda English",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "turkey",
+        "usa",
+        "canada",
+        "ukraine",
+        "russia",
+        "iran_opposition",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "At least 16 people killed as Russia and Ukraine",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Russian drone barrage on Kyiv kills teenage boy",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "'Bodies on the Ground': Death Toll in Kyiv Rises",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Russia, Ukraine exchange strikes and aerial war",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Refinery strikes disrupt Russian fuel supply",
+      "outlets": [
+        "Meduza",
+        "Moscow Times"
+      ],
+      "countries": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "Russia's seventh-largest refinery halts operations",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Moscow Times",
+          "country": "russia",
+          "quote": "Fuel Purchase Limits Amid Ongoing Refinery Attacks",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Zelenskyy presses Trump to enact Russia sanctions",
+      "outlets": [
+        "Globe and Mail",
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "canada",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Zelensky appeals for Russia sanctions at UN",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Zelenskyy Calls On Trump To Enact Russia Sanctions",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "mean_similarity": 0.58,
+      "note": "Pan-African bucket most isolated; single-outlet group leads on civilian victim identity (teenage boy) rather than abstract toll count"
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "mean_similarity": 0.629,
+      "note": "Canada bucket second-most isolated; only Western outlet to foreground Zelenskyy's UN sanctions appeal in the headline"
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "mean_similarity": 0.635,
+      "note": "Russia bucket third-most isolated; Russian-exile outlets uniquely frame the war through domestic energy disruption"
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Kyiv Post is the only outlet in the corpus to foreground Ukrainian military advantage in the headline: 'Ukraine's Drone Offensive Gives Kyiv a 3-to-1 Edge Over Russia' inverts the universal victimhood register of all other titles, framing Ukraine as the dominant offensive actor rather than as a target.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Moscow Times",
+      "country": "russia",
+      "finding": "Moscow Times is the only outlet whose headline surfaces the domestic rationing consequence of the refinery attacks ('Russian Regions Slowly Reimpose Fuel Purchase Limits'), a downstream economic effect entirely absent from every non-Russia-bucket headline in the corpus.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Republic World (alt)",
+      "country": "india",
+      "finding": "Republic World leads with Ukraine as the actor executing 'one of its largest aerial attacks of the war' against Russian targets — the only headline in the corpus to foreground the scale of Ukraine's offensive rather than Russian strikes or mutual exchange.",
+      "signal_text_idx": 16
+    }
+  ],
+  "bottom_line": "At the headline layer, eight of nine country groups reduce this story to a single security frame — mutual strikes, casualties, and drone tallies — while the Russia-exile bucket (Meduza, Moscow Times) stands alone in surfacing the economic consequences of the aerial exchange, specifically refinery shutdowns and fuel rationing. The diplomatic-pressure angle (Zelenskyy pressing Trump for sanctions) appears at headline level only in the Canadian and Iran-opposition outlets, and Ukraine's military advantage is asserted only by Kyiv Post, leaving the dominant homepage narrative worldwide as a story of undifferentiated mutual destruction.",
+  "generated_at": "2026-09-27T13:25:00Z",
+  "model": "claude-sonnet-4-6"
+}
