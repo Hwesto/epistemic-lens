@@ -1,0 +1,222 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "Laebcab3fb6",
+  "cluster_id": 71,
+  "cluster_name": null,
+  "salience_score": 8.082,
+  "n_outlets": 15,
+  "n_countries": 11,
+  "n_articles": 20,
+  "tldr": "Headlines across all eleven country buckets converge on a single verdict — Ethiopia's 2022 Pretoria truce has collapsed and the country has returned to, or is on the verge of, civil war. A secondary layer, concentrated in Germany, Canada, and pan-African investigative outlets, reframes the story as a potential regional crisis, asking whether fighting will escape Ethiopia's borders and whether the Eritrea-Ethiopia rivalry is now the structural engine behind the violence.",
+  "event_summary": "Fighting erupted in northern Ethiopia around 22 September 2026 between Ethiopian federal forces and the Tigray People's Liberation Front (TPLF), which — allied with six other armed groups — launched an offensive into the Afar and Amhara regions and seized control of three airports including Mekelle, prompting Ethiopian Airlines to suspend flights to the region. The TPLF declared itself in a state of 'full-blown war'; the federal army claims it killed, wounded, or captured more than 500 fighters. Internet and phone services were cut across northern Ethiopia, and residents in Mekelle reported panic buying and cash shortages.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Civil war return and active fighting",
+      "outlets": [
+        "AfricaNews",
+        "Al Jazeera English",
+        "BBC Africa",
+        "Daily Sabah",
+        "Foreign Policy",
+        "Mada Masr",
+        "Malay Mail World",
+        "RT Africa",
+        "The Africa Report",
+        "The Guardian World"
+      ],
+      "countries": [
+        "pan_african",
+        "qatar",
+        "africa_other",
+        "turkey",
+        "opinion_magazines",
+        "egypt",
+        "vietnam_thai_my",
+        "state_tv_intl",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Tigray rebels declare full-blown war",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "amid fears of new civil war",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "Ethiopia Returns to Civil War",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Ethiopia faces return to war as fighting spreads",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "stokes fears of return to civil war",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Regional spillover and treaty collapse",
+      "outlets": [
+        "African Arguments",
+        "Deutsche Welle Deutsch",
+        "Globe and Mail",
+        "RFI Afrique",
+        "Straits Times"
+      ],
+      "countries": [
+        "pan_african",
+        "germany",
+        "canada",
+        "africa_other",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "African Arguments",
+          "country": "pan_african",
+          "quote": "Rivalry Between Ethiopia and Eritrea Is Reshaping Tigray",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Tigray-Krieg auf das Horn von Afrika übergreifen könnte",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "conflict in northern Ethiopia could spill across borders",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "RFI Afrique",
+          "country": "africa_other",
+          "quote": "un échec pour l'accord de Pretoria?",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "UN rights chief 'deeply alarmed' by escalating fighting",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Federalism and TPLF regime challenge",
+      "outlets": [
+        "AfricaNews",
+        "Mada Masr"
+      ],
+      "countries": [
+        "pan_african",
+        "egypt"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Ethiopia's federalism dilemma: Why regional power",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Mada Masr",
+          "country": "egypt",
+          "quote": "TPLF announces 'defensive war' against Ethiopian govt",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Civilian hardship and desire for peace",
+      "outlets": [
+        "BBC Africa",
+        "RFI Afrique"
+      ],
+      "countries": [
+        "africa_other"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC Africa",
+          "country": "africa_other",
+          "quote": "Tigray capital 'out of cash' as fighting escalates",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "RFI Afrique",
+          "country": "africa_other",
+          "quote": "«Nous voulons la paix»",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "country": "germany",
+      "mean_similarity": 0.488,
+      "note": "DW is the only outlet to reframe the story as a Horn of Africa contagion risk at headline level, asking why the Tigray war could spread regionally — a structural-geopolitical register entirely absent from all other groups' headlines"
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "mean_similarity": 0.619,
+      "note": "Foreign Policy issues the only unqualified civil-war declaration in the corpus ('Ethiopia Returns to Civil War'); every other outlet hedges with 'fears of', 'could', or 'as fighting' constructions, making FP's declarative title an outlier at headline level"
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "mean_similarity": 0.631,
+      "note": "The Guardian's headline is the only title to combine the rebel offensive framing with an explicit agency attribution ('against Ethiopian army'), foregrounding the military confrontation structure rather than the civilian-fear register dominant in most buckets"
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RFI Afrique",
+      "country": "africa_other",
+      "finding": "RFI Afrique is the only outlet in the corpus whose headline frames the conflict through civilian voice and religious observance: 'Nous voulons la paix' — anchored to the Meskel Orthodox feast disrupted by fighting — a humanising frame absent from every other group's titles, which stay in the military-action or fear register.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "African Arguments",
+      "country": "pan_african",
+      "finding": "African Arguments is the only outlet to foreground the Ethiopia-Eritrea structural rivalry as the headline story, framing the Tigray conflict as something Eritrea is actively reshaping rather than a bilateral Ethiopian federal-regional dispute — an analytical frame that anticipates the regional-spillover angle but locates its engine in Asmara rather than Addis Ababa.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "Foreign Policy is the only outlet to issue a declarative civil-war verdict without hedging qualifiers — 'Ethiopia Returns to Civil War' vs. the 'fears of' or 'could' constructions universally used elsewhere — making it the single title in the corpus that treats the civil-war outcome as an established fact rather than a risk.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "The headline layer has reached near-consensus on civil war: nine of eleven country buckets run war-return framing at the lede, while only Germany and select pan-African outlets foreground the regional-spillover and treaty-collapse dimensions that the body-text layer treats at equal weight.",
+  "generated_at": "2026-09-27T14:10:00Z",
+  "model": "claude-sonnet-4-6"
+}
