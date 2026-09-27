@@ -1,0 +1,212 @@
+{
+  "story_key": "L6d3f7f5263",
+  "date": "2026-09-27",
+  "n_buckets": 16,
+  "n_articles": 29,
+  "tldr": "All 29 headlines across 16 country buckets frame the RAF Fairford incident as a thwarted terrorism threat at a military installation, with roughly a third of outlets explicitly embedding it in the active US-Iran conflict by naming the base's role in strikes on Iran.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "major incident, bomb disposal, counter-terror",
+      "buckets": [
+        "australia_nz",
+        "canada",
+        "germany",
+        "india",
+        "iran_opposition",
+        "israel",
+        "opinion_magazines",
+        "pakistan",
+        "philippines",
+        "qatar",
+        "turkey",
+        "uk",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Terror cops swoop on five men to 'foil car bomb plot'",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Counter-terrorism police investigate 'major incident'",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Bomb squad examines vehicles as UK counter‑terror police",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "UK Police Call In Bomb Disposal Team Near US-Used Air Base",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "australia_nz",
+          "outlet": "Sydney Morning Herald",
+          "quote": "'Major incident' declared after explosives arrests",
+          "signal_text_idx": 23
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "attack in context of US-Iran war",
+      "buckets": [
+        "iran_opposition",
+        "israel",
+        "opinion_magazines",
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "near US airbase, key to Iran war",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "U.K. base used for U.S. strikes on Iran",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "UK Air Base Used By US Forces In Iran War",
+          "signal_text_idx": 20
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "at UK airbase used for US strikes on Iran",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "Explosives Act arrests, police probe",
+      "buckets": [
+        "canada",
+        "india",
+        "uk",
+        "usa",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "arrest men on explosives act offenses after air base",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "UK police arrest several men under explosives act",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "uk",
+          "outlet": "i News",
+          "quote": "police arrest several men under explosives act near RAF base",
+          "signal_text_idx": 28
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.687,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.726,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.741,
+      "n_tokens": 210
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.756,
+      "n_tokens": 210
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.777,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.778,
+      "n_tokens": 217
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.789,
+      "n_tokens": 92
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.804,
+      "n_tokens": 313
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.805,
+      "n_tokens": 235
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.806,
+      "n_tokens": 110
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.817,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.822,
+      "n_tokens": 161
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.825,
+      "n_tokens": 60
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "signal_text_idx": 5,
+      "note": "Only headline to assert 'foil car bomb plot,' 'SAS deployed,' and 'three vans containing explosives' — interpretive claims absent from all 28 other titles, which reproduce police-statement language ('major incident,' 'suspected explosives offences')."
+    }
+  ],
+  "bottom_line": "Headline coverage universally frames the Fairford incident as a foiled terrorism attack on a Western military installation; the decisive editorial split is between outlets that treat it as a domestic counter-terrorism event and those — especially US, Israeli, and Iran-opposition press — that embed it in the live US-Iran war, implying foreign state involvement without naming a suspect.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
