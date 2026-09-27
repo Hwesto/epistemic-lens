@@ -1,0 +1,109 @@
+{
+  "story_key": "L2bea5ab4cc",
+  "date": "2026-09-27",
+  "n_buckets": 8,
+  "n_articles": 14,
+  "tldr": "Headlines across all outlets frame the Swiss referendum as a clear voter rejection of proposed stricter neutrality rules. Wire services and Ukrainian press uniquely foreground the NATO-cooperation and Russia-sanctions stakes, while RT frames the story around the Swiss government's own opposition to the initiative.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Reject or pass stricter neutrality rules",
+      "buckets": ["france", "germany", "turkey", "wire_services", "vietnam_thai_my", "russia"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "référendum proposant de durcir leur neutralité",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "Volksabstimmung: Schweizer lehnen strengere Neutralität ab",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "decide on stricter neutrality rules",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "set to reject initiative to tighten neutrality rules",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "reject bid to enshrine stricter neutrality by big margin",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Swiss voters reject initiative to preserve neutrality",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "NATO ties and Russia sanctions at stake",
+      "buckets": ["ukraine", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russia Sanctions Hang in Balance",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "tighter neutrality rules that would curb NATO cooperation",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Government actors opposing the initiative",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Swiss government opposing stricter neutrality rules",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Debate over meaning of Swiss neutrality",
+      "buckets": ["pakistan"],
+      "evidence": [
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "Swiss vote on what it means to be neutral",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "turkey", "mean_similarity": 0.669, "n_tokens": 40},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.703, "n_tokens": 202},
+    {"bucket": "france", "mean_similarity": 0.706, "n_tokens": 34}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage unanimously reports a decisive Swiss rejection of stricter neutrality rules, with Reuters uniquely naming NATO and Kyiv Post uniquely naming Russia sanctions as the international stakes — both angles absent from other outlets' titles.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
