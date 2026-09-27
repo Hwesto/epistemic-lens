@@ -1,0 +1,209 @@
+{
+  "story_key": "Lb74b7fc641",
+  "date": "2026-09-27",
+  "n_buckets": 20,
+  "n_articles": 50,
+  "tldr": "The headline layer is almost uniformly locked on the bilateral deadlock: Trump rejected Iran's seven-day Hormuz deal, Iran holds firm on conditions. The most distinctive divergences are India's militaristic framing ('Ready to inflict greater damage on US', 'Iran vows to fight back'), the Breitbart/France 24 pair that surfaces post-midterm strike resumption at title level, and the UK/Pakistan/Southeast Asia cluster that foregrounds Iran's 'only diplomacy can solve this' counter-narrative. Iran state media uniquely presents Araghchi's UNGA meetings as a broad diplomatic rollout rather than a single Hormuz proposal.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "seven-day deal rejected; Iran holds firm",
+      "buckets": [
+        "brazil",
+        "canada",
+        "egypt",
+        "france",
+        "germany",
+        "iran_opposition",
+        "israel",
+        "kenya",
+        "mexico",
+        "opinion_magazines",
+        "pakistan",
+        "turkey",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "rules out nuclear concessions",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Iran offers Hormuz reopening, nuclear talks",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "egypt",
+          "outlet": "Egypt Independent",
+          "quote": "Trump rejects proposal to reopen the Strait",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Trump rejects Iran proposal to reopen Strait of Hormuz",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "24 Horas",
+          "quote": "Irán presenta a EU un plan para reabrir el estrecho",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "insists only diplomacy can end conflict",
+      "buckets": [
+        "iran_state",
+        "pakistan",
+        "taiwan_hk",
+        "uk",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "diplomacy remains open",
+          "signal_text_idx": 25
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "insists on diplomatic solution",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "only diplomacy can end Hormuz crisis",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "Only diplomacy can solve conflict",
+          "signal_text_idx": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Iran military threats; post-deal strikes",
+      "buckets": [
+        "india",
+        "state_tv_intl",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "'Ready to inflict greater damage on US'",
+          "signal_text_idx": 23
+        },
+        {
+          "bucket": "india",
+          "outlet": "India Today",
+          "quote": "Iran vows to fight back",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Expects to Renew Strikes After Midterms",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "midterms as conflict timing lever",
+      "buckets": [
+        "state_tv_intl",
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "anuncia que podría retomar ataques tras 'midterms'",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "as Iran dangles deal to reopen Hormuz before US midterms",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "GOP clammers to keep Congress",
+          "signal_text_idx": 47
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.652,
+      "n_tokens": 95
+    },
+    {
+      "bucket": "kenya",
+      "mean_similarity": 0.741,
+      "n_tokens": 202
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.743,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.744,
+      "n_tokens": 51
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only headline in the corpus to state explicitly that Trump 'Expects to Renew Strikes After Midterms', converting what all other outlets frame as a rejection into a scheduled military timeline."
+    },
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "Leads at homepage level with an Iranian threat quote — ''Ready to inflict greater damage on US'' — the only outlet to open with Iranian defiance language rather than the deal-rejection narrative."
+    },
+    {
+      "outlet": "La Jornada",
+      "bucket": "mexico",
+      "finding": "Only outlet to foreground Trump renaming the strait in the headline ('imagen del estrecho de Ormuz con su nombre'), a territorial-branding provocation absent from all other corpus titles."
+    },
+    {
+      "outlet": "The Guardian World",
+      "bucket": "uk",
+      "finding": "Frames Iran's proposal as 'dangling a deal' that could extricate Trump politically — the only headline that attributes strategic agency to Tehran rather than treating the offer as a ceasefire request."
+    }
+  ],
+  "bottom_line": "Headline coverage across 20 buckets paints uniform deadlock — Trump rejected the seven-day plan, Iran stands firm — with India uniquely leading on Iranian threat language, Breitbart alone naming post-midterm strikes in its title, and UK/Pakistan/Southeast Asian outlets amplifying Iran's diplomacy-only counter-narrative that body coverage buries below the rejection lede.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
