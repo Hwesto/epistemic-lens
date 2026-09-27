@@ -1,0 +1,212 @@
+{
+  "story_key": "Ld59a93a899",
+  "date": "2026-09-27",
+  "n_buckets": 12,
+  "n_articles": 16,
+  "tldr": "Headlines across 12 buckets almost universally lead with the mass delegate walkout as the central fact, positioning Netanyahu's UNGA appearance as a diplomatic isolation event rather than a substantive address. The sole headline outlier is the Daily Wire, which ignores the walkout entirely and recasts the New York street protests as an anti-American act, while Daily Sabah is the only outlet to apply the word 'humiliating' in its title.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "delegate walkout as diplomatic rebuke",
+      "buckets": [
+        "pan_african",
+        "africa_other",
+        "china",
+        "turkey",
+        "opinion_magazines",
+        "canada",
+        "philippines"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "walk out in protest as Netanyahu defends Israel at UN",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "reflects growing Israeli isolation",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "Netanyahu Faces an UNGA Walkout (Again)",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "AllAfrica",
+          "quote": "Malawi Delegation Skips UN Walkout",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Rappler",
+          "quote": "PH delegation joined walkout during Netanyahu's",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "celebrity arrests, street protests",
+      "buckets": [
+        "turkey",
+        "canada",
+        "russia",
+        "kenya",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Hollywood stars among arrested in New York",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Susan Sarandon among actors, politicians arrested",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Pro-Palestinian protesters arrested outside UN",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Protests erupt as Netanyahu gives inflammatory UN speech",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "moral cowards charge; inflammatory speech",
+      "buckets": [
+        "qatar",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "'moral cowards' UNGA remark",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "Netanyahu gives inflammatory UN speech",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "UN broadside; anti-protest reframe",
+      "buckets": [
+        "turkey",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "UN broadside draws sharp backlash",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "The America Haters Have A New Career Plan",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Netanyahu defends military action",
+      "buckets": [
+        "pan_african",
+        "china"
+      ],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "defends Israeli military action",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "defends Israel at UN",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "philippines",
+      "mean_similarity": 0.598,
+      "n_tokens": 194
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.602,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.606,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.662,
+      "n_tokens": 55
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "The only headline in the corpus that makes no reference to the walkout or Netanyahu's speech; 'The America Haters Have A New Career Plan' reframes the New York street protest as an anti-American act, the sole outlet to omit the UN diplomatic event entirely from its title."
+    },
+    {
+      "outlet": "Daily Sabah",
+      "bucket": "turkey",
+      "finding": "The only headline to apply the word 'humiliating' directly to Netanyahu's visit and name Israeli 'isolation' as the story's takeaway — stronger editorial characterisation than any other outlet's title."
+    },
+    {
+      "outlet": "Foreign Policy",
+      "bucket": "opinion_magazines",
+      "finding": "'Netanyahu Faces an UNGA Walkout (Again)' is the only headline to note the walkout is a recurrence, framing the event as a pattern rather than a one-off diplomatic protest."
+    },
+    {
+      "outlet": "AllAfrica",
+      "bucket": "africa_other",
+      "finding": "The only headline to report the counter-fact — that Malawi's delegation explicitly skipped the walkout and stayed in the chamber — inverting the dominant narrative of unified African condemnation."
+    },
+    {
+      "outlet": "Al Jazeera English",
+      "bucket": "qatar",
+      "finding": "Sole headline to name Iceland's FM and foreground the 'moral cowards' rebuttal, centring a small NATO state's diplomatic pushback rather than the walkout itself."
+    }
+  ],
+  "bottom_line": "At the headline layer, the delegate walkout eclipses Netanyahu's speech content across every bucket except the US conservative outlet, where the New York street protest is recast as anti-American sentiment rather than pro-Palestinian dissent.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
