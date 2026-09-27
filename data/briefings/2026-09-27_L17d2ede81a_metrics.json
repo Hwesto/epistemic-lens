@@ -1,0 +1,355 @@
+{
+  "date": "2026-09-27",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 22,
+  "buckets": [
+    "canada",
+    "india",
+    "iran_opposition",
+    "pan_african",
+    "russia",
+    "turkey",
+    "ukraine",
+    "usa",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 78,
+    "pan_african": 31,
+    "turkey": 72,
+    "usa": 36,
+    "canada": 31,
+    "ukraine": 306,
+    "russia": 121,
+    "iran_opposition": 236,
+    "india": 65
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.839
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.835
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.827
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.794
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.785
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.773
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.772
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.762
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.759
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.759
+    },
+    {
+      "a": "iran_opposition",
+      "b": "wire_services",
+      "score": 0.748
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.726
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.724
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.718
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.716
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.716
+    },
+    {
+      "a": "pan_african",
+      "b": "ukraine",
+      "score": 0.703
+    },
+    {
+      "a": "ukraine",
+      "b": "usa",
+      "score": 0.694
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.677
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.67
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.647
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.643
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.641
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.635
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.631
+    },
+    {
+      "a": "iran_opposition",
+      "b": "usa",
+      "score": 0.63
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.628
+    },
+    {
+      "a": "iran_opposition",
+      "b": "pan_african",
+      "score": 0.619
+    },
+    {
+      "a": "pan_african",
+      "b": "wire_services",
+      "score": 0.618
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.591
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.58
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.576
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.56
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.527
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.487
+    },
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.467
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.58,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.629,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.635,
+      "n_tokens": 121
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.682,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.693,
+      "n_tokens": 65
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.698,
+      "n_tokens": 236
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.713,
+      "n_tokens": 306
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.72,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.769,
+      "n_tokens": 72
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "pan_african": [],
+    "turkey": [],
+    "usa": [],
+    "canada": [
+      {
+        "term": "zelensky",
+        "count": 3
+      }
+    ],
+    "ukraine": [
+      {
+        "term": "site",
+        "count": 5
+      },
+      {
+        "term": "office",
+        "count": 4
+      },
+      {
+        "term": "occupied",
+        "count": 4
+      },
+      {
+        "term": "forc",
+        "count": 4
+      },
+      {
+        "term": "vyshneve",
+        "count": 4
+      },
+      {
+        "term": "solomianskyi",
+        "count": 3
+      },
+      {
+        "term": "vehicle",
+        "count": 3
+      },
+      {
+        "term": "donetsk",
+        "count": 3
+      },
+      {
+        "term": "photo",
+        "count": 3
+      },
+      {
+        "term": "ukrinform",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "refinery",
+        "count": 10
+      },
+      {
+        "term": "operation",
+        "count": 6
+      },
+      {
+        "term": "halt",
+        "count": 4
+      },
+      {
+        "term": "novoshakhtinsk",
+        "count": 3
+      },
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "iran_opposition": [
+      {
+        "term": "want",
+        "count": 3
+      },
+      {
+        "term": "enact",
+        "count": 3
+      }
+    ],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-27T13:25:00+00:00",
+  "meta_version": "10.0.3"
+}

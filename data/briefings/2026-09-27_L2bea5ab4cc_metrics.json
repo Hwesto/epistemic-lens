@@ -1,0 +1,311 @@
+{
+  "date": "2026-09-27",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 14,
+  "buckets": [
+    "france",
+    "germany",
+    "pakistan",
+    "russia",
+    "turkey",
+    "ukraine",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 100,
+    "france": 34,
+    "turkey": 40,
+    "pakistan": 48,
+    "germany": 455,
+    "ukraine": 39,
+    "russia": 90,
+    "vietnam_thai_my": 202
+  },
+  "pairwise_similarity": [
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.851
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.839
+    },
+    {
+      "a": "germany",
+      "b": "ukraine",
+      "score": 0.835
+    },
+    {
+      "a": "pakistan",
+      "b": "russia",
+      "score": 0.833
+    },
+    {
+      "a": "russia",
+      "b": "wire_services",
+      "score": 0.831
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.817
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.817
+    },
+    {
+      "a": "pakistan",
+      "b": "ukraine",
+      "score": 0.815
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.798
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.797
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.791
+    },
+    {
+      "a": "france",
+      "b": "ukraine",
+      "score": 0.778
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.774
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.772
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.754
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.754
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.752
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.733
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.731
+    },
+    {
+      "a": "france",
+      "b": "russia",
+      "score": 0.73
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.707
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.697
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.681
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.671
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.644
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.622
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.556
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.554
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.669,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.703,
+      "n_tokens": 202
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.706,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.767,
+      "n_tokens": 100
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.771,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.771,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.795,
+      "n_tokens": 455
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.799,
+      "n_tokens": 90
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [
+      {
+        "term": "curb",
+        "count": 3
+      },
+      {
+        "term": "cooperation",
+        "count": 3
+      }
+    ],
+    "france": [
+      {
+        "term": "leur",
+        "count": 4
+      },
+      {
+        "term": "suiss",
+        "count": 3
+      },
+      {
+        "term": "neutralité",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "pakistan": [],
+    "germany": [
+      {
+        "term": "neutralität",
+        "count": 10
+      },
+      {
+        "term": "schweiz",
+        "count": 8
+      },
+      {
+        "term": "sanktionen",
+        "count": 7
+      },
+      {
+        "term": "schweizer",
+        "count": 6
+      },
+      {
+        "term": "strengere",
+        "count": 6
+      },
+      {
+        "term": "eine",
+        "count": 6
+      },
+      {
+        "term": "gegen",
+        "count": 6
+      },
+      {
+        "term": "lehnen",
+        "count": 4
+      },
+      {
+        "term": "volksabstimmung",
+        "count": 3
+      },
+      {
+        "term": "auslegung",
+        "count": 3
+      },
+      {
+        "term": "wären",
+        "count": 3
+      },
+      {
+        "term": "gewesen",
+        "count": 3
+      }
+    ],
+    "ukraine": [],
+    "russia": [
+      {
+        "term": "majority",
+        "count": 3
+      },
+      {
+        "term": "canton",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-27T13:25:04+00:00",
+  "meta_version": "10.0.3"
+}

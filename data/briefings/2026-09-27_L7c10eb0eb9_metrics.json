@@ -1,0 +1,449 @@
+{
+  "date": "2026-09-27",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 14,
+  "buckets": [
+    "canada",
+    "india",
+    "mexico",
+    "turkey",
+    "uk",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "mexico": 814,
+    "turkey": 33,
+    "canada": 73,
+    "india": 29,
+    "wire_services": 30,
+    "vietnam_thai_my": 39,
+    "uk": 56
+  },
+  "pairwise_similarity": [
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.955
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.842
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.841
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.836
+    },
+    {
+      "a": "canada",
+      "b": "mexico",
+      "score": 0.828
+    },
+    {
+      "a": "mexico",
+      "b": "uk",
+      "score": 0.826
+    },
+    {
+      "a": "mexico",
+      "b": "vietnam_thai_my",
+      "score": 0.82
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.805
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.804
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.8
+    },
+    {
+      "a": "india",
+      "b": "mexico",
+      "score": 0.793
+    },
+    {
+      "a": "mexico",
+      "b": "wire_services",
+      "score": 0.791
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.763
+    },
+    {
+      "a": "mexico",
+      "b": "turkey",
+      "score": 0.736
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.716
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.712
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.705
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.682
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.676
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.673
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.657
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.72,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.721,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.782,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.796,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.799,
+      "n_tokens": 814
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.807,
+      "n_tokens": 73
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.796,
+      "n_tokens": 29
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "mexico": [
+      {
+        "term": "huracán",
+        "count": 20
+      },
+      {
+        "term": "para",
+        "count": 9
+      },
+      {
+        "term": "como",
+        "count": 9
+      },
+      {
+        "term": "categoría",
+        "count": 9
+      },
+      {
+        "term": "hora",
+        "count": 9
+      },
+      {
+        "term": "tierra",
+        "count": 8
+      },
+      {
+        "term": "nacional",
+        "count": 7
+      },
+      {
+        "term": "hacia",
+        "count": 7
+      },
+      {
+        "term": "viento",
+        "count": 6
+      },
+      {
+        "term": "septiembre",
+        "count": 6
+      },
+      {
+        "term": "kilómetro",
+        "count": 6
+      },
+      {
+        "term": "lune",
+        "count": 5
+      },
+      {
+        "term": "autoridad",
+        "count": 5
+      },
+      {
+        "term": "ante",
+        "count": 5
+      },
+      {
+        "term": "península",
+        "count": 5
+      },
+      {
+        "term": "mantiene",
+        "count": 5
+      },
+      {
+        "term": "próximo",
+        "count": 5
+      },
+      {
+        "term": "sonora",
+        "count": 5
+      },
+      {
+        "term": "méxico",
+        "count": 5
+      },
+      {
+        "term": "lluvia",
+        "count": 5
+      },
+      {
+        "term": "trayectoria",
+        "count": 5
+      },
+      {
+        "term": "ciclón",
+        "count": 5
+      },
+      {
+        "term": "week",
+        "count": 5
+      },
+      {
+        "term": "protección",
+        "count": 4
+      },
+      {
+        "term": "cabo",
+        "count": 4
+      },
+      {
+        "term": "tropical",
+        "count": 4
+      },
+      {
+        "term": "hasta",
+        "count": 4
+      },
+      {
+        "term": "oleaje",
+        "count": 4
+      },
+      {
+        "term": "population",
+        "count": 4
+      },
+      {
+        "term": "guerrero",
+        "count": 4
+      },
+      {
+        "term": "school",
+        "count": 4
+      },
+      {
+        "term": "agua",
+        "count": 3
+      },
+      {
+        "term": "coordinación",
+        "count": 3
+      },
+      {
+        "term": "civil",
+        "count": 3
+      },
+      {
+        "term": "gobierno",
+        "count": 3
+      },
+      {
+        "term": "efecto",
+        "count": 3
+      },
+      {
+        "term": "centro",
+        "count": 3
+      },
+      {
+        "term": "desplazamiento",
+        "count": 3
+      },
+      {
+        "term": "avanza",
+        "count": 3
+      },
+      {
+        "term": "tendrá",
+        "count": 3
+      },
+      {
+        "term": "atención",
+        "count": 3
+      },
+      {
+        "term": "sinaloa",
+        "count": 3
+      },
+      {
+        "term": "fuert",
+        "count": 3
+      },
+      {
+        "term": "este",
+        "count": 3
+      },
+      {
+        "term": "donde",
+        "count": 3
+      },
+      {
+        "term": "meteorológico",
+        "count": 3
+      },
+      {
+        "term": "prevé",
+        "count": 3
+      },
+      {
+        "term": "sábado",
+        "count": 3
+      },
+      {
+        "term": "zona",
+        "count": 3
+      },
+      {
+        "term": "estado",
+        "count": 3
+      },
+      {
+        "term": "podría",
+        "count": 3
+      },
+      {
+        "term": "próxima",
+        "count": 3
+      },
+      {
+        "term": "entre",
+        "count": 3
+      },
+      {
+        "term": "milímetro",
+        "count": 3
+      },
+      {
+        "term": "metro",
+        "count": 3
+      },
+      {
+        "term": "prevén",
+        "count": 3
+      },
+      {
+        "term": "milestone",
+        "count": 3
+      },
+      {
+        "term": "michoacán",
+        "count": 3
+      },
+      {
+        "term": "million",
+        "count": 3
+      },
+      {
+        "term": "rate",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "canada": [
+      {
+        "term": "churn",
+        "count": 4
+      },
+      {
+        "term": "port",
+        "count": 3
+      }
+    ],
+    "india": [],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "uk": [
+      {
+        "term": "region",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-27T13:25:24+00:00",
+  "meta_version": "10.0.3"
+}

@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-27",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 22,
+      "n_tokens_in_cohort": 1308,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 1279,
+      "distinctive_terms": [
+        {
+          "term": "disaster",
+          "count_in_bucket": 6,
+          "count_in_cohort": 23,
+          "rate_in_bucket": 0.11765,
+          "rate_in_cohort": 0.01798,
+          "llr": 11.877,
+          "log_ratio": 1.878,
+          "p_value": 0.000568
+        }
+      ]
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 647,
+      "n_tokens_in_cohort": 683,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 10,
+      "n_tokens_in_cohort": 1320,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 1297,
+      "distinctive_terms": []
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 18,
+      "n_tokens_in_cohort": 1312,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 129,
+      "n_tokens_in_cohort": 1201,
+      "distinctive_terms": [
+        {
+          "term": "september",
+          "count_in_bucket": 5,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.03876,
+          "rate_in_cohort": 0.00333,
+          "llr": 11.931,
+          "log_ratio": 2.454,
+          "p_value": 0.000552
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 19,
+      "n_tokens_in_cohort": 1311,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 57,
+      "n_tokens_in_cohort": 1273,
+      "distinctive_terms": [
+        {
+          "term": "reuter",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.10526,
+          "rate_in_cohort": 0.0,
+          "llr": 38.426,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 134,
+      "n_tokens_in_cohort": 1196,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 11,
+      "n_tokens_in_bucket": 210,
+      "n_tokens_in_cohort": 1120,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 3,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
