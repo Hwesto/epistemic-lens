@@ -1,0 +1,222 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "L50e89e181e",
+  "cluster_id": 151,
+  "cluster_name": "Madrid housing crisis protests follow eviction of 87-year-old woman",
+  "salience_score": 5.51,
+  "n_outlets": 16,
+  "n_countries": 10,
+  "n_articles": 17,
+  "event_summary": "On 26 September 2026, tens of thousands marched in Madrid after 87-year-old Maricarmen Abascal was evicted from her apartment of 70 years by a real estate firm that raised her rent by 275 percent. PM Sánchez's government is expected to approve pro-tenant measures at its next cabinet meeting.",
+  "tldr": "The Straits Times was the only outlet in this 16-outlet corpus to report the specific rent increase that triggered the protest — 275 percent — making it the sole item that grounds the abstract 'housing crisis' in a concrete figure. Despite being a domestic Spanish story, coverage spread across 10 countries and 4 languages, with German public broadcasters, Singapore's Straits Times, and Mexico's La Jornada all leading with the eviction as a systemic symbol rather than an individual case. France 24 Spanish stood alone in foregrounding vulture funds as the structural actor dividing Sánchez's coalition government, a framing absent from all English and German coverage. The protest has also thrust Spain's housing crisis into pre-election focus, with only the South China Morning Post explicitly noting the 2027 general election backdrop that most outlets left implied.",
+  "frames": [
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "eviction as lived human loss",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AFP / France 24 FR",
+        "Deutsche Welle Deutsch",
+        "France Info",
+        "Le Devoir",
+        "Malay Mail World",
+        "ZDF Heute"
+      ],
+      "countries": [
+        "wire_services",
+        "france",
+        "germany",
+        "canada",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "France Info",
+          "country": "france",
+          "quote": "\"Vous pourriez être la prochaine Maricarmen\" : des milliers de manifestants dans les rues de Madrid pour soutenir une octogénaire expulsée de son appartement\n\nLes images de Maricarmen Abascal, évacuée sur une civière de son appartement après que la police a forcé sa porte, ont remis la crise du logement sur le devant de la scène.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Deutsche Welle Deutsch",
+          "country": "germany",
+          "quote": "Riesen-Demo gegen Zwangsräumung in Madrid\n\nNach der Zwangsräumung der Wohnung einer 87-Jährigen ist die Empörung in Spanien groß. Der Fall Maricarmen Abascal wird zum Symbol für die Wohnungsnot im Land.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "ZDF Heute",
+          "country": "germany",
+          "quote": "Demonstrationen nach Zwangsräumung von 87-Jähriger in Madrid\n\nZehntausende Menschen demonstrieren in Madrid für das Recht auf Wohnen und gegen Zwangsräumungen. Davor hatte eine Rentnerin ihre Wohnung verloren, nach 70 Jahren.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "tenant protection package pending",
+      "outlets": [
+        "AFP / France 24 EN",
+        "France 24 Spanish",
+        "Le Monde",
+        "Deutsche Welle English"
+      ],
+      "countries": [
+        "wire_services",
+        "state_tv_intl",
+        "france",
+        "germany"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Thousands march in Madrid to protest eviction of 87-year-old woman\n\nThe eviction of 87-year-old Maricarmen Abascal on Wednesday sparked a thousands-strong protest in Madrid Saturday, with demonstrators demanding greater tenant protection. Widespread anger at rising housing costs have put pressure on Prime Minister Pedro Sanchez's government, which is expected to approve pro-tenant measures in its next cabinet meeting.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "Crisis de vivienda en España: gran protesta en Madrid contra el desahucio de una mujer de 87 años\n\nEl desahucio esta semana de Maricarmen Abascal, de 87 años, provocó una multitudinaria protesta en las calles de Madrid este sábado 26 de septiembre, en la que los manifestantes exigieron mayor protección para los inquilinos. El descontento generalizado por el aumento del precio de la vivienda ha presionado al presidente del Gobierno, Pedro Sánchez, cuyo gobierno tiene previsto aprobar un paquete de medidas para paliar la crisis.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Le Monde",
+          "country": "france",
+          "quote": "accentue la pression sur le premier ministre socialiste, Pedro Sanchez, qui s’était engagé à faire du logement une priorité gouvernementale.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "vulture funds and rent inflation",
+      "outlets": [
+        "France 24 Spanish",
+        "La Jornada",
+        "Straits Times",
+        "El Financiero"
+      ],
+      "countries": [
+        "state_tv_intl",
+        "mexico",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "A real estate firm acquired the home of Maricarmen Abascal and raised the rent by 275 per cent.",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "decenas de miles de personas recorrieron en centro de Madrid con gritos contra los gobiernos de la derecha de la Comunidad de Madrid y el ayuntamiento, pero también para exigir al gobierno español, presidido por el socialista Pedro Sánchez, que tome medidas urgentes para solucionar la crisis.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "France 24 Spanish",
+          "country": "state_tv_intl",
+          "quote": "¿Qué son los fondos buitre y por qué dividen al Gobierno de España?\n\nMiles de personas salieron a las calles de Madrid para protestar contra los desahucios y reclamar medidas urgentes frente a la crisis de la vivienda en España. La movilización fue convocada tras el desahucio de Maricarmen Abascal, una mujer de 87 años que había vivido durante más de 70 años en la misma vivienda y cuyo caso ha generado una fuerte reacción social. Miriam Bue, portavoz del sindicato de inquilinas de Madrid y de la coalición Europea de movimientos por la vivienda, aborda el tema en",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Sánchez government and 2027 election pressure",
+      "outlets": [
+        "South China Morning Post",
+        "La Jornada",
+        "France 24 Spanish",
+        "Le Monde"
+      ],
+      "countries": [
+        "taiwan_hk",
+        "mexico",
+        "state_tv_intl",
+        "france"
+      ],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "ahead of a general election due in 2027. Protesters rattled keys, blew whistles, chanted slogans and held banners calling for..",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "La Jornada",
+          "country": "mexico",
+          "quote": "decenas de miles de personas recorrieron en centro de Madrid con gritos contra los gobiernos de la derecha de la Comunidad de Madrid y el ayuntamiento, pero también para exigir al gobierno español, presidido por el socialista Pedro Sánchez, que tome medidas urgentes para solucionar la crisis.",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "France 24 FR",
+      "country": "france",
+      "terms": [
+        "octogénaire",
+        "appartement"
+      ],
+      "what_it_reveals": "French press uniquely reached for the human-scale word 'octogénaire' (absent from English and German coverage), centering the apartment as the locus of loss rather than the protest march."
+    },
+    {
+      "outlet": "Deutsche Welle Deutsch",
+      "country": "germany",
+      "terms": [
+        "zwangsräumung"
+      ],
+      "what_it_reveals": "German press used the legal-administrative term 'Zwangsräumung' (forced clearance) rather than the neutral English 'eviction', foregrounding state coercion."
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "terms": [
+        "españa",
+        "mujer"
+      ],
+      "what_it_reveals": "Spanish-language international press kept the story anchored to Spain as a named country and to the woman as individual subject — both absent as recurring terms in English coverage."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Sole outlet to report the 275 percent rent increase that triggered the eviction, grounding protest grievances in a concrete figure all other outlets left unquantified.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "France 24 Spanish",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to explicitly ask 'what are vulture funds and why do they divide Sánchez's government?' — framing the protest as a test of coalition cohesion rather than a street demonstration.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "La Jornada",
+      "country": "mexico",
+      "finding": "Only outlet to report that protesters directed chants against both the right-wing Community of Madrid government and PM Sánchez simultaneously, capturing cross-partisan housing anger.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to explicitly place the protest in the context of Spain's 2027 general election, framing the housing crisis as a pre-election political liability for Sánchez.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Sky News UK",
+      "country": "uk",
+      "finding": "Extraction failed (ERROR); the only substantive content is a Reuters image caption with no reporting on protest scale or policy demands.",
+      "signal_text_idx": 13
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Maricarmen Abascal's eviction crystallized Spain's housing crisis across 16 international outlets in 10 countries, with tens of thousands marching in Madrid and protesters camping overnight into Sunday. The Straits Times was the only outlet to publish the 275 percent rent increase that drove the eviction; only the Spanish-language press explicitly named vulture funds and coalition division as the structural cause.",
+  "generated_at": "2026-09-27T13:30:14Z",
+  "model": "claude-sonnet-4-6"
+}
