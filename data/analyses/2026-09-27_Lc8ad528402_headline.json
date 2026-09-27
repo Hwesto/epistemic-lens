@@ -1,0 +1,139 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "Lc8ad528402",
+  "cluster_id": 72,
+  "cluster_name": "Trump bars CNN, Politico, MS NOW; judge orders access restored",
+  "salience_score": 7.041,
+  "n_outlets": 14,
+  "n_countries": 10,
+  "n_articles": 21,
+  "tldr": "Across all ten country buckets, the dominant headline frame is judicial: court orders, judges blocking bans, and TRO compliance. Roughly half the headlines report the press-grounds ban reversed by a federal judge; the other half report CNN's exclusion from Air Force One, which received equal international billing but went unframed as a legally distinct action. Only Reason's headline explicitly questions whether the Air Force One exclusion is lawful, surfacing a distinction invisible in all other outlet titles. The Independent's 'Truth Social tantrum' and the New Yorker's 'The President vs. the Press' signal that UK and opinion-press headlines frame this as structural executive antagonism rather than a legal dispute.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "court orders restoring press access",
+      "outlets": [
+        "Axios World",
+        "Deutsche Welle Deutsch",
+        "Folha de São Paulo",
+        "Globe and Mail",
+        "Malay Mail World",
+        "Reason",
+        "Standard Kenya World",
+        "Daily Sabah"
+      ],
+      "countries": [
+        "usa",
+        "germany",
+        "brazil",
+        "canada",
+        "vietnam_thai_my",
+        "kenya",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "White House ordered to restore access to banned news outlets",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "US judge blocks White House ban on CNN, MS NOW, Politico",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "after judge blocks Trump's ban",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Folha de São Paulo",
+          "country": "brazil",
+          "quote": "Disputa judicial sobre o bloqueio de jornalistas",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "White House as active press restrictor",
+      "outlets": [
+        "BBC World",
+        "Daily Sabah",
+        "Folha de São Paulo",
+        "Le Devoir",
+        "Malay Mail World",
+        "NDTV World",
+        "The Hindu Intl",
+        "The Independent",
+        "The New Yorker"
+      ],
+      "countries": [
+        "brazil",
+        "canada",
+        "india",
+        "opinion_magazines",
+        "turkey",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Trump has Truth Social tantrum over press coverage",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "The New Yorker",
+          "country": "opinion_magazines",
+          "quote": "Is Trump's Latest Press Attack Just Another Distraction?",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "White House signals in new media restriction",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "latest White House media restriction",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Reason",
+      "country": "usa",
+      "finding": "Only headline that frames the Air Force One exclusion as a separate legal question with a likely pro-executive answer ('Very Likely Yes'), while all other outlets treat the two bans as equivalent press-freedom violations.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only headline using editorialised language ('tantrum'), departing sharply from the neutral descriptive framing used by every other outlet covering the same Air Force One exclusion.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only title that embeds Trump's own 'fake news' characterisation of the banned outlets inside the headline itself, implicitly reproducing his framing while reporting the court order against him.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "Headline coverage splits between a court-victory narrative—judge restores access—and an escalation narrative—CNN excluded from Air Force One—with only Reason's title signalling that the two incidents carry different legal weight. The LEGALITY frame dominates internationally; the POLITICAL frame, foregrounded in UK and opinion-magazine titles, treats the ban as an expression of executive temperament rather than a procedural legal dispute.",
+  "generated_at": "2026-09-27T14:05:00Z",
+  "model": "claude-sonnet-4-6"
+}
