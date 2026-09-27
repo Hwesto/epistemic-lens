@@ -1,0 +1,122 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "Lf96593ddef",
+  "cluster_id": 158,
+  "cluster_name": "Twin mass shootings near Johannesburg and Cape Town kill 27",
+  "salience_score": 4.898,
+  "n_outlets": 20,
+  "n_countries": 12,
+  "n_articles": 20,
+  "event_summary": "Eight gunmen stormed a bar in Wedela township near Johannesburg on 26 September 2026, killing 17 and wounding 15; hours later gunmen killed 10 and wounded 11 at a venue in Lwandle near Cape Town. No arrests had been made in either case by Sunday.",
+  "tldr": "All 20 headlines across 12 countries converge on a single factual hook: two simultaneous mass shootings, 27 dead. The headline layer adds almost no interpretive framing beyond the body count — structural cause (gang turf, illegal mining), systemic context (South Africa's murder rate), and policy response (military deployment) that dominate body coverage are entirely absent at the homepage layer. South China Morning Post is the sole outlier, uniquely embedding electoral politics in its title with the phrase 'as elections near.'",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "gunmen, mass killings, police manhunt",
+      "outlets": [
+        "AfricaNews", "Al Jazeera English", "Anadolu Agency English",
+        "BBC World", "CBC World", "Daily Sabah", "Dawn",
+        "Deutsche Welle English", "Geo News English", "Hindustan Times",
+        "India Today", "Malay Mail World", "NDTV World", "RT Africa",
+        "South China Morning Post", "Straits Times", "The Guardian World",
+        "The Hindu Intl", "The Independent", "The Punch"
+      ],
+      "countries": [
+        "pan_african", "qatar", "turkey", "uk", "canada", "pakistan",
+        "germany", "india", "state_tv_intl", "taiwan_hk",
+        "vietnam_thai_my", "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Gunmen killed at least 27 people",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "S. Africa launches manhunt after 27 killed",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Two mass shootings in South Africa leave 27 dead",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "South Africa police hunt killers after 27 gunned down",
+          "signal_text_idx": 15
+        },
+        {
+          "outlet": "India Today",
+          "country": "india",
+          "quote": "27 killed in two separate South Africa mass shootings",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "South African police probe mining feud shooting",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "Gunmen kill 27 in South Africa shootings",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "shootings tied to upcoming elections",
+      "outlets": ["South China Morning Post"],
+      "countries": ["taiwan_hk"],
+      "evidence": [
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "27 dead as elections near",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to embed electoral framing in its headline ('27 dead as elections near'), making upcoming South African elections a visible contextual hook absent from all other titles.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only outlet to report a partial toll (17 dead) rather than the combined 27, foregrounding the Johannesburg tavern shooting alone — an artifact of early publication before the Cape Town count was confirmed.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "India Today",
+      "country": "india",
+      "finding": "Only headline to append 'gunmen on the run', shifting the advertised frame from a concluded atrocity to an active fugitive threat.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Sole headline to append '(VIDEOS)' as a multimedia call-to-action, the only outlet to use headline space for engagement cues rather than factual reporting.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The headline layer for the South Africa shootings is almost entirely uniform: 19 of 20 outlets reduced the story to a death toll and agent (gunmen, 27 dead), with manhunt language the only editorial variation; South China Morning Post is the sole outlier inserting electoral context, a frame absent from every other homepage.",
+  "generated_at": "2026-09-27T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
