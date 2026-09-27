@@ -1,0 +1,213 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "Lb5781edd51",
+  "cluster_id": 171,
+  "cluster_name": "Pope Leo XIV visits France, Paris mass draws 800,000, Lourdes abuse meeting",
+  "salience_score": 17.959,
+  "n_outlets": 25,
+  "n_countries": 16,
+  "n_articles": 55,
+  "tldr": "At the headline layer the global press splits sharply by region: Asian and African outlets (Philippines, Kenya, Nigeria, India, Malaysia/Singapore) lead almost unanimously with the clerical sex abuse accountability angle, while wire services, North American, and Gulf outlets foreground the 800,000-crowd spectacle. Breitbart is the single most editorially distinctive headline in the corpus, coupling crowd scale with 'Guillotine Terror Beheadings' to encode a Catholic counter-revolutionary frame absent from every other outlet. The AI 'paradise of machines' warning — prominent in body text — breaks through at headline level only across five outlets (Turkey, NPR/USA, India, Malaysia, South Africa), signalling that most editors treated it as a secondary story angle. Vatican News and Religion News Service maintain an entirely devotional register at title level, suppressing the abuse dimension visible in nearly every secular outlet's headline.",
+  "event_summary": "Pope Leo XIV held a four-day visit to France including an open-air mass for approximately 800,000 people at Place de la Concorde in Paris on 26 September, followed by a private meeting with seven clerical sex abuse survivors at Lourdes on 27 September.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Catholic revival in secular France",
+      "outlets": [
+        "AFP / France 24 EN",
+        "AfricaNews",
+        "Al Jazeera English",
+        "CBC World",
+        "Fox News World",
+        "Globe and Mail",
+        "The Independent",
+        "Deutsche Welle English",
+        "The Guardian World",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "South China Morning Post",
+        "Breitbart",
+        "Vatican News",
+        "Religion News Service",
+        "National Post"
+      ],
+      "countries": [
+        "wire_services",
+        "pan_african",
+        "qatar",
+        "canada",
+        "usa",
+        "uk",
+        "germany",
+        "vietnam_thai_my",
+        "taiwan_hk",
+        "religious_press"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "'A once-in-a-lifetime event': Faithful and curious",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Pope Leo XIV draws 800,000 faithful to Paris",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Site of French Revolution Guillotine Terror Beheadings",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "'Pope fever' takes hold as Pope Leo visits France",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Vatican News",
+          "country": "religious_press",
+          "quote": "In Lourdes, Pope Leo entrusts France to the Virgin Mary",
+          "signal_text_idx": 37
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Church must face abuse scourge",
+      "outlets": [
+        "BBC World",
+        "Reuters (via Google News)",
+        "Deutsche Welle English",
+        "Inquirer",
+        "Straits Times",
+        "The Hindu Intl",
+        "The Punch",
+        "Standard Kenya World",
+        "Daily Maverick",
+        "South China Morning Post",
+        "The Guardian World",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "uk",
+        "wire_services",
+        "germany",
+        "philippines",
+        "vietnam_thai_my",
+        "india",
+        "nigeria",
+        "kenya",
+        "south_africa",
+        "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "'Scourge' of abuse must be rooted out, says Pope",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Reuters (via Google News)",
+          "country": "wire_services",
+          "quote": "Pope Leo urges Church to face failings",
+          "signal_text_idx": 24
+        },
+        {
+          "outlet": "Inquirer",
+          "country": "philippines",
+          "quote": "Pope Leo urges French bishops to 'persevere'",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "urges healing of 'deep wounds' before meeting",
+          "signal_text_idx": 30
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Pope decries 'scourge' of sexual abuse during France visit",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "AI threat to humanity; call for peace",
+      "outlets": [
+        "Daily Sabah",
+        "Malay Mail World",
+        "NPR World",
+        "The Hindu Intl",
+        "Daily Maverick"
+      ],
+      "countries": [
+        "turkey",
+        "vietnam_thai_my",
+        "usa",
+        "india",
+        "south_africa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "warns against 'paradise of machines'",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Pope warns a 'paradise of machines' could undermine",
+          "signal_text_idx": 20
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "humanity is at risk in AI 'paradise of machines'",
+          "signal_text_idx": 18
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only headline to embed 'Guillotine Terror Beheadings', coupling the 800,000-person crowd with the French Revolution's execution site — a civilizational counter-revolutionary frame invisible at the title layer of every other outlet in the corpus.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only headline to link the visit to a looming French election ('as French election looms'), surfacing a political dimension entirely absent from every other outlet's title.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "Vatican News",
+      "country": "religious_press",
+      "finding": "Both Vatican News headlines are exclusively devotional (Marian entrustment, pilgrim farewell) with no reference to the abuse scandal — the widest headline-layer divergence from the dominant accountability register across the corpus.",
+      "signal_text_idx": 37
+    },
+    {
+      "outlet": "Daily Maverick",
+      "country": "south_africa",
+      "finding": "Only headline to position AI ethics and clergy abuse accountability as co-equal headline agenda items ('with AI, apologies for clergy abuse on agenda'), framing the visit as a progressive reform mission on simultaneous fronts.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "At headline level, Pope Leo XIV's France visit resolves into two near-equal frames — 800,000-crowd as Catholic revival signal (wire services, Americas, Gulf) and clerical abuse moral reckoning (Asian and African outlets) — with Breitbart's 'Guillotine Terror Beheadings' headline standing as the corpus's single most editorially extreme title, encoding a counter-revolutionary civilizational frame absent from every other outlet. The pope's AI 'paradise of machines' warning, prominent in body text, surfaces at the headline layer only in five outliers, confirming it was deprioritised as front-page framing by the majority of editors.",
+  "generated_at": "2026-09-27T13:30:00Z",
+  "model": "claude-haiku-4-5"
+}
