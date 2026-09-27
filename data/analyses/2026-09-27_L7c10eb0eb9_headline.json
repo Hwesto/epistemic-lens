@@ -1,0 +1,93 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "L7c10eb0eb9",
+  "cluster_id": 123,
+  "cluster_name": "Hurricane Polo approaches Baja California Sur as second-strongest eastern Pacific storm",
+  "salience_score": 3.429,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 16,
+  "tldr": "The headline layer reads almost uniformly as imminent physical threat: eleven of fourteen titled items place the storm directly bearing down on coastlines ('threatens,' 'impactará,' 'barrels towards,' 'flooding, high surf'). The government-response dimension visible in body text — emergency brigade deployments, port closures — surfaces only in Globe and Mail's single headline. Mexico News Daily is the sole outlet to label Polo 'a record hurricane' at the title level, flagging historic intensity where every other outlet used directional-threat language. Daily Sabah uniquely widens the frame to a simultaneous dual-Pacific-storm event, pairing Polo with Hurricane Nolo threatening Hawaii.",
+  "event_summary": "Hurricane Polo, a Category 4 storm (peaked Cat 5 at 892 mb — second-lowest ever in the east Pacific), was tracking toward Baja California Sur for Monday landfall. Mexico closed Pacific ports and deployed emergency brigades.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Storm threat: flooding and landfall",
+      "outlets": ["24 Horas", "Daily Sabah", "El Financiero", "El Sol de Mexico", "Globe and Mail", "Hindustan Times", "Mexico News Daily", "Reuters (via Google News)", "Straits Times", "The Guardian World"],
+      "countries": ["mexico", "turkey", "canada", "india", "wire_services", "vietnam_thai_my", "uk"],
+      "evidence": [
+        {
+          "outlet": "24 Horas",
+          "country": "mexico",
+          "quote": "impactará Baja California Sur el lunes",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "threatens Hawaii, Mexico with flooding, high surf",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Category 4 Hurricane Polo threatens Mexico's coast",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Hurricane Polo barrels towards Baja California region",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Mexico shuts ports, emergency response",
+      "outlets": ["Globe and Mail"],
+      "countries": ["canada"],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Mexico shuts Pacific ports as Hurricane Polo churns",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mexico News Daily",
+      "country": "mexico",
+      "finding": "Only headline in the corpus to label Polo 'a record hurricane,' signaling historic meteorological intensity at the RSS layer where every other outlet used directional-threat language ('threatens,' 'barrels,' 'impactará').",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only non-Mexican outlet to surface a government-action frame in the headline ('Mexico shuts Pacific ports'), while its second headline defaults to the threat register — the port-closure story was invisible at the headline level to all other international outlets.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to frame Polo alongside simultaneous Pacific storm Nolo ('Hurricane Nolo threatens Hawaii, Mexico'), widening the geographic scope of the story beyond Mexico's specific landfall threat to a dual-storm Pacific event.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Only headline to advertise live-tracking format ('EN VIVO') while simultaneously reporting real-time category degradation — signaling editorial investment in continuous coverage absent from all other outlets' static headline choices.",
+      "signal_text_idx": 3
+    }
+  ],
+  "bottom_line": "At the headline layer, this story collapses almost entirely into one register: a dangerous storm bearing down on Mexico's coast. The record-breaking meteorological context, climate attribution, and emergency coordination detail visible in body text are invisible at the title level — the gap between what headlines advertise and what articles deliver is especially wide for this cluster.",
+  "generated_at": "2026-09-27T14:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
