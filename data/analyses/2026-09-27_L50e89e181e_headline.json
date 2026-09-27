@@ -1,0 +1,145 @@
+{
+  "story_key": "L50e89e181e",
+  "date": "2026-09-27",
+  "n_buckets": 10,
+  "n_articles": 17,
+  "tldr": "Headlines worldwide lead with the spectacle of mass protest — thousands marching in Madrid — sparked by one elderly woman's eviction, with Spanish-language outlets diverging to frame the story as a structural housing crisis and, uniquely, as a political fault line over vulture-fund investment.",
+  "frames": [
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Mass protest in Madrid's streets",
+      "buckets": ["wire_services", "germany", "india", "mexico", "vietnam_thai_my", "france", "canada", "state_tv_intl", "taiwan_hk", "uk"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Thousands march in Madrid to protest eviction",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Thousands protest in Madrid against housing crisis",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "La Jornada",
+          "quote": "Miles marchan en Madrid contra los desahucios",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Thousands march in Spain over eviction",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Elderly woman forced from lifelong home",
+      "buckets": ["wire_services", "vietnam_thai_my", "germany", "france", "canada", "state_tv_intl", "taiwan_hk", "uk"],
+      "evidence": [
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "87-year-old woman evicted from lifelong home",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Zwangsräumung von 87-Jähriger in Madrid",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "une octogénaire expulsée de chez elle",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Le Devoir",
+          "quote": "pour le droit du logement",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Housing affordability crisis",
+      "buckets": ["france", "germany", "india", "state_tv_intl", "uk"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Crise du logement en Espagne",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "protest Spain's housing crisis after eviction",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "Spain housing crisis protest",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "Any tenant could be next",
+      "buckets": ["mexico", "france"],
+      "evidence": [
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "'Ni una Maricarmen más'",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "Vous pourriez être la prochaine Maricarmen",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Vulture funds split Spain's government",
+      "buckets": ["state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "fondos buitre y por qué dividen al Gobierno",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "mexico", "mean_similarity": 0.786, "n_tokens": 86},
+    {"bucket": "wire_services", "mean_similarity": 0.787, "n_tokens": 49},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.795, "n_tokens": 62},
+    {"bucket": "france", "mean_similarity": 0.804, "n_tokens": 125},
+    {"bucket": "india", "mean_similarity": 0.812, "n_tokens": 30},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.814, "n_tokens": 52},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.826, "n_tokens": 117},
+    {"bucket": "germany", "mean_similarity": 0.854, "n_tokens": 83}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage universally foregrounds the protest as a mass public event anchored to one elderly woman's eviction; Spanish-language outlets add a structural-crisis and political dimension — vulture funds dividing the government — absent from English and French headlines.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
