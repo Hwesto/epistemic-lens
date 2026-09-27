@@ -1,0 +1,153 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "L7c10eb0eb9",
+  "cluster_id": 123,
+  "cluster_name": "Hurricane Polo approaches Baja California Sur as second-strongest eastern Pacific storm",
+  "salience_score": 3.429,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 16,
+  "event_summary": "Hurricane Polo, a Category 4 storm (peaked Cat 5 at 892 mb — second-lowest ever in the east Pacific), was tracking toward Baja California Sur for Monday, September 28 landfall. Mexico closed Pacific ports and deployed emergency brigades to BCS, Sinaloa, and Sonora.",
+  "tldr": "The clearest editorial split in this cluster falls between Mexico's Spanish-language press, which carried the full emergency response layer, and international English-language outlets, which mostly filed a one-line threat brief. Mexico News Daily is the only outlet to document Polo as 'the fastest system in the Western Hemisphere on record to go from a disorganized tropical depression to a Category 5 hurricane,' while The Guardian is the only outlet to connect the record intensity to climate conditions explicitly. Turkey's Daily Sabah reframed the story entirely as a dual Pacific hurricane event (Nolo and Polo simultaneously threatening Hawaii and Mexico), the only outlet to do so. No US outlet appears in the cluster despite Baja California Sur's Los Cabos being a primary American tourist destination — the record-breaking meteorological context was largely invisible to international audiences.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "life-threatening storm and public warnings",
+      "outlets": ["24 Horas", "El Sol de Mexico", "Hindustan Times", "Reuters (via Google News)", "Straits Times", "Globe and Mail"],
+      "countries": ["mexico", "india", "wire_services", "vietnam_thai_my", "canada"],
+      "evidence": [
+        {
+          "outlet": "El Sol de Mexico",
+          "country": "mexico",
+          "quote": "El Servicio Meteorológico Nacional destacó que el fenómeno provocaría fuertes vientos e incremento de oleaje en varios municipios del estado",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Hurricane Polo moved away from Mexico's Pacific coast on Saturday as a downgraded Category 4, before an expected return to make landfall in Baja California Sur on Monday, forecasters said.",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "emergency deployment and port closures",
+      "outlets": ["24 Horas", "Globe and Mail"],
+      "countries": ["mexico", "canada"],
+      "evidence": [
+        {
+          "outlet": "24 Horas",
+          "country": "mexico",
+          "quote": "las brigadas de Protección a la Infraestructura y Atención de Emergencias mantienen preparados los equipos especializados para tareas como desalojo de agua, en sus centros regionales de Baja California Sur, Sinaloa y Sonora, con la posibilidad de trasladar materiales y personal de otras entidades, en caso de ser necesario.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Mexico closed several Pacific ports to navigation on Sept. 23 as Hurricane Polo, a powerful Category 4 storm, churned off the country's southwestern coast, threatening heavy rain, flooding and dangerous sea conditions despite forecasts that it will remain offshore.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "multi-tier government emergency coordination",
+      "outlets": ["24 Horas", "El Financiero"],
+      "countries": ["mexico"],
+      "evidence": [
+        {
+          "outlet": "24 Horas",
+          "country": "mexico",
+          "quote": "La Comisión Nacional del Agua (Conagua) y la Coordinación Nacional de Protección Civil (CNPC) hicieron un llamado a las autoridades de los tres órdenes de gobierno y a la población en general para que implementen estrategias de protección ante los efectos del huracán Polo",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "el SMN mantiene una zona de vigilancia por efectos de vientos de huracán desde Punta Eugenia hasta Santa Fe, Baja California Sur.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "OTHER",
+      "sub_frame": "historic intensity and climate attribution",
+      "outlets": ["Mexico News Daily", "The Guardian World"],
+      "countries": ["mexico", "uk"],
+      "evidence": [
+        {
+          "outlet": "Mexico News Daily",
+          "country": "mexico",
+          "quote": "becoming the fastest system in the Western Hemisphere on record to go from a disorganized tropical depression to a Category 5 hurricane",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "On 22 September, a measurement of 892 millibars was registered for Hurricane Polo, making it the second-most intense hurricane on record in the east Pacific.",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "24 Horas",
+      "country": "mexico",
+      "terms": ["huracán", "categoría", "viento", "tierra", "kilómetro", "protección", "coordinación", "ciclón", "autoridad"],
+      "what_it_reveals": "Spanish-language coverage carried the entire operational emergency management layer — government coordination structures, precise meteorological data in metric units, and state-by-state impact forecasts — none of which appear in any English-language brief in the cluster."
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "terms": ["churn", "port"],
+      "what_it_reveals": "'Churns offshore' and 'port' are exclusive to the Globe; it was the only English-language outlet to treat port closures as a concrete lead measure, framing the event through maritime disruption rather than the dominant public-safety lens."
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Mexico News Daily",
+      "country": "mexico",
+      "finding": "Only outlet to place Polo in the meteorological record: 'the fastest system in the Western Hemisphere on record to go from a disorganized tropical depression to a Category 5 hurricane' — context that wire briefs and all international outlets omitted entirely.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Only outlet to explicitly link record intensity to climate conditions, noting the storm 'is fuelled by exceptionally warm waters across the Pacific Ocean' — the sole climate-framing entry in a cluster otherwise dominated by weather-desk factual coverage.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Uniquely framed Polo alongside Hurricane Nolo (threatening Hawaii) as simultaneous Pacific storms, broadening the geographic scope away from Mexico's specific landfall threat.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "El Financiero",
+      "country": "mexico",
+      "finding": "Only outlet to publish live degradation tracking of Polo's Category 5 → 4 → 3 descent with exact wind speeds (220 km/h sustained, 270 km/h gusts) and GPS coordinates relative to Cabo San Lucas.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "24 Horas",
+      "country": "mexico",
+      "finding": "Only outlet to report the federal ECO (Misión de Enlace y Coordinación) deployment to Baja California Sur — indicating Mexico had escalated to its highest emergency coordination tier, a fact invisible to all English-language coverage.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only non-Mexican outlet to report Pacific port closures as a concrete government action, treating the hurricane through a maritime commerce lens rather than the dominant public-safety frame.",
+      "signal_text_idx": 7
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Hurricane Polo arrived as the second-most intense eastern Pacific hurricane on record yet drew shallow international coverage — most non-Mexican outlets filed a single-line threat brief. The substantive story of unprecedented intensification, government emergency mobilization, and climate attribution was carried almost entirely by Mexican domestic media; the record-breaking context was absent from every wire and international brief.",
+  "generated_at": "2026-09-27T13:30:00Z",
+  "model": "claude-sonnet-4-6"
+}
