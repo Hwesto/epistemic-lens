@@ -1,0 +1,171 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-09-27",
+  "lineage_id": "Lf96593ddef",
+  "cluster_id": 158,
+  "cluster_name": "Twin mass shootings near Johannesburg and Cape Town kill 27",
+  "salience_score": 4.898,
+  "n_outlets": 20,
+  "n_countries": 12,
+  "n_articles": 20,
+  "event_summary": "Eight gunmen stormed a bar in Wedela township near Johannesburg on 26 September 2026, killing 17 and wounding 15; hours later gunmen killed 10 and wounded 11 at a venue in Lwandle near Cape Town. No arrests had been made in either case by Sunday.",
+  "tldr": "Twenty outlets across 12 countries covered the South Africa shootings with near-identical factual framing — no outlet diverged significantly on angle or emphasis, a rare uniformity for a story with obvious resonance for domestic gun-policy debates. The most analytically distinctive piece is South China Morning Post, the only outlet to link the violence explicitly to upcoming elections and to frame the Johannesburg attack as a probable turf war over illegal mining — context entirely absent from all other coverage. RT Africa (Russian state media) tracks Western wire-service reporting verbatim, offering no geopolitical or governance-failure angle on what could easily be weaponised against a Western-aligned democracy. AfricaNews alone carries a secondary thread: a serial killer investigation in Ekurhuleni where 10 women have been killed over two months, a finding submerged in the aggregate shooting toll reported by every other outlet.",
+  "frames": [
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "gang and illegal-mining turf violence",
+      "outlets": [
+        "AfricaNews", "Al Jazeera English", "Anadolu Agency English",
+        "BBC World", "CBC World", "Daily Sabah", "Dawn",
+        "Deutsche Welle English", "Geo News English", "Hindustan Times",
+        "India Today", "Malay Mail World", "NDTV World", "RT Africa",
+        "South China Morning Post", "Straits Times", "The Guardian World",
+        "The Hindu Intl", "The Independent", "The Punch"
+      ],
+      "countries": [
+        "pan_african", "qatar", "turkey", "uk", "canada", "pakistan",
+        "germany", "india", "state_tv_intl", "taiwan_hk",
+        "vietnam_thai_my", "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "South Africa battles widespread gun violence, with authorities frequently linking deadly attacks to gang conflicts and competition among informal businesses.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "initial investigations suggested one could be a turf war between illegal miners and the other a business rivalry",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "South Africa has a long history of mass shootings at bars and unlicensed taverns known as shebeens, which are linked to gang rivalries, extortion, or disputes tied to illegal liquor sales.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "systemic violent crime as state-level threat",
+      "outlets": [
+        "BBC World", "AfricaNews", "Anadolu Agency English",
+        "CBC World", "Straits Times", "The Guardian World"
+      ],
+      "countries": ["uk", "pan_african", "turkey", "canada", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "In February, President Cyril Ramaphosa called organised crime \"the most immediate threat to our democracy, our society and our economic development\".",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Mass shootings are increasingly frequent in South Africa, where an average of around 58 people are murdered each day, according to national crime statistics",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Gang violence and organised crime remain rife in South Africa.",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "military deployment as crime-control measure",
+      "outlets": ["AfricaNews", "BBC World", "The Independent"],
+      "countries": ["pan_african", "uk"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Authorities have repeatedly deployed the military to support police in areas affected by severe violence.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Earlier this year the military was deployed alongside police in areas with the highest murder rates in an effort to reduce armed violence.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "escalating fear in township communities",
+      "outlets": ["CBC World", "BBC World", "The Guardian World"],
+      "countries": ["canada", "uk"],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "the series of mass shootings this week were shocking even to a country used to some of the highest violent crime rates in the world.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "a recent spate of mass shootings has raised fears that the problem is deepening, with violence often linked to turf wars between gangs engaged in drug trafficking and illegal mining.",
+          "signal_text_idx": 3
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "united_states",
+      "what_they_covered_instead": "No US outlet present in cluster despite South Africa shooting stories routinely prompting US domestic gun-policy comparisons in prior cycles; likely covered other domestic news."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "South China Morning Post",
+      "country": "taiwan_hk",
+      "finding": "Only outlet to link the shootings to upcoming elections in its headline ('27 dead as elections near') and to frame the Johannesburg attack as a probable turf war over illegal mining.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Carries a secondary story entirely absent from other outlets: a serial killer investigation in Ekurhuleni where 10 women have been killed over two months, the latest victim found the same day as the mass shootings.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "Only outlet to cite a possible retaliation motive for the Johannesburg attack, quoting deputy provincial police commissioner Maj Gen Fred Kekana: 'the attack may have been a retaliation for an incident last month'.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Notes the Wedela tavern displayed a 'No weapons allowed' sign below its trading hours — an ironic detail present in no other coverage.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Embeds social media video footage of the moment the shooting began and relays French-language social posts — the only outlet to include multimedia evidence — while otherwise matching Western wire-service framing verbatim with no geopolitical spin.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Names the Cape Town venue as a 'shisanyama' (grilled-meat venue), the only outlet to use the local term rather than generic 'entertainment venue' or 'store', reflecting deeper contextual sourcing.",
+      "signal_text_idx": 16
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Twenty outlets across 12 countries covered the Johannesburg and Cape Town mass shootings with near-identical factual framing, converging on a crime-and-security frame with no significant political or geopolitical divergence — a uniformity unusual for a story with obvious comparative resonance. South China Morning Post stands as the sole outlier, uniquely injecting electoral politics and illegal-mining turf dynamics into a news cycle that every other outlet treated as a straight criminal event.",
+  "generated_at": "2026-09-27T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
