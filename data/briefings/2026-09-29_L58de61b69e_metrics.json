@@ -1,0 +1,365 @@
+{
+  "date": "2026-09-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 19,
+  "buckets": [
+    "canada",
+    "china",
+    "india",
+    "iran_opposition",
+    "pan_african",
+    "russia",
+    "uk",
+    "ukraine",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "pan_african": 63,
+    "uk": 78,
+    "canada": 61,
+    "china": 33,
+    "ukraine": 220,
+    "russia": 254,
+    "iran_opposition": 62,
+    "vietnam_thai_my": 17,
+    "india": 33
+  },
+  "pairwise_similarity": [
+    {
+      "a": "pan_african",
+      "b": "russia",
+      "score": 0.855
+    },
+    {
+      "a": "pan_african",
+      "b": "ukraine",
+      "score": 0.855
+    },
+    {
+      "a": "russia",
+      "b": "ukraine",
+      "score": 0.852
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.816
+    },
+    {
+      "a": "iran_opposition",
+      "b": "pan_african",
+      "score": 0.816
+    },
+    {
+      "a": "iran_opposition",
+      "b": "russia",
+      "score": 0.783
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.776
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.769
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.745
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.74
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.727
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.718
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.711
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.7
+    },
+    {
+      "a": "india",
+      "b": "russia",
+      "score": 0.675
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.675
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.669
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.668
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.667
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.628
+    },
+    {
+      "a": "iran_opposition",
+      "b": "uk",
+      "score": 0.625
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.619
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.6
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.59
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.586
+    },
+    {
+      "a": "ukraine",
+      "b": "vietnam_thai_my",
+      "score": 0.584
+    },
+    {
+      "a": "iran_opposition",
+      "b": "vietnam_thai_my",
+      "score": 0.569
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.541
+    },
+    {
+      "a": "pan_african",
+      "b": "vietnam_thai_my",
+      "score": 0.536
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.53
+    },
+    {
+      "a": "china",
+      "b": "vietnam_thai_my",
+      "score": 0.529
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.511
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.51
+    },
+    {
+      "a": "china",
+      "b": "ukraine",
+      "score": 0.494
+    },
+    {
+      "a": "china",
+      "b": "iran_opposition",
+      "score": 0.488
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.486
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "china",
+      "mean_similarity": 0.527,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.611,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.671,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.677,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.7,
+      "n_tokens": 63
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.705,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.713,
+      "n_tokens": 220
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.722,
+      "n_tokens": 254
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.585,
+      "n_tokens": 17
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "pan_african": [
+      {
+        "term": "block",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "escape",
+        "count": 3
+      },
+      {
+        "term": "daytime",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "china": [
+      {
+        "term": "zelenskyy",
+        "count": 6
+      },
+      {
+        "term": "past",
+        "count": 3
+      },
+      {
+        "term": "floated",
+        "count": 3
+      },
+      {
+        "term": "venue",
+        "count": 3
+      },
+      {
+        "term": "talk",
+        "count": 3
+      }
+    ],
+    "ukraine": [
+      {
+        "term": "ballistic",
+        "count": 3
+      },
+      {
+        "term": "hour",
+        "count": 3
+      },
+      {
+        "term": "rescue",
+        "count": 3
+      },
+      {
+        "term": "operation",
+        "count": 3
+      }
+    ],
+    "russia": [
+      {
+        "term": "fire",
+        "count": 7
+      },
+      {
+        "term": "educational",
+        "count": 4
+      },
+      {
+        "term": "roof",
+        "count": 4
+      },
+      {
+        "term": "sparking",
+        "count": 3
+      },
+      {
+        "term": "five",
+        "count": 3
+      },
+      {
+        "term": "site",
+        "count": 3
+      },
+      {
+        "term": "meduza",
+        "count": 3
+      },
+      {
+        "term": "governor",
+        "count": 3
+      }
+    ],
+    "iran_opposition": [],
+    "vietnam_thai_my": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-29T14:47:07+00:00",
+  "meta_version": "10.0.3"
+}

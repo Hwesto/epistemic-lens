@@ -1,0 +1,368 @@
+{
+  "date": "2026-09-29",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 7,
+  "n_articles": 17,
+  "buckets": [
+    "argentina_chile",
+    "canada",
+    "mexico",
+    "south_africa",
+    "turkey",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "mexico": 532,
+    "uk": 122,
+    "usa": 36,
+    "canada": 117,
+    "south_africa": 30,
+    "turkey": 66,
+    "argentina_chile": 34
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.921
+    },
+    {
+      "a": "mexico",
+      "b": "uk",
+      "score": 0.841
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.84
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.802
+    },
+    {
+      "a": "canada",
+      "b": "mexico",
+      "score": 0.8
+    },
+    {
+      "a": "mexico",
+      "b": "south_africa",
+      "score": 0.794
+    },
+    {
+      "a": "south_africa",
+      "b": "uk",
+      "score": 0.794
+    },
+    {
+      "a": "argentina_chile",
+      "b": "uk",
+      "score": 0.75
+    },
+    {
+      "a": "argentina_chile",
+      "b": "mexico",
+      "score": 0.748
+    },
+    {
+      "a": "argentina_chile",
+      "b": "canada",
+      "score": 0.739
+    },
+    {
+      "a": "argentina_chile",
+      "b": "turkey",
+      "score": 0.727
+    },
+    {
+      "a": "canada",
+      "b": "south_africa",
+      "score": 0.719
+    },
+    {
+      "a": "mexico",
+      "b": "turkey",
+      "score": 0.705
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.66
+    },
+    {
+      "a": "argentina_chile",
+      "b": "south_africa",
+      "score": 0.626
+    },
+    {
+      "a": "south_africa",
+      "b": "turkey",
+      "score": 0.598
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.553
+    },
+    {
+      "a": "mexico",
+      "b": "usa",
+      "score": 0.544
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.533
+    },
+    {
+      "a": "south_africa",
+      "b": "usa",
+      "score": 0.458
+    },
+    {
+      "a": "argentina_chile",
+      "b": "usa",
+      "score": 0.44
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.531,
+      "n_tokens": 36
+    },
+    {
+      "bucket": "south_africa",
+      "mean_similarity": 0.665,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "argentina_chile",
+      "mean_similarity": 0.672,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.722,
+      "n_tokens": 66
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.739,
+      "n_tokens": 532
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.762,
+      "n_tokens": 117
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.774,
+      "n_tokens": 122
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "mexico": [
+      {
+        "term": "huracán",
+        "count": 22
+      },
+      {
+        "term": "sonora",
+        "count": 9
+      },
+      {
+        "term": "categoría",
+        "count": 9
+      },
+      {
+        "term": "como",
+        "count": 8
+      },
+      {
+        "term": "centro",
+        "count": 8
+      },
+      {
+        "term": "tierra",
+        "count": 7
+      },
+      {
+        "term": "lluvia",
+        "count": 7
+      },
+      {
+        "term": "hasta",
+        "count": 6
+      },
+      {
+        "term": "hora",
+        "count": 5
+      },
+      {
+        "term": "norte",
+        "count": 5
+      },
+      {
+        "term": "fuert",
+        "count": 5
+      },
+      {
+        "term": "nacional",
+        "count": 5
+      },
+      {
+        "term": "tormenta",
+        "count": 4
+      },
+      {
+        "term": "tropical",
+        "count": 4
+      },
+      {
+        "term": "paso",
+        "count": 4
+      },
+      {
+        "term": "loreto",
+        "count": 4
+      },
+      {
+        "term": "costa",
+        "count": 4
+      },
+      {
+        "term": "toca",
+        "count": 4
+      },
+      {
+        "term": "rachel",
+        "count": 3
+      },
+      {
+        "term": "sigue",
+        "count": 3
+      },
+      {
+        "term": "sobre",
+        "count": 3
+      },
+      {
+        "term": "está",
+        "count": 3
+      },
+      {
+        "term": "golfo",
+        "count": 3
+      },
+      {
+        "term": "luego",
+        "count": 3
+      },
+      {
+        "term": "kilómetro",
+        "count": 3
+      },
+      {
+        "term": "septiembre",
+        "count": 3
+      },
+      {
+        "term": "meteorológico",
+        "count": 3
+      },
+      {
+        "term": "sinaloa",
+        "count": 3
+      },
+      {
+        "term": "chihuahua",
+        "count": 3
+      },
+      {
+        "term": "servicio",
+        "count": 3
+      },
+      {
+        "term": "durango",
+        "count": 3
+      },
+      {
+        "term": "mañanera",
+        "count": 3
+      },
+      {
+        "term": "minuto",
+        "count": 3
+      },
+      {
+        "term": "informó",
+        "count": 3
+      },
+      {
+        "term": "población",
+        "count": 3
+      },
+      {
+        "term": "need",
+        "count": 3
+      },
+      {
+        "term": "know",
+        "count": 3
+      }
+    ],
+    "uk": [
+      {
+        "term": "moving",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "again",
+        "count": 3
+      },
+      {
+        "term": "pummel",
+        "count": 3
+      },
+      {
+        "term": "jersey",
+        "count": 3
+      },
+      {
+        "term": "england",
+        "count": 3
+      }
+    ],
+    "canada": [
+      {
+        "term": "expected",
+        "count": 4
+      },
+      {
+        "term": "monday",
+        "count": 3
+      }
+    ],
+    "south_africa": [],
+    "turkey": [],
+    "argentina_chile": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-09-29T14:47:47+00:00",
+  "meta_version": "10.0.3"
+}
