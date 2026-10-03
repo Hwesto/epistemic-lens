@@ -1,0 +1,191 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "Laaaccc942f",
+  "cluster_id": 49,
+  "cluster_name": "DR Congo Ebola death toll surpasses 4,000 amid militia violence",
+  "n_outlets": 10,
+  "n_countries": 10,
+  "n_articles": 17,
+  "salience_score": 5.312,
+  "event_summary": "DR Congo's Ebola outbreak surpassed 4,000 deaths and 8,300 confirmed cases across seven provinces by early October 2026, making it the deadliest in the country's history. Militia violence in Ituri province emptied a 19,000-person displacement camp and destroyed an Ebola transit centre.",
+  "tldr": "The most striking finding is that Russian state broadcaster RT Africa and US right-populist Breitbart independently converge on the same lead angle — militia violence scattering a 19,000-person displaced-persons camp as the defining event — while Western public broadcasters (CBC, Sky News, The Hindu) make the 4,000-death milestone their headline. French-language outlets AFP and RFI Afrique are the only ones covering France's diplomatic engagement and the novel strategy of enlisting religious communities in the outbreak response. A narrative tension runs through the corpus: DRC's Health Minister declared the peak is behind the country, while Africa CDC simultaneously warned that declining reported cases reflect surveillance breakdown caused by insecurity rather than actual containment. A post-exposure prophylaxis drug trial (EBO-PEP) with 250+ participants is underway in Ituri — covered by pan-African and Turkish outlets but largely absent from Western mainstream coverage.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "deadliest Bundibugyo outbreak, no approved vaccine",
+      "outlets": ["AFP / France 24 FR", "AfricaNews", "Breitbart", "CBC World", "CGTN World", "Daily Sabah", "RFI Afrique", "RT Africa", "Sky News UK", "The Hindu Intl"],
+      "countries": ["france", "pan_african", "usa", "canada", "china", "turkey", "africa_other", "state_tv_intl", "uk", "india"],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "The Democratic Republic of Congo's Ebola outbreak has recorded more than 4,000 deaths, authorities say, as they struggle to contain the spread of the virus.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Government figures show that the Ebola outbreak has killed more than 4,000 people, with about 8,300 confirmed cases across seven provinces. More than 2,000 patients have recovered.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "The World Health Organization has recently raised the alarm regarding the rapid geographical spread of the virus into new health zones, stretching limited resources.",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "armed displacement disrupting outbreak containment",
+      "outlets": ["Breitbart", "RT Africa", "Daily Sabah", "CBC World", "The Hindu Intl"],
+      "countries": ["usa", "state_tv_intl", "turkey", "canada", "india"],
+      "evidence": [
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "The United Nations expressed alarm in a statement on Thursday that the Kigonze camp in Ituri province, Democratic Republic of Congo (DRC) — which temporarily housed thousands of displaced people — had been entirely emptied, scattering its population during an uncontrolled Ebola outbreak.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "Thousands of people have fled an Ebola-hit displacement camp in eastern Democratic Republic of the Congo (DR Congo), leaving it largely abandoned after clashes erupted during a security operation, the UN said on Thursday.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Congo Ebola death toll hits 4,000 as violence hampers response\n\nThe Democratic Republic of the Congo's Ebola outbreak has killed nearly 4,000 people and infected more than 8,200, with violence and mass displacement in the country's east making...",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "burned treatment centres, mobile labs, scarce staff",
+      "outlets": ["AfricaNews", "The Hindu Intl", "RT Africa"],
+      "countries": ["pan_african", "india", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "In the eastern Democratic Republic of Congo, a mobile lab has been operating for two weeks, a welcome relief to staff at the nearby Ebola treatment centre who said that getting a test result used to take 72 hours.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Julien Harneis, the UN senior Ebola coordinator, said creating Ebola transit and treatment centres has been a struggle, requiring money and staff, all of which are in short supply.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "An Ebola transit center at Kigonze was also destroyed by fire this week, further disrupting containment efforts. The facility, operated by International Medical Corps and supported by more than 50 staff, was used to isolate and assess suspected cases before patients were transferred for treatment.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "EBO-PEP drug trial and religious-community strategy",
+      "outlets": ["AfricaNews", "Daily Sabah", "RFI Afrique"],
+      "countries": ["pan_african", "turkey", "africa_other"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "The experimental antiviral pill being tested is a post-exposure prophylaxis, or PEP, which is administered immediately after suspected contact with the virus.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "RFI Afrique",
+          "country": "africa_other",
+          "quote": "En République démocratique du Congo, la riposte contre Ebola veut s'appuyer davantage sur les communautés religieuses, alors que l'épidémie approche le seuil critique des 4 000 décès pour quelque 8 000 cas confirmés.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "French diplomatic visit, UN alarm, Africa CDC warnings",
+      "outlets": ["AFP / France 24 FR", "RT Africa"],
+      "countries": ["france", "state_tv_intl"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "Le chef de la diplomatie française, Jean-Noël Barrot, est arrivé samedi 3 octobre dans la province orientale de l'Ituri (en République démocratique du Congo), l'épicentre de la plus grave épidémie d'Ebola de l'histoire de ce pays, a constaté l'AFP.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "RT Africa",
+          "country": "state_tv_intl",
+          "quote": "On Thursday, the Africa Centers for Disease Control and Prevention (Africa CDC) warned against interpreting a recent decline in reported cases as evidence that the outbreak is easing, saying insecurity has disrupted surveillance in affected areas.",
+          "signal_text_idx": 10
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "quote": "Thousands of people have fled an Ebola-hit displacement camp in eastern Democratic Republic of the Congo (DR Congo), leaving it largely abandoned after clashes erupted during a security operation, the UN said on Thursday.",
+      "signal_text_idx": 10
+    },
+    "b": {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "quote": "The United Nations expressed alarm in a statement on Thursday that the Kigonze camp in Ituri province, Democratic Republic of Congo (DRC) — which temporarily housed thousands of displaced people — had been entirely emptied, scattering its population during an uncontrolled Ebola outbreak.",
+      "signal_text_idx": 3
+    },
+    "joint_conclusion": "Russian state media (RT Africa) and US right-populist media (Breitbart) independently lead with the camp-displacement event rather than the 4,000-death milestone, converging on security/order breakdown as the primary angle despite representing opposing editorial blocs. Both outlets frame the crisis through failure of ground-level control rather than health-systems failure — the framing Western public broadcasters adopt."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only outlet to cover French Foreign Minister Jean-Noël Barrot's in-person visit to Ituri on 3 October; the diplomatic visit is entirely absent from anglophone coverage.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "RFI Afrique",
+      "country": "africa_other",
+      "finding": "Only outlet to report on the 1 October Kinshasa summit of religious denominations convened by Caritas Congo to discuss their role in the outbreak response, including countering rumours and stigmatisation.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "RT Africa",
+      "country": "state_tv_intl",
+      "finding": "Only outlet to report that a DRC ruling-party official was killed after an attack his party linked to his public support for Ebola containment measures.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Only outlet to provide full-body reporting on the EBO-PEP trial with participant testimonials and protocol detail (250+ adults, 21-day monitoring, Bundibugyo-specific design); all other outlets reference the trial in a single sentence.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "RFI Afrique",
+      "country": "africa_other",
+      "finding": "Only outlet to quote Health Minister Roger Kamba's press-conference claim that the peak is behind the country — an official optimism directly contradicted by Africa CDC's simultaneous warning in RT Africa that declining case counts reflect surveillance breakdown, not control.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "China's state broadcaster provides a four-sentence purely statistical summary with no violence, diplomatic, or treatment-trial context — the most neutral and sparse treatment in the corpus.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The DR Congo Ebola outbreak has passed 4,000 deaths — the worst the country has ever recorded — while armed violence simultaneously destroys the health infrastructure built to contain it. A cross-ideological convergence sees Russian state media and US right-populist outlets both foreground security breakdown as their primary angle, while Western public broadcasters lead with the death toll and francophone outlets uniquely cover diplomatic and faith-community responses.",
+  "generated_at": "2026-10-03T13:09:25Z",
+  "model": "claude-sonnet-4-6"
+}
