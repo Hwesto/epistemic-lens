@@ -1,0 +1,118 @@
+{
+  "story_key": "Lcbde51a07c",
+  "date": "2026-10-03",
+  "n_buckets": 9,
+  "n_articles": 19,
+  "tldr": "Headlines converge on a single factual anchor — Russia struck both of Kyiv's major Dnipro bridges within three days — with most outlets naming specific bridges and sequencing the attacks; secondary tiers stress transport disruption or civilian casualties, while TASS alone frames the bridges as military supply conduits rather than civilian crossings.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Russian bridge strikes escalate in capital",
+      "buckets": ["wire_services", "turkey", "uk", "germany", "ukraine", "vietnam_thai_my", "russia", "opinion_magazines", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Russia strikes another major bridge across Kyiv's Dnipro",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Russia hits second major bridge in Ukraine's capital Kyiv",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "Russian forces strike Kiev bridge used to move troops",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Bridge strikes disrupt Kyiv transport",
+      "buckets": ["ukraine", "vietnam_thai_my", "opinion_magazines", "russia"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Russia hits major Kyiv bridge, logistics hub",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Russian drones hit key Kyiv bridge, disrupting transport",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Russian Drones Hit Kyiv's South Bridge Again",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Strikes injure and kill civilians",
+      "buckets": ["turkey", "ukraine", "iran_opposition"],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Air Strikes Kill Several In Ukraine As Russia Focuses",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "At least 6 injured in Kyiv region as Russia, Ukraine",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Ukrinform English",
+          "quote": "Two injured in Russian strike on Northern Bridge in Kyiv",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "opinion_magazines", "mean_similarity": 0.783, "n_tokens": 70},
+    {"bucket": "uk", "mean_similarity": 0.784, "n_tokens": 437},
+    {"bucket": "wire_services", "mean_similarity": 0.790, "n_tokens": 69},
+    {"bucket": "russia", "mean_similarity": 0.798, "n_tokens": 233},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.809, "n_tokens": 57},
+    {"bucket": "ukraine", "mean_similarity": 0.815, "n_tokens": 328}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Uses Russian-transliterated place names ('Kiev', 'Dnieper') and characterises the bridge solely as a military troop-transfer route — the only headline in the cluster to omit civilian or commuter context entirely.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "The only headline to frame the event as a bilateral exchange ('Russia, Ukraine exchange overnight strikes') rather than a unilateral Russian escalation, pairing the bridge attack with Ukrainian counter-strikes on Russia's Kaluga region.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Leads with fatalities and pivots to energy-facility targeting — the only headline to sideline the bridge story in favour of a broader overnight-strike casualty and energy-infrastructure narrative.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer presents near-universal factual consensus on Russian bridge strikes in Kyiv but splits on emphasis: most outlets frame a security escalation, Politico and Malay Mail lead with logistics disruption, and TASS uniquely markets the targeted Dnipro crossings as military supply infrastructure rather than a civilian capital's arteries.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
