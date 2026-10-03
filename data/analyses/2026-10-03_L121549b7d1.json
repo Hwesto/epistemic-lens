@@ -1,0 +1,238 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L121549b7d1",
+  "cluster_id": 164,
+  "cluster_name": "French high school students nationwide protest underfunded schools",
+  "salience_score": 6.771,
+  "n_outlets": 17,
+  "n_countries": 13,
+  "n_articles": 25,
+  "event_summary": "French high school students held nationwide protests over teacher shortages and overcrowded classrooms, beginning in Paris suburbs around September 20 and spreading across France by early October 2026, resulting in over 2,000 arrests and more than 400 school closures.",
+  "tldr": "The most striking finding is near-total editorial convergence on the government's failure to contain the protests — Russian state media, US right-wing outlets, UK public broadcasters, and Global South papers all foreground the Macron government's loss of control, differing only on cause. The corpus splits sharply on origin: Global South and centrist outlets (Dawn, Straits Times, Egypt Independent) foreground material deprivation in Paris's banlieues — naming specific suburbs, specific students — while US conservative outlets (Daily Wire, Fox News) attribute the unrest to 'leftist agitators' and call students' grievances a 'teenage tantrum,' erasing the structural grievance entirely. The protests' epicentre in Seine-Saint-Denis, France's poorest department, draws explicit attention from outlets in Pakistan, Singapore, and South Africa but goes unmentioned by US right-wing coverage. Meanwhile the French government's simultaneous offer of a 'day of dialogue' and demand that parents pay reparations for property damage signals a cabinet with no coherent strategy.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "school underfunding and teacher shortages",
+      "outlets": [
+        "BBC World", "CBC World", "Daily Maverick", "Daily Sabah",
+        "Dawn", "Egypt Independent", "Malay Mail World",
+        "Reuters (via Google News)", "Standard Kenya World", "Straits Times"
+      ],
+      "countries": [
+        "uk", "canada", "south_africa", "turkey",
+        "pakistan", "egypt", "vietnam_thai_my",
+        "wire_services", "kenya"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "About 735 schools have faced disruption as violent protests over standards and lack of teachers continue.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "Maisa, a 17-year-old in a poor Paris suburb who aspires to be an English teacher, joined tens of thousands of other students and their supporters this week in protests that spread across France over dilapidated schools, classroom overcrowding and teacher shortages.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "About 400 schools and other educational institutions in France were expected to remain closed Friday after student protests over teacher shortages, overcrowded classrooms and deter...",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "mass arrests and police-student clashes",
+      "outlets": [
+        "CBC World", "Daily Maverick", "Deutsche Welle English",
+        "Egypt Independent", "Fox News World", "Malay Mail World",
+        "RT", "Standard Kenya World", "The Hindu Intl", "The Independent"
+      ],
+      "countries": [
+        "canada", "south_africa", "germany",
+        "egypt", "usa", "vietnam_thai_my",
+        "russia", "kenya", "india", "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Police have made around 2,000 arrests and dozens of people have been injured as student protests spread across France.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "French Interior Minister Laurent Nunez told TF1 TV on Friday that police had arrested a total of around 5,000 people, most of them teenagers, since Monday.",
+          "signal_text_idx": 22
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "French security forces on Wednesday detained over 600 people while dozens of police and gendarmes were wounded as protests that have seen blockades of high schools",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Macron government crisis",
+      "outlets": [
+        "BBC World", "CBC World", "Fox News World", "RT"
+      ],
+      "countries": [
+        "uk", "canada", "usa", "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "School protests send shivers down French government's spine\n\nA movement that started nearly two weeks ago has spread, and in France young people on the streets spells trouble, writes Hugh Schofield.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Macron government struggles to quell protests as riot police clash with high schoolers\n\nRiot police clashed with high school students across France on Friday and unions called for teachers to strike as President Emmanuel Macron's government battled to contain increasingly ‌violent protests over classroom conditions and funding.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Riot police clashed with teenagers across France as roughly 400 high schools closed and some 2,000 people were arrested amid escalating student unrest.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "deprived suburbs bear worst school conditions",
+      "outlets": [
+        "Dawn", "Reuters (via Google News)", "Straits Times", "The Independent"
+      ],
+      "countries": [
+        "pakistan", "wire_services", "vietnam_thai_my", "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "At Lycee Le Corbusier school in Aubervilliers, a suburb north of Paris in the Seine-Saint-Denis department, protesters said schools in poor neighborhoods like theirs faced the worst conditions.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Protesters said schools in poor neighbourhoods faced the worst conditions.",
+          "signal_text_idx": 20
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "dialogue offer vs. parental reparations demand",
+      "outlets": [
+        "Deutsche Welle English", "The Independent", "CBC World"
+      ],
+      "countries": [
+        "germany", "uk", "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Ministers have called for a \"day of dialogue\" but students have called for further strike action.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Justice Minister Darmanin had earlier told RTL radio that parents of those damaging property should pay reparations.",
+          "signal_text_idx": 22
+        }
+      ]
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "Nearly 2,000 people have been arrested in France as student protests and nationwide strikes descended into clashes with police",
+      "signal_text_idx": 15
+    },
+    "b": {
+      "outlet": "BBC World",
+      "country": "uk",
+      "quote": "School protests send shivers down French government's spine\n\nA movement that started nearly two weeks ago has spread, and in France young people on the streets spells trouble, writes Hugh Schofield.",
+      "signal_text_idx": 0
+    },
+    "joint_conclusion": "Russian state media (motivated to showcase Western democratic dysfunction) and UK centre-establishment public broadcasting (reporting a genuine political crisis) converge on the same headline claim: the Macron government is badly exposed. RT emphasises the scale of repression to underline state failure; BBC invokes France's protest history to signal existential political risk. The conclusion — a government in serious trouble — is identical."
+  },
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "No Chinese outlet appears in the corpus despite Beijing-based feeds routinely covering Western social unrest as evidence of liberal-democratic instability."
+    },
+    {
+      "country": "italy",
+      "what_they_covered_instead": "Italy shares France's education-funding debates and has its own lycée protest tradition; no Italian outlet appears, suggesting the story was deprioritised relative to domestic Italian news."
+    },
+    {
+      "country": "spain",
+      "what_they_covered_instead": "Spain's education ministry is engaged in similar teacher-shortage controversies; no Spanish outlet appears in this cluster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Only outlet to describe the protests as a 'teenage tantrum' and students as 'leftist agitators hurling Molotovs' — the most inflammatory framing in the corpus, shared by no other outlet across 13 countries.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Only body-extracted article in the corpus; uniquely reports a 16-year-old student injured by an LBD-40 rubber bullet to the eye in Tours, and puts total arrests at 5,000 — roughly double what most summary-level outlets cited.",
+      "signal_text_idx": 22
+    },
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to foreground the French government's 'hard left' blame attribution as the headline finding, echoing government spin rather than reporting independent context.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Dawn",
+      "country": "pakistan",
+      "finding": "Only outlet to humanise the protests with a named student source (Maisa, 17) and to locate the origin specifically in Seine-Saint-Denis — France's poorest department — grounding the story in class inequality rather than disorder.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Standard Kenya World",
+      "country": "kenya",
+      "finding": "Leads with vivid civic disruption ('smouldering bins, halted trams') rather than arrest numbers, foregrounding the everyday urban impact over the political crisis angle.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Frames the arrest scale as evidence of French state repression rather than law enforcement, consistent with RT's editorial pattern of amplifying Western government coercive failures.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "Uniquely invokes French protest history as interpretive frame — 'young people on the streets spells trouble' — contextualising 2026 unrest within the May 1968 / gilets jaunes tradition.",
+      "signal_text_idx": 0
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Across 13 countries and 17 outlets, every editorial bloc agrees the Macron government is under severe pressure — but the corpus splits on whether the cause is structural inequality in France's poorest suburbs or politically organised disruption by 'hard left agitators.' The deprivation-focused framing dominates Global South and Asian coverage; the agitator narrative is confined to two US conservative outlets and echoes French government spin.",
+  "generated_at": "2026-10-03T12:57:01Z",
+  "model": "claude-sonnet-4-6"
+}
