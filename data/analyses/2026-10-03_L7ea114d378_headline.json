@@ -1,0 +1,133 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L7ea114d378",
+  "cluster_id": 127,
+  "cluster_name": "North Korea fires ballistic missile amid DMZ landmine row with Seoul",
+  "salience_score": 2.5,
+  "n_outlets": 11,
+  "n_countries": 8,
+  "n_articles": 13,
+  "tldr": "All 13 headlines foreground the ballistic missile launch itself; roughly half additionally embed the causal trigger — Seoul's apology demand over the DMZ mine blast, or Kim Yo-jong's rejection of dialogue — collapsing the story into a clean action-reaction frame at the homepage level. Technical detail (flight distance, EEZ exposure, Seoul-Washington joint tracking) visible in body texts is entirely suppressed across every headline in the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "NK missile launch into East Sea",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Deutsche Welle English",
+        "Japan Times",
+        "KBS World",
+        "Malay Mail World",
+        "NK News",
+        "Reuters (via Google News)",
+        "Sky News UK",
+        "The Guardian World",
+        "Vanguard",
+        "Yonhap News"
+      ],
+      "countries": [
+        "wire_services",
+        "germany",
+        "japan",
+        "south_korea",
+        "vietnam_thai_my",
+        "korea_north",
+        "uk",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "North Korea launches ballistic missile",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "NK News",
+          "country": "korea_north",
+          "quote": "North Korea fires ballistic missile toward East Sea",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "N. Korea fires unidentified projectile toward East Sea: JCS",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Seoul apology demand / NK rejects dialogue",
+      "outlets": [
+        "AFP / France 24 EN",
+        "KBS World",
+        "Malay Mail World",
+        "Sky News UK",
+        "The Guardian World",
+        "Vanguard",
+        "Yonhap News"
+      ],
+      "countries": [
+        "wire_services",
+        "south_korea",
+        "vietnam_thai_my",
+        "uk",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "after Kim Yo-jong Rejects Dialogue",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "after Seoul demands apology",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "tensions with Seoul grow over border mine blasts",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "after Seoul blames it for DMZ blast",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Only headline in the corpus to name Kim Yo-jong's explicit rejection of dialogue as the direct trigger, foregrounding the diplomatic breakdown rather than the missile flight alone.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Uses 'unidentified projectile' rather than 'ballistic missile' in one headline — the most hedged attribution in the corpus, signalling that South Korea's national wire had not yet confirmed missile type at time of publication.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "finding": "Carries a late-September 'suspected ballistic missiles toward East Sea: JCS' headline in addition to the Oct 3 launch, the only outlet whose headline layer establishes this as a second launch event rather than an isolated incident.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "At the headline layer, North Korea's missile launch is universally framed as a security event; roughly half the corpus also embeds the political trigger (Seoul's apology demand or Kim Yo-jong's dialogue rejection), but technical detail and alliance-coordination content visible in body texts are entirely absent from all 13 headlines.",
+  "generated_at": "2026-10-03T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
