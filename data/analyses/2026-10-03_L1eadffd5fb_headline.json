@@ -1,0 +1,123 @@
+{
+  "story_key": "L1eadffd5fb",
+  "date": "2026-10-03",
+  "n_buckets": 8,
+  "n_articles": 12,
+  "tldr": "Headlines uniformly frame this as a Seoul–Kyiv diplomatic row over South Korea's demand that Ukraine apologize for publicly disclosing the transfer of North Korean POWs, with South Korean and Korean-peninsula outlets adding a confidentiality-agreement-breach angle. Russian state media stands apart by amplifying Seoul's most extreme accusation to frame Ukraine as actively provoking war on the Korean peninsula.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Seoul-Kyiv row over POW disclosure",
+      "buckets": ["uk", "germany", "japan", "vietnam_thai_my", "south_korea", "korea_north", "usa"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Seoul warns 'further action' if Ukraine does not apologise",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Ukraine, South Korea clash over transfer",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "South Korea warns 'further measures' if Ukraine refuses",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Ukraine's Foreign Minister Calls POW Transfer Spat",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "ROK demands apology from Ukraine over North Korean POW",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "South Korea Threatens Ukraine: Apologize for Exposing",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "South Korea warns 'further measures' if Ukraine refuses",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Nondisclosure pact violation",
+      "buckets": ["south_korea", "korea_north"],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "S. Korea voices 'strong regret' over Ukraine's denial",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Korea Herald (via Google News)",
+          "quote": "Lee warns of further action unless Ukraine apologizes",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "korea_north",
+          "outlet": "NK News",
+          "quote": "Lee accuses Ukraine of violating pact",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Ukraine accused of Korean war risk",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Kiev trying to spark war on Korean peninsula",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "germany", "mean_similarity": 0.64, "n_tokens": 30},
+    {"bucket": "japan", "mean_similarity": 0.727, "n_tokens": 31},
+    {"bucket": "korea_north", "mean_similarity": 0.74, "n_tokens": 87},
+    {"bucket": "usa", "mean_similarity": 0.746, "n_tokens": 59},
+    {"bucket": "south_korea", "mean_similarity": 0.782, "n_tokens": 151}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Only outlet whose headline converts Seoul's accusation into a standalone war-instigation charge ('Kiev trying to spark war on Korean peninsula'), omitting any reference to POWs, apologies, or the disclosure dispute.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Only outlet to use explicit threat vocabulary ('Threatens… or Else') rather than diplomatic 'warns'/'urges', presenting Seoul's posture as an ultimatum.",
+      "signal_text_idx": 1
+    }
+  ],
+  "bottom_line": "Headline coverage presents South Korea's demand for a Ukrainian apology over the North Korean POW disclosure as a sharpening diplomatic confrontation, with Russia's state media uniquely repackaging Seoul's own war-provocation accusation as the story's entire frame.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
