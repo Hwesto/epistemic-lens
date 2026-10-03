@@ -1,0 +1,174 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "Lf662df7e28",
+  "cluster_id": 95,
+  "cluster_name": "Car crashes into Newcastle Knights NRL grand final crowd",
+  "n_outlets": 17,
+  "n_countries": 9,
+  "n_articles": 19,
+  "salience_score": 3.562,
+  "event_summary": "An 18-year-old driver lost control and crashed into a crowd of Newcastle Knights rugby league fans in Newcastle, NSW, on 3 October 2026, injuring 10 people; a five-year-old girl was left in critical condition and the driver was arrested, charged, and refused bail.",
+  "tldr": "A domestic Australian traffic accident drew near-identical factual coverage from nine countries spanning CPC state media, UK tabloids, Indian broadsheets, and wire services — revealing a global reflex to amplify car-into-crowd incidents primed by terrorism-era editorial protocols. Every outlet regardless of political lean reproduces the police line that the incident is not believed to be terror related, disclosing the interpretive frame editors reach for first when vehicles strike crowds. Human-interest focus on the five-year-old girl in critical condition is universal and crowds out any structural road-safety framing. One Telegraph (UK) corpus entry is a clear pipeline misassignment: the article dates from November 2024 and concerns a separate London incident, not Newcastle.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "child in critical condition, crowd injury",
+      "outlets": ["Guardian Australia", "Sydney Morning Herald", "Daily Mail", "The Guardian World", "The Independent", "ABP Live", "Hindustan Times", "NDTV World", "The Hindu Intl", "Deutsche Welle English", "Dawn", "Malay Mail World", "Vanguard", "Reuters (via Google News)", "Sky News UK", "CGTN World"],
+      "countries": ["australia_nz", "uk", "india", "germany", "pakistan", "vietnam_thai_my", "nigeria", "wire_services", "china"],
+      "evidence": [
+        {
+          "outlet": "Guardian Australia",
+          "country": "australia_nz",
+          "quote": "Ten people have been injured, one critically, after a car crashed into a crowd of people in Newcastle waiting to farewell the Knights team bus before the NRL grand final.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Daily Mail",
+          "country": "uk",
+          "quote": "Five-year-old girl is in an induced coma after she and nine others were hit by a P-plater while cheering on the Newcastle Knights - as driver, 18, is arrested",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Sydney Morning Herald",
+          "country": "australia_nz",
+          "quote": "A five-year-old girl was left fighting for her life and nine others were injured when a teenage P-plate driver allegedly lost control of his car and careered into jubilant crowds lining a Newcastle street to wave the Knights off to the NRL grand final.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "driver arrested, charged, refused bail",
+      "outlets": ["Sydney Morning Herald", "Guardian Australia", "The Guardian World", "The Independent", "ABP Live", "NDTV World", "Deutsche Welle English", "Dawn", "Malay Mail World", "Vanguard"],
+      "countries": ["australia_nz", "uk", "india", "germany", "pakistan", "vietnam_thai_my", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "Sydney Morning Herald",
+          "country": "australia_nz",
+          "quote": "He was later charged with three counts each of dangerous driving occasioning grievous bodily harm, negligent driving occasioning grievous bodily harm and causing bodily harm by misconduct in charge of a motor vehicle. He was refused police bail to face a court on Sunday.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Driver arrested after car crashes into rugby league fans in Australia, 10 injured",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "non-terror classification",
+      "outlets": ["Guardian Australia", "Sydney Morning Herald"],
+      "countries": ["australia_nz"],
+      "evidence": [
+        {
+          "outlet": "Guardian Australia",
+          "country": "australia_nz",
+          "quote": "initial inquiries indicating it is not believed to be terror related",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "community celebration shattered",
+      "outlets": ["Dawn", "Hindustan Times", "Vanguard"],
+      "countries": ["pakistan", "india", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "Dawn",
+          "country": "pakistan",
+          "quote": "A driver lost control and crashed his car into a crowd of rugby league fans in the eastern Australian city of Newcastle on Saturday, injuring 10 people including children, police said.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "Gavin Morris, the mayor of Newcastle, said that the driver lost control while revving his car before the team arrived.",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "PM and ministers express concern",
+      "outlets": ["NDTV World", "Guardian Australia"],
+      "countries": ["india", "australia_nz"],
+      "evidence": [
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "My thoughts are with everyone injured or involved in the horrible incident this morning in Newcastle",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Guardian Australia",
+          "country": "australia_nz",
+          "quote": "The police minister, Yasmin Catley, said so many lives had been affected by a split-second decision, as she urged other drivers to take care over the NSW long weekend.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No US outlet appears despite Reuters wire distribution; US editors likely treated the story below the threshold for international placement given the immediate non-terror determination."
+    },
+    {
+      "country": "france",
+      "what_they_covered_instead": "Absent from this cluster despite the story's prominence on English wire services; French outlets apparently did not pick it up as an international brief."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Telegraph",
+      "country": "uk",
+      "finding": "Pipeline misassignment: this article (dated 2024-11-12) reports a car crashing into a building in central London — a wholly separate incident, not the Newcastle Australia crash. Title: 'Three in hospital after car crashes into building in central London'.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Sydney Morning Herald",
+      "country": "australia_nz",
+      "finding": "Only outlet to name the driver (Indika Bambrick Samarasinghe) and specify the full charge sheet plus refusal of bail.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Sydney Morning Herald",
+      "country": "australia_nz",
+      "finding": "Reports crowd turning on the car occupants immediately after the crash, requiring police to extract them from the scene.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Only outlet to quote Prime Minister Anthony Albanese directly on the incident.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Reports 9 injured while all other outlets settled on 10; likely reflects an earlier wire snapshot before the final tally was confirmed.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Describes the driver as 'revving' before losing control — the specific behaviour contextualising the crash as excitement rather than intent.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Guardian Australia",
+      "country": "australia_nz",
+      "finding": "Quotes Newcastle mayor Gavin Morris characterising the driver as an excited fan — the only outlet to include framing from local elected officials.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A local Australian traffic accident became a brief global news item through wire-service distribution, with coverage unified around health impact and criminal accountability and essentially no ideological or editorial divergence across nine countries. The universal reproduction of the police non-terror caveat — across CPC state media, UK tabloids, and Indian broadsheets alike — reveals how strongly the car-into-crowd template primes a terrorism hypothesis even when the facts point immediately to an accident.",
+  "generated_at": "2026-10-03T08:15:00Z",
+  "model": "claude-sonnet-4-6"
+}
