@@ -1,0 +1,269 @@
+{
+  "story_key": "L98ef74a9bc",
+  "date": "2026-10-03",
+  "n_buckets": 20,
+  "n_articles": 48,
+  "tldr": "Headlines globally converge on the same factual event — the G7 will release 100 million barrels — but diverge sharply on causation: anglophone and Asian outlets append 'after Trump threat' or 'after US pressure' to announcements that wire services and most continental European outlets present as a cooperative G7 act. The US conservative Daily Wire alone frames this as a Trump political victory, while Germany's ZDF is the only outlet whose headline adds expert scepticism that prices will only fall briefly.",
+  "frames": [
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "G7 100M-barrel reserve release",
+      "buckets": [
+        "africa_other",
+        "canada",
+        "france",
+        "germany",
+        "india",
+        "italy",
+        "japan",
+        "mexico",
+        "opinion_magazines",
+        "qatar",
+        "russia",
+        "ukraine",
+        "usa",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "G7 to release 100 million barrels of diesel and other reserves",
+          "signal_text_idx": 36
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Macron, al G7 deciso il rilascio di 100 mln di barili",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "G7 agrees on deal to ease global energy supply concerns",
+          "signal_text_idx": 21
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "G7 Members Agree to Release Up to 100M Barrels of Oil",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US coercion forces G7 compliance",
+      "buckets": [
+        "canada",
+        "germany",
+        "nordic",
+        "opinion_magazines",
+        "pakistan",
+        "russia",
+        "taiwan_hk",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "US threatens Europe with diesel export ban",
+          "signal_text_idx": 35
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "millions of barrels of oil and diesel after Trump threat",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S. threatens France and Germany to release diesel stocks",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Sueddeutsche Zeitung",
+          "quote": "Nach Druck der USA: G-7-Staaten geben 100 Millionen Barrel",
+          "signal_text_idx": 40
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "agree to release diesel and oil stocks after US pressure",
+          "signal_text_idx": 39
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Soaring fuel prices as crisis driver",
+      "buckets": [
+        "france",
+        "germany",
+        "qatar",
+        "state_tv_intl"
+      ],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "will it curb prices?",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "france",
+          "outlet": "France Info",
+          "quote": "Pour \"faire baisser les prix\" des carburants",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "germany",
+          "outlet": "ZDF Heute",
+          "quote": "Expertin: G7-Reserven senken Spritpreise nur kurzfristig",
+          "signal_text_idx": 46
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Spanish",
+          "quote": "El G7 toma medidas para intentar bajar los precios de los",
+          "signal_text_idx": 14
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump claims diplomatic victory",
+      "buckets": [
+        "india",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Trump Put The Squeeze On Europe. It Worked.",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "including diesel, boost for Trump",
+          "signal_text_idx": 43
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.605,
+      "n_tokens": 155
+    },
+    {
+      "bucket": "nordic",
+      "mean_similarity": 0.62,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.688,
+      "n_tokens": 60
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.717,
+      "n_tokens": 118
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.735,
+      "n_tokens": 86
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.736,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.74,
+      "n_tokens": 44
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.748,
+      "n_tokens": 274
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.758,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.762,
+      "n_tokens": 173
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.763,
+      "n_tokens": 71
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.767,
+      "n_tokens": 54
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.781,
+      "n_tokens": 103
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.789,
+      "n_tokens": 249
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.811,
+      "n_tokens": 291
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Wire",
+      "bucket": "usa",
+      "finding": "Only headline to frame the outcome as a Trump victory narrative rather than a cooperative policy response — 'Trump Put The Squeeze On Europe. It Worked.' — signalling US conservative media's emphasis on coercive leverage over multilateral diplomacy.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "ZDF Heute",
+      "bucket": "germany",
+      "finding": "Only headline in the corpus that adds expert skepticism: 'Expertin: G7-Reserven senken Spritpreise nur kurzfristig' (expert says reserves only lower fuel prices short-term). All other outlets present the release as a solution; this headline frames it as an insufficient one.",
+      "signal_text_idx": 46
+    },
+    {
+      "outlet": "RT",
+      "bucket": "russia",
+      "finding": "RT's headline — 'US threatens Europe with diesel export ban' — focuses entirely on the US coercion phase before the agreement was reached, absent any mention of the G7 deal itself. The framing positions the US as an aggressor toward Europe rather than a coordinator.",
+      "signal_text_idx": 35
+    },
+    {
+      "outlet": "BFM TV",
+      "bucket": "france",
+      "finding": "Only headline to provide cumulative context: the G7 had promised 400 million barrels in March, 325 million have already been released, making the new 100 million an incremental top-up. No other outlet's title signals this, leaving most readers with an inflated sense of the decision's novelty.",
+      "signal_text_idx": 5
+    }
+  ],
+  "bottom_line": "Headline coverage projects factual consensus on the event while embedding a coercion subtext in roughly half the corpus — outlets across the UK, Asia-Pacific, Germany, and the Nordic countries attach US pressure/threat language that wire services and most continental outlets omit, making the headline layer's dominant story not the G7 release itself but Washington's arm-twisting to produce it.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
