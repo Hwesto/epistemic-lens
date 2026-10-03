@@ -1,0 +1,157 @@
+{
+  "story_key": "Laaaccc942f",
+  "date": "2026-10-03",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "tldr": "Headlines collectively assert that DR Congo's Ebola outbreak has crossed the 4,000-death threshold, with most outlets anchoring on that milestone figure; a secondary tier of outlets — especially US and state TV — foregrounds militia violence and mass displacement as the mechanism actively preventing containment, while Pan-African outlets uniquely advertise experimental medical tools (drug trials, mobile labs) as the counter-story of progress.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Death toll hits 4,000 milestone",
+      "buckets": ["canada", "china", "turkey", "uk", "india", "africa_other"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "Congo's Ebola outbreak surpasses 4,000 deaths",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Ebola deaths in the DR Congo hits 4000 mark",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Congo Ebola death toll hits 4,000 as violence",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "More than 4,000 deaths recorded in DR Congo Ebola",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Congo's Ebola outbreak records more than 4,000 deaths",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "africa_other",
+          "outlet": "RFI Afrique",
+          "quote": "l'épidémie franchit le seuil des 4000 morts",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Violence empties camps, burns facilities",
+      "buckets": ["usa", "state_tv_intl", "india"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Militia Violence Empties 19,000-Person Camp",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "Thousands flee Ebola-hit displacement camp",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Ebola treatment centre was burned down",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Drug trials and mobile labs advance response",
+      "buckets": ["pan_african", "turkey"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Trial of post-Ebola exposure drug underway",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Mobile labs speed up Ebola testing in eastern DR Congo",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Ebola drug trial launches in Congo as outbreak",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "French FM diplomatic visit to Ituri",
+      "buckets": ["france"],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "Jean-Noël Barrot en visite dans la province de l'Ituri",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Religious communities recruited for response",
+      "buckets": ["africa_other"],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "RFI Afrique",
+          "quote": "riposte veut s'appuyer davantage sur les communautés",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Politician killed defending Ebola measures",
+      "buckets": ["state_tv_intl"],
+      "evidence": [
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "RT Africa",
+          "quote": "DR Congo politician killed for defending Ebola measures",
+          "signal_text_idx": 11
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "pan_african", "mean_similarity": 0.608, "n_tokens": 211},
+    {"bucket": "usa", "mean_similarity": 0.64, "n_tokens": 57},
+    {"bucket": "france", "mean_similarity": 0.647, "n_tokens": 64},
+    {"bucket": "india", "mean_similarity": 0.679, "n_tokens": 59},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.709, "n_tokens": 221},
+    {"bucket": "africa_other", "mean_similarity": 0.746, "n_tokens": 117},
+    {"bucket": "turkey", "mean_similarity": 0.771, "n_tokens": 59}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer foregrounds the 4,000-death milestone as a near-universal anchor, but splinters on emphasis: US and RT Africa headlines advertise violence and displacement as the mechanism of failure, Pan-African outlets uniquely lead with experimental medical tools as the counter-narrative of hope, and the French outlet alone signals diplomatic engagement via a ministerial visit.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
