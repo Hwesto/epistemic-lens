@@ -1,0 +1,118 @@
+{
+  "story_key": "Lf662df7e28",
+  "date": "2026-10-03",
+  "n_buckets": 9,
+  "n_articles": 18,
+  "tldr": "Headlines across nine countries uniformly lead with an injury count, with several UK and Australian titles foregrounding a critically injured five-year-old child; the driver's arrest appears in roughly half the headlines. The police non-terror caveat — universal in body text — is absent from every headline.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "injury count, 5yo in critical condition",
+      "buckets": ["australia_nz", "china", "germany", "india", "nigeria", "pakistan", "uk", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "Five-year-old girl in critical condition after car hits",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Daily Mail",
+          "quote": "Five-year-old girl is in an induced coma after she and nine",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "Ten injured in Australia as car crashes into crowd",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "driver arrested/charged in headline",
+      "buckets": ["australia_nz", "india", "uk", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Sydney Morning Herald",
+          "quote": "Ten people injured, P-plater charged after car crashes",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "india",
+          "outlet": "ABP Live",
+          "quote": "18-Year-Old Driver Arrested",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Driver arrested after car crashes into rugby league fans",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.706,
+      "n_tokens": 425
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.781,
+      "n_tokens": 55
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.782,
+      "n_tokens": 132
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.786,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.808,
+      "n_tokens": 100
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "The Telegraph",
+      "bucket": "uk",
+      "finding": "Pipeline misassignment: headline ('Three in hospital after car crashes into building in central London', dated 2024-11-12) is a separate London incident unrelated to Newcastle.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Daily Mail",
+      "bucket": "uk",
+      "finding": "Only headline to use 'induced coma' — the most medically specific and emotionally charged phrase in the corpus, foregrounding severity beyond the bare injury count.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Independent",
+      "bucket": "uk",
+      "finding": "Only headline to use 'Children among' (plural), broadening the vulnerability frame beyond the single five-year-old foregrounded by other outlets.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Sky News UK",
+      "bucket": "uk",
+      "finding": "Only headline to reproduce an emotive characterisation ('horrible incident') as a quoted label rather than a factual description.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "Headline-layer coverage reduces the incident to two flat registers — injury count and driver arrest — while the police non-terror caveat that dominates every body text is invisible to any reader who does not click through.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
