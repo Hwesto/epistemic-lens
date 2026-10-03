@@ -1,0 +1,218 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L7f6f53cb3d",
+  "cluster_id": 162,
+  "cluster_name": "Brazil presidential first round pits Lula against Flávio Bolsonaro",
+  "salience_score": 4.781,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 17,
+  "event_summary": "Brazil held the first round of its presidential election on October 4, 2026, pitting incumbent President Luiz Inácio Lula da Silva against Senator Flávio Bolsonaro, son of former president Jair Bolsonaro, who is serving a 27-year prison sentence for plotting a coup after losing the 2022 election.",
+  "tldr": "The most striking feature of this 10-outlet corpus is its uniform geopolitical lens: every outlet — centrist, centre-left, and pan-African alike — situates the election as a Trump-vs-BRICS proxy contest, while no Brazilian domestic outlet appears at all. AFP and NPR give directly contradictory characterisations of Flávio — 'just as ideologically radical' (AFP) vs. 'a more moderate Bolsonaro' (NPR) — yet neither flags the discrepancy. Foreign Affairs alone steps back from the horse race to argue that Brazil is 'losing global influence' and structural domestic dysfunction will constrain whichever candidate wins. The pardon promise — Flávio's pledge to free his convicted father — drives the CRIME_PUNISHMENT frame in four outlets but is treated as a campaign talking point rather than a constitutional stress test.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "election horse race and partisan battle",
+      "outlets": ["AFP / France 24 EN", "AFP / France 24 FR", "AfricaNews", "Buenos Aires Herald", "El Pais English", "Malay Mail World", "NPR World", "The Guardian World"],
+      "countries": ["wire_services", "france", "pan_african", "argentina_chile", "spain", "vietnam_thai_my", "usa", "uk"],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "The result will determine whether Brazil stays with Lula's left-leaning government or returns the Bolsonaro movement to the presidency.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Leftist President Luiz Inácio Lula da Silva and right-wing Senator Flávio Bolsonaro are frontrunners in Sunday's race. Both skipped a planned TV debate, opting to avoid direct confrontation before the first round of voting.",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "coup conviction and pardon pledge",
+      "outlets": ["AFP / France 24 EN", "NPR World", "The Guardian World"],
+      "countries": ["wire_services", "usa", "uk"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Sentenced to 27 years and three months in prison after his convicting for plotting a coup following his 2022 election defeat, the former president is surely rooting for his son.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Jair Bolsonaro is now serving a 27-year sentence for plotting a coup to overturn that loss. His son has promised to pardon him if elected.",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Trump-BRICS proxy and Amazon stakes",
+      "outlets": ["Axios World", "Buenos Aires Herald", "Foreign Affairs", "The Guardian World"],
+      "countries": ["usa", "argentina_chile", "opinion_magazines", "uk"],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Brazil votes Sunday in a presidential election that could reshape its relationship with President Trump, return the Bolsonaro movement to power and alter the future of the Amazon.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Buenos Aires Herald",
+          "country": "argentina_chile",
+          "quote": "US President Donald Trump favouring the far right’s Flávio Bolsonaro (as does Javier Milei with equal fervour) while Beijing’s Xi Jinping stands by his BRICS ally, incumbent President Luiz Inácio Lula da Silva.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Foreign Affairs",
+          "country": "opinion_magazines",
+          "quote": "Lula emphasizes strategic autonomy, including through growing ties with China and other partners, while Flávio Bolsonaro favors close alignment with the Trump administration in the United States.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "Shortly after his controversial speech to the United Nations general assembly in September, Donald Trump gathered a dozen like-minded Latin American leaders and boasted that rightwing candidates had won all seven presidential elections held in the region since he began his second term.",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "polling deadlock and rejection vote",
+      "outlets": ["AFP / France 24 EN", "Buenos Aires Herald", "El Pais English", "NPR World"],
+      "countries": ["wire_services", "argentina_chile", "spain", "usa"],
+      "evidence": [
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "Extreme polarization between supporters of the leftist President Lula and the far-right candidate Flávio Bolsonaro will lead many voters to choose whoever they feel is the lesser evil, regardless of qualifications",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "it’s still the power of the family name that has managed to catapult Flavio Bolsonaro into a statistical dead heat with Lula in the opinion polls.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Supreme Court stakes and democratic legitimacy",
+      "outlets": ["Foreign Affairs", "NPR World"],
+      "countries": ["opinion_magazines", "usa"],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "The next president is expected to nominate four of 11 Supreme Court justices, giving the winner a significant influence over the court for years to come.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Foreign Affairs",
+          "country": "opinion_magazines",
+          "quote": "A major scandal has now engulfed the Supreme Court, an institution meant to enforce rules impartially and which is therefore essential",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "opinion_magazines",
+      "country": "opinion_magazines",
+      "mean_similarity": 0.713,
+      "note": "Lowest mean similarity in the cluster; structural-capacity framing (institution, foreign) diverges from the horse-race and geopolitical language of every other bucket."
+    },
+    {
+      "outlet": "france",
+      "country": "france",
+      "mean_similarity": 0.719,
+      "note": "Second-most isolated; French-language text creates embedding distance even though content mirrors AFP's EN coverage — only non-English bucket in the cluster."
+    },
+    {
+      "outlet": "spain",
+      "country": "spain",
+      "mean_similarity": 0.733,
+      "note": "Unique 'rejection vote' / 'lesser evil' framing not echoed by any other bucket, despite shared Ibero-American geographic interest in the story."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "france",
+      "country": "france",
+      "terms": ["élection", "présidentielle"],
+      "what_it_reveals": "French-language framing uses native electoral vocabulary (élection présidentielle) rather than the English 'presidential race' — signals France 24 FR is writing for a Francophone not an international audience, creating lexical isolation even when covering the same event."
+    },
+    {
+      "outlet": "usa",
+      "country": "usa",
+      "terms": ["showdown", "amazon", "movement", "rematch"],
+      "what_it_reveals": "US outlets exclusively use 'showdown', 'rematch', and 'Amazon' — sports/spectacle language plus environmental stakes; reflects Axios and NPR foregrounding the Trump-era Latin America contest and climate implications absent from European coverage."
+    },
+    {
+      "outlet": "opinion_magazines",
+      "country": "opinion_magazines",
+      "terms": ["foreign", "institution"],
+      "what_it_reveals": "Policy-academic register focuses on foreign policy credibility and institutional capacity — treats the election as a governance stress test, a frame exclusive to Foreign Affairs and absent from every news outlet."
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "brazil",
+      "what_they_covered_instead": "No Brazilian domestic outlet appears in the cluster despite this being Brazil's own election; Brazilian feeds present in the pipeline likely covered local economic conditions, evangelical voter mobilisation, and regional governor races — framings that did not cluster with the international geopolitical angle dominant here."
+    },
+    {
+      "country": "china",
+      "what_they_covered_instead": "China is repeatedly cited as a key stakeholder backing Lula via BRICS, yet no Chinese outlet appears; Chinese state media likely covered the election as a BRICS-solidarity story rather than as a US-Trump proxy contest, producing a framing gap invisible to this cluster."
+    },
+    {
+      "country": "germany",
+      "what_they_covered_instead": "Germany has material interests in Amazon protection and EU-Mercosur trade negotiations, yet no German outlet appears; German press likely led with European climate implications rather than the US-Brazil axis framing dominant here."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Foreign Affairs",
+      "country": "opinion_magazines",
+      "finding": "Alone among all outlets, argues that Brazil's declining global influence is a structural problem neither Lula nor Flávio can fix — framing the election as a governance failure story rather than a choice between competing visions.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "The only outlet to report that Flávio's campaign screened an AI-generated video of his jailed father endorsing him — a detail with legal and democratic implications that no other outlet in the cluster picks up.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Buenos Aires Herald",
+      "country": "argentina_chile",
+      "finding": "Raises the intra-right complication that a Bolsonaro win could demote Milei from Trump's top Latin American ally, and notes Trump has been 'strikingly quiet on Brazil of late' — a nuance absent from US and UK coverage.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "The only outlet to name the 'rejection vote' dynamic explicitly — framing the race as driven by negative partisanship rather than affirmative support for either candidate.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Explicitly flags the Amazon as a global stake and reports Trump's direct engagement with the election, connecting domestic US political dynamics to Brazil's outcome in a way no other outlet foregrounds.",
+      "signal_text_idx": 4
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The 2026 Brazilian presidential first round is covered internationally almost entirely as a geopolitical proxy — Trump-aligned Bolsonarismo vs. Lula's BRICS-anchored left — with no Brazilian domestic outlet in the corpus to counterbalance that frame. The absence of Chinese, German, and Brazilian voices leaves a significant gap in how the Amazon, BRICS, and evangelical-voter dynamics are represented.",
+  "generated_at": "2026-10-03T07:35:00Z",
+  "model": "claude-sonnet-4-6"
+}
