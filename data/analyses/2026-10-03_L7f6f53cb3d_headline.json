@@ -1,0 +1,181 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L7f6f53cb3d",
+  "cluster_id": 162,
+  "cluster_name": "Brazil presidential election first round: Lula versus Flávio Bolsonaro",
+  "salience_score": 4.781,
+  "n_outlets": 10,
+  "n_countries": 9,
+  "n_articles": 13,
+  "tldr": "Despite body texts extensively covering Flávio Bolsonaro's pledge to pardon his convicted father, not a single headline in the 13-article corpus references the pardon — the headline layer collapses this election almost universally into a Lula-vs-Bolsonaro horserace framing. US and UK outlets are the only ones to embed geopolitical stakes directly in the headline, framing Brazil's vote as a proxy test of Trump's Latin American influence or the growth of a regional right-wing bloc, a dimension absent from all wire, regional, and pan-African titles. El Pais breaks from the competition frame entirely by leading with voter psychology ('the rejection vote'), while Foreign Affairs is the only title to assert that the election itself is insufficient to fix Brazil's structural problems. The cultural-religious register of the Bolsonaro movement — prominent in AFP's body text — surfaces in just one AFP headline ('holy ideology'), otherwise invisible across the full headline layer.",
+  "event_summary": "Brazil holds the first round of its 2026 presidential election on October 4, with incumbent President Luiz Inácio Lula da Silva facing Flávio Bolsonaro, eldest son of jailed former president Jair Bolsonaro, in a statistical dead heat.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "dynastic electoral rematch",
+      "outlets": [
+        "AfricaNews",
+        "AFP / France 24 FR",
+        "Buenos Aires Herald",
+        "Malay Mail World",
+        "NPR World",
+        "The Guardian World"
+      ],
+      "countries": [
+        "pan_african",
+        "france",
+        "argentina_chile",
+        "vietnam_thai_my",
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Brazil's big political rematch: What to know",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "The Bolsonaros…they're back! Brazil heads to the polls",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Lula, Bolsonaro snub final TV debate ahead of Sunday's polls",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Lula, Bolsonaro trade blows in final scramble for votes",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Trump's shadow over Latin America",
+      "outlets": [
+        "Axios World",
+        "The Guardian World"
+      ],
+      "countries": [
+        "usa",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Lula-Bolsonaro showdown unfolds in Trump's shadow",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "offers test for growing pro-Trump Latin American bloc",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Bolsonaro dynasty as ideology and faith",
+      "outlets": [
+        "AFP / France 24 EN"
+      ],
+      "countries": [
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "In the name of the father, sons, and holy ideology",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "voter fatigue, rejection over conviction",
+      "outlets": [
+        "El Pais English",
+        "Buenos Aires Herald"
+      ],
+      "countries": [
+        "spain",
+        "argentina_chile"
+      ],
+      "evidence": [
+        {
+          "outlet": "El Pais English",
+          "country": "spain",
+          "quote": "The rejection vote marks Brazil's presidential election",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Buenos Aires Herald",
+          "country": "argentina_chile",
+          "quote": "Scandal-weary Brazilians to vote as Lula faces Bolsonaro son",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "election can't fix structural rot",
+      "outlets": [
+        "Foreign Affairs"
+      ],
+      "countries": [
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "Foreign Affairs",
+          "country": "opinion_magazines",
+          "quote": "Brazil's Election Won't Fix What's Broken",
+          "signal_text_idx": 8
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Only headline in the corpus to foreground the Amazon's future as an explicit stake — 'with the Amazon at stake' — linking the electoral outcome to environmental consequences entirely absent from every other title, including NPR's and both Guardian headlines.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Foreign Affairs",
+      "country": "opinion_magazines",
+      "finding": "The only headline to frame the election as structurally insufficient ('Won't Fix What's Broken'), asserting governance dysfunction as the central variable rather than candidate choice — a register absent from all wire, regional, and broadcast headlines in the corpus.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "El Pais English",
+      "country": "spain",
+      "finding": "The only outlet to lead with voter psychology rather than candidate competition, naming 'the rejection vote' as the election's defining feature — a negative-partisanship framing absent from all 12 other headlines, which treat the race as a preference contest.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "Uses a quasi-religious subtitle ('In the name of the father, sons, and holy ideology') to frame the Bolsonaro movement as dynastic faith, the only headline in the corpus to invoke sacred-register language for a political candidacy — a framing strategy absent from all other wire and regional titles.",
+      "signal_text_idx": 0
+    }
+  ],
+  "bottom_line": "At the headline layer, Brazil's 2026 election is framed almost exclusively as a dynastic horserace rematch, with Lula-versus-Bolsonaro competition dominating titles across all nine source regions while the pardon promise, Supreme Court stakes, and Amazon consequences visible in body text are almost entirely absent. US and UK outlets uniquely surface Trump's geopolitical shadow in their headlines; structural critique (Foreign Affairs) and voter-rejection psychology (El Pais) are each confined to a single title, suggesting the headline layer dramatically narrows the framing complexity present in body text.",
+  "generated_at": "2026-10-03T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
