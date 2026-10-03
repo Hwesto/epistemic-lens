@@ -1,0 +1,221 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "Lcbde51a07c",
+  "cluster_id": 169,
+  "cluster_name": "Russian drones hit both major Kyiv Dnipro bridges within three days",
+  "n_outlets": 15,
+  "n_countries": 9,
+  "n_articles": 22,
+  "salience_score": 4.125,
+  "event_summary": "Russian forces struck Kyiv's Southern Bridge on October 1-2 and its Northern Bridge on October 3, 2026, marking the first direct hits on Kyiv's Dnipro River crossings in the war. The October 3 attack injured two people and blocked westbound traffic across the Dnipro.",
+  "tldr": "Both of Kyiv's busiest Dnipro River bridges were struck within 72 hours — described by BBC Ukrainian as the first bridge strikes of the war — suggesting Moscow has crossed a new targeting threshold in the capital. Meduza (Russia, exiled) and Western wire services converge on the factual record, while TASS uses Russian place-name spellings ('Kiev', 'Dnieper') and frames the bridges as military supply routes rather than civilian crossings. Politico Europe provides the most concrete civilian-scale figure absent from wire coverage: 500,000 people cross the Dnipro daily. Zelensky's claim that Putin issued an explicit order saying 'there are no rules now' is carried by BBC and The Independent but receives no echo from TASS or Anadolu Agency. US domestic press and Eastern European outlets, notably Poland, are absent from this cluster despite the story's strategic significance for NATO's frontline.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "bridge network as new targeting threshold",
+      "outlets": [
+        "AFP / France 24 EN",
+        "BBC World",
+        "Deutsche Welle English",
+        "Kyiv Post",
+        "Malay Mail World",
+        "Meduza",
+        "Reuters (via Google News)",
+        "Straits Times",
+        "Ukrainska Pravda English",
+        "Ukrinform English"
+      ],
+      "countries": [
+        "wire_services",
+        "uk",
+        "germany",
+        "ukraine",
+        "vietnam_thai_my",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The attack comes a day after the city's Southern Bridge was hit by several strikes that officials said were \"tearing Kyiv apart\".",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "BBC Ukrainian reported that these were the first strikes of the war on Kyiv’s bridges across the Dnipro River.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "capital commuter paralysis",
+      "outlets": [
+        "BBC World",
+        "Politico Europe",
+        "Ukrinform English",
+        "Kyiv Post",
+        "The Independent"
+      ],
+      "countries": [
+        "uk",
+        "opinion_magazines",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "Politico Europe",
+          "country": "opinion_magazines",
+          "quote": "Around 500,000 people commute from the Dnipro’s left bank to the river’s right bank daily, with eight bridges connecting the two sides in total.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Many of the city's residents - which number about three million - rely on the metro to travel across the city every day.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "Putin abandons rules of war",
+      "outlets": [
+        "BBC World",
+        "The Independent",
+        "Kyiv Post"
+      ],
+      "countries": [
+        "uk",
+        "ukraine"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Zelensky said Putin had decided that there were \"no rules now\" when attacking Ukraine.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "Zelensky said Friday that Vladimir Putin had ordered his troops to remove restraints on hitting civilian targets to pressure Kyiv toward capitulation.",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Russian escalation justification",
+      "outlets": [
+        "BBC World",
+        "TASS English",
+        "Anadolu Agency English"
+      ],
+      "countries": [
+        "uk",
+        "russia",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Russian President Vladimir Putin has said Russia is acting in response to Ukraine's strikes on Russian energy facilities, despite the fact that it was Moscow that had first launched such attacks.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "The Russian Armed Forces continue to strike Ukrainian infrastructure facilities and seagoing vessels used in the interests of the Ukrainian armed forces",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "systematic Dnipro crossing degradation",
+      "outlets": [
+        "Meduza",
+        "Politico Europe",
+        "Ukrinform English",
+        "The Independent"
+      ],
+      "countries": [
+        "russia",
+        "opinion_magazines",
+        "ukraine",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Meduza",
+          "country": "russia",
+          "quote": "Kyiv has nine bridges across the Dnipro, carrying road, pedestrian, and rail traffic. The Northern and Southern bridges are among the busiest and most important river crossings. In the preceding days, strikes on the two bridges also prompted partial traffic closures on other Kyiv bridges.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Russia has increasingly targeted Ukrainian cities, hitting key infrastructure that is keeping Ukraine’s war-battered economy afloat. Recent targets have included key industries, railways, data centres, energy infrastructure, as well as schools and hospitals.",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No US domestic outlet appears in this cluster despite the bridge attacks representing a reported wartime first; US coverage may have been dominated by domestic political debate over Ukraine aid."
+    },
+    {
+      "country": "poland",
+      "what_they_covered_instead": "Poland, which borders Ukraine and hosts the largest Ukrainian refugee population in Europe, is absent despite having a direct stake in Kyiv's infrastructure and logistical capacity."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "TASS English",
+      "country": "russia",
+      "finding": "Uses Russian-transliterated place names ('Kiev', 'Dnieper') and frames the bridge solely as a military troop-transfer conduit, with no mention of civilian commuter impact.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Leads with broader overnight strike casualties — at least three dead including a child — situating the bridge attacks within a wider bombardment rather than treating them as the primary story.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Anadolu Agency English",
+      "country": "turkey",
+      "finding": "Only outlet to balance the Kyiv bridge attack with Ukrainian counter-strikes on Russia's Kaluga region in the same headline, framing the event as a bilateral exchange.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "Provides the only specific daily commuter figure — 500,000 people cross the Dnipro left-to-right bank each day — absent from all wire and broadcaster coverage in this cluster.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "The Independent",
+      "country": "uk",
+      "finding": "Alone in linking the Kyiv bridge attacks to a simultaneous NATO alert: Lithuania’s Vilnius airport was closed for an hour and Nato jets were scrambled after a suspected drone was reported to be flying into the country from Belarus, the country's National Crisis Management Centre said.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Meduza",
+      "country": "russia",
+      "finding": "The only Russian-origin outlet to contextualise the attacks within Kyiv's full nine-bridge inventory and to note these were the first wartime strikes on Dnipro bridges — both details absent from TASS.",
+      "signal_text_idx": 7
+    }
+  ],
+  "bottom_line": "Russia struck both of Kyiv's busiest Dnipro bridges for the first time in the war within a 72-hour window, a step-change in targeting that Zelensky linked to an explicit Putin order removing all constraints on civilian infrastructure. The framing split is sharp: TASS labels the bridges military supply routes; exiled Russian outlet Meduza and Western press call them the arteries of a capital city of three million.",
+  "generated_at": "2026-10-03T13:15:01Z",
+  "model": "claude-sonnet-4-6"
+}
