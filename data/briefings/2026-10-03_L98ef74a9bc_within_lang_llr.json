@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 60,
+      "n_tokens_in_cohort": 955,
+      "distinctive_terms": [
+        {
+          "term": "stock",
+          "count_in_bucket": 5,
+          "count_in_cohort": 7,
+          "rate_in_bucket": 0.08333,
+          "rate_in_cohort": 0.00733,
+          "llr": 13.173,
+          "log_ratio": 2.431,
+          "p_value": 0.000284
+        }
+      ]
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 18,
+      "n_tokens_in_cohort": 997,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 18,
+      "n_tokens_in_cohort": 997,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 86,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 274,
+      "n_tokens_in_cohort": 741,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 71,
+      "n_tokens_in_cohort": 944,
+      "distinctive_terms": []
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 991,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 44,
+      "n_tokens_in_cohort": 971,
+      "distinctive_terms": []
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 51,
+      "n_tokens_in_cohort": 964,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 988,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 982,
+      "distinctive_terms": [
+        {
+          "term": "reuter",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.18182,
+          "rate_in_cohort": 0.00204,
+          "llr": 33.353,
+          "log_ratio": 4.492,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "taiwan_hk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 54,
+      "n_tokens_in_cohort": 961,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 18,
+      "n_tokens_in_cohort": 997,
+      "distinctive_terms": []
+    },
+    "nordic": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 62,
+      "n_tokens_in_cohort": 953,
+      "distinctive_terms": [
+        {
+          "term": "nation",
+          "count_in_bucket": 6,
+          "count_in_cohort": 13,
+          "rate_in_bucket": 0.09677,
+          "rate_in_cohort": 0.01364,
+          "llr": 11.907,
+          "log_ratio": 1.959,
+          "p_value": 0.000559
+        }
+      ]
+    },
+    "france": {
+      "lang": "fr",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 86,
+      "n_tokens_in_cohort": 30,
+      "distinctive_terms": []
+    },
+    "mexico": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 103,
+      "n_tokens_in_cohort": 118,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "es",
+      "n_buckets_in_lang_cohort": 2,
+      "n_tokens_in_bucket": 118,
+      "n_tokens_in_cohort": 103,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 5,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

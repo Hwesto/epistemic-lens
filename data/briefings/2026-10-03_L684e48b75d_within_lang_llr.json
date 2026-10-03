@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 117,
+      "n_tokens_in_cohort": 620,
+      "distinctive_terms": [
+        {
+          "term": "bronze",
+          "count_in_bucket": 6,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.05128,
+          "rate_in_cohort": 0.0,
+          "llr": 22.349,
+          "log_ratio": null,
+          "p_value": 2e-06
+        },
+        {
+          "term": "pakistan",
+          "count_in_bucket": 12,
+          "count_in_cohort": 8,
+          "rate_in_bucket": 0.10256,
+          "rate_in_cohort": 0.0129,
+          "llr": 20.846,
+          "log_ratio": 2.073,
+          "p_value": 5e-06
+        },
+        {
+          "term": "defeat",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.04274,
+          "rate_in_cohort": 0.0,
+          "llr": 18.587,
+          "log_ratio": null,
+          "p_value": 1.6e-05
+        }
+      ]
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 59,
+      "n_tokens_in_cohort": 678,
+      "distinctive_terms": [
+        {
+          "term": "beat",
+          "count_in_bucket": 5,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.08475,
+          "rate_in_cohort": 0.00295,
+          "llr": 17.584,
+          "log_ratio": 3.358,
+          "p_value": 2.7e-05
+        },
+        {
+          "term": "india",
+          "count_in_bucket": 6,
+          "count_in_cohort": 8,
+          "rate_in_bucket": 0.10169,
+          "rate_in_cohort": 0.0118,
+          "llr": 12.973,
+          "log_ratio": 2.154,
+          "p_value": 0.000316
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 26,
+      "n_tokens_in_cohort": 711,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 20,
+      "n_tokens_in_cohort": 717,
+      "distinctive_terms": []
+    },
+    "philippines": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 69,
+      "n_tokens_in_cohort": 668,
+      "distinctive_terms": []
+    },
+    "south_korea": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 446,
+      "n_tokens_in_cohort": 291,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

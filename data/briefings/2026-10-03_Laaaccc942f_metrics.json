@@ -1,0 +1,462 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 10,
+  "n_articles": 15,
+  "buckets": [
+    "africa_other",
+    "canada",
+    "china",
+    "france",
+    "india",
+    "pan_african",
+    "state_tv_intl",
+    "turkey",
+    "uk",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "france": 64,
+    "pan_african": 211,
+    "usa": 57,
+    "canada": 26,
+    "china": 23,
+    "turkey": 59,
+    "africa_other": 117,
+    "state_tv_intl": 221,
+    "uk": 10,
+    "india": 59
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.901
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.853
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.845
+    },
+    {
+      "a": "africa_other",
+      "b": "canada",
+      "score": 0.84
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.835
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.829
+    },
+    {
+      "a": "china",
+      "b": "uk",
+      "score": 0.822
+    },
+    {
+      "a": "africa_other",
+      "b": "turkey",
+      "score": 0.815
+    },
+    {
+      "a": "africa_other",
+      "b": "china",
+      "score": 0.788
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "turkey",
+      "score": 0.766
+    },
+    {
+      "a": "africa_other",
+      "b": "state_tv_intl",
+      "score": 0.761
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.76
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "usa",
+      "score": 0.76
+    },
+    {
+      "a": "canada",
+      "b": "state_tv_intl",
+      "score": 0.756
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.756
+    },
+    {
+      "a": "africa_other",
+      "b": "france",
+      "score": 0.737
+    },
+    {
+      "a": "africa_other",
+      "b": "uk",
+      "score": 0.737
+    },
+    {
+      "a": "africa_other",
+      "b": "india",
+      "score": 0.73
+    },
+    {
+      "a": "pan_african",
+      "b": "state_tv_intl",
+      "score": 0.717
+    },
+    {
+      "a": "pan_african",
+      "b": "turkey",
+      "score": 0.702
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.698
+    },
+    {
+      "a": "africa_other",
+      "b": "usa",
+      "score": 0.688
+    },
+    {
+      "a": "china",
+      "b": "india",
+      "score": 0.688
+    },
+    {
+      "a": "france",
+      "b": "state_tv_intl",
+      "score": 0.683
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.683
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.669
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.657
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.657
+    },
+    {
+      "a": "state_tv_intl",
+      "b": "uk",
+      "score": 0.649
+    },
+    {
+      "a": "china",
+      "b": "state_tv_intl",
+      "score": 0.648
+    },
+    {
+      "a": "china",
+      "b": "france",
+      "score": 0.647
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.639
+    },
+    {
+      "a": "india",
+      "b": "state_tv_intl",
+      "score": 0.637
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.627
+    },
+    {
+      "a": "africa_other",
+      "b": "pan_african",
+      "score": 0.621
+    },
+    {
+      "a": "france",
+      "b": "pan_african",
+      "score": 0.619
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.608
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.593
+    },
+    {
+      "a": "canada",
+      "b": "pan_african",
+      "score": 0.587
+    },
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.584
+    },
+    {
+      "a": "china",
+      "b": "pan_african",
+      "score": 0.576
+    },
+    {
+      "a": "pan_african",
+      "b": "usa",
+      "score": 0.566
+    },
+    {
+      "a": "india",
+      "b": "pan_african",
+      "score": 0.554
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.54
+    },
+    {
+      "a": "pan_african",
+      "b": "uk",
+      "score": 0.524
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "pan_african",
+      "mean_similarity": 0.608,
+      "n_tokens": 211
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.64,
+      "n_tokens": 57
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.647,
+      "n_tokens": 64
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.679,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.709,
+      "n_tokens": 221
+    },
+    {
+      "bucket": "africa_other",
+      "mean_similarity": 0.746,
+      "n_tokens": 117
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.771,
+      "n_tokens": 59
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.694,
+      "n_tokens": 10
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.715,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.759,
+      "n_tokens": 26
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "france": [
+      {
+        "term": "jean",
+        "count": 3
+      },
+      {
+        "term": "noël",
+        "count": 3
+      },
+      {
+        "term": "barrot",
+        "count": 3
+      }
+    ],
+    "pan_african": [
+      {
+        "term": "participant",
+        "count": 4
+      },
+      {
+        "term": "when",
+        "count": 3
+      },
+      {
+        "term": "contact",
+        "count": 3
+      },
+      {
+        "term": "found",
+        "count": 3
+      },
+      {
+        "term": "days",
+        "count": 3
+      },
+      {
+        "term": "mobile",
+        "count": 3
+      }
+    ],
+    "usa": [
+      {
+        "term": "militia",
+        "count": 3
+      },
+      {
+        "term": "empt",
+        "count": 3
+      },
+      {
+        "term": "heart",
+        "count": 3
+      },
+      {
+        "term": "rise",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "china": [],
+    "turkey": [],
+    "africa_other": [
+      {
+        "term": "seuil",
+        "count": 4
+      },
+      {
+        "term": "face",
+        "count": 3
+      },
+      {
+        "term": "riposte",
+        "count": 3
+      },
+      {
+        "term": "veut",
+        "count": 3
+      },
+      {
+        "term": "appuyer",
+        "count": 3
+      },
+      {
+        "term": "davantage",
+        "count": 3
+      },
+      {
+        "term": "communauté",
+        "count": 3
+      },
+      {
+        "term": "religieus",
+        "count": 3
+      },
+      {
+        "term": "pour",
+        "count": 3
+      },
+      {
+        "term": "mort",
+        "count": 3
+      },
+      {
+        "term": "malgré",
+        "count": 3
+      },
+      {
+        "term": "ministre",
+        "count": 3
+      },
+      {
+        "term": "santé",
+        "count": 3
+      }
+    ],
+    "state_tv_intl": [
+      {
+        "term": "party",
+        "count": 4
+      },
+      {
+        "term": "africa",
+        "count": 3
+      },
+      {
+        "term": "control",
+        "count": 3
+      },
+      {
+        "term": "measur",
+        "count": 3
+      },
+      {
+        "term": "ruling",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "india": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-10-03T12:53:23+00:00",
+  "meta_version": "10.0.3"
+}

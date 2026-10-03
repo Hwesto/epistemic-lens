@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 2,
+  "n_articles": 9,
+  "buckets": [
+    "japan",
+    "south_korea"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "japan": 16,
+    "south_korea": 206
+  },
+  "pairwise_similarity": [
+    {
+      "a": "japan",
+      "b": "south_korea",
+      "score": 0.545
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.545,
+      "n_tokens": 206
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.545,
+      "n_tokens": 16
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "japan": [],
+    "south_korea": [
+      {
+        "term": "아시안게임",
+        "count": 11
+      },
+      {
+        "term": "금메달을",
+        "count": 7
+      },
+      {
+        "term": "서채현은",
+        "count": 5
+      },
+      {
+        "term": "동해상으로",
+        "count": 4
+      },
+      {
+        "term": "연합뉴스",
+        "count": 4
+      },
+      {
+        "term": "대한민국",
+        "count": 3
+      },
+      {
+        "term": "클라이밍",
+        "count": 3
+      },
+      {
+        "term": "미사일이",
+        "count": 3
+      },
+      {
+        "term": "비행거리를",
+        "count": 3
+      },
+      {
+        "term": "스포츠클라이밍",
+        "count": 3
+      },
+      {
+        "term": "유일하게",
+        "count": 3
+      }
+    ]
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-10-03T12:52:59+00:00",
+  "meta_version": "10.0.3"
+}

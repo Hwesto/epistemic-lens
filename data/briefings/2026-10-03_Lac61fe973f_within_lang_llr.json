@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 230,
+      "n_tokens_in_cohort": 343,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 58,
+      "n_tokens_in_cohort": 515,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 546,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 546,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 152,
+      "n_tokens_in_cohort": 421,
+      "distinctive_terms": [
+        {
+          "term": "threat",
+          "count_in_bucket": 7,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.04605,
+          "rate_in_cohort": 0.0,
+          "llr": 18.82,
+          "log_ratio": null,
+          "p_value": 1.4e-05
+        },
+        {
+          "term": "irgc",
+          "count_in_bucket": 10,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.06579,
+          "rate_in_cohort": 0.00475,
+          "llr": 17.389,
+          "log_ratio": 2.628,
+          "p_value": 3e-05
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 6,
+      "n_tokens_in_bucket": 79,
+      "n_tokens_in_cohort": 494,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

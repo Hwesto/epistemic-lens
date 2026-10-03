@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 18,
+  "buckets": [
+    "asia_pacific_regional",
+    "canada",
+    "china",
+    "germany",
+    "iran_state",
+    "opinion_magazines",
+    "russia",
+    "turkey",
+    "usa"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "asia_pacific_regional": 43,
+    "china": 230,
+    "turkey": 58,
+    "germany": 23,
+    "opinion_magazines": 18,
+    "usa": 83,
+    "canada": 27,
+    "iran_state": 152,
+    "russia": 79
+  },
+  "pairwise_similarity": [
+    {
+      "a": "china",
+      "b": "usa",
+      "score": 0.853
+    },
+    {
+      "a": "china",
+      "b": "turkey",
+      "score": 0.849
+    },
+    {
+      "a": "russia",
+      "b": "turkey",
+      "score": 0.839
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.784
+    },
+    {
+      "a": "china",
+      "b": "russia",
+      "score": 0.778
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.778
+    },
+    {
+      "a": "canada",
+      "b": "china",
+      "score": 0.763
+    },
+    {
+      "a": "iran_state",
+      "b": "turkey",
+      "score": 0.731
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.722
+    },
+    {
+      "a": "canada",
+      "b": "russia",
+      "score": 0.708
+    },
+    {
+      "a": "iran_state",
+      "b": "russia",
+      "score": 0.707
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.702
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.698
+    },
+    {
+      "a": "china",
+      "b": "germany",
+      "score": 0.691
+    },
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.69
+    },
+    {
+      "a": "china",
+      "b": "iran_state",
+      "score": 0.667
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "russia",
+      "score": 0.637
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.631
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "turkey",
+      "score": 0.629
+    },
+    {
+      "a": "germany",
+      "b": "iran_state",
+      "score": 0.624
+    },
+    {
+      "a": "iran_state",
+      "b": "usa",
+      "score": 0.624
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "china",
+      "score": 0.617
+    },
+    {
+      "a": "china",
+      "b": "opinion_magazines",
+      "score": 0.614
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.607
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.599
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "russia",
+      "score": 0.593
+    },
+    {
+      "a": "germany",
+      "b": "opinion_magazines",
+      "score": 0.587
+    },
+    {
+      "a": "canada",
+      "b": "iran_state",
+      "score": 0.576
+    },
+    {
+      "a": "iran_state",
+      "b": "opinion_magazines",
+      "score": 0.574
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.572
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "iran_state",
+      "score": 0.559
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "usa",
+      "score": 0.545
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.485
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "canada",
+      "score": 0.465
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "opinion_magazines",
+      "score": 0.433
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "germany",
+      "score": 0.396
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.542,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.633,
+      "n_tokens": 152
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.677,
+      "n_tokens": 83
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.702,
+      "n_tokens": 79
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.729,
+      "n_tokens": 230
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.735,
+      "n_tokens": 58
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.55,
+      "n_tokens": 18
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.617,
+      "n_tokens": 23
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.646,
+      "n_tokens": 27
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "asia_pacific_regional": [
+      {
+        "term": "leaving",
+        "count": 3
+      },
+      {
+        "term": "bombing",
+        "count": 3
+      }
+    ],
+    "china": [
+      {
+        "term": "iraqi",
+        "count": 4
+      },
+      {
+        "term": "ends",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "germany": [
+      {
+        "term": "offiziell",
+        "count": 3
+      },
+      {
+        "term": "militäreinsatz",
+        "count": 3
+      },
+      {
+        "term": "irak",
+        "count": 3
+      }
+    ],
+    "opinion_magazines": [],
+    "usa": [
+      {
+        "term": "syria",
+        "count": 3
+      }
+    ],
+    "canada": [],
+    "iran_state": [
+      {
+        "term": "threat",
+        "count": 7
+      },
+      {
+        "term": "quds",
+        "count": 4
+      },
+      {
+        "term": "tehran",
+        "count": 4
+      },
+      {
+        "term": "revolution",
+        "count": 4
+      },
+      {
+        "term": "devastating",
+        "count": 4
+      },
+      {
+        "term": "response",
+        "count": 4
+      },
+      {
+        "term": "aggression",
+        "count": 4
+      },
+      {
+        "term": "free",
+        "count": 4
+      },
+      {
+        "term": "expelled",
+        "count": 3
+      },
+      {
+        "term": "suffered",
+        "count": 3
+      },
+      {
+        "term": "humiliating",
+        "count": 3
+      },
+      {
+        "term": "defeat",
+        "count": 3
+      },
+      {
+        "term": "painful",
+        "count": 3
+      },
+      {
+        "term": "phase",
+        "count": 3
+      },
+      {
+        "term": "resistance",
+        "count": 3
+      },
+      {
+        "term": "front",
+        "count": 3
+      },
+      {
+        "term": "qaani",
+        "count": 3
+      }
+    ],
+    "russia": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-10-03T12:53:27+00:00",
+  "meta_version": "10.0.3"
+}

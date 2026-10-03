@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 8,
+  "n_articles": 12,
+  "buckets": [
+    "germany",
+    "japan",
+    "korea_north",
+    "russia",
+    "south_korea",
+    "uk",
+    "usa",
+    "vietnam_thai_my"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "uk": 22,
+    "usa": 59,
+    "germany": 30,
+    "japan": 31,
+    "south_korea": 151,
+    "vietnam_thai_my": 24,
+    "korea_north": 87,
+    "russia": 28
+  },
+  "pairwise_similarity": [
+    {
+      "a": "korea_north",
+      "b": "south_korea",
+      "score": 0.89
+    },
+    {
+      "a": "korea_north",
+      "b": "usa",
+      "score": 0.802
+    },
+    {
+      "a": "south_korea",
+      "b": "usa",
+      "score": 0.802
+    },
+    {
+      "a": "japan",
+      "b": "vietnam_thai_my",
+      "score": 0.795
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.783
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.782
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.776
+    },
+    {
+      "a": "south_korea",
+      "b": "vietnam_thai_my",
+      "score": 0.774
+    },
+    {
+      "a": "south_korea",
+      "b": "uk",
+      "score": 0.768
+    },
+    {
+      "a": "japan",
+      "b": "south_korea",
+      "score": 0.759
+    },
+    {
+      "a": "japan",
+      "b": "usa",
+      "score": 0.759
+    },
+    {
+      "a": "russia",
+      "b": "south_korea",
+      "score": 0.752
+    },
+    {
+      "a": "germany",
+      "b": "korea_north",
+      "score": 0.748
+    },
+    {
+      "a": "russia",
+      "b": "uk",
+      "score": 0.743
+    },
+    {
+      "a": "japan",
+      "b": "russia",
+      "score": 0.736
+    },
+    {
+      "a": "germany",
+      "b": "south_korea",
+      "score": 0.73
+    },
+    {
+      "a": "japan",
+      "b": "uk",
+      "score": 0.728
+    },
+    {
+      "a": "russia",
+      "b": "usa",
+      "score": 0.711
+    },
+    {
+      "a": "korea_north",
+      "b": "russia",
+      "score": 0.696
+    },
+    {
+      "a": "japan",
+      "b": "korea_north",
+      "score": 0.693
+    },
+    {
+      "a": "germany",
+      "b": "russia",
+      "score": 0.688
+    },
+    {
+      "a": "korea_north",
+      "b": "uk",
+      "score": 0.68
+    },
+    {
+      "a": "korea_north",
+      "b": "vietnam_thai_my",
+      "score": 0.671
+    },
+    {
+      "a": "russia",
+      "b": "vietnam_thai_my",
+      "score": 0.67
+    },
+    {
+      "a": "germany",
+      "b": "japan",
+      "score": 0.617
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.588
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.556
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.551
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.64,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "japan",
+      "mean_similarity": 0.727,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "korea_north",
+      "mean_similarity": 0.74,
+      "n_tokens": 87
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.746,
+      "n_tokens": 59
+    },
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.782,
+      "n_tokens": 151
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.714,
+      "n_tokens": 28
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.718,
+      "n_tokens": 24
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.719,
+      "n_tokens": 22
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "uk": [],
+    "usa": [
+      {
+        "term": "apologize",
+        "count": 4
+      },
+      {
+        "term": "threaten",
+        "count": 3
+      },
+      {
+        "term": "exposing",
+        "count": 3
+      },
+      {
+        "term": "else",
+        "count": 3
+      }
+    ],
+    "germany": [],
+    "japan": [],
+    "south_korea": [
+      {
+        "term": "herald",
+        "count": 6
+      },
+      {
+        "term": "deal",
+        "count": 5
+      },
+      {
+        "term": "nondisclosure",
+        "count": 4
+      },
+      {
+        "term": "foreign",
+        "count": 3
+      },
+      {
+        "term": "minister",
+        "count": 3
+      },
+      {
+        "term": "misunderstanding",
+        "count": 3
+      },
+      {
+        "term": "voic",
+        "count": 3
+      },
+      {
+        "term": "denial",
+        "count": 3
+      },
+      {
+        "term": "admit",
+        "count": 3
+      },
+      {
+        "term": "secrecy",
+        "count": 3
+      }
+    ],
+    "vietnam_thai_my": [],
+    "korea_north": [
+      {
+        "term": "disclosure",
+        "count": 3
+      }
+    ],
+    "russia": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-10-03T12:52:41+00:00",
+  "meta_version": "10.0.3"
+}

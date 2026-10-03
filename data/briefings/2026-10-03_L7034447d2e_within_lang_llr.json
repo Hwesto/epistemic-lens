@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-03",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 164,
+      "n_tokens_in_cohort": 1546,
+      "distinctive_terms": [
+        {
+          "term": "capital",
+          "count_in_bucket": 10,
+          "count_in_cohort": 11,
+          "rate_in_bucket": 0.06098,
+          "rate_in_cohort": 0.00712,
+          "llr": 20.483,
+          "log_ratio": 2.148,
+          "p_value": 6e-06
+        },
+        {
+          "term": "reuter",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03659,
+          "rate_in_cohort": 0.00129,
+          "llr": 19.726,
+          "log_ratio": 3.342,
+          "p_value": 9e-06
+        }
+      ]
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 331,
+      "n_tokens_in_cohort": 1379,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 200,
+      "n_tokens_in_cohort": 1510,
+      "distinctive_terms": [
+        {
+          "term": "seen",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.025,
+          "rate_in_cohort": 0.0,
+          "llr": 21.571,
+          "log_ratio": null,
+          "p_value": 3e-06
+        },
+        {
+          "term": "city",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.025,
+          "rate_in_cohort": 0.0,
+          "llr": 21.571,
+          "log_ratio": null,
+          "p_value": 3e-06
+        },
+        {
+          "term": "mekelle",
+          "count_in_bucket": 6,
+          "count_in_cohort": 4,
+          "rate_in_bucket": 0.03,
+          "rate_in_cohort": 0.00265,
+          "llr": 13.42,
+          "log_ratio": 2.427,
+          "p_value": 0.000249
+        },
+        {
+          "term": "rebel",
+          "count_in_bucket": 9,
+          "count_in_cohort": 12,
+          "rate_in_bucket": 0.045,
+          "rate_in_cohort": 0.00795,
+          "llr": 13.178,
+          "log_ratio": 1.734,
+          "p_value": 0.000283
+        }
+      ]
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 373,
+      "n_tokens_in_cohort": 1337,
+      "distinctive_terms": [
+        {
+          "term": "commission",
+          "count_in_bucket": 7,
+          "count_in_cohort": 1,
+          "rate_in_bucket": 0.01877,
+          "rate_in_cohort": 0.00075,
+          "llr": 15.877,
+          "log_ratio": 3.223,
+          "p_value": 6.8e-05
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 141,
+      "n_tokens_in_cohort": 1569,
+      "distinctive_terms": [
+        {
+          "term": "egypt",
+          "count_in_bucket": 7,
+          "count_in_cohort": 12,
+          "rate_in_bucket": 0.04965,
+          "rate_in_cohort": 0.00765,
+          "llr": 12.228,
+          "log_ratio": 1.87,
+          "p_value": 0.000471
+        }
+      ]
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 49,
+      "n_tokens_in_cohort": 1661,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 52,
+      "n_tokens_in_cohort": 1658,
+      "distinctive_terms": []
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 53,
+      "n_tokens_in_cohort": 1657,
+      "distinctive_terms": []
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 1686,
+      "distinctive_terms": []
+    },
+    "iraq": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 1682,
+      "distinctive_terms": []
+    },
+    "state_tv_intl": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 266,
+      "n_tokens_in_cohort": 1444,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 12,
+      "n_tokens_in_bucket": 29,
+      "n_tokens_in_cohort": 1681,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 2,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
