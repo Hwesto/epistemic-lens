@@ -1,0 +1,98 @@
+{
+  "story_key": "L684e48b75d",
+  "date": "2026-10-03",
+  "n_buckets": 7,
+  "n_articles": 16,
+  "tldr": "Headlines collectively assert that the 2026 Asian Games belong to India's cricket gold over Pakistan — framed as national triumph by Indian outlets and a diplomatic snub by Al Jazeera; Pakistani outlets add their own hockey bronze comeback as a separate victory narrative, while non-regional outlets (BBC, Inquirer) frame the day's biggest golf story through the lens of South Korea's military service exemption rather than athletic merit.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "National sport glory as identity contest",
+      "buckets": ["india", "pakistan", "vietnam_thai_my", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Aaj Tak (alt)",
+          "quote": "Asian Games में भारत का जलवा! PAK को हराकर जीता गोल्ड",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "ARY News English",
+          "quote": "Pakistan rally past South Korea to secure Asian Games bronze",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Channel News Asia",
+          "quote": "Abhishek and Varma shine as India beat Pakistan",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "KBS World",
+          "quote": "Lee Woo-seok Claims 2nd Archery Gold at Asian Games",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Golf gold as escape from mandatory service",
+      "buckets": ["uk", "philippines"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "Kim wins Asian Games gold to secure military exemption",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "philippines",
+          "outlet": "Inquirer",
+          "quote": "South Korean golfer gets military exemption with gold",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "India-Pakistan diplomatic chill at ceremony",
+      "buckets": ["qatar"],
+      "evidence": [
+        {
+          "bucket": "qatar",
+          "outlet": "Al Jazeera English",
+          "quote": "No handshakes and a delayed ceremony as India beat",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Tiger Woods text as personal catalyst",
+      "buckets": ["south_korea"],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap News",
+          "quote": "'Just be you': text from Tiger Woods spurs Kim",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "south_korea", "mean_similarity": 0.646, "n_tokens": 446},
+    {"bucket": "philippines", "mean_similarity": 0.667, "n_tokens": 69},
+    {"bucket": "qatar", "mean_similarity": 0.719, "n_tokens": 59},
+    {"bucket": "pakistan", "mean_similarity": 0.736, "n_tokens": 117}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer frames the 2026 Asian Games as a clash of national pride narratives — India's cricket triumph announced in celebratory Hindi, Al Jazeera alone advertising the no-handshake ceremony breakdown as the story — while non-regional outlets (BBC World, Inquirer) bypass the athletic result entirely and lead with Tom Kim's military service exemption as their hook.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
