@@ -1,0 +1,133 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L87e2aad5ec",
+  "cluster_id": 145,
+  "cluster_name": "North Korea tests AI-guided intermediate-range ballistic missile from Wonsan",
+  "n_outlets": 5,
+  "n_countries": 2,
+  "n_articles": 73,
+  "salience_score": 4.562,
+  "event_summary": "North Korea launched an intermediate-range ballistic missile from Wonsan toward the East Sea on October 3, flying over 700 km. Kim Yo Jong announced the missile used AI guidance and wave-form trajectory changes that caused South Korean and Japanese forces to lose tracking mid-flight.",
+  "tldr": "The most striking element is that both South Korea's conservative Chosun Ilbo and progressive Hankyoreh gave prominent space to Kim Yo Jong's specific technical claim that AI-guided trajectory changes caused South Korean and Japanese radar to lose tracking — amplifying North Korean military framing across the political spectrum without apparent editorial distance. Japan's Mainichi led entirely on the AI capability angle with no bilateral deterrence context, while Asahi Shimbun is the only outlet to link the launch to the ongoing inter-Korean landmine explosion controversy. The cluster also captures the 2026 Aichi-Nagoya Asian Games: South Korean outlets devoted comparable space to sport climbing and taekwondo gold medals alongside the missile story, suggesting Korean editors on October 3 did not treat this as a crisis-level event. The cluster's narrow two-country geographic footprint leaves both Chinese and American perspectives absent from this Northeast Asian security story.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "AI-guided ballistic missile capability claim",
+      "outlets": ["Asahi Shimbun", "Chosun Ilbo (alt)", "Hankyoreh English", "Mainichi"],
+      "countries": ["japan", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Asahi Shimbun",
+          "country": "japan",
+          "quote": "北朝鮮が弾道ミサイルを発射 地雷爆発問題めぐり韓国側を牽制か",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Hankyoreh English",
+          "country": "south_korea",
+          "quote": "이러한 숫자들은 적들의 탐지능력의 제한성과 우리 미사일의 특수성에 대하여 가늠해볼 수 있게 한다",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Mainichi",
+          "country": "japan",
+          "quote": "北朝鮮、発射のミサイルには「AIを導入、飛行軌道変更能力も」",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Kim Yo Jong deterrence messaging",
+      "outlets": ["Chosun Ilbo (alt)", "Hankyoreh English"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Chosun Ilbo (alt)",
+          "country": "south_korea",
+          "quote": "북한이 3일 오전 원산 일대에서 동해상으로 발사한 탄도미사일이 중거리 전략 미사일이라고 공식 발표했다.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Hankyoreh English",
+          "country": "south_korea",
+          "quote": "다시 말하면 이 타격을 피할 방법은 사실상 없다는 것을 의미한다",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Asian Games national sport achievement",
+      "outlets": ["Chosun Ilbo (alt)", "Hankyoreh English", "Yonhap Korean"],
+      "countries": ["south_korea"],
+      "evidence": [
+        {
+          "outlet": "Chosun Ilbo (alt)",
+          "country": "south_korea",
+          "quote": "'리드 여왕' 서채현이 대한민국 클라이밍 새 역사를 작성했다. 서채현은 3일 일본 아이치현 나고야 포트 메세 전시관에서 열린 2026년 아이치-나고야 아시안게임 여자 리드 결승에서 톱(TOP)을 찍었다.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Yonhap Korean",
+          "country": "south_korea",
+          "quote": "한국 스포츠클라이밍의 간판 서채현(서울시청·노스페이스)이 아시안게임에서 8년 만의 금메달을 조국에 선사했다.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "G7 coordinated strategic oil reserve release",
+      "outlets": ["Asahi Shimbun"],
+      "countries": ["japan"],
+      "evidence": [
+        {
+          "outlet": "Asahi Shimbun",
+          "country": "japan",
+          "quote": "G7、石油備蓄を協調放出へ 「4カ月で1億バレル」米政権の要請か",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Asahi Shimbun",
+      "country": "japan",
+      "finding": "Only outlet to frame the missile launch as linked to the inter-Korean landmine explosion dispute, suggesting deterrence intent beyond a general capability demonstration.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Asahi Shimbun",
+      "country": "japan",
+      "finding": "Only outlet in the cluster to cover the G7 coordinated release of 100 million barrels of oil reserves over four months at US request — a separate major policy story sitting alongside the missile coverage.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Mainichi",
+      "country": "japan",
+      "finding": "Leads entirely on the AI guidance and trajectory-change capability framing with no mention of inter-Korean tensions or bilateral deterrence context.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Hankyoreh English",
+      "country": "south_korea",
+      "finding": "Reports Kim Yo Jong's specific claim that South Korean and Japanese authorities under-reported flight distance due to detection failure after trajectory changes — a progressive South Korean outlet giving platform to a North Korean military capability claim with minimal editorial distance.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Yonhap Korean",
+      "country": "south_korea",
+      "finding": "Covers Song Da-bin defending South Korea's 40-year unbroken Asian Games gold medal streak in taekwondo sparring — absent from all other outlets.",
+      "signal_text_idx": 8
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "North Korea launched an AI-guided intermediate-range ballistic missile from Wonsan on October 3, with Kim Yo Jong claiming South Korean and Japanese radar lost tracking after the missile changed trajectory — and both conservative and progressive South Korean outlets gave this claim prominent, largely uncritical coverage. The cluster's narrow two-country footprint (Japan and South Korea only) excludes US and Chinese analytical perspectives on a Northeast Asian security event where both would normally weigh in.",
+  "generated_at": "2026-10-03T13:03:08Z",
+  "model": "claude-sonnet-4-6"
+}
