@@ -1,0 +1,292 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "Lac61fe973f",
+  "cluster_id": 85,
+  "cluster_name": "US forces complete Iraq withdrawal ending Operation Inherent Resolve",
+  "salience_score": 5.906,
+  "n_outlets": 13,
+  "n_countries": 9,
+  "n_articles": 21,
+  "event_summary": "On September 30, 2026, the last U.S. and coalition troops departed Erbil Air Base in Iraq, ending Operation Inherent Resolve after 12 years. The withdrawal was negotiated in 2024 under Biden and executed under Trump, with the U.S. military headquarters relocating to Jordan.",
+  "tldr": "The withdrawal is physically one event, but the corpus fractures into three incompatible narratives: an orderly mission success (Pentagon/Fox News/CGTN), a strategic blunder that leaves a power vacuum (Foreign Policy/War on the Rocks/Asia Times), and an Iranian-Russian victory (IRNA/Tehran Times/RT/TASS). The most striking fault line is that the ‘blunder’ and ‘victory’ frames converge on the same underlying claim — the US failed — even as they serve entirely different audiences. Iran’s IRGC uses the moment not just to declare a ‘historic victory’ but to announce a new phase of regional assertiveness and warn that ‘the era of cost-free threats against Iran is over.’ Baghdad’s own framing — that the departure proves Iraq’s ‘increasing strength and sovereignty’ — appears only through the Canadian Globe and Mail; no Iraqi outlet is present in the corpus.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ISIS mission concluded, power vacuum risk",
+      "outlets": [
+        "CGTN Politics",
+        "CGTN World",
+        "Daily Sabah",
+        "Deutsche Welle Deutsch",
+        "Fox News World",
+        "Globe and Mail",
+        "War on the Rocks"
+      ],
+      "countries": [
+        "china",
+        "turkey",
+        "germany",
+        "usa",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "The United States and its allies have completed a 12-year military operation against the militant group Islamic State in Iraq, the Pentagon said on Wednesday, as US forces prepare to leave their final bases in the country by the end of the day.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "War on the Rocks",
+          "country": "usa",
+          "quote": "Operation Inherent Resolve is scheduled to end on Sept. 30, as remaining U.S. troops in northern Iraq complete their withdrawal. The United States formed Combined Joint Task Force – Operation Inherent Resolve in October 2014 to bring together partners to combat the Islamic State of Iraq and the Levant (ISIL), which had seized territory in parts of Iraq and Syria. The end of Operation Inherent Resolve highlights the success of coalition efforts against ISIL but also raises questions about future",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "The U.S. military completed its withdrawal from Erbil Air Base, ending Operation Inherent Resolve in Iraq while relocating its headquarters to Jordan.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran-US regional power contest",
+      "outlets": [
+        "IRNA English",
+        "Tehran Times",
+        "Daily Sabah",
+        "RT",
+        "TASS English"
+      ],
+      "countries": [
+        "iran_state",
+        "turkey",
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "IRNA English",
+          "country": "iran_state",
+          "quote": "Tehran, IRNA – Commander of the Quds Force of the Islamic Revolution Guards Corps (IRGC), Brigadier General Esmaeil Qa’ani, says the United States has been expelled from Iraq and has suffered a humiliating defeat against Iran.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Iran’s Revolutionary Guards hailed Thursday the withdrawal of U.S. forces from Iraq as a \"historic victory\" and called for American troops to leave the Middle East entirely.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "The Islamic Revolutionary Guard Corps has welcomed the US pullout from Iraq, saying that it should also leave other countries in the region",
+          "signal_text_idx": 13
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "post-withdrawal power vacuum risk",
+      "outlets": [
+        "Foreign Policy",
+        "War on the Rocks"
+      ],
+      "countries": [
+        "opinion_magazines",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Foreign Policy",
+          "country": "opinion_magazines",
+          "quote": "Washington’s adversaries, including Iran and the Islamic State, are likely to take advantage of the pullout.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "War on the Rocks",
+          "country": "usa",
+          "quote": "The end of Operation Inherent Resolve highlights the success of coalition efforts against ISIL but also raises questions about future",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump victory claim vs Biden-era deal",
+      "outlets": [
+        "Fox News World",
+        "Asia Times",
+        "Globe and Mail"
+      ],
+      "countries": [
+        "usa",
+        "asia_pacific_regional",
+        "canada"
+      ],
+      "evidence": [
+        {
+          "outlet": "Asia Times",
+          "country": "asia_pacific_regional",
+          "quote": "President Trump, never one for understatement, described the whole enterprise as “a very expensive excursion into Hell.” For once, the hyperbole is closer to the truth",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Baghdad touted the end of the U.S. mission to fight the Islamic State group as a sign of the country’s increasing strength and sovereignty",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "The withdrawal agreement was reached in 2024 under the Biden administration and implemented under US President Donald Trump.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "US intervention human cost legacy",
+      "outlets": [
+        "RT",
+        "TASS English"
+      ],
+      "countries": [
+        "russia"
+      ],
+      "evidence": [
+        {
+          "outlet": "RT",
+          "country": "russia",
+          "quote": "RT examines human cost of US intervention in Iraq (VIDEO)\n\nThe Pentagon has announced the completion of its troop withdrawal from Iraq after a combined 20 years of US military presence in the country",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "TASS English",
+          "country": "russia",
+          "quote": "US incursion in Iraq entailed decades of instability in entire region — Russian diplomat\n\nThe 12-year-long presence of the so-called anti-ISIS international coalition in Iraq ended on September 12, Maria Zakharova said",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "asia_pacific_regional",
+      "country": "asia_pacific_regional",
+      "mean_similarity": 0.542,
+      "note": "Most isolated bucket; Asia Times pairs the withdrawal with ongoing US bombing of Iran, a juxtaposition absent from all other coverage."
+    },
+    {
+      "outlet": "iran_state",
+      "country": "iran_state",
+      "mean_similarity": 0.633,
+      "note": "Iranian state outlets (IRNA + Tehran Times) use adversarial defeat/expulsion vocabulary that diverges semantically from the neutral withdrawal framing dominant elsewhere."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "IRNA English",
+      "country": "iran_state",
+      "terms": [
+        "threat",
+        "quds",
+        "tehran",
+        "revolution",
+        "devastating"
+      ],
+      "what_it_reveals": "Iranian state media vocabulary foregrounds deterrence and institutional identity — the IRGC Quds Force framing positions this as a forward-looking strategic win, not just a retrospective departure."
+    },
+    {
+      "outlet": "Asia Times",
+      "country": "asia_pacific_regional",
+      "terms": [
+        "leaving",
+        "bombing"
+      ],
+      "what_it_reveals": "Only coverage to pair withdrawal ('leaving') with active military strikes ('bombing') — flagging the contradiction in US regional posture that no other outlet names."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Asia Times",
+      "country": "asia_pacific_regional",
+      "quote": "President Trump, never one for understatement, described the whole enterprise as “a very expensive excursion into Hell.” For once, the hyperbole is closer to the truth",
+      "signal_text_idx": 0
+    },
+    "b": {
+      "outlet": "TASS English",
+      "country": "russia",
+      "quote": "US incursion in Iraq entailed decades of instability in entire region — Russian diplomat",
+      "signal_text_idx": 14
+    },
+    "joint_conclusion": "A pan-Asian Western-aligned commentary outlet and Russian state media’s export arm both reach the same verdict — the Iraq venture was costly and destabilizing — despite opposite geopolitical orientations. The White House’s ‘victory’ framing has no takers outside narrowly pro-administration US coverage."
+  },
+  "silences": [
+    {
+      "country": "iraq",
+      "what_they_covered_instead": "No Iraqi outlet appears in the corpus; Baghdad’s framing of the withdrawal as evidence of national sovereignty is relayed only via the Canadian Globe and Mail."
+    },
+    {
+      "country": "united_kingdom",
+      "what_they_covered_instead": "The UK was a principal OIR coalition partner but contributes no items; British press on this date appears to have covered domestic political news rather than the withdrawal milestone."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "IRNA English",
+      "country": "iran_state",
+      "finding": "Only outlet to use ‘expelled’ — framing the withdrawal as a US military defeat rather than a planned exit, with no Western outlet contesting or acknowledging this characterisation.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Links the withdrawal to ‘a new Phase for the Resistance Front across West Asia’, signalling that Iran reads this moment as a regional strategic opening, not just a bilateral win.",
+      "signal_text_idx": 15
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "finding": "Issues an explicit deterrence warning calibrated to a named precedent: any aggression will be met with a response ‘more devastating than Operation True Promise 2’.",
+      "signal_text_idx": 16
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to relay Baghdad’s own framing that the departure signals Iraq’s ‘increasing strength and sovereignty’ — a third narrative absent from US and Iranian coverage.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Asia Times",
+      "country": "asia_pacific_regional",
+      "finding": "Headline ‘Leaving Iraq while bombing Iran’ is the only item to flag the contradiction of simultaneous US withdrawal from Iraq and ongoing military strikes against Iran.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Leads with ‘human cost of US intervention’ framing rather than mission outcome or geopolitical victory — a legacy-accountability angle no other outlet takes.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "Foreign Policy",
+      "country": "opinion_magazines",
+      "finding": "The only Western outlet to frame the withdrawal explicitly as leaving a power vacuum, naming Iran and the Islamic State as likely beneficiaries.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Provides the most complete factual timeline including the Biden-era origin of the withdrawal agreement — neutral-factual rather than celebratory or critical.",
+      "signal_text_idx": 2
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Thirteen outlets across nine country-buckets converge on the same physical fact — US troops left Iraq on September 30 — but split three ways on meaning: mission accomplished, strategic blunder, or Iranian victory. The paradox is that Western commentary and Russian state media agree the venture failed; only narrowly pro-administration US coverage claims success.",
+  "generated_at": "2026-10-03T13:09:28Z",
+  "model": "claude-sonnet-4-6"
+}
