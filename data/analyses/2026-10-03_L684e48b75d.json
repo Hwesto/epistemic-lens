@@ -1,0 +1,152 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L684e48b75d",
+  "cluster_id": 113,
+  "cluster_name": "India defeats Pakistan in Asian Games cricket final for second gold",
+  "salience_score": 8.75,
+  "n_outlets": 10,
+  "n_countries": 7,
+  "n_articles": 40,
+  "event_summary": "India beat Pakistan by 19 runs in the men's cricket final at the 2026 Asian Games in Nisshin, Japan on October 3, winning their second consecutive cricket gold. South Korean golfer Kim Joo-hyung won men's golf gold at Kasugai, securing an exemption from South Korea's mandatory military service.",
+  "tldr": "The India-Pakistan cricket final dominated Asian Games coverage across 7 countries but was parsed through entirely different frames: Indian media celebrated stadium fan taunts going viral while Pakistani outlets reported the score straight, and Al Jazeera alone highlighted that handshakes were skipped and the medal ceremony was delayed — a diplomatic signal the rest of the press ignored entirely. South Korean golfer Tom Kim's gold drew more international attention from non-Korean outlets (BBC World, Philippines' Inquirer) than South Korea's archery or sailing golds combined, because those outlets led with the military service exemption hook rather than the athletic result. Pakistan's hockey bronze over South Korea — a 5-3 comeback from 3-1 down — appeared only in Pakistani media and was invisible to international coverage. The cluster is a clean demonstration of how a single day of multi-sport results is partitioned into non-overlapping national storylines, with only the military-exemption angle and the no-handshake diplomatic rupture crossing regional boundaries.",
+  "frames": [
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "India-Pakistan cricket rivalry as cultural identity contest",
+      "outlets": ["Aaj Tak (alt)", "ARY News English", "Geo News English", "Channel News Asia"],
+      "countries": ["india", "pakistan", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Aaj Tak (alt)",
+          "country": "india",
+          "quote": "मुकाबले में सैम अयूब के दो कैच छोड़ने के बाद भारतीय फैंस ने उन्हें जमकर चिढ़ाया. स्टेडियम में बिरयानी और गार्डन वाले तंज सुनाई दिए, जिनके वीडियो सोशल मीडिया पर तेजी से वायरल हो रहे हैं.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Channel News Asia",
+          "country": "vietnam_thai_my",
+          "quote": "Games-Abhishek and Varma shine as India beat Pakistan to complete cricket double",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "India-Pakistan diplomatic chill at medal ceremony",
+      "outlets": ["Al Jazeera English"],
+      "countries": ["qatar"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "No handshakes and a delayed ceremony as India beat Pakistan at Asian Games\n\nIndia beat Pakistan by 19 runs in gold medal match at Asian Games as Hasan Nawaz's 96 in vain in reply to 211-6.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "military service exemption via Asian Games gold",
+      "outlets": ["BBC World", "Inquirer", "Yonhap News", "Korea Herald (via Google News)"],
+      "countries": ["uk", "philippines", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Golfer Tom Kim wins gold at the Asian Games to secure an exemption from mandatory service in South Korea's military.",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Inquirer",
+          "country": "philippines",
+          "quote": "Asian Games: South Korean golfer gets military exemption with gold",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "national champion glory and athlete personal story",
+      "outlets": ["KBS World", "Yonhap News", "Geo News English"],
+      "countries": ["south_korea", "pakistan"],
+      "evidence": [
+        {
+          "outlet": "Yonhap News",
+          "country": "south_korea",
+          "quote": "\"Just be you. Nothing more, nothing less,\" the message from the all-time great read.\nInspired by those words, Kim, who held the 54-hole lead, went on to seize the men's individual gold medal at Kasugai Country Club East Course in Kasugai, just northeast of the main host city of Nagoya.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "has now claimed his first individual gold medal at a major international multi-sport event.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "Geo News English",
+          "country": "pakistan",
+          "quote": "Pakistan rallied from a 3-1 deficit to defeat South Korea 5-3 and secure the men's hockey bronze medal",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "Major Asian Games participant typically at the top of the medal table; Chinese outlets would be covering domestic athlete gold hauls rather than South Asian cricket or South Korean golf."
+    },
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Host nation of the Aichi-Nagoya games; Japanese outlets would be covering home-team results and hosting logistics rather than the India-Pakistan cricket rivalry."
+    },
+    {
+      "country": "bangladesh",
+      "what_they_covered_instead": "Cricket-playing nation with strong cultural stake in India-Pakistan matches; absent from the cluster with editorial focus unknown."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Only outlet to lead with the post-match protocol failure: no handshakes between Indian and Pakistani players and a delayed medal ceremony. Every other outlet treated the match purely as sport.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Aaj Tak (alt)",
+      "country": "india",
+      "finding": "Only outlet to report stadium fan taunts — biryani and garden jibes directed at Pakistan's Saim Ayub after dropped catches — and to treat viral social media content from the stands as a story element.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Yonhap News",
+      "country": "south_korea",
+      "finding": "Only outlet to report the Tiger Woods pre-round text message and to credit it as the mental catalyst for Tom Kim's final-round 64.",
+      "signal_text_idx": 14
+    },
+    {
+      "outlet": "Geo News English",
+      "country": "pakistan",
+      "finding": "Only outlet to cover Pakistan's hockey bronze: a 5-3 comeback from 3-1 down against South Korea, invisible to all non-Pakistani outlets in the cluster.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Only outlet to cover Lee Woo-seok's individual archery gold and 15-year-old Choi Ji-un's sailing gold; both results were absent from all international coverage.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Aaj Tak (alt)",
+      "country": "india",
+      "finding": "Only outlet to note this is India's second consecutive Asian Games cricket gold — a historical context absent from Pakistani and all other coverage.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The 2026 Asian Games cluster splits into three non-overlapping media worlds: Indian and Pakistani outlets processing the cricket final through opposite emotional registers, South Korean outlets celebrating national golds that no one else covered, and non-regional outlets (BBC World, Al Jazeera, Inquirer) selecting the two stories with transnational hooks — Tom Kim's military exemption and the India-Pakistan ceremony breakdown. The military-exemption frame for Tom Kim's golf gold crossed regional lines more cleanly than any cricket result, appearing simultaneously in British, Filipino, and South Korean press.",
+  "generated_at": "2026-10-03T12:57:19Z",
+  "model": "claude-sonnet-4-6"
+}
