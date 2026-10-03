@@ -1,0 +1,160 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-03",
+  "lineage_id": "L7ea114d378",
+  "cluster_id": 127,
+  "cluster_name": "North Korea fires ballistic missile amid DMZ landmine row with Seoul",
+  "n_outlets": 11,
+  "n_countries": 8,
+  "n_articles": 15,
+  "salience_score": 2.5,
+  "event_summary": "North Korea fired a ballistic missile from Wonsan toward the Sea of Japan on 3 October 2026, flying approximately 700 km. South Korea had demanded an apology for a DMZ mine blast that wounded three soldiers; Kim Yo-jong denied responsibility the previous day.",
+  "tldr": "South Korean public broadcaster KBS uniquely headlines Kim Yo-jong’s explicit rejection of dialogue as the trigger — foregrounding the diplomatic rupture rather than just the missile flight — while every other outlet leads with the missile flight itself. NK News is the only outlet with body-level text, and the sole source confirming that Seoul and Washington initiated joint real-time tracking and specifications analysis from the launch’s initial stages. Japan’s Japan Times is distinctively technical, reporting the 680 km flight path relative to Japan’s exclusive economic zone, reflecting its distinct legal exposure as a downrange coastal state. NK News also carries a late-September launch event, establishing this as the second missile test in the cluster and indicating a pattern of escalation rather than a single provocation. China — North Korea’s primary economic patron and the peninsula’s most consequential external actor — is entirely absent from today’s cluster, consistent with Chinese state media’s habitual reluctance to foreground DPRK missile launches.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "missile launch and downrange monitoring",
+      "outlets": ["NK News", "Japan Times", "KBS World", "Yonhap News", "AFP / France 24 EN", "Deutsche Welle English", "Reuters (via Google News)", "Sky News UK", "The Guardian World", "Malay Mail World", "Vanguard"],
+      "countries": ["korea_north", "japan", "south_korea", "wire_services", "germany", "uk", "vietnam_thai_my", "nigeria"],
+      "evidence": [
+        {
+          "outlet": "NK News",
+          "country": "korea_north",
+          "quote": "North Korea fired a ballistic missile toward the East Sea (Sea of Japan) on Saturday, according to South Korean and Japanese authorities.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "The Defense Ministry in Tokyo said the weapon flew for an estimated 680 km before landing in waters outside of Japan's exclusive economic zone.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Sky News UK",
+          "country": "uk",
+          "quote": "South Korea's military said it has increased its monitoring ​of further missile tests.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "apology demand and dialogue rejection",
+      "outlets": ["KBS World", "The Guardian World", "AFP / France 24 EN", "Vanguard", "Malay Mail World"],
+      "countries": ["south_korea", "uk", "wire_services", "nigeria", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "N. Korea Fires Ballistic Missile toward East Sea after Kim Yo-jong Rejects Dialogue",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "North Korea launches ballistic missile after Seoul demands apology over wounded soldiers",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "The launch comes amid renewed tensions between Pyongyang and Seoul, with the latter demanding an apology for a blast that wounded three South Korean soldiers inside the Demilitarized Zone last month.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US-ROK-Japan alliance coordination",
+      "outlets": ["NK News", "Japan Times"],
+      "countries": ["korea_north", "japan"],
+      "evidence": [
+        {
+          "outlet": "NK News",
+          "country": "korea_north",
+          "quote": "Seoul and Washington are “conducting a detailed analysis to determine the missile’s exact specifications,” according to the JCS. The two sides “have been tracking and sharing information on related developments since the initial stages of the launch.”",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Japan Times",
+          "country": "japan",
+          "quote": "The Defense Ministry in Tokyo said the weapon flew for an estimated 680 km before landing in waters outside of Japan's exclusive economic zone.",
+          "signal_text_idx": 2
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "DMZ mine blast blame and apology demand",
+      "outlets": ["AFP / France 24 EN", "Vanguard", "Malay Mail World", "The Guardian World", "Yonhap News"],
+      "countries": ["wire_services", "nigeria", "vietnam_thai_my", "uk", "south_korea"],
+      "evidence": [
+        {
+          "outlet": "Vanguard",
+          "country": "nigeria",
+          "quote": "days after demanding an apology for a blast that wounded three South Korean soldiers in the DMZ that it blames on the North.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "North Korea launches missile after Seoul blames it for DMZ blast",
+          "signal_text_idx": 4
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "china",
+      "what_they_covered_instead": "Chinese outlets carried items today in other clusters but none appeared here; Chinese state media characteristically avoids foregrounding DPRK missile launches, likely covering domestic and trade news instead."
+    },
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No US outlet appears despite the JCS text explicitly naming joint US-South Korean tracking; US coverage on this date likely prioritised domestic political and economic news, leaving the Korean story to wire services."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "KBS World",
+      "country": "south_korea",
+      "finding": "Only outlet to headline Kim Yo-jong's explicit rejection of dialogue as the direct political trigger, framing the launch as a diplomatic breakdown rather than a standalone military event.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "finding": "Only source with body-level text confirming that Seoul and Washington initiated joint real-time tracking and missile-specifications analysis from the launch's initial stages.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "NK News",
+      "country": "korea_north",
+      "finding": "Also reports a late-September launch of suspected ballistic missiles, making this the second launch event in the cluster and establishing a pattern of escalation rather than an isolated provocation.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "Japan Times",
+      "country": "japan",
+      "finding": "Only outlet to report the precise 680 km flight distance relative to Japan's exclusive economic zone, reflecting Japan's distinct legal and security exposure as a downrange coastal state.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Provides the most complete chronological narrative: mines blast, Seoul apology demand, Kim Yo-jong denial, then missile launch, contextualising the event as the culmination of a week-long escalation.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Vanguard",
+      "country": "nigeria",
+      "finding": "Nigerian outlet covers the Korean peninsula story with framing essentially identical to the AFP wire, indicating wire-service relay with no regional or Africa-specific angle added.",
+      "signal_text_idx": 10
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "North Korea's 3 October ballistic missile launch is universally covered as a direct military response to the DMZ mine standoff, with the AFP wire baseline dominating non-regional outlets globally. South Korean media uniquely foregrounds the diplomatic dimension — Kim Yo-jong's rejection of dialogue — while China's complete absence from today's cluster, despite being the peninsula's pivotal external actor, is the sharpest structural gap in the coverage.",
+  "generated_at": "2026-10-03T07:12:00Z",
+  "model": "claude-sonnet-4-6"
+}
