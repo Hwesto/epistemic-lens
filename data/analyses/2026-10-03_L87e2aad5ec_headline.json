@@ -1,0 +1,98 @@
+{
+  "story_key": "L87e2aad5ec",
+  "date": "2026-10-03",
+  "n_buckets": 2,
+  "n_articles": 9,
+  "tldr": "Headlines across Japanese and Korean outlets frame North Korea's AI-capable intermediate-range missile test as an unstoppable deterrent threat; South Korean outlets pair this with celebratory Asian Games gold-medal victories in sport climbing and breaking, while Japanese outlets add a G7 coordinated oil-reserve release story absent from Korean coverage.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "NK AI missile: unstoppable deterrent",
+      "buckets": ["japan", "south_korea"],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Asahi Shimbun",
+          "quote": "北朝鮮が弾道ミサイルを発射 地雷爆発問題めぐり韓国側を牽制か",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Chosun Ilbo (alt)",
+          "quote": "北 김여정 “오늘 중거리전략미사일 훈련…적들 목표 놓쳐, 타격 피할 방법 없어”",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Hankyoreh English",
+          "quote": "김여정 “우리 AI 미사일 타격 못 피해”…한·일 탐지 한계 주장",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Mainichi",
+          "quote": "北朝鮮、発射のミサイルには「AIを導入、飛行軌道変更能力も」",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Asian Games: Korean national glory",
+      "buckets": ["south_korea"],
+      "evidence": [
+        {
+          "bucket": "south_korea",
+          "outlet": "Chosun Ilbo (alt)",
+          "quote": "\"초대박\" 대한민국 클라이밍 새 역사! '리드 여왕' 서채현, 아시안게임 금메달",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Hankyoreh English",
+          "quote": "41살 홍텐의 춤은 '은'에서 멈추지 않는다…AG 브레이킹 2연속 메달",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap Korean",
+          "quote": "[아시안게임] 스포츠클라이밍 간판 서채현, 주 종목 여자 리드 금메달",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "south_korea",
+          "outlet": "Yonhap Korean",
+          "quote": "[아시안게임] 40년 겨루기 금맥 지킨 송다빈 \"어깨는 무거웠지만 발은 가볍게\"",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "G7 oil reserves: US-led release",
+      "buckets": ["japan"],
+      "evidence": [
+        {
+          "bucket": "japan",
+          "outlet": "Asahi Shimbun",
+          "quote": "G7、石油備蓄を協調放出へ 「4カ月で1億バレル」米政権の要請か",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "south_korea",
+      "mean_similarity": 0.545,
+      "n_tokens": 206
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "Headline coverage leads with North Korea's AI-missile deterrent claim as a shared security crisis, while South Korean outlets balance it with Asian Games nationalism and Japanese headlines add a G7 oil coordination story absent from Korean feeds.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
