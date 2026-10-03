@@ -1,0 +1,159 @@
+{
+  "story_key": "Lac61fe973f",
+  "date": "2026-10-03",
+  "n_buckets": 9,
+  "n_articles": 18,
+  "tldr": "Headlines split into two dominant registers: a neutral mission-completion announcement shared by most Western, Chinese, and Turkish outlets, and a triumphalist Iranian counter-narrative declaring the US 'expelled' and 'humiliated'. A minority of Western analytical headlines add a third register — post-withdrawal risk — while Russian outlets invoke the human cost of the original invasion.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Orderly exit; ISIS mission declared complete",
+      "buckets": ["asia_pacific_regional", "china", "turkey", "germany", "usa", "canada"],
+      "evidence": [
+        {
+          "bucket": "asia_pacific_regional",
+          "outlet": "Asia Times",
+          "quote": "Leaving Iraq while bombing Iran",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "US forces leave Iraq as coalition ends ISIS combat mission",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle Deutsch",
+          "quote": "USA beenden offiziell Militäreinsatz im Irak",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "US military completes withdrawal of troops from Iraq",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Last U.S. troops leave Iraq, ending 12-year mission",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Iran claims victory, demands US exit region",
+      "buckets": ["iran_state", "russia", "turkey"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "IRGC hails US withdrawal, Iraq sets new disarmament deadline",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "IRNA English",
+          "quote": "US expelled from Iraq, suffered humiliating defeat",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Iran hails US withdrawal from Iraq as 'historic victory'",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "iran_state",
+          "outlet": "Tehran Times",
+          "quote": "Era of cost-free threats against Iran is over: IRGC",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Post-withdrawal power vacuum risk",
+      "buckets": ["opinion_magazines", "usa"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Foreign Policy",
+          "quote": "U.S. Forces Leave Behind a Power Vacuum in Iraq",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "usa",
+          "outlet": "War on the Rocks",
+          "quote": "What the End of Operation Inherent Resolve Means",
+          "signal_text_idx": 17
+        }
+      ]
+    },
+    {
+      "frame_id": "MORALITY",
+      "sub_frame": "US intervention: human cost, instability",
+      "buckets": ["russia"],
+      "evidence": [
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "RT examines human cost of US intervention in Iraq",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "US incursion in Iraq entailed decades of instability",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.542,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "iran_state",
+      "mean_similarity": 0.633,
+      "n_tokens": 152
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "IRNA English",
+      "bucket": "iran_state",
+      "finding": "Only headline to use 'expelled' — framing the departure as a coerced eviction rather than a negotiated withdrawal.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Only headline to pair withdrawal with ongoing US bombing of Iran — naming the policy contradiction no other title acknowledges.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Foreign Policy",
+      "bucket": "opinion_magazines",
+      "finding": "Only Western headline to name a 'power vacuum' — framing the exit as strategic loss rather than mission completion.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Tehran Times",
+      "bucket": "iran_state",
+      "finding": "Only headline to recast the moment as a deterrence declaration, not a troop-departure announcement.",
+      "signal_text_idx": 16
+    }
+  ],
+  "bottom_line": "The headline layer is dominated by neutral exit-announcement framing, but Iranian state outlets and Russia diverge sharply — labelling the withdrawal an 'expulsion', a 'humiliating defeat', and a new phase for the Resistance Front, vocabulary absent from every non-state-aligned headline.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
