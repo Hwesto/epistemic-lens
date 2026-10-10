@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-10",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 83,
+      "n_tokens_in_cohort": 1780,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 43,
+      "n_tokens_in_cohort": 1820,
+      "distinctive_terms": []
+    },
+    "qatar": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 222,
+      "n_tokens_in_cohort": 1641,
+      "distinctive_terms": [
+        {
+          "term": "killed",
+          "count_in_bucket": 10,
+          "count_in_cohort": 17,
+          "rate_in_bucket": 0.04505,
+          "rate_in_cohort": 0.01036,
+          "llr": 11.506,
+          "log_ratio": 1.47,
+          "p_value": 0.000694
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 118,
+      "n_tokens_in_cohort": 1745,
+      "distinctive_terms": []
+    },
+    "china": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 55,
+      "n_tokens_in_cohort": 1808,
+      "distinctive_terms": [
+        {
+          "term": "peace",
+          "count_in_bucket": 6,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.10909,
+          "rate_in_cohort": 0.00111,
+          "llr": 34.041,
+          "log_ratio": 4.591,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 25,
+      "n_tokens_in_cohort": 1838,
+      "distinctive_terms": []
+    },
+    "iraq": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 413,
+      "n_tokens_in_cohort": 1450,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 439,
+      "n_tokens_in_cohort": 1424,
+      "distinctive_terms": []
+    },
+    "pan_arab": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 134,
+      "n_tokens_in_cohort": 1729,
+      "distinctive_terms": [
+        {
+          "term": "raid",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.03731,
+          "rate_in_cohort": 0.0,
+          "llr": 26.497,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 206,
+      "n_tokens_in_cohort": 1657,
+      "distinctive_terms": [
+        {
+          "term": "anas",
+          "count_in_bucket": 10,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.04854,
+          "rate_in_cohort": 0.0,
+          "llr": 44.481,
+          "log_ratio": null,
+          "p_value": 0.0
+        },
+        {
+          "term": "baba",
+          "count_in_bucket": 10,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.04854,
+          "rate_in_cohort": 0.0,
+          "llr": 44.481,
+          "log_ratio": null,
+          "p_value": 0.0
+        }
+      ]
+    },
+    "russia": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 28,
+      "n_tokens_in_cohort": 1835,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 21,
+      "n_tokens_in_cohort": 1842,
+      "distinctive_terms": []
+    },
+    "iran_state": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 33,
+      "n_tokens_in_cohort": 1830,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 14,
+      "n_tokens_in_bucket": 43,
+      "n_tokens_in_cohort": 1820,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

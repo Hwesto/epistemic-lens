@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-10",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 110,
+      "n_tokens_in_cohort": 1273,
+      "distinctive_terms": [
+        {
+          "term": "dismantle",
+          "count_in_bucket": 6,
+          "count_in_cohort": 8,
+          "rate_in_bucket": 0.05455,
+          "rate_in_cohort": 0.00628,
+          "llr": 12.825,
+          "log_ratio": 2.161,
+          "p_value": 0.000342
+        },
+        {
+          "term": "rubio",
+          "count_in_bucket": 7,
+          "count_in_cohort": 12,
+          "rate_in_bucket": 0.06364,
+          "rate_in_cohort": 0.00943,
+          "llr": 12.729,
+          "log_ratio": 1.91,
+          "p_value": 0.00036
+        }
+      ]
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 221,
+      "n_tokens_in_cohort": 1162,
+      "distinctive_terms": []
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 1359,
+      "distinctive_terms": []
+    },
+    "pakistan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 57,
+      "n_tokens_in_cohort": 1326,
+      "distinctive_terms": []
+    },
+    "germany": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 1356,
+      "distinctive_terms": []
+    },
+    "netherlands_belgium": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 141,
+      "n_tokens_in_cohort": 1242,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 65,
+      "n_tokens_in_cohort": 1318,
+      "distinctive_terms": []
+    },
+    "iraq": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 24,
+      "n_tokens_in_cohort": 1359,
+      "distinctive_terms": []
+    },
+    "ukraine": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 36,
+      "n_tokens_in_cohort": 1347,
+      "distinctive_terms": []
+    },
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 1353,
+      "distinctive_terms": []
+    },
+    "kenya": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 405,
+      "n_tokens_in_cohort": 978,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 35,
+      "n_tokens_in_cohort": 1348,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 13,
+      "n_tokens_in_bucket": 208,
+      "n_tokens_in_cohort": 1175,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}

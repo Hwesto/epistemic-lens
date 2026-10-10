@@ -1,0 +1,918 @@
+{
+  "date": "2026-10-10",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 14,
+  "n_articles": 41,
+  "buckets": [
+    "asia_pacific_regional",
+    "canada",
+    "france",
+    "germany",
+    "india",
+    "italy",
+    "pakistan",
+    "qatar",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "usa",
+    "vietnam_thai_my",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "india": 2034,
+    "wire_services": 141,
+    "france": 14,
+    "italy": 12,
+    "pakistan": 140,
+    "qatar": 240,
+    "uk": 337,
+    "usa": 276,
+    "vietnam_thai_my": 150,
+    "turkey": 31,
+    "germany": 37,
+    "canada": 228,
+    "taiwan_hk": 61,
+    "asia_pacific_regional": 28
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "usa",
+      "score": 0.932
+    },
+    {
+      "a": "pakistan",
+      "b": "wire_services",
+      "score": 0.913
+    },
+    {
+      "a": "pakistan",
+      "b": "vietnam_thai_my",
+      "score": 0.89
+    },
+    {
+      "a": "qatar",
+      "b": "uk",
+      "score": 0.882
+    },
+    {
+      "a": "vietnam_thai_my",
+      "b": "wire_services",
+      "score": 0.879
+    },
+    {
+      "a": "uk",
+      "b": "usa",
+      "score": 0.877
+    },
+    {
+      "a": "pakistan",
+      "b": "qatar",
+      "score": 0.871
+    },
+    {
+      "a": "pakistan",
+      "b": "uk",
+      "score": 0.87
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.856
+    },
+    {
+      "a": "qatar",
+      "b": "usa",
+      "score": 0.855
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.849
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.848
+    },
+    {
+      "a": "qatar",
+      "b": "wire_services",
+      "score": 0.841
+    },
+    {
+      "a": "pakistan",
+      "b": "turkey",
+      "score": 0.835
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "vietnam_thai_my",
+      "score": 0.832
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.83
+    },
+    {
+      "a": "germany",
+      "b": "pakistan",
+      "score": 0.829
+    },
+    {
+      "a": "germany",
+      "b": "turkey",
+      "score": 0.826
+    },
+    {
+      "a": "pakistan",
+      "b": "usa",
+      "score": 0.824
+    },
+    {
+      "a": "germany",
+      "b": "qatar",
+      "score": 0.823
+    },
+    {
+      "a": "germany",
+      "b": "wire_services",
+      "score": 0.821
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "usa",
+      "score": 0.821
+    },
+    {
+      "a": "turkey",
+      "b": "usa",
+      "score": 0.821
+    },
+    {
+      "a": "qatar",
+      "b": "vietnam_thai_my",
+      "score": 0.82
+    },
+    {
+      "a": "india",
+      "b": "qatar",
+      "score": 0.818
+    },
+    {
+      "a": "india",
+      "b": "usa",
+      "score": 0.817
+    },
+    {
+      "a": "pakistan",
+      "b": "taiwan_hk",
+      "score": 0.814
+    },
+    {
+      "a": "usa",
+      "b": "vietnam_thai_my",
+      "score": 0.814
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.813
+    },
+    {
+      "a": "usa",
+      "b": "wire_services",
+      "score": 0.812
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.81
+    },
+    {
+      "a": "qatar",
+      "b": "turkey",
+      "score": 0.809
+    },
+    {
+      "a": "uk",
+      "b": "vietnam_thai_my",
+      "score": 0.807
+    },
+    {
+      "a": "canada",
+      "b": "qatar",
+      "score": 0.806
+    },
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.806
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.806
+    },
+    {
+      "a": "india",
+      "b": "vietnam_thai_my",
+      "score": 0.805
+    },
+    {
+      "a": "turkey",
+      "b": "vietnam_thai_my",
+      "score": 0.802
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.801
+    },
+    {
+      "a": "qatar",
+      "b": "taiwan_hk",
+      "score": 0.796
+    },
+    {
+      "a": "france",
+      "b": "pakistan",
+      "score": 0.791
+    },
+    {
+      "a": "germany",
+      "b": "usa",
+      "score": 0.791
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.789
+    },
+    {
+      "a": "germany",
+      "b": "taiwan_hk",
+      "score": 0.786
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.774
+    },
+    {
+      "a": "germany",
+      "b": "vietnam_thai_my",
+      "score": 0.772
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.77
+    },
+    {
+      "a": "germany",
+      "b": "uk",
+      "score": 0.77
+    },
+    {
+      "a": "india",
+      "b": "pakistan",
+      "score": 0.76
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.757
+    },
+    {
+      "a": "canada",
+      "b": "vietnam_thai_my",
+      "score": 0.756
+    },
+    {
+      "a": "canada",
+      "b": "pakistan",
+      "score": 0.742
+    },
+    {
+      "a": "germany",
+      "b": "india",
+      "score": 0.732
+    },
+    {
+      "a": "canada",
+      "b": "germany",
+      "score": 0.731
+    },
+    {
+      "a": "france",
+      "b": "wire_services",
+      "score": 0.729
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.727
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "uk",
+      "score": 0.715
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "qatar",
+      "score": 0.708
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "canada",
+      "score": 0.697
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "pakistan",
+      "score": 0.694
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "usa",
+      "score": 0.694
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.687
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "wire_services",
+      "score": 0.685
+    },
+    {
+      "a": "france",
+      "b": "vietnam_thai_my",
+      "score": 0.684
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "vietnam_thai_my",
+      "score": 0.677
+    },
+    {
+      "a": "france",
+      "b": "qatar",
+      "score": 0.676
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "turkey",
+      "score": 0.652
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "india",
+      "score": 0.644
+    },
+    {
+      "a": "france",
+      "b": "germany",
+      "score": 0.64
+    },
+    {
+      "a": "france",
+      "b": "uk",
+      "score": 0.64
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "taiwan_hk",
+      "score": 0.611
+    },
+    {
+      "a": "france",
+      "b": "turkey",
+      "score": 0.609
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "germany",
+      "score": 0.603
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "france",
+      "score": 0.579
+    },
+    {
+      "a": "france",
+      "b": "usa",
+      "score": 0.575
+    },
+    {
+      "a": "france",
+      "b": "taiwan_hk",
+      "score": 0.569
+    },
+    {
+      "a": "france",
+      "b": "india",
+      "score": 0.564
+    },
+    {
+      "a": "canada",
+      "b": "france",
+      "score": 0.488
+    },
+    {
+      "a": "france",
+      "b": "italy",
+      "score": 0.432
+    },
+    {
+      "a": "italy",
+      "b": "pakistan",
+      "score": 0.41
+    },
+    {
+      "a": "asia_pacific_regional",
+      "b": "italy",
+      "score": 0.398
+    },
+    {
+      "a": "italy",
+      "b": "wire_services",
+      "score": 0.377
+    },
+    {
+      "a": "germany",
+      "b": "italy",
+      "score": 0.375
+    },
+    {
+      "a": "italy",
+      "b": "turkey",
+      "score": 0.365
+    },
+    {
+      "a": "italy",
+      "b": "uk",
+      "score": 0.36
+    },
+    {
+      "a": "italy",
+      "b": "vietnam_thai_my",
+      "score": 0.352
+    },
+    {
+      "a": "italy",
+      "b": "qatar",
+      "score": 0.336
+    },
+    {
+      "a": "italy",
+      "b": "usa",
+      "score": 0.317
+    },
+    {
+      "a": "india",
+      "b": "italy",
+      "score": 0.31
+    },
+    {
+      "a": "italy",
+      "b": "taiwan_hk",
+      "score": 0.271
+    },
+    {
+      "a": "canada",
+      "b": "italy",
+      "score": 0.248
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "india",
+      "mean_similarity": 0.712,
+      "n_tokens": 2034
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.715,
+      "n_tokens": 228
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.731,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.732,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.745,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.761,
+      "n_tokens": 150
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.765,
+      "n_tokens": 276
+    },
+    {
+      "bucket": "qatar",
+      "mean_similarity": 0.772,
+      "n_tokens": 240
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.773,
+      "n_tokens": 337
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.778,
+      "n_tokens": 141
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.788,
+      "n_tokens": 140
+    }
+  ],
+  "isolation_excluded_thin": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.35,
+      "n_tokens": 12
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.614,
+      "n_tokens": 14
+    },
+    {
+      "bucket": "asia_pacific_regional",
+      "mean_similarity": 0.643,
+      "n_tokens": 28
+    }
+  ],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "india": [
+      {
+        "term": "emergency",
+        "count": 14
+      },
+      {
+        "term": "gandhi",
+        "count": 12
+      },
+      {
+        "term": "wangchuk",
+        "count": 11
+      },
+      {
+        "term": "national",
+        "count": 9
+      },
+      {
+        "term": "indira",
+        "count": 8
+      },
+      {
+        "term": "imran",
+        "count": 7
+      },
+      {
+        "term": "khan",
+        "count": 7
+      },
+      {
+        "term": "railway",
+        "count": 7
+      },
+      {
+        "term": "undeclared",
+        "count": 6
+      },
+      {
+        "term": "updat",
+        "count": 6
+      },
+      {
+        "term": "actor",
+        "count": 6
+      },
+      {
+        "term": "public",
+        "count": 6
+      },
+      {
+        "term": "hunger",
+        "count": 5
+      },
+      {
+        "term": "strike",
+        "count": 5
+      },
+      {
+        "term": "when",
+        "count": 5
+      },
+      {
+        "term": "situation",
+        "count": 5
+      },
+      {
+        "term": "alleged",
+        "count": 5
+      },
+      {
+        "term": "rahul",
+        "count": 5
+      },
+      {
+        "term": "proposed",
+        "count": 5
+      },
+      {
+        "term": "order",
+        "count": 5
+      },
+      {
+        "term": "application",
+        "count": 5
+      },
+      {
+        "term": "rail",
+        "count": 5
+      },
+      {
+        "term": "right",
+        "count": 5
+      },
+      {
+        "term": "aisa",
+        "count": 5
+      },
+      {
+        "term": "sonam",
+        "count": 4
+      },
+      {
+        "term": "peace",
+        "count": 4
+      },
+      {
+        "term": "hope",
+        "count": 4
+      },
+      {
+        "term": "received",
+        "count": 4
+      },
+      {
+        "term": "raising",
+        "count": 4
+      },
+      {
+        "term": "abhinav",
+        "count": 4
+      },
+      {
+        "term": "entered",
+        "count": 4
+      },
+      {
+        "term": "like",
+        "count": 4
+      },
+      {
+        "term": "exchange",
+        "count": 4
+      },
+      {
+        "term": "woman",
+        "count": 4
+      },
+      {
+        "term": "price",
+        "count": 4
+      },
+      {
+        "term": "work",
+        "count": 3
+      },
+      {
+        "term": "ladakh",
+        "count": 3
+      },
+      {
+        "term": "unity",
+        "count": 3
+      },
+      {
+        "term": "irregularit",
+        "count": 3
+      },
+      {
+        "term": "consider",
+        "count": 3
+      },
+      {
+        "term": "home",
+        "count": 3
+      },
+      {
+        "term": "ruling",
+        "count": 3
+      },
+      {
+        "term": "posted",
+        "count": 3
+      },
+      {
+        "term": "prohibitory",
+        "count": 3
+      },
+      {
+        "term": "organisation",
+        "count": 3
+      },
+      {
+        "term": "dmrc",
+        "count": 3
+      },
+      {
+        "term": "chowk",
+        "count": 3
+      },
+      {
+        "term": "form",
+        "count": 3
+      },
+      {
+        "term": "sign",
+        "count": 3
+      },
+      {
+        "term": "hindi",
+        "count": 3
+      },
+      {
+        "term": "violence",
+        "count": 3
+      },
+      {
+        "term": "congres",
+        "count": 3
+      },
+      {
+        "term": "capf",
+        "count": 3
+      },
+      {
+        "term": "peacefully",
+        "count": 3
+      },
+      {
+        "term": "http",
+        "count": 3
+      },
+      {
+        "term": "cockroachisback",
+        "count": 3
+      },
+      {
+        "term": "remain",
+        "count": 3
+      },
+      {
+        "term": "question",
+        "count": 3
+      },
+      {
+        "term": "dissent",
+        "count": 3
+      },
+      {
+        "term": "voic",
+        "count": 3
+      },
+      {
+        "term": "face",
+        "count": 3
+      },
+      {
+        "term": "left",
+        "count": 3
+      },
+      {
+        "term": "wallet",
+        "count": 3
+      },
+      {
+        "term": "possible",
+        "count": 3
+      },
+      {
+        "term": "varanasi",
+        "count": 3
+      },
+      {
+        "term": "information",
+        "count": 3
+      },
+      {
+        "term": "international",
+        "count": 3
+      },
+      {
+        "term": "boarded",
+        "count": 3
+      },
+      {
+        "term": "barricad",
+        "count": 3
+      },
+      {
+        "term": "traffic",
+        "count": 3
+      },
+      {
+        "term": "closur",
+        "count": 3
+      },
+      {
+        "term": "hour",
+        "count": 3
+      },
+      {
+        "term": "travelling",
+        "count": 3
+      },
+      {
+        "term": "viral",
+        "count": 3
+      },
+      {
+        "term": "organiser",
+        "count": 3
+      },
+      {
+        "term": "criminal",
+        "count": 3
+      }
+    ],
+    "wire_services": [
+      {
+        "term": "reuter",
+        "count": 6
+      },
+      {
+        "term": "unprecedented",
+        "count": 3
+      },
+      {
+        "term": "foil",
+        "count": 3
+      }
+    ],
+    "france": [],
+    "italy": [],
+    "pakistan": [],
+    "qatar": [
+      {
+        "term": "lockdown",
+        "count": 3
+      }
+    ],
+    "uk": [],
+    "usa": [],
+    "vietnam_thai_my": [],
+    "turkey": [],
+    "germany": [],
+    "canada": [],
+    "taiwan_hk": [],
+    "asia_pacific_regional": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-10-10T14:12:22+00:00",
+  "meta_version": "10.0.3"
+}

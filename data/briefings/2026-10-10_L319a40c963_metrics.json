@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-10",
+  "story_key": null,
+  "story_title": null,
+  "n_buckets": 9,
+  "n_articles": 15,
+  "buckets": [
+    "canada",
+    "india",
+    "iran_opposition",
+    "opinion_magazines",
+    "taiwan_hk",
+    "turkey",
+    "uk",
+    "ukraine",
+    "wire_services"
+  ],
+  "buckets_excluded_quant": [],
+  "bucket_token_counts": {
+    "wire_services": 45,
+    "canada": 255,
+    "turkey": 32,
+    "ukraine": 193,
+    "opinion_magazines": 48,
+    "iran_opposition": 219,
+    "taiwan_hk": 127,
+    "india": 243,
+    "uk": 35
+  },
+  "pairwise_similarity": [
+    {
+      "a": "canada",
+      "b": "taiwan_hk",
+      "score": 0.939
+    },
+    {
+      "a": "iran_opposition",
+      "b": "opinion_magazines",
+      "score": 0.862
+    },
+    {
+      "a": "turkey",
+      "b": "uk",
+      "score": 0.835
+    },
+    {
+      "a": "canada",
+      "b": "india",
+      "score": 0.829
+    },
+    {
+      "a": "canada",
+      "b": "turkey",
+      "score": 0.815
+    },
+    {
+      "a": "uk",
+      "b": "ukraine",
+      "score": 0.814
+    },
+    {
+      "a": "india",
+      "b": "taiwan_hk",
+      "score": 0.812
+    },
+    {
+      "a": "india",
+      "b": "iran_opposition",
+      "score": 0.801
+    },
+    {
+      "a": "india",
+      "b": "opinion_magazines",
+      "score": 0.796
+    },
+    {
+      "a": "canada",
+      "b": "uk",
+      "score": 0.772
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "turkey",
+      "score": 0.761
+    },
+    {
+      "a": "ukraine",
+      "b": "wire_services",
+      "score": 0.751
+    },
+    {
+      "a": "india",
+      "b": "uk",
+      "score": 0.75
+    },
+    {
+      "a": "india",
+      "b": "wire_services",
+      "score": 0.738
+    },
+    {
+      "a": "uk",
+      "b": "wire_services",
+      "score": 0.734
+    },
+    {
+      "a": "india",
+      "b": "turkey",
+      "score": 0.732
+    },
+    {
+      "a": "iran_opposition",
+      "b": "wire_services",
+      "score": 0.732
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "ukraine",
+      "score": 0.714
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "wire_services",
+      "score": 0.713
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "uk",
+      "score": 0.71
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "uk",
+      "score": 0.707
+    },
+    {
+      "a": "canada",
+      "b": "wire_services",
+      "score": 0.699
+    },
+    {
+      "a": "india",
+      "b": "ukraine",
+      "score": 0.698
+    },
+    {
+      "a": "iran_opposition",
+      "b": "ukraine",
+      "score": 0.695
+    },
+    {
+      "a": "turkey",
+      "b": "wire_services",
+      "score": 0.685
+    },
+    {
+      "a": "canada",
+      "b": "opinion_magazines",
+      "score": 0.684
+    },
+    {
+      "a": "iran_opposition",
+      "b": "taiwan_hk",
+      "score": 0.675
+    },
+    {
+      "a": "canada",
+      "b": "iran_opposition",
+      "score": 0.673
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "taiwan_hk",
+      "score": 0.669
+    },
+    {
+      "a": "turkey",
+      "b": "ukraine",
+      "score": 0.657
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "wire_services",
+      "score": 0.655
+    },
+    {
+      "a": "iran_opposition",
+      "b": "uk",
+      "score": 0.654
+    },
+    {
+      "a": "opinion_magazines",
+      "b": "turkey",
+      "score": 0.648
+    },
+    {
+      "a": "canada",
+      "b": "ukraine",
+      "score": 0.612
+    },
+    {
+      "a": "taiwan_hk",
+      "b": "ukraine",
+      "score": 0.594
+    },
+    {
+      "a": "iran_opposition",
+      "b": "turkey",
+      "score": 0.578
+    }
+  ],
+  "isolation": [
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.692,
+      "n_tokens": 193
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.709,
+      "n_tokens": 219
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.713,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.714,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.725,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.726,
+      "n_tokens": 127
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.747,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.753,
+      "n_tokens": 255
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.77,
+      "n_tokens": 243
+    }
+  ],
+  "isolation_excluded_thin": [],
+  "embedding_status": {
+    "skipped": false,
+    "model": "sentence-transformers/LaBSE",
+    "isolation_min_tokens": 30
+  },
+  "bucket_exclusive_vocab": {
+    "wire_services": [],
+    "canada": [
+      {
+        "term": "tons",
+        "count": 5
+      },
+      {
+        "term": "zelensky",
+        "count": 3
+      }
+    ],
+    "turkey": [],
+    "ukraine": [
+      {
+        "term": "guided",
+        "count": 7
+      },
+      {
+        "term": "rise",
+        "count": 4
+      }
+    ],
+    "opinion_magazines": [],
+    "iran_opposition": [
+      {
+        "term": "zaporizhzhya",
+        "count": 5
+      },
+      {
+        "term": "water",
+        "count": 3
+      },
+      {
+        "term": "suppl",
+        "count": 3
+      },
+      {
+        "term": "energy",
+        "count": 3
+      }
+    ],
+    "taiwan_hk": [],
+    "india": [
+      {
+        "term": "tonn",
+        "count": 4
+      }
+    ],
+    "uk": []
+  },
+  "method": "Primary: LaBSE bucket-mean cosine on original signal_text (cross-lingual; skipped gracefully if model unavailable). Bucket-exclusive: tokens with doc_freq<=1 and count>=3, tokenizer=meta.tokenize via '\\\\p{L}{4,}', len>=4, stopword-filtered, plural normalization. Operates on raw originals; analyzer flags language confounding.",
+  "generated_at": "2026-10-10T14:12:09+00:00",
+  "meta_version": "10.0.3"
+}

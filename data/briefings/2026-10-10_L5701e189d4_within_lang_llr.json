@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-10",
+  "story_key": null,
+  "story_title": null,
+  "by_bucket": {
+    "wire_services": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 87,
+      "n_tokens_in_cohort": 1581,
+      "distinctive_terms": []
+    },
+    "pan_african": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 96,
+      "n_tokens_in_cohort": 1572,
+      "distinctive_terms": []
+    },
+    "africa_other": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 499,
+      "n_tokens_in_cohort": 1169,
+      "distinctive_terms": [
+        {
+          "term": "media",
+          "count_in_bucket": 5,
+          "count_in_cohort": 0,
+          "rate_in_bucket": 0.01002,
+          "rate_in_cohort": 0.0,
+          "llr": 12.103,
+          "log_ratio": null,
+          "p_value": 0.000503
+        }
+      ]
+    },
+    "turkey": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 1641,
+      "distinctive_terms": []
+    },
+    "usa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 292,
+      "n_tokens_in_cohort": 1376,
+      "distinctive_terms": [
+        {
+          "term": "trump",
+          "count_in_bucket": 9,
+          "count_in_cohort": 3,
+          "rate_in_bucket": 0.03082,
+          "rate_in_cohort": 0.00218,
+          "llr": 19.226,
+          "log_ratio": 2.649,
+          "p_value": 1.2e-05
+        }
+      ]
+    },
+    "south_africa": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 75,
+      "n_tokens_in_cohort": 1593,
+      "distinctive_terms": [
+        {
+          "term": "recognition",
+          "count_in_bucket": 5,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.06667,
+          "rate_in_cohort": 0.00126,
+          "llr": 23.141,
+          "log_ratio": 3.972,
+          "p_value": 2e-06
+        }
+      ]
+    },
+    "netherlands_belgium": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 27,
+      "n_tokens_in_cohort": 1641,
+      "distinctive_terms": []
+    },
+    "spain": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 30,
+      "n_tokens_in_cohort": 1638,
+      "distinctive_terms": []
+    },
+    "canada": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 75,
+      "n_tokens_in_cohort": 1593,
+      "distinctive_terms": []
+    },
+    "japan": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 23,
+      "n_tokens_in_cohort": 1645,
+      "distinctive_terms": []
+    },
+    "israel": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 41,
+      "n_tokens_in_cohort": 1627,
+      "distinctive_terms": []
+    },
+    "south_korea": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 48,
+      "n_tokens_in_cohort": 1620,
+      "distinctive_terms": []
+    },
+    "vietnam_thai_my": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 68,
+      "n_tokens_in_cohort": 1600,
+      "distinctive_terms": []
+    },
+    "uk": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 217,
+      "n_tokens_in_cohort": 1451,
+      "distinctive_terms": [
+        {
+          "term": "commission",
+          "count_in_bucket": 7,
+          "count_in_cohort": 2,
+          "rate_in_bucket": 0.03226,
+          "rate_in_cohort": 0.00138,
+          "llr": 19.758,
+          "log_ratio": 3.153,
+          "p_value": 9e-06
+        }
+      ]
+    },
+    "india": {
+      "lang": "en",
+      "n_buckets_in_lang_cohort": 15,
+      "n_tokens_in_bucket": 63,
+      "n_tokens_in_cohort": 1605,
+      "distinctive_terms": []
+    }
+  },
+  "n_languages": 1,
+  "method": "dunning_llr",
+  "params": {
+    "min_term_count": 5,
+    "top_k": 20,
+    "p_threshold": 0.001
+  },
+  "meta_version": "10.0.3"
+}
