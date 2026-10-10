@@ -1,0 +1,149 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-10",
+  "lineage_id": "L93d9c75ea3",
+  "cluster_id": 120,
+  "cluster_name": "Trump names Truth Social adviser Katie Zacharia press secretary",
+  "salience_score": 11.571,
+  "n_outlets": 25,
+  "n_countries": 14,
+  "n_articles": 27,
+  "event_summary": "U.S. President Donald Trump announced on October 9, 2026, that Katie Zacharia — a communications adviser for Truth Social and former DHS spokesperson — would become White House press secretary, succeeding Karoline Leavitt who stepped down in August 2026.",
+  "tldr": "Coverage was near-uniform globally: 25 outlets across 14 countries reported the appointment as a straightforward succession story with no meaningful dissent about the basic facts. The most notable divergence is between US right-wing outlets, which foregrounded Zacharia's loyalty and her own enthusiasm ('honor of a lifetime'), and international press, which emphasised her Trump Media background and proximity to November midterms. Deutsche Welle stands alone in contextualising the pick within Trump's declining approval ratings driven by the US-Iran war — a frame entirely absent from US-based coverage. The UK's i News was the only outlet to zoom out to a broader 'MAGA women' pipeline narrative, treating the appointment as one data point in a pattern of MAGA influencers moving into official roles.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "White House communications succession",
+      "outlets": [
+        "Axios World", "BBC World", "Breitbart", "Daily Caller", "Daily Sabah",
+        "Daily Wire", "Deutsche Welle English", "El Financiero", "Folha de São Paulo",
+        "Geo News English", "Globe and Mail", "Hindustan Times", "Il Sole 24 Ore",
+        "Kyiv Post", "La Stampa", "Malay Mail World", "NDTV World",
+        "Reuters (via Google News)", "South China Morning Post", "Straits Times",
+        "The Hindu Intl", "The Independent", "ANSA Italian (Mondo)"
+      ],
+      "countries": [
+        "usa", "uk", "turkey", "germany", "mexico", "brazil", "pakistan",
+        "canada", "india", "italy", "ukraine", "vietnam_thai_my",
+        "taiwan_hk", "wire_services"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Zacharia will take over the podium from Karoline Leavitt, a Trump loyalist who announced her departure from the administration in August.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "The conservative commentator currently works as a communications adviser at Trump Media & Technology Group.",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "El Financiero",
+          "country": "mexico",
+          "quote": "Donald Trump elogió la lealtad de Katie Zacharia tras designarla como nueva portavoz de la Casa Blanca, en sustitución de Karoline Leavitt.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "pre-midterm approval management",
+      "outlets": [
+        "Deutsche Welle English", "Hindustan Times", "The Hindu Intl"
+      ],
+      "countries": ["germany", "india"],
+      "evidence": [
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "She assumes the role with Trump struggling with low approval ratings driven by the US war with Iran.",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Hindustan Times",
+          "country": "india",
+          "quote": "President Donald Trump appointed Katie Zacharia, a communications adviser to Truth Social and Trump Media, as White House press secretary.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "she would fill ​a critical role ‌in the Trump administration before next month’s midterm congressional elections",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "MAGA influencer-to-government pipeline",
+      "outlets": ["i News"],
+      "countries": ["uk"],
+      "evidence": [
+        {
+          "outlet": "i News",
+          "country": "uk",
+          "quote": "Former White House press secretary Karoline Leavitt has a new TV gig and rumours are swirling she may run for office – as her replacement and more Maga influencers join the team",
+          "signal_text_idx": 26
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "france",
+      "what_they_covered_instead": "France is a major US-watcher and NATO partner but no French-language outlet appears in this cluster; French outlets likely prioritised European or domestic stories on this date."
+    },
+    {
+      "country": "japan",
+      "what_they_covered_instead": "Japan's outlets are absent despite sustained coverage of US executive-branch personnel changes in past clusters; likely focused on domestic Diet session or regional security news."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Only outlet globally to link the appointment to Trump's declining approval ratings and the US-Iran war — a contextual frame entirely absent from US-based coverage.",
+      "signal_text_idx": 8
+    },
+    {
+      "outlet": "i News",
+      "country": "uk",
+      "finding": "Only outlet to treat the appointment as a pattern rather than an event, framing it within a broader 'rise of MAGA women' narrative that includes Leavitt's post-government TV career and rumoured political run.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only outlet to report on social-media comparisons between Zacharia and TV personality Natalie Harp — a viral aside that no other outlet in the cluster picked up.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Reported the job offer before formal acceptance, citing two anonymous White House officials who confirmed the offer had been extended but not yet accepted — the only outlet to flag the offer-acceptance gap.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Sueddeutsche Zeitung",
+      "country": "germany",
+      "finding": "Noted that Zacharia had been defending Trump 'even at the gym' — a detail that none of the 24 other outlets mentioned and that positions the story in terms of personal devotion rather than professional qualification.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Led with Zacharia's own quote calling it 'the honor of a lifetime' — the only outlets to foreground her emotional response rather than Trump's announcement or her credentials.",
+      "signal_text_idx": 3
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The appointment of Katie Zacharia as White House press secretary drew near-uniform global coverage, with all outlets converging on the basic personnel facts. The only substantive divergence was between international outlets that contextualised the pick within Trump's approval-rating decline and approaching midterms, and US conservative outlets that foregrounded Zacharia's loyalty and enthusiasm.",
+  "generated_at": "2026-10-10T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
