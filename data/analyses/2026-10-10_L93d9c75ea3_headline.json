@@ -1,0 +1,205 @@
+{
+  "story_key": "L93d9c75ea3",
+  "date": "2026-10-10",
+  "n_buckets": 14,
+  "n_articles": 27,
+  "tldr": "Headlines across all 14 buckets advertise a routine White House succession — Trump picking Katie Zacharia to replace Karoline Leavitt — with near-zero editorial colour. The only divergent headline angles are personal-loyalty characterisations ('devoted fan', 'honor of a lifetime') from SE Asian and US outlets, and i News UK's MAGA-women-pipeline framing, both absent from the factual appointment headlines that dominate the remaining 11 buckets.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "White House succession & appointment",
+      "buckets": [
+        "brazil",
+        "canada",
+        "germany",
+        "india",
+        "italy",
+        "mexico",
+        "pakistan",
+        "taiwan_hk",
+        "turkey",
+        "uk",
+        "ukraine",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Katie Zacharia tapped as next White House press secretary",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Trump names new press secretary to succeed Karoline Leavitt",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "mexico",
+          "outlet": "El Financiero",
+          "quote": "Trump presenta a su nueva portavoz: Katie Zacharia",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "Trump picks Truth Social's Katie Zacharia as White House",
+          "signal_text_idx": 21
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "MAGA loyalty & devotion framing",
+      "buckets": [
+        "uk",
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "i News",
+          "quote": "The rise and rise of Trump's favourite Maga women",
+          "signal_text_idx": 26
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Trump appoints 'devoted fan' Katie Zacharia",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Katie Zacharia: 'Honor of a Lifetime' to Serve",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "Viral comparison & midterm timing",
+      "buckets": [
+        "india"
+      ],
+      "evidence": [
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "Katie Zacharia, Natalie Harp look alike? Images shared",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "after Karoline Leavitt's exit, ahead of midterms",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "italy",
+      "mean_similarity": 0.738,
+      "n_tokens": 70
+    },
+    {
+      "bucket": "brazil",
+      "mean_similarity": 0.803,
+      "n_tokens": 34
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.812,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.823,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "ukraine",
+      "mean_similarity": 0.834,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.843,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.848,
+      "n_tokens": 47
+    },
+    {
+      "bucket": "germany",
+      "mean_similarity": 0.854,
+      "n_tokens": 69
+    },
+    {
+      "bucket": "mexico",
+      "mean_similarity": 0.854,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.876,
+      "n_tokens": 43
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.885,
+      "n_tokens": 199
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.888,
+      "n_tokens": 142
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "i News",
+      "bucket": "uk",
+      "finding": "Only outlet whose headline treats the appointment as a pattern rather than a personnel event — 'The rise and rise of Trump's favourite Maga women' zooms out to a cultural pipeline narrative absent from all other 26 titles.",
+      "signal_text_idx": 26
+    },
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "Only outlet whose headline foregrounds a viral social-media comparison ('Natalie Harp look alike? Images shared online') rather than the appointment itself — a clickbait-first framing invisible in all other buckets.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Malay Mail World",
+      "bucket": "vietnam_thai_my",
+      "finding": "One of only two outlets (with Straits Times) to headline 'devoted fan' in scare quotes, characterising Zacharia as a personal loyalist rather than a professional appointee.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Breitbart",
+      "bucket": "usa",
+      "finding": "Only outlet to lead the headline with Zacharia's own emotional reaction ('Honor of a Lifetime') rather than Trump's appointment action — reversing the standard subject-verb framing.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Sueddeutsche Zeitung",
+      "bucket": "germany",
+      "finding": "'Trumps neues Sprachrohr' (Trump's new mouthpiece) is the only headline to use an editorially loaded term for the press secretary role, signalling subservience rather than professional capacity.",
+      "signal_text_idx": 23
+    }
+  ],
+  "bottom_line": "The headline layer presents an almost unanimous factual appointment story; loyalty characterisation and MAGA-identity framing appear in only three buckets (usa, uk, vietnam_thai_my), and are invisible in the other eleven.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
