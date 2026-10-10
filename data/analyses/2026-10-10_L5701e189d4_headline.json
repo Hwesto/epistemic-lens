@@ -1,0 +1,236 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-10",
+  "lineage_id": "L5701e189d4",
+  "cluster_id": 177,
+  "cluster_name": "Navi Pillay awarded 2026 Nobel Peace Prize for international law",
+  "salience_score": 12.082,
+  "n_outlets": 22,
+  "n_countries": 16,
+  "n_articles": 37,
+  "tldr": "The headline layer is dominated by a legal-credentials frame across roughly 10 of 16 buckets: most titles worldwide identify Pillay as 'judge,' 'ICC,' 'ICJ,' 'jurist,' or 'international law advocate,' a broadly neutral identification that crosses political lines. US conservative and Israeli outlets systematically substitute that credential with her Gaza-genocide finding as the headline hook — Fox News and Jerusalem Post do not mention her broader career at all in their titles, while Breitbart strips her entire identity to 'Anti-Israel South African Judge.' A third distinct US cluster makes Trump's failed Nobel bid a co-equal story ('Trump rages over Nobel Peace Prize loss'), a register completely absent from every non-US outlet. AfricaNews is the only outlet to embed geopolitical consequence — US sanctions — directly in the headline rather than biographical identification. India's The Hindu is the lone outlet to foreground Pillay's Tamil ethnic heritage, signalling a diasporic readership angle invisible in every other national corpus.",
+  "event_summary": "South African jurist Navanethem 'Navi' Pillay, 85, former UN High Commissioner for Human Rights and current ICJ judge, was awarded the 2026 Nobel Peace Prize on October 9 in Oslo for her lifetime work promoting peace and international law.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "international law / ICC-ICJ credentials",
+      "outlets": [
+        "AFP / France 24 EN",
+        "BBC Africa",
+        "Daily Maverick",
+        "DutchNews.nl",
+        "El Pais English",
+        "Foreign Policy",
+        "Globe and Mail",
+        "Japan Times",
+        "The Guardian World",
+        "Axios World"
+      ],
+      "countries": [
+        "wire_services",
+        "africa_other",
+        "south_africa",
+        "netherlands_belgium",
+        "spain",
+        "opinion_magazines",
+        "canada",
+        "japan",
+        "uk",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "ICJ judge Navi Pillay wins Nobel peace prize",
+          "signal_text_idx": 27
+        },
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Navi Pillay, advocate for international law",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Daily Maverick",
+          "country": "south_africa",
+          "quote": "championing peace and international law",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "genocide accusation as headline identity",
+      "outlets": [
+        "AfricaNews",
+        "Fox News World",
+        "Jerusalem Post",
+        "KBS World",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "pan_african",
+        "usa",
+        "israel",
+        "south_korea",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "helped establish rape as an act of genocide",
+          "signal_text_idx": 23
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "accused Israel of committing genocide in Gaza",
+          "signal_text_idx": 17
+        },
+        {
+          "outlet": "KBS World",
+          "country": "south_korea",
+          "quote": "Survivors of International Crimes",
+          "signal_text_idx": 22
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump-Nobel rivalry and anti-Israel label",
+      "outlets": [
+        "Axios World",
+        "Breitbart",
+        "Daily Wire",
+        "Malay Mail World"
+      ],
+      "countries": [
+        "usa",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "outlet": "Axios World",
+          "country": "usa",
+          "quote": "Trump rages over Nobel Peace Prize loss",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "Daily Wire",
+          "country": "usa",
+          "quote": "Trump Loses Nobel To Israel Genocide Accuser",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Breitbart",
+          "country": "usa",
+          "quote": "Anti-Israel South African Judge",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US sanctions and Palestine reaction",
+      "outlets": [
+        "AfricaNews",
+        "Anadolu Agency English"
+      ],
+      "countries": [
+        "pan_african",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "US sanctions threaten international justice",
+          "signal_text_idx": 2
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Palestine welcomes Navi Pillay's 2026 Nobel Peace Prize",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "human rights and media freedom lens",
+      "outlets": [
+        "AllAfrica",
+        "NPR World"
+      ],
+      "countries": [
+        "africa_other",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "AllAfrica",
+          "country": "africa_other",
+          "quote": "Defending Media Freedom And Beyond",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "South African human rights lawyer Navi Pillay",
+          "signal_text_idx": 25
+        }
+      ]
+    }
+  ],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "india",
+      "what_they_covered_instead": "The Hindu Intl's two headlines defaulted to a biographical profile ('5 facts about 2026 Nobel Peace Prize winner') and a cultural-identity note ('South African jurist of Tamil descent') — the only bucket in the corpus whose complete headline set engages no international-law, genocide, or political frame, signalling a diaspora-identity editorial priority absent from every other national corpus."
+    }
+  ],
+  "coverage_caveats": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Breitbart",
+      "country": "usa",
+      "finding": "Reduces Pillay solely to 'Anti-Israel South African Judge' in the headline — the only outlet to strip her legal credentials, apartheid history, and Rwanda service entirely, leaving political opposition to Israel as her singular identity.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "Daily Wire",
+      "country": "usa",
+      "finding": "Packs Trump's loss, genocide accusation, and public mockery into a single headline — 'Trump Loses Nobel To Israel Genocide Accuser Who Then Mocks Him On Stage' — where Pillay appears only in relation to Trump and Israel, with no reference to her broader career.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "AfricaNews",
+      "country": "pan_african",
+      "finding": "Only outlet to embed geopolitical consequence in the headline: 'as US sanctions threaten international justice' — framing the award through the threat to international institutions rather than Pillay's biography, a register absent from all other corpus headlines.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only headline to make Pillay's acceptance speech the subject rather than the award: 'Nobel winner Navi Pillay warns international law is under attack' — characterising the current moment as an active assault on international legal institutions, a framing unique in the corpus.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to surface Pillay's Rwanda-era legal landmark: 'South African lawyer who helped establish rape as an act of genocide' — framing her career through precedent-setting jurisprudence rather than Gaza-era controversy, in contrast to every other crime-related headline in the corpus.",
+      "signal_text_idx": 23
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Only outlet to foreground Pillay's Tamil ethnic descent in the headline, signalling a South Asian diasporic identity claim on the prize that is entirely absent from African, European, and Western press.",
+      "signal_text_idx": 29
+    }
+  ],
+  "bottom_line": "At the headline layer, a legal-credentials frame dominates 10 of 16 buckets, but US conservative and Israeli outlets systematically replace it with a genocide-accusation identity, and three US outlets make Trump's Nobel frustration a co-equal headline story — a pattern invisible in every non-US national corpus. The gap between how Pillay's credentials are advertised on the homepage versus elaborated in body text is likely to be largest for Breitbart, Daily Wire, and Fox News, where the headline forecloses the broader legal career entirely.",
+  "generated_at": "2026-10-10T14:35:00Z",
+  "model": "claude-sonnet-4-6"
+}
