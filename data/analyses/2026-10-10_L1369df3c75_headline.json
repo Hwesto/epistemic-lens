@@ -1,0 +1,239 @@
+{
+  "story_key": "L1369df3c75",
+  "date": "2026-10-10",
+  "n_buckets": 12,
+  "n_articles": 19,
+  "tldr": "Headline coverage overwhelmingly frames this as a disease-uncertainty story rather than a confirmed outbreak: most titles lead with 'what we know so far' explainer language, 'suspected' qualifiers, or explicit worry-calibration ('how much should we worry?', 'no need to panic'). The second dominant headline frame is WHO-Russia transparency, with multiple outlets foregrounding the demand for information over the medical facts themselves.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "plague uncertainty and scare framing",
+      "buckets": [
+        "china",
+        "germany",
+        "india",
+        "iran_opposition",
+        "opinion_magazines",
+        "russia",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Anti-plague institute worker diagnosed with unknown pneumonia",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Suspected pneumonic plague in Siberia: What we know",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Pneumonic plague outbreak in Russia? What we know so far",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Death At Russian Plague Lab: How Much Should We Worry?",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "The Conversation",
+          "quote": "why there's no need to panic",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Irkutsk Maternity Hospital Screens Patients for Plague",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "VnExpress English",
+          "quote": "breaking test tube of plague bacteria",
+          "signal_text_idx": 18
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Russia's plague scare explained: What we know",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "WHO-Russia transparency demand",
+      "buckets": [
+        "canada",
+        "china",
+        "spain",
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "Russia denies a second infection in suspected pneumonic",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "china",
+          "outlet": "CGTN World",
+          "quote": "Russia denies reports of second case linked to Siberian",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "spain",
+          "outlet": "El Pais English",
+          "quote": "WHO offers technical support to Russia over suspected",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "WHO urges Russia to release more info on plague",
+          "signal_text_idx": 3
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "Russia declares containment complete",
+      "buckets": [
+        "iran_opposition",
+        "russia",
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Siberian Anti-Plague Institute Staff Isolated After",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "russia",
+          "outlet": "Moscow Times",
+          "quote": "Russia Says Checks Following Siberian Plague Lab Death",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Case Closed? Russia Says All Contact Tracing Complete",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "PUBLIC_OPINION",
+      "sub_frame": "plague-driven antibiotic panic buying",
+      "buckets": [
+        "turkey"
+      ],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Plague fears fuel online push for antibiotics",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "victim's mother implies cover-up",
+      "buckets": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "Mother of dead Russian anti-plague institute worker",
+          "signal_text_idx": 7
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "spain",
+      "mean_similarity": 0.631,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.633,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "opinion_magazines",
+      "mean_similarity": 0.641,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.654,
+      "n_tokens": 48
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.669,
+      "n_tokens": 33
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.676,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.69,
+      "n_tokens": 83
+    },
+    {
+      "bucket": "iran_opposition",
+      "mean_similarity": 0.699,
+      "n_tokens": 72
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.704,
+      "n_tokens": 63
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "bucket": "south_korea",
+      "what_they_covered_instead": "Korea Herald's sole article in this cluster headlines Seoul denying it helped ease Russia's fuel shortage — a different Russia-adjacent story; the plague incident is entirely absent from South Korean headline coverage."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "bucket": "usa",
+      "finding": "Only headline to foreground the victim's mother claiming 'I know the truth' — the sole title in the corpus framing the death as a potential cover-up rather than a public health or transparency story.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "VnExpress English",
+      "bucket": "vietnam_thai_my",
+      "finding": "Only headline to specify the broken test tube as the proximate cause of exposure — the most mechanistically concrete title in the corpus, embedding the accident narrative in the headline layer.",
+      "signal_text_idx": 18
+    }
+  ],
+  "bottom_line": "The headline layer advertises a disease-uncertainty scare story, with explainer and WHO-transparency framing dominant across 11 buckets — the contrast between Russia's 'case closed' containment headlines and the WHO's 'we need more information' headlines is the primary tension readable before any reader clicks.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
