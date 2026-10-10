@@ -1,0 +1,191 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-10",
+  "lineage_id": "L6d66299386",
+  "cluster_id": 151,
+  "cluster_name": "Magnitude 7.7 earthquake strikes central Panama triggering tsunami warnings",
+  "salience_score": 6.398,
+  "n_outlets": 17,
+  "n_countries": 11,
+  "n_articles": 19,
+  "event_summary": "A magnitude 7.7 earthquake struck near Pitaloza Arriba in central Panama on Friday, October 9, 2026, collapsing buildings and roads, injuring at least 27 people, and triggering tsunami warnings across nine countries from Mexico to Peru; warnings were subsequently lifted.",
+  "tldr": "Coverage across 17 outlets in 11 countries converged on a limited-casualties narrative despite significant structural damage, with multiple outlets — The Guardian and both Nigerian papers — explicitly noting no deaths were reported. Fox News was the only outlet to embed the disaster in a US diplomatic frame, foregrounding Secretary Rubio's mobilization of State Department resources and Panama Canal continuity assessments, angles entirely absent from all other outlets. The most significant structural gap is the absence of any Central American or South American voices: Costa Rica felt the tremors and San José is named in the corpus, Colombia received tremors per Daily Sabah, yet no outlets from these directly-affected countries appear. French-language AFP led with the quote 'Un grand désastre' and 'choqué' — the only non-English coverage and the most emotionally charged register in the corpus.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "injuries, evacuations, tsunami threat",
+      "outlets": [
+        "AFP / France 24 EN", "BBC World", "CBC World", "Hindustan Times",
+        "Japan Times", "NDTV World", "The Independent", "The Punch", "Vanguard"
+      ],
+      "countries": [
+        "wire_services", "uk", "canada", "india", "japan", "nigeria"
+      ],
+      "evidence": [
+        {
+          "outlet": "The Punch",
+          "country": "nigeria",
+          "quote": "A powerful 7.7-magnitude earthquake has struck central Panama, injuring at least 27 people and causing buildings and roads to collapse, officials report.",
+          "signal_text_idx": 16
+        },
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "A powerful 7.7 magnitude earthquake hit near the southern tip of Panama Friday morning, triggering tsunami warnings along the coastline from Mexico to Peru. Tremors were felt over 200 kilometres away in Panama City, according to residents.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "The quake was registered at a shallow depth of 12 kilometres, meaning its impact was likely to be more severe.",
+          "signal_text_idx": 11
+        },
+        {
+          "outlet": "The Independent",
+          "country": "uk",
+          "quote": "Panama struck by powerful 7.7 magnitude earthquake as nine countries issued tsunami warnings",
+          "signal_text_idx": 15
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "emergency response and infrastructure resilience",
+      "outlets": [
+        "Fox News World", "Globe and Mail", "Malay Mail World", "South China Morning Post"
+      ],
+      "countries": [
+        "usa", "canada", "vietnam_thai_my", "taiwan_hk"
+      ],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "The Panama Canal said operations were continuing normally following Friday's earthquake, with emergency protocols activated and technical teams inspecting facilities for possible damage.",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "A 7.7 and 6.6 magnitude earthquake, followed by a series of aftershocks, prompted evacuations across the country",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "Powerful 7.7-magnitude earthquake destroys buildings, roads in Panama; over 80 aftershocks recorded",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "panic, displacement, lived experience",
+      "outlets": [
+        "NDTV World", "The Guardian World", "AFP / France 24 FR", "The Hindu Intl"
+      ],
+      "countries": [
+        "india", "uk", "france"
+      ],
+      "evidence": [
+        {
+          "outlet": "NDTV World",
+          "country": "india",
+          "quote": "In Panama City, about 200 kilometres from the epicenter, there were scenes of panic as people rushed to evacuate from the city's emblematic skyscrapers.",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "The Guardian World",
+          "country": "uk",
+          "quote": "A magnitude 7.7 earthquake struck southern Panama on Friday, damaging buildings and sending thousands into the streets, but the country appeared to escape widespread destruction or deaths.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "AFP / France 24 FR",
+          "country": "france",
+          "quote": "\"Un grand désastre\" : le Panama choqué après un séisme de magnitude 7,7",
+          "signal_text_idx": 1
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US diplomatic response and multilateral aid",
+      "outlets": [
+        "Fox News World"
+      ],
+      "countries": [
+        "usa"
+      ],
+      "evidence": [
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Secretary of State Marco Rubio said in a Friday post on X that the State Department was rapidly mobilizing resources and personnel to assist Panama at the request of the Panamanian government.",
+          "signal_text_idx": 5
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "country": "costa_rica",
+      "what_they_covered_instead": "San José residents felt the tremors and the country was under tsunami watch, but no Costa Rican outlets appear in the corpus; likely a feed-coverage gap rather than confirmed editorial choice."
+    },
+    {
+      "country": "colombia",
+      "what_they_covered_instead": "Daily Sabah reports tremors spread across the border into Colombia, yet no Colombian outlets appear; the absence erases the nearest affected neighbour from the corpus."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to report the US government's diplomatic response in detail — Rubio's State Department mobilization, the consular hotline number, and Mulino's explicit thanks to Washington — embedding a natural disaster in a US foreign-policy assistance frame absent from all other outlets.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to headline two distinct seismic events (7.7 + 6.6 magnitudes) as a sequence rather than a single disaster, foregrounding cumulative seismic stress.",
+      "signal_text_idx": 6
+    },
+    {
+      "outlet": "The Guardian World",
+      "country": "uk",
+      "finding": "Explicitly notes Panama 'appeared to escape widespread destruction or deaths' — the most optimistically framed structural-damage assessment in the corpus.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Vanguard",
+      "country": "nigeria",
+      "finding": "Confirms 'no deaths reported' while noting building and road collapses; notable as a Nigerian outlet covering a Latin American disaster, suggesting dependence on wire-service copy.",
+      "signal_text_idx": 17
+    },
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only non-English-language item in the corpus; leads with the direct quote 'Un grand désastre' and deploys 'choqué' (shocked) — the most emotionally charged register in the corpus.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to specifically report tremors spreading across the border into neighbouring Colombia, expanding the geographic impact frame beyond Panama itself.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet to specifically count over 80 aftershocks, foregrounding ongoing seismic risk rather than the initial damage frame dominant elsewhere.",
+      "signal_text_idx": 9
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "A magnitude 7.7 earthquake struck central Panama on October 9, 2026, generating broad international coverage unified around limited casualties (27 injured, zero deaths) despite significant structural damage — a notable convergence across outlets from Nigeria to Japan to Turkey. The corpus is wholly absent of Central American, South American, and Spanish-language voices despite the event's direct regional impact, a structural gap that erases the perspective of the most affected neighbours.",
+  "generated_at": "2026-10-10T14:26:49Z",
+  "model": "claude-sonnet-4-6"
+}
