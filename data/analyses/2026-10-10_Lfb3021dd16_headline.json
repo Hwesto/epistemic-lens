@@ -1,0 +1,210 @@
+{
+  "story_key": "Lfb3021dd16",
+  "date": "2026-10-10",
+  "n_buckets": 21,
+  "n_articles": 50,
+  "tldr": "Headlines across 21 buckets lead overwhelmingly with a single image: Houthi missiles killing three at Riyadh airport, with Ethiopian drone strikes on Eritrean forces as a secondary thread. The Syria coalition-expansion story — which body text marks as the week's most significant development — appears in only four headline slots, meaning readers who scan titles see a story of casualties and strikes rather than a coalition potentially widening by 20,000 Syrian troops.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "airport strikes, deaths, and border clashes",
+      "buckets": [
+        "pan_african",
+        "qatar",
+        "turkey",
+        "africa_other",
+        "canada",
+        "china",
+        "germany",
+        "state_tv_intl",
+        "kenya",
+        "vietnam_thai_my",
+        "uk",
+        "russia",
+        "pan_arab",
+        "iran_opposition",
+        "asia_pacific_regional",
+        "india",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "3 people killed in Houthi attack on main airport in Riyadh",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "Ethiopian drones strike Eritrean forces near Adigrat",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Yemen conflict escalates as Houthis hit Aden airport",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Three killed in Houthi-claimed strikes in Saudi Arabia",
+          "signal_text_idx": 34
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Syria/Turkey troop talks and Iran leverage",
+      "buckets": [
+        "usa",
+        "russia",
+        "syria",
+        "china",
+        "germany",
+        "iran_opposition",
+        "turkey",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Axios World",
+          "quote": "Syria considering sending troops to Yemen to fight Houthis",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "russia",
+          "outlet": "RT",
+          "quote": "Syria weighs deploying thousands of troops to Yemen – Axios",
+          "signal_text_idx": 33
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Defense News",
+          "quote": "Turkey's foreign minister says Ankara weighing Saudi defense",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "Iran International EN",
+          "quote": "Houthi gains reversed at Bab al-Mandab, but Iran's leverage",
+          "signal_text_idx": 26
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "refugees, civilian casualties, diaspora alerts",
+      "buckets": [
+        "africa_other",
+        "vietnam_thai_my",
+        "india",
+        "israel"
+      ],
+      "evidence": [
+        {
+          "bucket": "africa_other",
+          "outlet": "BBC Africa",
+          "quote": "Inside Djibouti refugee camp for thousands fleeing Houthi",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "Houthi missile debris damages kindergarten and medical",
+          "signal_text_idx": 29
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "India advises nationals in Saudi Arabia to remain vigilant",
+          "signal_text_idx": 45
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "U.S. urges Americans in Middle East exercise caution after",
+          "signal_text_idx": 24
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "airspace disruption and Saudi business confidence",
+      "buckets": [
+        "brazil",
+        "uk",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "brazil",
+          "outlet": "Folha de São Paulo",
+          "quote": "Ataque houthi destrói Airbus no aeroporto da capital",
+          "signal_text_idx": 19
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "All the airlines suspending flights after Houthi attacks",
+          "signal_text_idx": 47
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Major Saudi conferences to proceed, organisers say",
+          "signal_text_idx": 40
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "asia_pacific_regional", "mean_similarity": 0.521, "n_tokens": 54},
+    {"bucket": "brazil", "mean_similarity": 0.523, "n_tokens": 38},
+    {"bucket": "africa_other", "mean_similarity": 0.543, "n_tokens": 50},
+    {"bucket": "opinion_magazines", "mean_similarity": 0.557, "n_tokens": 93},
+    {"bucket": "usa", "mean_similarity": 0.56, "n_tokens": 88},
+    {"bucket": "pan_african", "mean_similarity": 0.565, "n_tokens": 277},
+    {"bucket": "state_tv_intl", "mean_similarity": 0.57, "n_tokens": 253},
+    {"bucket": "syria", "mean_similarity": 0.58, "n_tokens": 255},
+    {"bucket": "iran_opposition", "mean_similarity": 0.583, "n_tokens": 74},
+    {"bucket": "germany", "mean_similarity": 0.605, "n_tokens": 54},
+    {"bucket": "canada", "mean_similarity": 0.606, "n_tokens": 71},
+    {"bucket": "russia", "mean_similarity": 0.623, "n_tokens": 55},
+    {"bucket": "china", "mean_similarity": 0.627, "n_tokens": 112},
+    {"bucket": "pan_arab", "mean_similarity": 0.634, "n_tokens": 133},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.649, "n_tokens": 289},
+    {"bucket": "uk", "mean_similarity": 0.655, "n_tokens": 123},
+    {"bucket": "india", "mean_similarity": 0.667, "n_tokens": 100},
+    {"bucket": "israel", "mean_similarity": 0.671, "n_tokens": 80},
+    {"bucket": "turkey", "mean_similarity": 0.694, "n_tokens": 117}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Hindustan Times",
+      "bucket": "india",
+      "finding": "Only headline to frame the Houthi campaign as deliberate isolation strategy — 'cut kingdom off from rest of world' — connecting military action to economic consequences for South Asian diaspora and aviation links.",
+      "signal_text_idx": 25
+    },
+    {
+      "outlet": "Asia Times",
+      "bucket": "asia_pacific_regional",
+      "finding": "Only headline to invoke explicit regional conflagration language ('set the whole region ablaze'); exclusive-vocab data confirms 'ablaze' and 'whole' appear only in this bucket, signaling uniquely alarmist regional framing absent from all wire and broadcast headlines.",
+      "signal_text_idx": 5
+    },
+    {
+      "outlet": "Iran International EN",
+      "bucket": "iran_opposition",
+      "finding": "Only headline to frame the escalation from Tehran's internal perspective ('Tehran sees the gap narrowing'); this diplomacy-to-war threshold angle is invisible in all other 35 outlet headlines, creating a significant headline-body divergence for this outlet.",
+      "signal_text_idx": 27
+    }
+  ],
+  "bottom_line": "Headline coverage distills a three-front Red Sea escalation — Houthi airport strikes, Ethiopian-Eritrean border war, Syria's troop-deployment deliberations — to a single dominant image of Houthi missiles killing three at Riyadh airport, leaving the coalition-widening story almost entirely beneath the scroll line.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
