@@ -1,0 +1,178 @@
+{
+  "story_key": "Ld3d2a9e90b",
+  "date": "2026-10-10",
+  "n_buckets": 11,
+  "n_articles": 19,
+  "tldr": "Headlines lead with police accountability and Brussels austerity clashes; Fox News and RT are the only outlets whose titles advertise disorder ('riots,' 'chaos') and political attribution ('far-left alliance'), while 13 other outlets across 9 countries uniformly use 'protest' language — a lexical split legible from the homepage before any click.",
+  "frames": [
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "police scrutiny and UN warning in titles",
+      "buckets": ["wire_services", "turkey", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "draw scrutiny to police tactics",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "UN warns over police force",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "French policing under scrutiny",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "anti-austerity and spending cuts titles",
+      "buckets": ["pan_african", "germany", "usa", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "pan_african",
+          "outlet": "AfricaNews",
+          "quote": "thousands march against spending cuts",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Rioters clash with police at anti-austerity rally",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "anti-austerity protests erupt into clashes with police",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "school closures and teacher shortages",
+      "buckets": ["china", "germany", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "Over 400 French schools closed",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Schools crisis in France: Investment fails",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "France pledges 3,000 substitute teachers",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "PM pledge vs. student defiance in titles",
+      "buckets": ["canada", "turkey", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "no sign of abating despite prime minister's pledge to act",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "French youth ignores PM pledge",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "France pledges 3,000 substitute teachers",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "divided nation and far-left attribution",
+      "buckets": ["uk", "usa"],
+      "evidence": [
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "what France's school protests reveal about a divided nation",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "far-left alliance fueling 'broader confrontation'",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "injury and casualty in headlines",
+      "buckets": ["kenya", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Hundreds held, dozens wounded",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Severe injuries at French student protests",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "china", "mean_similarity": 0.588, "n_tokens": 34},
+    {"bucket": "pan_african", "mean_similarity": 0.598, "n_tokens": 43},
+    {"bucket": "canada", "mean_similarity": 0.617, "n_tokens": 31},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.673, "n_tokens": 65},
+    {"bucket": "germany", "mean_similarity": 0.714, "n_tokens": 62},
+    {"bucket": "turkey", "mean_similarity": 0.718, "n_tokens": 57},
+    {"bucket": "wire_services", "mean_similarity": 0.725, "n_tokens": 105},
+    {"bucket": "kenya", "mean_similarity": 0.732, "n_tokens": 64},
+    {"bucket": "usa", "mean_similarity": 0.751, "n_tokens": 135}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": ["russia"],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to use 'riots' in a France headline and to name a political cause ('far-left alliance') in the title — sensationalist framing visible before any click.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Sole outlet to headline with 'chaos' and to frame the title as a 'WATCH' spectacle prompt, advertising disorder rather than reporting events.",
+      "signal_text_idx": 13
+    }
+  ],
+  "bottom_line": "The headline layer is dominated by police accountability and Brussels austerity framing; only Fox News and RT advertise disorder and political attribution in their titles, making their divergence from the consensus 'protest' language detectable without opening the articles.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
