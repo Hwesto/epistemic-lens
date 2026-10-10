@@ -1,0 +1,115 @@
+{
+  "story_key": "L319a40c963",
+  "date": "2026-10-10",
+  "n_buckets": 9,
+  "n_articles": 15,
+  "tldr": "Headlines uniformly report Russian aerial strikes killing civilians in Zaporizhzhia, but the dominant international editorial choice is to bracket the death toll with the Trump-Putin diesel deal — a causal juxtaposition absent from Ukrainian outlets, which focus on weapons and rising casualty counts alone.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Civilian casualties from Russian bombs",
+      "buckets": ["wire_services", "ukraine", "iran_opposition", "india"],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Russian strikes on Ukraine kill at least 15 in Zaporizhzhia",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Death Toll Rises to 17 in Russian Strike on Zaporizhzhia",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "iran_opposition",
+          "outlet": "RFE/RL (was Radio Farda)",
+          "quote": "Russian Strikes Kill At Least 17 In Zaporizhzhya",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "Kyiv struggles to counter escalating attacks",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Trump diesel deal backdrop to strikes",
+      "buckets": ["canada", "turkey", "taiwan_hk", "india", "uk"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "after Trump-Putin diesel deal",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Trump's diesel deal backfires",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "after Trump strikes diesel deal with Putin",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Independent",
+          "quote": "after Trump strikes diesel deal with Putin",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "Strikes as Russia's 'thanks' for sanctions lift",
+      "buckets": ["opinion_magazines"],
+      "evidence": [
+        {
+          "bucket": "opinion_magazines",
+          "outlet": "Politico Europe",
+          "quote": "Russia's 'thanks' for US diesel sanctions lift, Zelenskyy says",
+          "signal_text_idx": 6
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "ukraine", "mean_similarity": 0.692, "n_tokens": 193},
+    {"bucket": "iran_opposition", "mean_similarity": 0.709, "n_tokens": 219},
+    {"bucket": "wire_services", "mean_similarity": 0.713, "n_tokens": 45},
+    {"bucket": "turkey", "mean_similarity": 0.714, "n_tokens": 32},
+    {"bucket": "opinion_magazines", "mean_similarity": 0.725, "n_tokens": 48},
+    {"bucket": "taiwan_hk", "mean_similarity": 0.726, "n_tokens": 127},
+    {"bucket": "uk", "mean_similarity": 0.747, "n_tokens": 35},
+    {"bucket": "canada", "mean_similarity": 0.753, "n_tokens": 255},
+    {"bucket": "india", "mean_similarity": 0.77, "n_tokens": 243}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "The only headline to use the editorial verdict 'backfires' — assigning negative consequence to Trump's diesel deal — where other outlets in the same POLITICAL frame merely establish temporal sequence ('after Trump strikes diesel deal').",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "The only headline to explicitly channel Zelenskyy's accusation that the strikes are Russia's 'thanks' for the US sanctions lift, foregrounding the causal-culpability framing rather than the body count or deal-chronology.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "The headline layer presents the Zaporizhzhia strikes as a Russian military attack on civilians, but the majority of international outlets construct an implicit indictment of the Trump-Putin diesel deal by placing it in immediate causal proximity to the death toll — a frame Ukrainian outlets, focused on weaponry and rising casualty numbers, do not adopt.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
