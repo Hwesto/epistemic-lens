@@ -1,0 +1,267 @@
+{
+  "story_key": "Lbc7a9289fe",
+  "date": "2026-10-10",
+  "n_buckets": 14,
+  "n_articles": 19,
+  "tldr": "Across all 14 buckets, headlines uniformly assert that the FlyDubai co-pilot planned a suicide crash attack on Tel Aviv’s Ben Gurion Airport, with the UAE prosecutor as the attributing authority; two UK and Australian headlines uniquely pivot to the attacker’s Australian radicalization, suppressing the attack target from their titles entirely.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "Suicide crash plot targeting Israeli airport",
+      "buckets": [
+        "canada",
+        "germany",
+        "india",
+        "iraq",
+        "israel",
+        "japan",
+        "russia",
+        "taiwan_hk",
+        "uk",
+        "usa",
+        "vietnam_thai_my",
+        "wire_services"
+      ],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "sought to crash plane into Tel Aviv’s main airport",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "Omani Flydubai co-pilot planned suicide attack",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "india",
+          "outlet": "Hindustan Times",
+          "quote": "meant to crash plane into Israel’s largest airport in ‘terrorist operation’",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "planned suicide attack on Tel Aviv airport",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Haaretz",
+          "quote": "planned suicide attack on Israel’s Ben-Gurion Airport",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "planned suicide attack on Tel Aviv airport",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "russia",
+          "outlet": "TASS English",
+          "quote": "planned terrorist attack at Tel Aviv airport",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "planned to crash plane into Israeli airport, UAE says",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "uk",
+          "outlet": "Sky News UK",
+          "quote": "planned to crash aircraft in 9/11-inspired attack",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "usa",
+          "outlet": "The Hill",
+          "quote": "intended to crash plane into Tel Aviv airport",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "planned 911-style suicide attack on Israel flight",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "planned suicide attack on Tel Aviv flight",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CRIME_PUNISHMENT",
+      "sub_frame": "UAE prosecutor declares terrorist act",
+      "buckets": [
+        "china",
+        "india",
+        "iraq",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "china",
+          "outlet": "CGTN Politics",
+          "quote": "UAE attorney-general says Flydubai co-pilot attempted terrorist act",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "The Hindu Intl",
+          "quote": "intended to crash plane into Tel Aviv airport, UAE prosecutor says",
+          "signal_text_idx": 17
+        },
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "planned suicide attack on Tel Aviv airport: UAE prosecutor",
+          "signal_text_idx": 7
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "UAE prosecutor: Flydubai co-pilot planned suicide attack",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "CULTURAL",
+      "sub_frame": "Radicalization in Australia before attack",
+      "buckets": [
+        "australia_nz",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "australia_nz",
+          "outlet": "Guardian Australia",
+          "quote": "began radicalisation in Australia, UAE prosecutors say",
+          "signal_text_idx": 4
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "began a ‘drift towards extremism and terrorism’ in Australia",
+          "signal_text_idx": 0
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "australia_nz",
+      "mean_similarity": 0.674,
+      "n_tokens": 153
+    },
+    {
+      "bucket": "china",
+      "mean_similarity": 0.724,
+      "n_tokens": 31
+    },
+    {
+      "bucket": "russia",
+      "mean_similarity": 0.745,
+      "n_tokens": 32
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.805,
+      "n_tokens": 53
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.807,
+      "n_tokens": 39
+    },
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.816,
+      "n_tokens": 35
+    },
+    {
+      "bucket": "iraq",
+      "mean_similarity": 0.822,
+      "n_tokens": 40
+    },
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.824,
+      "n_tokens": 45
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.844,
+      "n_tokens": 70
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.847,
+      "n_tokens": 61
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.861,
+      "n_tokens": 127
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [
+    {
+      "topic": "passengers and crew who thwarted the attack",
+      "note": "No headline across any bucket names or references the crew and passengers who physically stopped al-Hammami; the headline layer presents the story as entirely about prosecution and intent, erasing the human intervention that prevented the attack."
+    },
+    {
+      "topic": "the Indian captain who was attacked",
+      "note": "The victim pilot—attacked with an axe, his nationality editorially relevant given India’s two outlets—does not appear in any headline; the headline layer centres perpetrator and UAE authority, not the victim."
+    },
+    {
+      "topic": "Flydubai institutional liability",
+      "note": "No headline questions the airline’s hiring, vetting, or cockpit security; the body-layer SCMP note that the UAE statement ‘did not appear to implicate Flydubai’ is entirely absent from title coverage."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Sky News UK",
+      "country": "uk",
+      "finding": "Only headline to label the perpetrator ‘hijacker’ rather than ‘co-pilot’, and the only title to attach the ‘9/11-inspired’ descriptor as a noun modifier rather than body detail — a pre-verdict characterization no other English-language outlet matched.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to include the ‘greatest possible loss of life’ phrase, foregrounding intentional mass-casualty framing that every other outlet left to body text.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "Only headline to make the UAE attorney-general the grammatical subject (‘UAE attorney-general says…’), treating the prosecution pronouncement as the event rather than the attack plan itself.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Guardian Australia",
+      "country": "australia_nz",
+      "finding": "Only headline to omit the attack target entirely, centering ‘radicalisation in Australia’ as the full story — a domestic accountability frame that makes the attacker’s Australian student history the news.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Hindustan Times",
+      "country": "india",
+      "finding": "Only headline to put ‘terrorist operation’ in scare quotes attributed to investigators, simultaneously asserting and distancing from the legal characterization — a register no other title adopted.",
+      "signal_text_idx": 6
+    }
+  ],
+  "bottom_line": "The headline layer is dominated by a single SECURITY_DEFENSE claim — co-pilot planned suicide crash on Israeli airport — delivered with near-identical wording across 12 of 14 buckets; the two outliers (Australia and BBC) substitute a CULTURAL radicalization frame that omits the attack target, revealing a divergence in editorial emphasis that the body texts largely converge on.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
