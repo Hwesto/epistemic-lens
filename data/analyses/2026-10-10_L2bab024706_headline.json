@@ -1,0 +1,140 @@
+{
+  "story_key": "L2bab024706",
+  "date": "2026-10-10",
+  "n_buckets": 13,
+  "n_articles": 16,
+  "tldr": "Headlines across all 13 outlets unanimously frame the story as a US decision to sanction the ICC, but diverge on emphasis: non-US outlets highlight the clash with international law and the Nobel timing as editorial commentary on the rule-of-law stakes, while US and Ukrainian headlines foreground Rubio's explicit ultimatum to dismantle the court.",
+  "frames": [
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US sanctions ICC; global condemnation",
+      "buckets": ["canada", "germany", "kenya", "netherlands_belgium", "pan_african", "south_africa", "vietnam_thai_my", "wire_services"],
+      "evidence": [
+        {
+          "bucket": "canada",
+          "outlet": "Globe and Mail",
+          "quote": "U.S. imposes sanctions on International Criminal Court",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "germany",
+          "outlet": "Deutsche Welle English",
+          "quote": "US imposes sanctions aiming to 'dismantle'",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "south_africa",
+          "outlet": "Daily Maverick",
+          "quote": "STRANGE TIMING: US imposes sanctions on ICC",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "pan_african",
+          "outlet": "The Africa Report",
+          "quote": "US vows to 'cripple ICC' as former judge Navi",
+          "signal_text_idx": 15
+        },
+        {
+          "bucket": "kenya",
+          "outlet": "Standard Kenya World",
+          "quote": "Global reaction to US sanctions on International",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Reactions to US imposing sanctions on International",
+          "signal_text_idx": 14
+        },
+        {
+          "bucket": "wire_services",
+          "outlet": "Reuters (via Google News)",
+          "quote": "US imposes sanctions on ICC hours after former judge",
+          "signal_text_idx": 11
+        },
+        {
+          "bucket": "netherlands_belgium",
+          "outlet": "DutchNews.nl",
+          "quote": "Trump administration sanctions International Criminal Court",
+          "signal_text_idx": 6
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "Sanctions as assault on international law",
+      "buckets": ["pakistan", "turkey"],
+      "evidence": [
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "sweeping US sanctions as assault on international law",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "'Betrayal of international law': US sanctions on ICC",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Rubio/Trump ultimatum to dismantle ICC",
+      "buckets": ["ukraine", "usa"],
+      "evidence": [
+        {
+          "bucket": "usa",
+          "outlet": "Breitbart",
+          "quote": "Trump Sanctions 'Rogue' International Criminal Court",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Daily Wire",
+          "quote": "Rubio Threatens To Dismantle International Criminal",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "ukraine",
+          "outlet": "Kyiv Post",
+          "quote": "Either the ICC Will End Its Threats, or We Will End the ICC",
+          "signal_text_idx": 10
+        }
+      ]
+    },
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "ICC's resilience under resource cuts",
+      "buckets": ["iraq"],
+      "evidence": [
+        {
+          "bucket": "iraq",
+          "outlet": "Iraqi News",
+          "quote": "US sanctions: a 'test of resilience' for ICC",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {"bucket": "wire_services", "mean_similarity": 0.654, "n_tokens": 30},
+    {"bucket": "vietnam_thai_my", "mean_similarity": 0.682, "n_tokens": 35},
+    {"bucket": "netherlands_belgium", "mean_similarity": 0.729, "n_tokens": 141},
+    {"bucket": "usa", "mean_similarity": 0.747, "n_tokens": 110},
+    {"bucket": "kenya", "mean_similarity": 0.748, "n_tokens": 405},
+    {"bucket": "pan_african", "mean_similarity": 0.751, "n_tokens": 208},
+    {"bucket": "canada", "mean_similarity": 0.759, "n_tokens": 65},
+    {"bucket": "pakistan", "mean_similarity": 0.773, "n_tokens": 57},
+    {"bucket": "south_africa", "mean_similarity": 0.774, "n_tokens": 221},
+    {"bucket": "ukraine", "mean_similarity": 0.781, "n_tokens": 36}
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [],
+  "bottom_line": "The headline layer presents the sanctions as a near-universal story of institutional confrontation—most non-US outlets reach for 'international law' or pair the sanctions with the Nobel timing to signal rule-of-law stakes, while US and Ukrainian outlets amplify Rubio's ultimatum as the defining frame.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
