@@ -1,0 +1,268 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-10",
+  "lineage_id": "Ld8b5e5593b",
+  "cluster_id": 130,
+  "cluster_name": "Gaza ceasefire first anniversary as strikes and hunger persist",
+  "salience_score": 7.429,
+  "n_outlets": 17,
+  "n_countries": 14,
+  "n_articles": 25,
+  "event_summary": "On the first anniversary of the October 10, 2025 Gaza ceasefire, Israeli strikes killed at least seven Palestinians including an eight-year-old girl. Israeli forces have killed at least 1,481 Palestinians since the ceasefire and now control roughly 70% of Gaza, up from 53% permitted.",
+  "tldr": "The clearest surprise in this corpus is the cross-ideological convergence: US public broadcaster NPR and Russian state media RT independently confirm the same fact — Israeli strikes have continued killing Palestinians throughout the ceasefire year, with no reconstruction begun. The ceasefire shows a paradoxical ledger: Hamas released all remaining hostages and Gaza has seen no rocket attacks on Israel, yet 1.4 million of Gaza's 2.1 million residents remained acutely food insecure as of July 2026, with 200,000 just one step below famine per the UN's World Food Programme. Political promises have equally stalled: no international peacekeeping force has deployed, no reconstruction has begun, and Israel's territorial footprint has grown beyond agreed limits. Haaretz, the only Israeli outlet present, runs against its government's posture by calling on the IDF to stop blocking civilian activists who protect Palestinian olive harvesters from settler attacks in the West Bank.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "ongoing strikes under active ceasefire",
+      "outlets": ["Al Jazeera English", "Anadolu Agency English", "Daily Sabah", "Middle East Eye", "RT", "Standard Kenya World", "Straits Times", "Tehran Times", "NPR World"],
+      "countries": ["qatar", "turkey", "pan_arab", "russia", "kenya", "vietnam_thai_my", "iran_state", "usa"],
+      "evidence": [
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Shahd Abdul-Razzaq al-Najjar, 8, was killed on Saturday by an Israeli quadcopter drone in the al-Jawazat area of western Gaza City",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Tehran Times",
+          "country": "iran_state",
+          "quote": "Israeli forces have killed or wounded a Palestinian in Gaza every 90 minutes on average since last",
+          "signal_text_idx": 23
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "Israel's military has expanded its control to roughly 70% of Gaza, squeezing more than 2 million Palestinians near the sea's edge.",
+          "signal_text_idx": 19
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "anaemia and food insecurity one year on",
+      "outlets": ["AFP / France 24 EN", "Al Jazeera English", "Iraqi News", "Malay Mail World"],
+      "countries": ["wire_services", "qatar", "iraq", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "A new study published on Thursday by Médecins du Monde reported that 93 percent of pregnant or breastfeeding women had symptoms of anaemia, which is closely linked to malnutrition.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Iraqi News",
+          "country": "iraq",
+          "quote": "In August 2025, a United Nations-backed body, the IPC, declared a state of famine in Gaza, though Israel quickly denounced it as a lie.",
+          "signal_text_idx": 14
+        },
+        {
+          "outlet": "Al Jazeera English",
+          "country": "qatar",
+          "quote": "Continuing attacks, restrictions on medical aid and delayed evacuations are still killing Palestinians.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "daily survival in post-ceasefire stasis",
+      "outlets": ["AFP / France 24 EN", "Iraqi News", "Malay Mail World", "NPR World"],
+      "countries": ["wire_services", "iraq", "vietnam_thai_my", "usa"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Every day, Gazan mother Niyaha al-Masri spends six exhausting hours or more queueing at a community kitchen in the hope of getting some food for her family. It has been a year since a ceasefire between Hamas and Israel was supposed to allow food to flood into the ruined territory, yet widespread hunger persists there.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "This will be the only meal of the day for the family of 10, living in a tent in Khan Yunis. There was no breakfast and they will have no dinner.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "ceasefire terms vs on-the-ground reality",
+      "outlets": ["Geo News English", "Iraqi News", "Malay Mail World", "NPR World", "The Independent", "CGTN World"],
+      "countries": ["pakistan", "iraq", "vietnam_thai_my", "usa", "uk", "china"],
+      "evidence": [
+        {
+          "outlet": "Iraqi News",
+          "country": "iraq",
+          "quote": "Israeli forces were allowed to stay in 53 percent of Gaza under the terms of the ceasefire, but a year later they control about 70 percent of it, according to official accounts.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "NPR World",
+          "country": "usa",
+          "quote": "A year later, however, there's still no international peacekeeping force in Gaza as promised and no reconstruction.",
+          "signal_text_idx": 19
+        },
+        {
+          "outlet": "CGTN World",
+          "country": "china",
+          "quote": "Gaza is now caught in a prolonged post-ceasefire stalemate, while genuine peace remains out of reach. Its population continues to face the threat of renewed conflict and humanitarian crisis, while living conditions remain extremely difficult.",
+          "signal_text_idx": 7
+        }
+      ]
+    },
+    {
+      "frame_id": "FAIRNESS",
+      "sub_frame": "settler attacks on West Bank olive harvesters",
+      "outlets": ["Haaretz", "Middle East Eye", "Anadolu Agency English"],
+      "countries": ["israel", "pan_arab", "turkey"],
+      "evidence": [
+        {
+          "outlet": "Haaretz",
+          "country": "israel",
+          "quote": "Instead of protecting the Palestinians against settler violence, the Israeli military is trying to keep away the people who do show up to protect them",
+          "signal_text_idx": 12
+        },
+        {
+          "outlet": "Anadolu Agency English",
+          "country": "turkey",
+          "quote": "Israeli army, occupiers attack Palestinians in village of Deir Abu Mashal, says Palestinian Red Crescent Society",
+          "signal_text_idx": 5
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Netanyahu election and Hamas governance",
+      "outlets": ["Iraqi News", "Malay Mail World", "NPR World", "Geo News English"],
+      "countries": ["iraq", "vietnam_thai_my", "usa", "pakistan"],
+      "evidence": [
+        {
+          "outlet": "Iraqi News",
+          "country": "iraq",
+          "quote": "The ceasefire anniversary also marks one year of quiet for Israel from the Gaza front, with no rocket attacks by Hamas.",
+          "signal_text_idx": 13
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "One year after US President Donald Trump declared the war in Gaza to be over, few of the long-term promises of the ceasefire have come to fruition.",
+          "signal_text_idx": 15
+        }
+      ]
+    }
+  ],
+  "outlet_isolation_top": [
+    {
+      "outlet": "china",
+      "country": "china",
+      "mean_similarity": 0.505,
+      "note": "Chinese state coverage frames the story as a structural stalemate requiring a restarted peace process — a diplomatic-process angle distinct from the casualty-and-hunger corpus majority."
+    },
+    {
+      "outlet": "pakistan",
+      "country": "pakistan",
+      "mean_similarity": 0.534,
+      "note": "Pakistani coverage runs mostly wire-title copy and a ceasefire-promises scorecard, with below-average token overlap with the detailed body texts from iraq/vietnam_thai_my/usa."
+    },
+    {
+      "outlet": "uk",
+      "country": "uk",
+      "mean_similarity": 0.536,
+      "note": "The Independent's framing centres explicitly on Trump's unfulfilled promise rather than Palestinian casualties — editorially distinct enough to sit at the isolated end of the cluster."
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "terms": ["raid", "ramallah", "brokered"],
+      "what_it_reveals": "Pan-Arab coverage uniquely stresses West Bank raids near Ramallah and labels the ceasefire as US-brokered — foregrounding the occupied-West-Bank dimension and American sponsorship that other outlets downplay."
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "terms": ["anas", "baba", "promised"],
+      "what_it_reveals": "NPR's on-the-ground byline (reporter Anas Baba) appears as exclusive vocabulary, and 'promised' flags the outlet's explicit framing of the story as a broken presidential commitment."
+    },
+    {
+      "outlet": "Tehran Times",
+      "country": "iran_state",
+      "terms": ["minut"],
+      "what_it_reveals": "The stemmed form of 'minutes' (from '90 minutes') is exclusive to Iran state media, which alone anchors its coverage to the Islamic Relief casualty-rate statistic as its defining metric."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "The Independent",
+      "country": "uk",
+      "quote": "The glimmer of hope when Israel and Hamas signed a ceasefire one year ago has been buried under the rubble of ongoing Israeli attacks on Gaza",
+      "signal_text_idx": 24
+    },
+    "b": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "Israeli attacks leave more dead in Gaza as ceasefire nears one year",
+      "signal_text_idx": 20
+    },
+    "joint_conclusion": "A British centre-left outlet and Russian state propaganda converge on the same verdict on the ceasefire anniversary: Israeli attacks have not stopped and the ceasefire has failed to deliver peace. Normally on opposite sides of Western-vs-Russia editorial fault lines, both agree here because the ground facts — ongoing strikes — are undeniable regardless of political orientation."
+  },
+  "silences": [
+    {
+      "country": "egypt",
+      "what_they_covered_instead": "Egypt was a primary ceasefire mediator alongside Qatar and the US; its absence from this cluster on the anniversary suggests Egyptian state media framed the day around diplomatic achievement rather than the humanitarian failure angle dominant here."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Al Jazeera English",
+      "country": "qatar",
+      "finding": "Quotes its Gaza reporter directly: 'The rhythm of the genocide has not changed. The danger has not gone away completely' — the most explicit use of genocide framing in the corpus.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "Haaretz",
+      "country": "israel",
+      "finding": "The only Israeli outlet present runs an editorial calling on the IDF to permit activists to accompany West Bank olive harvesters, criticising Israeli military collusion with settler violence rather than covering the ceasefire anniversary.",
+      "signal_text_idx": 12
+    },
+    {
+      "outlet": "CGTN World",
+      "country": "china",
+      "finding": "Frames the post-ceasefire situation as a 'prolonged stalemate' requiring restarted peace negotiations — implicitly positioning China as a relevant peace-process stakeholder.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Covers the missing-persons dimension exclusively: over 8,000 Palestinians missing three years into the conflict — a statistic absent from every other outlet in this cluster.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "NPR World",
+      "country": "usa",
+      "finding": "The only outlet with named on-the-ground photojournalism from inside Gaza throughout the ceasefire year, anchoring the anniversary in specific witnessed scenes rather than aggregate statistics.",
+      "signal_text_idx": 19
+    },
+    {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "finding": "Cites a Médecins du Monde study showing 93% of pregnant or breastfeeding women in Gaza have anaemia symptoms — the most concrete clinical quantification of the malnutrition crisis in the corpus.",
+      "signal_text_idx": 0
+    },
+    {
+      "outlet": "Iraqi News",
+      "country": "iraq",
+      "finding": "Provides the most granular accounting of ceasefire-term compliance: hostage release, Hamas weapons pledge, the 53%-to-70% territorial drift, and Netanyahu's election-race vow — the fullest policy-versus-reality breakdown.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Middle East Eye",
+      "country": "pan_arab",
+      "finding": "The only outlet to note simultaneous Israeli air strikes and shelling in southern Lebanon on the same day, contextualising the Gaza anniversary within a broader regional military posture.",
+      "signal_text_idx": 17
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "One year after the Gaza ceasefire, the agreement's scorecard is sharply divided: Hamas released all remaining hostages and Gaza has seen no rocket attacks on Israel, but Israeli forces have killed over 1,480 Palestinians since October 2025, expanded territorial control beyond agreed limits, and delivered none of the promised reconstruction or peacekeeping. The most striking editorial signal is that NPR and RT — normally ideological opposites — both conclude the ceasefire has failed Palestinians, while the only Israeli outlet in the corpus, Haaretz, turns the lens inward to criticise its own military's enabling of settler violence against West Bank farmers.",
+  "generated_at": "2026-10-10T00:00:00Z",
+  "model": "claude-sonnet-4-6"
+}
