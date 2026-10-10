@@ -1,0 +1,144 @@
+{
+  "story_key": "Led5eff5e6d",
+  "date": "2026-10-10",
+  "n_buckets": 10,
+  "n_articles": 15,
+  "tldr": "Headlines across all 10 buckets present Abbas's postponement as a named executive act, giving readers an unambiguous single-actor political narrative with no hint of the Israeli-obstacle or statehood-diplomacy framings that the bodies develop.",
+  "frames": [
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "Abbas delays elections by presidential action",
+      "buckets": [
+        "wire_services",
+        "france",
+        "italy",
+        "turkey",
+        "pakistan",
+        "state_tv_intl",
+        "israel",
+        "pan_arab",
+        "russia_native",
+        "vietnam_thai_my"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "Abbas postpones legislative, presidential elections",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "france",
+          "outlet": "Le Monde",
+          "quote": "Abbas repousse les élections législatives d'un an",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "italy",
+          "outlet": "ANSA Italian (Mondo)",
+          "quote": "Abu Mazen posticipa le elezioni palestinesi",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Anadolu Agency English",
+          "quote": "Palestinian president postpones legislative elections",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "pakistan",
+          "outlet": "Dawn",
+          "quote": "postpones legislative elections to September 2027",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "state_tv_intl",
+          "outlet": "France 24 Arabic",
+          "quote": "الرئيس الفلسطيني يؤجل موعد الانتخابات الرئاسية",
+          "signal_text_idx": 6
+        },
+        {
+          "bucket": "israel",
+          "outlet": "Jerusalem Post",
+          "quote": "Abbas postpones November legislative elections",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "pan_arab",
+          "outlet": "Middle East Eye",
+          "quote": "Palestinian president postpones legislative elections",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "russia_native",
+          "outlet": "RIA Novosti RU",
+          "quote": "В Палестине перенесли президентские и парламентские выборы",
+          "signal_text_idx": 13
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Straits Times",
+          "quote": "Abbas postpones Palestinian elections, sets presidential poll",
+          "signal_text_idx": 14
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "israel",
+      "mean_similarity": 0.674,
+      "n_tokens": 167
+    },
+    {
+      "bucket": "vietnam_thai_my",
+      "mean_similarity": 0.698,
+      "n_tokens": 184
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.755,
+      "n_tokens": 181
+    },
+    {
+      "bucket": "state_tv_intl",
+      "mean_similarity": 0.769,
+      "n_tokens": 42
+    },
+    {
+      "bucket": "pakistan",
+      "mean_similarity": 0.795,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "pan_arab",
+      "mean_similarity": 0.798,
+      "n_tokens": 50
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.809,
+      "n_tokens": 35
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "RIA Novosti RU",
+      "bucket": "russia_native",
+      "finding": "Sole headline using passive voice with no named actor — 'elections were postponed in Palestine' — suppressing Abbas as decision-maker and framing the postponement as an impersonal event rather than an executive act.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "Le Monde",
+      "bucket": "france",
+      "finding": "Only headline to pair the postponement with the convoking of presidential elections: 'repousse les élections législatives d'un an et convoque une élection présidentielle' — adding a forward-looking institutional dimension absent from all other headlines.",
+      "signal_text_idx": 10
+    }
+  ],
+  "bottom_line": "The headline layer presents a clean, actor-centric political narrative — Abbas postpones elections — stripping away the Israeli-obstacle and statehood-diplomacy sub-stories that body text develops.",
+  "model": "claude-sonnet-4-6",
+  "meta_version": "10.0.3"
+}
