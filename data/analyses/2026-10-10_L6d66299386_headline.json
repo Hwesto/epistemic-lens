@@ -1,0 +1,189 @@
+{
+  "story_key": "L6d66299386",
+  "date": "2026-10-10",
+  "n_buckets": 11,
+  "n_articles": 18,
+  "tldr": "All 11 buckets lead with the physical scale of a 7.6–7.7 magnitude Panama earthquake—magnitude figures, tsunami warnings, building damage, and injury counts dominate uniformly; only France 24 FR and The Guardian inject emotional shock and panic language, revealing a narrow QUALITY_OF_LIFE register absent from all other headlines.",
+  "frames": [
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "Injuries, damage & tsunami warnings",
+      "buckets": [
+        "wire_services",
+        "france",
+        "uk",
+        "canada",
+        "turkey",
+        "usa",
+        "india",
+        "japan",
+        "vietnam_thai_my",
+        "taiwan_hk",
+        "nigeria"
+      ],
+      "evidence": [
+        {
+          "bucket": "wire_services",
+          "outlet": "AFP / France 24 EN",
+          "quote": "triggering tsunami warnings",
+          "signal_text_idx": 0
+        },
+        {
+          "bucket": "canada",
+          "outlet": "CBC World",
+          "quote": "triggers tsunami warnings",
+          "signal_text_idx": 3
+        },
+        {
+          "bucket": "usa",
+          "outlet": "Fox News World",
+          "quote": "officials investigate potential tsunami threat",
+          "signal_text_idx": 5
+        },
+        {
+          "bucket": "uk",
+          "outlet": "BBC World",
+          "quote": "damaging buildings",
+          "signal_text_idx": 2
+        },
+        {
+          "bucket": "india",
+          "outlet": "NDTV World",
+          "quote": "27 Injured, Many Buildings Collapse",
+          "signal_text_idx": 10
+        },
+        {
+          "bucket": "japan",
+          "outlet": "Japan Times",
+          "quote": "injures at least 27",
+          "signal_text_idx": 8
+        },
+        {
+          "bucket": "vietnam_thai_my",
+          "outlet": "Malay Mail World",
+          "quote": "destroys buildings, roads in Panama",
+          "signal_text_idx": 9
+        },
+        {
+          "bucket": "nigeria",
+          "outlet": "The Punch",
+          "quote": "injures at least 27",
+          "signal_text_idx": 16
+        },
+        {
+          "bucket": "taiwan_hk",
+          "outlet": "South China Morning Post",
+          "quote": "2 powerful earthquakes, multiple aftershocks",
+          "signal_text_idx": 12
+        },
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "séisme de magnitude 7,7",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "turkey",
+          "outlet": "Daily Sabah",
+          "quote": "Magnitude 7.6 earthquake rocks Panama",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "Shock and panic in the capital",
+      "buckets": [
+        "france",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "bucket": "france",
+          "outlet": "AFP / France 24 FR",
+          "quote": "\"Un grand désastre\" : le Panama choqué",
+          "signal_text_idx": 1
+        },
+        {
+          "bucket": "uk",
+          "outlet": "The Guardian World",
+          "quote": "triggers panic in capital",
+          "signal_text_idx": 13
+        }
+      ]
+    }
+  ],
+  "isolation_top": [
+    {
+      "bucket": "usa",
+      "mean_similarity": 0.743,
+      "n_tokens": 213
+    },
+    {
+      "bucket": "taiwan_hk",
+      "mean_similarity": 0.792,
+      "n_tokens": 51
+    },
+    {
+      "bucket": "nigeria",
+      "mean_similarity": 0.814,
+      "n_tokens": 62
+    },
+    {
+      "bucket": "turkey",
+      "mean_similarity": 0.829,
+      "n_tokens": 30
+    },
+    {
+      "bucket": "wire_services",
+      "mean_similarity": 0.832,
+      "n_tokens": 46
+    },
+    {
+      "bucket": "france",
+      "mean_similarity": 0.836,
+      "n_tokens": 37
+    },
+    {
+      "bucket": "india",
+      "mean_similarity": 0.847,
+      "n_tokens": 78
+    },
+    {
+      "bucket": "canada",
+      "mean_similarity": 0.855,
+      "n_tokens": 56
+    },
+    {
+      "bucket": "uk",
+      "mean_similarity": 0.87,
+      "n_tokens": 114
+    }
+  ],
+  "exclusive_vocab_highlights": [],
+  "paradox": null,
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "AFP / France 24 FR",
+      "country": "france",
+      "finding": "Only headline to frame the event through emotional register — 'Un grand désastre' and 'choqué' — rather than technical/factual terms, foregrounding national shock over seismic data.",
+      "signal_text_idx": 1
+    },
+    {
+      "outlet": "NDTV World",
+      "country": "india",
+      "finding": "Only headline to note the tsunami warning was lifted, uniquely signalling resolution at the headline layer while all other outlets freeze the story at peak threat.",
+      "signal_text_idx": 11
+    },
+    {
+      "outlet": "Malay Mail World",
+      "country": "vietnam_thai_my",
+      "finding": "Only headline to quantify the aftershock sequence ('over 80 aftershocks recorded'), emphasising prolonged seismic risk absent from every other outlet's title.",
+      "signal_text_idx": 9
+    }
+  ],
+  "bottom_line": "The headline layer presents a near-uniform HEALTH_SAFETY frame — earthquake scale, tsunami warnings, and casualties — with French and UK outlets alone adding an emotional panic register; no political, economic, or policy frames are detectable from titles alone.",
+  "model": "claude-haiku-4-5",
+  "meta_version": "10.0.3"
+}
