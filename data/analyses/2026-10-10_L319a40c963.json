@@ -1,0 +1,296 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-10",
+  "lineage_id": "L319a40c963",
+  "cluster_id": 184,
+  "cluster_name": "Russian glide bombs kill 17 in Zaporizhzhia after Trump-Putin diesel deal",
+  "salience_score": 3.49,
+  "n_outlets": 12,
+  "n_countries": 9,
+  "n_articles": 19,
+  "event_summary": "Russian aerial bombs struck residential buildings in Zaporizhzhia on October 10, 2026, killing at least 17 civilians including three children, the day after Trump announced a deal to buy Russian diesel that Ukraine warned would bankroll Moscow's war.",
+  "tldr": "Nearly every international outlet in this cluster explicitly links the Zaporizhzhia bombing to Trump’s diesel deal announced the day before — a framing Zelensky supplied by calling the strikes Russia’s ‘thanks’ for the sanctions lift, amplified by outlets from Canada to India to Turkey to Hong Kong. The absence of any U.S. outlet in the cluster is the sharpest structural finding: while the international press read the diesel deal and the bombing as cause-and-effect, American media apparently covered them as separate events. Two outlets from countries that themselves trade substantially with Russia — India’s The Hindu and Turkey’s Daily Sabah — nonetheless adopt the critical Western framing, with The Hindu noting the deal contradicted a Russia sanctions law Trump signed just the previous month. Ukrainian state media (Ukrinform) and the independent Kyiv Post focused on operational detail and casualty counts without foregrounding the diesel deal context, suggesting a domestic audience preoccupied with the immediate humanitarian emergency rather than the diplomatic backdrop.",
+  "frames": [
+    {
+      "frame_id": "SECURITY_DEFENSE",
+      "sub_frame": "civilian residential targeting",
+      "outlets": [
+        "AFP / France 24 EN",
+        "Kyiv Post",
+        "RFE/RL (was Radio Farda)",
+        "Ukrainska Pravda English",
+        "Ukrinform English",
+        "Politico Europe"
+      ],
+      "countries": [
+        "wire_services",
+        "ukraine",
+        "iran_opposition",
+        "opinion_magazines"
+      ],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Russian strikes on the southeastern Ukrainian city of Zaporizhzhia killed at least 15 people, including three children, regional authorities said on Saturday. The attack also caused \"large-scale power outages\" in the capital Kyiv and the surrounding region.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "The Ukrainian Air Force said Russia launched 160 attack drones against the country overnight, including 110 jet-powered Shahed drones.\nBy 9 a.m. local time, Ukrainian air defenses had shot down or suppressed 117 drones, including 82 jet-powered drones, the Air Force said.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Kyiv Post",
+          "country": "ukraine",
+          "quote": "The strike damaged 26 residential buildings across the Shevchenkivskyi and Voznesenivskyi districts, including a direct hit on a five-story apartment block, marking the second consecutive day of glide bomb attacks on the regional center.",
+          "signal_text_idx": 4
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "diesel deal as war financing",
+      "outlets": [
+        "CBC World",
+        "Globe and Mail",
+        "Daily Sabah",
+        "South China Morning Post",
+        "The Hindu Intl",
+        "The Independent"
+      ],
+      "countries": [
+        "canada",
+        "turkey",
+        "taiwan_hk",
+        "india",
+        "uk"
+      ],
+      "evidence": [
+        {
+          "outlet": "CBC World",
+          "country": "canada",
+          "quote": "Russian strikes killed at least 15 people in Ukraine’s Zaporizhzhia region, Ukrainian officials said Saturday, a day after U.S. President Donald Trump announced a deal to buy Russian diesel that Kyiv warned would help bankroll Moscow’s war in Ukraine.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "South China Morning Post",
+          "country": "taiwan_hk",
+          "quote": "The diesel deal contrasted a sweeping Russia sanctions law Trump signed last month to clamp down on Russia’s oil and gas revenues",
+          "signal_text_idx": 8
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "Mr. Trump’s announcement was in stark contrast to a sweeping Russia sanctions law he signed last month, which aimed to clamp down on the oil and gas revenues that fuel Russia’s war against Ukraine.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "US midterm electoral calculus",
+      "outlets": [
+        "Globe and Mail",
+        "South China Morning Post",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "canada",
+        "taiwan_hk",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "Trump said Friday he had struck a deal to obtain diesel from Russia, a stunning reversal of years of U.S. pressure on Moscow over its war with Ukraine and an attempt to address high fuel prices ahead of the U.S. midterm elections.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "The latest attacks came a day after Mr. Trump said he had struck a deal to obtain diesel from Russia, a sharp reversal of years of U.S. pressure on Moscow over its war with Ukraine, and an attempt to address high fuel prices ahead of the U.S. midterm elections.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "EXTERNAL_REGULATION",
+      "sub_frame": "US sanctions reversal, Zelensky’s diplomatic rebuke",
+      "outlets": [
+        "Globe and Mail",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "canada",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "“Today, Russia expressed its thanks for the lifting of sanctions on diesel exports by dropping five glide bombs on residential buildings in Zaporizhzhia,” Ukrainian President Volodymyr Zelensky wrote Saturday on X.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "In a lengthy post online reacting to the deal, Ukrainian President Volodymyr Zelenskyy said Russia would repay it “with further terror and perfidy.” He described it as an investment in the war, allowing it to be prolonged. “It plays into Russia’s hands — allowing it to kill more, wage war for longer, have even less respect for America, and inflict even greater losses and damage on the world,” he said.",
+          "signal_text_idx": 9
+        }
+      ]
+    },
+    {
+      "frame_id": "QUALITY_OF_LIFE",
+      "sub_frame": "urban infrastructure collapse",
+      "outlets": [
+        "AFP / France 24 EN",
+        "RFE/RL (was Radio Farda)"
+      ],
+      "countries": [
+        "wire_services",
+        "iran_opposition"
+      ],
+      "evidence": [
+        {
+          "outlet": "RFE/RL (was Radio Farda)",
+          "country": "iran_opposition",
+          "quote": "Russian attacks also caused widespread disruption in Kyiv. DTEK, Ukraine’s largest private energy provider, reported “new large-scale power outages” in the capital on October 10.\nLocal authorities said damage to an energy facility in the Kyiv region had worsened the capital’s electricity supply, causing interruptions to water supplies and temporarily halting metro services.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Russian strikes on the southeastern Ukrainian city of Zaporizhzhia killed at least 15 people, including three children, regional authorities said on Saturday. The attack also caused \"large-scale power outages\" in the capital Kyiv and the surrounding region.",
+          "signal_text_idx": 0
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "Zelensky calls for harder international pressure",
+      "outlets": [
+        "Globe and Mail",
+        "The Hindu Intl"
+      ],
+      "countries": [
+        "canada",
+        "india"
+      ],
+      "evidence": [
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "The Hindu Intl",
+          "country": "india",
+          "quote": "According to a statement released by the Ukrainian Embassy in Washington, Mr. Zelenskyy called it “a weak decision, unfortunately, a weak decision by strong partners.”",
+          "signal_text_idx": 9
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [
+    {
+      "outlet": "Ukrinform English",
+      "country": "ukraine",
+      "terms": [
+        "guided",
+        "rise"
+      ],
+      "what_it_reveals": "Ukrainian state media foregrounds weapon precision ('guided') over diplomatic context and tracks the escalating toll ('rise') in real-time, reflecting emergency-dispatch mode rather than political framing."
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "terms": [
+        "zaporizhzhya",
+        "water",
+        "suppl",
+        "energy"
+      ],
+      "what_it_reveals": "RFE/RL’s exclusive use of the transliteration 'Zaporizhzhya' (vs. 'Zaporizhzhia') and focus on water and energy supply disruption signals an infrastructure-and-humanitarian frame aimed at audiences unfamiliar with Ukrainian geography."
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "terms": [
+        "tons",
+        "zelensky"
+      ],
+      "what_it_reveals": "Canadian coverage anchors around tonnage figures for the diesel deal and Zelensky’s direct statements, treating this as a supply-chain story as much as a military one."
+    }
+  ],
+  "paradox": {
+    "a": {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "quote": "Russian strikes kill 8 in Ukraine as Trump’s diesel deal backfires",
+      "signal_text_idx": 2
+    },
+    "b": {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "quote": "Mr. Trump’s announcement was in stark contrast to a sweeping Russia sanctions law he signed last month, which aimed to clamp down on the oil and gas revenues that fuel Russia’s war against Ukraine.",
+      "signal_text_idx": 9
+    },
+    "joint_conclusion": "A pro-government Turkish outlet (from a country that has brokered Russia-Ukraine grain deals and maintained substantial Russian trade) and an Indian quality broadsheet (from Russia’s largest post-sanctions oil customer) independently frame Trump’s diesel deal as incompatible with containing Russian aggression. Their convergence with the Western critical line — despite both countries’ governments maintaining economic ties with Moscow — suggests the Zaporizhzhia civilian death toll made the critical framing difficult to resist globally."
+  },
+  "silences": [
+    {
+      "country": "usa",
+      "what_they_covered_instead": "No U.S. outlet appears in this cluster despite the Trump-Putin diesel deal being a major U.S. domestic political story; American media likely processed the diesel deal and the Zaporizhzhia strikes as separate news events rather than a single cause-and-effect narrative."
+    },
+    {
+      "country": "germany",
+      "what_they_covered_instead": "No German outlet present despite Germany being Ukraine’s largest European military donor and the sanctions reversal being directly relevant to Berlin’s own policy posture; German coverage likely appeared in a separate diplomatic-angle cluster."
+    }
+  ],
+  "single_outlet_findings": [
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Only outlet to render an explicit editorial verdict in the headline — calling Trump’s deal something that ‘backfires’ — framing the Russian strikes as direct evidence of deal failure rather than a coincidental parallel event.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "RFE/RL (was Radio Farda)",
+      "country": "iran_opposition",
+      "finding": "Provides operational military detail absent from every other outlet: 160 attack drones launched overnight, 110 Shahed jet-powered drones, 117 shot down by 9 a.m. — the only quantitative account of the air-defense exchange.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Globe and Mail",
+      "country": "canada",
+      "finding": "Only outlet to name Trump’s midterm electoral motivation explicitly, framing the diesel deal as domestic U.S. politics (‘an attempt to address high fuel prices ahead of the U.S. midterm elections’) rather than pure foreign policy.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "The Hindu Intl",
+      "country": "india",
+      "finding": "Reports Zelensky’s harshest phrase — ‘a weak decision, unfortunately, a weak decision by strong partners’ — conveyed through the Ukrainian Embassy in Washington, a diplomatic channel no other outlet cites.",
+      "signal_text_idx": 9
+    },
+    {
+      "outlet": "Kyiv Post",
+      "country": "ukraine",
+      "finding": "Highest death toll reported in the corpus (17) and most granular damage inventory — 26 residential buildings across two named districts — with no mention of the diesel deal, keeping domestic focus entirely on the humanitarian toll.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Politico Europe",
+      "country": "opinion_magazines",
+      "finding": "Headlines Zelensky’s ‘thanks’ framing most sharply (‘Strikes killing 17 are Russia’s thanks for US diesel sanctions lift’) — the most causally explicit headline in the cluster — though its extracted body text focuses on casualty and rescue detail.",
+      "signal_text_idx": 6
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "The Zaporizhzhia bombing and the Trump-Putin diesel deal fused into a single cause-and-effect narrative across nine countries, with Zelensky’s ‘thanks for the diesel’ framing setting the interpretive frame from Kyiv to Toronto to Mumbai to Istanbul. The absence of any U.S. outlet in this cluster — despite the diesel deal being a top U.S. domestic story — is the sharpest editorial divergence: the international press read these two events as inseparable; American media, apparently, did not.",
+  "generated_at": "2026-10-10T14:17:53Z",
+  "model": "claude-sonnet-4-6"
+}
