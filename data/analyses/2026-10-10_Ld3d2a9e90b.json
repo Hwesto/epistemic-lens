@@ -1,0 +1,230 @@
+{
+  "meta_version": "10.0.3",
+  "date": "2026-10-10",
+  "lineage_id": "Ld3d2a9e90b",
+  "cluster_id": 136,
+  "cluster_name": "French school protests and Brussels austerity marches draw police clashes",
+  "n_outlets": 14,
+  "n_countries": 11,
+  "n_articles": 20,
+  "salience_score": 4.49,
+  "event_summary": "French high school students blockaded hundreds of schools since mid-September 2026 over dilapidated classrooms and teacher shortages; over 6,800 were detained and police watchdog IGPN opened 24 investigations. On 9 October, 30,000 marched in Brussels against Belgian spending cuts.",
+  "tldr": "The sharpest cross-outlet divide is lexical: Fox News and RT are the only outlets in the corpus to use 'riot,' 'agitators,' or 'chaos' language, while 12 other outlets across 9 countries uniformly call the same events protests — a framing split that maps onto each outlet's editorial interests rather than any factual divergence. A French wire service (AFP/France24) and Russian state broadcaster (RT) paradoxically converge on police force as the lead story, with AFP citing IGPN investigations and calls to scrap rubber bullets, and RT amplifying tear-gas imagery against students — both outlets centering the same police-accountability narrative from opposing motivations. The UN's formal warning about French police tactics, triggered by over 6,800 detentions, features prominently in Turkish and wire-service reporting but goes largely unreported by US outlets. A 14-year-old named Eden, left with a broken jaw after a close-range tear-gas canister strike, is profiled only by the Singapore-based Straits Times, while UK and US coverage opted for broad political or societal framing instead.",
+  "frames": [
+    {
+      "frame_id": "CAPACITY_RESOURCES",
+      "sub_frame": "school infrastructure and teacher deficit",
+      "outlets": ["CGTN Politics", "Deutsche Welle English", "Axios World", "Standard Kenya World", "Daily Sabah"],
+      "countries": ["china", "germany", "usa", "kenya", "turkey"],
+      "evidence": [
+        {
+          "outlet": "CGTN Politics",
+          "country": "china",
+          "quote": "Hundreds of French high schools will begin a second week of closures on ‌Monday as protests over dilapidated schools and classrooms, overcrowding and teacher shortages precede a nationwide day of demonstrations on Tuesday.",
+          "signal_text_idx": 4
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "For weeks, schoolchildren in France have been protesting the failing education system. Compared to many other countries, France invests heavily in education but critics say that the funds are not distributed fairly.",
+          "signal_text_idx": 7
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "A high school entrance hall caught fire in one French city and teenage protesters blocked trams in another on Thursday, as secondary pupils upped their strike over poor learning conditions.",
+          "signal_text_idx": 16
+        }
+      ]
+    },
+    {
+      "frame_id": "LEGALITY",
+      "sub_frame": "police accountability and international rights scrutiny",
+      "outlets": ["AFP / France 24 EN", "Daily Sabah", "Reuters (via Google News)", "Straits Times"],
+      "countries": ["wire_services", "turkey", "wire_services", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "AFP / France 24 EN",
+          "country": "wire_services",
+          "quote": "Twenty-four investigations have been opened by French police watchdog IGPN into incidents linked to the ongoing high school protest movement, the interior ministry said. The police response has reignited calls to scrap rubber bullets and launcher-fired riot-control weapons, long denounced by rights groups and UN experts as dangerous and excessive.",
+          "signal_text_idx": 0
+        },
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "The United Nations has expressed concern over police tactics during nationwide student protests in France, where more than 6,800 people have been detained and several injured as de...",
+          "signal_text_idx": 5
+        },
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Fourteen-year-old Eden suffered a broken jaw and multiple smashed teeth when he was struck by a tear gas canister directed towards him at close range by a police officer last week during student protests in France, his parents and family lawyer said.",
+          "signal_text_idx": 18
+        }
+      ]
+    },
+    {
+      "frame_id": "POLITICAL",
+      "sub_frame": "French national polarisation and far-left mobilisation",
+      "outlets": ["BBC World", "Fox News World", "Globe and Mail"],
+      "countries": ["uk", "usa", "canada"],
+      "evidence": [
+        {
+          "outlet": "BBC World",
+          "country": "uk",
+          "quote": "Students taking to the streets have become a focal point in the country's increasingly polarised politics.",
+          "signal_text_idx": 3
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "French student protests over school conditions spiral into violent unrest, as experts warn a red-green alliance is fueling a broader revolt,",
+          "signal_text_idx": 10
+        },
+        {
+          "outlet": "Globe and Mail",
+          "country": "canada",
+          "quote": "It has exposed deep tensions in France between popular demands for investments in deteriorating public services and a cash-strapped government",
+          "signal_text_idx": 11
+        }
+      ]
+    },
+    {
+      "frame_id": "ECONOMIC",
+      "sub_frame": "Belgian austerity and cost-of-living cuts",
+      "outlets": ["AfricaNews", "Deutsche Welle English", "Fox News World", "Reuters (via Google News)"],
+      "countries": ["pan_african", "germany", "usa", "wire_services"],
+      "evidence": [
+        {
+          "outlet": "AfricaNews",
+          "country": "pan_african",
+          "quote": "Clashes broke out between police and protesters in Brussels on Friday, 9 October, as thousands marched against the Belgian government's planned spending cuts. Police estimated that 30,000 people took part in the demonstration, organised by trade unions amid growing opposition to austerity measures.",
+          "signal_text_idx": 1
+        },
+        {
+          "outlet": "Fox News World",
+          "country": "usa",
+          "quote": "Masked agitators clashed with riot police in Brussels as thousands of others marched against Belgium's austerity measures and cost of living crisis.",
+          "signal_text_idx": 9
+        },
+        {
+          "outlet": "Deutsche Welle English",
+          "country": "germany",
+          "quote": "Violent rioters, many of whom were masked, confronted police at the edge of an anti-austerity march in Brussels. Police responded with water cannons and tear gas.",
+          "signal_text_idx": 8
+        }
+      ]
+    },
+    {
+      "frame_id": "POLICY_PRESCRIPTION",
+      "sub_frame": "government pledges on teacher recruitment",
+      "outlets": ["Daily Sabah", "Globe and Mail", "Malay Mail World"],
+      "countries": ["turkey", "canada", "vietnam_thai_my"],
+      "evidence": [
+        {
+          "outlet": "Daily Sabah",
+          "country": "turkey",
+          "quote": "Students in France continued their blockade of high schools and marched through cities Thursday after the government offered no details on promised remedies for teacher shortages a...",
+          "signal_text_idx": 6
+        },
+        {
+          "outlet": "Malay Mail World",
+          "country": "vietnam_thai_my",
+          "quote": "France pledges 3,000 substitute teachers after 71,500 join school protests",
+          "signal_text_idx": 12
+        }
+      ]
+    },
+    {
+      "frame_id": "HEALTH_SAFETY",
+      "sub_frame": "injuries from rubber bullets and tear gas",
+      "outlets": ["Straits Times", "AFP / France 24 EN", "Standard Kenya World"],
+      "countries": ["vietnam_thai_my", "wire_services", "kenya"],
+      "evidence": [
+        {
+          "outlet": "Straits Times",
+          "country": "vietnam_thai_my",
+          "quote": "Fourteen-year-old Eden suffered a broken jaw and multiple smashed teeth when he was struck by a tear gas canister directed towards him at close range by a police officer last week during student protests in France, his parents and family lawyer said.",
+          "signal_text_idx": 18
+        },
+        {
+          "outlet": "Standard Kenya World",
+          "country": "kenya",
+          "quote": "French security forces on Wednesday detained over 600 people while dozens of police and gendarmes were wounded as protests that have seen blockades of high schools",
+          "signal_text_idx": 17
+        }
+      ]
+    }
+  ],
+  "outlet_exclusive_vocab_highlights": [],
+  "paradox": {
+    "a": {
+      "outlet": "AFP / France 24 EN",
+      "country": "wire_services",
+      "quote": "The police response has reignited calls to scrap rubber bullets and launcher-fired riot-control weapons, long denounced by rights groups and UN experts as dangerous and excessive.",
+      "signal_text_idx": 0
+    },
+    "b": {
+      "outlet": "RT",
+      "country": "russia",
+      "quote": "French police officers have deployed tear gas and batons against youth protesting education cuts and demanding better schools Read Full Article at RT.com",
+      "signal_text_idx": 13
+    },
+    "joint_conclusion": "A French Western wire service and Russian state broadcaster both led with police force against students as the primary story — AFP from an accountability journalism angle citing watchdog investigations and rights group condemnations, RT to amplify Western governance failure. Two outlets with opposing editorial mandates converge on the same police-brutality narrative."
+  },
+  "silences": [],
+  "single_outlet_findings": [
+    {
+      "outlet": "Fox News World",
+      "country": "usa",
+      "finding": "Only outlet to attribute the protests to a named political cause ('red-green alliance'), reframing a school-conditions grievance as a far-left political operation.",
+      "signal_text_idx": 10
+    },
+    {
+      "outlet": "RT",
+      "country": "russia",
+      "finding": "Sole outlet to headline with 'chaos' and to structure coverage as a spectacle of disorder; uniquely framed as a watch/video item rather than a news report.",
+      "signal_text_idx": 13
+    },
+    {
+      "outlet": "BBC World",
+      "country": "uk",
+      "finding": "Only outlet to explicitly frame the protests as a symptom of French national division and polarised politics rather than a specific education grievance.",
+      "signal_text_idx": 3
+    },
+    {
+      "outlet": "CGTN Politics",
+      "country": "china",
+      "finding": "Chinese state media took the most neutral angle in the corpus — school closures and student demands — without police framing, political attribution, or disorder language.",
+      "signal_text_idx": 4
+    },
+    {
+      "outlet": "Deutsche Welle English",
+      "country": "germany",
+      "finding": "Only outlet to interrogate whether France's education investment is distributed fairly, introducing a structural inequality angle rather than treating the crisis as a funding shortfall alone.",
+      "signal_text_idx": 7
+    },
+    {
+      "outlet": "Straits Times",
+      "country": "vietnam_thai_my",
+      "finding": "Only outlet in the corpus to name an individual victim — 14-year-old Eden, broken jaw and smashed teeth from a close-range tear-gas canister — making police injury concrete where other outlets kept it statistical.",
+      "signal_text_idx": 18
+    },
+    {
+      "outlet": "Axios World",
+      "country": "usa",
+      "finding": "Only outlet to explicitly frame this as a spreading European phenomenon, drawing a direct line from Paris to Liège and contextualising both countries' unrest as a common European anger over school funding.",
+      "signal_text_idx": 2
+    },
+    {
+      "outlet": "Daily Sabah",
+      "country": "turkey",
+      "finding": "Most prominently featured the UN's formal intervention, citing the 6,800 detentions figure and UN concern over police tactics — an institutional accountability angle largely absent from US coverage.",
+      "signal_text_idx": 5
+    }
+  ],
+  "coverage_caveats": [],
+  "bottom_line": "Across 14 outlets and 11 countries, the dominant frames are school infrastructure failure, police accountability, and Belgian austerity — but the deepest editorial divide is lexical: only Fox News and RT use riot and chaos language while everyone else uses protest, a split that reveals editorial interest rather than factual disagreement. The UN's intervention and the injuries to named minors received more serious treatment from wire services, Turkish, and Southeast Asian outlets than from the US press.",
+  "generated_at": "2026-10-10T14:31:37Z",
+  "model": "claude-sonnet-4-6"
+}
